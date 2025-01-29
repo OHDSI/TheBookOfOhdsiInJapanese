@@ -125,7 +125,7 @@ for (rmdFile in rmdFiles) {
 # LaTeX control sequence.ß
 fixSeeLink <- function(fileName) {
   lines <- paste(readLines(fileName), collapse = "\n")
-  lines <- gsub("\\|voir", "|see", lines)
+  lines <- gsub("\\|参照", "|see", lines)
   writeLines(lines, fileName)
 }
 
