@@ -20,7 +20,6 @@ jobs:
         env:
           # install full prebuilt version
           TINYTEX_INSTALLER: TinyTeX
-               - name: Install R and TinyTeX
       - name: Install Japanese fonts
         run: Rscript -e 'tinytex::tlmgr_install(c("xetex", "luatex", "collection-langjapanese"))'
       - name: Install rmarkdown
