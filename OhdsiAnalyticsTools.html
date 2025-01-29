@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 8 OHDSI 分析ツール | OHDSIの書</title>
+  <meta name="description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 8 OHDSI 分析ツール | OHDSIの書" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+  <meta property="og:description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 8 OHDSI 分析ツール | OHDSIの書" />
+  
+  <meta name="twitter:description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+
+<meta name="author" content="観察ヘルスデータ科学および情報学" />
+
+
+<meta name="date" content="2025-01-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="DataAnalyticsUseCases.html"/>
+<link rel="next" href="SqlAndR.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Le Livre d'OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>序章</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#この本の目標"><i class="fa fa-check"></i>この本の目標</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書の構成"><i class="fa fa-check"></i>本書の構成</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#貢献者"><i class="fa fa-check"></i>貢献者</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ソフトウェアのバージョン"><i class="fa fa-check"></i>ソフトウェアのバージョン</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ライセンス"><i class="fa fa-check"></i>ライセンス</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書の開発方法"><i class="fa fa-check"></i>本書の開発方法</a></li>
+</ul></li>
+<li class="part"><span><b>I OHDSI コミュニティ</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> OHDSI コミュニティ</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#データからエビデンスへの旅"><i class="fa fa-check"></i><b>1.1</b> データからエビデンスへの旅</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#観察医療アウトカムパートナーシップ"><i class="fa fa-check"></i><b>1.2</b> 観察医療アウトカムパートナーシップ</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々の使命"><i class="fa fa-check"></i><b>1.2.1</b> 我々の使命</a></li>
+<li class="chapter" data-level="1.2.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々のビジョン"><i class="fa fa-check"></i><b>1.2.2</b> 我々のビジョン</a></li>
+<li class="chapter" data-level="1.2.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々の目標"><i class="fa fa-check"></i><b>1.2.3</b> 我々の目標</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiの進展"><i class="fa fa-check"></i><b>1.3</b> OHDSIの進展</a></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> どこから始めるか</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiフォーラム"><i class="fa fa-check"></i><b>2.0.1</b> OHDSIフォーラム</a></li>
+<li class="chapter" data-level="2.0.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiイベント"><i class="fa fa-check"></i><b>2.0.2</b> OHDSIイベント</a></li>
+<li class="chapter" data-level="2.0.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiコミュニティコール"><i class="fa fa-check"></i><b>2.0.3</b> OHDSIコミュニティコール</a></li>
+<li class="chapter" data-level="2.0.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi作業グループ"><i class="fa fa-check"></i><b>2.0.4</b> OHDSI作業グループ</a></li>
+<li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#どこにフィットするか"><i class="fa fa-check"></i><b>2.1</b> どこにフィットするか</a></li>
+<li class="chapter" data-level="2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#まとめ-1"><i class="fa fa-check"></i><b>2.2</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-スタディアソン"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: スタディアソン</a></li>
+<li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
+<li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
+<li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
+<li class="chapter" data-level="3.6" data-path="OpenScience.html"><a href="OpenScience.html#オープンディスコース"><i class="fa fa-check"></i><b>3.6</b> オープンディスコース</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsiとfairガイディングプリンシプルズ"><i class="fa fa-check"></i><b>3.7</b> OHDSIとFAIRガイディングプリンシプルズ</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#序論"><i class="fa fa-check"></i><b>3.7.1</b> 序論</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#検索可能性"><i class="fa fa-check"></i><b>3.7.2</b> 検索可能性</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#アクセシビリティ"><i class="fa fa-check"></i><b>3.7.3</b> アクセシビリティ</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#相互運用性"><i class="fa fa-check"></i><b>3.7.4</b> 相互運用性</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="統一データ表現.html"><a href="統一データ表現.html"><i class="fa fa-check"></i>統一データ表現</a></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 共通データモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#設計原則"><i class="fa fa-check"></i><b>4.1</b> 設計原則</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.1.1</b> モデルの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#スキーマの一般的な規約"><i class="fa fa-check"></i><b>4.1.2</b> スキーマの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#データテーブルの一般的な規約"><i class="fa fa-check"></i><b>4.1.3</b> データテーブルの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.1.4</b> ドメインの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#コンテンツのコンセプトによる表現"><i class="fa fa-check"></i><b>4.1.5</b> コンテンツのコンセプトによる表現</a></li>
+<li class="chapter" data-level="4.1.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#フィールドの一般的な命名規約"><i class="fa fa-check"></i><b>4.1.6</b> フィールドの一般的な命名規約</a></li>
+<li class="chapter" data-level="4.1.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.1.7</b> コンセプトとソース値の違い</a></li>
+<li class="chapter" data-level="4.1.8" data-path="CommonDataModel.html"><a href="CommonDataModel.html#running-example-子宮内膜症"><i class="fa fa-check"></i><b>4.1.8</b> Running Example: 子宮内膜症</a></li>
+<li class="chapter" data-level="4.1.9" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.1.9</b> PERSONテーブル</a></li>
+<li class="chapter" data-level="4.1.10" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.1.10</b> OBSERVATION_PERIODテーブル</a></li>
+<li class="chapter" data-level="4.1.11" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.1.11</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.1.12" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.1.12</b> CONDITION_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#まとめ-2"><i class="fa fa-check"></i><b>4.2</b> まとめ</a></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#練習問題"><i class="fa fa-check"></i><b>4.3</b> 練習問題</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> 標準化語彙</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#なぜ語彙が必要でなぜ標準化が必要か"><i class="fa fa-check"></i><b>5.1</b> なぜ語彙が必要で、なぜ標準化が必要か</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#標準化語彙の構築"><i class="fa fa-check"></i><b>5.1.1</b> 標準化語彙の構築</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> 標準化語彙へのアクセス</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#語彙の元-採用するか構築するか"><i class="fa fa-check"></i><b>5.1.3</b> 語彙の元: 採用するか構築するか</a></li>
+<li class="chapter" data-level="5.1.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念id"><i class="fa fa-check"></i><b>5.1.4</b> 概念ID</a></li>
+<li class="chapter" data-level="5.1.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念名"><i class="fa fa-check"></i><b>5.1.5</b> 概念名</a></li>
+<li class="chapter" data-level="5.1.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.1.6</b> ドメイン</a></li>
+<li class="chapter" data-level="5.1.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#語彙"><i class="fa fa-check"></i><b>5.1.7</b> 語彙</a></li>
+<li class="chapter" data-level="5.1.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念クラス"><i class="fa fa-check"></i><b>5.1.8</b> 概念クラス</a></li>
+<li class="chapter" data-level="5.1.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.1.9</b> 標準概念</a></li>
+<li class="chapter" data-level="5.1.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#非標準概念"><i class="fa fa-check"></i><b>5.1.10</b> 非標準概念</a></li>
+<li class="chapter" data-level="5.1.11" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#分類概念"><i class="fa fa-check"></i><b>5.1.11</b> 分類概念</a></li>
+<li class="chapter" data-level="5.1.12" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念コード"><i class="fa fa-check"></i><b>5.1.12</b> 概念コード</a></li>
+<li class="chapter" data-level="5.1.13" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.1.13</b> ライフサイクル</a></li>
+<li class="chapter" data-level="5.1.14" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.1.14</b> マッピング関係</a></li>
+<li class="chapter" data-level="5.1.15" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#階層関係"><i class="fa fa-check"></i><b>5.1.15</b> 階層関係</a></li>
+<li class="chapter" data-level="5.1.16" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#異なるボキャブラリーのコンセプト間の関係"><i class="fa fa-check"></i><b>5.1.16</b> 異なるボキャブラリーのコンセプト間の関係</a></li>
+<li class="chapter" data-level="5.1.17" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#同一ボキャブラリーのコンセプト間の関係"><i class="fa fa-check"></i><b>5.1.17</b> 同一ボキャブラリーのコンセプト間の関係</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#内部参照テーブル"><i class="fa fa-check"></i><b>5.2</b> 内部参照テーブル</a></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.3</b> 特別な状況</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.3.1</b> 性別</a></li>
+<li class="chapter" data-level="5.3.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.3.2</b> 人種と民族</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomopの状態"><i class="fa fa-check"></i><b>5.3.3</b> 診断コーディングシステムとOMOPの状態</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#手技コードシステム"><i class="fa fa-check"></i><b>5.3.4</b> 手技コードシステム</a></li>
+<li class="chapter" data-level="5.3.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#デバイス"><i class="fa fa-check"></i><b>5.3.5</b> デバイス</a></li>
+<li class="chapter" data-level="5.3.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#訪問とサービス"><i class="fa fa-check"></i><b>5.3.6</b> 訪問とサービス</a></li>
+<li class="chapter" data-level="5.3.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロバイダーと専門分野"><i class="fa fa-check"></i><b>5.3.7</b> プロバイダーと専門分野</a></li>
+<li class="chapter" data-level="5.3.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.3.8</b> 特別な要件を持つ治療領域</a></li>
+<li class="chapter" data-level="5.3.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.3.9</b> 薬物ドメインにおける標準概念</a></li>
+<li class="chapter" data-level="5.3.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#nullのフレーバー"><i class="fa fa-check"></i><b>5.3.10</b> NULLのフレーバー</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#まとめ-3"><i class="fa fa-check"></i><b>5.4</b> まとめ</a></li>
+<li class="chapter" data-level="5.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#演習"><i class="fa fa-check"></i><b>5.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 抽出、変換、ロード</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#はじめに"><i class="fa fa-check"></i><b>6.1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#white-rabbit"><i class="fa fa-check"></i><b>6.1.1</b> White Rabbit</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.1.2</b> Rabbit-In-a-Hat</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ2-コードマッピングの作成"><i class="fa fa-check"></i><b>6.2</b> ステップ2: コードマッピングの作成</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.2.1</b> Usagi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ-4-品質管理"><i class="fa fa-check"></i><b>6.3</b> ステップ 4: 品質管理</a></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etlの慣行とthemis"><i class="fa fa-check"></i><b>6.4</b> ETLの慣行とTHEMIS</a></li>
+<li class="chapter" data-level="6.5" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.5</b> CDMおよびETLのメンテナンス</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etlに関する最終的な考え"><i class="fa fa-check"></i><b>6.6</b> ETLに関する最終的な考え</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#まとめ-4"><i class="fa fa-check"></i><b>6.7</b> まとめ</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#演習-1"><i class="fa fa-check"></i><b>6.8</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="データ解析.html"><a href="データ解析.html"><i class="fa fa-check"></i>データ解析</a></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> データ解析の使用例</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特徴分析"><i class="fa fa-check"></i><b>7.1</b> 特徴分析</a></li>
+<li class="chapter" data-level="7.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定"><i class="fa fa-check"></i><b>7.2</b> 集団レベルの推定</a></li>
+<li class="chapter" data-level="7.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測"><i class="fa fa-check"></i><b>7.3</b> 患者レベルの予測</a></li>
+<li class="chapter" data-level="7.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#高血圧における使用例"><i class="fa fa-check"></i><b>7.4</b> 高血圧における使用例</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特徴分析の質問"><i class="fa fa-check"></i><b>7.4.1</b> 特徴分析の質問</a></li>
+<li class="chapter" data-level="7.4.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定質問"><i class="fa fa-check"></i><b>7.4.2</b> 集団レベルの推定質問</a></li>
+<li class="chapter" data-level="7.4.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測質問"><i class="fa fa-check"></i><b>7.4.3</b> 患者レベルの予測質問</a></li>
+<li class="chapter" data-level="7.4.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#誤ったデータ"><i class="fa fa-check"></i><b>7.4.4</b> 誤ったデータ</a></li>
+<li class="chapter" data-level="7.4.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#欠損データ"><i class="fa fa-check"></i><b>7.4.5</b> 欠損データ</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#まとめ-5"><i class="fa fa-check"></i><b>7.5</b> まとめ</a></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#演習-2"><i class="fa fa-check"></i><b>7.6</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI 分析ツール</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> 分析の実装</a></li>
+<li class="chapter" data-level="8.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#分析戦略"><i class="fa fa-check"></i><b>8.2</b> 分析戦略</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#セキュリティ"><i class="fa fa-check"></i><b>8.2.1</b> セキュリティ</a></li>
+<li class="chapter" data-level="8.2.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#ドキュメント"><i class="fa fa-check"></i><b>8.2.2</b> ドキュメント</a></li>
+<li class="chapter" data-level="8.2.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#インストール方法"><i class="fa fa-check"></i><b>8.2.3</b> インストール方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#メソッドライブラリ"><i class="fa fa-check"></i><b>8.3</b> メソッドライブラリ</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#大規模分析サポート"><i class="fa fa-check"></i><b>8.3.1</b> 大規模分析サポート</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.3.2</b> ビッグデータ対応</a></li>
+<li class="chapter" data-level="8.3.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#ドキュメント-1"><i class="fa fa-check"></i><b>8.3.3</b> ドキュメント</a></li>
+<li class="chapter" data-level="8.3.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#システム要件"><i class="fa fa-check"></i><b>8.3.4</b> システム要件</a></li>
+<li class="chapter" data-level="8.3.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.3.5</b> インストール方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#展開戦略"><i class="fa fa-check"></i><b>8.4</b> 展開戦略</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.4.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.4.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#まとめ-6"><i class="fa fa-check"></i><b>8.5</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQLとR</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sqlのパラメータ設定"><i class="fa fa-check"></i><b>9.0.1</b> SQLのパラメータ設定</a></li>
+<li class="chapter" data-level="9.0.2" data-path="SqlAndR.html"><a href="SqlAndR.html#他のsql方言への翻訳"><i class="fa fa-check"></i><b>9.0.2</b> 他のSQL方言への翻訳</a></li>
+<li class="chapter" data-level="9.0.3" data-path="SqlAndR.html"><a href="SqlAndR.html#接続の作成"><i class="fa fa-check"></i><b>9.0.3</b> 接続の作成</a></li>
+<li class="chapter" data-level="9.0.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリの実行"><i class="fa fa-check"></i><b>9.0.4</b> クエリの実行</a></li>
+<li class="chapter" data-level="9.0.5" data-path="SqlAndR.html"><a href="SqlAndR.html#ffdfオブジェクトを使用したクエリの実行"><i class="fa fa-check"></i><b>9.0.5</b> ffdfオブジェクトを使用したクエリの実行</a></li>
+<li class="chapter" data-level="9.0.6" data-path="SqlAndR.html"><a href="SqlAndR.html#同じsqlを使用して異なるプラットフォームにクエリを実行する"><i class="fa fa-check"></i><b>9.0.6</b> 同じSQLを使用して異なるプラットフォームにクエリを実行する</a></li>
+<li class="chapter" data-level="9.0.7" data-path="SqlAndR.html"><a href="SqlAndR.html#テーブルの挿入"><i class="fa fa-check"></i><b>9.0.7</b> テーブルの挿入</a></li>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリ時に語彙を使用する"><i class="fa fa-check"></i><b>9.1</b> クエリ時に語彙を使用する</a></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.2</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#簡単な研究のデザイン"><i class="fa fa-check"></i><b>9.3</b> 簡単な研究のデザイン</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="SqlAndR.html"><a href="SqlAndR.html#問題の定義"><i class="fa fa-check"></i><b>9.3.1</b> 問題の定義</a></li>
+<li class="chapter" data-level="9.3.2" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露"><i class="fa fa-check"></i><b>9.3.2</b> 暴露</a></li>
+<li class="chapter" data-level="9.3.3" data-path="SqlAndR.html"><a href="SqlAndR.html#結果"><i class="fa fa-check"></i><b>9.3.3</b> 結果</a></li>
+<li class="chapter" data-level="9.3.4" data-path="SqlAndR.html"><a href="SqlAndR.html#リスク期間"><i class="fa fa-check"></i><b>9.3.4</b> リスク期間</a></li>
+<li class="chapter" data-level="9.3.5" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露コホート"><i class="fa fa-check"></i><b>9.3.5</b> 暴露コホート</a></li>
+<li class="chapter" data-level="9.3.6" data-path="SqlAndR.html"><a href="SqlAndR.html#結果コホート"><i class="fa fa-check"></i><b>9.3.6</b> 結果コホート</a></li>
+<li class="chapter" data-level="9.3.7" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>9.3.7</b> 発症率の計算</a></li>
+<li class="chapter" data-level="9.3.8" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>9.3.8</b> クリーンアップ</a></li>
+<li class="chapter" data-level="9.3.9" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>9.3.9</b> 互換性</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#まとめ-7"><i class="fa fa-check"></i><b>9.4</b> まとめ</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#練習問題-1"><i class="fa fa-check"></i><b>9.5</b> 練習問題</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> コホートの定義</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#コホートとは"><i class="fa fa-check"></i><b>10.1</b> コホートとは？</a></li>
+<li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.2</b> 概念セット</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#確率的コホート定義"><i class="fa fa-check"></i><b>10.3</b> 確率的コホート定義</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ"><i class="fa fa-check"></i><b>10.3.1</b> OHDSI ゴールドスタンダード表現型ライブラリ</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="Cohorts.html"><a href="Cohorts.html#高血圧のコホート定義"><i class="fa fa-check"></i><b>10.4</b> 高血圧のコホート定義</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="Cohorts.html"><a href="Cohorts.html#初期イベント基準"><i class="fa fa-check"></i><b>10.4.1</b> 初期イベント基準</a></li>
+<li class="chapter" data-level="10.4.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトセットの定義"><i class="fa fa-check"></i><b>10.4.2</b> コンセプトセットの定義</a></li>
+<li class="chapter" data-level="10.4.3" data-path="Cohorts.html"><a href="Cohorts.html#追加の初期イベント基準"><i class="fa fa-check"></i><b>10.4.3</b> 追加の初期イベント基準</a></li>
+<li class="chapter" data-level="10.4.4" data-path="Cohorts.html"><a href="Cohorts.html#包括基準"><i class="fa fa-check"></i><b>10.4.4</b> 包括基準</a></li>
+<li class="chapter" data-level="10.4.5" data-path="Cohorts.html"><a href="Cohorts.html#データベースへの接続-1"><i class="fa fa-check"></i><b>10.4.5</b> データベースへの接続</a></li>
+<li class="chapter" data-level="10.4.6" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトの指定"><i class="fa fa-check"></i><b>10.4.6</b> コンセプトの指定</a></li>
+<li class="chapter" data-level="10.4.7" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>10.4.7</b> 初回使用の発見</a></li>
+<li class="chapter" data-level="10.4.8" data-path="Cohorts.html"><a href="Cohorts.html#日の前観察が必要"><i class="fa fa-check"></i><b>10.4.8</b> 365日の前観察が必要</a></li>
+<li class="chapter" data-level="10.4.9" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>10.4.9</b> 高血圧の前診断が必要</a></li>
+<li class="chapter" data-level="10.4.10" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>10.4.10</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="10.4.11" data-path="Cohorts.html"><a href="Cohorts.html#単薬療法"><i class="fa fa-check"></i><b>10.4.11</b> 単薬療法</a></li>
+<li class="chapter" data-level="10.4.12" data-path="Cohorts.html"><a href="Cohorts.html#コホートの終了"><i class="fa fa-check"></i><b>10.4.12</b> コホートの終了</a></li>
+<li class="chapter" data-level="10.4.13" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>10.4.13</b> クリーンアップ</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#サマリー"><i class="fa fa-check"></i><b>10.5</b> サマリー</a></li>
+<li class="chapter" data-level="10.6" data-path="Cohorts.html"><a href="Cohorts.html#演習-3"><i class="fa fa-check"></i><b>10.6</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 特徴分析</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#データベースレベルの特徴分析"><i class="fa fa-check"></i><b>11.1</b> データベースレベルの特徴分析</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#コホート特徴分析"><i class="fa fa-check"></i><b>11.2</b> コホート特徴分析</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#治療経路"><i class="fa fa-check"></i><b>11.3</b> 治療経路</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#発生率"><i class="fa fa-check"></i><b>11.4</b> 発生率</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#atlasにおけるデータベースの特性評価"><i class="fa fa-check"></i><b>11.5</b> ATLASにおけるデータベースの特性評価</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>11.5.1</b> デザイン</a></li>
+<li class="chapter" data-level="11.5.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>11.5.2</b> 実行</a></li>
+<li class="chapter" data-level="11.5.3" data-path="Characterization.html"><a href="Characterization.html#結果-1"><i class="fa fa-check"></i><b>11.5.3</b> 結果</a></li>
+<li class="chapter" data-level="11.5.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>11.5.4</b> カスタム特性の定義</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特徴抽出"><i class="fa fa-check"></i><b>11.6</b> Rでのコホートの特徴抽出</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="Characterization.html"><a href="Characterization.html#コホートの生成"><i class="fa fa-check"></i><b>11.6.1</b> コホートの生成</a></li>
+<li class="chapter" data-level="11.6.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>11.6.2</b> データ抽出</a></li>
+<li class="chapter" data-level="11.6.3" data-path="Characterization.html"><a href="Characterization.html#事前に指定された分析の使用"><i class="fa fa-check"></i><b>11.6.3</b> 事前に指定された分析の使用</a></li>
+<li class="chapter" data-level="11.6.4" data-path="Characterization.html"><a href="Characterization.html#集計された共変量の作成"><i class="fa fa-check"></i><b>11.6.4</b> 集計された共変量の作成</a></li>
+<li class="chapter" data-level="11.6.5" data-path="Characterization.html"><a href="Characterization.html#出力形式"><i class="fa fa-check"></i><b>11.6.5</b> 出力形式</a></li>
+<li class="chapter" data-level="11.6.6" data-path="Characterization.html"><a href="Characterization.html#カスタム共変量"><i class="fa fa-check"></i><b>11.6.6</b> カスタム共変量</a></li>
+<li class="chapter" data-level="11.6.7" data-path="Characterization.html"><a href="Characterization.html#設計"><i class="fa fa-check"></i><b>11.6.7</b> 設計</a></li>
+<li class="chapter" data-level="11.6.8" data-path="Characterization.html"><a href="Characterization.html#実行-1"><i class="fa fa-check"></i><b>11.6.8</b> 実行</a></li>
+<li class="chapter" data-level="11.6.9" data-path="Characterization.html"><a href="Characterization.html#結果の表示"><i class="fa fa-check"></i><b>11.6.9</b> 結果の表示</a></li>
+<li class="chapter" data-level="11.6.10" data-path="Characterization.html"><a href="Characterization.html#設計-1"><i class="fa fa-check"></i><b>11.6.10</b> 設計</a></li>
+<li class="chapter" data-level="11.6.11" data-path="Characterization.html"><a href="Characterization.html#実行-2"><i class="fa fa-check"></i><b>11.6.11</b> 実行</a></li>
+<li class="chapter" data-level="11.6.12" data-path="Characterization.html"><a href="Characterization.html#結果の表示-1"><i class="fa fa-check"></i><b>11.6.12</b> 結果の表示</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#まとめ-8"><i class="fa fa-check"></i><b>11.7</b> まとめ</a></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#演習-4"><i class="fa fa-check"></i><b>11.8</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> 集団レベルの推定</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#傾向スコア"><i class="fa fa-check"></i><b>12.0.1</b> 傾向スコア</a></li>
+<li class="chapter" data-level="12.0.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.0.2</b> 変数選択</a></li>
+<li class="chapter" data-level="12.0.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#カリパー"><i class="fa fa-check"></i><b>12.0.3</b> カリパー</a></li>
+<li class="chapter" data-level="12.0.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#オーバーラップ偏好スコア"><i class="fa fa-check"></i><b>12.0.4</b> オーバーラップ：偏好スコア</a></li>
+<li class="chapter" data-level="12.0.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#バランス"><i class="fa fa-check"></i><b>12.0.5</b> バランス</a></li>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例対照デザイン"><i class="fa fa-check"></i><b>12.1</b> 症例対照デザイン</a></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例交叉デザイン"><i class="fa fa-check"></i><b>12.2</b> 症例交叉デザイン</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#高血圧研究のデザイン"><i class="fa fa-check"></i><b>12.3</b> 高血圧研究のデザイン</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#問題の定義-1"><i class="fa fa-check"></i><b>12.3.1</b> 問題の定義</a></li>
+<li class="chapter" data-level="12.3.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ターゲットおよび比較対象"><i class="fa fa-check"></i><b>12.3.2</b> ターゲットおよび比較対象</a></li>
+<li class="chapter" data-level="12.3.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカム"><i class="fa fa-check"></i><b>12.3.3</b> アウトカム</a></li>
+<li class="chapter" data-level="12.3.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#リスク期間-1"><i class="fa fa-check"></i><b>12.3.4</b> リスク期間</a></li>
+<li class="chapter" data-level="12.3.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#モデル"><i class="fa fa-check"></i><b>12.3.5</b> モデル</a></li>
+<li class="chapter" data-level="12.3.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究要約"><i class="fa fa-check"></i><b>12.3.6</b> 研究要約</a></li>
+<li class="chapter" data-level="12.3.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#コントロール質問"><i class="fa fa-check"></i><b>12.3.7</b> コントロール質問</a></li>
+<li class="chapter" data-level="12.3.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.3.8</b> 比較コホート設定</a></li>
+<li class="chapter" data-level="12.3.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#効果推定の分析設定"><i class="fa fa-check"></i><b>12.3.9</b> 効果推定の分析設定</a></li>
+<li class="chapter" data-level="12.3.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>12.3.10</b> コホートのインスタンス化</a></li>
+<li class="chapter" data-level="12.3.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#データ抽出-1"><i class="fa fa-check"></i><b>12.3.11</b> データ抽出</a></li>
+<li class="chapter" data-level="12.3.12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究集団の定義"><i class="fa fa-check"></i><b>12.3.12</b> 研究集団の定義</a></li>
+<li class="chapter" data-level="12.3.13" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#プロペンシティスコア"><i class="fa fa-check"></i><b>12.3.13</b> プロペンシティスコア</a></li>
+<li class="chapter" data-level="12.3.14" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカムモデル"><i class="fa fa-check"></i><b>12.3.14</b> アウトカムモデル</a></li>
+<li class="chapter" data-level="12.3.15" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.3.15</b> 複数の分析の実行</a></li>
+<li class="chapter" data-level="12.3.16" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#共変量のバランス"><i class="fa fa-check"></i><b>12.3.16</b> 共変量のバランス</a></li>
+<li class="chapter" data-level="12.3.17" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#フォローアップとパワー"><i class="fa fa-check"></i><b>12.3.17</b> フォローアップとパワー</a></li>
+<li class="chapter" data-level="12.3.18" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#カプランマイヤー"><i class="fa fa-check"></i><b>12.3.18</b> カプランマイヤー</a></li>
+<li class="chapter" data-level="12.3.19" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#効果サイズ推定"><i class="fa fa-check"></i><b>12.3.19</b> 効果サイズ推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#まとめ-9"><i class="fa fa-check"></i><b>12.4</b> まとめ</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#演習-5"><i class="fa fa-check"></i><b>12.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> 患者レベル予測</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#予測課題"><i class="fa fa-check"></i><b>13.1</b> 予測課題</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#データ抽出の例"><i class="fa fa-check"></i><b>13.1.1</b> データ抽出の例</a></li>
+<li class="chapter" data-level="13.1.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#否定-vs-欠損"><i class="fa fa-check"></i><b>13.1.2</b> 否定 vs 欠損</a></li>
+<li class="chapter" data-level="13.1.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#正則化ロジスティック回帰"><i class="fa fa-check"></i><b>13.1.3</b> 正則化ロジスティック回帰</a></li>
+<li class="chapter" data-level="13.1.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#勾配ブースティングマシン"><i class="fa fa-check"></i><b>13.1.4</b> 勾配ブースティングマシン</a></li>
+<li class="chapter" data-level="13.1.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ランダムフォレスト"><i class="fa fa-check"></i><b>13.1.5</b> ランダムフォレスト</a></li>
+<li class="chapter" data-level="13.1.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k-近傍法"><i class="fa fa-check"></i><b>13.1.6</b> K-近傍法</a></li>
+<li class="chapter" data-level="13.1.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ナイーブベイズ"><i class="fa fa-check"></i><b>13.1.7</b> ナイーブベイズ</a></li>
+<li class="chapter" data-level="13.1.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.1.8</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.1.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#決定木"><i class="fa fa-check"></i><b>13.1.9</b> 決定木</a></li>
+<li class="chapter" data-level="13.1.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#多層パーセプトロン"><i class="fa fa-check"></i><b>13.1.10</b> 多層パーセプトロン</a></li>
+<li class="chapter" data-level="13.1.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ディープラーニング"><i class="fa fa-check"></i><b>13.1.11</b> ディープラーニング</a></li>
+<li class="chapter" data-level="13.1.12" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#その他のアルゴリズム"><i class="fa fa-check"></i><b>13.1.12</b> その他のアルゴリズム</a></li>
+<li class="chapter" data-level="13.1.13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#評価の種類"><i class="fa fa-check"></i><b>13.1.13</b> 評価の種類</a></li>
+<li class="chapter" data-level="13.1.14" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.1.14</b> パフォーマンス指標</a></li>
+<li class="chapter" data-level="13.1.15" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#問題の定義-2"><i class="fa fa-check"></i><b>13.1.15</b> 問題の定義</a></li>
+<li class="chapter" data-level="13.1.16" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#研究集団の定義-1"><i class="fa fa-check"></i><b>13.1.16</b> 研究集団の定義</a></li>
+<li class="chapter" data-level="13.1.17" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル開発設定"><i class="fa fa-check"></i><b>13.1.17</b> モデル開発設定</a></li>
+<li class="chapter" data-level="13.1.18" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル評価"><i class="fa fa-check"></i><b>13.1.18</b> モデル評価</a></li>
+<li class="chapter" data-level="13.1.19" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#研究概要"><i class="fa fa-check"></i><b>13.1.19</b> 研究概要</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#atlasでの研究の実装"><i class="fa fa-check"></i><b>13.2</b> ATLASでの研究の実装</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#予測の問題設定"><i class="fa fa-check"></i><b>13.2.1</b> 予測の問題設定</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#分析設定"><i class="fa fa-check"></i><b>13.2.2</b> 分析設定</a></li>
+<li class="chapter" data-level="13.2.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#コホートのインスタンス化-1"><i class="fa fa-check"></i><b>13.2.3</b> コホートのインスタンス化</a></li>
+<li class="chapter" data-level="13.2.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#データ抽出-2"><i class="fa fa-check"></i><b>13.2.4</b> データ抽出</a></li>
+<li class="chapter" data-level="13.2.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#追加選択基準"><i class="fa fa-check"></i><b>13.2.5</b> 追加選択基準</a></li>
+<li class="chapter" data-level="13.2.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル開発"><i class="fa fa-check"></i><b>13.2.6</b> モデル開発</a></li>
+<li class="chapter" data-level="13.2.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#内部バリデーション"><i class="fa fa-check"></i><b>13.2.7</b> 内部バリデーション</a></li>
+<li class="chapter" data-level="13.2.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#外部バリデーション"><i class="fa fa-check"></i><b>13.2.8</b> 外部バリデーション</a></li>
+<li class="chapter" data-level="13.2.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>13.2.9</b> モデルの比較</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#追加の患者レベル予測機能"><i class="fa fa-check"></i><b>13.3</b> 追加の患者レベル予測機能</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナルペーパーの生成"><i class="fa fa-check"></i><b>13.3.1</b> ジャーナルペーパーの生成</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>13.4</b> まとめ</a></li>
+<li class="chapter" data-level="13.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-6"><i class="fa fa-check"></i><b>13.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="証拠の質.html"><a href="証拠の質.html"><i class="fa fa-check"></i>証拠の質</a></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> 証拠の質</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#信頼できる証拠の属性"><i class="fa fa-check"></i><b>14.1</b> 信頼できる証拠の属性</a></li>
+<li class="chapter" data-level="14.2" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#証拠の質の理解"><i class="fa fa-check"></i><b>14.2</b> 証拠の質の理解</a></li>
+<li class="chapter" data-level="14.3" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#証拠品質の伝達"><i class="fa fa-check"></i><b>14.3</b> 証拠品質の伝達</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> データ品質</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質問題の原因"><i class="fa fa-check"></i><b>15.1</b> データ品質問題の原因</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質チェック"><i class="fa fa-check"></i><b>15.1.1</b> データ品質チェック</a></li>
+<li class="chapter" data-level="15.1.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.1.2</b> ETL 単体テスト</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#研究特有のチェック"><i class="fa fa-check"></i><b>15.2</b> 研究特有のチェック</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#マッピングのチェック"><i class="fa fa-check"></i><b>15.2.1</b> マッピングのチェック</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.3</b> 実践におけるACHILLES</a></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#特定の研究チェックの実践"><i class="fa fa-check"></i><b>15.4</b> 特定の研究チェックの実践</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#まとめ-11"><i class="fa fa-check"></i><b>15.5</b> まとめ</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#実習"><i class="fa fa-check"></i><b>15.6</b> 実習</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> 臨床的妥当性</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 医療データベースの特性</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#コホート評価指標"><i class="fa fa-check"></i><b>16.1.1</b> コホート評価指標</a></li>
+<li class="chapter" data-level="16.1.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#ソースレコード検証の例"><i class="fa fa-check"></i><b>16.1.2</b> ソースレコード検証の例</a></li>
+<li class="chapter" data-level="16.1.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluatorによる検証例"><i class="fa fa-check"></i><b>16.1.3</b> PheValuatorによる検証例</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#要約"><i class="fa fa-check"></i><b>16.2</b> 要約</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> ソフトウェアの妥当性</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#研究コードの妥当性"><i class="fa fa-check"></i><b>17.1</b> 研究コードの妥当性</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> 再現性のための自動化の必要性</a></li>
+<li class="chapter" data-level="17.1.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#プログラミングのベストプラクティス"><i class="fa fa-check"></i><b>17.1.2</b> プログラミングのベストプラクティス</a></li>
+<li class="chapter" data-level="17.1.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#コードの検証"><i class="fa fa-check"></i><b>17.1.3</b> コードの検証</a></li>
+<li class="chapter" data-level="17.1.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#methods-libraryの使用"><i class="fa fa-check"></i><b>17.1.4</b> Methods Libraryの使用</a></li>
+<li class="chapter" data-level="17.1.5" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ソースコード管理"><i class="fa fa-check"></i><b>17.1.5</b> ソースコード管理</a></li>
+<li class="chapter" data-level="17.1.6" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ドキュメンテーション"><i class="fa fa-check"></i><b>17.1.6</b> ドキュメンテーション</a></li>
+<li class="chapter" data-level="17.1.7" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#現行および過去のアーカイブバージョンの利用可能性"><i class="fa fa-check"></i><b>17.1.7</b> 現行および過去のアーカイブバージョンの利用可能性</a></li>
+<li class="chapter" data-level="17.1.8" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#メンテナンスサポートおよびリタイアメント"><i class="fa fa-check"></i><b>17.1.8</b> メンテナンス、サポート、およびリタイアメント</a></li>
+<li class="chapter" data-level="17.1.9" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#有資格者"><i class="fa fa-check"></i><b>17.1.9</b> 有資格者</a></li>
+<li class="chapter" data-level="17.1.10" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#物理的および論理的セキュリティ"><i class="fa fa-check"></i><b>17.1.10</b> 物理的および論理的セキュリティ</a></li>
+<li class="chapter" data-level="17.1.11" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#災害復旧"><i class="fa fa-check"></i><b>17.1.11</b> 災害復旧</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#メソッドライブラリのテスト"><i class="fa fa-check"></i><b>17.2</b> メソッドライブラリのテスト</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ユニットテスト"><i class="fa fa-check"></i><b>17.2.1</b> ユニットテスト</a></li>
+<li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#シミュレーション"><i class="fa fa-check"></i><b>17.2.2</b> シミュレーション</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#まとめ-12"><i class="fa fa-check"></i><b>17.3</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> 方法の妥当性</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="MethodValidity.html"><a href="MethodValidity.html#デザイン特有の診断"><i class="fa fa-check"></i><b>18.1</b> デザイン特有の診断</a></li>
+<li class="chapter" data-level="18.2" data-path="MethodValidity.html"><a href="MethodValidity.html#推定のための診断"><i class="fa fa-check"></i><b>18.2</b> 推定のための診断</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> ネガティブコントロール</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> ポジティブコントロール</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> 実証的評価</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p値のキャリブレーション"><i class="fa fa-check"></i><b>18.2.4</b> P値のキャリブレーション</a></li>
+<li class="chapter" data-level="18.2.5" data-path="MethodValidity.html"><a href="MethodValidity.html#ネガティブコントロールの選択"><i class="fa fa-check"></i><b>18.2.5</b> ネガティブコントロールの選択</a></li>
+<li class="chapter" data-level="18.2.6" data-path="MethodValidity.html"><a href="MethodValidity.html#コントロールの仲間"><i class="fa fa-check"></i><b>18.2.6</b> コントロールの仲間</a></li>
+<li class="chapter" data-level="18.2.7" data-path="MethodValidity.html"><a href="MethodValidity.html#実証されたパフォーマンス"><i class="fa fa-check"></i><b>18.2.7</b> 実証されたパフォーマンス</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="MethodValidity.html"><a href="MethodValidity.html#まとめ-13"><i class="fa fa-check"></i><b>18.3</b> まとめ</a></li>
+</ul></li>
+<li class="part"><span><b>II OHDSI研究</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> 研究の段階</a>
+<ul>
+<li class="chapter" data-level="19.0.1" data-path="StudySteps.html"><a href="StudySteps.html#観察研究の定義"><i class="fa fa-check"></i><b>19.0.1</b> 観察研究の定義</a></li>
+<li class="chapter" data-level="19.0.2" data-path="StudySteps.html"><a href="StudySteps.html#研究デザインの事前仕様"><i class="fa fa-check"></i><b>19.0.2</b> 研究デザインの事前仕様</a></li>
+<li class="chapter" data-level="19.0.3" data-path="StudySteps.html"><a href="StudySteps.html#プロトコル"><i class="fa fa-check"></i><b>19.0.3</b> プロトコル</a></li>
+<li class="chapter" data-level="19.0.4" data-path="StudySteps.html"><a href="StudySteps.html#標準化された分析"><i class="fa fa-check"></i><b>19.0.4</b> 標準化された分析</a></li>
+<li class="chapter" data-level="19.0.5" data-path="StudySteps.html"><a href="StudySteps.html#研究パッケージ"><i class="fa fa-check"></i><b>19.0.5</b> 研究パッケージ</a></li>
+<li class="chapter" data-level="19.0.6" data-path="StudySteps.html"><a href="StudySteps.html#cdmに基づくデータ"><i class="fa fa-check"></i><b>19.0.6</b> CDMに基づくデータ</a></li>
+<li class="chapter" data-level="19.0.7" data-path="StudySteps.html"><a href="StudySteps.html#質問を定義する"><i class="fa fa-check"></i><b>19.0.7</b> 質問を定義する</a></li>
+<li class="chapter" data-level="19.0.8" data-path="StudySteps.html"><a href="StudySteps.html#データの可用性と質を確認する"><i class="fa fa-check"></i><b>19.0.8</b> データの可用性と質を確認する</a></li>
+<li class="chapter" data-level="19.0.9" data-path="StudySteps.html"><a href="StudySteps.html#研究対象集団"><i class="fa fa-check"></i><b>19.0.9</b> 研究対象集団</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI ネットワーク研究</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-研究ネットワークとして"><i class="fa fa-check"></i><b>20.1</b> OHDSI 研究ネットワークとして</a></li>
+<li class="chapter" data-level="20.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究"><i class="fa fa-check"></i><b>20.2</b> OHDSIネットワーク研究</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究を実施する動機"><i class="fa fa-check"></i><b>20.2.1</b> OHDSIネットワーク研究を実施する動機</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の定義"><i class="fa fa-check"></i><b>20.2.2</b> OHDSIネットワーク研究の定義</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の設計上の考慮事項"><i class="fa fa-check"></i><b>20.2.3</b> OHDSIネットワーク研究の設計上の考慮事項</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の物流面の考慮事項"><i class="fa fa-check"></i><b>20.2.4</b> OHDSIネットワーク研究の物流面の考慮事項</a></li>
+<li class="chapter" data-level="20.2.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#研究デザインと実現可能性"><i class="fa fa-check"></i><b>20.2.5</b> 研究デザインと実現可能性</a></li>
+<li class="chapter" data-level="20.2.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#研究実行"><i class="fa fa-check"></i><b>20.2.6</b> 研究実行</a></li>
+<li class="chapter" data-level="20.2.7" data-path="NetworkResearch.html"><a href="NetworkResearch.html#結果の普及と公開"><i class="fa fa-check"></i><b>20.2.7</b> 結果の普及と公開</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究のベストプラクティス"><i class="fa fa-check"></i><b>20.3</b> OHDSIネットワーク研究のベストプラクティス</a></li>
+<li class="chapter" data-level="20.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#まとめ-14"><i class="fa fa-check"></i><b>20.4</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>21</b> 用語集</a></li>
+<li class="chapter" data-level="22" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>22</b> コホート定義</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>22.1</b> ACE阻害薬</a></li>
+<li class="chapter" data-level="22.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>22.2</b> ACE阻害薬単独療法新規使用者</a></li>
+<li class="chapter" data-level="22.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>22.3</b> 急性心筋梗塞（AMI）</a></li>
+<li class="chapter" data-level="22.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>22.4</b> 血管性浮腫</a></li>
+<li class="chapter" data-level="22.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>22.5</b> サイアザイド系利尿薬単剤療法の新規使用者</a></li>
+<li class="chapter" data-level="22.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>22.6</b> 初回高血圧治療を開始する患者</a></li>
+<li class="chapter" data-level="22.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>22.7</b> 3年以上のフォローアップがある初回高血圧治療患者</a></li>
+<li class="chapter" data-level="22.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>22.8</b> ACE阻害薬の使用</a></li>
+<li class="chapter" data-level="22.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>22.9</b> アンジオテンシン受容体拮抗薬（ARB）の使用</a></li>
+<li class="chapter" data-level="22.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>22.10</b> サイアザイド系およびサイアザイド様利尿薬の使用</a></li>
+<li class="chapter" data-level="22.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>22.11</b> ジヒドロピリジン系カルシウム拮抗薬（dCCB）の使用</a></li>
+<li class="chapter" data-level="22.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>22.12</b> 非ジヒドロピリジン系カルシウム拮抗薬（ndCCB）の使用</a></li>
+<li class="chapter" data-level="22.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>22.13</b> ベータブロッカー使用</a></li>
+<li class="chapter" data-level="22.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>22.14</b> ループ利尿薬使用</a></li>
+<li class="chapter" data-level="22.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>22.15</b> カリウム保持利尿薬使用</a></li>
+<li class="chapter" data-level="22.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>22.16</b> アルファ1ブロッカー使用</a></li>
+<li class="chapter" data-level="22.17" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#NegativeControlsAppendix"><i class="fa fa-check"></i><b>22.17</b> ネガティブコントロール</a></li>
+<li class="chapter" data-level="22.18" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceiThzNsc"><i class="fa fa-check"></i><b>22.18</b> ACEiとTHZ</a></li>
+<li class="chapter" data-level="22.19" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ProtocolTemplate"><i class="fa fa-check"></i><b>22.19</b> プロトコルテンプレート</a></li>
+<li class="chapter" data-level="22.20" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#na"><i class="fa fa-check"></i><b>22.20</b> NA</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>23</b> 推奨解答</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>23.1</b> 共通データモデル</a></li>
+<li class="chapter" data-level="23.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>23.2</b> 標準化された用語集</a></li>
+<li class="chapter" data-level="23.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>23.3</b> 抽出変換ロード</a></li>
+<li class="chapter" data-level="23.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>23.4</b> データ分析のユースケース</a></li>
+<li class="chapter" data-level="23.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>23.5</b> コホートの定義</a></li>
+<li class="chapter" data-level="23.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>23.6</b> 特徴記述</a></li>
+<li class="chapter" data-level="23.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>23.7</b> 集団レベル推定</a></li>
+<li class="chapter" data-level="23.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>23.8</b> 患者レベル予測</a></li>
+<li class="chapter" data-level="23.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>23.9</b> データ品質</a></li>
+<li class="chapter" data-level="23.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#section"><i class="fa fa-check"></i><b>23.10</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="参考文献.html"><a href="参考文献.html"><i class="fa fa-check"></i>参考文献</a>
+<ul>
+<li class="chapter" data-level="23.11" data-path="参考文献.html"><a href="参考文献.html#na-1"><i class="fa fa-check"></i><b>23.11</b> NA</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">OHDSIの書</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="OhdsiAnalyticsTools" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">第 8</span> OHDSI 分析ツール<a href="OhdsiAnalyticsTools.html#OhdsiAnalyticsTools" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>チャプターリード: Martijn Schuemie &amp; Frank DeFalco</em></p>
+<p>OHDSIは、観察患者レベルのデータに対するさまざまなデータ分析のユースケースをサポートするための幅広いオープンソースツールを提供しています。これらのツールの共通点は、すべてCDM（共通データモデル）を使用して1つ以上のデータベースと対話できる点です。さらに、これらのツールはさまざまなユースケースに対して分析を標準化します。一から始める必要はなく、標準テンプレートに入力することで分析を実装できます。これにより、分析が容易になり、再現性と透明性が向上します。例として、発生率を計算する方法は無数にあるように見えますが、OHDSIツールではいくつかの選択肢で指定でき、同じ選択肢を選んだ人は同じ方法で発生率を計算します。</p>
+<p>この章では、最初に分析を実装するさまざまな方法を説明し、分析が使用する戦略について述べます。次に、さまざまなOHDSIツールとそれらがどのようにさまざまなユースケースに適合するかをレビューします。</p>
+<div id="analysisImplementation" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> 分析の実装<a href="OhdsiAnalyticsTools.html#analysisImplementation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>図<a href="OhdsiAnalyticsTools.html#fig:implementations">8.1</a>は、CDMを使用してデータベースに対して研究を実装するために選択できるさまざまな方法を示しています。 </p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:implementations"></span>
+<img src="images/OhdsiAnalyticsTools/implementations.png" alt="CDMのデータに対する分析を実装するさまざまな方法。" width="90%" />
+<p class="caption">
+図 8.1: CDMのデータに対する分析を実装するさまざまな方法。
+</p>
+</div>
+<p>研究を実装するための主なアプローチは3つあります。最初の方法は、OHDSIが提供するツールを一切使用しないカスタムコードを作成することです。たとえば、R、SAS、またはその他の言語でゼロから分析を作成することができます。これにより最大の柔軟性が得られ、特定の分析がツールでサポートされていない場合は唯一の選択肢となるかもしれません。しかし、この方法は多くの技術的スキル、時間、および努力を必要とし、分析が複雑になるほどコード内のエラーを避けることが困難になります。</p>
+<p>2番目の方法は、Rで分析を開発し、<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>のパッケージを使用することです。最低限、Chapter <a href="SqlAndR.html#SqlAndR">9</a>で詳述されている、さまざまなデータベースプラットフォームに同じコードを実行できるようにする<a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>および<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>パッケージを使用できます。その他のパッケージ、例えば<a href="https://ohdsi.github.io/CohortMethod/">CohortMethod</a>や<a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a>は、CDMに対する高度な分析のためのR関数を提供し、自分のコード内で呼び出すことができます。これでも多くの技術的専門知識が必要ですが、Methods Libraryの検証済みのコンポーネントを再利用することで、完全にカスタムコードを使用する場合よりも効率的かつエラーが少なくなります。</p>
+<p>3番目の方法は、非プログラマが効率的に広範な分析を行うことができるウェブベースのツールである<a href="https://github.com/OHDSI/Atlas/wiki">ATLAS</a>を使用することです。ATLASはMethods Librariesを使用しますが、分析を設計するための単純なグラフィカルインターフェイスを提供し、多くの場合、分析を実行するために必要なRコードを生成します。ただし、Methods Libraryで利用可能なすべてのオプションをサポートしているわけではありません。大多数の研究はATLASを通じて行うことが期待されますが、2番目の方法が提供する柔軟性を必要とする研究も存在します。</p>
+<p>ATLASとMethods Libraryは独立していません。ATLASで呼び出される複雑な分析の一部は、Methods Libraryのパッケージへの呼び出しを通じて実行されます。Similarly, cohorts used in the Methods Library are often designed in ATLAS.</p>
+</div>
+<div id="分析戦略" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> 分析戦略<a href="OhdsiAnalyticsTools.html#分析戦略" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>CDMに対する分析を実装するために使用する戦略、たとえばカスタムコーディングやMethods Libraryで提供される標準分析コードの使用に加えて、それらの分析技術を使用して証拠を生成するための複数の戦略も存在します。図<a href="OhdsiAnalyticsTools.html#fig:strategies">8.2</a>は、OHDSIで使用される3つの戦略を示しています。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:strategies"></span>
+<img src="images/OhdsiAnalyticsTools/strategies.png" alt="(臨床の)質問に対する証拠を生成するための戦略。" width="90%" />
+<p class="caption">
+図 8.2: (臨床の)質問に対する証拠を生成するための戦略。
+</p>
+</div>
+<p>最初の戦略では、各分析を個別の研究として扱います。分析はプロトコルで事前に指定され、コードとして実装され、データに対して実行され、その後、結果がコンパイルされ解釈されます。各質問ごとに、すべてのステップを繰り返す必要があります。そのような分析の一例は、levetiracetamとphenytoinを比較した際の血管浮腫のリスクに関するOHDSI研究です。 <span class="citation">(<a href="#ref-duke_2017">Duke et al. 2017</a>)</span> ここでは、まずプロトコルが作成され、OHDSI Methods Libraryを使用した分析コードが開発され、OHDSIネットワーク全体で実行され、結果がジャーナル公表されました。</p>
+<p>第二の戦略では、リアルタイムまたは準リアルタイムで特定のクラスの質問に回答できるアプリケーションを開発します。アプリケーションが開発されると、ユーザーはクエリをインタラクティブに定義し、それを送信して結果を表示できます。この戦略の一例は、ATLASのコホート定義および生成ツールです。このツールは、ユーザーが様々な複雑さのコホート定義を指定し、データベースに対して定義を実行して、さまざまな包含および除外基準を満たす人数を見ることを可能にします。</p>
+<p>第三の戦略では、同様に質問のクラスに焦点を当てますが、そのクラス内のすべての質問に対する証拠を網羅的に生成しようとします。ユーザーはその後、さまざまなインターフェースを通じて必要に応じて証拠を探索できます。一例は、うつ病治療の影響に関するOHDSI研究です。 <span class="citation">(<a href="#ref-schuemie_2018b">Schuemie, Ryan, et al. 2018</a>)</span> この研究では、すべてのうつ病治療が、4つの大規模な観察データベースで関心のある多数のアウトカムに対して比較されました。17,718の経験的に校正されたハザード比と広範なスタディ診断を含む結果の全セットは、インタラクティブなウェブアプリで利用できます。<a href="http://data.ohdsi.org/SystematicEvidence/">http://data.ohdsi.org/SystematicEvidence/</a>
+## ATLAS</p>
+<p>ATLASは、CDM形式の標準化された患者レベルの観察データに対する解析の設計と実行を支援するためにOHDSIコミュニティによって開発された、無料で公開されているウェブベースのツールです。ATLASはOHDSI WebAPIと組み合わせてウェブアプリケーションとしてデプロイされ、通常はApache Tomcat上でホストされます。リアルタイム解析を行うためにはCDM内の患者レベルのデータにアクセスする必要があるため、通常は組織のファイアウォールの内側にインストールされます。しかし、パブリックATLAS<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>も存在し、このATLASインスタンスは少数の小規模なシミュレーションデータセットにしかアクセスできませんが、テストや訓練を含む多くの目的で利用可能です。パブリックインスタンスのATLASを使用して効果推定や予測研究を完全に定義し、その研究を実行するためのRコードを自動生成することも可能です。そのコードはATLASとWebAPIをインストールすることなく、利用可能なCDMが存在する任意の環境で実行できます。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlas"></span>
+<img src="images/OhdsiAnalyticsTools/atlas.png" alt="ATLASユーザインタフェース" width="100%" />
+<p class="caption">
+図 8.3: ATLASユーザインタフェース
+</p>
+</div>
+<p>図<a href="OhdsiAnalyticsTools.html#fig:atlas">8.3</a>にATLASのスクリーンショットが提供されています。左側にはATLASの様々な機能を示すナビゲーションバーがあります。</p>
+<dl>
+<dt>データソース </dt>
+<dd>
+データソースは、ATLASプラットフォームに構成された各データソースの記述的、標準化されたレポートをレビューする機能を提供します。この機能は大規模分析戦略を使用し、すべての記述は事前に計算されています。データソースについては、第<a href="Characterization.html#Characterization">11</a>章で議論されています。
+</dd>
+<dt>用語集検索 </dt>
+<dd>
+ATLASはOMOP標準用語集を検索して、これらの用語にどのような概念が存在するか、そしてその概念をどう適用するかを理解するための機能を提供します。この機能については、第<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章で議論されています。
+</dd>
+<dt>コンセプトセット </dt>
+<dd>
+コンセプトセットは、標準化された分析全体で使用する概念のセットを識別するために使用できる論理表現のコレクションを作成する機能を提供します。コンセプトセットは単純なコードや値のリストよりも高度な機能を提供します。コンセプトセットは、標準用語集からの複数の概念と、関連する概念の包含や除外を指定するための論理インジケータを組み合わせて構成されます。用語集の検索、概念のセットの識別、そしてコンセプトセットを解決するために使用する論理の指定は、分析計画で使用されることが多い難解な医療用語を定義するための強力なメカニズムを提供します。これらのコンセプトセットはATLAS内に保存され、その後の解析の一部としてコホート定義や解析仕様に使用できます。
+</dd>
+<dt>コホート定義 </dt>
+<dd>
+コホート定義は、一定期間内に1つ以上の基準を満たす人物のセットを構築する機能であり、これらのコホートはその後のすべての解析の入力として使用されます。この機能については、第<a href="Cohorts.html#Cohorts">10</a>章で議論されています。
+</dd>
+<dt>キャラクタリゼーション </dt>
+<dd>
+キャラクタリゼーションは、定義された1つ以上のコホートを調査し、これらの患者集団に関する特性を要約するための分析機能です。この機能はリアルタイムクエリ戦略を使用しており、第<a href="Characterization.html#Characterization">11</a>章で議論されています。
+</dd>
+<dt>コホートパスウェイ </dt>
+<dd>
+コホートパスウェイは、1つ以上の集団内で発生する臨床イベントのシーケンスを調査するための分析ツールです。この機能については、第<a href="Characterization.html#Characterization">11</a>章で議論されています。
+</dd>
+<dt>発生率 </dt>
+<dd>
+発生率は、対象集団内の結果の発生率を推定するためのツールです。この機能については、第<a href="Characterization.html#Characterization">11</a>章で議論されています。
+</dd>
+<dt>プロファイル </dt>
+<dd>
+プロファイルは、個々の患者の縦断的観察データを調査し、特定の個人の状況を要約するためのツールです。この機能はリアルタイムクエリ戦略を使用します。
+</dd>
+<dt>集団レベル推定 </dt>
+<dd>
+推定は、比較コホートデザインを使用して集団レベルの効果推定研究を定義するための機能であり、1つ以上のターゲットおよび比較コホート間の比較を一連の結果について調査することができます。この機能はリアルタイムクエリ戦略を実装していると言え、コーディングが不要です。第<a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>章で議論されています。
+</dd>
+<dt>患者レベル予測 </dt>
+<dd>
+予測は機械学習アルゴリズムを適用して患者レベルの予測解析を行い、特定のターゲット曝露内で結果を予測する機能です。この機能もリアルタイムクエリ戦略を実装しており、コーディングが不要です。第<a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>章で議論されています。
+</dd>
+<dt>ジョブ </dt>
+<dd>
+ジョブメニュー項目を選択して、WebAPIを通じて実行されているプロセスの状態を調査します。ジョブは、コホートの生成やコホートキャラクタリゼーションレポートの計算など、長時間実行されるプロセスです。
+</dd>
+<dt>設定 </dt>
+<dd>
+構成メニュー項目を選択して、ソース構成セクションに構成されたデータソースを確認します。
+</dd>
+<dt>フィードバック </dt>
+<dd>
+フィードバックリンクをクリックすると、ATLASの問題ログにアクセスできます。新しい問題のログを記録したり、既存の問題を検索したりできます。新しい機能や改善のアイデアがある場合も、開発コミュニティのためにこの場所で記載できます。
+</dd>
+</dl>
+<div id="セキュリティ" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> セキュリティ<a href="OhdsiAnalyticsTools.html#セキュリティ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ATLASとWebAPIは、プラットフォーム全体で機能やデータソースへのアクセスを制御するための細かいセキュリティモデルを提供します。セキュリティシステムはApache Shiroライブラリを活用して構築されています。セキュリティシステムの詳細は、オンラインのWebAPIセキュリティwikiで確認できます。<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> </p>
+</div>
+<div id="ドキュメント" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> ドキュメント<a href="OhdsiAnalyticsTools.html#ドキュメント" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ATLASのドキュメントは、ATLAS GitHubリポジトリのwikiでオンラインで確認できます。<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a> このwikiには、様々なアプリケーション機能に関する情報や、オンラインビデオチュートリアルへのリンクが含まれています。 </p>
+</div>
+<div id="インストール方法" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> インストール方法<a href="OhdsiAnalyticsTools.html#インストール方法" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ATLASのインストールは、OHDSI WebAPIと組み合わせて行われます。各コンポーネントのインストールガイドは、ATLAS GitHubリポジトリのセットアップガイド<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>およびWebAPI GitHubリポジトリのインストールガイドにオンラインで提供されています。 </p>
+</div>
+</div>
+<div id="メソッドライブラリ" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> メソッドライブラリ<a href="OhdsiAnalyticsTools.html#メソッドライブラリ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://ohdsi.github.io/MethodsLibrary/">OHDSIメソッドライブラリ</a>は、図 <a href="OhdsiAnalyticsTools.html#fig:methodsLibrary">8.4</a> に示されているオープンソースのRパッケージのコレクションです。 </p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:methodsLibrary"></span>
+<img src="images/OhdsiAnalyticsTools/methodsLibrary.png" alt="Packages in the OHDSI Methods Library." width="100%" />
+<p class="caption">
+図 8.4: Packages in the OHDSI Methods Library.
+</p>
+</div>
+<p>これらのパッケージは、CDM内のデータから始まり、推定値や支援統計、図表を生成する完全な観察研究を実施するためのR関数を提供します。これらのパッケージはCDM内の観察データと直接対話し、カスタム分析を可能にし、あるいは標準化された高度な分析機能を提供することができます（詳細はChapter <a href="SqlAndR.html#SqlAndR">9</a>、Chapter <a href="Characterization.html#Characterization">11</a>、Chapter <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>、Chapter <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>を参照してください）。メソッドライブラリは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定、およびメソッドによって生成される推定値の経験的校正など、過去および現在の研究から学んだベストプラクティスをサポートしています。</p>
+<p>メソッドライブラリは多くの公表された臨床研究 <span class="citation">(<a href="#ref-boland_2017">Boland et al. 2017</a>; <a href="#ref-duke_2017">Duke et al. 2017</a>; <a href="#ref-ramcharran_2017">Ramcharran et al. 2017</a>; <a href="#ref-weinstein_2017">Weinstein et al. 2017</a>; <a href="#ref-wang_2017">Wang et al. 2017</a>; <a href="#ref-ryan_2017">Ryan et al. 2017</a>, <a href="#ref-ryan_2018">2018</a>; <a href="#ref-vashisht_2018">Vashisht et al. 2018</a>; <a href="#ref-yuan_2018">Yuan et al. 2018</a>; <a href="#ref-johnston_2019">Johnston et al. 2019</a>)</span> で使われており、方法論の研究にも利用されています <span class="citation">(<a href="#ref-schuemie_2014">Schuemie et al. 2014</a>, <a href="#ref-schuemie_2016">2016</a>; <a href="#ref-reps2018">Reps et al. 2018</a>; <a href="#ref-tian_2018">Tian, Schuemie, and Suchard 2018</a>; <a href="#ref-schuemie_2018">Schuemie, Hripcsak, et al. 2018</a>; <a href="#ref-schuemie_2018b">Schuemie, Ryan, et al. 2018</a>; <a href="#ref-reps_2019">Reps, Rijnbeek, and Ryan 2019</a>)</span>。メソッドライブラリにおけるメソッドの実装の妥当性についてはChapter <a href="SoftwareValidity.html#SoftwareValidity">17</a>で説明されています。</p>
+<div id="大規模分析サポート" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> 大規模分析サポート<a href="OhdsiAnalyticsTools.html#大規模分析サポート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>すべてのパッケージで組み込まれている主な機能の一つは、多くの分析を効率的に実行できることです。例えば、人口レベルの推定を行う場合、CohortMethodパッケージは多くの暴露と結果に対して効果サイズの推定を行うことを可能にし、様々な分析設定を使用して、必要な中間データセットおよび最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・コンパレータペアに対して複数の結果に使用される傾向スコアモデルの適合など、使い回しが可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並行して行われます。</p>
+<p>この計算効率は一度に多くの質問に答える大規模分析を可能にし、我々のメソッドの操作特性を測定し、Chapter <a href="MethodValidity.html#MethodValidity">18</a>で説明されているように推定値の経験的校正を行うために必要な制御仮説（例：ネガティブコントロール）を含むことが重要です。 </p>
+</div>
+<div id="BigDataSupport" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> ビッグデータ対応<a href="OhdsiAnalyticsTools.html#BigDataSupport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>メソッドライブラリは、非常に大きなデータベースに対しても計算を行うことができるように設計されています。これは次の三つの方法で達成されます：</p>
+<ol style="list-style-type: decimal">
+<li>大部分のデータ操作はデータベースサーバーで行われます。分析は通常、データベース内の全データのごく一部しか必要としないため、メソッドライブラリはSqlRenderおよびDatabaseConnectorパッケージを介してサーバー上で高度な操作を行い、関連データを前処理および抽出することができます。</li>
+<li>大量のローカルデータオブジェクトはメモリ効率の良い方法で保存されます。ローカルマシンにダウンロードされるデータについては、メソッドライブラリは<a href="https://cran.r-project.org/web/packages/ff">ff</a>パッケージを使用して大規模データオブジェクトを保存および操作します。これにより、メモリに収まらない大きなデータと作業することが可能です。</li>
+<li>必要に応じて高性能コンピューティングが適用されます。例えば、<a href="https://ohdsi.github.io/Cyclops/">Cyclops</a>パッケージは、メソッドライブラリ全体で使用される高効率な回帰エンジンを実装しており、これにより通常は適合できない大規模な回帰（多くの変数、大量の観測値）を実行することができます。</li>
+</ol>
+</div>
+<div id="ドキュメント-1" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> ドキュメント<a href="OhdsiAnalyticsTools.html#ドキュメント-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rはパッケージを文書化するための標準的な方法を提供します。各パッケージには、パッケージに含まれるすべての関数およびデータセットを文書化した<em>パッケージマニュアル</em>があります。すべてのパッケージマニュアルは、Methods Libraryのウェブサイト<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>、パッケージのGitHubリポジトリ、CRANで利用できます。さらに、R内からパッケージマニュアルを参照することができ、例えばDatabaseConnectorパッケージを読み込んだ後、コマンド<code>?connect</code>を入力すると「connect」関数に関するドキュメントが表示されます。</p>
+<p>パッケージマニュアルに加えて、多くのパッケージは<em>ビネット</em>も提供しています。ビネットは、特定のタスクを実行するためにパッケージをどのように使用するかを説明した長文のドキュメントです。例えば、一つのビネット<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a>では、CohortMethodパッケージを使用して複数の分析を効率的に実行する方法を説明しています。ビネットはMethods Libraryのウェブサイト、パッケージのGitHubリポジトリ、およびCRANでも見つけることができます。 </p>
+</div>
+<div id="システム要件" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> システム要件<a href="OhdsiAnalyticsTools.html#システム要件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>システム要件を検討する際に関連する二つのコンピューティング環境があります：データベースサーバーと分析ワークステーションです。 </p>
+<p>データベースサーバーはCDM形式の観察医療データを保持する必要があります。メソッドライブラリは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、およびビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）を含む幅広いデータベース管理システムをサポートしています。</p>
+<p>分析ワークステーションは、メソッドライブラリがインストールされ実行される場所です。これがローカルマシン（例えば、ノートパソコン）か、RStudio Serverが実行されるリモートサーバーかに関わらず、Rがインストールされている必要があります。可能であればRStudioも一緒にインストールすることをお勧めします。また、Methods LibraryはJavaがインストールされている必要があります。分析ワークステーションはデータベースサーバーに接続できる必要があり、具体的にはファイアウォールがその間のアクセスポートを開いている必要があります。一部の分析は計算集中的であるため、複数のプロเซッサコアと十分なメモリを持つことが分析の高速化につながります。少なくとも4つのコアと16ギガバイトのメモリを推奨します。</p>
+</div>
+<div id="installR" class="section level3 hasAnchor" number="8.3.5">
+<h3><span class="header-section-number">8.3.5</span> インストール方法<a href="OhdsiAnalyticsTools.html#installR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSI Rパッケージを実行するために必要な環境をインストールするための手順は次の通りです。インストールする必要があるものは4つあります： </p>
+<ol style="list-style-type: decimal">
+<li><strong>R</strong>は統計的コンピューティング環境です。基本的なユーザインターフェースとして主にコマンドラインインターフェースを提供します。</li>
+<li><strong>Rtools</strong>は、WindowsでRパッケージをソースからビルドするために必要なプログラム群です。</li>
+<li><strong>RStudio</strong>は、Rを使いやすくするIDE（統合開発環境）です。コードエディタ、デバッグ、およびビジュアルツールが含まれています。よろしくお願いいたします。</li>
+</ol>
+</div>
+</div>
+<div id="展開戦略" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> 展開戦略<a href="OhdsiAnalyticsTools.html#展開戦略" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ATLASやMethods Libraryを含む全体のOHDSIツールスタックを組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、すべてのスタックを一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それが、BroadseaおよびAmazon Web Services (AWS)です。 </p>
+<div id="broadsea" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Broadsea<a href="OhdsiAnalyticsTools.html#broadsea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Broadsea<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>はDockerコンテナ技術を使用します。[^^dockerUrl] OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行され、すべてのソフトウェアがインストールされてすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主要なOHDSIツールが含まれています。 </p>
+</div>
+<div id="amazon-aws" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Amazon AWS<a href="OhdsiAnalyticsTools.html#amazon-aws" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Amazonは、AWSクラウドコンピューティング環境でボタンをクリックするだけでインスタンス化できる二つの環境を用意しています：OHDSI-in-a-Box<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>とOHDSIonAWSです。[^^ohdsiOnAwsUrl] </p>
+<p>OHDSI-in-a-Boxは学習環境として特に作成されており、OHDSIコミュニティによって提供されるほとんどのチュートリアルで使用されます。これには多くのOHDSIツール、サンプルデータセット、RStudioおよび他の補助ソフトウェアが一つの低コストのWindows仮想マシンに含まれています。CDMを保存するためにPostgreSQLデータベースが使用され、ATLASの中間結果も格納されます。OMOP CDMデータマッピングおよびETLツールもOHDSI-in-a-Boxに含まれています。OHDSI-in-a-Boxのアーキテクチャは図<a href="OhdsiAnalyticsTools.html#fig:ohdsiinaboxDiagram">8.5</a>に示されています。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ohdsiinaboxDiagram"></span>
+<img src="images/OhdsiAnalyticsTools/OHDSI-in-a-BoxDiagram.png" alt="OHDSI-in-a-BoxのAmazon Web Servicesアーキテクチャ。" width="100%" />
+<p class="caption">
+図 8.5: OHDSI-in-a-BoxのAmazon Web Servicesアーキテクチャ。
+</p>
+</div>
+<p>OHDSIonAWSは、エンタープライズクラスの複数ユーザー対応、スケーラブルでフォールトトレラントなOHDSI環境のリファレンスアーキテクチャで、組織がデータ分析を行うために使用できます。いくつかのサンプルデータセットが含まれており、組織の実際の医療データを自動的に読み込むこともできます。データはAmazon Redshiftデータベースプラットフォームに配置され、これをOHDSIツールがサポートします。ATLASの中間結果はPostgreSQLデータベースに格納されます。フロントエンドでは、ユーザーはウェブインターフェースを通じてATLASおよびRStudioにアクセスできます（RStudio Serverを活用）。RStudioではOHDSI Methods Libraryがすでにインストールされており、データベースに接続して使用することができます。OHDSIonAWSの展開の自動化はオープンソースであり、組織の管理ツールとベストプラクティスを含むようにカスタマイズできます。OHDSIonAWSのアーキテクチャは図<a href="OhdsiAnalyticsTools.html#fig:ohdsionawsDiagram">8.6</a>に示されています。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ohdsionawsDiagram"></span>
+<img src="images/OhdsiAnalyticsTools/OHDSIonAWSDiagram.png" alt="OHDSIonAWSのAmazon Web Servicesアーキテクチャ。" width="100%" />
+<p class="caption">
+図 8.6: OHDSIonAWSのAmazon Web Servicesアーキテクチャ。
+</p>
+</div>
+</div>
+</div>
+<div id="まとめ-6" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> まとめ<a href="OhdsiAnalyticsTools.html#まとめ-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<div class="rmdsummary">
+<ul>
+<li>CDM内のデータに対して分析を行うには
+<ul>
+<li>カスタムコードの作成</li>
+<li>OHDSI Methods LibraryのRパッケージを使用したコードの作成</li>
+<li>インタラクティブ分析プラットフォームATLASの使用</li>
+</ul></li>
+<li>OHDSIツールは異なる分析戦略を使用します
+<ul>
+<li>単一研究</li>
+<li>リアルタイムクエリ</li>
+<li>大規模アナリティクス</li>
+</ul></li>
+<li>ほとんどのOHDSIアナリティクスツールは以下に埋め込まれています
+<ul>
+<li>インタラクティブ分析プラットフォームATLAS</li>
+<li>OHDSI Methods LibraryのRパッケージ</li>
+</ul></li>
+<li>OHDSIツールの展開を容易にするいくつかの戦略があります。</li>
+</ul>
+</div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-boland_2017" class="csl-entry">
+Boland, M. R., P. Parhi, L. Li, R. Miotto, R. Carroll, U. Iqbal, P. A. Nguyen, et al. 2017. <span>“<span class="nocase"><span>U</span>ncovering exposures responsible for birth season - disease effects: a global study</span>.”</span> <em>J Am Med Inform Assoc</em>, September.
+</div>
+<div id="ref-duke_2017" class="csl-entry">
+Duke, J. D., P. B. Ryan, M. A. Suchard, G. Hripcsak, P. Jin, C. Reich, M. S. Schwalm, et al. 2017. <span>“<span class="nocase"><span>R</span>isk of angioedema associated with levetiracetam compared with phenytoin: <span>F</span>indings of the observational health data sciences and informatics research network</span>.”</span> <em>Epilepsia</em> 58 (8): e101–6.
+</div>
+<div id="ref-johnston_2019" class="csl-entry">
+Johnston, S. S., J. M. Morton, I. Kalsekar, E. M. Ammann, C. W. Hsiao, and J. Reps. 2019. <span>“<span class="nocase"><span>U</span>sing <span>M</span>achine <span>L</span>earning <span>A</span>pplied to <span>R</span>eal-<span>W</span>orld <span>H</span>ealthcare <span>D</span>ata for <span>P</span>redictive <span>A</span>nalytics: <span>A</span>n <span>A</span>pplied <span>E</span>xample in <span>B</span>ariatric <span>S</span>urgery</span>.”</span> <em>Value Health</em> 22 (5): 580–86.
+</div>
+<div id="ref-ramcharran_2017" class="csl-entry">
+Ramcharran, D., H. Qiu, M. J. Schuemie, and P. B. Ryan. 2017. <span>“<span class="nocase"><span>A</span>typical <span>A</span>ntipsychotics and the <span>R</span>isk of <span>F</span>alls and <span>F</span>ractures <span>A</span>mong <span>O</span>lder <span>A</span>dults: <span>A</span>n <span>E</span>mulation <span>A</span>nalysis and an <span>E</span>valuation of <span>A</span>dditional <span>C</span>onfounding <span>C</span>ontrol <span>S</span>trategies</span>.”</span> <em>J Clin Psychopharmacol</em> 37 (2): 162–68.
+</div>
+<div id="ref-reps_2019" class="csl-entry">
+Reps, J. M., P. R. Rijnbeek, and P. B. Ryan. 2019. <span>“<span class="nocase"><span>I</span>dentifying the <span>D</span><span>E</span><span>A</span><span>D</span>: <span>D</span>evelopment and <span>V</span>alidation of a <span>P</span>atient-<span>L</span>evel <span>M</span>odel to <span>P</span>redict <span>D</span>eath <span>S</span>tatus in <span>P</span>opulation-<span>L</span>evel <span>C</span>laims <span>D</span>ata</span>.”</span> <em>Drug Saf</em>, May.
+</div>
+<div id="ref-reps2018" class="csl-entry">
+Reps, J. M., M. J. Schuemie, M. A. Suchard, P. B. Ryan, and P. R. Rijnbeek. 2018. <span>“<span class="nocase"><span>D</span>esign and implementation of a standardized framework to generate and evaluate patient-level prediction models using observational healthcare data</span>.”</span> <em>Journal of the American Medical Informatics Association</em> 25 (8): 969–75. <a href="https://doi.org/10.1093/jamia/ocy032">https://doi.org/10.1093/jamia/ocy032</a>.
+</div>
+<div id="ref-ryan_2018" class="csl-entry">
+Ryan, P. B., J. B. Buse, M. J. Schuemie, F. DeFalco, Z. Yuan, P. E. Stang, J. A. Berlin, and N. Rosenthal. 2018. <span>“<span class="nocase"><span>C</span>omparative effectiveness of canagliflozin, <span>S</span><span>G</span><span>L</span><span>T</span>2 inhibitors and non-<span>S</span><span>G</span><span>L</span><span>T</span>2 inhibitors on the risk of hospitalization for heart failure and amputation in patients with type 2 diabetes mellitus: <span>A</span> real-world meta-analysis of 4 observational databases (<span>O</span><span>B</span><span>S</span><span>E</span><span>R</span><span>V</span><span>E</span>-4<span>D</span>)</span>.”</span> <em>Diabetes Obes Metab</em> 20 (11): 2585–97.
+</div>
+<div id="ref-ryan_2017" class="csl-entry">
+Ryan, P. B., M. J. Schuemie, D. Ramcharran, and P. E. Stang. 2017. <span>“<span class="nocase"><span>A</span>typical <span>A</span>ntipsychotics and the <span>R</span>isks of <span>A</span>cute <span>K</span>idney <span>I</span>njury and <span>R</span>elated <span>O</span>utcomes <span>A</span>mong <span>O</span>lder <span>A</span>dults: <span>A</span> <span>R</span>eplication <span>A</span>nalysis and an <span>E</span>valuation of <span>A</span>dapted <span>C</span>onfounding <span>C</span>ontrol <span>S</span>trategies</span>.”</span> <em>Drugs Aging</em> 34 (3): 211–19.
+</div>
+<div id="ref-schuemie_2016" class="csl-entry">
+Schuemie, M. J., G. Hripcsak, P. B. Ryan, D. Madigan, and M. A. Suchard. 2016. <span>“<span class="nocase"><span>R</span>obust empirical calibration of p-values using observational data</span>.”</span> <em>Stat Med</em> 35 (22): 3883–88.
+</div>
+<div id="ref-schuemie_2018" class="csl-entry">
+———. 2018. <span>“<span class="nocase"><span>E</span>mpirical confidence interval calibration for population-level effect estimation studies in observational healthcare data</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 115 (11): 2571–77.
+</div>
+<div id="ref-schuemie_2014" class="csl-entry">
+Schuemie, M. J., P. B. Ryan, W. DuMouchel, M. A. Suchard, and D. Madigan. 2014. <span>“<span class="nocase"><span>I</span>nterpreting observational studies: why empirical calibration is needed to correct p-values</span>.”</span> <em>Stat Med</em> 33 (2): 209–18.
+</div>
+<div id="ref-schuemie_2018b" class="csl-entry">
+Schuemie, M. J., P. B. Ryan, G. Hripcsak, D. Madigan, and M. A. Suchard. 2018. <span>“<span class="nocase"><span>I</span>mproving reproducibility by using high-throughput observational studies with empirical calibration</span>.”</span> <em>Philos Trans A Math Phys Eng Sci</em> 376 (2128).
+</div>
+<div id="ref-tian_2018" class="csl-entry">
+Tian, Y., M. J. Schuemie, and M. A. Suchard. 2018. <span>“<span class="nocase"><span>E</span>valuating large-scale propensity score performance through real-world and synthetic data experiments</span>.”</span> <em>Int J Epidemiol</em> 47 (6): 2005–14.
+</div>
+<div id="ref-vashisht_2018" class="csl-entry">
+Vashisht, R., K. Jung, A. Schuler, J. M. Banda, R. W. Park, S. Jin, L. Li, et al. 2018. <span>“<span class="nocase"><span>A</span>ssociation of <span>H</span>emoglobin <span>A</span>1c <span>L</span>evels <span>W</span>ith <span>U</span>se of <span>S</span>ulfonylureas, <span>D</span>ipeptidyl <span>P</span>eptidase 4 <span>I</span>nhibitors, and <span>T</span>hiazolidinediones in <span>P</span>atients <span>W</span>ith <span>T</span>ype 2 <span>D</span>iabetes <span>T</span>reated <span>W</span>ith <span>M</span>etformin: <span>A</span>nalysis <span>F</span>rom the <span>O</span>bservational <span>H</span>ealth <span>D</span>ata <span>S</span>ciences and <span>I</span>nformatics <span>I</span>nitiative</span>.”</span> <em>JAMA Netw Open</em> 1 (4): e181755.
+</div>
+<div id="ref-wang_2017" class="csl-entry">
+Wang, Y., M. Desai, P. B. Ryan, F. J. DeFalco, M. J. Schuemie, P. E. Stang, J. A. Berlin, and Z. Yuan. 2017. <span>“<span class="nocase"><span>I</span>ncidence of diabetic ketoacidosis among patients with type 2 diabetes mellitus treated with <span>S</span><span>G</span><span>L</span><span>T</span>2 inhibitors and other antihyperglycemic agents</span>.”</span> <em>Diabetes Res. Clin. Pract.</em> 128 (June): 83–90.
+</div>
+<div id="ref-weinstein_2017" class="csl-entry">
+Weinstein, R. B., P. Ryan, J. A. Berlin, A. Matcho, M. Schuemie, J. Swerdel, K. Patel, and D. Fife. 2017. <span>“<span class="nocase"><span>C</span>hanneling in the <span>U</span>se of <span>N</span>onprescription <span>P</span>aracetamol and <span>I</span>buprofen in an <span>E</span>lectronic <span>M</span>edical <span>R</span>ecords <span>D</span>atabase: <span>E</span>vidence and <span>I</span>mplications</span>.”</span> <em>Drug Saf</em> 40 (12): 1279–92.
+</div>
+<div id="ref-yuan_2018" class="csl-entry">
+Yuan, Z., F. J. DeFalco, P. B. Ryan, M. J. Schuemie, P. E. Stang, J. A. Berlin, M. Desai, and N. Rosenthal. 2018. <span>“<span class="nocase"><span>R</span>isk of lower extremity amputations in people with type 2 diabetes mellitus treated with sodium-glucose co-transporter-2 inhibitors in the <span>U</span><span>S</span><span>A</span>: <span>A</span> retrospective cohort study</span>.”</span> <em>Diabetes Obes Metab</em> 20 (3): 582–89.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p><a href="http://www.ohdsi.org/web/atlas" class="uri">http://www.ohdsi.org/web/atlas</a><a href="OhdsiAnalyticsTools.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p><a href="https://github.com/OHDSI/WebAPI/wiki/Security-Configuration" class="uri">https://github.com/OHDSI/WebAPI/wiki/Security-Configuration</a><a href="OhdsiAnalyticsTools.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p><a href="https://github.com/OHDSI/ATLAS/wiki" class="uri">https://github.com/OHDSI/ATLAS/wiki</a><a href="OhdsiAnalyticsTools.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p><a href="https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" class="uri">https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide</a><a href="OhdsiAnalyticsTools.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p><a href="https://ohdsi.github.io/MethodsLibrary" class="uri">https://ohdsi.github.io/MethodsLibrary</a><a href="OhdsiAnalyticsTools.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p><a href="https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html" class="uri">https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html</a><a href="OhdsiAnalyticsTools.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<li id="fn30"><p><a href="https://github.com/OHDSI/Broadsea" class="uri">https://github.com/OHDSI/Broadsea</a><a href="OhdsiAnalyticsTools.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p><a href="https://github.com/OHDSI/OHDSI-in-a-Box" class="uri">https://github.com/OHDSI/OHDSI-in-a-Box</a><a href="OhdsiAnalyticsTools.html#fnref31" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="DataAnalyticsUseCases.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="SqlAndR.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/OhdsiAnalyticsTools.Rmd",
+"text": "編集"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsi.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

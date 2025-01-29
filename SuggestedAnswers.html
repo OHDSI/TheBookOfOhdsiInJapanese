@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 23 推奨解答 | OHDSIの書</title>
+  <meta name="description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 23 推奨解答 | OHDSIの書" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+  <meta property="og:description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 23 推奨解答 | OHDSIの書" />
+  
+  <meta name="twitter:description" content="観察ヘルスデータ科学および情報学 (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
+  <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
+
+<meta name="author" content="観察ヘルスデータ科学および情報学" />
+
+
+<meta name="date" content="2025-01-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="CohortDefinitions.html"/>
+<link rel="next" href="参考文献.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104086677-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104086677-2');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Le Livre d'OHDSI</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>序章</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#この本の目標"><i class="fa fa-check"></i>この本の目標</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書の構成"><i class="fa fa-check"></i>本書の構成</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#貢献者"><i class="fa fa-check"></i>貢献者</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ソフトウェアのバージョン"><i class="fa fa-check"></i>ソフトウェアのバージョン</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ライセンス"><i class="fa fa-check"></i>ライセンス</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書の開発方法"><i class="fa fa-check"></i>本書の開発方法</a></li>
+</ul></li>
+<li class="part"><span><b>I OHDSI コミュニティ</b></span></li>
+<li class="chapter" data-level="1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html"><i class="fa fa-check"></i><b>1</b> OHDSI コミュニティ</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#データからエビデンスへの旅"><i class="fa fa-check"></i><b>1.1</b> データからエビデンスへの旅</a></li>
+<li class="chapter" data-level="1.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#観察医療アウトカムパートナーシップ"><i class="fa fa-check"></i><b>1.2</b> 観察医療アウトカムパートナーシップ</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々の使命"><i class="fa fa-check"></i><b>1.2.1</b> 我々の使命</a></li>
+<li class="chapter" data-level="1.2.2" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々のビジョン"><i class="fa fa-check"></i><b>1.2.2</b> 我々のビジョン</a></li>
+<li class="chapter" data-level="1.2.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#我々の目標"><i class="fa fa-check"></i><b>1.2.3</b> 我々の目標</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiの進展"><i class="fa fa-check"></i><b>1.3</b> OHDSIの進展</a></li>
+<li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
+<li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> どこから始めるか</a>
+<ul>
+<li class="chapter" data-level="2.0.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiフォーラム"><i class="fa fa-check"></i><b>2.0.1</b> OHDSIフォーラム</a></li>
+<li class="chapter" data-level="2.0.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiイベント"><i class="fa fa-check"></i><b>2.0.2</b> OHDSIイベント</a></li>
+<li class="chapter" data-level="2.0.3" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsiコミュニティコール"><i class="fa fa-check"></i><b>2.0.3</b> OHDSIコミュニティコール</a></li>
+<li class="chapter" data-level="2.0.4" data-path="WhereToBegin.html"><a href="WhereToBegin.html#ohdsi作業グループ"><i class="fa fa-check"></i><b>2.0.4</b> OHDSI作業グループ</a></li>
+<li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#どこにフィットするか"><i class="fa fa-check"></i><b>2.1</b> どこにフィットするか</a></li>
+<li class="chapter" data-level="2.2" data-path="WhereToBegin.html"><a href="WhereToBegin.html#まとめ-1"><i class="fa fa-check"></i><b>2.2</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-スタディアソン"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: スタディアソン</a></li>
+<li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
+<li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
+<li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
+<li class="chapter" data-level="3.6" data-path="OpenScience.html"><a href="OpenScience.html#オープンディスコース"><i class="fa fa-check"></i><b>3.6</b> オープンディスコース</a></li>
+<li class="chapter" data-level="3.7" data-path="OpenScience.html"><a href="OpenScience.html#ohdsiとfairガイディングプリンシプルズ"><i class="fa fa-check"></i><b>3.7</b> OHDSIとFAIRガイディングプリンシプルズ</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="OpenScience.html"><a href="OpenScience.html#序論"><i class="fa fa-check"></i><b>3.7.1</b> 序論</a></li>
+<li class="chapter" data-level="3.7.2" data-path="OpenScience.html"><a href="OpenScience.html#検索可能性"><i class="fa fa-check"></i><b>3.7.2</b> 検索可能性</a></li>
+<li class="chapter" data-level="3.7.3" data-path="OpenScience.html"><a href="OpenScience.html#アクセシビリティ"><i class="fa fa-check"></i><b>3.7.3</b> アクセシビリティ</a></li>
+<li class="chapter" data-level="3.7.4" data-path="OpenScience.html"><a href="OpenScience.html#相互運用性"><i class="fa fa-check"></i><b>3.7.4</b> 相互運用性</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="統一データ表現.html"><a href="統一データ表現.html"><i class="fa fa-check"></i>統一データ表現</a></li>
+<li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 共通データモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#設計原則"><i class="fa fa-check"></i><b>4.1</b> 設計原則</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.1.1</b> モデルの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#スキーマの一般的な規約"><i class="fa fa-check"></i><b>4.1.2</b> スキーマの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#データテーブルの一般的な規約"><i class="fa fa-check"></i><b>4.1.3</b> データテーブルの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#domains"><i class="fa fa-check"></i><b>4.1.4</b> ドメインの一般的な規約</a></li>
+<li class="chapter" data-level="4.1.5" data-path="CommonDataModel.html"><a href="CommonDataModel.html#コンテンツのコンセプトによる表現"><i class="fa fa-check"></i><b>4.1.5</b> コンテンツのコンセプトによる表現</a></li>
+<li class="chapter" data-level="4.1.6" data-path="CommonDataModel.html"><a href="CommonDataModel.html#フィールドの一般的な命名規約"><i class="fa fa-check"></i><b>4.1.6</b> フィールドの一般的な命名規約</a></li>
+<li class="chapter" data-level="4.1.7" data-path="CommonDataModel.html"><a href="CommonDataModel.html#concepts-Sources"><i class="fa fa-check"></i><b>4.1.7</b> コンセプトとソース値の違い</a></li>
+<li class="chapter" data-level="4.1.8" data-path="CommonDataModel.html"><a href="CommonDataModel.html#running-example-子宮内膜症"><i class="fa fa-check"></i><b>4.1.8</b> Running Example: 子宮内膜症</a></li>
+<li class="chapter" data-level="4.1.9" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.1.9</b> PERSONテーブル</a></li>
+<li class="chapter" data-level="4.1.10" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.1.10</b> OBSERVATION_PERIODテーブル</a></li>
+<li class="chapter" data-level="4.1.11" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.1.11</b> VISIT_OCCURRENCE</a></li>
+<li class="chapter" data-level="4.1.12" data-path="CommonDataModel.html"><a href="CommonDataModel.html#conditionOccurrence"><i class="fa fa-check"></i><b>4.1.12</b> CONDITION_OCCURRENCE</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#まとめ-2"><i class="fa fa-check"></i><b>4.2</b> まとめ</a></li>
+<li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#練習問題"><i class="fa fa-check"></i><b>4.3</b> 練習問題</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html"><i class="fa fa-check"></i><b>5</b> 標準化語彙</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#なぜ語彙が必要でなぜ標準化が必要か"><i class="fa fa-check"></i><b>5.1</b> なぜ語彙が必要で、なぜ標準化が必要か</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#標準化語彙の構築"><i class="fa fa-check"></i><b>5.1.1</b> 標準化語彙の構築</a></li>
+<li class="chapter" data-level="5.1.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#accessVocabularies"><i class="fa fa-check"></i><b>5.1.2</b> 標準化語彙へのアクセス</a></li>
+<li class="chapter" data-level="5.1.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#語彙の元-採用するか構築するか"><i class="fa fa-check"></i><b>5.1.3</b> 語彙の元: 採用するか構築するか</a></li>
+<li class="chapter" data-level="5.1.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念id"><i class="fa fa-check"></i><b>5.1.4</b> 概念ID</a></li>
+<li class="chapter" data-level="5.1.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念名"><i class="fa fa-check"></i><b>5.1.5</b> 概念名</a></li>
+<li class="chapter" data-level="5.1.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptDomains"><i class="fa fa-check"></i><b>5.1.6</b> ドメイン</a></li>
+<li class="chapter" data-level="5.1.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#語彙"><i class="fa fa-check"></i><b>5.1.7</b> 語彙</a></li>
+<li class="chapter" data-level="5.1.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念クラス"><i class="fa fa-check"></i><b>5.1.8</b> 概念クラス</a></li>
+<li class="chapter" data-level="5.1.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#standardConcepts"><i class="fa fa-check"></i><b>5.1.9</b> 標準概念</a></li>
+<li class="chapter" data-level="5.1.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#非標準概念"><i class="fa fa-check"></i><b>5.1.10</b> 非標準概念</a></li>
+<li class="chapter" data-level="5.1.11" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#分類概念"><i class="fa fa-check"></i><b>5.1.11</b> 分類概念</a></li>
+<li class="chapter" data-level="5.1.12" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#概念コード"><i class="fa fa-check"></i><b>5.1.12</b> 概念コード</a></li>
+<li class="chapter" data-level="5.1.13" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptLifeCycle"><i class="fa fa-check"></i><b>5.1.13</b> ライフサイクル</a></li>
+<li class="chapter" data-level="5.1.14" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#conceptMapping"><i class="fa fa-check"></i><b>5.1.14</b> マッピング関係</a></li>
+<li class="chapter" data-level="5.1.15" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#階層関係"><i class="fa fa-check"></i><b>5.1.15</b> 階層関係</a></li>
+<li class="chapter" data-level="5.1.16" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#異なるボキャブラリーのコンセプト間の関係"><i class="fa fa-check"></i><b>5.1.16</b> 異なるボキャブラリーのコンセプト間の関係</a></li>
+<li class="chapter" data-level="5.1.17" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#同一ボキャブラリーのコンセプト間の関係"><i class="fa fa-check"></i><b>5.1.17</b> 同一ボキャブラリーのコンセプト間の関係</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#内部参照テーブル"><i class="fa fa-check"></i><b>5.2</b> 内部参照テーブル</a></li>
+<li class="chapter" data-level="5.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#specialSituations"><i class="fa fa-check"></i><b>5.3</b> 特別な状況</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.3.1</b> 性別</a></li>
+<li class="chapter" data-level="5.3.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.3.2</b> 人種と民族</a></li>
+<li class="chapter" data-level="5.3.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomopの状態"><i class="fa fa-check"></i><b>5.3.3</b> 診断コーディングシステムとOMOPの状態</a></li>
+<li class="chapter" data-level="5.3.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#手技コードシステム"><i class="fa fa-check"></i><b>5.3.4</b> 手技コードシステム</a></li>
+<li class="chapter" data-level="5.3.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#デバイス"><i class="fa fa-check"></i><b>5.3.5</b> デバイス</a></li>
+<li class="chapter" data-level="5.3.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#訪問とサービス"><i class="fa fa-check"></i><b>5.3.6</b> 訪問とサービス</a></li>
+<li class="chapter" data-level="5.3.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロバイダーと専門分野"><i class="fa fa-check"></i><b>5.3.7</b> プロバイダーと専門分野</a></li>
+<li class="chapter" data-level="5.3.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.3.8</b> 特別な要件を持つ治療領域</a></li>
+<li class="chapter" data-level="5.3.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.3.9</b> 薬物ドメインにおける標準概念</a></li>
+<li class="chapter" data-level="5.3.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#nullのフレーバー"><i class="fa fa-check"></i><b>5.3.10</b> NULLのフレーバー</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#まとめ-3"><i class="fa fa-check"></i><b>5.4</b> まとめ</a></li>
+<li class="chapter" data-level="5.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#演習"><i class="fa fa-check"></i><b>5.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 抽出、変換、ロード</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#はじめに"><i class="fa fa-check"></i><b>6.1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#white-rabbit"><i class="fa fa-check"></i><b>6.1.1</b> White Rabbit</a></li>
+<li class="chapter" data-level="6.1.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#rabbit-in-a-hat"><i class="fa fa-check"></i><b>6.1.2</b> Rabbit-In-a-Hat</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ2-コードマッピングの作成"><i class="fa fa-check"></i><b>6.2</b> ステップ2: コードマッピングの作成</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#usagi"><i class="fa fa-check"></i><b>6.2.1</b> Usagi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ-4-品質管理"><i class="fa fa-check"></i><b>6.3</b> ステップ 4: 品質管理</a></li>
+<li class="chapter" data-level="6.4" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etlの慣行とthemis"><i class="fa fa-check"></i><b>6.4</b> ETLの慣行とTHEMIS</a></li>
+<li class="chapter" data-level="6.5" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#CDMandETLMaintenance"><i class="fa fa-check"></i><b>6.5</b> CDMおよびETLのメンテナンス</a></li>
+<li class="chapter" data-level="6.6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#etlに関する最終的な考え"><i class="fa fa-check"></i><b>6.6</b> ETLに関する最終的な考え</a></li>
+<li class="chapter" data-level="6.7" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#まとめ-4"><i class="fa fa-check"></i><b>6.7</b> まとめ</a></li>
+<li class="chapter" data-level="6.8" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#演習-1"><i class="fa fa-check"></i><b>6.8</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="データ解析.html"><a href="データ解析.html"><i class="fa fa-check"></i>データ解析</a></li>
+<li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> データ解析の使用例</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特徴分析"><i class="fa fa-check"></i><b>7.1</b> 特徴分析</a></li>
+<li class="chapter" data-level="7.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定"><i class="fa fa-check"></i><b>7.2</b> 集団レベルの推定</a></li>
+<li class="chapter" data-level="7.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測"><i class="fa fa-check"></i><b>7.3</b> 患者レベルの予測</a></li>
+<li class="chapter" data-level="7.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#高血圧における使用例"><i class="fa fa-check"></i><b>7.4</b> 高血圧における使用例</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特徴分析の質問"><i class="fa fa-check"></i><b>7.4.1</b> 特徴分析の質問</a></li>
+<li class="chapter" data-level="7.4.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定質問"><i class="fa fa-check"></i><b>7.4.2</b> 集団レベルの推定質問</a></li>
+<li class="chapter" data-level="7.4.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測質問"><i class="fa fa-check"></i><b>7.4.3</b> 患者レベルの予測質問</a></li>
+<li class="chapter" data-level="7.4.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#誤ったデータ"><i class="fa fa-check"></i><b>7.4.4</b> 誤ったデータ</a></li>
+<li class="chapter" data-level="7.4.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#欠損データ"><i class="fa fa-check"></i><b>7.4.5</b> 欠損データ</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#まとめ-5"><i class="fa fa-check"></i><b>7.5</b> まとめ</a></li>
+<li class="chapter" data-level="7.6" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#演習-2"><i class="fa fa-check"></i><b>7.6</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html"><i class="fa fa-check"></i><b>8</b> OHDSI 分析ツール</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#analysisImplementation"><i class="fa fa-check"></i><b>8.1</b> 分析の実装</a></li>
+<li class="chapter" data-level="8.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#分析戦略"><i class="fa fa-check"></i><b>8.2</b> 分析戦略</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#セキュリティ"><i class="fa fa-check"></i><b>8.2.1</b> セキュリティ</a></li>
+<li class="chapter" data-level="8.2.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#ドキュメント"><i class="fa fa-check"></i><b>8.2.2</b> ドキュメント</a></li>
+<li class="chapter" data-level="8.2.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#インストール方法"><i class="fa fa-check"></i><b>8.2.3</b> インストール方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#メソッドライブラリ"><i class="fa fa-check"></i><b>8.3</b> メソッドライブラリ</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#大規模分析サポート"><i class="fa fa-check"></i><b>8.3.1</b> 大規模分析サポート</a></li>
+<li class="chapter" data-level="8.3.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#BigDataSupport"><i class="fa fa-check"></i><b>8.3.2</b> ビッグデータ対応</a></li>
+<li class="chapter" data-level="8.3.3" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#ドキュメント-1"><i class="fa fa-check"></i><b>8.3.3</b> ドキュメント</a></li>
+<li class="chapter" data-level="8.3.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#システム要件"><i class="fa fa-check"></i><b>8.3.4</b> システム要件</a></li>
+<li class="chapter" data-level="8.3.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#installR"><i class="fa fa-check"></i><b>8.3.5</b> インストール方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#展開戦略"><i class="fa fa-check"></i><b>8.4</b> 展開戦略</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#broadsea"><i class="fa fa-check"></i><b>8.4.1</b> Broadsea</a></li>
+<li class="chapter" data-level="8.4.2" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#amazon-aws"><i class="fa fa-check"></i><b>8.4.2</b> Amazon AWS</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="OhdsiAnalyticsTools.html"><a href="OhdsiAnalyticsTools.html#まとめ-6"><i class="fa fa-check"></i><b>8.5</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="SqlAndR.html"><a href="SqlAndR.html"><i class="fa fa-check"></i><b>9</b> SQLとR</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sqlのパラメータ設定"><i class="fa fa-check"></i><b>9.0.1</b> SQLのパラメータ設定</a></li>
+<li class="chapter" data-level="9.0.2" data-path="SqlAndR.html"><a href="SqlAndR.html#他のsql方言への翻訳"><i class="fa fa-check"></i><b>9.0.2</b> 他のSQL方言への翻訳</a></li>
+<li class="chapter" data-level="9.0.3" data-path="SqlAndR.html"><a href="SqlAndR.html#接続の作成"><i class="fa fa-check"></i><b>9.0.3</b> 接続の作成</a></li>
+<li class="chapter" data-level="9.0.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリの実行"><i class="fa fa-check"></i><b>9.0.4</b> クエリの実行</a></li>
+<li class="chapter" data-level="9.0.5" data-path="SqlAndR.html"><a href="SqlAndR.html#ffdfオブジェクトを使用したクエリの実行"><i class="fa fa-check"></i><b>9.0.5</b> ffdfオブジェクトを使用したクエリの実行</a></li>
+<li class="chapter" data-level="9.0.6" data-path="SqlAndR.html"><a href="SqlAndR.html#同じsqlを使用して異なるプラットフォームにクエリを実行する"><i class="fa fa-check"></i><b>9.0.6</b> 同じSQLを使用して異なるプラットフォームにクエリを実行する</a></li>
+<li class="chapter" data-level="9.0.7" data-path="SqlAndR.html"><a href="SqlAndR.html#テーブルの挿入"><i class="fa fa-check"></i><b>9.0.7</b> テーブルの挿入</a></li>
+<li class="chapter" data-level="9.1" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリ時に語彙を使用する"><i class="fa fa-check"></i><b>9.1</b> クエリ時に語彙を使用する</a></li>
+<li class="chapter" data-level="9.2" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>9.2</b> QueryLibrary</a></li>
+<li class="chapter" data-level="9.3" data-path="SqlAndR.html"><a href="SqlAndR.html#簡単な研究のデザイン"><i class="fa fa-check"></i><b>9.3</b> 簡単な研究のデザイン</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="SqlAndR.html"><a href="SqlAndR.html#問題の定義"><i class="fa fa-check"></i><b>9.3.1</b> 問題の定義</a></li>
+<li class="chapter" data-level="9.3.2" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露"><i class="fa fa-check"></i><b>9.3.2</b> 暴露</a></li>
+<li class="chapter" data-level="9.3.3" data-path="SqlAndR.html"><a href="SqlAndR.html#結果"><i class="fa fa-check"></i><b>9.3.3</b> 結果</a></li>
+<li class="chapter" data-level="9.3.4" data-path="SqlAndR.html"><a href="SqlAndR.html#リスク期間"><i class="fa fa-check"></i><b>9.3.4</b> リスク期間</a></li>
+<li class="chapter" data-level="9.3.5" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露コホート"><i class="fa fa-check"></i><b>9.3.5</b> 暴露コホート</a></li>
+<li class="chapter" data-level="9.3.6" data-path="SqlAndR.html"><a href="SqlAndR.html#結果コホート"><i class="fa fa-check"></i><b>9.3.6</b> 結果コホート</a></li>
+<li class="chapter" data-level="9.3.7" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>9.3.7</b> 発症率の計算</a></li>
+<li class="chapter" data-level="9.3.8" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>9.3.8</b> クリーンアップ</a></li>
+<li class="chapter" data-level="9.3.9" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>9.3.9</b> 互換性</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="SqlAndR.html"><a href="SqlAndR.html#まとめ-7"><i class="fa fa-check"></i><b>9.4</b> まとめ</a></li>
+<li class="chapter" data-level="9.5" data-path="SqlAndR.html"><a href="SqlAndR.html#練習問題-1"><i class="fa fa-check"></i><b>9.5</b> 練習問題</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> コホートの定義</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#コホートとは"><i class="fa fa-check"></i><b>10.1</b> コホートとは？</a></li>
+<li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>10.2</b> 概念セット</a></li>
+<li class="chapter" data-level="10.3" data-path="Cohorts.html"><a href="Cohorts.html#確率的コホート定義"><i class="fa fa-check"></i><b>10.3</b> 確率的コホート定義</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ"><i class="fa fa-check"></i><b>10.3.1</b> OHDSI ゴールドスタンダード表現型ライブラリ</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="Cohorts.html"><a href="Cohorts.html#高血圧のコホート定義"><i class="fa fa-check"></i><b>10.4</b> 高血圧のコホート定義</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="Cohorts.html"><a href="Cohorts.html#初期イベント基準"><i class="fa fa-check"></i><b>10.4.1</b> 初期イベント基準</a></li>
+<li class="chapter" data-level="10.4.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトセットの定義"><i class="fa fa-check"></i><b>10.4.2</b> コンセプトセットの定義</a></li>
+<li class="chapter" data-level="10.4.3" data-path="Cohorts.html"><a href="Cohorts.html#追加の初期イベント基準"><i class="fa fa-check"></i><b>10.4.3</b> 追加の初期イベント基準</a></li>
+<li class="chapter" data-level="10.4.4" data-path="Cohorts.html"><a href="Cohorts.html#包括基準"><i class="fa fa-check"></i><b>10.4.4</b> 包括基準</a></li>
+<li class="chapter" data-level="10.4.5" data-path="Cohorts.html"><a href="Cohorts.html#データベースへの接続-1"><i class="fa fa-check"></i><b>10.4.5</b> データベースへの接続</a></li>
+<li class="chapter" data-level="10.4.6" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトの指定"><i class="fa fa-check"></i><b>10.4.6</b> コンセプトの指定</a></li>
+<li class="chapter" data-level="10.4.7" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>10.4.7</b> 初回使用の発見</a></li>
+<li class="chapter" data-level="10.4.8" data-path="Cohorts.html"><a href="Cohorts.html#日の前観察が必要"><i class="fa fa-check"></i><b>10.4.8</b> 365日の前観察が必要</a></li>
+<li class="chapter" data-level="10.4.9" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>10.4.9</b> 高血圧の前診断が必要</a></li>
+<li class="chapter" data-level="10.4.10" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>10.4.10</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="10.4.11" data-path="Cohorts.html"><a href="Cohorts.html#単薬療法"><i class="fa fa-check"></i><b>10.4.11</b> 単薬療法</a></li>
+<li class="chapter" data-level="10.4.12" data-path="Cohorts.html"><a href="Cohorts.html#コホートの終了"><i class="fa fa-check"></i><b>10.4.12</b> コホートの終了</a></li>
+<li class="chapter" data-level="10.4.13" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>10.4.13</b> クリーンアップ</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="Cohorts.html"><a href="Cohorts.html#サマリー"><i class="fa fa-check"></i><b>10.5</b> サマリー</a></li>
+<li class="chapter" data-level="10.6" data-path="Cohorts.html"><a href="Cohorts.html#演習-3"><i class="fa fa-check"></i><b>10.6</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>11</b> 特徴分析</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="Characterization.html"><a href="Characterization.html#データベースレベルの特徴分析"><i class="fa fa-check"></i><b>11.1</b> データベースレベルの特徴分析</a></li>
+<li class="chapter" data-level="11.2" data-path="Characterization.html"><a href="Characterization.html#コホート特徴分析"><i class="fa fa-check"></i><b>11.2</b> コホート特徴分析</a></li>
+<li class="chapter" data-level="11.3" data-path="Characterization.html"><a href="Characterization.html#治療経路"><i class="fa fa-check"></i><b>11.3</b> 治療経路</a></li>
+<li class="chapter" data-level="11.4" data-path="Characterization.html"><a href="Characterization.html#発生率"><i class="fa fa-check"></i><b>11.4</b> 発生率</a></li>
+<li class="chapter" data-level="11.5" data-path="Characterization.html"><a href="Characterization.html#atlasにおけるデータベースの特性評価"><i class="fa fa-check"></i><b>11.5</b> ATLASにおけるデータベースの特性評価</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>11.5.1</b> デザイン</a></li>
+<li class="chapter" data-level="11.5.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>11.5.2</b> 実行</a></li>
+<li class="chapter" data-level="11.5.3" data-path="Characterization.html"><a href="Characterization.html#結果-1"><i class="fa fa-check"></i><b>11.5.3</b> 結果</a></li>
+<li class="chapter" data-level="11.5.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>11.5.4</b> カスタム特性の定義</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特徴抽出"><i class="fa fa-check"></i><b>11.6</b> Rでのコホートの特徴抽出</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="Characterization.html"><a href="Characterization.html#コホートの生成"><i class="fa fa-check"></i><b>11.6.1</b> コホートの生成</a></li>
+<li class="chapter" data-level="11.6.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>11.6.2</b> データ抽出</a></li>
+<li class="chapter" data-level="11.6.3" data-path="Characterization.html"><a href="Characterization.html#事前に指定された分析の使用"><i class="fa fa-check"></i><b>11.6.3</b> 事前に指定された分析の使用</a></li>
+<li class="chapter" data-level="11.6.4" data-path="Characterization.html"><a href="Characterization.html#集計された共変量の作成"><i class="fa fa-check"></i><b>11.6.4</b> 集計された共変量の作成</a></li>
+<li class="chapter" data-level="11.6.5" data-path="Characterization.html"><a href="Characterization.html#出力形式"><i class="fa fa-check"></i><b>11.6.5</b> 出力形式</a></li>
+<li class="chapter" data-level="11.6.6" data-path="Characterization.html"><a href="Characterization.html#カスタム共変量"><i class="fa fa-check"></i><b>11.6.6</b> カスタム共変量</a></li>
+<li class="chapter" data-level="11.6.7" data-path="Characterization.html"><a href="Characterization.html#設計"><i class="fa fa-check"></i><b>11.6.7</b> 設計</a></li>
+<li class="chapter" data-level="11.6.8" data-path="Characterization.html"><a href="Characterization.html#実行-1"><i class="fa fa-check"></i><b>11.6.8</b> 実行</a></li>
+<li class="chapter" data-level="11.6.9" data-path="Characterization.html"><a href="Characterization.html#結果の表示"><i class="fa fa-check"></i><b>11.6.9</b> 結果の表示</a></li>
+<li class="chapter" data-level="11.6.10" data-path="Characterization.html"><a href="Characterization.html#設計-1"><i class="fa fa-check"></i><b>11.6.10</b> 設計</a></li>
+<li class="chapter" data-level="11.6.11" data-path="Characterization.html"><a href="Characterization.html#実行-2"><i class="fa fa-check"></i><b>11.6.11</b> 実行</a></li>
+<li class="chapter" data-level="11.6.12" data-path="Characterization.html"><a href="Characterization.html#結果の表示-1"><i class="fa fa-check"></i><b>11.6.12</b> 結果の表示</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="Characterization.html"><a href="Characterization.html#まとめ-8"><i class="fa fa-check"></i><b>11.7</b> まとめ</a></li>
+<li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#演習-4"><i class="fa fa-check"></i><b>11.8</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> 集団レベルの推定</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#傾向スコア"><i class="fa fa-check"></i><b>12.0.1</b> 傾向スコア</a></li>
+<li class="chapter" data-level="12.0.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.0.2</b> 変数選択</a></li>
+<li class="chapter" data-level="12.0.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#カリパー"><i class="fa fa-check"></i><b>12.0.3</b> カリパー</a></li>
+<li class="chapter" data-level="12.0.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#オーバーラップ偏好スコア"><i class="fa fa-check"></i><b>12.0.4</b> オーバーラップ：偏好スコア</a></li>
+<li class="chapter" data-level="12.0.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#バランス"><i class="fa fa-check"></i><b>12.0.5</b> バランス</a></li>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例対照デザイン"><i class="fa fa-check"></i><b>12.1</b> 症例対照デザイン</a></li>
+<li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例交叉デザイン"><i class="fa fa-check"></i><b>12.2</b> 症例交叉デザイン</a></li>
+<li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#高血圧研究のデザイン"><i class="fa fa-check"></i><b>12.3</b> 高血圧研究のデザイン</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#問題の定義-1"><i class="fa fa-check"></i><b>12.3.1</b> 問題の定義</a></li>
+<li class="chapter" data-level="12.3.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ターゲットおよび比較対象"><i class="fa fa-check"></i><b>12.3.2</b> ターゲットおよび比較対象</a></li>
+<li class="chapter" data-level="12.3.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカム"><i class="fa fa-check"></i><b>12.3.3</b> アウトカム</a></li>
+<li class="chapter" data-level="12.3.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#リスク期間-1"><i class="fa fa-check"></i><b>12.3.4</b> リスク期間</a></li>
+<li class="chapter" data-level="12.3.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#モデル"><i class="fa fa-check"></i><b>12.3.5</b> モデル</a></li>
+<li class="chapter" data-level="12.3.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究要約"><i class="fa fa-check"></i><b>12.3.6</b> 研究要約</a></li>
+<li class="chapter" data-level="12.3.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#コントロール質問"><i class="fa fa-check"></i><b>12.3.7</b> コントロール質問</a></li>
+<li class="chapter" data-level="12.3.8" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ComparisonSettings"><i class="fa fa-check"></i><b>12.3.8</b> 比較コホート設定</a></li>
+<li class="chapter" data-level="12.3.9" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#効果推定の分析設定"><i class="fa fa-check"></i><b>12.3.9</b> 効果推定の分析設定</a></li>
+<li class="chapter" data-level="12.3.10" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>12.3.10</b> コホートのインスタンス化</a></li>
+<li class="chapter" data-level="12.3.11" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#データ抽出-1"><i class="fa fa-check"></i><b>12.3.11</b> データ抽出</a></li>
+<li class="chapter" data-level="12.3.12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究集団の定義"><i class="fa fa-check"></i><b>12.3.12</b> 研究集団の定義</a></li>
+<li class="chapter" data-level="12.3.13" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#プロペンシティスコア"><i class="fa fa-check"></i><b>12.3.13</b> プロペンシティスコア</a></li>
+<li class="chapter" data-level="12.3.14" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカムモデル"><i class="fa fa-check"></i><b>12.3.14</b> アウトカムモデル</a></li>
+<li class="chapter" data-level="12.3.15" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>12.3.15</b> 複数の分析の実行</a></li>
+<li class="chapter" data-level="12.3.16" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#共変量のバランス"><i class="fa fa-check"></i><b>12.3.16</b> 共変量のバランス</a></li>
+<li class="chapter" data-level="12.3.17" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#フォローアップとパワー"><i class="fa fa-check"></i><b>12.3.17</b> フォローアップとパワー</a></li>
+<li class="chapter" data-level="12.3.18" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#カプランマイヤー"><i class="fa fa-check"></i><b>12.3.18</b> カプランマイヤー</a></li>
+<li class="chapter" data-level="12.3.19" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#効果サイズ推定"><i class="fa fa-check"></i><b>12.3.19</b> 効果サイズ推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#まとめ-9"><i class="fa fa-check"></i><b>12.4</b> まとめ</a></li>
+<li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#演習-5"><i class="fa fa-check"></i><b>12.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html"><i class="fa fa-check"></i><b>13</b> 患者レベル予測</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#予測課題"><i class="fa fa-check"></i><b>13.1</b> 予測課題</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#データ抽出の例"><i class="fa fa-check"></i><b>13.1.1</b> データ抽出の例</a></li>
+<li class="chapter" data-level="13.1.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#否定-vs-欠損"><i class="fa fa-check"></i><b>13.1.2</b> 否定 vs 欠損</a></li>
+<li class="chapter" data-level="13.1.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#正則化ロジスティック回帰"><i class="fa fa-check"></i><b>13.1.3</b> 正則化ロジスティック回帰</a></li>
+<li class="chapter" data-level="13.1.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#勾配ブースティングマシン"><i class="fa fa-check"></i><b>13.1.4</b> 勾配ブースティングマシン</a></li>
+<li class="chapter" data-level="13.1.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ランダムフォレスト"><i class="fa fa-check"></i><b>13.1.5</b> ランダムフォレスト</a></li>
+<li class="chapter" data-level="13.1.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#k-近傍法"><i class="fa fa-check"></i><b>13.1.6</b> K-近傍法</a></li>
+<li class="chapter" data-level="13.1.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ナイーブベイズ"><i class="fa fa-check"></i><b>13.1.7</b> ナイーブベイズ</a></li>
+<li class="chapter" data-level="13.1.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#adaboost"><i class="fa fa-check"></i><b>13.1.8</b> AdaBoost</a></li>
+<li class="chapter" data-level="13.1.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#決定木"><i class="fa fa-check"></i><b>13.1.9</b> 決定木</a></li>
+<li class="chapter" data-level="13.1.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#多層パーセプトロン"><i class="fa fa-check"></i><b>13.1.10</b> 多層パーセプトロン</a></li>
+<li class="chapter" data-level="13.1.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ディープラーニング"><i class="fa fa-check"></i><b>13.1.11</b> ディープラーニング</a></li>
+<li class="chapter" data-level="13.1.12" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#その他のアルゴリズム"><i class="fa fa-check"></i><b>13.1.12</b> その他のアルゴリズム</a></li>
+<li class="chapter" data-level="13.1.13" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#評価の種類"><i class="fa fa-check"></i><b>13.1.13</b> 評価の種類</a></li>
+<li class="chapter" data-level="13.1.14" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#performance"><i class="fa fa-check"></i><b>13.1.14</b> パフォーマンス指標</a></li>
+<li class="chapter" data-level="13.1.15" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#問題の定義-2"><i class="fa fa-check"></i><b>13.1.15</b> 問題の定義</a></li>
+<li class="chapter" data-level="13.1.16" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#研究集団の定義-1"><i class="fa fa-check"></i><b>13.1.16</b> 研究集団の定義</a></li>
+<li class="chapter" data-level="13.1.17" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル開発設定"><i class="fa fa-check"></i><b>13.1.17</b> モデル開発設定</a></li>
+<li class="chapter" data-level="13.1.18" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル評価"><i class="fa fa-check"></i><b>13.1.18</b> モデル評価</a></li>
+<li class="chapter" data-level="13.1.19" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#研究概要"><i class="fa fa-check"></i><b>13.1.19</b> 研究概要</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#atlasでの研究の実装"><i class="fa fa-check"></i><b>13.2</b> ATLASでの研究の実装</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#予測の問題設定"><i class="fa fa-check"></i><b>13.2.1</b> 予測の問題設定</a></li>
+<li class="chapter" data-level="13.2.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#分析設定"><i class="fa fa-check"></i><b>13.2.2</b> 分析設定</a></li>
+<li class="chapter" data-level="13.2.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#コホートのインスタンス化-1"><i class="fa fa-check"></i><b>13.2.3</b> コホートのインスタンス化</a></li>
+<li class="chapter" data-level="13.2.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#データ抽出-2"><i class="fa fa-check"></i><b>13.2.4</b> データ抽出</a></li>
+<li class="chapter" data-level="13.2.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#追加選択基準"><i class="fa fa-check"></i><b>13.2.5</b> 追加選択基準</a></li>
+<li class="chapter" data-level="13.2.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル開発"><i class="fa fa-check"></i><b>13.2.6</b> モデル開発</a></li>
+<li class="chapter" data-level="13.2.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#内部バリデーション"><i class="fa fa-check"></i><b>13.2.7</b> 内部バリデーション</a></li>
+<li class="chapter" data-level="13.2.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#外部バリデーション"><i class="fa fa-check"></i><b>13.2.8</b> 外部バリデーション</a></li>
+<li class="chapter" data-level="13.2.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>13.2.9</b> モデルの比較</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#追加の患者レベル予測機能"><i class="fa fa-check"></i><b>13.3</b> 追加の患者レベル予測機能</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナルペーパーの生成"><i class="fa fa-check"></i><b>13.3.1</b> ジャーナルペーパーの生成</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>13.4</b> まとめ</a></li>
+<li class="chapter" data-level="13.5" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-6"><i class="fa fa-check"></i><b>13.5</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="証拠の質.html"><a href="証拠の質.html"><i class="fa fa-check"></i>証拠の質</a></li>
+<li class="chapter" data-level="14" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html"><i class="fa fa-check"></i><b>14</b> 証拠の質</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#信頼できる証拠の属性"><i class="fa fa-check"></i><b>14.1</b> 信頼できる証拠の属性</a></li>
+<li class="chapter" data-level="14.2" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#証拠の質の理解"><i class="fa fa-check"></i><b>14.2</b> 証拠の質の理解</a></li>
+<li class="chapter" data-level="14.3" data-path="EvidenceQuality.html"><a href="EvidenceQuality.html#証拠品質の伝達"><i class="fa fa-check"></i><b>14.3</b> 証拠品質の伝達</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="DataQuality.html"><a href="DataQuality.html"><i class="fa fa-check"></i><b>15</b> データ品質</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質問題の原因"><i class="fa fa-check"></i><b>15.1</b> データ品質問題の原因</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質チェック"><i class="fa fa-check"></i><b>15.1.1</b> データ品質チェック</a></li>
+<li class="chapter" data-level="15.1.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.1.2</b> ETL 単体テスト</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#研究特有のチェック"><i class="fa fa-check"></i><b>15.2</b> 研究特有のチェック</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#マッピングのチェック"><i class="fa fa-check"></i><b>15.2.1</b> マッピングのチェック</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#achillesInPractice"><i class="fa fa-check"></i><b>15.3</b> 実践におけるACHILLES</a></li>
+<li class="chapter" data-level="15.4" data-path="DataQuality.html"><a href="DataQuality.html#特定の研究チェックの実践"><i class="fa fa-check"></i><b>15.4</b> 特定の研究チェックの実践</a></li>
+<li class="chapter" data-level="15.5" data-path="DataQuality.html"><a href="DataQuality.html#まとめ-11"><i class="fa fa-check"></i><b>15.5</b> まとめ</a></li>
+<li class="chapter" data-level="15.6" data-path="DataQuality.html"><a href="DataQuality.html#実習"><i class="fa fa-check"></i><b>15.6</b> 実習</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> 臨床的妥当性</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 医療データベースの特性</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#コホート評価指標"><i class="fa fa-check"></i><b>16.1.1</b> コホート評価指標</a></li>
+<li class="chapter" data-level="16.1.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#ソースレコード検証の例"><i class="fa fa-check"></i><b>16.1.2</b> ソースレコード検証の例</a></li>
+<li class="chapter" data-level="16.1.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluatorによる検証例"><i class="fa fa-check"></i><b>16.1.3</b> PheValuatorによる検証例</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#要約"><i class="fa fa-check"></i><b>16.2</b> 要約</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> ソフトウェアの妥当性</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#研究コードの妥当性"><i class="fa fa-check"></i><b>17.1</b> 研究コードの妥当性</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#automation"><i class="fa fa-check"></i><b>17.1.1</b> 再現性のための自動化の必要性</a></li>
+<li class="chapter" data-level="17.1.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#プログラミングのベストプラクティス"><i class="fa fa-check"></i><b>17.1.2</b> プログラミングのベストプラクティス</a></li>
+<li class="chapter" data-level="17.1.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#コードの検証"><i class="fa fa-check"></i><b>17.1.3</b> コードの検証</a></li>
+<li class="chapter" data-level="17.1.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#methods-libraryの使用"><i class="fa fa-check"></i><b>17.1.4</b> Methods Libraryの使用</a></li>
+<li class="chapter" data-level="17.1.5" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ソースコード管理"><i class="fa fa-check"></i><b>17.1.5</b> ソースコード管理</a></li>
+<li class="chapter" data-level="17.1.6" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ドキュメンテーション"><i class="fa fa-check"></i><b>17.1.6</b> ドキュメンテーション</a></li>
+<li class="chapter" data-level="17.1.7" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#現行および過去のアーカイブバージョンの利用可能性"><i class="fa fa-check"></i><b>17.1.7</b> 現行および過去のアーカイブバージョンの利用可能性</a></li>
+<li class="chapter" data-level="17.1.8" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#メンテナンスサポートおよびリタイアメント"><i class="fa fa-check"></i><b>17.1.8</b> メンテナンス、サポート、およびリタイアメント</a></li>
+<li class="chapter" data-level="17.1.9" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#有資格者"><i class="fa fa-check"></i><b>17.1.9</b> 有資格者</a></li>
+<li class="chapter" data-level="17.1.10" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#物理的および論理的セキュリティ"><i class="fa fa-check"></i><b>17.1.10</b> 物理的および論理的セキュリティ</a></li>
+<li class="chapter" data-level="17.1.11" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#災害復旧"><i class="fa fa-check"></i><b>17.1.11</b> 災害復旧</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#メソッドライブラリのテスト"><i class="fa fa-check"></i><b>17.2</b> メソッドライブラリのテスト</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ユニットテスト"><i class="fa fa-check"></i><b>17.2.1</b> ユニットテスト</a></li>
+<li class="chapter" data-level="17.2.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#シミュレーション"><i class="fa fa-check"></i><b>17.2.2</b> シミュレーション</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#まとめ-12"><i class="fa fa-check"></i><b>17.3</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="MethodValidity.html"><a href="MethodValidity.html"><i class="fa fa-check"></i><b>18</b> 方法の妥当性</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="MethodValidity.html"><a href="MethodValidity.html#デザイン特有の診断"><i class="fa fa-check"></i><b>18.1</b> デザイン特有の診断</a></li>
+<li class="chapter" data-level="18.2" data-path="MethodValidity.html"><a href="MethodValidity.html#推定のための診断"><i class="fa fa-check"></i><b>18.2</b> 推定のための診断</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="MethodValidity.html"><a href="MethodValidity.html#NegativeControls"><i class="fa fa-check"></i><b>18.2.1</b> ネガティブコントロール</a></li>
+<li class="chapter" data-level="18.2.2" data-path="MethodValidity.html"><a href="MethodValidity.html#PositiveControls"><i class="fa fa-check"></i><b>18.2.2</b> ポジティブコントロール</a></li>
+<li class="chapter" data-level="18.2.3" data-path="MethodValidity.html"><a href="MethodValidity.html#metrics"><i class="fa fa-check"></i><b>18.2.3</b> 実証的評価</a></li>
+<li class="chapter" data-level="18.2.4" data-path="MethodValidity.html"><a href="MethodValidity.html#p値のキャリブレーション"><i class="fa fa-check"></i><b>18.2.4</b> P値のキャリブレーション</a></li>
+<li class="chapter" data-level="18.2.5" data-path="MethodValidity.html"><a href="MethodValidity.html#ネガティブコントロールの選択"><i class="fa fa-check"></i><b>18.2.5</b> ネガティブコントロールの選択</a></li>
+<li class="chapter" data-level="18.2.6" data-path="MethodValidity.html"><a href="MethodValidity.html#コントロールの仲間"><i class="fa fa-check"></i><b>18.2.6</b> コントロールの仲間</a></li>
+<li class="chapter" data-level="18.2.7" data-path="MethodValidity.html"><a href="MethodValidity.html#実証されたパフォーマンス"><i class="fa fa-check"></i><b>18.2.7</b> 実証されたパフォーマンス</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="MethodValidity.html"><a href="MethodValidity.html#まとめ-13"><i class="fa fa-check"></i><b>18.3</b> まとめ</a></li>
+</ul></li>
+<li class="part"><span><b>II OHDSI研究</b></span></li>
+<li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> 研究の段階</a>
+<ul>
+<li class="chapter" data-level="19.0.1" data-path="StudySteps.html"><a href="StudySteps.html#観察研究の定義"><i class="fa fa-check"></i><b>19.0.1</b> 観察研究の定義</a></li>
+<li class="chapter" data-level="19.0.2" data-path="StudySteps.html"><a href="StudySteps.html#研究デザインの事前仕様"><i class="fa fa-check"></i><b>19.0.2</b> 研究デザインの事前仕様</a></li>
+<li class="chapter" data-level="19.0.3" data-path="StudySteps.html"><a href="StudySteps.html#プロトコル"><i class="fa fa-check"></i><b>19.0.3</b> プロトコル</a></li>
+<li class="chapter" data-level="19.0.4" data-path="StudySteps.html"><a href="StudySteps.html#標準化された分析"><i class="fa fa-check"></i><b>19.0.4</b> 標準化された分析</a></li>
+<li class="chapter" data-level="19.0.5" data-path="StudySteps.html"><a href="StudySteps.html#研究パッケージ"><i class="fa fa-check"></i><b>19.0.5</b> 研究パッケージ</a></li>
+<li class="chapter" data-level="19.0.6" data-path="StudySteps.html"><a href="StudySteps.html#cdmに基づくデータ"><i class="fa fa-check"></i><b>19.0.6</b> CDMに基づくデータ</a></li>
+<li class="chapter" data-level="19.0.7" data-path="StudySteps.html"><a href="StudySteps.html#質問を定義する"><i class="fa fa-check"></i><b>19.0.7</b> 質問を定義する</a></li>
+<li class="chapter" data-level="19.0.8" data-path="StudySteps.html"><a href="StudySteps.html#データの可用性と質を確認する"><i class="fa fa-check"></i><b>19.0.8</b> データの可用性と質を確認する</a></li>
+<li class="chapter" data-level="19.0.9" data-path="StudySteps.html"><a href="StudySteps.html#研究対象集団"><i class="fa fa-check"></i><b>19.0.9</b> 研究対象集団</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="NetworkResearch.html"><a href="NetworkResearch.html"><i class="fa fa-check"></i><b>20</b> OHDSI ネットワーク研究</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsi-研究ネットワークとして"><i class="fa fa-check"></i><b>20.1</b> OHDSI 研究ネットワークとして</a></li>
+<li class="chapter" data-level="20.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究"><i class="fa fa-check"></i><b>20.2</b> OHDSIネットワーク研究</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究を実施する動機"><i class="fa fa-check"></i><b>20.2.1</b> OHDSIネットワーク研究を実施する動機</a></li>
+<li class="chapter" data-level="20.2.2" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の定義"><i class="fa fa-check"></i><b>20.2.2</b> OHDSIネットワーク研究の定義</a></li>
+<li class="chapter" data-level="20.2.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の設計上の考慮事項"><i class="fa fa-check"></i><b>20.2.3</b> OHDSIネットワーク研究の設計上の考慮事項</a></li>
+<li class="chapter" data-level="20.2.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究の物流面の考慮事項"><i class="fa fa-check"></i><b>20.2.4</b> OHDSIネットワーク研究の物流面の考慮事項</a></li>
+<li class="chapter" data-level="20.2.5" data-path="NetworkResearch.html"><a href="NetworkResearch.html#研究デザインと実現可能性"><i class="fa fa-check"></i><b>20.2.5</b> 研究デザインと実現可能性</a></li>
+<li class="chapter" data-level="20.2.6" data-path="NetworkResearch.html"><a href="NetworkResearch.html#研究実行"><i class="fa fa-check"></i><b>20.2.6</b> 研究実行</a></li>
+<li class="chapter" data-level="20.2.7" data-path="NetworkResearch.html"><a href="NetworkResearch.html#結果の普及と公開"><i class="fa fa-check"></i><b>20.2.7</b> 結果の普及と公開</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="NetworkResearch.html"><a href="NetworkResearch.html#ohdsiネットワーク研究のベストプラクティス"><i class="fa fa-check"></i><b>20.3</b> OHDSIネットワーク研究のベストプラクティス</a></li>
+<li class="chapter" data-level="20.4" data-path="NetworkResearch.html"><a href="NetworkResearch.html#まとめ-14"><i class="fa fa-check"></i><b>20.4</b> まとめ</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="Glossary.html"><a href="Glossary.html"><i class="fa fa-check"></i><b>21</b> 用語集</a></li>
+<li class="chapter" data-level="22" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html"><i class="fa fa-check"></i><b>22</b> コホート定義</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitors"><i class="fa fa-check"></i><b>22.1</b> ACE阻害薬</a></li>
+<li class="chapter" data-level="22.2" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceInhibitorsMono"><i class="fa fa-check"></i><b>22.2</b> ACE阻害薬単独療法新規使用者</a></li>
+<li class="chapter" data-level="22.3" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Ami"><i class="fa fa-check"></i><b>22.3</b> 急性心筋梗塞（AMI）</a></li>
+<li class="chapter" data-level="22.4" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#Angioedema"><i class="fa fa-check"></i><b>22.4</b> 血管性浮腫</a></li>
+<li class="chapter" data-level="22.5" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ThiazidesMono"><i class="fa fa-check"></i><b>22.5</b> サイアザイド系利尿薬単剤療法の新規使用者</a></li>
+<li class="chapter" data-level="22.6" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN1yrFO"><i class="fa fa-check"></i><b>22.6</b> 初回高血圧治療を開始する患者</a></li>
+<li class="chapter" data-level="22.7" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#HTN3yrFO"><i class="fa fa-check"></i><b>22.7</b> 3年以上のフォローアップがある初回高血圧治療患者</a></li>
+<li class="chapter" data-level="22.8" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ACEiUse"><i class="fa fa-check"></i><b>22.8</b> ACE阻害薬の使用</a></li>
+<li class="chapter" data-level="22.9" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ARBUse"><i class="fa fa-check"></i><b>22.9</b> アンジオテンシン受容体拮抗薬（ARB）の使用</a></li>
+<li class="chapter" data-level="22.10" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#THZUse"><i class="fa fa-check"></i><b>22.10</b> サイアザイド系およびサイアザイド様利尿薬の使用</a></li>
+<li class="chapter" data-level="22.11" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#dCCBUse"><i class="fa fa-check"></i><b>22.11</b> ジヒドロピリジン系カルシウム拮抗薬（dCCB）の使用</a></li>
+<li class="chapter" data-level="22.12" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ndCCBUse"><i class="fa fa-check"></i><b>22.12</b> 非ジヒドロピリジン系カルシウム拮抗薬（ndCCB）の使用</a></li>
+<li class="chapter" data-level="22.13" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#BBUse"><i class="fa fa-check"></i><b>22.13</b> ベータブロッカー使用</a></li>
+<li class="chapter" data-level="22.14" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DLoopUse"><i class="fa fa-check"></i><b>22.14</b> ループ利尿薬使用</a></li>
+<li class="chapter" data-level="22.15" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#DPUse"><i class="fa fa-check"></i><b>22.15</b> カリウム保持利尿薬使用</a></li>
+<li class="chapter" data-level="22.16" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#A1BUse"><i class="fa fa-check"></i><b>22.16</b> アルファ1ブロッカー使用</a></li>
+<li class="chapter" data-level="22.17" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#NegativeControlsAppendix"><i class="fa fa-check"></i><b>22.17</b> ネガティブコントロール</a></li>
+<li class="chapter" data-level="22.18" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#AceiThzNsc"><i class="fa fa-check"></i><b>22.18</b> ACEiとTHZ</a></li>
+<li class="chapter" data-level="22.19" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#ProtocolTemplate"><i class="fa fa-check"></i><b>22.19</b> プロトコルテンプレート</a></li>
+<li class="chapter" data-level="22.20" data-path="CohortDefinitions.html"><a href="CohortDefinitions.html#na"><i class="fa fa-check"></i><b>22.20</b> NA</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>23</b> 推奨解答</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>23.1</b> 共通データモデル</a></li>
+<li class="chapter" data-level="23.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>23.2</b> 標準化された用語集</a></li>
+<li class="chapter" data-level="23.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>23.3</b> 抽出変換ロード</a></li>
+<li class="chapter" data-level="23.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>23.4</b> データ分析のユースケース</a></li>
+<li class="chapter" data-level="23.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>23.5</b> コホートの定義</a></li>
+<li class="chapter" data-level="23.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>23.6</b> 特徴記述</a></li>
+<li class="chapter" data-level="23.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>23.7</b> 集団レベル推定</a></li>
+<li class="chapter" data-level="23.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>23.8</b> 患者レベル予測</a></li>
+<li class="chapter" data-level="23.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>23.9</b> データ品質</a></li>
+<li class="chapter" data-level="23.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#section"><i class="fa fa-check"></i><b>23.10</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="参考文献.html"><a href="参考文献.html"><i class="fa fa-check"></i>参考文献</a>
+<ul>
+<li class="chapter" data-level="23.11" data-path="参考文献.html"><a href="参考文献.html#na-1"><i class="fa fa-check"></i><b>23.11</b> NA</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">OHDSIの書</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="SuggestedAnswers" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">第 23</span> 推奨解答<a href="SuggestedAnswers.html#SuggestedAnswers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>この付録には、本書の練習問題に対する推奨解答が含まれています。</p>
+<div id="Cdmanswers" class="section level2 hasAnchor" number="23.1">
+<h2><span class="header-section-number">23.1</span> 共通データモデル<a href="SuggestedAnswers.html#Cdmanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="練習問題-refexrexercisejohnperson" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exerciseJohnPerson">4.1</a><a href="SuggestedAnswers.html#練習問題-refexrexercisejohnperson" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>練習問題で説明されている内容に基づいて、ジョンのレコードは表 <a href="#tab:johnPerson">23.1</a> のようになるはずです。</p>
+<p>表: (#tab:johnPerson) PERSONテーブル。</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="16%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">カラム名</th>
+<th align="left">値</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PERSON_ID</td>
+<td align="left">2</td>
+<td align="left">一意の整数。</td>
+</tr>
+<tr class="even">
+<td align="left">GENDER_CONCEPT_ID</td>
+<td align="left">8507</td>
+<td align="left">男性の概念 ID は <a href="http://athena.ohdsi.org/search-terms/terms/8507">8507</a>。</td>
+</tr>
+<tr class="odd">
+<td align="left">YEAR_OF_BIRTH</td>
+<td align="left">1974</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">MONTH_OF_BIRTH</td>
+<td align="left">8</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">DAY_OF_BIRTH</td>
+<td align="left">4</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">BIRTH_DATETIME</td>
+<td align="left">1974-08-04 00:00:00</td>
+<td align="left">時間が不明な場合は真夜中（00:00:00）を使用。</td>
+</tr>
+<tr class="odd">
+<td align="left">DEATH_DATETIME</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">RACE_CONCEPT_ID</td>
+<td align="left">8516</td>
+<td align="left">アフリカ系アメリカ人の概念 ID は <a href="http://athena.ohdsi.org/search-terms/terms/8516">8516</a>。</td>
+</tr>
+<tr class="odd">
+<td align="left">ETHNICITY_ CONCEPT_ID</td>
+<td align="left">38003564</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a> は「ヒスパニックではない」ことを示す。</td>
+</tr>
+<tr class="even">
+<td align="left">LOCATION_ID</td>
+<td align="left"></td>
+<td align="left">住所は不明。</td>
+</tr>
+<tr class="odd">
+<td align="left">PROVIDER_ID</td>
+<td align="left"></td>
+<td align="left">主治医が不明。</td>
+</tr>
+<tr class="even">
+<td align="left">CARE_SITE</td>
+<td align="left"></td>
+<td align="left">主治療施設が不明。</td>
+</tr>
+<tr class="odd">
+<td align="left">PERSON_SOURCE_ VALUE</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="even">
+<td align="left">GENDER_SOURCE_ VALUE</td>
+<td align="left">Man</td>
+<td align="left">説明で使用されたテキスト。</td>
+</tr>
+<tr class="odd">
+<td align="left">GENDER_SOURCE_ CONCEPT_ID</td>
+<td align="left">0</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">RACE_SOURCE_ VALUE</td>
+<td align="left">African American</td>
+<td align="left">説明で使用されたテキスト。</td>
+</tr>
+<tr class="odd">
+<td align="left">RACE_SOURCE_ CONCEPT_ID</td>
+<td align="left">0</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">ETHNICITY_SOURCE_ VALUE</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">ETHNICITY_SOURCE_ CONCEPT_ID</td>
+<td align="left">0</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="練習問題-refexrexercisejohnop" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exerciseJohnOp">4.2</a><a href="SuggestedAnswers.html#練習問題-refexrexercisejohnop" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>練習問題で説明されている内容に基づいて、ジョンのレコードは表 <a href="#tab:johnOp">23.2</a> のようになるはずです。</p>
+<p>表: (#tab:johnOp) OBSERVATION_PERIODテーブル。</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="15%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">カラム名</th>
+<th align="left">値</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">OBSERVATION_ PERIOD_ID</td>
+<td align="left">2</td>
+<td align="left">一意の整数。</td>
+</tr>
+<tr class="even">
+<td align="left">PERSON_ID</td>
+<td align="left">2</td>
+<td align="left">これはPERSONテーブルのジョンのレコードへの外部キー。</td>
+</tr>
+<tr class="odd">
+<td align="left">OBSERVATION_PERIOD_ START_DATE</td>
+<td align="left">2015-01-01</td>
+<td align="left">加入日の日付。</td>
+</tr>
+<tr class="even">
+<td align="left">OBSERVATION_PERIOD_ END_DATE</td>
+<td align="left">2019-07-01</td>
+<td align="left">データ抽出日以降のデータは期待されない。</td>
+</tr>
+<tr class="odd">
+<td align="left">PERIOD_TYPE_ CONCEPT_ID</td>
+<td align="left">44814722</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/44814722">44814724</a> は「保険加入期間」を示す。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="練習問題-refexrexercisejohndrug" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exerciseJohnDrug">4.3</a><a href="SuggestedAnswers.html#練習問題-refexrexercisejohndrug" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>練習問題で説明されている内容に基づいて、ジョンのレコードは表 <a href="#tab:johnDrug">23.3</a> のようになるはずです。</p>
+<p>表: (#tab:johnDrug) DRUG_EXPOSUREテーブル。</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="16%" />
+<col width="53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">カラム名</th>
+<th align="left">値</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">DRUG_EXPOSURE_ID</td>
+<td align="left">1001</td>
+<td align="left">一意の整数。</td>
+</tr>
+<tr class="even">
+<td align="left">PERSON_ID</td>
+<td align="left">2</td>
+<td align="left">これはPERSONテーブルのジョンのレコードへの外部キー。</td>
+</tr>
+<tr class="odd">
+<td align="left">DRUG_CONCEPT_ID</td>
+<td align="left">19078461</td>
+<td align="left">提供されたNDCコードは標準概念 <a href="http://athena.ohdsi.org/search-terms/terms/19078461">19078461</a> にマッピングされる。</td>
+</tr>
+<tr class="even">
+<td align="left">DRUG_EXPOSURE_ START_DATE</td>
+<td align="left">2019-05-01</td>
+<td align="left">薬物暴露の開始日。</td>
+</tr>
+<tr class="odd">
+<td align="left">DRUG_EXPOSURE_ START_DATETIME</td>
+<td align="left">2019-05-01 00:00:00</td>
+<td align="left">時間が不明なため真夜中を使用。</td>
+</tr>
+<tr class="even">
+<td align="left">DRUG_EXPOSURE_ END_DATE</td>
+<td align="left">2019-05-31</td>
+<td align="left">開始日 + 日数供給に基づく。</td>
+</tr>
+<tr class="odd">
+<td align="left">DRUG_EXPOSURE_ END_DATETIME</td>
+<td align="left">2019-05-31 00:00:00</td>
+<td align="left">時間が不明なため真夜中を使用。</td>
+</tr>
+<tr class="even">
+<td align="left">VERBATIM_END_DATE</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="odd">
+<td align="left">DRUG_TYPE_ CONCEPT_ID</td>
+<td align="left">38000177</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> は「処方箋を書いた」ことを示す。</td>
+</tr>
+<tr class="even">
+<td align="left">STOP_REASON</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">REFILLS</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">QUANTITY</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="odd">
+<td align="left">DAYS_SUPPLY</td>
+<td align="left">30</td>
+<td align="left">練習問題に記述されている通り。</td>
+</tr>
+<tr class="even">
+<td align="left">SIG</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="odd">
+<td align="left">ROUTE_CONCEPT_ID</td>
+<td align="left">4132161</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/4132161">4132161</a> は「経口」を示す。</td>
+</tr>
+<tr class="even">
+<td align="left">LOT_NUMBER</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="odd">
+<td align="left">PROVIDER_ID</td>
+<td align="left">NULL</td>
+<td align="left">提供されていない。</td>
+</tr>
+<tr class="even">
+<td align="left">VISIT_OCCURRENCE_ ID</td>
+<td align="left">NULL</td>
+<td align="left">訪問に関する情報は提供されなかった。</td>
+</tr>
+<tr class="odd">
+<td align="left">VISIT_DETAIL_ID</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">DRUG_SOURCE_ VALUE</td>
+<td align="left">76168009520</td>
+<td align="left">提供されたNDCコード。</td>
+</tr>
+<tr class="odd">
+<td align="left">DRUG_SOURCE_ CONCEPT_ID</td>
+<td align="left">583945</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/750264">583945</a> は薬物源の値を表す (NDCコード「76168009520」)。</td>
+</tr>
+<tr class="even">
+<td align="left">ROUTE_SOURCE_ VALUE</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="練習問題-refexrexercisegibleedrecords" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exerciseGiBleedRecords">4.4</a><a href="SuggestedAnswers.html#練習問題-refexrexercisegibleedrecords" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルをクエリする必要があります：</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="SuggestedAnswers.html#cb141-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb141-2"><a href="SuggestedAnswers.html#cb141-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb141-3"><a href="SuggestedAnswers.html#cb141-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb141-4"><a href="SuggestedAnswers.html#cb141-4" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb141-5"><a href="SuggestedAnswers.html#cb141-5" tabindex="-1"></a><span class="st">WHERE condition_concept_id = 192671;&quot;</span></span>
+<span id="cb141-6"><a href="SuggestedAnswers.html#cb141-6" tabindex="-1"></a></span>
+<span id="cb141-7"><a href="SuggestedAnswers.html#cb141-7" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
+<span id="cb141-8"><a href="SuggestedAnswers.html#cb141-8" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
+<pre><code>##   CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
+## 1                    4657       273               192671 ...
+## 2                    1021        61               192671 ...
+## 3                    5978       351               192671 ...
+## 4                    9798       579               192671 ...
+## 5                    9301       549               192671 ...
+## 6                    1997       116               192671 ...</code></pre>
+</div>
+<div id="練習問題-refexrexercisepersonsource" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exercisePersonSource">4.5</a><a href="SuggestedAnswers.html#練習問題-refexrexercisepersonsource" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルのCONDITION_SOURCE_VALUEフィールドを使用してクエリを実行する必要があります：</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="SuggestedAnswers.html#cb143-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb143-2"><a href="SuggestedAnswers.html#cb143-2" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb143-3"><a href="SuggestedAnswers.html#cb143-3" tabindex="-1"></a><span class="st">WHERE condition_source_value = &#39;K92.2&#39;;&quot;</span></span>
+<span id="cb143-4"><a href="SuggestedAnswers.html#cb143-4" tabindex="-1"></a></span>
+<span id="cb143-5"><a href="SuggestedAnswers.html#cb143-5" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
+<span id="cb143-6"><a href="SuggestedAnswers.html#cb143-6" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
+<pre><code>##   CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
+## 1                    4657       273               192671 ...
+## 2                    1021        61               192671 ...
+## 3                    5978       351               192671 ...
+## 4                    9798       579               192671 ...
+## 5                    9301       549               192671 ...
+## 6                    1997       116               192671 ...</code></pre>
+</div>
+<div id="練習問題-refexrexerciseperson61records" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="CommonDataModel.html#exr:exercisePerson61Records">4.6</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseperson61records" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>この情報はOBSERVATION_PERIODテーブルに保存されています：</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="SuggestedAnswers.html#cb145-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb145-2"><a href="SuggestedAnswers.html#cb145-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb145-3"><a href="SuggestedAnswers.html#cb145-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb145-4"><a href="SuggestedAnswers.html#cb145-4" tabindex="-1"></a><span class="st">FROM @cdm.observation_period</span></span>
+<span id="cb145-5"><a href="SuggestedAnswers.html#cb145-5" tabindex="-1"></a><span class="st">WHERE person_id = 61;&quot;</span></span>
+<span id="cb145-6"><a href="SuggestedAnswers.html#cb145-6" tabindex="-1"></a></span>
+<span id="cb145-7"><a href="SuggestedAnswers.html#cb145-7" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<pre><code>##   OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
+## 1                    61        61                    1968-01-21 ...</code></pre>
+</div>
+</div>
+<div id="Vocabanswers" class="section level2 hasAnchor" number="23.2">
+<h2><span class="header-section-number">23.2</span> 標準化された用語集<a href="SuggestedAnswers.html#Vocabanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="練習問題-refexrexercisevocab1" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="StandardizedVocabularies.html#exr:exerciseVocab1">5.1</a><a href="SuggestedAnswers.html#練習問題-refexrexercisevocab1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>概念 ID 192671 (“胃腸出血”)</p>
+</div>
+<div id="練習問題-refexrexercisevocab2" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="StandardizedVocabularies.html#exr:exerciseVocab2">5.2</a><a href="SuggestedAnswers.html#練習問題-refexrexercisevocab2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>ICD-10CMコード：</p>
+<ul>
+<li>K29.91 “出血を伴う特定されていない胃十二指腸炎”</li>
+<li>K92.2 “特定されていない胃腸出血”</li>
+</ul>
+<p>ICD-9CMコード：</p>
+<ul>
+<li>578 “胃腸出血”</li>
+<li>578.9 “特定されていない胃腸出血”</li>
+</ul>
+</div>
+<div id="練習問題-refexrexercisevocab3" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="StandardizedVocabularies.html#exr:exerciseVocab3">5.3</a><a href="SuggestedAnswers.html#練習問題-refexrexercisevocab3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>MedDRA推奨用語：</p>
+<ul>
+<li>“胃腸出血” (概念ID 35707864)</li>
+<li>“腸出血” (概念ID 35707858)</li>
+</ul>
+</div>
+</div>
+<div id="Etlanswers" class="section level2 hasAnchor" number="23.3">
+<h2><span class="header-section-number">23.3</span> 抽出変換ロード<a href="SuggestedAnswers.html#Etlanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="練習問題-refexrexerciseetl1" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="ExtractTransformLoad.html#exr:exerciseEtl1">6.1</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseetl1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: upper-alpha">
+<li>データの専門家とCDMの専門家が協力してETLの設計を行う</li>
+<li>医療の知識を持つ人がコードマッピングを作成する</li>
+<li>技術者がETLを実装する</li>
+<li>全員が品質管理に関与する</li>
+</ol>
+</div>
+<div id="練習問題-refexrexerciseetl2" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="ExtractTransformLoad.html#exr:exerciseEtl2">6.2</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseetl2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="22%" />
+<col width="45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">カラム</th>
+<th align="left">値</th>
+<th align="left">解答</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">PERSON_ID</td>
+<td align="left">A123B456</td>
+<td align="left">このカラムは整数型のデータタイプを持っているため、ソースのレコード値を数値に変換する必要がある。</td>
+</tr>
+<tr class="even">
+<td align="left">GENDER_CONCEPT_ID</td>
+<td align="left">8532</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">YEAR_OF_BIRTH</td>
+<td align="left">NULL</td>
+<td align="left">月や誕生日が不明な場合は、推測しない。月や誕生日がなくても存在できる人です。生年がない人は除外する必要がある。この人は生年がないため除外する必要がある。</td>
+</tr>
+<tr class="even">
+<td align="left">MONTH_OF_BIRTH</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">DAY_OF_BIRTH</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">RACE_CONCEPT_ID</td>
+<td align="left">0</td>
+<td align="left">人種はWHITEであり、これは8527にマッピングされるべき。</td>
+</tr>
+<tr class="odd">
+<td align="left">ETHNICITY_CONCEPT_ ID</td>
+<td align="left">8527</td>
+<td align="left">民族性は提供されていないため、これは0にマッピングされるべき。</td>
+</tr>
+<tr class="even">
+<td align="left">PERSON_SOURCE_ VALUE</td>
+<td align="left">A123B456</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">GENDER_SOURCE_ VALUE</td>
+<td align="left">F</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">RACE_SOURCE_VALUE</td>
+<td align="left">WHITE</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">ETHNICITY_SOURCE_ VALUE</td>
+<td align="left">NONE PROVIDED</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="練習問題-refexrexerciseetl3" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="ExtractTransformLoad.html#exr:exerciseEtl3">6.3</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseetl3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">カラム</th>
+<th align="left">値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">VISIT_OCCURRENCE_ID</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">PERSON_ID</td>
+<td align="left">11</td>
+</tr>
+<tr class="odd">
+<td align="left">VISIT_START_DATE</td>
+<td align="left">2004-09-26</td>
+</tr>
+<tr class="even">
+<td align="left">VISIT_END_DATE</td>
+<td align="left">2004-09-30</td>
+</tr>
+<tr class="odd">
+<td align="left">VISIT_CONCEPT_ID</td>
+<td align="left">9201</td>
+</tr>
+<tr class="even">
+<td align="left">VISIT_SOURCE_VALUE</td>
+<td align="left">inpatient</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="UseCasesanswers" class="section level2 hasAnchor" number="23.4">
+<h2><span class="header-section-number">23.4</span> データ分析のユースケース<a href="SuggestedAnswers.html#UseCasesanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="練習問題-refexrexerciseusecases1" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="DataAnalyticsUseCases.html#exr:exerciseUseCases1">7.1</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseusecases1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><p>特徴量化</p></li>
+<li><p>患者レベルの予測</p></li>
+<li><p>集団レベルの推定</p></li>
+</ol>
+</div>
+<div id="練習問題-refexrexerciseusecases2" class="section level4 unnumbered hasAnchor">
+<h4>練習問題 <a href="DataAnalyticsUseCases.html#exr:exerciseUseCases2">7.2</a><a href="SuggestedAnswers.html#練習問題-refexrexerciseusecases2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
+## SQLとR {#SqlAndRanswers}</p>
+</div>
+<div id="演習-refexrexercisepeoplecount" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="SqlAndR.html#exr:exercisePeopleCount">9.1</a><a href="SuggestedAnswers.html#演習-refexrexercisepeoplecount" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>人数を計算するには、単純にPERSONテーブルをクエリすればよいです:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="SuggestedAnswers.html#cb147-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb147-2"><a href="SuggestedAnswers.html#cb147-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb147-3"><a href="SuggestedAnswers.html#cb147-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS person_count</span></span>
+<span id="cb147-4"><a href="SuggestedAnswers.html#cb147-4" tabindex="-1"></a><span class="st">FROM @cdm.person;&quot;</span></span>
+<span id="cb147-5"><a href="SuggestedAnswers.html#cb147-5" tabindex="-1"></a></span>
+<span id="cb147-6"><a href="SuggestedAnswers.html#cb147-6" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<pre><code>##   PERSON_COUNT
+## 1         2694</code></pre>
+</div>
+<div id="演習-refexrexercisecelecoxibusers" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="SqlAndR.html#exr:exerciseCelecoxibUsers">9.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecelecoxibusers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>セレコキシブの処方を少なくとも1回受けた人の人数を計算するには、DRUG_EXPOSUREテーブルをクエリします。セレコキシブの成分を含むすべての薬剤を見つけるために、CONCEPT_ANCESTORおよびCONCEPTテーブルを結合します:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="SuggestedAnswers.html#cb149-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb149-2"><a href="SuggestedAnswers.html#cb149-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb149-3"><a href="SuggestedAnswers.html#cb149-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
+<span id="cb149-4"><a href="SuggestedAnswers.html#cb149-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_exposure</span></span>
+<span id="cb149-5"><a href="SuggestedAnswers.html#cb149-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
+<span id="cb149-6"><a href="SuggestedAnswers.html#cb149-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = descendant_concept_id</span></span>
+<span id="cb149-7"><a href="SuggestedAnswers.html#cb149-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb149-8"><a href="SuggestedAnswers.html#cb149-8" tabindex="-1"></a><span class="st">  ON ancestor_concept_id = ingredient.concept_id</span></span>
+<span id="cb149-9"><a href="SuggestedAnswers.html#cb149-9" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb149-10"><a href="SuggestedAnswers.html#cb149-10" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb149-11"><a href="SuggestedAnswers.html#cb149-11" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
+<span id="cb149-12"><a href="SuggestedAnswers.html#cb149-12" tabindex="-1"></a></span>
+<span id="cb149-13"><a href="SuggestedAnswers.html#cb149-13" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<pre><code>##   PERSON_COUNT
+## 1         1844</code></pre>
+<p><code>COUNT(DISTINCT(person_id))</code>を使用して、重複することなく個別の人数を見つけ出すことに注意してください。これは、人が複数の処方薬を持っている場合があるためです。また、検索が「celecoxib」であることを大文字小文字を区別しないように<code>LOWER</code>関数を使用していることにも注意してください。</p>
+<p>代替方法として、すでに成分レベルにまとめられているDRUG_ERAテーブルを使用することもできます:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="SuggestedAnswers.html#cb151-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb151-2"><a href="SuggestedAnswers.html#cb151-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb151-3"><a href="SuggestedAnswers.html#cb151-3" tabindex="-1"></a></span>
+<span id="cb151-4"><a href="SuggestedAnswers.html#cb151-4" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
+<span id="cb151-5"><a href="SuggestedAnswers.html#cb151-5" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
+<span id="cb151-6"><a href="SuggestedAnswers.html#cb151-6" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb151-7"><a href="SuggestedAnswers.html#cb151-7" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
+<span id="cb151-8"><a href="SuggestedAnswers.html#cb151-8" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb151-9"><a href="SuggestedAnswers.html#cb151-9" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb151-10"><a href="SuggestedAnswers.html#cb151-10" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
+<span id="cb151-11"><a href="SuggestedAnswers.html#cb151-11" tabindex="-1"></a></span>
+<span id="cb151-12"><a href="SuggestedAnswers.html#cb151-12" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<pre><code>##   PERSON_COUNT
+## 1         1844</code></pre>
+</div>
+<div id="演習-refexrexercisegibleedsduringcelecoxib" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="SqlAndR.html#exr:exerciseGiBleedsDuringCelecoxib">9.3</a><a href="SuggestedAnswers.html#演習-refexrexercisegibleedsduringcelecoxib" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>曝露期間中の診断数を計算するには、以前のクエリを拡張してCONDITION_OCCURRENCEテーブルに結合します。消化管出血を意味するすべての状態コンセプトを見つけるために、CONCEPT_ANCESTORテーブルに結合します:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="SuggestedAnswers.html#cb153-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb153-2"><a href="SuggestedAnswers.html#cb153-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb153-3"><a href="SuggestedAnswers.html#cb153-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS diagnose_count</span></span>
+<span id="cb153-4"><a href="SuggestedAnswers.html#cb153-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
+<span id="cb153-5"><a href="SuggestedAnswers.html#cb153-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb153-6"><a href="SuggestedAnswers.html#cb153-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
+<span id="cb153-7"><a href="SuggestedAnswers.html#cb153-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.condition_occurrence</span></span>
+<span id="cb153-8"><a href="SuggestedAnswers.html#cb153-8" tabindex="-1"></a><span class="st">  ON condition_start_date &gt;= drug_era_start_date</span></span>
+<span id="cb153-9"><a href="SuggestedAnswers.html#cb153-9" tabindex="-1"></a><span class="st">    AND condition_start_date &lt;= drug_era_end_date</span></span>
+<span id="cb153-10"><a href="SuggestedAnswers.html#cb153-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
+<span id="cb153-11"><a href="SuggestedAnswers.html#cb153-11" tabindex="-1"></a><span class="st">  ON condition_concept_id =descendant_concept_id</span></span>
+<span id="cb153-12"><a href="SuggestedAnswers.html#cb153-12" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb153-13"><a href="SuggestedAnswers.html#cb153-13" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb153-14"><a href="SuggestedAnswers.html#cb153-14" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;</span></span>
+<span id="cb153-15"><a href="SuggestedAnswers.html#cb153-15" tabindex="-1"></a><span class="st">  AND ancestor_concept_id = 192671;&quot;</span></span>
+<span id="cb153-16"><a href="SuggestedAnswers.html#cb153-16" tabindex="-1"></a></span>
+<span id="cb153-17"><a href="SuggestedAnswers.html#cb153-17" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<pre><code>##   DIAGNOSE_COUNT
+## 1         41</code></pre>
+<p>この場合、DRUG_EXPOSUREテーブルではなくDRUG_ERAテーブルを使用することが重要です。なぜなら、同じ成分を含む薬物暴露が重なる可能性があり、薬物時期は重ならないからです。これにより重複して数えることを避けられます。例えば、ある人が同時に2つのセレコキシブを含む薬物を受け取った場合、これは2つの薬物暴露として記録され、その期間中に発生する診断は2回カウントされてしまうでしょう。2つの暴露は1つの重ならない薬物時期に統合されます。</p>
+</div>
+</div>
+<div id="Cohortsanswers" class="section level2 hasAnchor" number="23.5">
+<h2><span class="header-section-number">23.5</span> コホートの定義<a href="SuggestedAnswers.html#Cohortsanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="演習-refexrexercisecohortsatlas" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="Cohorts.html#exr:exerciseCohortsAtlas">10.1</a><a href="SuggestedAnswers.html#演習-refexrexercisecohortsatlas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>以下の要件をエンコードする初期イベント基準を作成します:</p>
+<ul>
+<li>ジクロフェナクの新規使用者</li>
+<li>16歳以上</li>
+<li>曝露前に少なくとも365日間の連続観察があること</li>
+</ul>
+<p>完了したら、コホートエントリーイベントのセクションは図<a href="SuggestedAnswers.html#fig:cohortsAtlasInitialEvents">23.1</a>のようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasInitialEvents"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasInitialEvents.png" alt="ジクロフェナクの新規使用者向けのコホートエントリーイベント設定" width="100%" />
+<p class="caption">
+図 23.1: ジクロフェナクの新規使用者向けのコホートエントリーイベント設定
+</p>
+</div>
+<p>ジクロフェナクの概念セット表現は図<a href="SuggestedAnswers.html#fig:cohortsAtlasConceptSet1">23.2</a>のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasConceptSet1"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet1.png" alt="ジクロフェナクの概念セット表現。" width="100%" />
+<p class="caption">
+図 23.2: ジクロフェナクの概念セット表現。
+</p>
+</div>
+<p>次に、NSAIDの以前の曝露がないことを要求します。これは図<a href="SuggestedAnswers.html#fig:cohortsAtlasInclusion1">23.3</a>のようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasInclusion1"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasInclusion1.png" alt="NSAIDの以前の曝露なしを要求。" width="100%" />
+<p class="caption">
+図 23.3: NSAIDの以前の曝露なしを要求。
+</p>
+</div>
+<p>NSAIDsの概念セット表現は図<a href="SuggestedAnswers.html#fig:cohortsAtlasConceptSet2">23.4</a>のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasConceptSet2"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet2.png" alt="NSAIDsの概念セット表現" width="100%" />
+<p class="caption">
+図 23.4: NSAIDsの概念セット表現
+</p>
+</div>
+<p>さらに、がんの以前の診断がないことも要求します。これは図<a href="SuggestedAnswers.html#fig:cohortsAtlasInclusion2">23.5</a>のようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasInclusion2"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasInclusion2.png" alt="以前にがんの診断がないことを要求。" width="100%" />
+<p class="caption">
+図 23.5: 以前にがんの診断がないことを要求。
+</p>
+</div>
+<p>「広範な悪性腫瘍」の概念セット表現は図<a href="SuggestedAnswers.html#fig:cohortsAtlasConceptSet3">23.6</a>のようになり、上位概念「悪性腫瘍」とそのすべての子孫を含めます。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasConceptSet3"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasConceptSet3.png" alt="広範な悪性腫瘍の概念セット表現" width="100%" />
+<p class="caption">
+図 23.6: 広範な悪性腫瘍の概念セット表現
+</p>
+</div>
+<p>最後に、曝露中止をコホート退出基準として定義します（30日間のギャップを許容します）。これは図<a href="SuggestedAnswers.html#fig:cohortsAtlasExit">23.7</a>のようになります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortsAtlasExit"></span>
+<img src="images/SuggestedAnswers/cohortsAtlasExit.png" alt="コホート終了日の設定。" width="100%" />
+<p class="caption">
+図 23.7: コホート終了日の設定。
+</p>
+</div>
+</div>
+<div id="演習-refexrexercisecohortssql" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="Cohorts.html#exr:exerciseCohortsSql">10.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecohortssql" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>読みやすさのためにSQLを2つのステップに分けます。まず、心筋梗塞のすべての状態発生を見つけ、それらを一時テーブル「#diagnoses」に格納します:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="SuggestedAnswers.html#cb155-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb155-2"><a href="SuggestedAnswers.html#cb155-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb155-3"><a href="SuggestedAnswers.html#cb155-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT person_id AS subject_id,</span></span>
+<span id="cb155-4"><a href="SuggestedAnswers.html#cb155-4" tabindex="-1"></a><span class="st">  condition_start_date AS cohort_start_date</span></span>
+<span id="cb155-5"><a href="SuggestedAnswers.html#cb155-5" tabindex="-1"></a><span class="st">INTO #diagnoses</span></span>
+<span id="cb155-6"><a href="SuggestedAnswers.html#cb155-6" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb155-7"><a href="SuggestedAnswers.html#cb155-7" tabindex="-1"></a><span class="st">WHERE condition_concept_id IN (</span></span>
+<span id="cb155-8"><a href="SuggestedAnswers.html#cb155-8" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
+<span id="cb155-9"><a href="SuggestedAnswers.html#cb155-9" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
+<span id="cb155-10"><a href="SuggestedAnswers.html#cb155-10" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 4329847 -- 心筋梗塞</span></span>
+<span id="cb155-11"><a href="SuggestedAnswers.html#cb155-11" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb155-12"><a href="SuggestedAnswers.html#cb155-12" tabindex="-1"></a><span class="st">  AND condition_concept_id NOT IN (</span></span>
+<span id="cb155-13"><a href="SuggestedAnswers.html#cb155-13" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
+<span id="cb155-14"><a href="SuggestedAnswers.html#cb155-14" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
+<span id="cb155-15"><a href="SuggestedAnswers.html#cb155-15" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 314666 -- 古い心筋梗塞</span></span>
+<span id="cb155-16"><a href="SuggestedAnswers.html#cb155-16" tabindex="-1"></a><span class="st">);&quot;</span></span>
+<span id="cb155-17"><a href="SuggestedAnswers.html#cb155-17" tabindex="-1"></a></span>
+<span id="cb155-18"><a href="SuggestedAnswers.html#cb155-18" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<p>次に、入院またはER訪問中に発生したものだけを選択し、ユニークなCOHORT_DEFINITION_ID（ここでは「1」を選択しました）を使用します:</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="SuggestedAnswers.html#cb156-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;INSERT INTO @cdm.cohort (</span></span>
+<span id="cb156-2"><a href="SuggestedAnswers.html#cb156-2" tabindex="-1"></a><span class="st">  subject_id,</span></span>
+<span id="cb156-3"><a href="SuggestedAnswers.html#cb156-3" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
+<span id="cb156-4"><a href="SuggestedAnswers.html#cb156-4" tabindex="-1"></a><span class="st">  cohort_definition_id</span></span>
+<span id="cb156-5"><a href="SuggestedAnswers.html#cb156-5" tabindex="-1"></a><span class="st">  )</span></span>
+<span id="cb156-6"><a href="SuggestedAnswers.html#cb156-6" tabindex="-1"></a><span class="st">SELECT subject_id,</span></span>
+<span id="cb156-7"><a href="SuggestedAnswers.html#cb156-7" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
+<span id="cb156-8"><a href="SuggestedAnswers.html#cb156-8" tabindex="-1"></a><span class="st">  CAST (1 AS INT) AS cohort_definition_id</span></span>
+<span id="cb156-9"><a href="SuggestedAnswers.html#cb156-9" tabindex="-1"></a><span class="st">FROM #diagnoses</span></span>
+<span id="cb156-10"><a href="SuggestedAnswers.html#cb156-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.visit_occurrence</span></span>
+<span id="cb156-11"><a href="SuggestedAnswers.html#cb156-11" tabindex="-1"></a><span class="st">  ON subject_id = person_id</span></span>
+<span id="cb156-12"><a href="SuggestedAnswers.html#cb156-12" tabindex="-1"></a><span class="st">    AND cohort_start_date &gt;= visit_start_date</span></span>
+<span id="cb156-13"><a href="SuggestedAnswers.html#cb156-13" tabindex="-1"></a><span class="st">    AND cohort_start_date &lt;= visit_end_date</span></span>
+<span id="cb156-14"><a href="SuggestedAnswers.html#cb156-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院またはER;&quot;</span></span>
+<span id="cb156-15"><a href="SuggestedAnswers.html#cb156-15" tabindex="-1"></a></span>
+<span id="cb156-16"><a href="SuggestedAnswers.html#cb156-16" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<p>条件と訪問をVISIT_OCCURRENCE_IDに基づいて結合する代替アプローチも考えられます。この方法は、状態が入院またはER訪問に関連して記録されたことを保証するため、より正確かもしれません。しかし、多くの観察データベースは、訪問と診断のリンクを記録していないため、日付を使用することを選択しました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。</p>
+<p>また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、興味があるのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。</p>
+<p>一時テーブルが不要になったらクリーンアップすることをお勧めします:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="SuggestedAnswers.html#cb157-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;TRUNCATE TABLE #diagnoses;</span></span>
+<span id="cb157-2"><a href="SuggestedAnswers.html#cb157-2" tabindex="-1"></a><span class="st">DROP TABLE #diagnoses;&quot;</span></span>
+<span id="cb157-3"><a href="SuggestedAnswers.html#cb157-3" tabindex="-1"></a></span>
+<span id="cb157-4"><a href="SuggestedAnswers.html#cb157-4" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql)</span></code></pre></div>
+</div>
+</div>
+<div id="Characterizationanswers" class="section level2 hasAnchor" number="23.6">
+<h2><span class="header-section-number">23.6</span> 特徴記述<a href="SuggestedAnswers.html#Characterizationanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="演習-refexrexercisecharacterization1" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="Characterization.html#exr:exerciseCharacterization1">11.1</a><a href="SuggestedAnswers.html#演習-refexrexercisecharacterization1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>ATLASで<img src="images/Characterization/atlasDataSourcesMenuItem.png" />をクリックし、興味のあるデータソースを選択します。ここでは、薬剤暴露レポートを選択し、「表」タブを選択して「セレコキシブ」を検索します（図 <a href="SuggestedAnswers.html#fig:dataSourcesAtlas">23.8</a> 参照）。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の暴露を持っていることがわかります。これらの薬のいずれかをクリックすると、例えば年齢や性別の分布など、より詳細なビューを得ることができます。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:dataSourcesAtlas"></span>
+<img src="images/SuggestedAnswers/dataSourcesAtlas.png" alt="データソースの特徴記述。" width="100%" />
+<p class="caption">
+図 23.8: データソースの特徴記述。
+</p>
+</div>
+</div>
+<div id="演習-refexrexercisecharacterization2" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="Characterization.html#exr:exerciseCharacterization2">11.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecharacterization2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「セレコキシブ新規使用者」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 <img src="images/Cohorts/search-2.png" />モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 <img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトセットにコンセプトを追加します（図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">23.9</a> 参照）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conceptSearchAtlas"></span>
+<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="成分「セレコキシブ」の標準コンセプトの選択。" width="100%" />
+<p class="caption">
+図 23.9: 成分「セレコキシブ」の標準コンセプトの選択。
+</p>
+</div>
+<p>図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">23.9</a> の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「+初期イベントを追加」をクリックしてから「薬剤期間を追加」をクリックします。薬剤期間基準のために以前に作成したコンセプトセットを選択します。「属性を追加…」をクリックして「最初の暴露基準を追加」を選択します。インデックス日の前に少なくとも365日の連続観察が必要と設定します。結果は図 <a href="SuggestedAnswers.html#fig:celecoxibCohortDefinition">23.10</a> のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。 <img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存し、<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCohortDefinition"></span>
+<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="単純なセレコキシブ新規使用者のコホート定義。" width="100%" />
+<p class="caption">
+図 23.10: 単純なセレコキシブ新規使用者のコホート定義。
+</p>
+</div>
+<p>コホートが定義されたので、その特徴を記述できます。<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックして「新しい特徴記述」を選択します。特徴記述に意味のある名前（例：「セレコキシブ新規使用者の特徴記述」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「特徴分析」の下で、「インポート」をクリックし、少なくとも1つの状態分析と1つの薬剤分析を選択します。たとえば、「任意の期間前の薬剤グループ期間」と「任意の期間前の状態グループ期間」を選択します。特徴記述の定義は図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterization">23.11</a> のようになっているはずです。 <img src="images/Cohorts/save.png" />をクリックして特徴記述設定を保存してください。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCharacterization"></span>
+<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="特徴記述設定。" width="100%" />
+<p class="caption">
+図 23.11: 特徴記述設定。
+</p>
+</div>
+<p>「実行」タブをクリックし、1つのデータソースについて「生成」をクリックします。生成が完了するまで時間がかかる場合があります。完了すると、「最新の結果を表示」をクリックできます。結果画面は、例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しない状態が表示されることがあります（図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterizationResults">23.12</a> 参照）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCharacterizationResults"></span>
+<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="特徴記述結果。" width="100%" />
+<p class="caption">
+図 23.12: 特徴記述結果。
+</p>
+</div>
+</div>
+<div id="演習-refexrexercisecharacterization3" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="Characterization.html#exr:exerciseCharacterization3">11.3</a><a href="SuggestedAnswers.html#演習-refexrexercisecharacterization3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「GI出血」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。<img src="images/Cohorts/search-2.png" /> モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある<img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトセットにコンセプトを追加します（図 <a href="SuggestedAnswers.html#fig:giBleedSearch">23.13</a> 参照）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedSearch"></span>
+<img src="images/SuggestedAnswers/giBleedSearch.png" alt="「消化管出血」の標準コンセプトの選択。" width="100%" />
+<p class="caption">
+図 23.13: 「消化管出血」の標準コンセプトの選択。
+</p>
+</div>
+<p>図 <a href="SuggestedAnswers.html#fig:giBleedSearch">23.13</a> の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「コンセプトセット」タブを再度開き、GI出血コンセプトの横にある「子孫」をチェックします（図 <a href="SuggestedAnswers.html#fig:giBleedDescendants">23.14</a> 参照）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedDescendants"></span>
+<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="「消化管出血」のすべての子孫を追加。" width="100%" />
+<p class="caption">
+図 23.14: 「消化管出血」のすべての子孫を追加。
+</p>
+</div>
+<p>「定義」タブに戻り、「+初期イベントを追加」をクリックしてから「状態出現を追加」をクリックします。状態出現基準のために以前に作成したコンセプトセットを選択します。結果は図 <a href="SuggestedAnswers.html#fig:giBleedCohortDefinition">23.15</a> のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。<img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存し、<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedCohortDefinition"></span>
+<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="単純な消化管出血コホート定義。" width="100%" />
+<p class="caption">
+図 23.15: 単純な消化管出血コホート定義。
+</p>
+</div>
+<p>コホートが定義されたので、発生率を計算できます。<img src="images/Characterization/atlasIncidenceMenuItem.png" />をクリックして「新しい分析」を選択します。分析に意味のある名前（例：「セレコキシブ開始後のGI出血発生率」）を付けます。「ターゲットコホートを追加」をクリックし、私たちのセレコキシブ新規使用者コホートを選択します。「アウトカムコホートを追加」をクリックし、新しいGI出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 <a href="SuggestedAnswers.html#fig:irAnalysis">23.16</a> のようになっているはずです。<img src="images/Cohorts/save.png" />をクリックして分析設定を保存してください。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:irAnalysis"></span>
+<img src="images/SuggestedAnswers/irAnalysis.png" alt="発生率分析。" width="100%" />
+<p class="caption">
+図 23.16: 発生率分析。
+</p>
+</div>
+<p>「生成」タブをクリックし、「生成」をクリックします。1つのデータソースを選択し、「生成」をクリックします。完了すると、計算された発生率と割合が表示されます（図 <a href="SuggestedAnswers.html#fig:irResults">23.17</a> 参照）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:irResults"></span>
+<img src="images/SuggestedAnswers/irResults.png" alt="発生結果。" width="100%" />
+<p class="caption">
+図 23.17: 発生結果。
+</p>
+</div>
+</div>
+</div>
+<div id="Pleanswers" class="section level2 hasAnchor" number="23.7">
+<h2><span class="header-section-number">23.7</span> 集団レベル推定<a href="SuggestedAnswers.html#Pleanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="演習-refexrexerciseple1" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle1">12.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseple1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>デフォルトの共変量セットを指定しますが、比較している2つの薬物を含むすべての子孫を除外しなければなりません。そうしないと、選択バイアスモデルが完全に予測可能になってしまいます：</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="SuggestedAnswers.html#cb158-1" tabindex="-1"></a><span class="fu">library</span>(CohortMethod)</span>
+<span id="cb158-2"><a href="SuggestedAnswers.html#cb158-2" tabindex="-1"></a>nsaids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1118084</span>, <span class="dv">1124300</span>) <span class="co"># セレコキシブ、ジクロフェナク</span></span>
+<span id="cb158-3"><a href="SuggestedAnswers.html#cb158-3" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createDefaultCovariateSettings</span>(</span>
+<span id="cb158-4"><a href="SuggestedAnswers.html#cb158-4" tabindex="-1"></a>  <span class="at">excludedCovariateConceptIds =</span> nsaids,</span>
+<span id="cb158-5"><a href="SuggestedAnswers.html#cb158-5" tabindex="-1"></a>  <span class="at">addDescendantsToExclude =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb158-6"><a href="SuggestedAnswers.html#cb158-6" tabindex="-1"></a></span>
+<span id="cb158-7"><a href="SuggestedAnswers.html#cb158-7" tabindex="-1"></a><span class="co"># データの読み込み：</span></span>
+<span id="cb158-8"><a href="SuggestedAnswers.html#cb158-8" tabindex="-1"></a>cmData <span class="ot">&lt;-</span> <span class="fu">getDbCohortMethodData</span>(</span>
+<span id="cb158-9"><a href="SuggestedAnswers.html#cb158-9" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb158-10"><a href="SuggestedAnswers.html#cb158-10" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb158-11"><a href="SuggestedAnswers.html#cb158-11" tabindex="-1"></a>  <span class="at">targetId =</span> <span class="dv">1</span>,</span>
+<span id="cb158-12"><a href="SuggestedAnswers.html#cb158-12" tabindex="-1"></a>  <span class="at">comparatorId =</span> <span class="dv">2</span>,</span>
+<span id="cb158-13"><a href="SuggestedAnswers.html#cb158-13" tabindex="-1"></a>  <span class="at">outcomeIds =</span> <span class="dv">3</span>,</span>
+<span id="cb158-14"><a href="SuggestedAnswers.html#cb158-14" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb158-15"><a href="SuggestedAnswers.html#cb158-15" tabindex="-1"></a>  <span class="at">exposureTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb158-16"><a href="SuggestedAnswers.html#cb158-16" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb158-17"><a href="SuggestedAnswers.html#cb158-17" tabindex="-1"></a>  <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb158-18"><a href="SuggestedAnswers.html#cb158-18" tabindex="-1"></a>  <span class="at">covariateSettings =</span> covSettings)</span>
+<span id="cb158-19"><a href="SuggestedAnswers.html#cb158-19" tabindex="-1"></a><span class="fu">summary</span>(cmData)</span></code></pre></div>
+<pre><code>## CohortMethodData オブジェクトのまとめ
+## 
+## 治療概念ID：1
+## 比較概念ID：2
+## 結果概念ID：3
+## 
+## 治療を受けた人数：1800
+## 比較された人数：830
+## 
+## 結果のカウント：
+##   イベントの数 人数
+## 3          479       479
+## 
+## 共変量：
+## 共変量の数：389
+## 非ゼロ共変量値の数：26923</code></pre>
+</div>
+<div id="演習-refexrexerciseple2" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle2">12.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseple2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>仕様に従って研究集団を作成し、離脱図を出力します：</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="SuggestedAnswers.html#cb160-1" tabindex="-1"></a>studyPop <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(</span>
+<span id="cb160-2"><a href="SuggestedAnswers.html#cb160-2" tabindex="-1"></a>  <span class="at">cohortMethodData =</span> cmData,</span>
+<span id="cb160-3"><a href="SuggestedAnswers.html#cb160-3" tabindex="-1"></a>  <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
+<span id="cb160-4"><a href="SuggestedAnswers.html#cb160-4" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">180</span>,</span>
+<span id="cb160-5"><a href="SuggestedAnswers.html#cb160-5" tabindex="-1"></a>  <span class="at">removeDuplicateSubjects =</span> <span class="st">&quot;remove all&quot;</span>,</span>
+<span id="cb160-6"><a href="SuggestedAnswers.html#cb160-6" tabindex="-1"></a>  <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb160-7"><a href="SuggestedAnswers.html#cb160-7" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">0</span>,</span>
+<span id="cb160-8"><a href="SuggestedAnswers.html#cb160-8" tabindex="-1"></a>  <span class="at">startAnchor =</span> <span class="st">&quot;cohort start&quot;</span>,</span>
+<span id="cb160-9"><a href="SuggestedAnswers.html#cb160-9" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">99999</span>)</span>
+<span id="cb160-10"><a href="SuggestedAnswers.html#cb160-10" tabindex="-1"></a><span class="fu">drawAttritionDiagram</span>(studyPop)</span></code></pre></div>
+<p><img src="images/SuggestedAnswers/attrition.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>ここで、元のコホートと比較して被験者を失わなかったことがわかります。おそらく、ここで使用した制限がすでにコホートの定義に適用されているためです。</p>
+</div>
+<div id="演習-refexrexerciseple3" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle3">12.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseple3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Cox 回帰を使用して単純な結果モデルをフィットさせます：</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="SuggestedAnswers.html#cb161-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> studyPop,</span>
+<span id="cb161-2"><a href="SuggestedAnswers.html#cb161-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>)</span>
+<span id="cb161-3"><a href="SuggestedAnswers.html#cb161-3" tabindex="-1"></a>model</span></code></pre></div>
+<pre><code>## モデルタイプ：cox
+## 階層化：FALSE
+## 共変量の使用：FALSE
+## 反トリートメント重み付けの使用：FALSE
+## ステータス：OK
+## 
+##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
+## 治療       1.34612    1.10065    1.65741 0.29723    0.1044</code></pre>
+<p>セレコキシブの使用者とジクロフェナクの使用者が同等でない可能性が高く、これらのベースラインの違いによりすでに結果のリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのかかった推定値が生成される可能性があります。</p>
+</div>
+<div id="演習-refexrexerciseple4" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle4">12.4</a><a href="SuggestedAnswers.html#演習-refexrexerciseple4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>抽出した共変量を使用して、研究集団に対して傾向スコアをフィットさせます。その後、傾向スコアの分布を示します：</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="SuggestedAnswers.html#cb163-1" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">createPs</span>(<span class="at">cohortMethodData =</span> cmData,</span>
+<span id="cb163-2"><a href="SuggestedAnswers.html#cb163-2" tabindex="-1"></a>               <span class="at">population =</span> studyPop)</span>
+<span id="cb163-3"><a href="SuggestedAnswers.html#cb163-3" tabindex="-1"></a><span class="fu">plotPs</span>(ps, <span class="at">showCountsLabel =</span> <span class="cn">TRUE</span>, <span class="at">showAucLabel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="images/SuggestedAnswers/ps.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>この分布が少し奇妙に見えるのは、小さなシミュレーションデータセットを使用しているためです。実際の傾向スコア分布は通常、より滑らかです。</p>
+<p>傾向スコアモデルは0.63のAUCを達成し、対象と比較コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。</p>
+</div>
+<div id="演習-refexrexerciseple5" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle5">12.5</a><a href="SuggestedAnswers.html#演習-refexrexerciseple5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>傾向スコアに基づいて集団を層別化し、層別化前後の共変量バランスを計算します：</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="SuggestedAnswers.html#cb164-1" tabindex="-1"></a>strataPop <span class="ot">&lt;-</span> <span class="fu">stratifyByPs</span>(ps, <span class="at">numberOfStrata =</span> <span class="dv">5</span>)</span>
+<span id="cb164-2"><a href="SuggestedAnswers.html#cb164-2" tabindex="-1"></a>bal <span class="ot">&lt;-</span> <span class="fu">computeCovariateBalance</span>(strataPop, cmData)</span>
+<span id="cb164-3"><a href="SuggestedAnswers.html#cb164-3" tabindex="-1"></a><span class="fu">plotCovariateBalanceScatterPlot</span>(bal,</span>
+<span id="cb164-4"><a href="SuggestedAnswers.html#cb164-4" tabindex="-1"></a>                                <span class="at">showCovariateCountLabel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb164-5"><a href="SuggestedAnswers.html#cb164-5" tabindex="-1"></a>                                <span class="at">showMaxLabel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb164-6"><a href="SuggestedAnswers.html#cb164-6" tabindex="-1"></a>                                <span class="at">beforeLabel =</span> <span class="st">&quot;層別化前&quot;</span>,</span>
+<span id="cb164-7"><a href="SuggestedAnswers.html#cb164-7" tabindex="-1"></a>                                <span class="at">afterLabel =</span> <span class="st">&quot;層別化後&quot;</span>)</span></code></pre></div>
+<p><img src="images/SuggestedAnswers/scatter.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>さまざまなベースライン共変量が、層別化前（x軸）に大きな（&gt;0.3）標準化された平均の差を示していることがわかります。層別化後のバランスが向上し、最大標準化された差が&lt;= 0.1です。</p>
+</div>
+<div id="演習-refexrexerciseple6" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle6">12.6</a><a href="SuggestedAnswers.html#演習-refexrexerciseple6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>PS層別化で Cox 回帰モデルをフィットさせます：</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="SuggestedAnswers.html#cb165-1" tabindex="-1"></a>adjModel <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> strataPop,</span>
+<span id="cb165-2"><a href="SuggestedAnswers.html#cb165-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>,</span>
+<span id="cb165-3"><a href="SuggestedAnswers.html#cb165-3" tabindex="-1"></a>                         <span class="at">stratified =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb165-4"><a href="SuggestedAnswers.html#cb165-4" tabindex="-1"></a>adjModel</span></code></pre></div>
+<pre><code>## モデルタイプ：cox
+## 階層化：TRUE
+## 共変量の使用：FALSE
+## 反トリートメント重み付けの使用：FALSE
+## ステータス：OK
+## 
+##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
+## 治療       1.13211    0.92132    1.40008 0.12409    0.1068</code></pre>
+<p>調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの暴露グループ間のベースラインの違いを調整することによって、バイアスを減らしているためです。</p>
+</div>
+</div>
+<div id="Plpanswers" class="section level2 hasAnchor" number="23.8">
+<h2><span class="header-section-number">23.8</span> 患者レベル予測<a href="SuggestedAnswers.html#Plpanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="演習-refexrexerciseplp1" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp1">13.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>共変量設定のセットを指定し、データベースからデータを抽出するために<code>getPlpData</code>関数を使用します：</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="SuggestedAnswers.html#cb167-1" tabindex="-1"></a><span class="fu">library</span>(PatientLevelPrediction)</span>
+<span id="cb167-2"><a href="SuggestedAnswers.html#cb167-2" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createCovariateSettings</span>(</span>
+<span id="cb167-3"><a href="SuggestedAnswers.html#cb167-3" tabindex="-1"></a>  <span class="at">useDemographicsGender =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-4"><a href="SuggestedAnswers.html#cb167-4" tabindex="-1"></a>  <span class="at">useDemographicsAge =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-5"><a href="SuggestedAnswers.html#cb167-5" tabindex="-1"></a>  <span class="at">useConditionGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-6"><a href="SuggestedAnswers.html#cb167-6" tabindex="-1"></a>  <span class="at">useConditionGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-7"><a href="SuggestedAnswers.html#cb167-7" tabindex="-1"></a>  <span class="at">useDrugGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-8"><a href="SuggestedAnswers.html#cb167-8" tabindex="-1"></a>  <span class="at">useDrugGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-9"><a href="SuggestedAnswers.html#cb167-9" tabindex="-1"></a>  <span class="at">useVisitConceptCountLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb167-10"><a href="SuggestedAnswers.html#cb167-10" tabindex="-1"></a>  <span class="at">longTermStartDays =</span> <span class="sc">-</span><span class="dv">365</span>,</span>
+<span id="cb167-11"><a href="SuggestedAnswers.html#cb167-11" tabindex="-1"></a>  <span class="at">endDays =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb167-12"><a href="SuggestedAnswers.html#cb167-12" tabindex="-1"></a></span>
+<span id="cb167-13"><a href="SuggestedAnswers.html#cb167-13" tabindex="-1"></a>plpData <span class="ot">&lt;-</span> <span class="fu">getPlpData</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb167-14"><a href="SuggestedAnswers.html#cb167-14" tabindex="-1"></a>                      <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb167-15"><a href="SuggestedAnswers.html#cb167-15" tabindex="-1"></a>                      <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb167-16"><a href="SuggestedAnswers.html#cb167-16" tabindex="-1"></a>                      <span class="at">cohortTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb167-17"><a href="SuggestedAnswers.html#cb167-17" tabindex="-1"></a>                      <span class="at">cohortId =</span> <span class="dv">4</span>,</span>
+<span id="cb167-18"><a href="SuggestedAnswers.html#cb167-18" tabindex="-1"></a>                      <span class="at">covariateSettings =</span> covSettings,</span>
+<span id="cb167-19"><a href="SuggestedAnswers.html#cb167-19" tabindex="-1"></a>                      <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb167-20"><a href="SuggestedAnswers.html#cb167-20" tabindex="-1"></a>                      <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb167-21"><a href="SuggestedAnswers.html#cb167-21" tabindex="-1"></a>                      <span class="at">outcomeIds =</span> <span class="dv">3</span>)</span>
+<span id="cb167-22"><a href="SuggestedAnswers.html#cb167-22" tabindex="-1"></a></span>
+<span id="cb167-23"><a href="SuggestedAnswers.html#cb167-23" tabindex="-1"></a><span class="fu">summary</span>(plpData)</span></code></pre></div>
+<pre><code>## plpData オブジェクトのまとめ
+## 
+## リスク対象コホート概念 ID：-1
+## 結果概念ID：3
+## 
+## 人数：2630
+## 
+## 結果のカウント：
+##   イベントの数 人数
+## 3          479       479
+## 
+## 共変量：
+## 共変量の数：245
+## 非ゼロ共変量値の数：54079</code></pre>
+</div>
+<div id="演習-refexrexerciseplp2" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp2">13.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>プロジェクトに興味のあるアウトカム（この場合は抽出したデータに対して唯一のアウトカム）について調査集団を作成し、NSAIDを使用し始める前にそのアウトカムを経験した被験者を除外し、364日のリスク期間を必要とします：</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="SuggestedAnswers.html#cb169-1" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(<span class="at">plpData =</span> plpData,</span>
+<span id="cb169-2"><a href="SuggestedAnswers.html#cb169-2" tabindex="-1"></a>                                    <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
+<span id="cb169-3"><a href="SuggestedAnswers.html#cb169-3" tabindex="-1"></a>                                    <span class="at">washoutPeriod =</span> <span class="dv">364</span>,</span>
+<span id="cb169-4"><a href="SuggestedAnswers.html#cb169-4" tabindex="-1"></a>                                    <span class="at">firstExposureOnly =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb169-5"><a href="SuggestedAnswers.html#cb169-5" tabindex="-1"></a>                                    <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb169-6"><a href="SuggestedAnswers.html#cb169-6" tabindex="-1"></a>                                    <span class="at">priorOutcomeLookback =</span> <span class="dv">9999</span>,</span>
+<span id="cb169-7"><a href="SuggestedAnswers.html#cb169-7" tabindex="-1"></a>                                    <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
+<span id="cb169-8"><a href="SuggestedAnswers.html#cb169-8" tabindex="-1"></a>                                    <span class="at">riskWindowEnd =</span> <span class="dv">365</span>,</span>
+<span id="cb169-9"><a href="SuggestedAnswers.html#cb169-9" tabindex="-1"></a>                                    <span class="at">addExposureDaysToStart =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb169-10"><a href="SuggestedAnswers.html#cb169-10" tabindex="-1"></a>                                    <span class="at">addExposureDaysToEnd =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb169-11"><a href="SuggestedAnswers.html#cb169-11" tabindex="-1"></a>                                    <span class="at">minTimeAtRisk =</span> <span class="dv">364</span>,</span>
+<span id="cb169-12"><a href="SuggestedAnswers.html#cb169-12" tabindex="-1"></a>                                    <span class="at">requireTimeAtRisk =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb169-13"><a href="SuggestedAnswers.html#cb169-13" tabindex="-1"></a>                                    <span class="at">includeAllOutcomes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb169-14"><a href="SuggestedAnswers.html#cb169-14" tabindex="-1"></a><span class="fu">nrow</span>(population)</span></code></pre></div>
+<pre><code>## [1] 2578</code></pre>
+<p>この場合、発症前の人々を除外することで数人が失われ、364日以上のリスク期間を要求しています。</p>
+</div>
+<div id="演習-refexrexerciseplp3" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp3">13.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>LASSO モデルを実行するために、まずモデル設定オブジェクトを作成し、その後<code>runPlp</code>関数を呼び出します。この場合、データの75％を訓練データとして使用し、25％を評価データとして使用する人ベースの分割を行います：</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="SuggestedAnswers.html#cb171-1" tabindex="-1"></a>lassoModel <span class="ot">&lt;-</span> <span class="fu">setLassoLogisticRegression</span>(<span class="at">seed =</span> <span class="dv">0</span>)</span>
+<span id="cb171-2"><a href="SuggestedAnswers.html#cb171-2" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="SuggestedAnswers.html#cb171-3" tabindex="-1"></a>lassoResults <span class="ot">&lt;-</span> <span class="fu">runPlp</span>(<span class="at">population =</span> population,</span>
+<span id="cb171-4"><a href="SuggestedAnswers.html#cb171-4" tabindex="-1"></a>                       <span class="at">plpData =</span> plpData,</span>
+<span id="cb171-5"><a href="SuggestedAnswers.html#cb171-5" tabindex="-1"></a>                       <span class="at">modelSettings =</span> lassoModel,</span>
+<span id="cb171-6"><a href="SuggestedAnswers.html#cb171-6" tabindex="-1"></a>                       <span class="at">testSplit =</span> <span class="st">&#39;person&#39;</span>,</span>
+<span id="cb171-7"><a href="SuggestedAnswers.html#cb171-7" tabindex="-1"></a>                       <span class="at">testFraction =</span> <span class="fl">0.25</span>,</span>
+<span id="cb171-8"><a href="SuggestedAnswers.html#cb171-8" tabindex="-1"></a>                       <span class="at">nfold =</span> <span class="dv">2</span>,</span>
+<span id="cb171-9"><a href="SuggestedAnswers.html#cb171-9" tabindex="-1"></a>                       <span class="at">splitSeed =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p>この例では、LASSOのクロスバリデーションとトレイン・テスト分割の両方に対してランダムシードを設定し、複数回の実行で結果が同じになるようにします。</p>
+<p>Shinyアプリを使用して結果を表示することができます：</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="SuggestedAnswers.html#cb172-1" tabindex="-1"></a><span class="fu">viewPlp</span>(lassoResults)</span></code></pre></div>
+<p>これにより、図<a href="SuggestedAnswers.html#fig:plpShiny">23.18</a>に示すようにアプリが起動されます。ここで、テストセットのAUCが0.645であり、ランダムな推測よりも優れているが、臨床実践には十分ではないかもしれないことがわかります。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plpShiny"></span>
+<img src="images/SuggestedAnswers/plpShiny.png" alt="患者レベル予測Shinyアプリ。" width="100%" />
+<p class="caption">
+図 23.18: 患者レベル予測Shinyアプリ。
+</p>
+</div>
+</div>
+</div>
+<div id="DataQualityanswers" class="section level2 hasAnchor" number="23.9">
+<h2><span class="header-section-number">23.9</span> データ品質<a href="SuggestedAnswers.html#DataQualityanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="演習-refexrexerciserunachilles" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="DataQuality.html#exr:exerciseRunAchilles">15.1</a><a href="SuggestedAnswers.html#演習-refexrexerciserunachilles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>ACHILLESを実行するには:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="SuggestedAnswers.html#cb173-1" tabindex="-1"></a><span class="fu">library</span>(ACHILLES)</span>
+<span id="cb173-2"><a href="SuggestedAnswers.html#cb173-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">achilles</span>(connectionDetails,</span>
+<span id="cb173-3"><a href="SuggestedAnswers.html#cb173-3" tabindex="-1"></a>                   <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb173-4"><a href="SuggestedAnswers.html#cb173-4" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb173-5"><a href="SuggestedAnswers.html#cb173-5" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
+<span id="cb173-6"><a href="SuggestedAnswers.html#cb173-6" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> <span class="st">&quot;5.3.0&quot;</span>)</span></code></pre></div>
+</div>
+<div id="演習-refexrexerciserundqd" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="DataQuality.html#exr:exerciseRunDQD">15.2</a><a href="SuggestedAnswers.html#演習-refexrexerciserundqd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>データ品質ダッシュボードを実行するには:</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="SuggestedAnswers.html#cb174-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(</span>
+<span id="cb174-2"><a href="SuggestedAnswers.html#cb174-2" tabindex="-1"></a>  connectionDetails,</span>
+<span id="cb174-3"><a href="SuggestedAnswers.html#cb174-3" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb174-4"><a href="SuggestedAnswers.html#cb174-4" tabindex="-1"></a>  <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb174-5"><a href="SuggestedAnswers.html#cb174-5" tabindex="-1"></a>  <span class="at">cdmSourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
+<span id="cb174-6"><a href="SuggestedAnswers.html#cb174-6" tabindex="-1"></a>  <span class="at">outputFolder =</span> <span class="st">&quot;C:/dataQualityExample&quot;</span>)</span></code></pre></div>
+</div>
+<div id="演習-refexrexerciseviewdqd" class="section level4 unnumbered hasAnchor">
+<h4>演習 <a href="DataQuality.html#exr:exerciseViewDQD">15.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseviewdqd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>データ品質チェックのリストを見るには:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="SuggestedAnswers.html#cb175-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">viewDqDashboard</span>(</span>
+<span id="cb175-2"><a href="SuggestedAnswers.html#cb175-2" tabindex="-1"></a>  <span class="st">&quot;C:/dataQualityExample/Eunomia/results_Eunomia.json&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+<div id="section" class="section level2" number="23.10">
+<h2><span class="header-section-number">23.10</span> </h2>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="CohortDefinitions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="参考文献.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/SuggestedAnswers.Rmd",
+"text": "編集"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TheBookOfOhdsi.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
