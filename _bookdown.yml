@@ -1,0 +1,60 @@
+book_filename: "TheBookOfOhdsi"
+language:
+  label:
+    fig: "図 "
+    tab: "表 "
+    eq: "式 "
+    thm: "定理 "
+    lem: "補題 "
+    cor: "系 "
+    prp: "命題 "
+    cnj: "予想 "
+    def: "定義 "
+    exm: "例 "
+    exr: "演習 "
+    proof: "証明. "
+    remark: "備考. "
+    solution: "解答. "
+  ui:
+    edit: "編集"
+    chapter_name: "第 "
+delete_merged_file: true
+new_session: true
+
+
+rmd_files: [
+  "index.Rmd",
+
+  "OhdsiCommunity.Rmd",
+  "WhereToBegin.Rmd",
+  "OpenScience.Rmd",
+
+  "CommonDataModel.Rmd",
+  "StandardizedVocabularies.Rmd",
+  "ExtractTransformLoad.Rmd",
+
+  "DataAnalyticsUseCases.Rmd",
+  "OhdsiAnalyticsTools.Rmd",
+  "SqlAndR.Rmd",
+  "Cohorts.Rmd",
+  "Characterization.Rmd",
+  "PopulationLevelEstimation.Rmd",
+  "PatientLevelPrediction.Rmd",
+
+  "EvidenceQuality.Rmd",
+  "DataQuality.Rmd",
+  "ClinicalValidity.Rmd",
+  "SoftwareValidity.Rmd",
+  "MethodValidity.Rmd",
+
+  "StudySteps.Rmd",
+  "NetworkResearch.Rmd",
+
+  "Glossary.Rmd",
+  "CohortDefinitions.Rmd",
+  "NegativeControls.Rmd",
+  "ProtocolTemplate.Rmd",
+  "SuggestedAnswers.Rmd",
+
+  "References.Rmd"
+]
