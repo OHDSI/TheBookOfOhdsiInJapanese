@@ -1,4 +1,4 @@
-# オープンサイエンス {#OpenScience}
+# --翻訳作業中-- オープンサイエンス {#OpenScience}
 
 \index{オープンサイエンス}
 
