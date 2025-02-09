@@ -1,4 +1,4 @@
-# コホート定義 {#CohortDefinitions}
+# --翻訳作業中--　コホート定義 {#CohortDefinitions}
 
 この付録には、本書全体で使用されるコホート定義が含まれています。
 

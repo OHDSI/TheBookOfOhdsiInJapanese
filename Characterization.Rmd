@@ -3,7 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-# 特徴分析 {#Characterization}
+# --翻訳作業中--　特徴分析 {#Characterization}
 
 *チャプターリード: Anthony Sena & Daniel Prieto-Alhambra*
 

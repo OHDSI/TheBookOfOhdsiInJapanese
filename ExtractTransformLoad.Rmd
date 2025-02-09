@@ -1,4 +1,4 @@
-# 抽出、変換、ロード {#ExtractTransformLoad}
+# --翻訳作業中--　抽出、変換、ロード {#ExtractTransformLoad}
 
 *チャプターリード: Clair Blacketer & Erica Voss*
 
