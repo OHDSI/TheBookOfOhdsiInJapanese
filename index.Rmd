@@ -1,5 +1,5 @@
 ---
-title: "--翻訳作業中-- OHDSIの書"
+title: ' 翻訳作業中　OHDSIの書'
 author: "観察ヘルスデータ科学および情報学"
 date: "`r Sys.Date()`"
 classoption: 11pt
