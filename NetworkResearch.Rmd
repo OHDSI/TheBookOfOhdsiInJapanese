@@ -1,4 +1,4 @@
-# OHDSI ネットワーク研究 {#NetworkResearch}
+# --翻訳作業中--　OHDSI ネットワーク研究 {#NetworkResearch}
 
 *章リード: Kristin Kostka, Greg Klebanov & Sara Dempster*
 

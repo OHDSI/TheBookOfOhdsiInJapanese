@@ -1,4 +1,4 @@
-# 方法の妥当性 {#MethodValidity}
+# --翻訳作業中--　方法の妥当性 {#MethodValidity}
 
 \index{方法の妥当性}
 

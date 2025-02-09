@@ -1,4 +1,4 @@
-# 標準化語彙 {#StandardizedVocabularies}
+# --翻訳作業中--　標準化語彙 {#StandardizedVocabularies}
 
 \index{standardized vocabularies}
 

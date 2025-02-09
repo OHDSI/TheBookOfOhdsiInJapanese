@@ -2,7 +2,7 @@
 
 # (PART) OHDSI コミュニティ {-}
 
-# OHDSI コミュニティ {#OhdsiCommunity}
+# --翻訳作業中--　OHDSI コミュニティ {#OhdsiCommunity}
 
 *章リード：パトリック・ライアン & ジョージ・フリプサック*
 
