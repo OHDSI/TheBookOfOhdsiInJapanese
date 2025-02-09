@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # 特徴分析 {#Characterization}
 
 *チャプターリード: Anthony Sena & Daniel Prieto-Alhambra*
