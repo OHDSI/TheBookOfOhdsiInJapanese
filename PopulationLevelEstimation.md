@@ -1,4 +1,4 @@
-# 集団レベルの推定 {#PopulationLevelEstimation}
+# --翻訳作業中-- 集団レベルの推定 {#PopulationLevelEstimation}
 
 *チャプターリード: Martijn Schuemie, David Madigan, Marc Suchard & Patrick Ryan*
 

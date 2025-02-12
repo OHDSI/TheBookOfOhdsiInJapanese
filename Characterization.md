@@ -1,4 +1,4 @@
-# 特徴分析 {#Characterization}
+# --翻訳作業中--　特徴分析 {#Characterization}
 
 *チャプターリード: Anthony Sena & Daniel Prieto-Alhambra*
 
@@ -35,7 +35,7 @@
 
 ## 治療経路
 
-集団を特徴付ける他の方法としては、ポストインデックスタイムウィンドウ内の治療シーケンスを記述することが挙げられます。たとえば、@Hripcsak7329は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧および抑うつ症に対する治療経路を特徴付ける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakおよび同僚は、同じ分析をOHDSIネットワーク全体で実行して、これらの関心集団の特徴を記述することができました。 \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
+集団を特徴付ける他の方法としては、ポストインデックスタイムウィンドウ内の治療シーケンスを記述することが挙げられます。たとえば、@Hripcsak7329 は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧および抑うつ症に対する治療経路を特徴付ける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakおよび同僚は、同じ分析をOHDSIネットワーク全体で実行して、これらの関心集団の特徴を記述することができました。 \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
 
 経路分析は、特定の状態を診断された人々が最初の薬物処方/供給から受けた治療（イベント）を要約することを目的としています。この研究では、治療はそれぞれ2型糖尿病、高血圧および抑うつ症の診断後に記述されました。その後、各個人のイベントは集計され、各条件および各データベースに対して要約統計として視覚化されました。
 
@@ -50,7 +50,7 @@
 
 例として、図 \@ref(fig:treatmentPathwaysSunburstDataViz) は高血圧治療を開始する集団を表しています。中央にある最初のリングは、最初の治療法に基づいた人々の割合を示しています。この例では、ヒドロクロロチアジドがこの集団で最も一般的な最初の治療法です。ヒドロクロロチアジドのセクションから延びるボックスは、コホート内の人々に記録された2番目および3番目の治療法を示しています。
 
-経路分析は、集団における治療利用に関する重要な証拠を提供します。この分析から、最初の治療法として最も一般的に利用される治療法、治療を中止する人の割合、治療を変える人、または治療を強化する人の割合を記述することができます。経路分析を使用して、@Hripcsak7329はメトホルミンが糖尿病治療のために最も一般的に処方されている薬物であることを発見し、そこで米国内分泌学会の糖尿病治療アルゴリズムの最初の推奨事項である大規模な導入が確認されました。さらに、糖尿病患者の10%、高血圧患者の24%、抑うつ患者の11%が、いずれのデータソースにも共有されていない治療経路をたどっていたことが明らかになりました。
+経路分析は、集団における治療利用に関する重要な証拠を提供します。この分析から、最初の治療法として最も一般的に利用される治療法、治療を中止する人の割合、治療を変える人、または治療を強化する人の割合を記述することができます。経路分析を使用して、@Hripcsak7329 はメトホルミンが糖尿病治療のために最も一般的に処方されている薬物であることを発見し、そこで米国内分泌学会の糖尿病治療アルゴリズムの最初の推奨事項である大規模な導入が確認されました。さらに、糖尿病患者の10%、高血圧患者の24%、抑うつ患者の11%が、いずれのデータソースにも共有されていない治療経路をたどっていたことが明らかになりました。
 
 従来のDUS（薬物使用研究）用語では、治療経路分析は、指定された集団における一つまたは複数の薬物の使用の普及率などの集団レベルのDUS推定値および持続性やさまざまな治療法間の切り替えの測定などの個人レベルのDUSを含みます。
 
@@ -123,10 +123,11 @@ $$
 
 }
 
-\caption{Atlas Data Sources: Essential hypertension drill down report}(\#fig:atlasDataSourcesDrillDownReport)
+\caption{ATLASデータソース: 本態性高血圧ドリルダウンレポート}(\#fig:atlasDataSourcesDrillDownReport)
 \end{figure}
 
 高血圧概念の存在および時間の経過に伴う傾向についてデータベースの特性を確認した後、高血圧患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するために「Drug Era」レポートを使用します。興味のある項目をレビューするためにデータベース特性を探索した後、高血圧者を特性化するためのコホートの構築を進める準備が整います。
+
 ## ATLASにおけるコホート特性分析
 
 ここでは、ATLASを使用して複数のコホートの大規模な特性分析を行う方法を示します。左側のバーにある![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックし、新しい特性分析を作成します。分析に名前を付け、![](images/PopulationLevelEstimation/save.png)ボタンを使用して保存します。
@@ -511,7 +512,7 @@ FeatureExtractionは、カスタム共変量を定義および利用する能力
 
 ### 設計
 
-本例で使用されるコホートは、既に ATLAS に作成されていると仮定します (Chapter @ref(Cohorts) で説明)。付録には、ターゲットコホート (Appendix @ref(AceInhibitorsMono), @ref(ThiazidesMono)) およびアウトカムコホート (Appendix @ref(Angioedema), @ref(Ami), @ref(ARBUse)) の完全な定義が提供されています。
+本例で使用されるコホートは、既に ATLAS に作成されていると仮定します (Chapter \@ref(Cohorts) で説明)。付録には、ターゲットコホート (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono))  およびアウトカムコホート (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) の完全な定義が提供されています。
 
 \begin{figure}
 

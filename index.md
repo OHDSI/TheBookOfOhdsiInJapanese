@@ -1,7 +1,7 @@
 ---
-title: "OHDSIの書"
+title: " --翻訳作業中--　OHDSIの書"
 author: "観察ヘルスデータ科学および情報学"
-date: "2025-01-29"
+date: '2025-02-12'
 classoption: 11pt
 geometry:
 - paperheight=10in
@@ -19,7 +19,7 @@ description: 観察ヘルスデータ科学および情報学 (OHDSI) につい�
 documentclass: book
 favicon: images/favicon.ico
 github-repo: OHDSI/TheBookOfOhdsi
-link-citations: yes
+link-citations: true
 cover-image: images/Cover/Cover.png
 site: bookdown::bookdown_site
 biblio-style: apalike

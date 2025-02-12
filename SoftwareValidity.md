@@ -1,4 +1,4 @@
-# ソフトウェアの妥当性 {#SoftwareValidity}
+# --翻訳作業中--　ソフトウェアの妥当性 {#SoftwareValidity}
 
 *チャプターリード: Martijn Schuemie*
 

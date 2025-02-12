@@ -1,4 +1,4 @@
-# 推奨解答 {#SuggestedAnswers}
+# --翻訳作業中--　推奨解答 {#SuggestedAnswers}
 
 この付録には、本書の練習問題に対する推奨解答が含まれています。
 

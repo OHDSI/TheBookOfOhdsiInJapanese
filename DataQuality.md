@@ -1,4 +1,4 @@
-# データ品質 {#DataQuality}
+# --翻訳作業中--　データ品質 {#DataQuality}
 
 *章リーダー: Martijn Schuemie, Vojtech Huser & Clair Blacketer*
 

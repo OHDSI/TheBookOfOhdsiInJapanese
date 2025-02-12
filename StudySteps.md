@@ -1,6 +1,6 @@
 # (PART) OHDSI研究 {-}
 
-# 研究の段階 {#StudySteps}
+# --翻訳作業中--　研究の段階 {#StudySteps}
 
 *チャプターリード: Sara Dempster & Martijn Schuemie*
 

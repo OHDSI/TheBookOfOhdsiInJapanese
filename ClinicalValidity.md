@@ -1,4 +1,4 @@
-# 臨床的妥当性 {#ClinicalValidity}
+# --翻訳作業中--　臨床的妥当性 {#ClinicalValidity}
 
 *章のリード: Joel Swerdel, Seng Chan You, Ray Chen & Patrick Ryan*
 

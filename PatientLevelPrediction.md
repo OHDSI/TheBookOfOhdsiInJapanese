@@ -1,4 +1,4 @@
-# 患者レベル予測 {#PatientLevelPrediction}
+# --翻訳作業中-- 患者レベル予測 {#PatientLevelPrediction}
 
 *章リーダー: Peter Rijnbeek & Jenna Reps*
 

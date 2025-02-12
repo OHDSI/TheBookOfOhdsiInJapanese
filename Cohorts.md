@@ -1,4 +1,4 @@
-# コホートの定義 {#Cohorts}
+# --翻訳作業中--　コホートの定義 {#Cohorts}
 
 *章のリード: Kristin Kostka*
 
