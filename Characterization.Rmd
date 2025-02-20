@@ -13,7 +13,6 @@
 
 特徴分析のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特徴分析の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特徴分析タスクを実行する方法を示します。\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
 
-
 ## データベースレベルの特徴分析
 
 関心集団についての特徴分析の質問に答える前に、使用するデータベースの特徴をまず理解する必要があります。データベースレベルの特徴分析は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：
@@ -25,13 +24,11 @@
 
 これらのデータベースレベルの記述統計は、研究者がデータベースに欠けている可能性のあるデータを理解するのにも役立ちます。章 \@ref(DataQuality)では、データの質についてさらに詳しく説明します。 \index{characterization!database level}
 
-
 ## コホート特徴分析
 
 コホート特徴分析は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬物およびデバイスの暴露、手順およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。
 
-コホート特徴分析の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬物使用研究（DUS）に使用できます。このコホート特徴分析の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています。[@VONELM2008344] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
-
+コホート特徴分析の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬物使用研究（DUS）に使用できます。このコホート特徴分析の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています。[@VONELM2008344 ] \index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
 ## 治療経路
 
@@ -48,7 +45,6 @@ knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.p
 経路分析は、集団における治療利用に関する重要な証拠を提供します。この分析から、最初の治療法として最も一般的に利用される治療法、治療を中止する人の割合、治療を変える人、または治療を強化する人の割合を記述することができます。経路分析を使用して、@Hripcsak7329 はメトホルミンが糖尿病治療のために最も一般的に処方されている薬物であることを発見し、そこで米国内分泌学会の糖尿病治療アルゴリズムの最初の推奨事項である大規模な導入が確認されました。さらに、糖尿病患者の10%、高血圧患者の24%、抑うつ患者の11%が、いずれのデータソースにも共有されていない治療経路をたどっていたことが明らかになりました。
 
 従来のDUS（薬物使用研究）用語では、治療経路分析は、指定された集団における一つまたは複数の薬物の使用の普及率などの集団レベルのDUS推定値および持続性やさまざまな治療法間の切り替えの測定などの個人レベルのDUSを含みます。
-
 
 ## 発生率
 
@@ -75,9 +71,10 @@ $$
 発生率は、集団の累積的なリスク時間内で新しい結果の数を測定する尺度です。リスク時間中にある人が結果を経験した場合、その人のリスク時間への寄与は結果の発生時点で停止します。累積的なリスク時間は**人時間**と呼ばれ、日、月または年単位で表現されます。\index{incidence!rate} \index{person-time}
 
 治療に対して計算される場合、発生割合および発生率は、特定の治療の使用の集団レベルのDUSの古典的な尺度です。
+
 ## 高血圧患者の特性評価
 
-世界保健機関（WHO）の高血圧に関するグローバル概要 [@WHOHypertension] によると、高血圧の早期発見、適切な治療、および良好な管理には、健康上および経済上の大きな利益が伴います。WHOの概要は、高血圧についての概観を提供し、各国における疾病の負担を特性化しています。WHOは、地理的地域、社会経済的クラス、および性別に関する高血圧の記述統計を提供しています。
+世界保健機関（WHO）の高血圧に関するグローバル概要 [@WHOHypertension ] によると、高血圧の早期発見、適切な治療、および良好な管理には、健康上および経済上の大きな利益が伴います。WHOの概要は、高血圧についての概観を提供し、各国における疾病の負担を特性化しています。WHOは、地理的地域、社会経済的クラス、および性別に関する高血圧の記述統計を提供しています。
 
 観察データソースは、WHOが行ったように高血圧集団を特性化する方法を提供します。本章の後のセクションでは、ATLASおよびRを使用してデータベースを探索し、高血圧集団を研究するためのその構成を理解する方法を探ります。その後、これらのツールを使用して、高血圧集団の自然経過および治療パターンを記述します。
 
@@ -91,7 +88,7 @@ knitr::include_graphics("images/Characterization/atlasDataSourcesConditionTreema
 
 特定の関心のある症状を検索するには、テーブルタブをクリックして、データベース内のすべての条件のリストを表示し、個人の数、発生率、および個人ごとの記録数を確認します。上部のフィルターボックスを使用して、概念名に「hypertension」を含む項目に基づいてリストをフィルタリングできます：
 
-```{r atlasDataSourcesConditionFiltered, fig.cap='Atlas Data Sources: Conditions with "hypertension" found in the concept name',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasDataSourcesConditionFiltered, fig.cap='ATLASデータソース: 概念名に「高血圧」が含まれる疾患。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionFiltered.png")
 ```
 
@@ -117,7 +114,7 @@ knitr::include_graphics("images/Characterization/atlasDataSourcesDrillDownReport
 knitr::include_graphics("images/Characterization/atlasCharacterizationCohortSelection.png")
 ```
 
-コホートは既にATLASで作成されていると仮定しています（Chapter \@ref(Cohorts)を参照）。![](images/Characterization/atlasImportButton.png)をクリックし、図\@ref(fig:atlasCharacterizationCohortSelection)に示すようにコホートを選択します。次に、これらのコホートを特性化するために使用する特性を定義します。
+コホートは既にATLASで作成されていると仮定しています（Chapter \@ref(Cohorts)を参照）。![](images/Characterization/atlasImportButton.png)をクリックし、図 \@ref(fig:atlasCharacterizationCohortSelection)に示すようにコホートを選択します。次に、これらのコホートを特性化するために使用する特性を定義します。
 
 #### 特性選択 {-}
 
@@ -152,6 +149,7 @@ ATLASのサブグループ分析は階層とは異なります。階層は相互
 ```
 
 ### 実行
+
 特性分析のデザインが完了したら、環境内の1つ以上のデータベースに対してこのデザインを実行できます。実行タブに移動し、Generateボタンをクリックしてデータベースで分析を開始します：
 
 ```{r atlasCharacterizationExecutions, fig.cap='特性設計の実行 - CDMソース選択',echo=FALSE, out.width='100%', fig.align='center'}
@@ -166,9 +164,9 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationExecutions
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSummary.png")
 ```
 
-結果は、選択された各コホートの異なる特性の表形式のビューを提供します。図\@ref(fig:atlasCharacterizationResultsSummary)では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
+結果は、選択された各コホートの異なる特性の表形式のビューを提供します。図 \@ref(fig:atlasCharacterizationResultsSummary)では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
 
-検索ボックスを使用して結果をフィルタリングし、「心房細動」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートの概念に関する詳細を表示します（図\@ref(fig:atlasCharacterizationResultsExplore）に示すように）。
+検索ボックスを使用して結果をフィルタリングし、「心房細動」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートの概念に関する詳細を表示します（図 \@ref(fig:atlasCharacterizationResultsExplore）に示すように）。
 
 ```{r atlasCharacterizationResultsExplore, fig.cap='特性結果 - 単一概念の探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExplore.png")
@@ -176,7 +174,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExp
 
 コホートのすべての条件概念を特性化したので、「explore」オプションを使用して、選択された概念（この場合は心房細動）のすべての先祖および子孫概念のビューを有効にします。この探索により、高血圧のある人々に現れる可能性のある他の心疾患を探索するために概念の階層をナビゲートすることができます。要約ビューと同様に、カウントと割合が表示されます。
 
-この特性結果を使用して、アンチ高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema」を検索します（図\@ref(fig:atlasCharacterizationResultsContra）を参照）。
+この特性結果を使用して、アンチ高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema」を検索します（図 \@ref(fig:atlasCharacterizationResultsContra）を参照）。
 
 ```{r atlasCharacterizationResultsContra, fig.cap='特性結果 - 禁忌条件の探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContra.png")
@@ -340,9 +338,10 @@ covariateData2$covariatesContinuous
 ### カスタム共変量
 
 FeatureExtractionは、カスタム共変量を定義および利用する能力も提供します。これについての詳細は高度なトピックであり、ユーザードキュメントに記載されています：http://ohdsi.github.io/FeatureExtraction/
+
 ## ATLASにおけるコホートパスウェイ分析
 
-パスウェイ分析の目標は、1つ以上の興味のあるコホート内で治療がどのように順序づけられているかを理解することです。適用される方法は@Hripcsak7329によって報告された設計に基づいています。これらの方法は一般化され、ATLASのCohort Pathwaysという機能に組み込まれました。
+パスウェイ分析の目標は、1つ以上の興味のあるコホート内で治療がどのように順序づけられているかを理解することです。適用される方法は@Hripcsak7329 によって報告された設計に基づいています。これらの方法は一般化され、ATLASのCohort Pathwaysという機能に組み込まれました。
 
 コホートパスウェイの目的は、1つ以上のターゲットコホートのコホート開始日以降のイベントを要約する分析機能を提供することです。そのために、対象となる人口の臨床イベントを特定するためのイベントコホートと呼ばれるコホートセットを作成します。これがターゲットコホート内の人物に対してどのように見えるかを例として示します。
 
@@ -393,6 +392,7 @@ knitr::include_graphics("images/Characterization/atlasPathwaysResultsPathDetails
 ```
 
 サンバーストプロットのセクションをクリックすると、右側に経路の詳細が表示されます。ここでは、ターゲットコホート内の最も多くの人々がACE阻害剤で一線級治療を開始し、そのグループから少数の人々がチアジド系利尿薬を開始していることがわかります。
+
 ## ATLAS における発生率分析
 
 発生率計算では、ターゲットコホート内の人々のうち、リスク期間中にアウトカムコホートを経験した人を記述します。ここでは、ACE阻害薬 (ACEi) およびチアジド系およびチアジド様利尿薬 (THZ) の新規使用者における血管浮腫 (Angioedema) および急性心筋梗塞 (AMI) のアウトカムを特徴づけるための発生率分析を設計します。これらのアウトカムを、薬物に曝露されている期間 (TAR) 中に評価します。さらに、ターゲットコホート (ACEi および THZ) への曝露中に新規のアンジオテンシン受容体拮抗薬 (ARB) 使用の発生率を測定するために、ARB の使用アウトカムを追加します。このアウトカム定義は、ターゲット集団の中で ARB の利用方法を理解するためのものです。
@@ -480,11 +480,11 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 ```
 
 ```{exercise, exerciseCharacterization2}
-セレコキシブ使用者の疾患の自然の歴史をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特徴付けを作成し、併存疾患および薬物曝露を示してください (Chapter @ref(Cohorts) で詳細な手順があります)。
+セレコキシブ使用者の疾患の自然の歴史をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特徴付けを作成し、併存疾患および薬物曝露を示してください (Chapter \@ref(Cohorts) で詳細な手順があります)。
 ```
 
 ```{exercise, exerciseCharacterization3}
 セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。[192671](http://athena.ohdsi.org/search-terms/terms/192671) ("消化管出血") またはその子孫のいずれかの概念の発生として単純に定義される GI 出血イベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。
 ```
 
-提案された解答は Appendix @ref(Characterizationanswers) に記載されています。
+提案された解答は Appendix \@ref(Characterizationanswers) に記載されています。
