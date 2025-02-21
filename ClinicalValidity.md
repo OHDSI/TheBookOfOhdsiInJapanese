@@ -1,6 +1,6 @@
 # --翻訳作業中--　臨床的妥当性 {#ClinicalValidity}
 
-*章のリード: Joel Swerdel, Seng Chan You, Ray Chen & Patrick Ryan*
+*チャプターリード: Joel Swerdel, Seng Chan You, Ray Chen & Patrick Ryan*
 
 > 物質をエネルギーに変換する可能性は、鳥がほとんどいない国で暗闇の中で鳥を撃つようなものだ。 *アインシュタイン, 1935*
 

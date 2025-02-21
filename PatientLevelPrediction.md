@@ -1,6 +1,6 @@
 # --翻訳作業中-- 患者レベル予測 {#PatientLevelPrediction}
 
-*章リーダー: Peter Rijnbeek & Jenna Reps*
+*章Lead: Peter Rijnbeek & Jenna Reps*
 
 \index{患者レベル予測}
 
