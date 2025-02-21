@@ -20,10 +20,6 @@ jobs:
         env:
           # install full prebuilt version
           TINYTEX_INSTALLER: TinyTeX
-      - name: Install Japanese fonts
-        run: |
-          tlmgr update --self
-          tlmgr install collection-langjapanese
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "kableExtra", "formatR"))'
       - name: Render Book website
