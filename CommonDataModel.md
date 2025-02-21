@@ -39,6 +39,7 @@ CDMは、以下の目的のために最適化されています。 \index{Common
   - **技術の中立性**: CDMは特定の技術を要求しません。Oracle、SQL ServerなどのリレーショナルデータベースやSASの分析データセットなど、任意のリレーショナルデータベースで実現できます。 \index{Common Data Model!技術の中立性}
   - **スケーラビリティ**: CDMは、数億人の人と数十億の臨床観察を含むデータベースなど、サイズに応じてデータソースを処理および計算分析するよう最適化されています。 \index{Common Data Model!スケーラビリティ}
   - **後方互換性**: 以前のCDMからのすべての変更はgithubリポジトリ[(https://github.com/OHDSI/CommonDataModel)](https://github.com/OHDSI/CommonDataModel)に明確に示されています。古いバージョンのCDMは現在のバージョンから簡単に作成でき、以前に存在していた情報が失われることはありません。 \index{Common Data Model!後方互換性}
+  
 ## データモデルの規約
 
 CDMでは、暗黙的および明示的な規約がいくつか採用されています。CDMを使用して実行されるメソッドの開発者は、これらの規約を理解する必要があります。\index{共通データモデル!規約}
@@ -128,6 +129,7 @@ CONCEPTテーブルのレコードには、各コンセプトに関する詳細�
 \end{figure}
 
 標準コンセプトからソースコンセプトへの関係이 표시되는 방법の例은 表 \@ref(tab:conditionOccurrence)에 나와 있습니다。
+
 ## CDM標準化テーブル
 
 \index{共通データモデル!標準化テーブル}
@@ -190,7 +192,7 @@ OBSERVATION_PERIODテーブルは、少なくとも患者の人口統計、疾�
 
 #### Laurenの観察期間はどのように定義されているのですか？{ -}
 
-Laurenの情報がTable @ref(tab:encounters)に示されているようにEHRシステムに記録されているとしましょう。彼女の観察期間が派生されたエンカウンターは：
+Laurenの情報がTable \@ref(tab:encounters)に示されているようにEHRシステムに記録されているとしましょう。彼女の観察期間が派生されたエンカウンターは：
 
 Table: (\#tab:encounters) Laurenのヘルスケアエンカウンター。
 
@@ -277,6 +279,7 @@ Table: (\#tab:conditionOccurrence) CONDITION_OCCURRENCEテーブル。
 が使用されています。|
 |CONDITION_STATUS_ CONCEPT_ID|NULL|既知の場合、これは周りの環境を意味します。たとえば、状態が「入院診断」などであれば、概念IDが [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。|
 |STOP_REASON|NULL|既知の場合、ソースデータ
+
 ## 追加情報
 
 この章では、CDMに存在するテーブルの一部の例を示し、データがどのように表示されるかを説明します。 詳細については、ウィキサイト[^cdmWikiUrl]をご覧ください。

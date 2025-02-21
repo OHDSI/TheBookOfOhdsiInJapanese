@@ -27,6 +27,7 @@ OHDSIでは、プラットフォーム固有の方言に依存しないことを
 したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
 
 この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化語彙を使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発現率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+
 ## SqlRender {#SqlRender}
 
 [SqlRender](https://ohdsi.github.io/SqlRender/) パッケージは CRAN（Comprehensive R Archive Network）で利用可能であり、以下の方法でインストールできます：
@@ -294,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.v4w7st2xchildren ;"
+## [1] "SELECT * FROM temp_schema.m3sscbpzchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -370,7 +371,8 @@ launchSqlRenderDeveloper()
 
 これにより、図\@ref(fig:sqlDeveloper)に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[^sqlDeveloperUrl]
 
-```{r sqlDeveloper, fig.cap='The SqlDeveloper
+```{r sqlDeveloper, fig.cap='The SqlDeveloper'
+
 ## DatabaseConnector {#DatabaseConnector}
 
 [DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)は、JavaのJDBCドライバを使用してさまざまなデータベースプラットフォームに接続するためのRパッケージです。DatabaseConnectorパッケージはCRAN（Comprehensive R Archive Network）で入手可能で、次のようにインストールできます：
@@ -497,6 +499,7 @@ insertTable(conn, "mtcars", mtcars, createTable = TRUE)
 ```
 
 この例では、mtcarsデータフレームをサーバー上の「mtcars」というテーブルにアップロードします。このテーブルは自動的に作成されます。
+
 ## CDMへのクエリ {#QueryTheCdm}
 
 以下の例では、OHDSI SQLを使用してCDMに準拠したデータベースにクエリを実行します。これらのクエリでは、CDMのデータベーススキーマを示すために`@cdm`を使用します。
@@ -671,7 +674,7 @@ QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。�
 
 }
 
-\caption{QueryLibrary: a library of SQL queries against the CDM.}(\#fig:queryLibrary)
+\caption{クエリライブラリ：CDMに対するSQLクエリのライブラリ。}(\#fig:queryLibrary)
 \end{figure}
 
 このライブラリの目的は、新しいユーザーがCDMのクエリ方法を学ぶ手助けをすることです。ライブラリ内のクエリは、OHDSIコミュニティによってレビューされ、承認されています。クエリライブラリは主にトレーニング目的で使用されますが、経験豊富なユーザーにとっても貴重なリソースです。
@@ -682,7 +685,7 @@ QueryLibraryは、SqlRenderを使用して、選択したSQLダイアレクト�
 
 ### 問題の定義
 
-血管浮腫は、ACE阻害剤（ACEi）のよく知られた副作用です。@slater_1988によると、ACEi治療開始後1週間で血管浮腫の発生率は週あたり3,000人中1例と推定されています。ここでは、この発見を再現し、年齢と性別によって層別化します。簡単のため、1つのACEi（リシノプリル）に焦点を当てます。したがって、次の質問に答えます：
+血管浮腫は、ACE阻害剤（ACEi）のよく知られた副作用です。@slater_1988 によると、ACEi治療開始後1週間で血管浮腫の発生率は週あたり3,000人中1例と推定されています。ここでは、この発見を再現し、年齢と性別によって層別化します。簡単のため、1つのACEi（リシノプリル）に焦点を当てます。したがって、次の質問に答えます：
 
 > リシノプリル治療開始後の最初の1週間での血管浮腫の発生率は、年齢と性別で層別化されていますか？
 
