@@ -6,7 +6,7 @@ bookdown::gitbook:
     toc:
       collapse: section
       before: |
-        <li><a href="./">OHDSI指南書 </a></li>
+        <li><a href="./">OHDSIの書」</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/%s

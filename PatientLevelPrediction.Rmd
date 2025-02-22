@@ -14,8 +14,7 @@
 
 OHDSIのおかげで、大規模、患者特異的予測モデリングが現実のものとなり、共通データモデル（CDM）が前例のない規模での均一で透明な分析を可能にしました。CDMに標準化された拡大するデータベースネットワークは、さまざまなヘルスケア環境でのモデルの外部検証をグローバルに可能にします。私たちは、これがケアの質の向上が最も必要とされる大規模な患者コミュニティに直ちに貢献できる機会を提供すると信じています。このようなモデルは、真に個別化された医療を支援し、患者の治療結果の劇的な向上を目指します。
 
-この章では、OHDSIの標準化された患者レベル予測のフレームワーク [@reps2018]を説明し、開発と検証のための確立されたベストプラクティスを実装する [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R パッケージについて説明します。まず、患者レベル予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究結果の普及のためのShinyアプリケーションの使用について説明します。
-
+この章では、OHDSIの標準化された患者レベル予測のフレームワーク [@reps2018 ]を説明し、開発と検証のための確立されたベストプラクティスを実装する [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R パッケージについて説明します。まず、患者レベル予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究結果の普及のためのShinyアプリケーションの使用について説明します。
 
 ## 予測課題
 
@@ -58,6 +57,7 @@ knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
 - 治療遵守
   - **構造**: *[治療]*の新規使用者の中で、*[時間枠]*で*[遵守指標]*を達成するのは誰ですか？
   - **例**: メトホルミンを開始した糖尿病患者のうち、1年後に80%以上の日数カバー率を達成するのは誰ですか？
+  
 ## データ抽出
 
 予測モデルを作成する際には、監督学習として知られるプロセスを使用します。これは、機械学習の一形態で、目標変数と結び付いたラベル付きデータから、共変量と結果ステータスの関係を推測する方法です\index{supervised learning(監督学習)}。したがって、CDMからターゲットコホートに属する個人の共変量を抽出する方法、およびその結果ステータスを取得する方法が必要です。
@@ -92,6 +92,7 @@ knitr::include_graphics("images/PatientLevelPrediction/Figure1.png")
 ### 否定 vs 欠損
 
 観察医療データは、値が否定的か欠損しているかを示すことは滅多にありません。前の例では、単にID 1の人が基準日前に本態性高血圧の発生がなかったことを観察しました。これは、その時点で状態が存在しなかった（否定的）または記録されなかった（欠損）可能性があります。機械学習アルゴリズムは否定的と欠損の区別がつかず、利用可能なデータから予測価値を評価することを理解しておくことが重要です。\index{欠損データ}
+
 ## モデルの適合 {#modelFitting}
 
 予測モデルの適合を行う際には、ラベル付きの例から共変量と観測された結果状態の関係を学習しようとしています。例えば、共変量が2つしかない場合、収縮期血圧と拡張期血圧だとすると、各患者を2次元空間のプロットとして表現できます（図 \@ref(fig:decisionBoundary) を参照）。この図では、データポイントの形が患者の結果状態（例：脳卒中）に対応しています。
@@ -203,6 +204,7 @@ Table: (\#tab:mpParameters) 多層パーセプトロンのハイパーパラメ�
 ### その他のアルゴリズム
 
 患者レベルの予測フレームワークには他のアルゴリズムを追加できますが、これはこの章の範囲外です。詳細は、[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) パッケージの["Adding Custom Patient-Level Prediction Algorithms"ビネット](https://ohdsi.github.io/PatientLevelPrediction/articles/AddingCustomAlgorithms.html)をご覧ください。
+
 ## 予測モデルの評価
 
 ### 評価の種類
@@ -275,13 +277,14 @@ knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 #### キャリブレーション {-}
 
 キャリブレーションは、モデルが正しいリスクを割り当てる能力です。例えば、モデルが100人の患者に10％のリスクを割り当てた場合、そのうち10人がリスク期間中に結果を経験するべきです。同様に、モデルが100人の患者に80％のリスクを割り当てた場合、そのうち80人がリスク期間中に結果を経験するべきです。キャリブレーションは、一般的に予測リスクに基づいて患者を十分位に分割し、各グループで平均予測リスクとリスク期間中に結果を経験した患者の割合を計算することによって測定されます。次に、これらの10点（予測リスクをy軸、観測リスクをx軸にプロット）をプロットし、それらがx = yの線上に位置するかどうかを確認します。これがモデルが適切にキャリブレーションされていることを示します。キャリブレーションプロットの例は、この章の後半に図 \@ref(fig:shinyCal) で示されています。また、これらの点を使用して線形モデルをフィットし、切片（ゼロに近いはず）と傾き（1に近いはず）を計算します。もし、傾きが1より大きい場合、モデルは実際のリスクよりも高いリスクを割り当てており、傾きが1より小さい場合、モデルは実際のリスクよりも低いリスクを割り当てていることを意味します。非線形関係をよりよく捕捉するために、Smooth Calibration Curvesも実装しています。 \index{キャリブレーション}
+
 ## 患者レベル予測研究の設計
 
-このセクションでは予測研究の設計方法を実演します。最初のステップは予測問題を明確に定義することです。興味深いことに、公開された多くの論文では予測問題が不十分に定義されています。例えば、インデックス日（ターゲットコホートの開始日）がどのように定義されているかが不明確です。予測問題が不十分に定義されていると、他者による外部検証や臨床実践への実装が困難になります。患者レベル予測フレームワークでは、表\@ref(tab:plpDesign)に定義された主要な選択肢を明示的に定義することを要求することにより、予測問題の適切な仕様を強調します。ここでは、「治療の安全性」というタイプの予測問題を例にして、このプロセスを説明します。 \index{インデックス日}
+このセクションでは予測研究の設計方法を実演します。最初のステップは予測問題を明確に定義することです。興味深いことに、公開された多くの論文では予測問題が不十分に定義されています。例えば、インデックス日（ターゲットコホートの開始日）がどのように定義されているかが不明確です。予測問題が不十分に定義されていると、他者による外部検証や臨床実践への実装が困難になります。患者レベル予測フレームワークでは、表 \@ref(tab:plpDesign)に定義された主要な選択肢を明示的に定義することを要求することにより、予測問題の適切な仕様を強調します。ここでは、「治療の安全性」というタイプの予測問題を例にして、このプロセスを説明します。 \index{インデックス日}
 
 ### 問題の定義
 
-アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です。[@byrd_2006] この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです。[@norman_2013] さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります。[@norman_2013; @thompson_1993] アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません。[@byrd_2006] ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します。[@circardi_2004] しかし、一部の症例は治療開始から数年後に発生することもあります。[@mara_1996] リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
+アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です。[@byrd_2006 ] この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです。[@norman_2013 ] さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります。[@norman_2013; @thompson_1993 ] アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません。[@byrd_2006 ] ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します。[@circardi_2004 ] しかし、一部の症例は治療開始から数年後に発生することもあります。[@mara_1996 ] リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
 
 患者レベル予測フレームワークを観察医療データに適用して、次の患者レベル予測問題に取り組みます：
 
@@ -303,7 +306,7 @@ knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 
 ### モデル開発設定
 
-予測モデルを開発するために、どのアルゴリズムを訓練するかを決める必要があります。ある予測問題に対する最良のアルゴリズムの選択は経験的な質問であり、データが自ら語るようにし、最適なものを見つけるために異なるアプローチを試みることを好みます。私たちのフレームワークでは、セクション\@ref(modelFitting)に記載されているように多くのアルゴリズムを実装し、他のアルゴリズムを追加することを許可しています。この例では、シンプルにするために、Gradient Boosting Machines（GBM）を一つのアルゴリズムとして選択します。
+予測モデルを開発するために、どのアルゴリズムを訓練するかを決める必要があります。ある予測問題に対する最良のアルゴリズムの選択は経験的な質問であり、データが自ら語るようにし、最適なものを見つけるために異なるアプローチを試みることを好みます。私たちのフレームワークでは、セクション \@ref(modelFitting)に記載されているように多くのアルゴリズムを実装し、他のアルゴリズムを追加することを許可しています。この例では、シンプルにするために、Gradient Boosting Machines（GBM）を一つのアルゴリズムとして選択します。
 
 さらに、モデルを訓練するために使用する共変量を決定する必要があります。私たちの例では、性別、年齢、すべての疾患、薬剤および薬剤グループ、訪問回数を追加します。これらの臨床イベントはインデックス日以前の1年間およびインデックス日以前のいつでも検索します。
 
@@ -313,7 +316,7 @@ knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 
 ### 研究概要
 
-これで、表\@ref(tab:plpSummary)に示されるように、研究を完全に定義しました。
+これで、表 \@ref(tab:plpSummary)に示されるように、研究を完全に定義しました。
 
 表: (\#tab:plpSummary) 私たちの研究の主な設計選択。
 
@@ -323,6 +326,7 @@ knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 | アウトカムコホート  | アンギオエデマ。                       |
 | リスク期間   | コホート開始後1日から365日。少なくとも364日のリスク期間が必要。 |
 | モデル       | Gradient Boosting Machine with hyper-parameters ntree: 5000, max depth: 4 or 7 or 10 and learning rate: 0.001 or 0.01 or 0.1 or 0.9. Covariates will include gender, age, conditions, drugs, drug groups, and visit count. データ分割: 75％トレーニング - 25％テスト、個人ごとにランダムに割り当てられます。 |
+
 ## ATLASでの研究の実装
 
 予測研究を設計するインターフェースは、ATLASメニューの左側にある![](images/PatientLevelPrediction/predictionButton.png)ボタンをクリックすることで開くことができます。新しい予測研究を作成しましょう。研究にわかりやすい名前をつけておくことを忘れないでください。研究の設計はいつでも![](images/PopulationLevelEstimation/save.png)ボタンをクリックして保存できます。\index{ATLAS}
@@ -333,7 +337,7 @@ knitr::include_graphics("images/PatientLevelPrediction/theory/roctheory.png")
 
 ここでは、分析の対象となるコホート群とアウトカムコホートを選択します。予測モデルは、対象コホートとアウトカムコホートの全組み合わせに対して開発されます。例えば、2つの対象集団と2つのアウトカムを指定すると、4つの予測問題が指定されたことになります。
 
-対象集団コホートを選択するには、事前にATLASで定義しておく必要があります。コホートのインスタンス化については、Chapter \@ref(Cohorts)で説明しています。この例で使用する対象（Appendix \@ref(AceInhibitors)）およびアウトカム（Appendix \@ref(Angioedema)）コホートの完全な定義は付録に掲載しています。対象集団をコホートに追加するには、「Add Target Cohort」ボタンをクリックします。アウトカムコホートの追加も同様に、「Add Outcome Cohort」ボタンをクリックすることで行います。完了すると、ダイアログが図\@ref(fig:problemSettings)のようになります。
+対象集団コホートを選択するには、事前にATLASで定義しておく必要があります。コホートのインスタンス化については、Chapter \@ref(Cohorts)で説明しています。この例で使用する対象（Appendix \@ref(AceInhibitors)）およびアウトカム（Appendix \@ref(Angioedema)）コホートの完全な定義は付録に掲載しています。対象集団をコホートに追加するには、「Add Target Cohort」ボタンをクリックします。アウトカムコホートの追加も同様に、「Add Outcome Cohort」ボタンをクリックすることで行います。完了すると、ダイアログが図 \@ref(fig:problemSettings)のようになります。
 
 ```{r problemSettings, fig.cap='予測問題設定.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/problemSettings.png")
@@ -347,7 +351,7 @@ knitr::include_graphics("images/PatientLevelPrediction/problemSettings.png")
 
 モデル開発のために1つ以上の教師あり学習アルゴリズムを選ぶことができます。教師あり学習アルゴリズムを追加するには、「Add Model Settings」ボタンをクリックします。現在ATLASインターフェースでサポートされているすべてのモデルを含むドロップダウンが表示されます。ドロップダウンメニューの名前をクリックすることで、研究に含めたい教師あり学習モデルを選択できます。これでその特定のモデルのビューが表示され、ハイパーパラメータ値を選択できるようになります。複数の値が提供されると、クロスバリデーションを使用して最適な組み合わせを選択するために、すべての可能な値の組み合わせを網羅的に検索します。
 
-我々の例では、勾配ブースティングマシンを選択し、図\@ref(fig:gbmSettings)に示すようにハイパーパラメータを設定します。
+我々の例では、勾配ブースティングマシンを選択し、図 \@ref(fig:gbmSettings)に示すようにハイパーパラメータを設定します。
 
 ```{r gbmSettings, fig.cap='勾配ブースティングマシン設定', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/gbmSettings.png")
@@ -359,7 +363,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 研究に共変量設定を追加するには、「Add Covariate Settings」をクリックします。これで共変量設定ビューが開きます。
 
-共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意の概念に対して構築されますが、例えばターゲットコホート定義にリンクされている場合、特定の概念を除外または含めることができます。特定の概念のみを含めるには、ATLASで概念セットを作成し、「**What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の下で![](images/PopulationLevelEstimation/open.png)をクリックして概念セットを選択します。概念セット内の概念に子孫概念を自動的に追加するには、「**Should descendant concepts be added to the list of included concepts?**」の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択された概念を除去する「**What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の質問にも繰り返します。最後のオプション「**A comma delimited list of covariate IDs that should be restricted to** 」では、共変量ID（概念IDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、包括設定と除外設定は図\@ref(fig:covariateSettings1)のようになります。
+共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意の概念に対して構築されますが、例えばターゲットコホート定義にリンクされている場合、特定の概念を除外または含めることができます。特定の概念のみを含めるには、ATLASで概念セットを作成し、「**What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の下で![](images/PopulationLevelEstimation/open.png)をクリックして概念セットを選択します。概念セット内の概念に子孫概念を自動的に追加するには、「**Should descendant concepts be added to the list of included concepts?**」の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択された概念を除去する「**What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の質問にも繰り返します。最後のオプション「**A comma delimited list of covariate IDs that should be restricted to** 」では、共変量ID（概念IDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、包括設定と除外設定は図 \@ref(fig:covariateSettings1)のようになります。
 
 ```{r covariateSettings1, fig.cap='共変量の包括と除外設定.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings1.png")
@@ -379,7 +383,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings1.png")
 - コホート期間: コホートにいた期間の日数
 - インデックス年と月: [予測には推奨されません] コホート開始年と月の組み合わせ
 
-これが完了すると、このセクションは図\@ref(fig:covariateSettings2)のようになるはずです。
+これが完了すると、このセクションは図 \@ref(fig:covariateSettings2)のようになるはずです。
 
 ```{r covariateSettings2, fig.cap='共変量の選択.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings2.png")
@@ -392,7 +396,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings2.png")
 - 中期 [デフォルト-180日からコホート開始前まで]
 - 短期 [デフォルト-30日からコホート開始前まで]
 
-これが完了すると、このセクションは図\@ref(fig:covariateSettings3)のようになるはずです。
+これが完了すると、このセクションは図 \@ref(fig:covariateSettings3)のようになるはずです。
 
 ```{r covariateSettings3, fig.cap='時間に依存する共変量.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings3.png")
@@ -407,7 +411,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings3.png")
 
 オーバーラップ設定には、薬物または症状がコホート開始日以前に開始し、終了がコホート開始日以後に続くものが含まれます。**エラの開始**オプションは時間間隔内に開始したものに限定します。
 
-これが完了すると、このセクションは図\@ref(fig:covariateSettings4)のようになるはずです。
+これが完了すると、このセクションは図 \@ref(fig:covariateSettings4)のようになるはずです。
 
 ```{r covariateSettings4, fig.cap='エラ時間共変量.', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PatientLevelPrediction/covariateSettings4.png")
@@ -420,6 +424,7 @@ knitr::include_graphics("images/PatientLevelPrediction/covariateSettings4.png")
 - Drug: 薬物共変量
 - Procedure: 手続き共変量
 - Measurement: 測定共変量
+
 ## Rでの研究実施
 
 研究デザインをATLASで実装する代わりに、Rで直接コードを記述して実施することもできます。ここでは、[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)パッケージを利用します。このパッケージは、OMOP CDMに変換されたデータベースからデータを抽出し、モデルを構築し、評価することができます。
@@ -612,6 +617,7 @@ population <- createStudyPopulation(plpData = plpData,
                                     priorOutcomeLookback = 9999,
                                     riskWindowStart = 1,
                                     risk
+                                    
 ## 結果普及
 
 ### モデルパフォーマンス
@@ -632,7 +638,7 @@ plpResult <- loadPlpResult(file.path(outputFolder,
 viewPlp(plpResult)
 ```
 
-Shinyアプリケーションはテストセットとトレインセットのパフォーマンス指標の要約から始まります（図\@ref(fig:shinySummary)参照）。結果は、トレインセットのAUCは0.78であり、これがテストセットでは0.74に低下したことを示しています。テストセットのAUCがより正確な測定値です。全体として、モデルはACE阻害剤の新規ユーザーの中で結果を発生させる人を識別する能力があるようですが、トレインセットのパフォーマンスがテストセットより高いため、わずかに過適合しています。ROCプロットは図\@ref(fig:shinyROC)に示されています。
+Shinyアプリケーションはテストセットとトレインセットのパフォーマンス指標の要約から始まります（図 \@ref(fig:shinySummary)参照）。結果は、トレインセットのAUCは0.78であり、これがテストセットでは0.74に低下したことを示しています。テストセットのAUCがより正確な測定値です。全体として、モデルはACE阻害剤の新規ユーザーの中で結果を発生させる人を識別する能力があるようですが、トレインセットのパフォーマンスがテストセットより高いため、わずかに過適合しています。ROCプロットは図 \@ref(fig:shinyROC)に示されています。
 
 ```{r shinySummary, fig.cap='Shinyアプリケーションにおける評価統計の要約。', echo=FALSE, out.width='100%'}
  knitr::include_graphics("images/PatientLevelPrediction/shinysummary.png")
@@ -642,7 +648,7 @@ Shinyアプリケーションはテストセットとトレインセットのパ
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyRoc.png")
 ```
 
-図\@ref(fig:shinyCal)に示されているキャリブレーションプロットは、一般的に観察されたリスクが予測されたリスクと一致していることを示しており、点が対角線の周りにあります。しかし、図\@ref(fig:shinyDemo)に示されている人口統計学的キャリブレーションプロットは、40歳未満の若年患者についてモデルが十分に校正されていないことを示しています。青い線（予測リスク）は赤い線（観察されたリスク）とは異なります。これは、ターゲット人口から40歳未満を除外する必要があることを示しているかもしれません（若年患者の観察リスクはほとんどゼロです）。
+図 \@ref(fig:shinyCal)に示されているキャリブレーションプロットは、一般的に観察されたリスクが予測されたリスクと一致していることを示しており、点が対角線の周りにあります。しかし、図 \@ref(fig:shinyDemo)に示されている人口統計学的キャリブレーションプロットは、40歳未満の若年患者についてモデルが十分に校正されていないことを示しています。青い線（予測リスク）は赤い線（観察されたリスク）とは異なります。これは、ターゲット人口から40歳未満を除外する必要があることを示しているかもしれません（若年患者の観察リスクはほとんどゼロです）。
 
 ```{r shinyCal, fig.cap='モデルのキャリブレーション',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyCal.png")
@@ -652,7 +658,7 @@ Shinyアプリケーションはテストセットとトレインセットのパ
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyDemo.png")
 ```
 
-最後に、選択基準に基づくラベル付きデータからの患者の脱落を示すattritionプロットがあります（図\@ref(fig:shinyAtt)参照）。プロットは、リスク期間全体で観察されていなかったため、ターゲット人口の大部分が失われたことを示しています（1年間のフォローアップ）。興味深いことに、結果が出た患者の多くは完全なリスク期間を欠いていませんでした。
+最後に、選択基準に基づくラベル付きデータからの患者の脱落を示すattritionプロットがあります（図 \@ref(fig:shinyAtt)参照）。プロットは、リスク期間全体で観察されていなかったため、ターゲット人口の大部分が失われたことを示しています（1年間のフォローアップ）。興味深いことに、結果が出た患者の多くは完全なリスク期間を欠いていませんでした。
 
 ```{r shinyAtt, fig.cap='予測問題におけるattritionプロット',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/singleShiny/singleShinyAtt.png")
@@ -665,7 +671,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 #### モデルの要約と設定の表示 {-}
 
-インタラクティブなShinyアプリは、図\@ref(fig:multiShinySummary)に示す要約ページから始まります。
+インタラクティブなShinyアプリは、図 \@ref(fig:multiShinySummary)に示す要約ページから始まります。
 
 ```{r multiShinySummary, fig.cap='各モデルのホールドアウトセットの主要なパフォーマンス指標を含むShinyの要約ページ',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyFilter.png")
@@ -689,27 +695,27 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 #### モデルパフォーマンスの表示 {-}
 
-モデル行が選択されると、モデルパフォーマンスも表示できます。![](images/PatientLevelPrediction/performance.png) をクリックしてしきい値パフォーマンスの要約を表示します（図\@ref(fig:shinyPerformanceSum)参照）。
+モデル行が選択されると、モデルパフォーマンスも表示できます。![](images/PatientLevelPrediction/performance.png) をクリックしてしきい値パフォーマンスの要約を表示します（図 \@ref(fig:shinyPerformanceSum)参照）。
 
 ```{r shinyPerformanceSum, fig.cap='特定のしきい値におけるパフォーマンス測定の要約。',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceSum.png")
 ```
 
-この要約ビューは標準形式で選択された予測問題を表示し、しきい値セレクタと正の予測値（PPV）、負の予測値（NPV）、感度および特異度（セクション\@ref(performance)参照）などの重要なしきい値ベースの指標を含むダッシュボードを表示します。図\@ref(fig:shinyPerformanceSum)では、しきい値が0.00482で感度は83.4％（翌年の結果を持つ患者の83.4％がリスク0.00482以上）、PPVは1.2％（リスク0.00482以上の患者の1.2％が翌年に結果を持つ）であることが示されている。1年以内のアウトカム発生率が0.741％であることを考えると、リスクが0.00482以上の患者を特定することで、集団平均リスクの約2倍のリスクを持つサブグループを見つけることができます。スライダーを使用してしきい値を調整し、他の値でのパフォーマンスを表示できます。
+この要約ビューは標準形式で選択された予測問題を表示し、しきい値セレクタと正の予測値（PPV）、負の予測値（NPV）、感度および特異度（セクション \@ref(performance)参照）などの重要なしきい値ベースの指標を含むダッシュボードを表示します。図 \@ref(fig:shinyPerformanceSum)では、しきい値が0.00482で感度は83.4％（翌年の結果を持つ患者の83.4％がリスク0.00482以上）、PPVは1.2％（リスク0.00482以上の患者の1.2％が翌年に結果を持つ）であることが示されている。1年以内のアウトカム発生率が0.741％であることを考えると、リスクが0.00482以上の患者を特定することで、集団平均リスクの約2倍のリスクを持つサブグループを見つけることができます。スライダーを使用してしきい値を調整し、他の値でのパフォーマンスを表示できます。
 
-モデル全体の判別を確認するには、「Discrimination」タブをクリックしてROCプロット、精度-再現プロット、および分布プロットを表示します。プロットの線は選択されたしきい値ポイントに対応しています。図\@ref(fig:shinyPerformanceDisc)はROCおよび精度-再現プロットを示しています。ROCプロットは、モデルが翌年にアウトカムが発生する人と発生しない人を区別できることを示しています。しかし、アウトカム発生率が低いため、精度-再現プロットを見るとパフォーマンスはそれほど印象的でないように見えます。
+モデル全体の判別を確認するには、「Discrimination」タブをクリックしてROCプロット、精度-再現プロット、および分布プロットを表示します。プロットの線は選択されたしきい値ポイントに対応しています。図 \@ref(fig:shinyPerformanceDisc)はROCおよび精度-再現プロットを示しています。ROCプロットは、モデルが翌年にアウトカムが発生する人と発生しない人を区別できることを示しています。しかし、アウトカム発生率が低いため、精度-再現プロットを見るとパフォーマンスはそれほど印象的でないように見えます。
 
 ```{r shinyPerformanceDisc, fig.cap='ROCおよび精度-再現プロットを使用してモデルの判別能力全体を評価する。',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceDisc.png")
 ```
 
-図\@ref(fig:shinyPerformanceDist)は予測リスクおよび選好スコア分布を示しています。
+図 \@ref(fig:shinyPerformanceDist)は予測リスクおよび選好スコア分布を示しています。
 
 ```{r shinyPerformanceDist, fig.cap='アウトカム有およびアoutingの患者に対する予測リスク分布。重なりが多いほど、判別が悪化します。',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceDist.png")
 ```
 
-最後に、「Calibration」タブをクリックしてモデルのキャリブレーションを確認することもできます。これにより、図\@ref(fig:shinyPerformanceCal)に示されるキャリブレーションプロットおよび人口統計学的キャリブレーションが表示されます。
+最後に、「Calibration」タブをクリックしてモデルのキャリブレーションを確認することもできます。これにより、図 \@ref(fig:shinyPerformanceCal)に示されるキャリブレーションプロットおよび人口統計学的キャリブレーションが表示されます。
 
 ```{r shinyPerformanceCal, fig.cap='リスク層別キャリブレーションおよび人口統計学的キャリブレーション',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyPerformanceCal.png")
@@ -717,23 +723,22 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 1年以内の結果を経験したグループの予測リスクと観察された結果の割合が一致しているように見えるので、モデルはよく校正されています。興味深いことに、人口統計学的キャリブレーションは、若年患者の場合、予測されたリスクが観察されたリスクよりも高いことを示しています。逆に80歳以上の患者の場合、モデルは観察されたリスクよりも低いリスクを予測しています。これは、若年および高齢者のために別々のモデルを開発する必要があることを示唆しているかもしれません。
 
-
 #### モデルの表示 {-}
 
-最終モデルを検査するには、左側のメニューから![](images/PatientLevelPrediction/modelButton.png)オプションを選択します。これにより、図\@ref(fig:shinyModelPlots)に示すモデル内の各変数のプロットと図\@ref(fig:shinyModelTable)に示すすべての候補共変量を要約するテーブルが表示されます。変数プロットはバイナリ変数と連続変数に分かれています。X軸はアウトカムがない患者の中での有病率/平均値、Y軸はアウトカムがある患者の中での有病率/平均値です。従って、変数の点が対角線の上にある場合、その変数はアウトカムがある患者の方が一般的であり、点が対角線の下にある場合、その変数はアウトカムがない患者の方が一般的です。
+最終モデルを検査するには、左側のメニューから![](images/PatientLevelPrediction/modelButton.png)オプションを選択します。これにより、図 \@ref(fig:shinyModelPlots)に示すモデル内の各変数のプロットと図 \@ref(fig:shinyModelTable)に示すすべての候補共変量を要約するテーブルが表示されます。変数プロットはバイナリ変数と連続変数に分かれています。X軸はアウトカムがない患者の中での有病率/平均値、Y軸はアウトカムがある患者の中での有病率/平均値です。従って、変数の点が対角線の上にある場合、その変数はアウトカムがある患者の方が一般的であり、点が対角線の下にある場合、その変数はアウトカムがない患者の方が一般的です。
 
 ```{r shinyModelPlots, fig.cap='モデル要約プロット。各点はモデルに含まれる変数に対応します。',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyModelPlots.png")
 ```
 
-図\@ref(fig:shinyModelTable)に示すテーブルでは、すべての候補共変量の名前、値（一般線形モデルを使用する場合は係数、その他の場合は変数の重要性）、アウトカム平均（アウトカムがある患者の平均値）、非アウトカム平均（アウトカムがない患者の平均値）が表示されます。
+図 \@ref(fig:shinyModelTable)に示すテーブルでは、すべての候補共変量の名前、値（一般線形モデルを使用する場合は係数、その他の場合は変数の重要性）、アウトカム平均（アウトカムがある患者の平均値）、非アウトカム平均（アウトカムがない患者の平均値）が表示されます。
 
 ```{r shinyModelTable, fig.cap='モデル詳細テーブル。',echo=FALSE, out.width='100%', fig.align='center'}
  knitr::include_graphics("images/PatientLevelPrediction/shiny/shinyModelTable.png")
 ```
 
 ```{block2, type='rmdimportant'}
-予測モデルは因果モデルではなく、予測変数を原因と誤解しないようにしてください。図\@ref(fig:shinyModelTable)のいずれかの変数を変更することでアウトカムのリスクが影響を受ける保証はありません。
+予測モデルは因果モデルではなく、予測変数を原因と誤解しないようにしてください。図 \@ref(fig:shinyModelTable)のいずれかの変数を変更することでアウトカムのリスクが影響を受ける保証はありません。
 
 ```
 
@@ -778,12 +783,11 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 ```
 
-
 ## 演習
 
 #### 前提条件 {-}
 
-これらの演習では、セクション\@ref(installR)で説明されているように、R、R-Studio、およびJavaがインストールされていることを前提としています。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、[Eunomia](https://ohdsi.github.io/Eunomia/)および[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)パッケージも必要です。これらは以下のコマンドでインストールできます：
+これらの演習では、セクション \@ref(installR)で説明されているように、R、R-Studio、およびJavaがインストールされていることを前提としています。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、[Eunomia](https://ohdsi.github.io/Eunomia/)および[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)パッケージも必要です。これらは以下のコマンドでインストールできます：
 
 ```{r eval=FALSE}
 install.packages(c("SqlRender", "DatabaseConnector", "remotes"))
@@ -824,4 +828,4 @@ LASSOを使用して予測モデルを構築し、Shinyアプリケーション�
 
 ```
 
-提案された回答は、付録\@ref(Plpanswers)で見つけることができます。
+提案された回答は、付録 \@ref(Plpanswers)で見つけることができます。
