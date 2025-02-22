@@ -1,6 +1,6 @@
 ---
 title: " --翻訳作業中--　OHDSI指南書"
-author: "観察ヘルスデータ科学および情報学"
+author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "2025-02-22"
 output: word_document
 geometry:
@@ -41,11 +41,11 @@ classoption: 11pt
 
 この本は5つの主要な部に分かれています：
 
-第I部   OHDSIコミュニティ
-第II部  統一されたデータ表現
-第III部 データ分析
-第IV部  エビデンスの質
-第V部   OHDSI研究
+I.   OHDSIコミュニティ
+II.  統一されたデータ表現
+III. データ分析
+IV.  エビデンスの質
+V.   OHDSI研究
 
 各部には複数の章があり、各章は次の順序に従います：導入、理論、実践、要約、演習。
 
@@ -139,6 +139,6 @@ SqlRender & 1.6.2\\
 
 ![](images/Preface/cc0.png)
 
-## 本書が作成方法{.unnumbered}
+## 本書が作成された方法{.unnumbered}
 
 この本は [RMarkdown](https://rmarkdown.rstudio.com) を使用して [bookdown](https://bookdown.org) パッケージで書かれています。オンラインバージョンはソースリポジトリ <https://github.com/OHDSI/TheBookOfOhdsiInJapanese/> から自動的に再構築され、継続的統合システム ["travis"](http://travis-ci.org/) によって管理されます。定期的に本の状態のスナップショットが取得され、「版（エディション）」としてマークされます。これらの版はAmazonから物理コピーとして入手できます（訳者注：物理コピーは英語版のみ入手可能）。
