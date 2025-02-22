@@ -181,4 +181,3 @@ THEMIS
 
 White Rabbit
 : CDMへのETLを定義する前にデータベースをプロファイリングするソフトウェアツール。詳細はChapter \@ref(ExtractTransformLoad)参照。
-## 欠測値
