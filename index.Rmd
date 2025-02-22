@@ -1,6 +1,6 @@
 ---
 title: " --翻訳作業中--　OHDSI指南書"
-author: "観察ヘルスデータ科学および情報学"
+author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "`r Sys.Date()`"
 output: word_document
 geometry:
@@ -57,11 +57,11 @@ lapply(c('SqlRender', 'DatabaseConnector'), function(pkg) {
 
 この本は5つの主要な部に分かれています：
 
-第I部   OHDSIコミュニティ
-第II部  統一されたデータ表現
-第III部 データ分析
-第IV部  エビデンスの質
-第V部   OHDSI研究
+I.   OHDSIコミュニティ
+II.  統一されたデータ表現
+III. データ分析
+IV.  エビデンスの質
+V.   OHDSI研究
 
 各部には複数の章があり、各章は次の順序に従います：導入、理論、実践、要約、演習。
 
