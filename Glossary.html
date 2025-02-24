@@ -771,11 +771,11 @@ div.csl-indent {
 </dd>
 <dt>コホート（Cohort）</dt>
 <dd>
-ある期間内に、1つ以上の選択基準を満たす個人の集団。詳細は第 <a href="Cohorts.html#Cohorts">11</a>章参照。
+ある期間内に、1つ以上の選択基準を満たす個人の集団。詳細は第<a href="Cohorts.html#Cohorts">11</a>章参照。
 </dd>
 <dt>コンセプト（Concept）</dt>
 <dd>
-医学用語で定義された表現（コードが付随する）（例：SNOMED CT）。詳細は第 <a href="StandardizedVocabularies.html#StandardizedVocabularies">6</a>章参照。
+医学用語で定義された表現（コードが付随する）（例：SNOMED CT）。詳細は第<a href="StandardizedVocabularies.html#StandardizedVocabularies">6</a>章参照。
 </dd>
 <dt>コンセプトセット（Concept set）</dt>
 <dd>
@@ -783,7 +783,7 @@ div.csl-indent {
 </dd>
 <dt>共通データモデル（Common Data Model, CDM）</dt>
 <dd>
-分析のポータビリティ（同じ分析を変更なしで複数のデータセットで実行できる）を可能にするための医療データの表現規約。詳細は第<a href="CommonDataModel.html#CommonDataModel">5</a>章参照。
+分析のポータビリティ（同じ分析を変更なしで複数のデータセットで実行できる）を可能にするための医療データの表現規約。詳細は第7章参照。
 </dd>
 <dt>比較効果（Comparative Effectiveness）</dt>
 <dd>
@@ -813,64 +813,61 @@ div.csl-indent {
 <dd>
 人に投与されたときに特定の生理学的効果を発揮するように調製された生化学物質。薬剤には処方薬と市販薬、ワクチン、バイオ製剤が含まれる。局所的に摂取または適用する放射性デバイスは薬剤に含まない。
 </dd>
-</dl>
-<p>#kokokara</p>
-<dl>
 <dt>ドメイン（Domain）</dt>
 <dd>
-CDMテーブルの標準フィールドに対して許容される概念のセットを定義するドメイン。たとえば、「状態（Condition）ドメイン」は患者の状態を説明する概念を含み、これらの概念はCONDITION_OCCURRENCEおよびCONDITION_ERAテーブルのcondition_concept_idフィールドにのみ保存できる。
+共通データモデルのテーブルにおける標準化フィールドに対して使用が許容される一連のコンセプト一式の定義。例えば、「コンディション（Condition）」ドメインは患者の状態を説明するコンセプトを含み、これらのコンセプトはCONDITION_OCCURRENCEおよびCONDITION_ERAテーブルのcondition_concept_idフィールドにのみ格納できる。
 </dd>
 <dt>電子健康記録（Electronic Health Record, EHR）</dt>
 <dd>
-ケアの過程で生成され、電子システムに記録されるデータ。
+医療の過程で生成され、電子システムに記録されるデータ。
 </dd>
 <dt>疫学（Epidemiology）</dt>
 <dd>
-定義された集団における健康および病状の分布、パターン、および決定要因の研究。
+一定の集団における健康および疾患の分布、パターン、および決定要因の研究。
 </dd>
 <dt>エビデンスに基づく医療（Evidence-based medicine）</dt>
 <dd>
-個々の患者のケアに関する意思決定において実証的および科学的証拠の使用。
+個々の患者の医療に関する意思決定において実証的および科学的エビデンスを使用すること。
 </dd>
 <dt>ETL（Extract-Transform-Load）</dt>
 <dd>
-データをある形式から別の形式に変換するプロセス（例：ソース形式からCDMへの変換）。詳細はChapter <a href="ExtractTransformLoad.html#ExtractTransformLoad">7</a>参照。
+データをある形式から別の形式に変換するプロセス（例：ソース形式から共通データモデルへの変換）。詳細は第<a href="ExtractTransformLoad.html#ExtractTransformLoad">7</a>章参照。
 </dd>
 <dt>マッチング（Matching）</dt>
 <dd>
-多くの集団レベル効果推定アプローチは、暴露された患者のアウトカムを非暴露患者（またはAに対する暴露とBに対する暴露）との比較によって、暴露の因果効果を特定しようとする。これらの2つの患者群が暴露以外の方法で異なる可能性があるため、「マッチング」は少なくとも測定された患者特性に関してできる限り同様の暴露および非暴露患者群を作成することを試みる。
+多くの集団レベルの効果推定のためのアプローチは、曝露された患者のアウトカムを曝露されていない患者（または曝露Bに対して曝露A）と比較することよって、曝露の因果効果を特定しようとする。これらの2つの患者群が曝露以外の点で異なる可能性があるため、「マッチング」は曝露および非曝露群を設定する際に、少なくとも測定された患者特性に関してできる限り同じにしようとする。
 </dd>
-<dt>測定（Measurement）</dt>
+<dt>測定値（Measurement）</dt>
 <dd>
-Personまたはそのサンプルの体系的かつ標準化された検査またはテストを通じて得られる構造化された値（数値またはカテゴリカル）。
+患者または患者の検体の体系的かつ標準化された診察または検査を通じて得られる構造化された値（数値またはカテゴリカル）。
 </dd>
 <dt>測定誤差（Measurement error）</dt>
 <dd>
-記録された測定値（例：血圧、患者の年齢、治療期間）が対応する真実の測定値と異なる場合に発生する。
+記録された測定値（例：血圧、患者の年齢、治療期間）が対応する真の測定値と異なる場合に発生する。
 </dd>
 <dt>メタデータ（Metadata）</dt>
 <dd>
-他のデータについて説明し、情報を提供するデータのセットで、記述メタデータ、構造メタデータ、管理メタデータ、参照メタデータ、統計メタデータを含む。
+他のデータについて説明し、情報を提供するデータの一式。メタデータには、記述メタデータ、構造メタデータ、管理メタデータ、参照メタデータ、統計メタデータがある。
 </dd>
-<dt>方法のライブラリ（Methods Library）</dt>
+<dt>Methods Library</dt>
 <dd>
-観察研究を実行するためにOHDSIコミュニティによって開発されたRパッケージのセット。
+観察研究を実行するためにOHDSIコミュニティによって開発された一連のRパッケージ。
 </dd>
-<dt>モデルの誤仕様（Model misspecification）</dt>
+<dt>モデルの誤特定（Model misspecification）</dt>
 <dd>
-多くのOHDSIメソッドは、比例ハザード回帰やランダムフォレストなどの統計モデルを採用している。データ生成メカニズムが想定モデルから逸脱する限り、モデルは「誤仕様」である。
+多くのOHDSIで用いる方法は、比例ハザード回帰やランダムフォレストなどの統計モデルを採用している。データ生成メカニズムが想定モデルから逸脱する限り、モデルは「誤特定」である。
 </dd>
 <dt>陰性対照（Negative control）</dt>
 <dd>
-暴露がアウトカムを引き起こさないまたは予防しないと信じられる暴露-アウトカムのペア。効果推定方法が真実に沿った結果を生成するかどうかを評価するために使用される。詳細はChapter <a href="MethodValidity.html#MethodValidity">19</a>参照。
+曝露がアウトカムを引き起こさないまたは予防しないと信じられる曝露-アウトカムの組み合わせ。効果推定が真実に沿った結果を生成するかどうかを評価するために使用される。詳細は第<a href="MethodValidity.html#MethodValidity">19</a>章参照。
 </dd>
 <dt>観察（Observation）</dt>
 <dd>
-検査、質問または手順の文脈で得られたPersonに関する臨床事実。
+診察、問診または処置のコンテキストで得られた患者に関する臨床上の事実。
 </dd>
 <dt>観察期間（Observation period）</dt>
 <dd>
-人がソースシステム内で臨床イベントを記録するリスクにある期間（健康な患者が医療に関与しない）。
+患者がソースシステム内で臨床イベントの有無にか関わらず（状態の良い患者が医療に関与しない場合を含めて）臨床イベントを記録する可能性がある期間。
 </dd>
 <dt>観察研究（Observational study）</dt>
 <dd>
@@ -878,71 +875,71 @@ Personまたはそのサンプルの体系的かつ標準化された検査ま�
 </dd>
 <dt>OHDSI SQL</dt>
 <dd>
-SqlRender Rパッケージを使用して様々な他のSQL方言に自動変換できるSQL方言。OHDSI SQLは主にSQL Server SQLのサブセットであるが、追加のパラメータ化を許可する。詳細はChapter <a href="SqlAndR.html#SqlAndR">10</a>参照。
+RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（方言）に自動変換できるSQLダイアレクト。OHDSI SQLは主にSQL Server SQLのサブセットであるが、追加のパラメータ化が可能である。詳細は第<a href="SqlAndR.html#SqlAndR">10</a>章参照。
 </dd>
 <dt>オープンサイエンス（Open science）</dt>
 <dd>
-科学研究（出版物、データ、物理的サンプル、ソフトウェアを含む）およびその普及を、アマチュアまたは専門家のすべてのレベルの探求社会にアクセス可能にする運動。詳細はChapter <a href="OpenScience.html#OpenScience">4</a>参照。
+科学研究（パブリケーション、データ、物理的サンプル、ソフトウェアを含む）およびその普及を、要求のあった社会、アマチュア、専門家のすべてのレベルでアクセス可能にする運動。詳細は第<a href="OpenScience.html#OpenScience">4</a>章参照。
 </dd>
 <dt>アウトカム（Outcome）</dt>
 <dd>
-分析の焦点となる観察点。例えば患者レベルの予測モデルは、アウトカム「脳卒中」を予測する。または集団レベルの推定は、薬剤がアウトカム「頭痛」に及ぼす因果効果を推定するかもしれない。
+分析の焦点となる観察。例えば、患者レベルの予測モデルは、アウトカム「脳卒中」を予測するのかもしれない。または集団レベルの推定は、薬剤がアウトカム「頭痛」に及ぼす因果効果を推定するかもしれない。
 </dd>
-<dt>患者レベル予測（Patient-level prediction）</dt>
+<dt>患者レベルの予測（Patient-level prediction）</dt>
 <dd>
 ベースライン特性に基づいて将来のアウトカムを経験する患者固有の確率を生成する予測モデルの開発と適用。
 </dd>
 <dt>フェノタイプ（Phenotype）</dt>
 <dd>
-物理的特性の説明。これには、体重や髪の色のような可視的な特徴だけでなく、全体的な健康状態、病歴、行動も含まれる。
+身体的特性の説明。これには、体重や髪の色のような可視的な特徴だけでなく、全体的な健康状態、病歴、行動も含まれる。
 </dd>
 <dt>集団レベル推定（Population-level estimation）</dt>
 <dd>
-因果効果の研究。平均（集団レベル）の効果サイズを推定する。
+因果効果の研究。平均（集団レベル）の効果の大きさを推定する。
 </dd>
 <dt>陽性対照（Positive control）</dt>
 <dd>
-暴露がアウトカムを引き起こすまたは予防すると信じられる暴露-アウトカムのペア。効果推定方法が真実に沿った結果を生成するかどうかを評価するために使用される。詳細はChapter <a href="MethodValidity.html#MethodValidity">19</a>参照。
+曝露がアウトカムを引き起こすまたは予防すると信じられる曝露-アウトカムの組み合わせ。効果推定方法が真実に沿った結果を生成するかどうかを評価するために使用される。詳細は第<a href="MethodValidity.html#MethodValidity">19</a>章参照。
 </dd>
-<dt>手順（Procedure）</dt>
+<dt>処置（Procedure）</dt>
 <dd>
 患者に対して診断または治療目的で医療提供者によって命じられまたは実行される活動またはプロセス。
 </dd>
-<dt>調整得点（Propensity score, PS）</dt>
+<dt>傾向スコア（Propensity score, PS）</dt>
 <dd>
-観察研究における2つの治療群間のランダム化を模倣するために集団レベル推定で用いられる単一の指標。PSは、観察された一連のベースライン共変量の関数として患者が関心のある治療を受ける確率を示す。最も頻繁にロジスティック回帰モデルを使用して計算され、バイナリアウトカムはターゲット治療を受ける群を1、比較治療を受ける群を0に設定される。詳細はChapter <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">13</a>参照。
+観察研究において、2つの治療群間の均衡をとり無作為化を模倣するために集団レベル推定で用いられる単一の指標。傾向スコアは、観察された一連のベースライン共変量の関数として患者が関心のある治療を受ける確率を示す。最もよく使われるのは、二値アウトカムはターゲット治療を受ける群を1、比較対照治療を受ける群を0に設定したロジスティック回帰モデルを使用した計算である。詳細は第<a href="PopulationLevelEstimation.html#PopulationLevelEstimation">13</a>章参照。
 </dd>
 <dt>プロトコル（Protocol）</dt>
 <dd>
-研究のデザインを完全に指定する人間が読めるドキュメント。
+研究のデザインを完全に指定するドキュメントで、人が読んで理解できるもの。
 </dd>
 <dt>Rabbit-in-a-Hat</dt>
 <dd>
-ソース形式からCDMへのETLを定義するのを支援するインタラクティブなソフトウェアツール。White Rabbitによって生成されたデータベースプロファイルを入力として使用する。詳細はChapter 7参照。
+ソース形式から共通データモデルへのETLを定義を支援するインタラクティブなソフトウェアツール。White Rabbitによって生成されたデータベースプロファイルを入力として使用する。詳細は第<a href="DataAnalyticsUseCases.html#DataAnalyticsUseCases">8</a>章参照。
 </dd>
 <dt>選択バイアス（Selection bias）</dt>
 <dd>
-データ内の患者セットが統計分析を歪める形で母集団の患者と逸脱した場合に発生するバイアス。
+データ内の患者集団が統計分析を歪める形で母集団の患者から逸脱した場合に発生するバイアス。
 </dd>
 <dt>自己対照デザイン（Self-controlled designs）</dt>
 <dd>
-同一患者内で異なる暴露期間中のアウトカムを比較する研究デザイン。
+同一患者内で異なる曝露期間中のアウトカムを比較する研究デザイン。
 </dd>
 <dt>感度分析（Sensitivity analysis）</dt>
 <dd>
-不確実性が存在する分析選択の影響を評価するために研究で使用される主要分析のバリエーション。
+不確実性が存在する分析に関する選択の影響を評価するために研究の主たる分析のバリエーション。
 </dd>
 <dt>SNOMED</dt>
 <dd>
-臨床文書および報告で使用するためのコード、用語、同義語および定義を提供する体系化されたコンピュータ処理可能な医療用語集。
+臨床ドキュメントおよび報告書で使用するため、コード、用語、同義語および定義を提供する体系化されたコンピュータ処理可能な医療用語集。
 </dd>
 <dt>研究診断（Study diagnostics）</dt>
 <dd>
-特定の分析アプローチが特定の研究質問に対する回答に（有効である）使用できるかどうかを判断することを目的とする分析手順のセット。詳細はChapter <a href="MethodValidity.html#MethodValidity">19</a>参照。
+特定の分析アプローチが特定の研究質問に対する回答に使用できるかどうか（あるいは、妥当かどうか）を判断することを目的とする分析手順のセット。詳細は第<a href="MethodValidity.html#MethodValidity">19</a>章参照。
 </dd>
 <dt>研究パッケージ（Study package）</dt>
 <dd>
-研究を完全に実行するコンピュータ実行プログラム。詳細はChapter <a href="SoftwareValidity.html#SoftwareValidity">18</a>参照。
+研究を完全に実行するコンピュータ実行プログラム。詳細は第<a href="SoftwareValidity.html#SoftwareValidity">18</a>章参照。
 </dd>
 <dt>ソースコード（Source code）</dt>
 <dd>
@@ -950,23 +947,23 @@ SqlRender Rパッケージを使用して様々な他のSQL方言に自動変換
 </dd>
 <dt>標準コンセプト（Standard Concept）</dt>
 <dd>
-有効性が指定された概念で、CDMに含まれる資格がある概念。
+妥当であると指定され、共通データモデルに含めることができるコンセプト。
 </dd>
 <dt>THEMIS</dt>
 <dd>
-CDMモデル仕様に関して高い粒度と詳細度を持つターゲットデータフォーマットに取り組むOHDSIワーキンググループ。
+共通データモデル仕様に関して高い粒度と詳細を持つデータ形式に取り組むOHDSIワークグループ。
 </dd>
 <dt>ビジット（Visit）</dt>
 <dd>
-医療システム内の特定の設定で、ケアサイトで1人または複数の提供者から連続して医療サービスを受ける期間。
+医療システム内で特定の設定の医療施設において、1人以上の医療提供者から継続して医療サービスを受ける期間。
 </dd>
-<dt>語彙（Vocabulary）</dt>
+<dt>ボキャブラリ（Vocabulary）</dt>
 <dd>
-単語やフレーズのリストで、通常アルファベット順に並べられ、定義または翻訳される。詳細はChapter <a href="StandardizedVocabularies.html#StandardizedVocabularies">6</a>参照。
+通常アルファベット順に並べられ、定義または翻訳された単語や語句のリスト。詳細は第<a href="StandardizedVocabularies.html#StandardizedVocabularies">6</a>章参照。
 </dd>
 <dt>White Rabbit</dt>
 <dd>
-CDMへのETLを定義する前にデータベースをプロファイリングするソフトウェアツール。詳細はChapter <a href="ExtractTransformLoad.html#ExtractTransformLoad">7</a>参照。
+共通データモデルへのETLを定義する前にデータベースをプロファイリングするソフトウェアツール。詳細は第<a href="ExtractTransformLoad.html#ExtractTransformLoad">7</a>章参照。
 </dd>
 </dl>
 
