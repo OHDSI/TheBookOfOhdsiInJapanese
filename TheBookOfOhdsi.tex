@@ -3238,7 +3238,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.lcfc7ezuchildren ;"
+## [1] "SELECT * FROM temp_schema.s9nsyy79children ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -10255,11 +10255,18 @@ CDMへのETLを定義する前にデータベースをプロファイリング�
 
 \section{ACEiとTHZ}\label{AceiThzNsc}
 
-表: \label{tab:AceiThzNsc} ACE阻害剤（ACEi）とチアジドおよびチアジド様利尿薬（THZ）を比較した場合のネガティブコントロールの結果。
-
 \begin{longtable}[]{@{}
   >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8000}}@{}}
+\caption{\label{tab:AceiThzNsc} ACE阻害剤（ACEi）とチアジドおよびチアジド様利尿薬（THZ）を比較した場合のネガティブコントロールの結果。}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプトの名前
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedleft
 コンセプトID
@@ -10441,8 +10448,6 @@ CDMへのETLを定義する前にデータベースをプロファイリング�
   参考文献
 \end{enumerate}
 
-\section{NA}\label{na}
-
 \chapter{--翻訳作業中--　推奨解答}\label{SuggestedAnswers}
 
 この付録には、本書の練習問題に対する推奨解答が含まれています。
@@ -10454,12 +10459,21 @@ CDMへのETLを定義する前にデータベースをプロファイリング�
 
 練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnPerson} のようになるはずです。
 
-表: \label{tab:johnPerson} PERSONテーブル。
-
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1644}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5342}}@{}}
+\caption{\label{tab:johnPerson} PERSONテーブル。}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+カラム名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+値
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+説明
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 カラム名
@@ -10498,12 +10512,21 @@ ETHNICITY\_SOURCE\_ CONCEPT\_ID & 0 & \\
 
 練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnOp} のようになるはずです。
 
-表: \label{tab:johnOp} OBSERVATION\_PERIODテーブル。
-
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3151}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1507}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5342}}@{}}
+\caption{\label{tab:johnOp} OBSERVATION\_PERIODテーブル。}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+カラム名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+値
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+説明
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 カラム名
@@ -10528,12 +10551,21 @@ PERIOD\_TYPE\_ CONCEPT\_ID & 44814722 & \href{http://athena.ohdsi.org/search-ter
 
 練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnDrug} のようになるはずです。
 
-表: \label{tab:johnDrug} DRUG\_EXPOSUREテーブル。
-
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1644}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5342}}@{}}
+\caption{\label{tab:johnDrug} DRUG\_EXPOSUREテーブル。}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+カラム名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+値
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+説明
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 カラム名
@@ -11505,7 +11537,7 @@ ACHILLESを実行するには:
 
 \section{}\label{section}
 
-\section{NA}\label{na-1}
+\section{NA}\label{na}
 
   \bibliography{book.bib,packages.bib}
 
