@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 15 証拠の質 | –翻訳作業中–　OHDSI指南書</title>
+  <title>–翻訳作業中–　付録（APPENDIX） | –翻訳作業中–　OHDSI指南書</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 15 証拠の質 | –翻訳作業中–　OHDSI指南書" />
+  <meta property="og:title" content="–翻訳作業中–　付録（APPENDIX） | –翻訳作業中–　OHDSI指南書" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 15 証拠の質 | –翻訳作業中–　OHDSI指南書" />
+  <meta name="twitter:title" content="–翻訳作業中–　付録（APPENDIX） | –翻訳作業中–　OHDSI指南書" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="翻訳作業中-証拠の質.html"/>
-<link rel="next" href="DataQuality.html"/>
+<link rel="prev" href="NetworkResearch.html"/>
+<link rel="next" href="Glossary.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -721,143 +721,16 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="EvidenceQuality" class="section level1 hasAnchor" number="15">
-<h1><span class="header-section-number">第 15</span> 証拠の質<a href="EvidenceQuality.html#EvidenceQuality" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>チャプターリード: Patrick Ryan &amp; Jon Duke</em></p>
-<p></p>
-<div id="信頼できる証拠の属性" class="section level2 hasAnchor" number="15.1">
-<h2><span class="header-section-number">15.1</span> 信頼できる証拠の属性<a href="EvidenceQuality.html#信頼できる証拠の属性" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>どんな旅にも出発する前に、理想的な目的地がどのように見えるかを想像することが役立つでしょう。データから証拠への旅を支援するために、信頼できる証拠の質を裏付けることができる望ましい属性を強調します。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:attributesOfEvidence"></span>
-<img src="images/EvidenceQuality/reliableevidenceattributes.png" alt="信頼できる証拠の望ましい属性" width="100%" />
-<p class="caption">
-図 15.1: 信頼できる証拠の望ましい属性
-</p>
-</div>
-<p>信頼できる証拠は<strong>繰り返し可能</strong>であるべきであり、特定の質問に対して同じデータに同じ分析を適用すると、研究者は同一の結果を期待すべきです。この最低要件には、証拠が定義されたプロセスの実行結果であり、途中での手作業の介入や事後的な意思決定の影響を受けることなく、特定の入力に基づいて行われるものであるという考えが暗黙のうちに含まれています。さらに理想的には、信頼できる証拠は<strong>再現可能</strong>であるべきであり、異なる研究者が特定のデータベースで特定の分析を実行した場合でも、最初の研究者と同じ結果を期待できるべきです。再現可能性とは、プロセスが完全に明記されており、人間が読める形式とコンピュータが実行可能な形式の両方であり、調査者の裁量に任される研究の決定がないことを意味します。繰り返し可能性と再現可能性を達成する最も効率的な解決策は、定義された入力と出力を持つ標準化された分析ルーチンを使用し、これらの手続きをバージョン管理されたデータベースに適用することです。</p>
-<p>証拠が<strong>複製可能</strong>である場合、その証拠が信頼できるものであることに自信を持つ可能性が高まります。つまり、同じ質問に対して類似のデータに対して同じ分析を行った際に、類似の結果が得られることを示す必要があります。例えば、特定の行政請求データベースに対する分析から生成された証拠は、別の保険会社の請求データに対して再現された場合に強化される可能性があります。人口レベルの効果推定の文脈では、この属性はSir Austin Bradford Hillの因果関係の視点における一貫性と良く一致します。「異なる人物、異なる場所、状況、時間で繰り返し観察されているかどうか…偶然が説明であるか、真の危険が明らかにされたかどうかは、状況と観察の繰り返しによってのみ答えられることがある」<span class="citation">(<a href="#ref-hill_1965">Hill 1965</a>)</span> 患者レベルの予測の文脈では、再現性は外部検証の価値を強調し、特定のデータベースでトレーニングされたモデルの性能を他のデータベースに適用した際の識別精度とキャリブレーションを観察することによって評価できる能力を示します。不同のデータベースに対して同一の分析が行われた場合でも一貫して類似の結果が得られる状況では、証拠が<strong>一般化可能</strong>であることにさらに確信を持つことができます。OHDSI研究ネットワークの重要な価値は、異なる人口、地理、およびデータキャプチャプロセスによって表現される多様性です。<span class="citation">(<a href="#ref-madigan_2013は"><strong>madigan_2013は?</strong></a>)</span>、効果推定値がデータの選択に敏感であることを示しました。各データソースには固有の制限と独自のバイアスがあり、それが個々の発見に対する信頼の制限となるという認識に基づいて、不均一なデータセット全体で類似したパターンが観察されれば、それだけでソース特有のバイアスだけが発見の説明にはならないという可能性が格段に減少します。米国、ヨーロッパ、アジアの複数の請求およびEHRデータベース全体で一貫した人口レベルの効果推定が示される場合、それらは医療介入に関するより広範な医療意思決定に影響を与える強力な証拠と認識されるべきです。</p>
-<p>信頼できる証拠は<strong>堅牢</strong>であるべきであり、分析において主観的な選択肢に対して過度に敏感でないべきです。特定の研究に対して合理的とされる代替統計手法がある場合、異なる手法が同じ結果をもたらすことが確認できれば再保証となり、逆に不一致の結果が明らかになれば警戒のサインとなります。<span class="citation">(<a href="#ref-madigan2013design">Madigan, Ryan, and Schuemie 2013</a>)</span> 人口レベルの効果推定において、感度分析は、高レベルの研究デザインの選択（比較コホートデザインまたは自己制御ケースシリーズデザインを適用するかどうか）を含み、またデザイン内の分析検討（比較コホートフレームワーク内で共変数調整戦略として傾向スコアマッチング、層別化または重み付けを行うかどうか）に焦点を当てることができます。</p>
-<p>最後に、しかしおそらく最も重要なのは、証拠が<strong>キャリブレーションされている</strong>べきであるということです。未知の質問に対する答えを生成するシステムがその性能を検証できない場合、そのシステムが生成する結果の解釈の文脈として測定および伝達できるべき特定の動作特性が備わっています。閉じたシステムは、95%信頼区間が95%の被覆確率を持つか、または10%の予測確率を持つコホートが10%の人口における観察された出来事の割合を持つなど、経験的に確立された特性を持つべきです。観察研究には必ずデザイン、方法、およびデータに関する仮定をテストする研究診断が付随しているべきです。これらの診断は、研究の妥当性に対する主な脅威（選択バイアス、交絡、および測定誤差）の評価に焦点を当てるべきです。否定的対照が観察研究における系統的誤差の特定および軽減に強力なツールとして示されています。<span class="citation">(<a href="#ref-schuemie_2016">Schuemie et al. 2016</a>, <a href="#ref-schuemie_2018">2018</a>; <a href="#ref-schuemie_2018b">Schuemie, Ryan, et al. 2018</a>)</span></p>
-</div>
-<div id="証拠の質の理解" class="section level2 hasAnchor" number="15.2">
-<h2><span class="header-section-number">15.2</span> 証拠の質の理解<a href="EvidenceQuality.html#証拠の質の理解" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>しかし、研究の結果が十分に信頼できるかどうかをどうやって知るのでしょうか？臨床現場で利用するために信頼できますか？規制上の意思決定においてはどうでしょうか？将来の研究の基礎として役立つでしょうか？新しい研究が発表または広範囲に配布されるたびに、読者はこれらの質問を考慮する必要があります。これは、その作業がランダム化比較試験、観察研究、または他のタイプの分析であっても同様です。 </p>
-<p>観察研究および「リアルワールドデータ」の使用に関してよく指摘される懸念の一つは、データの質の問題です。<span class="citation">(<a href="#ref-botsis2010secondary">Botsis et al. 2010</a>; <a href="#ref-hersh2013caveats">Hersh et al. 2013</a>; <a href="#ref-sherman2016real">Sherman et al. 2016</a>)</span> よく指摘されるのは、観察研究で使用されるデータはもともと研究目的で収集されたものではなく、不完全または不正確なデータキャプチャや固有のバイアスの影響を受ける可能性があるという点です。これらの懸念は、データの質を測定、特徴付け、理想的には改善する方法に関する成長する研究領域を生み出しました。<span class="citation">(<a href="#ref-kahn2012pragmatic">Michael G. Kahn et al. 2012</a>; <a href="#ref-liaw2013towards">Liaw et al. 2013</a>; <a href="#ref-weiskopf_2013">Weiskopf and Weng 2013</a>)</span> OHDSIコミュニティはこのような研究の強い支持者であり、コミュニティのメンバーはOMOP CDMおよびOHDSIネットワークでのデータ品質に関する多くの研究を主導および参加してきました。<span class="citation">(<a href="#ref-huser_multisite_2016">Huser et al. 2016</a>; <a href="#ref-kahn_transparent_2015">Michael G. Kahn et al. 2015</a>; <a href="#ref-callahan2017comparison">Callahan et al. 2017</a>; <a href="#ref-yoon_2016">Yoon et al. 2016</a>)</span> </p>
-<p>過去10年間のこの分野の研究結果から明らかになったのは、データの質は完璧ではなく、決して完璧にはならないということです。この考えは、医療情報学の先駆者であるClem McDonald博士のこの引用にうまく表れています：</p>
-<blockquote>
-<p>データが医師の脳から医療記録に移動することで忠実度の損失が始まります。 </p>
-</blockquote>
-<p>したがって、コミュニティとして私たちは次の質問をしなければなりません - <em>不完全なデータを前提に、信頼できる証拠をどのように得ることができるか？</em></p>
-<p>答えは「証拠の質」を包括的に見ることであり、データから証拠へのプロセス全体を調べ、証拠生成プロセスを構成する各コンポーネントを特定し、各コンポーネントの質に対する信頼をどのように築くかを決定し、その過程で学んだことを透明に伝えることです。証拠の質は観察データの質だけでなく、観察分析で使用される方法、ソフトウェア、および臨床定義の妥当性も考慮に入れます。 </p>
-<p>次の章では、表 <a href="#tab:evidenceQuality">15.1</a> にリストされている証拠の質の4つのコンポーネントを探ります。</p>
-<p>表: (#tab:evidenceQuality) 証拠の質の4つのコンポーネント。</p>
-<table>
-<colgroup>
-<col width="20%" />
-<col width="79%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>証拠の質のコンポーネント</th>
-<th>測定するもの</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="DataQuality.html">データの質</a></td>
-<td>データが合意された構造と規約に準拠した形で、完全にキャプチャされ信憑性のある値を持つかどうか？</td>
-</tr>
-<tr class="even">
-<td><a href="ClinicalValidity.html">臨床的妥当性</a></td>
-<td>実施された分析が臨床的な意図とどの程度一致しているか？</td>
-</tr>
-<tr class="odd">
-<td><a href="SoftwareValidity.html">ソフトウェアの妥当性</a></td>
-<td>データの変換および分析プロセスが意図した通りに機能するかどうか？</td>
-</tr>
-<tr class="even">
-<td><a href="MethodValidity.html">方法の妥当性</a></td>
-<td>データの強みと弱点を考慮した上で、その方法論が質問に適しているか？</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="証拠品質の伝達" class="section level2 hasAnchor" number="15.3">
-<h2><span class="header-section-number">15.3</span> 証拠品質の伝達<a href="EvidenceQuality.html#証拠品質の伝達" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>証拠の質の重要な側面は、データから証拠への旅の過程で生じる不確実性を表現する能力です。証拠の質に関するOHDSIの取り組みの包括的な目標は、OHDSIによって生成された証拠が多くの点で不完全であるにもかかわらず、その弱点と強みが一貫して測定され、この情報が厳密でオープンな方法で伝達されたという自信を医療意思決定者に提供することです。
-## まとめ</p>
-
-<div class="rmdsummary">
-<ul>
-<li><p>我々が生成するエビデンスは、<strong>繰り返し可能</strong> 、 <strong>再現可能</strong> 、 <strong>複製可能</strong> 、 <strong>一般化可能</strong> 、 <strong>堅牢</strong> 、そして<strong>較正済み</strong>であるべきです。</p></li>
-<li><p>エビデンスが信頼できるかどうかを判断する際には、データの質だけでなく、エビデンスの質を考慮するべきです：</p>
-<ul>
-<li>データの質</li>
-<li>臨床的妥当性</li>
-<li>ソフトウェアの妥当性</li>
-<li>手法の妥当性</li>
-</ul></li>
-<li><p>エビデンスを伝える際には、エビデンスの質に対する各種の挑戦から生じる不確実性を表現する必要があります。</p></li>
-</ul>
-</div>
-
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-botsis2010secondary" class="csl-entry">
-Botsis, Taxiarchis, Gunnar Hartvigsen, Fei Chen, and Chunhua Weng. 2010. <span>“Secondary Use of EHR: Data Quality Issues and Informatics Opportunities.”</span> <em>Summit on Translational Bioinformatics</em> 2010: 1.
-</div>
-<div id="ref-callahan2017comparison" class="csl-entry">
-Callahan, Tiffany J, Alan E Bauck, David Bertoch, Jeff Brown, Ritu Khare, Patrick B Ryan, Jenny Staab, Meredith N Zozus, and Michael G Kahn. 2017. <span>“A Comparison of Data Quality Assessment Checks in Six Data Sharing Networks.”</span> <em>eGEMs</em> 5 (1).
-</div>
-<div id="ref-hersh2013caveats" class="csl-entry">
-Hersh, William R, Mark G Weiner, Peter J Embi, Judith R Logan, Philip RO Payne, Elmer V Bernstam, Harold P Lehmann, et al. 2013. <span>“Caveats for the Use of Operational Electronic Health Record Data in Comparative Effectiveness Research.”</span> <em>Medical Care</em> 51 (8 0 3): S30.
-</div>
-<div id="ref-hill_1965" class="csl-entry">
-Hill, A. B. 1965. <span>“<span><span>T</span><span>H</span><span>E</span> <span>E</span><span>N</span><span>V</span><span>I</span><span>R</span><span>O</span><span>N</span><span>M</span><span>E</span><span>N</span><span>T</span> <span>A</span><span>N</span><span>D</span> <span>D</span><span>I</span><span>S</span><span>E</span><span>A</span><span>S</span><span>E</span>: <span>A</span><span>S</span><span>S</span><span>O</span><span>C</span><span>I</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span> <span>O</span><span>R</span> <span>C</span><span>A</span><span>U</span><span>S</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>?</span>”</span> <em>Proc. R. Soc. Med.</em> 58 (May): 295–300.
-</div>
-<div id="ref-huser_multisite_2016" class="csl-entry">
-Huser, Vojtech, Frank J. DeFalco, Martijn Schuemie, Patrick B. Ryan, Ning Shang, Mark Velez, Rae Woong Park, et al. 2016. <span>“Multisite <span>Evaluation</span> of a <span>Data</span> <span>Quality</span> <span>Tool</span> for <span>Patient</span>-<span>Level</span> <span>Clinical</span> <span>Data</span> <span>Sets</span>.”</span> <em>EGEMS (Washington, DC)</em> 4 (1): 1239. <a href="https://doi.org/10.13063/2327-9214.1239">https://doi.org/10.13063/2327-9214.1239</a>.
-</div>
-<div id="ref-kahn_transparent_2015" class="csl-entry">
-Kahn, Michael G., Jeffrey S. Brown, Alein T. Chun, Bruce N. Davidson, Daniella Meeker, P. B. Ryan, Lisa M. Schilling, Nicole G. Weiskopf, Andrew E. Williams, and Meredith Nahm Zozus. 2015. <span>“Transparent Reporting of Data Quality in Distributed Data Networks.”</span> <em>EGEMS (Washington, DC)</em> 3 (1): 1052. <a href="https://doi.org/10.13063/2327-9214.1052">https://doi.org/10.13063/2327-9214.1052</a>.
-</div>
-<div id="ref-kahn2012pragmatic" class="csl-entry">
-Kahn, Michael G, Marsha A Raebel, Jason M Glanz, Karen Riedlinger, and John F Steiner. 2012. <span>“A Pragmatic Framework for Single-Site and Multisite Data Quality Assessment in Electronic Health Record-Based Clinical Research.”</span> <em>Medical Care</em> 50.
-</div>
-<div id="ref-liaw2013towards" class="csl-entry">
-Liaw, Siaw-Teng, Alireza Rahimi, Pradeep Ray, Jane Taggart, Sarah Dennis, Simon de Lusignan, B Jalaludin, AET Yeo, and Amir Talaei-Khoei. 2013. <span>“Towards an Ontology for Data Quality in Integrated Chronic Disease Management: A Realist Review of the Literature.”</span> <em>International Journal of Medical Informatics</em> 82 (1): 10–24.
-</div>
-<div id="ref-madigan2013design" class="csl-entry">
-Madigan, D., P. B. Ryan, and M. Schuemie. 2013. <span>“<span class="nocase"><span>D</span>oes design matter? <span>S</span>ystematic evaluation of the impact of analytical choices on effect estimates in observational studies</span>.”</span> <em>Ther Adv Drug Saf</em> 4 (2): 53–62.
-</div>
-<div id="ref-schuemie_2016" class="csl-entry">
-Schuemie, M. J., G. Hripcsak, P. B. Ryan, D. Madigan, and M. A. Suchard. 2016. <span>“<span class="nocase"><span>R</span>obust empirical calibration of p-values using observational data</span>.”</span> <em>Stat Med</em> 35 (22): 3883–88.
-</div>
-<div id="ref-schuemie_2018" class="csl-entry">
-———. 2018. <span>“<span class="nocase"><span>E</span>mpirical confidence interval calibration for population-level effect estimation studies in observational healthcare data</span>.”</span> <em>Proc. Natl. Acad. Sci. U.S.A.</em> 115 (11): 2571–77.
-</div>
-<div id="ref-schuemie_2018b" class="csl-entry">
-Schuemie, M. J., P. B. Ryan, G. Hripcsak, D. Madigan, and M. A. Suchard. 2018. <span>“<span class="nocase"><span>I</span>mproving reproducibility by using high-throughput observational studies with empirical calibration</span>.”</span> <em>Philos Trans A Math Phys Eng Sci</em> 376 (2128).
-</div>
-<div id="ref-sherman2016real" class="csl-entry">
-Sherman, Rachel E, Steven A Anderson, Gerald J Dal Pan, Gerry W Gray, Thomas Gross, Nina L Hunter, Lisa LaVange, et al. 2016. <span>“Real-World Evidence—What Is It and What Can It Tell Us.”</span> <em>N Engl J Med</em> 375 (23): 2293–97.
-</div>
-<div id="ref-weiskopf_2013" class="csl-entry">
-Weiskopf, Nicole Gray, and Chunhua Weng. 2013. <span>“Methods and Dimensions of Electronic Health Record Data Quality Assessment: Enabling Reuse for Clinical Research.”</span> <em>Journal of the American Medical Informatics Association: JAMIA</em> 20 (1): 144–51. <a href="https://doi.org/10.1136/amiajnl-2011-000681">https://doi.org/10.1136/amiajnl-2011-000681</a>.
-</div>
-<div id="ref-yoon_2016" class="csl-entry">
-Yoon, D., E. K. Ahn, M. Y. Park, S. Y. Cho, P. Ryan, M. J. Schuemie, D. Shin, H. Park, and R. W. Park. 2016. <span>“<span class="nocase"><span>C</span>onversion and <span>D</span>ata <span>Q</span>uality <span>A</span>ssessment of <span>E</span>lectronic <span>H</span>ealth <span>R</span>ecord <span>D</span>ata at a <span>K</span>orean <span>T</span>ertiary <span>T</span>eaching <span>H</span>ospital to a <span>C</span>ommon <span>D</span>ata <span>M</span>odel for <span>D</span>istributed <span>N</span>etwork <span>R</span>esearch</span>.”</span> <em>Healthc Inform Res</em> 22 (1): 54–58.
-</div>
+<div id="翻訳作業中-付録appendix" class="section level1 unnumbered hasAnchor">
+<h1>–翻訳作業中–　付録（APPENDIX）<a href="翻訳作業中-付録appendix.html#翻訳作業中-付録appendix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="翻訳作業中-証拠の質.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="DataQuality.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="NetworkResearch.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Glossary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -888,7 +761,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/EvidenceQuality.Rmd",
+    "link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/Glossary.Rmd",
     "text": "編集"
   },
   "history": {
