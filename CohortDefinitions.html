@@ -727,28 +727,27 @@ div.csl-indent {
 <p>この付録には、本書全体で使用されるコホート定義が含まれています。</p>
 <div id="AceInhibitors" class="section level2 hasAnchor" number="23.1">
 <h2><span class="header-section-number">B.1</span> ACE阻害薬<a href="CohortDefinitions.html#AceInhibitors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="初期イベントコホート" class="section level4 unnumbered hasAnchor">
-<h4>初期イベントコホート<a href="CohortDefinitions.html#初期イベントコホート" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>以下のいずれかを持つ人々：</p>
+<div id="インデックスイベントコホート" class="section level4 unnumbered hasAnchor">
+<h4>インデックスイベントコホート<a href="CohortDefinitions.html#インデックスイベントコホート" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>以下のいずれかを持つ人：</p>
 <ul>
-<li>個人の歴史において初めての<em>ACE阻害薬</em>（表 <a href="CohortDefinitions.html#tab:aceInhibitors">B.1</a>）の薬物使用</li>
+<li>その人の履歴において初回の<em>ACE阻害薬</em>（表<a href="CohortDefinitions.html#tab:aceInhibitors">B.1</a>）への曝露</li>
 </ul>
-<p>イベント指標日から遡って少なくとも365日間の連続観察があり、日の後の観察は0日で、初期イベントを以下に制限： 1人あたり全てのイベント。</p>
-<p>適格コホートを制限：1人あたり全てのイベント。</p>
+<p>かつ、インデックス日から遡って少なくとも365日前、0日後の間の連続した観察があり、初期イベントを以下とします：その個人における全てのイベント。</p>
 </div>
-<div id="最終日戦略" class="section level4 unnumbered hasAnchor">
-<h4>最終日戦略<a href="CohortDefinitions.html#最終日戦略" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>カスタム薬剤時代の終了基準
-この戦略は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、そのインデックスイベントを含む観察期間の終了日を使用します。</p>
-<p><em>ACE阻害薬</em>（表 <a href="CohortDefinitions.html#tab:aceInhibitors">B.1</a>）の時代終了日を使用</p>
+<div id="終了日の考え方" class="section level4 unnumbered hasAnchor">
+<h4>終了日の考え方<a href="CohortDefinitions.html#終了日の考え方" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>カスタム薬剤曝露期間の終了基準：
+ここでは、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホート終了日はその曝露期間の終了日を使用します。そうでない場合、そのインデックスイベントを含む観察期間の終了日を使用します。</p>
+<p><em>ACE阻害薬</em>（表<a href="CohortDefinitions.html#tab:aceInhibitors">B.1</a>）の曝露期間終了日を使用</p>
 <ul>
-<li>使用間隔が30日以内</li>
-<li>使用終了後0日追加</li>
+<li>曝露期間の間隔は30日を許容</li>
+<li>曝露期間終了後に0日を追加</li>
 </ul>
 </div>
-<div id="コホート統合戦略" class="section level4 unnumbered hasAnchor">
-<h4>コホート統合戦略<a href="CohortDefinitions.html#コホート統合戦略" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>30日間のギャップサイズで時代によるコホート統合。</p>
+<div id="コホート圧縮の考え方" class="section level4 unnumbered hasAnchor">
+<h4>コホート圧縮の考え方<a href="CohortDefinitions.html#コホート圧縮の考え方" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>30日間のギャップによりコホートを圧縮します。</p>
 </div>
 <div id="コンセプトセット定義" class="section level4 unnumbered hasAnchor">
 <h4>コンセプトセット定義<a href="CohortDefinitions.html#コンセプトセット定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -759,7 +758,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -840,8 +839,8 @@ div.csl-indent {
 </div>
 <div id="AceInhibitorsMono" class="section level2 hasAnchor" number="23.2">
 <h2><span class="header-section-number">B.2</span> ACE阻害薬単独療法新規使用者<a href="CohortDefinitions.html#AceInhibitorsMono" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="初期イベントコホート-1" class="section level4 unnumbered hasAnchor">
-<h4>初期イベントコホート<a href="CohortDefinitions.html#初期イベントコホート-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="初期イベントコホート" class="section level4 unnumbered hasAnchor">
+<h4>初期イベントコホート<a href="CohortDefinitions.html#初期イベントコホート" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>以下のいずれかを持つ人々：</p>
 <ul>
 <li>個人の歴史において初めての<em>ACE阻害薬</em>（表 <a href="CohortDefinitions.html#tab:aceInhibitorsMono">B.2</a>）の薬物使用</li>
@@ -867,17 +866,17 @@ div.csl-indent {
 </ul>
 <p>適格コホートを以下に制限：最初のイベント per person。</p>
 </div>
-<div id="最終日戦略-1" class="section level4 unnumbered hasAnchor">
-<h4>最終日戦略<a href="CohortDefinitions.html#最終日戦略-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="最終日の考え方" class="section level4 unnumbered hasAnchor">
+<h4>最終日の考え方<a href="CohortDefinitions.html#最終日の考え方" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>カスタム薬剤時代の終了基準。
-この戦略は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。</p>
+この考え方は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。</p>
 <ul>
 <li>使用間隔が30日以内</li>
 <li>使用終了後0日追加</li>
 </ul>
 </div>
-<div id="コホート統合戦略-1" class="section level4 unnumbered hasAnchor">
-<h4>コホート統合戦略<a href="CohortDefinitions.html#コホート統合戦略-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホート統合の考え方" class="section level4 unnumbered hasAnchor">
+<h4>コホート統合の考え方<a href="CohortDefinitions.html#コホート統合の考え方" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>0日間のギャップサイズで時代によるコホート統合。</p>
 </div>
 <div id="コンセプトセット定義-1" class="section level4 unnumbered hasAnchor">
@@ -889,7 +888,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -973,7 +972,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -994,7 +993,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -1411,8 +1410,8 @@ div.csl-indent {
 </div>
 <div id="Ami" class="section level2 hasAnchor" number="23.3">
 <h2><span class="header-section-number">B.3</span> 急性心筋梗塞（AMI）<a href="CohortDefinitions.html#Ami" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="初期イベントコホート-2" class="section level4 unnumbered hasAnchor">
-<h4>初期イベントコホート<a href="CohortDefinitions.html#初期イベントコホート-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="初期イベントコホート-1" class="section level4 unnumbered hasAnchor">
+<h4>初期イベントコホート<a href="CohortDefinitions.html#初期イベントコホート-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>以下のいずれかを持つ人々：</p>
 <ul>
 <li><em>急性心筋梗塞</em>（表 <a href="CohortDefinitions.html#tab:ami">B.5</a>）の状態出現</li>
@@ -1424,13 +1423,13 @@ div.csl-indent {
 </ul>
 <p>初期イベントのコホートを制限：1人あたりすべてのイベント。</p>
 </div>
-<div id="最終日戦略-2" class="section level4 unnumbered hasAnchor">
-<h4>最終日戦略<a href="CohortDefinitions.html#最終日戦略-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="最終日の考え方-1" class="section level4 unnumbered hasAnchor">
+<h4>最終日の考え方<a href="CohortDefinitions.html#最終日の考え方-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>日付オフセット終了基準。
 このコホート定義の終了日は、インデックスイベントの開始日から7日後となります。</p>
 </div>
-<div id="コホート統合戦略-2" class="section level4 unnumbered hasAnchor">
-<h4>コホート統合戦略<a href="CohortDefinitions.html#コホート統合戦略-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホート統合の考え方-1" class="section level4 unnumbered hasAnchor">
+<h4>コホート統合の考え方<a href="CohortDefinitions.html#コホート統合の考え方-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>180日間のギャップサイズで時代によるコホート統合。</p>
 </div>
 <div id="コンセプトセット定義-2" class="section level4 unnumbered hasAnchor">
@@ -1442,7 +1441,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -1470,7 +1469,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -1517,12 +1516,12 @@ div.csl-indent {
 <p>初発イベントのコホートを制限する：各人の全てのイベント。</p>
 <p>適格なコホートを制限する：各人の全てのイベント。</p>
 </div>
-<div id="終了日戦略" class="section level4 unnumbered hasAnchor">
-<h4>終了日戦略<a href="CohortDefinitions.html#終了日戦略" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="終了日の考え方-1" class="section level4 unnumbered hasAnchor">
+<h4>終了日の考え方<a href="CohortDefinitions.html#終了日の考え方-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>このコホート定義の終了日はインデックスイベントの開始日から7日後とする</p>
 </div>
-<div id="コホートの折りたたみ戦略" class="section level4 unnumbered hasAnchor">
-<h4>コホートの折りたたみ戦略<a href="CohortDefinitions.html#コホートの折りたたみ戦略" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホートの折りたたみの考え方" class="section level4 unnumbered hasAnchor">
+<h4>コホートの折りたたみの考え方<a href="CohortDefinitions.html#コホートの折りたたみの考え方" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>期間を30日のギャップサイズで折りたたむ。</p>
 </div>
 <div id="コンセプトセットの定義-1" class="section level4 unnumbered hasAnchor">
@@ -1534,8 +1533,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子</th>
-<th>マップ済み</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -1555,8 +1554,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子</th>
-<th>マップ済み</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -1614,18 +1613,18 @@ div.csl-indent {
 </ul>
 <p>適格なコホートを制限する：各人の最初のイベント。</p>
 </div>
-<div id="終了日戦略-1" class="section level4 unnumbered hasAnchor">
-<h4>終了日戦略<a href="CohortDefinitions.html#終了日戦略-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="終了日の考え方-2" class="section level4 unnumbered hasAnchor">
+<h4>終了日の考え方<a href="CohortDefinitions.html#終了日の考え方-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>カスタム薬剤期間終了基準。
-この戦略により、指定されたコンセプトセットで見つかったコードから薬剤期間が作成されます。インデックスイベントが期間内に見つかった場合、コホートの終了日はその期間の終了日を使用します。それ以外の場合は、インデックスイベントを含む観察期間の終了日を使用します。</p>
+この考え方により、指定されたコンセプトセットで見つかったコードから薬剤期間が作成されます。インデックスイベントが期間内に見つかった場合、コホートの終了日はその期間の終了日を使用します。それ以外の場合は、インデックスイベントを含む観察期間の終了日を使用します。</p>
 <p><em>サイアザイド類またはサイアザイド類似利尿薬</em>（表 <a href="CohortDefinitions.html#tab:thiazidesMono">B.9</a>）の期間終了日を使用</p>
 <ul>
 <li>使用間の30日を許容</li>
 <li>曝露終了後0日を追加</li>
 </ul>
 </div>
-<div id="コホートの折りたたみ戦略-1" class="section level4 unnumbered hasAnchor">
-<h4>コホートの折りたたみ戦略<a href="CohortDefinitions.html#コホートの折りたたみ戦略-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホートの折りたたみの考え方-1" class="section level4 unnumbered hasAnchor">
+<h4>コホートの折りたたみの考え方<a href="CohortDefinitions.html#コホートの折りたたみの考え方-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ギャップサイズ0日でコホートを期間ごとに折りたたむ。</p>
 </div>
 <div id="コンセプトセットの定義-2" class="section level4 unnumbered hasAnchor">
@@ -1637,8 +1636,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子</th>
-<th>マップ済み</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -1679,8 +1678,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子</th>
-<th>マップ済み</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -1700,8 +1699,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子</th>
-<th>マップ済み</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -2135,12 +2134,12 @@ div.csl-indent {
 <p>初回イベントのコホートを個人ごとに最初のイベントに限定します。
 適格なコホートを個人ごとに最初のイベントに限定します。</p>
 </div>
-<div id="終了日戦略-2" class="section level4 unnumbered hasAnchor">
-<h4>終了日戦略<a href="CohortDefinitions.html#終了日戦略-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>終了日戦略は選択されていません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日となります。</p>
+<div id="終了日の考え方-3" class="section level4 unnumbered hasAnchor">
+<h4>終了日の考え方<a href="CohortDefinitions.html#終了日の考え方-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>終了日の考え方は選択されていません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日となります。</p>
 </div>
-<div id="コホート圧縮戦略" class="section level4 unnumbered hasAnchor">
-<h4>コホート圧縮戦略<a href="CohortDefinitions.html#コホート圧縮戦略" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホート圧縮の考え方-1" class="section level4 unnumbered hasAnchor">
+<h4>コホート圧縮の考え方<a href="CohortDefinitions.html#コホート圧縮の考え方-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ギャップサイズ0日でエラによるコホートの圧縮を行います。</p>
 </div>
 <div id="コンセプトセット定義-3" class="section level4 unnumbered hasAnchor">
@@ -2152,7 +2151,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -2376,7 +2375,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -2796,7 +2795,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -2827,17 +2826,17 @@ div.csl-indent {
 <p>イベントのインデックス日から前後0日間の連続した観察期間を持ち、初イベントを個人ごとのすべてのイベントに限定します。</p>
 <p>適格なコホートを個人ごとのすべてのイベントに限定します。</p>
 </div>
-<div id="終了日戦略-3" class="section level4 unnumbered hasAnchor">
-<h4>終了日戦略<a href="CohortDefinitions.html#終了日戦略-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>この戦略は、指定されたコンセプトセットのコードからドラッグエラを作成します。インデックスイベントがエラの範囲内に見つかった場合、コホート終了日はエラの終了日を使用します。それ以外の場合、コホート終了日はインデックスイベントを含む観察期間の終了日を使用します。</p>
+<div id="終了日の考え方-4" class="section level4 unnumbered hasAnchor">
+<h4>終了日の考え方<a href="CohortDefinitions.html#終了日の考え方-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>この考え方は、指定されたコンセプトセットのコードからドラッグエラを作成します。インデックスイベントがエラの範囲内に見つかった場合、コホート終了日はエラの終了日を使用します。それ以外の場合、コホート終了日はインデックスイベントを含む観察期間の終了日を使用します。</p>
 <p><em>ACE阻害薬</em>（表 <a href="CohortDefinitions.html#tab:ACEiUseACE">B.15</a>）のエラ終了日を使用し、</p>
 <ul>
 <li>30日間の使用数の間隔を許可</li>
 <li>露出終了後0日を追加</li>
 </ul>
 </div>
-<div id="コホート圧縮戦略-1" class="section level4 unnumbered hasAnchor">
-<h4>コホート圧縮戦略<a href="CohortDefinitions.html#コホート圧縮戦略-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="コホート圧縮の考え方-2" class="section level4 unnumbered hasAnchor">
+<h4>コホート圧縮の考え方<a href="CohortDefinitions.html#コホート圧縮の考え方-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ギャップサイズ30日でエラによりコホートを圧縮します。</p>
 </div>
 <div id="コンセプトセット定義-4" class="section level4 unnumbered hasAnchor">
@@ -2849,7 +2848,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -2940,7 +2939,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -3017,7 +3016,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -3066,7 +3065,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -3129,7 +3128,7 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
+<th>下位層</th>
 <th>マッピング</th>
 </tr>
 </thead>
@@ -3171,8 +3170,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
-<th>マップ</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -3283,8 +3282,8 @@ div.csl-indent {
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
-<th>マップ</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -3320,13 +3319,20 @@ div.csl-indent {
 <h4>コンセプトセットの定義<a href="CohortDefinitions.html#コンセプトセットの定義-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <caption><span id="tab:DPUseDPs">表 B.22: </span> カリウム保持利尿薬</caption>
+<colgroup>
+<col width="13%" />
+<col width="23%" />
+<col width="18%" />
+<col width="25%" />
+<col width="18%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
-<th>マップ</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>
@@ -3355,13 +3361,20 @@ div.csl-indent {
 <h4>コンセプトセットの定義<a href="CohortDefinitions.html#コンセプトセットの定義-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <table>
 <caption><span id="tab:A1BUseA1Bs">表 B.23: </span> アルファ1ブロッカー</caption>
+<colgroup>
+<col width="14%" />
+<col width="21%" />
+<col width="19%" />
+<col width="26%" />
+<col width="19%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>コンセプトID</th>
 <th align="left">コンセプト名</th>
 <th>除外</th>
-<th>子孫</th>
-<th>マップ</th>
+<th>下位層</th>
+<th>マップ先</th>
 </tr>
 </thead>
 <tbody>

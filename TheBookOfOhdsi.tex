@@ -3238,7 +3238,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.rlspikntchildren ;"
+## [1] "SELECT * FROM temp_schema.hg9ywraechildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -9228,41 +9228,39 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 \section{ACE阻害薬}\label{AceInhibitors}
 
-\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
-\addcontentsline{toc}{subsubsection}{初期イベントコホート}
+\subsubsection*{インデックスイベントコホート}\label{ux30a4ux30f3ux30c7ux30c3ux30afux30b9ux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
+\addcontentsline{toc}{subsubsection}{インデックスイベントコホート}
 
-以下のいずれかを持つ人々：
-
-\begin{itemize}
-\tightlist
-\item
-  個人の歴史において初めての\emph{ACE阻害薬}（表 \ref{tab:aceInhibitors}）の薬物使用
-\end{itemize}
-
-イベント指標日から遡って少なくとも365日間の連続観察があり、日の後の観察は0日で、初期イベントを以下に制限： 1人あたり全てのイベント。
-
-適格コホートを制限：1人あたり全てのイベント。
-
-\subsubsection*{最終日戦略}\label{ux6700ux7d42ux65e5ux6226ux7565}
-\addcontentsline{toc}{subsubsection}{最終日戦略}
-
-カスタム薬剤時代の終了基準
-この戦略は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、そのインデックスイベントを含む観察期間の終了日を使用します。
-
-\emph{ACE阻害薬}（表 \ref{tab:aceInhibitors}）の時代終了日を使用
+以下のいずれかを持つ人：
 
 \begin{itemize}
 \tightlist
 \item
-  使用間隔が30日以内
-\item
-  使用終了後0日追加
+  その人の履歴において初回の\emph{ACE阻害薬}（表\ref{tab:aceInhibitors}）への曝露
 \end{itemize}
 
-\subsubsection*{コホート統合戦略}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux6226ux7565}
-\addcontentsline{toc}{subsubsection}{コホート統合戦略}
+かつ、インデックス日から遡って少なくとも365日前、0日後の間の連続した観察があり、初期イベントを以下とします：その個人における全てのイベント。
 
-30日間のギャップサイズで時代によるコホート統合。
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
+
+カスタム薬剤曝露期間の終了基準：
+ここでは、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホート終了日はその曝露期間の終了日を使用します。そうでない場合、そのインデックスイベントを含む観察期間の終了日を使用します。
+
+\emph{ACE阻害薬}（表\ref{tab:aceInhibitors}）の曝露期間終了日を使用
+
+\begin{itemize}
+\tightlist
+\item
+  曝露期間の間隔は30日を許容
+\item
+  曝露期間終了後に0日を追加
+\end{itemize}
+
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
+
+30日間のギャップによりコホートを圧縮します。
 
 \subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
@@ -9270,11 +9268,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:aceInhibitors} ACE阻害薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9293,7 +9291,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 \section{ACE阻害薬単独療法新規使用者}\label{AceInhibitorsMono}
 
-\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-1}
+\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
 \addcontentsline{toc}{subsubsection}{初期イベントコホート}
 
 以下のいずれかを持つ人々：
@@ -9341,11 +9339,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 適格コホートを以下に制限：最初のイベント per person。
 
-\subsubsection*{最終日戦略}\label{ux6700ux7d42ux65e5ux6226ux7565-1}
-\addcontentsline{toc}{subsubsection}{最終日戦略}
+\subsubsection*{最終日の考え方}\label{ux6700ux7d42ux65e5ux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{最終日の考え方}
 
 カスタム薬剤時代の終了基準。
-この戦略は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
+この考え方は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
 
 \begin{itemize}
 \tightlist
@@ -9355,8 +9353,8 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   使用終了後0日追加
 \end{itemize}
 
-\subsubsection*{コホート統合戦略}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux6226ux7565-1}
-\addcontentsline{toc}{subsubsection}{コホート統合戦略}
+\subsubsection*{コホート統合の考え方}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{コホート統合の考え方}
 
 0日間のギャップサイズで時代によるコホート統合。
 
@@ -9366,11 +9364,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:aceInhibitorsMono} ACE阻害薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9390,11 +9388,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:hypertensionAceMono} 高血圧性障害}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9405,11 +9403,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:htnDrugsAceMono} 高血圧薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9476,7 +9474,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 \section{急性心筋梗塞（AMI）}\label{Ami}
 
-\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-2}
+\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-1}
 \addcontentsline{toc}{subsubsection}{初期イベントコホート}
 
 以下のいずれかを持つ人々：
@@ -9499,14 +9497,14 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 初期イベントのコホートを制限：1人あたりすべてのイベント。
 
-\subsubsection*{最終日戦略}\label{ux6700ux7d42ux65e5ux6226ux7565-2}
-\addcontentsline{toc}{subsubsection}{最終日戦略}
+\subsubsection*{最終日の考え方}\label{ux6700ux7d42ux65e5ux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{最終日の考え方}
 
 日付オフセット終了基準。
 このコホート定義の終了日は、インデックスイベントの開始日から7日後となります。
 
-\subsubsection*{コホート統合戦略}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux6226ux7565-2}
-\addcontentsline{toc}{subsubsection}{コホート統合戦略}
+\subsubsection*{コホート統合の考え方}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{コホート統合の考え方}
 
 180日間のギャップサイズで時代によるコホート統合。
 
@@ -9516,11 +9514,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:ami} 入院または緊急診療}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9532,11 +9530,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:inpatientOrErAmi} 入院または緊急診療}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9574,13 +9572,13 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 適格なコホートを制限する：各人の全てのイベント。
 
-\subsubsection*{終了日戦略}\label{ux7d42ux4e86ux65e5ux6226ux7565}
-\addcontentsline{toc}{subsubsection}{終了日戦略}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 このコホート定義の終了日はインデックスイベントの開始日から7日後とする
 
-\subsubsection*{コホートの折りたたみ戦略}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux6226ux7565}
-\addcontentsline{toc}{subsubsection}{コホートの折りたたみ戦略}
+\subsubsection*{コホートの折りたたみの考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{コホートの折りたたみの考え方}
 
 期間を30日のギャップサイズで折りたたむ。
 
@@ -9590,11 +9588,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:angioedema} 血管性浮腫}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9605,11 +9603,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:inpatientOrEr} 入院または救急室訪問}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9669,11 +9667,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 適格なコホートを制限する：各人の最初のイベント。
 
-\subsubsection*{終了日戦略}\label{ux7d42ux4e86ux65e5ux6226ux7565-1}
-\addcontentsline{toc}{subsubsection}{終了日戦略}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-2}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 カスタム薬剤期間終了基準。
-この戦略により、指定されたコンセプトセットで見つかったコードから薬剤期間が作成されます。インデックスイベントが期間内に見つかった場合、コホートの終了日はその期間の終了日を使用します。それ以外の場合は、インデックスイベントを含む観察期間の終了日を使用します。
+この考え方により、指定されたコンセプトセットで見つかったコードから薬剤期間が作成されます。インデックスイベントが期間内に見つかった場合、コホートの終了日はその期間の終了日を使用します。それ以外の場合は、インデックスイベントを含む観察期間の終了日を使用します。
 
 \emph{サイアザイド類またはサイアザイド類似利尿薬}（表 \ref{tab:thiazidesMono}）の期間終了日を使用
 
@@ -9685,8 +9683,8 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   曝露終了後0日を追加
 \end{itemize}
 
-\subsubsection*{コホートの折りたたみ戦略}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux6226ux7565-1}
-\addcontentsline{toc}{subsubsection}{コホートの折りたたみ戦略}
+\subsubsection*{コホートの折りたたみの考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{コホートの折りたたみの考え方}
 
 ギャップサイズ0日でコホートを期間ごとに折りたたむ。
 
@@ -9696,11 +9694,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:thiazidesMono} サイアザイド類またはサイアザイド類似利尿薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9714,11 +9712,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:hypertensionThzMono} 高血圧性障害}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9729,11 +9727,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:htnDrugsThzMono} 高血圧治療薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子 & マップ済み \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マップ先 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9829,13 +9827,13 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 初回イベントのコホートを個人ごとに最初のイベントに限定します。
 適格なコホートを個人ごとに最初のイベントに限定します。
 
-\subsubsection*{終了日戦略}\label{ux7d42ux4e86ux65e5ux6226ux7565-2}
-\addcontentsline{toc}{subsubsection}{終了日戦略}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-3}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-終了日戦略は選択されていません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日となります。
+終了日の考え方は選択されていません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日となります。
 
-\subsubsection*{コホート圧縮戦略}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux6226ux7565}
-\addcontentsline{toc}{subsubsection}{コホート圧縮戦略}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
 ギャップサイズ0日でエラによるコホートの圧縮を行います。
 
@@ -9845,11 +9843,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:HTN1yrFO1stLine} 初回高血圧治療薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9889,11 +9887,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:HTN1yrFODrugs} 高血圧薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9961,11 +9959,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:HTN1yrFOHypertensiveDisorder} 高血圧性障害}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9994,10 +9992,10 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 適格なコホートを個人ごとのすべてのイベントに限定します。
 
-\subsubsection*{終了日戦略}\label{ux7d42ux4e86ux65e5ux6226ux7565-3}
-\addcontentsline{toc}{subsubsection}{終了日戦略}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-4}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-この戦略は、指定されたコンセプトセットのコードからドラッグエラを作成します。インデックスイベントがエラの範囲内に見つかった場合、コホート終了日はエラの終了日を使用します。それ以外の場合、コホート終了日はインデックスイベントを含む観察期間の終了日を使用します。
+この考え方は、指定されたコンセプトセットのコードからドラッグエラを作成します。インデックスイベントがエラの範囲内に見つかった場合、コホート終了日はエラの終了日を使用します。それ以外の場合、コホート終了日はインデックスイベントを含む観察期間の終了日を使用します。
 
 \emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）のエラ終了日を使用し、
 
@@ -10009,8 +10007,8 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   露出終了後0日を追加
 \end{itemize}
 
-\subsubsection*{コホート圧縮戦略}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux6226ux7565-1}
-\addcontentsline{toc}{subsubsection}{コホート圧縮戦略}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-2}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
 ギャップサイズ30日でエラによりコホートを圧縮します。
 
@@ -10020,11 +10018,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:ACEiUseACE} ACE阻害薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10051,11 +10049,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:ARBUseARBs} アンジオテンシン受容体拮抗薬（ARB）}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10080,11 +10078,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:THZUseTHZ} サイアザイド系およびサイアザイド様利尿薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10105,11 +10103,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:dCCBUsedCBB} ジヒドロピリジン系カルシウム拮抗薬（dCCB）}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10132,11 +10130,11 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:ndCCBUsendCCB} 非ジヒドロピリジン系カルシウム拮抗薬（ndCCB）}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マッピング \\
+コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10167,9 +10165,9 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 除外
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-子孫
+下位層
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-マップ
+マップ先
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
@@ -10181,9 +10179,9 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 除外
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-子孫
+下位層
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-マップ
+マップ先
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -10225,9 +10223,9 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 除外
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-子孫
+下位層
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-マップ
+マップ先
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
@@ -10239,9 +10237,9 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 除外
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-子孫
+下位層
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-マップ
+マップ先
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -10259,14 +10257,39 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-5}
 \addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
 
-\begin{longtable}[]{@{}lllll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1395}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2326}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1860}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2558}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1860}}@{}}
 \caption{\label{tab:DPUseDPs} カリウム保持利尿薬}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マップ \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マップ先
+\end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マップ \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マップ先
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -10282,14 +10305,39 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-6}
 \addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
 
-\begin{longtable}[]{@{}lllll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1905}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2619}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1905}}@{}}
 \caption{\label{tab:A1BUseA1Bs} アルファ1ブロッカー}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マップ \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マップ先
+\end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 子孫 & マップ \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マップ先
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
