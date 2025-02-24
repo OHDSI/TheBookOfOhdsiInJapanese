@@ -1,4 +1,4 @@
-## --翻訳作業中--　ネガティブコントロール {#NegativeControlsAppendix}
+# --翻訳作業中--　ネガティブコントロール {#NegativeControlsAppendix}
 
 この付録には、書籍のさまざまな章で使用されるネガティブコントロールが含まれています。
 
