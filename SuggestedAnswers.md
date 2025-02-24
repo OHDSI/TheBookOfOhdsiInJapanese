@@ -13,13 +13,13 @@ Table: (\#tab:johnPerson) PERSONテーブル。
 カラム名|値|説明
 :---------------------|:-----------|:--------------------------------------
 |PERSON_ID|2|一意の整数。|
-|GENDER_CONCEPT_ID|8507|男性の概念 ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。|
+|GENDER_CONCEPT_ID|8507|男性のコンセプト ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。|
 |YEAR_OF_BIRTH|1974||
 |MONTH_OF_BIRTH|8||
 |DAY_OF_BIRTH|4||
 |BIRTH_DATETIME|1974-08-04 00:00:00|時間が不明な場合は真夜中（00:00:00）を使用。|
 |DEATH_DATETIME|NULL||
-|RACE_CONCEPT_ID|8516|アフリカ系アメリカ人の概念 ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。|
+|RACE_CONCEPT_ID|8516|アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。|
 |ETHNICITY_ CONCEPT_ID|38003564| [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「ヒスパニックではない」ことを示す。|
 |LOCATION_ID||住所は不明。|
 |PROVIDER_ID||主治医が不明。|
@@ -56,7 +56,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 :---------------------|:-----------|:--------------------------------------
 |DRUG_EXPOSURE_ID|1001|一意の整数。|
 |PERSON_ID|2|これはPERSONテーブルのジョンのレコードへの外部キー。|
-|DRUG_CONCEPT_ID|19078461|提供されたNDCコードは標準概念 [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。|
+|DRUG_CONCEPT_ID|19078461|提供されたNDCコードは標準コンセプト [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。|
 |DRUG_EXPOSURE_ START_DATE|2019-05-01|薬物暴露の開始日。|
 |DRUG_EXPOSURE_ START_DATETIME|2019-05-01 00:00:00|時間が不明なため真夜中を使用。|
 |DRUG_EXPOSURE_ END_DATE|2019-05-31|開始日 + 日数供給に基づく。|
@@ -152,7 +152,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 #### 練習問題 \@ref(exr:exerciseVocab1) {-}
 
-概念 ID 192671 ("胃腸出血")
+コンセプト ID 192671 ("胃腸出血")
 
 #### 練習問題 \@ref(exr:exerciseVocab2) {-}
 
@@ -170,8 +170,8 @@ ICD-9CMコード：
 
 MedDRA推奨用語：
 
-- "胃腸出血" (概念ID 35707864)
-- "腸出血" (概念ID 35707858)
+- "胃腸出血" (コンセプトID 35707864)
+- "腸出血" (コンセプトID 35707858)
 
 
 ## 抽出変換ロード {#Etlanswers}
@@ -349,7 +349,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 \caption{ジクロフェナクの新規使用者向けのコホートエントリーイベント設定}(\#fig:cohortsAtlasInitialEvents)
 \end{figure}
 
-ジクロフェナクの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet1)のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。
+ジクロフェナクのコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet1)のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。
 
 \begin{figure}
 
@@ -357,7 +357,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 }
 
-\caption{ジクロフェナクの概念セット表現。}(\#fig:cohortsAtlasConceptSet1)
+\caption{ジクロフェナクのコンセプトセット表現。}(\#fig:cohortsAtlasConceptSet1)
 \end{figure}
 
 次に、NSAIDの以前の曝露がないことを要求します。これは図\@ref(fig:cohortsAtlasInclusion1)のようになります。
@@ -371,7 +371,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 \caption{NSAIDの以前の曝露なしを要求。}(\#fig:cohortsAtlasInclusion1)
 \end{figure}
 
-NSAIDsの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet2)のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。
+NSAIDsのコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet2)のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。
 
 \begin{figure}
 
@@ -379,7 +379,7 @@ NSAIDsの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet2)のよう�
 
 }
 
-\caption{NSAIDsの概念セット表現}(\#fig:cohortsAtlasConceptSet2)
+\caption{NSAIDsのコンセプトセット表現}(\#fig:cohortsAtlasConceptSet2)
 \end{figure}
 
 さらに、がんの以前の診断がないことも要求します。これは図\@ref(fig:cohortsAtlasInclusion2)のようになります。
@@ -393,7 +393,7 @@ NSAIDsの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet2)のよう�
 \caption{以前にがんの診断がないことを要求。}(\#fig:cohortsAtlasInclusion2)
 \end{figure}
 
-「広範な悪性腫瘍」の概念セット表現は図\@ref(fig:cohortsAtlasConceptSet3)のようになり、上位概念「悪性腫瘍」とそのすべての子孫を含めます。
+「広範な悪性腫瘍」のコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet3)のようになり、上位コンセプト「悪性腫瘍」とそのすべての子孫を含めます。
 
 \begin{figure}
 
@@ -401,7 +401,7 @@ NSAIDsの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet2)のよう�
 
 }
 
-\caption{広範な悪性腫瘍の概念セット表現}(\#fig:cohortsAtlasConceptSet3)
+\caption{広範な悪性腫瘍のコンセプトセット表現}(\#fig:cohortsAtlasConceptSet3)
 \end{figure}
 
 最後に、曝露中止をコホート退出基準として定義します（30日間のギャップを許容します）。これは図\@ref(fig:cohortsAtlasExit)のようになります。
@@ -626,9 +626,9 @@ summary(cmData)
 ```
 ## CohortMethodData オブジェクトのまとめ
 ## 
-## 治療概念ID：1
-## 比較概念ID：2
-## 結果概念ID：3
+## 治療コンセプトID：1
+## 比較コンセプトID：2
+## 結果コンセプトID：3
 ## 
 ## 治療を受けた人数：1800
 ## 比較された人数：830
@@ -793,8 +793,8 @@ summary(plpData)
 ```
 ## plpData オブジェクトのまとめ
 ## 
-## リスク対象コホート概念 ID：-1
-## 結果概念ID：3
+## リスク対象コホートコンセプト ID：-1
+## 結果コンセプトID：3
 ## 
 ## 人数：2630
 ## 
