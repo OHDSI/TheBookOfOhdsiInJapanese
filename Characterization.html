@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章番号 12 –翻訳作業中–　特徴分析 | –翻訳作業中–　OHDSI指南書</title>
+  <title>章番号 12 –翻訳作業中–　特性評価 | –翻訳作業中–　OHDSI指南書</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章番号 12 –翻訳作業中–　特徴分析 | –翻訳作業中–　OHDSI指南書" />
+  <meta property="og:title" content="章番号 12 –翻訳作業中–　特性評価 | –翻訳作業中–　OHDSI指南書" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章番号 12 –翻訳作業中–　特徴分析 | –翻訳作業中–　OHDSI指南書" />
+  <meta name="twitter:title" content="章番号 12 –翻訳作業中–　特性評価 | –翻訳作業中–　OHDSI指南書" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
@@ -322,9 +322,9 @@ div.csl-indent {
 <li class="chapter" data-level="8.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測"><i class="fa fa-check"></i><b>8.3</b> 患者レベルの予測</a></li>
 <li class="chapter" data-level="8.4" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#高血圧における使用例"><i class="fa fa-check"></i><b>8.4</b> 高血圧における使用例</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特徴分析の質問"><i class="fa fa-check"></i><b>8.4.1</b> 特徴分析の質問</a></li>
-<li class="chapter" data-level="8.4.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定質問"><i class="fa fa-check"></i><b>8.4.2</b> 集団レベルの推定質問</a></li>
-<li class="chapter" data-level="8.4.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測質問"><i class="fa fa-check"></i><b>8.4.3</b> 患者レベルの予測質問</a></li>
+<li class="chapter" data-level="8.4.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特性の評価に関する質問"><i class="fa fa-check"></i><b>8.4.1</b> 特性の評価に関する質問</a></li>
+<li class="chapter" data-level="8.4.2" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#集団レベルの推定問題"><i class="fa fa-check"></i><b>8.4.2</b> 集団レベルの推定問題</a></li>
+<li class="chapter" data-level="8.4.3" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#患者レベルの予測問題"><i class="fa fa-check"></i><b>8.4.3</b> 患者レベルの予測問題</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#観察研究の限界"><i class="fa fa-check"></i><b>8.5</b> 観察研究の限界</a>
 <ul>
@@ -364,7 +364,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.1" data-path="SqlAndR.html"><a href="SqlAndR.html#SqlRender"><i class="fa fa-check"></i><b>10.1</b> SqlRender</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="SqlAndR.html"><a href="SqlAndR.html#sqlのパラメータ設定"><i class="fa fa-check"></i><b>10.1.1</b> SQLのパラメータ設定</a></li>
-<li class="chapter" data-level="10.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#他のsql方言への翻訳"><i class="fa fa-check"></i><b>10.1.2</b> 他のSQL方言への翻訳</a></li>
+<li class="chapter" data-level="10.1.2" data-path="SqlAndR.html"><a href="SqlAndR.html#他のsql表現への置換"><i class="fa fa-check"></i><b>10.1.2</b> 他のSQL表現への置換</a></li>
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="SqlAndR.html"><a href="SqlAndR.html#DatabaseConnector"><i class="fa fa-check"></i><b>10.2</b> DatabaseConnector</a>
 <ul>
@@ -375,54 +375,63 @@ div.csl-indent {
 <li class="chapter" data-level="10.2.5" data-path="SqlAndR.html"><a href="SqlAndR.html#テーブルの挿入"><i class="fa fa-check"></i><b>10.2.5</b> テーブルの挿入</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="SqlAndR.html"><a href="SqlAndR.html#QueryTheCdm"><i class="fa fa-check"></i><b>10.3</b> CDMへのクエリ</a></li>
-<li class="chapter" data-level="10.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリ時に語彙を使用する"><i class="fa fa-check"></i><b>10.4</b> クエリ時に語彙を使用する</a></li>
+<li class="chapter" data-level="10.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クエリ時にボキャブラリを使用する"><i class="fa fa-check"></i><b>10.4</b> クエリ時にボキャブラリを使用する</a></li>
 <li class="chapter" data-level="10.5" data-path="SqlAndR.html"><a href="SqlAndR.html#querylibrary"><i class="fa fa-check"></i><b>10.5</b> QueryLibrary</a></li>
 <li class="chapter" data-level="10.6" data-path="SqlAndR.html"><a href="SqlAndR.html#簡単な研究のデザイン"><i class="fa fa-check"></i><b>10.6</b> 簡単な研究のデザイン</a>
 <ul>
 <li class="chapter" data-level="10.6.1" data-path="SqlAndR.html"><a href="SqlAndR.html#問題の定義"><i class="fa fa-check"></i><b>10.6.1</b> 問題の定義</a></li>
-<li class="chapter" data-level="10.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露"><i class="fa fa-check"></i><b>10.6.2</b> 暴露</a></li>
-<li class="chapter" data-level="10.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#結果"><i class="fa fa-check"></i><b>10.6.3</b> 結果</a></li>
+<li class="chapter" data-level="10.6.2" data-path="SqlAndR.html"><a href="SqlAndR.html#曝露"><i class="fa fa-check"></i><b>10.6.2</b> 曝露</a></li>
+<li class="chapter" data-level="10.6.3" data-path="SqlAndR.html"><a href="SqlAndR.html#アウトカム"><i class="fa fa-check"></i><b>10.6.3</b> アウトカム</a></li>
 <li class="chapter" data-level="10.6.4" data-path="SqlAndR.html"><a href="SqlAndR.html#リスク期間"><i class="fa fa-check"></i><b>10.6.4</b> リスク期間</a></li>
-<li class="chapter" data-level="10.6.5" data-path="SqlAndR.html"><a href="SqlAndR.html#暴露コホート"><i class="fa fa-check"></i><b>10.6.5</b> 暴露コホート</a></li>
-<li class="chapter" data-level="10.6.6" data-path="SqlAndR.html"><a href="SqlAndR.html#結果コホート"><i class="fa fa-check"></i><b>10.6.6</b> 結果コホート</a></li>
-<li class="chapter" data-level="10.6.7" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>10.6.7</b> 発症率の計算</a></li>
-<li class="chapter" data-level="10.6.8" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>10.6.8</b> クリーンアップ</a></li>
-<li class="chapter" data-level="10.6.9" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>10.6.9</b> 互換性</a></li>
 </ul></li>
-<li class="chapter" data-level="10.7" data-path="SqlAndR.html"><a href="SqlAndR.html#まとめ-7"><i class="fa fa-check"></i><b>10.7</b> まとめ</a></li>
-<li class="chapter" data-level="10.8" data-path="SqlAndR.html"><a href="SqlAndR.html#練習問題-1"><i class="fa fa-check"></i><b>10.8</b> 練習問題</a></li>
+<li class="chapter" data-level="10.7" data-path="SqlAndR.html"><a href="SqlAndR.html#sqlとrを使用した研究の実施"><i class="fa fa-check"></i><b>10.7</b> SQLとRを使用した研究の実施</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#曝露コホート"><i class="fa fa-check"></i><b>10.7.1</b> 曝露コホート</a></li>
+<li class="chapter" data-level="10.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#アウトカムコホート"><i class="fa fa-check"></i><b>10.7.2</b> アウトカムコホート</a></li>
+<li class="chapter" data-level="10.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>10.7.3</b> 発症率の計算</a></li>
+<li class="chapter" data-level="10.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>10.7.4</b> クリーンアップ</a></li>
+<li class="chapter" data-level="10.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>10.7.5</b> 互換性</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="SqlAndR.html"><a href="SqlAndR.html#まとめ-7"><i class="fa fa-check"></i><b>10.8</b> まとめ</a></li>
+<li class="chapter" data-level="10.9" data-path="SqlAndR.html"><a href="SqlAndR.html#練習問題-1"><i class="fa fa-check"></i><b>10.9</b> 練習問題</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>11</b> –翻訳作業中–　コホートの定義</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="Cohorts.html"><a href="Cohorts.html#コホートとは"><i class="fa fa-check"></i><b>11.1</b> コホートとは？</a></li>
-<li class="chapter" data-level="11.2" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>11.2</b> 概念セット</a></li>
-<li class="chapter" data-level="11.3" data-path="Cohorts.html"><a href="Cohorts.html#確率的コホート定義"><i class="fa fa-check"></i><b>11.3</b> 確率的コホート定義</a>
+<li class="chapter" data-level="11.2" data-path="Cohorts.html"><a href="Cohorts.html#ルールベースのコホート定義"><i class="fa fa-check"></i><b>11.2</b> ルールベースのコホート定義</a></li>
+<li class="chapter" data-level="11.3" data-path="Cohorts.html"><a href="Cohorts.html#conceptSets"><i class="fa fa-check"></i><b>11.3</b> コンセプトセット</a></li>
+<li class="chapter" data-level="11.4" data-path="Cohorts.html"><a href="Cohorts.html#確率的コホート定義"><i class="fa fa-check"></i><b>11.4</b> 確率的コホート定義</a></li>
+<li class="chapter" data-level="11.5" data-path="Cohorts.html"><a href="Cohorts.html#コホート定義の妥当性"><i class="fa fa-check"></i><b>11.5</b> コホート定義の妥当性</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ"><i class="fa fa-check"></i><b>11.3.1</b> OHDSI ゴールドスタンダード表現型ライブラリ</a></li>
+<li class="chapter" data-level="11.5.1" data-path="Cohorts.html"><a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ"><i class="fa fa-check"></i><b>11.5.1</b> OHDSI ゴールドスタンダード表現型ライブラリ</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="Cohorts.html"><a href="Cohorts.html#高血圧のコホート定義"><i class="fa fa-check"></i><b>11.4</b> 高血圧のコホート定義</a>
+<li class="chapter" data-level="11.6" data-path="Cohorts.html"><a href="Cohorts.html#高血圧のコホート定義"><i class="fa fa-check"></i><b>11.6</b> 高血圧のコホート定義</a></li>
+<li class="chapter" data-level="11.7" data-path="Cohorts.html"><a href="Cohorts.html#atlasを用いたコホートの実装"><i class="fa fa-check"></i><b>11.7</b> ATLASを用いたコホートの実装</a>
 <ul>
-<li class="chapter" data-level="11.4.1" data-path="Cohorts.html"><a href="Cohorts.html#初期イベント基準"><i class="fa fa-check"></i><b>11.4.1</b> 初期イベント基準</a></li>
-<li class="chapter" data-level="11.4.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトセットの定義"><i class="fa fa-check"></i><b>11.4.2</b> コンセプトセットの定義</a></li>
-<li class="chapter" data-level="11.4.3" data-path="Cohorts.html"><a href="Cohorts.html#追加の初期イベント基準"><i class="fa fa-check"></i><b>11.4.3</b> 追加の初期イベント基準</a></li>
-<li class="chapter" data-level="11.4.4" data-path="Cohorts.html"><a href="Cohorts.html#包括基準"><i class="fa fa-check"></i><b>11.4.4</b> 包括基準</a></li>
-<li class="chapter" data-level="11.4.5" data-path="Cohorts.html"><a href="Cohorts.html#データベースへの接続-1"><i class="fa fa-check"></i><b>11.4.5</b> データベースへの接続</a></li>
-<li class="chapter" data-level="11.4.6" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトの指定"><i class="fa fa-check"></i><b>11.4.6</b> コンセプトの指定</a></li>
-<li class="chapter" data-level="11.4.7" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>11.4.7</b> 初回使用の発見</a></li>
-<li class="chapter" data-level="11.4.8" data-path="Cohorts.html"><a href="Cohorts.html#日の前観察が必要"><i class="fa fa-check"></i><b>11.4.8</b> 365日の前観察が必要</a></li>
-<li class="chapter" data-level="11.4.9" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>11.4.9</b> 高血圧の前診断が必要</a></li>
-<li class="chapter" data-level="11.4.10" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>11.4.10</b> 治療の無前使用が必要</a></li>
-<li class="chapter" data-level="11.4.11" data-path="Cohorts.html"><a href="Cohorts.html#単薬療法"><i class="fa fa-check"></i><b>11.4.11</b> 単薬療法</a></li>
-<li class="chapter" data-level="11.4.12" data-path="Cohorts.html"><a href="Cohorts.html#コホートの終了"><i class="fa fa-check"></i><b>11.4.12</b> コホートの終了</a></li>
-<li class="chapter" data-level="11.4.13" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>11.4.13</b> クリーンアップ</a></li>
+<li class="chapter" data-level="11.7.1" data-path="Cohorts.html"><a href="Cohorts.html#初期イベント基準"><i class="fa fa-check"></i><b>11.7.1</b> 初期イベント基準</a></li>
+<li class="chapter" data-level="11.7.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトセットの定義"><i class="fa fa-check"></i><b>11.7.2</b> コンセプトセットの定義</a></li>
+<li class="chapter" data-level="11.7.3" data-path="Cohorts.html"><a href="Cohorts.html#追加の初期イベント基準"><i class="fa fa-check"></i><b>11.7.3</b> 追加の初期イベント基準</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Cohorts.html"><a href="Cohorts.html#包括基準"><i class="fa fa-check"></i><b>11.7.4</b> 包括基準</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="Cohorts.html"><a href="Cohorts.html#サマリー"><i class="fa fa-check"></i><b>11.5</b> サマリー</a></li>
-<li class="chapter" data-level="11.6" data-path="Cohorts.html"><a href="Cohorts.html#演習-3"><i class="fa fa-check"></i><b>11.6</b> 演習</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>12</b> –翻訳作業中–　特徴分析</a>
+<li class="chapter" data-level="11.8" data-path="Cohorts.html"><a href="Cohorts.html#sqlを使用したコホートの実装"><i class="fa fa-check"></i><b>11.8</b> SQLを使用したコホートの実装</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="Characterization.html"><a href="Characterization.html#データベースレベルの特徴分析"><i class="fa fa-check"></i><b>12.1</b> データベースレベルの特徴分析</a></li>
-<li class="chapter" data-level="12.2" data-path="Characterization.html"><a href="Characterization.html#コホート特徴分析"><i class="fa fa-check"></i><b>12.2</b> コホート特徴分析</a></li>
+<li class="chapter" data-level="11.8.1" data-path="Cohorts.html"><a href="Cohorts.html#データベースへの接続-1"><i class="fa fa-check"></i><b>11.8.1</b> データベースへの接続</a></li>
+<li class="chapter" data-level="11.8.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトの指定"><i class="fa fa-check"></i><b>11.8.2</b> コンセプトの指定</a></li>
+<li class="chapter" data-level="11.8.3" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>11.8.3</b> 初回使用の発見</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Cohorts.html"><a href="Cohorts.html#日の事前観察が必要"><i class="fa fa-check"></i><b>11.8.4</b> 365日の事前観察が必要</a></li>
+<li class="chapter" data-level="11.8.5" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>11.8.5</b> 高血圧の前診断が必要</a></li>
+<li class="chapter" data-level="11.8.6" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>11.8.6</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="11.8.7" data-path="Cohorts.html"><a href="Cohorts.html#単剤療法"><i class="fa fa-check"></i><b>11.8.7</b> 単剤療法</a></li>
+<li class="chapter" data-level="11.8.8" data-path="Cohorts.html"><a href="Cohorts.html#コホートの終了"><i class="fa fa-check"></i><b>11.8.8</b> コホートの終了</a></li>
+<li class="chapter" data-level="11.8.9" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>11.8.9</b> クリーンアップ</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="Cohorts.html"><a href="Cohorts.html#サマリー"><i class="fa fa-check"></i><b>11.9</b> サマリー</a></li>
+<li class="chapter" data-level="11.10" data-path="Cohorts.html"><a href="Cohorts.html#演習-3"><i class="fa fa-check"></i><b>11.10</b> 演習</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Characterization.html"><a href="Characterization.html"><i class="fa fa-check"></i><b>12</b> –翻訳作業中–　特性評価</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Characterization.html"><a href="Characterization.html#データベースレベルの特性評価"><i class="fa fa-check"></i><b>12.1</b> データベースレベルの特性評価</a></li>
+<li class="chapter" data-level="12.2" data-path="Characterization.html"><a href="Characterization.html#コホート特性評価"><i class="fa fa-check"></i><b>12.2</b> コホート特性評価</a></li>
 <li class="chapter" data-level="12.3" data-path="Characterization.html"><a href="Characterization.html#治療経路"><i class="fa fa-check"></i><b>12.3</b> 治療経路</a></li>
 <li class="chapter" data-level="12.4" data-path="Characterization.html"><a href="Characterization.html#発生率"><i class="fa fa-check"></i><b>12.4</b> 発生率</a></li>
 <li class="chapter" data-level="12.5" data-path="Characterization.html"><a href="Characterization.html#高血圧患者の特性評価"><i class="fa fa-check"></i><b>12.5</b> 高血圧患者の特性評価</a></li>
@@ -431,10 +440,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>12.7.1</b> デザイン</a></li>
 <li class="chapter" data-level="12.7.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>12.7.2</b> 実行</a></li>
-<li class="chapter" data-level="12.7.3" data-path="Characterization.html"><a href="Characterization.html#結果-1"><i class="fa fa-check"></i><b>12.7.3</b> 結果</a></li>
+<li class="chapter" data-level="12.7.3" data-path="Characterization.html"><a href="Characterization.html#結果"><i class="fa fa-check"></i><b>12.7.3</b> 結果</a></li>
 <li class="chapter" data-level="12.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>12.7.4</b> カスタム特性の定義</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特徴抽出"><i class="fa fa-check"></i><b>12.8</b> Rでのコホートの特徴抽出</a>
+<li class="chapter" data-level="12.8" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特性評価"><i class="fa fa-check"></i><b>12.8</b> Rでのコホートの特性評価</a>
 <ul>
 <li class="chapter" data-level="12.8.1" data-path="Characterization.html"><a href="Characterization.html#コホートの生成"><i class="fa fa-check"></i><b>12.8.1</b> コホートの生成</a></li>
 <li class="chapter" data-level="12.8.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>12.8.2</b> データ抽出</a></li>
@@ -476,7 +485,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="13.6.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#問題の定義-1"><i class="fa fa-check"></i><b>13.6.1</b> 問題の定義</a></li>
 <li class="chapter" data-level="13.6.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ターゲットおよび比較対象"><i class="fa fa-check"></i><b>13.6.2</b> ターゲットおよび比較対象</a></li>
-<li class="chapter" data-level="13.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカム"><i class="fa fa-check"></i><b>13.6.3</b> アウトカム</a></li>
+<li class="chapter" data-level="13.6.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカム-1"><i class="fa fa-check"></i><b>13.6.3</b> アウトカム</a></li>
 <li class="chapter" data-level="13.6.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#リスク期間-1"><i class="fa fa-check"></i><b>13.6.4</b> リスク期間</a></li>
 <li class="chapter" data-level="13.6.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#モデル"><i class="fa fa-check"></i><b>13.6.5</b> モデル</a></li>
 <li class="chapter" data-level="13.6.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究要約"><i class="fa fa-check"></i><b>13.6.6</b> 研究要約</a></li>
@@ -492,7 +501,7 @@ div.csl-indent {
 <li class="chapter" data-level="13.8.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>13.8.1</b> コホートのインスタンス化</a></li>
 <li class="chapter" data-level="13.8.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#データ抽出-1"><i class="fa fa-check"></i><b>13.8.2</b> データ抽出</a></li>
 <li class="chapter" data-level="13.8.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#研究集団の定義"><i class="fa fa-check"></i><b>13.8.3</b> 研究集団の定義</a></li>
-<li class="chapter" data-level="13.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#プロペンシティスコア"><i class="fa fa-check"></i><b>13.8.4</b> プロペンシティスコア</a></li>
+<li class="chapter" data-level="13.8.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#傾向スコア-1"><i class="fa fa-check"></i><b>13.8.4</b> 傾向スコア</a></li>
 <li class="chapter" data-level="13.8.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#アウトカムモデル"><i class="fa fa-check"></i><b>13.8.5</b> アウトカムモデル</a></li>
 <li class="chapter" data-level="13.8.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#MultipleAnalyses"><i class="fa fa-check"></i><b>13.8.6</b> 複数の分析の実行</a></li>
 <li class="chapter" data-level="13.8.7" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#共変量のバランス"><i class="fa fa-check"></i><b>13.8.7</b> 共変量のバランス</a></li>
@@ -552,9 +561,9 @@ div.csl-indent {
 <li class="chapter" data-level="14.7.6" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#外部バリデーション"><i class="fa fa-check"></i><b>14.7.6</b> 外部バリデーション</a></li>
 <li class="chapter" data-level="14.7.7" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>14.7.7</b> モデルの比較</a></li>
 </ul></li>
-<li class="chapter" data-level="14.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#追加の患者レベル予測機能"><i class="fa fa-check"></i><b>14.8</b> 追加の患者レベル予測機能</a>
+<li class="chapter" data-level="14.8" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベル予測機能の追加"><i class="fa fa-check"></i><b>14.8</b> 患者レベル予測機能の追加</a>
 <ul>
-<li class="chapter" data-level="14.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナルペーパーの生成"><i class="fa fa-check"></i><b>14.8.1</b> ジャーナルペーパーの生成</a></li>
+<li class="chapter" data-level="14.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナル論文の生成"><i class="fa fa-check"></i><b>14.8.1</b> ジャーナル論文の生成</a></li>
 </ul></li>
 <li class="chapter" data-level="14.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>14.9</b> まとめ</a></li>
 <li class="chapter" data-level="14.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-6"><i class="fa fa-check"></i><b>14.10</b> 演習</a></li>
@@ -721,37 +730,37 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="Characterization" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">章番号 12</span> –翻訳作業中–　特徴分析<a href="Characterization.html#Characterization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">章番号 12</span> –翻訳作業中–　特性評価<a href="Characterization.html#Characterization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>章の著者: Anthony Sena &amp; Daniel Prieto-Alhambra</em></p>
-<p>観察型の医療データベースは、さまざまな特徴に基づいて人口の変動を理解するための貴重なリソースを提供します。記述統計を用いて集団特徴を把握することは、健康および疾患の決定要因に関する仮説を生成するための重要な第一歩です。本章では特徴分析の方法について説明します：</p>
+<p>観察型の医療データベースは、さまざまな特徴に基づいて人口の変動を理解するための貴重なリソースを提供します。記述統計を用いて集団の特性を把握することは、健康および疾患の決定要因に関する仮説を生成するための重要な第一歩です。本章では特性評価の方法について説明します：</p>
 <ul>
-<li><strong>データベースレベルの特徴分析</strong>：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。</li>
-<li><strong>コホート特徴分析</strong>：集団をその累積的な医療履歴に基づいて記述する。</li>
+<li><strong>データベースレベルの特性の評価</strong>：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。</li>
+<li><strong>コホート特性の評価</strong>：集団をその累積的な医療履歴に基づいて記述する。</li>
 <li><strong>治療経路</strong>：特定の期間に受けた介入の順序を記述する。</li>
 <li><strong>発生率</strong>：リスク時間中の集団におけるアウトカムの発生率を測定する。</li>
 </ul>
-<p>データベースレベルの特徴分析を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、<a href="Cohorts.html#Cohorts">11</a>章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を<strong>ベースライン時間</strong>と定義し、インデックス日以降のすべての時間を<strong>ポストインデックス時間</strong>と呼びます。</p>
-<p>特徴分析のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特徴分析の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特徴分析タスクを実行する方法を示します。 </p>
-<div id="データベースレベルの特徴分析" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> データベースレベルの特徴分析<a href="Characterization.html#データベースレベルの特徴分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>関心集団についての特徴分析の質問に答える前に、使用するデータベースの特徴をまず理解する必要があります。データベースレベルの特徴分析は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：</p>
+<p>データベースレベルの特性の評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、<a href="Cohorts.html#Cohorts">11</a>章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を<strong>ベースライン時間</strong>と定義し、インデックス日以降のすべての時間を<strong>ポストインデックス時間</strong>と呼びます。</p>
+<p>特性の評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性の評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。 </p>
+<div id="データベースレベルの特性評価" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> データベースレベルの特性評価<a href="Characterization.html#データベースレベルの特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>関心集団についての特性の評価の質問に答える前に、使用するデータベースの特性をまず理解する必要があります。データベースレベルの特性評価は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：</p>
 <ul>
 <li>このデータベースには全体で何人が含まれていますか？</li>
 <li>各人の年齢分布はどうなっていますか？</li>
 <li>このデータベースで観察されている期間はどれくらいですか？</li>
-<li>時間の経過とともに{治療、状態、手順など}が記録・処方された人の割合はどれくらいですか？</li>
+<li>時間の経過とともに{治療、コンディション、処置など}が記録・処方された人の割合はどれくらいですか？</li>
 </ul>
-<p>これらのデータベースレベルの記述統計は、研究者がデータベースに欠けている可能性のあるデータを理解するのにも役立ちます。章 <a href="DataQuality.html#DataQuality">16</a>では、データの質についてさらに詳しく説明します。 </p>
+<p>これらのデータベースレベルの記述統計は、研究者がデータベースに欠けている可能性のあるデータを理解するのにも役立ちます。章 <a href="DataQuality.html#DataQuality">16</a>では、データの品質についてさらに詳しく説明します。 </p>
 </div>
-<div id="コホート特徴分析" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> コホート特徴分析<a href="Characterization.html#コホート特徴分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>コホート特徴分析は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬物およびデバイスの暴露、手順およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。</p>
-<p>コホート特徴分析の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬物使用研究（DUS）に使用できます。このコホート特徴分析の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています。<span class="citation">(<a href="#ref-VONELM2008344">Elm et al. 2008</a> )</span> </p>
+<div id="コホート特性評価" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> コホート特性評価<a href="Characterization.html#コホート特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>コホート特性評価は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬剤およびデバイスの曝露、処置およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。</p>
+<p>コホート特性の評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性の評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています。<span class="citation">(<a href="#ref-VONELM2008344">Elm et al. 2008</a> )</span> </p>
 </div>
 <div id="治療経路" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> 治療経路<a href="Characterization.html#治療経路" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>集団を特徴付ける他の方法としては、ポストインデックスタイムウィンドウ内の治療シーケンスを記述することが挙げられます。たとえば、<span class="citation">George Hripcsak et al. (<a href="#ref-Hripcsak7329">2016</a>)</span> は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧および抑うつ症に対する治療経路を特徴付ける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakおよび同僚は、同じ分析をOHDSIネットワーク全体で実行して、これらの関心集団の特徴を記述することができました。 </p>
-<p>経路分析は、特定の状態を診断された人々が最初の薬物処方/供給から受けた治療（イベント）を要約することを目的としています。この研究では、治療はそれぞれ2型糖尿病、高血圧および抑うつ症の診断後に記述されました。その後、各個人のイベントは集計され、各条件および各データベースに対して要約統計として視覚化されました。</p>
+<p>集団の特性を評価する他の方法としては、ポストインデックスタイムウィンドウ内の治療シーケンスを記述することが挙げられます。たとえば、<span class="citation">George Hripcsak et al. (<a href="#ref-Hripcsak7329">2016</a>)</span> は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧および抑うつ症に対する治療経路を特性づける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakおよび同僚は、同じ分析をOHDSIネットワーク全体で実行して、これらの関心集団の特徴を記述することができました。 </p>
+<p>経路分析は、特定のコンディションを診断された人々が最初の薬剤処方/供給から受けた治療（イベント）を要約することを目的としています。この研究では、治療はそれぞれ2型糖尿病、高血圧および抑うつ症の診断後に記述されました。その後、各個人のイベントは集計され、各コンディションおよび各データベースに対して要約統計として視覚化されました。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:treatmentPathwaysSunburstDataViz"></span>
 <img src="images/Characterization/pnasTreatmentPathwaysSunburst.png" alt="高血圧のためのOHDSI治療経路「サンバースト」可視化" width="100%" />
 <p class="caption">
@@ -759,34 +768,34 @@ div.csl-indent {
 </p>
 </div>
 <p>例として、図 <a href="Characterization.html#fig:treatmentPathwaysSunburstDataViz">12.1</a> は高血圧治療を開始する集団を表しています。中央にある最初のリングは、最初の治療法に基づいた人々の割合を示しています。この例では、ヒドロクロロチアジドがこの集団で最も一般的な最初の治療法です。ヒドロクロロチアジドのセクションから延びるボックスは、コホート内の人々に記録された2番目および3番目の治療法を示しています。</p>
-<p>経路分析は、集団における治療利用に関する重要な証拠を提供します。この分析から、最初の治療法として最も一般的に利用される治療法、治療を中止する人の割合、治療を変える人、または治療を強化する人の割合を記述することができます。経路分析を使用して、<span class="citation">George Hripcsak et al. (<a href="#ref-Hripcsak7329">2016</a>)</span> はメトホルミンが糖尿病治療のために最も一般的に処方されている薬物であることを発見し、そこで米国内分泌学会の糖尿病治療アルゴリズムの最初の推奨事項である大規模な導入が確認されました。さらに、糖尿病患者の10%、高血圧患者の24%、抑うつ患者の11%が、いずれのデータソースにも共有されていない治療経路をたどっていたことが明らかになりました。</p>
-<p>従来のDUS（薬物使用研究）用語では、治療経路分析は、指定された集団における一つまたは複数の薬物の使用の普及率などの集団レベルのDUS推定値および持続性やさまざまな治療法間の切り替えの測定などの個人レベルのDUSを含みます。</p>
+<p>経路分析は、集団における治療利用に関する重要な証拠を提供します。この分析から、最初の治療法として最も一般的に利用される治療法、治療を中止する人の割合、治療を変える人、または治療を強化する人の割合を記述することができます。経路分析を使用して、<span class="citation">George Hripcsak et al. (<a href="#ref-Hripcsak7329">2016</a>)</span> はメトホルミンが糖尿病治療のために最も一般的に処方されている薬剤であることを発見し、そこで米国内分泌学会の糖尿病治療アルゴリズムの最初の推奨事項である大規模な導入が確認されました。さらに、糖尿病患者の10%、高血圧患者の24%、抑うつ患者の11%が、いずれのデータソースにも共有されていない治療経路をたどっていたことが明らかになりました。</p>
+<p>従来のDUS（薬剤使用研究）用語では、治療経路分析は、指定された集団における一つまたは複数の薬剤の使用の普及率などの集団レベルのDUS推定値および持続性やさまざまな治療法間の切り替えの測定などの個人レベルのDUSを含みます。</p>
 </div>
 <div id="発生率" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> 発生率<a href="Characterization.html#発生率" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>発生率および割合は、時間の経過とともに人口における新しい結果の発生を評価するための公衆衛生の統計です。図 <a href="Characterization.html#fig:incidenceTimeline">12.2</a> は、単一の人に対する発生率の計算コンポーネントを示すことを目的としています： </p>
+<p>発生率および割合は、時間の経過とともに人口における新しいアウトカムの発生を評価するための公衆衛生の統計です。図 <a href="Characterization.html#fig:incidenceTimeline">12.2</a> は、単一の人に対する発生率の計算コンポーネントを示すことを目的としています： </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:incidenceTimeline"></span>
 <img src="images/Characterization/incidenceTimeline.png" alt="発生率計算コンポーネントの人単位のビュー。この例では、リスク時間はコホート開始の翌日に始まり、コホート終了時に終了する。" width="100%" />
 <p class="caption">
 図 12.2: 発生率計算コンポーネントの人単位のビュー。この例では、リスク時間はコホート開始の翌日に始まり、コホート終了時に終了する。
 </p>
 </div>
-<p>図 <a href="Characterization.html#fig:incidenceTimeline">12.2</a> では、人がデータで観察される期間が観察開始と終了時間によって示されています。次に、個人がいくつかの適格基準を満たしてコホートに入る時点と出る時点があります。リスク時間ウィンドウは、結果の発生を理解しようとする期間を示しています。アウトカムがリスク時間内に発生した場合、それをアウトカムの発生としてカウントします。</p>
+<p>図 <a href="Characterization.html#fig:incidenceTimeline">12.2</a> では、人がデータで観察される期間が観察開始と終了時間によって示されています。次に、個人がいくつかの適格基準を満たしてコホートに入る時点と出る時点があります。リスク時間ウィンドウは、アウトカムの発生を理解しようとする期間を示しています。アウトカムがリスク時間内に発生した場合、それをアウトカムの発生としてカウントします。</p>
 <p>発生率を計算するための2つの尺度があります：</p>
 <p><span class="math display">\[
-発生割合 = \frac{\#\;リスク時間中に新しい結果が発生したコホート内の人数}{リスク時間を持つコホート内の人数}
+発生割合 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{リスク時間を持つコホート内の人数}
 \]</span></p>
-<p>発生割合は、リスク時間中に集団内で発生した新しい結果の割合を提供します。別の言い方をすると、これは定義された時間枠内で関心集団内で結果を得た割合を示します。</p>
+<p>発生割合は、リスク時間中に集団内で発生した新しいアウトカムの割合を提供します。別の言い方をすると、これは定義された時間枠内で関心集団内でアウトカムを得た割合を示します。</p>
 <p><span class="math display">\[
-発生率 = \frac{\#\;リスク時間中に新しい結果が発生したコホート内の人数}{コホート内の人々によって提供されたリスク時間}
+発生率 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{コホート内の人々によって提供されたリスク時間}
 \]</span></p>
-<p>発生率は、集団の累積的なリスク時間内で新しい結果の数を測定する尺度です。リスク時間中にある人が結果を経験した場合、その人のリスク時間への寄与は結果の発生時点で停止します。累積的なリスク時間は<strong>人時間</strong>と呼ばれ、日、月または年単位で表現されます。 </p>
+<p>発生率は、集団の累積的なリスク時間内で新しいアウトカムの数を測定する尺度です。リスク時間中にある人がアウトカムを経験した場合、その人のリスク時間への寄与はアウトカムの発生時点で停止します。累積的なリスク時間は<strong>人時間</strong>と呼ばれ、日、月または年単位で表現されます。 </p>
 <p>治療に対して計算される場合、発生割合および発生率は、特定の治療の使用の集団レベルのDUSの古典的な尺度です。</p>
 </div>
 <div id="高血圧患者の特性評価" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> 高血圧患者の特性評価<a href="Characterization.html#高血圧患者の特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>世界保健機関（WHO）の高血圧に関するグローバル概要 <span class="citation">(<a href="#ref-WHOHypertension">Who 2013</a> )</span> によると、高血圧の早期発見、適切な治療、および良好な管理には、健康上および経済上の大きな利益が伴います。WHOの概要は、高血圧についての概観を提供し、各国における疾病の負担を特性化しています。WHOは、地理的地域、社会経済的クラス、および性別に関する高血圧の記述統計を提供しています。</p>
-<p>観察データソースは、WHOが行ったように高血圧集団を特性化する方法を提供します。本章の後のセクションでは、ATLASおよびRを使用してデータベースを探索し、高血圧集団を研究するためのその構成を理解する方法を探ります。その後、これらのツールを使用して、高血圧集団の自然経過および治療パターンを記述します。</p>
+<p>世界保健機関（WHO）の高血圧に関するグローバル概要 <span class="citation">(<a href="#ref-WHOHypertension">Who 2013</a> )</span> によると、高血圧の早期発見、適切な治療、および良好な管理には、健康上および経済上の大きな利益が伴います。WHOの概要は、高血圧についての概観を提供し、各国における疾病の負担の特性を評価しています。WHOは、地理的地域、社会経済的クラス、および性別に関する高血圧の記述統計を提供しています。</p>
+<p>観察研究のデータソースは、WHOが行ったように高血圧集団を特性を評価する方法を提供します。本章の後のセクションでは、ATLASおよびRを使用してデータベースを探索し、高血圧集団を研究するためのその構成を理解する方法を探ります。その後、これらのツールを使用して、高血圧集団の自然経過および治療パターンを記述します。</p>
 </div>
 <div id="atlasにおけるデータベースの特性評価" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> ATLASにおけるデータベースの特性評価<a href="Characterization.html#atlasにおけるデータベースの特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -797,28 +806,28 @@ div.csl-indent {
 図 12.3: Atlas Data Sources: Condition Occurrence Treemap
 </p>
 </div>
-<p>特定の関心のある症状を検索するには、テーブルタブをクリックして、データベース内のすべての条件のリストを表示し、個人の数、発生率、および個人ごとの記録数を確認します。上部のフィルターボックスを使用して、概念名に「hypertension」を含む項目に基づいてリストをフィルタリングできます：</p>
+<p>特定の関心のある症状を検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、個人の数、発生率、および個人ごとの記録数を確認します。上部のフィルターボックスを使用して、コンセプト名に「hypertension」を含む項目に基づいてリストをフィルタリングできます：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasDataSourcesConditionFiltered"></span>
-<img src="images/Characterization/atlasDataSourcesConditionFiltered.png" alt="ATLASデータソース: 概念名に「高血圧」が含まれる疾患。" width="100%" />
+<img src="images/Characterization/atlasDataSourcesConditionFiltered.png" alt="ATLASデータソース: コンセプト名に「高血圧」が含まれる疾患。" width="100%" />
 <p class="caption">
-図 12.4: ATLASデータソース: 概念名に「高血圧」が含まれる疾患。
+図 12.4: ATLASデータソース: コンセプト名に「高血圧」が含まれる疾患。
 </p>
 </div>
-<p>特定の症状の詳細なドリルダウンレポートを表示するには、行をクリックします。この場合、「essential hypertension」を選択して、選択された症状の時系列および性別別の傾向、月別の発生率、症状との共記録タイプ、および診断の初回発生時の年齢の内訳を確認します：</p>
+<p>特定の症状の詳細なドリルダウンレポートを表示するには、行をクリックします。この場合、「essential hypertension」を選択して、選択された症状の時系列および性別別の傾向、月別の発生率、コンディションとの共記録タイプ、および診断の初回発生時の年齢の内訳を確認します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasDataSourcesDrillDownReport"></span>
 <img src="images/Characterization/atlasDataSourcesDrillDownReport.png" alt="ATLASデータソース: 本態性高血圧ドリルダウンレポート" width="100%" />
 <p class="caption">
 図 12.5: ATLASデータソース: 本態性高血圧ドリルダウンレポート
 </p>
 </div>
-<p>高血圧概念の存在および時間の経過に伴う傾向についてデータベースの特性を確認した後、高血圧患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するために「Drug Era」レポートを使用します。興味のある項目をレビューするためにデータベース特性を探索した後、高血圧者を特性化するためのコホートの構築を進める準備が整います。</p>
+<p>高血圧コンセプトの存在および時間の経過に伴う傾向についてデータベースの特性を確認した後、高血圧患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するために「Drug Era」レポートを使用します。興味のある項目をレビューするためにデータベース特性を探索した後、高血圧者を特性化するためのコホートの構築を進める準備が整います。</p>
 </div>
 <div id="atlasにおけるコホート特性分析" class="section level2 hasAnchor" number="12.7">
 <h2><span class="header-section-number">12.7</span> ATLASにおけるコホート特性分析<a href="Characterization.html#atlasにおけるコホート特性分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ここでは、ATLASを使用して複数のコホートの大規模な特性分析を行う方法を示します。左側のバーにある<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックし、新しい特性分析を作成します。分析に名前を付け、<img src="images/PopulationLevelEstimation/save.png" />ボタンを使用して保存します。</p>
+<p>ここでは、ATLASを使用して複数のコホートの大規模な特性評価を行う方法を示します。左側のバーにある<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックし、新しい特性評価を作成します。分析に名前を付け、<img src="images/PopulationLevelEstimation/save.png" />ボタンを使用して保存します。</p>
 <div id="デザイン" class="section level3 hasAnchor" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> デザイン<a href="Characterization.html#デザイン" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>特性分析には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、高血圧治療を開始日とし、その前の1年間に少なくとも1つの高血圧診断を受けた人々を定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことを要求します（附録 <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（附録 <a href="CohortDefinitions.html#HTN3yrFO">B.7</a>）。</p>
+<p>特性の評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、高血圧治療を開始日とし、その前の1年間に少なくとも1つの高血圧診断を受けた人々を定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことを要求します（附録 <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（附録 <a href="CohortDefinitions.html#HTN3yrFO">B.7</a>）。</p>
 <div id="コホート定義" class="section level4 unnumbered hasAnchor">
 <h4>コホート定義<a href="Characterization.html#コホート定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationCohortSelection"></span>
@@ -827,19 +836,19 @@ div.csl-indent {
 図 12.6: 特性設計タブ - コホート定義の選択
 </p>
 </div>
-<p>コホートは既にATLASで作成されていると仮定しています（Chapter <a href="Cohorts.html#Cohorts">11</a>を参照）。<img src="images/Characterization/atlasImportButton.png" />をクリックし、図 <a href="Characterization.html#fig:atlasCharacterizationCohortSelection">12.6</a>に示すようにコホートを選択します。次に、これらのコホートを特性化するために使用する特性を定義します。</p>
+<p>コホートは既にATLASで作成されていると仮定しています（Chapter <a href="Cohorts.html#Cohorts">11</a>を参照）。<img src="images/Characterization/atlasImportButton.png" />をクリックし、図 <a href="Characterization.html#fig:atlasCharacterizationCohortSelection">12.6</a>に示すようにコホートを選択します。次に、これらのコホートを特性の評価するために使用する特性を定義します。</p>
 </div>
 <div id="特性選択" class="section level4 unnumbered hasAnchor">
 <h4>特性選択<a href="Characterization.html#特性選択" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>ATLASにはOMOP CDMにモデル化された臨床領域全体で特性分析を行うための約100のプリセット特性分析が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性分析を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
-<p><img src="images/Characterization/atlasImportButton.png" />をクリックして、特性を選択します。以下は、これらのコホートを特性化するために使用する特性のリストです：</p>
+<p>ATLASにはOMOP CDMにモデル化された臨床領域全体で特性の評価を行うための約100のプリセット特性評価が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性の評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
+<p><img src="images/Characterization/atlasImportButton.png" />をクリックして、特性を選択します。以下は、これらのコホートを特性評価するために使用する特性のリストです：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationFeatureSelection"></span>
 <img src="images/Characterization/atlasCharacterizationFeatureSelection.png" alt="特性設計タブ - 特性選択" width="100%" />
 <p class="caption">
 図 12.7: 特性設計タブ - 特性選択
 </p>
 </div>
-<p>上図は、説明と共に選択された特性のリストを示しています。名前が「Demographics」で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：Visit, Procedure, Condition, Drugなど）で始まる特性は、そのドメインにおけるすべての記録された観察を特性化します。各ドメイン特性には4つの選択肢があります：</p>
+<p>上図は、説明と共に選択された特性のリストを示しています。名前が「Demographics」で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：Visit, Procedure, Condition, Drugなど）で始まる特性は、そのドメインにおけるすべての記録された観察を特性評価します。各ドメイン特性には4つの選択肢があります：</p>
 <ul>
 <li><strong>Any time prior</strong>: コホート開始前のすべての利用可能な時間を使用します。</li>
 <li><strong>Long term</strong>: コホート開始日までの365日。</li>
@@ -849,12 +858,12 @@ div.csl-indent {
 </div>
 <div id="サブグループ分析" class="section level4 unnumbered hasAnchor">
 <h4>サブグループ分析<a href="Characterization.html#サブグループ分析" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>性別に基づいて異なる特性を作成したい場合、「サブグループ分析」セクションを使用して、新しい興味のあるサブグループを定義し特性分析に使用できます。</p>
+<p>性別に基づいて異なる特性を作成したい場合、「サブグループ分析」セクションを使用して、新しい興味のあるサブグループを定義し特性評価に使用できます。</p>
 <p>サブグループを作成するには、をクリックし、サブグループメンバーシップのための基準を追加します。このステップは、コホート登録を識別するために使用される基準と似ています。この例では、コホート内の女性を識別するための基準を定義します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationSubgroup"></span>
-<img src="images/Characterization/atlasCharacterizationSubgroup.png" alt="特性設計 - 女性サブグループ分析" width="100%" />
+<img src="images/Characterization/atlasCharacterizationSubgroup.png" alt="特性評価の設計 - 女性サブグループ分析" width="100%" />
 <p class="caption">
-図 12.8: 特性設計 - 女性サブグループ分析
+図 12.8: 特性評価の設計 - 女性サブグループ分析
 </p>
 </div>
 
@@ -865,51 +874,51 @@ div.csl-indent {
 </div>
 <div id="実行" class="section level3 hasAnchor" number="12.7.2">
 <h3><span class="header-section-number">12.7.2</span> 実行<a href="Characterization.html#実行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>特性分析のデザインが完了したら、環境内の1つ以上のデータベースに対してこのデザインを実行できます。実行タブに移動し、Generateボタンをクリックしてデータベースで分析を開始します：</p>
+<p>特性評価のデザインが完了したら、環境内の1つ以上のデータベースに対してこのデザインを実行できます。実行タブに移動し、Generateボタンをクリックしてデータベースで分析を開始します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationExecutions"></span>
-<img src="images/Characterization/atlasCharacterizationExecutions.png" alt="特性設計の実行 - CDMソース選択" width="100%" />
+<img src="images/Characterization/atlasCharacterizationExecutions.png" alt="特性評価設計の実行 - CDMソース選択" width="100%" />
 <p class="caption">
-図 12.9: 特性設計の実行 - CDMソース選択
+図 12.9: 特性評価設計の実行 - CDMソース選択
 </p>
 </div>
-<p>分析が完了したら、「All Executions」ボタンをクリックしてレポートを表示し、実行リストから「View Reports」を選択します。あるいは、「View latest result」をクリックして、最後に実行された結果を表示することもできます。</p>
+<p>分析が完了したら、「All Executions」ボタンをクリックしてレポートを表示し、実行リストから「View Reports」を選択します。あるいは、「View latest result」をクリックして、最後に実行されたアウトカムを表示することもできます。</p>
 </div>
-<div id="結果-1" class="section level3 hasAnchor" number="12.7.3">
-<h3><span class="header-section-number">12.7.3</span> 結果<a href="Characterization.html#結果-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="結果" class="section level3 hasAnchor" number="12.7.3">
+<h3><span class="header-section-number">12.7.3</span> 結果<a href="Characterization.html#結果" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsSummary"></span>
-<img src="images/Characterization/atlasCharacterizationResultsSummary.png" alt="特性結果 - 過去1年間の疾患発生" width="100%" />
+<img src="images/Characterization/atlasCharacterizationResultsSummary.png" alt="特性アウトカム - 過去1年間の疾患発生" width="100%" />
 <p class="caption">
-図 12.10: 特性結果 - 過去1年間の疾患発生
+図 12.10: 特性アウトカム - 過去1年間の疾患発生
 </p>
 </div>
 <p>結果は、選択された各コホートの異なる特性の表形式のビューを提供します。図 <a href="Characterization.html#fig:atlasCharacterizationResultsSummary">12.10</a>では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。</p>
-<p>検索ボックスを使用して結果をフィルタリングし、「心房細動」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートの概念に関する詳細を表示します（図 @ref(fig:atlasCharacterizationResultsExplore）に示すように）。</p>
+<p>検索ボックスを使用してアウトカムをフィルタリングし、「心房細動」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示します（図 @ref(fig:atlasCharacterizationResultsExplore）に示すように）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsExplore"></span>
-<img src="images/Characterization/atlasCharacterizationResultsExplore.png" alt="特性結果 - 単一概念の探索" width="100%" />
+<img src="images/Characterization/atlasCharacterizationResultsExplore.png" alt="特性アウトカム - 単一コンセプトの探索" width="100%" />
 <p class="caption">
-図 12.11: 特性結果 - 単一概念の探索
+図 12.11: 特性アウトカム - 単一コンセプトの探索
 </p>
 </div>
-<p>コホートのすべての条件概念を特性化したので、「explore」オプションを使用して、選択された概念（この場合は心房細動）のすべての先祖および子孫概念のビューを有効にします。この探索により、高血圧のある人々に現れる可能性のある他の心疾患を探索するために概念の階層をナビゲートすることができます。要約ビューと同様に、カウントと割合が表示されます。</p>
-<p>この特性結果を使用して、アンチ高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema」を検索します（図 @ref(fig:atlasCharacterizationResultsContra）を参照）。</p>
+<p>コホートのすべての条件コンセプトを特性評価したので、「explore」オプションを使用して、選択されたコンセプト（この場合は心房細動）のすべての先祖および子孫コンセプトのビューを有効にします。この探索により、高血圧のある人々に現れる可能性のある他の心疾患を探索するためにコンセプトの階層をナビゲートすることができます。要約ビューと同様に、カウントと割合が表示されます。</p>
+<p>この特性アウトカムを使用して、アンチ高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema」を検索します（図 @ref(fig:atlasCharacterizationResultsContra）を参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContra"></span>
-<img src="images/Characterization/atlasCharacterizationResultsContra.png" alt="特性結果 - 禁忌条件の探索" width="100%" />
+<img src="images/Characterization/atlasCharacterizationResultsContra.png" alt="特性評価の結果 - 禁忌条件の探索" width="100%" />
 <p class="caption">
-図 12.12: 特性結果 - 禁忌条件の探索
+図 12.12: 特性評価の結果 - 禁忌条件の探索
 </p>
 </div>
 <p>再度、「explore」機能を使用して、高血圧集団における浮腫の特性を見て血管浮腫の有病率を見つけます：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContraExplore"></span>
-<img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="特性結果 - 禁忌条件の詳細を探索" width="100%" />
+<img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="特性アウトカム - 禁忌条件の詳細を探索" width="100%" />
 <p class="caption">
-図 12.13: 特性結果 - 禁忌条件の詳細を探索
+図 12.13: 特性アウトカム - 禁忌条件の詳細を探索
 </p>
 </div>
 <p>ここでは、アンチ高血圧薬を開始する前の1年に血管浮腫の記録がある集団の一部が見つかりました。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContinuous"></span>
-<img src="images/Characterization/atlasCharacterizationResultsContinuous.png" alt="各コホートとサブグループの年齢特性結果" width="100%" />
+<img src="images/Characterization/atlasCharacterizationResultsContinuous.png" alt="各コホートとサブグループの年齢特性アウトカム" width="100%" />
 <p class="caption">
-図 12.14: 各コホートとサブグループの年齢特性結果
+図 12.14: 各コホートとサブグループの年齢特性アウトカム
 </p>
 </div>
 <p>ドメイン共変量は、コホート開始前の時間枠にコードの記録が存在したかどうかを示す二元指標を使用して計算されますが、一部の変数はコホート開始時の年齢のように連続変数として提供されます。上の例では、カウント、平均年齢、中央値、標準偏差といった形で表現された2つのコホートの年齢を示しています。</p>
@@ -924,17 +933,17 @@ div.csl-indent {
 図 12.15: ATLASでのカスタム特性定義
 </p>
 </div>
-<p>上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義して保存したら、前のセクションで作成した特性設計にこの基準を適用できます。特性設計を開き、Feature Analysisセクションに移動します。<img src="images/Characterization/atlasImportButton.png" />ボタンをクリックし、メニューから新しいカスタム特性を選択します。これで、特性設計の特性リストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタム特性の特性分析を生成することができます：</p>
+<p>上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義して保存したら、前のセクションで作成した特性設計にこの基準を適用できます。特性評価設計を開き、Feature Analysisセクションに移動します。<img src="images/Characterization/atlasImportButton.png" />ボタンをクリックし、メニューから新しいカスタムフィーチャーを選択します。これで、特性評価設計のフィーチャーリストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタムフィーチャーの特性分析を生成することができます：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationCustomFeatureResults"></span>
-<img src="images/Characterization/atlasCharacterizationCustomFeatureResults.png" alt="カスタム特性結果表示" width="100%" />
+<img src="images/Characterization/atlasCharacterizationCustomFeatureResults.png" alt="カスタムフィーチャーの結果表示" width="100%" />
 <p class="caption">
-図 12.16: カスタム特性結果表示
+図 12.16: カスタムフィーチャーの結果表示
 </p>
 </div>
 </div>
 </div>
-<div id="rでのコホートの特徴抽出" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> Rでのコホートの特徴抽出<a href="Characterization.html#rでのコホートの特徴抽出" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rでのコホートの特性評価" class="section level2 hasAnchor" number="12.8">
+<h2><span class="header-section-number">12.8</span> Rでのコホートの特性評価<a href="Characterization.html#rでのコホートの特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>私たちはRを使用してコホートを特徴づけることもできます。このセクションでは、OHDSI RパッケージであるFeatureExtractionを使用して、高血圧コホートのベースライン機能（共変量）を生成する方法について説明します。FeatureExtractionは、3つの方法で共変量を構築する機能を提供します。 </p>
 <ul>
 <li>デフォルトの共変量セットを選択する</li>
@@ -944,7 +953,7 @@ div.csl-indent {
 <p>FeatureExtractionは、個人ベースの特徴と集計された特徴の2つの異なる方法で共変量を作成します。個人ベースの特徴は機械学習アプリケーションで有用です。この章では、興味のあるコホートを説明するためのベースライン共変量を生成するために有用な集計された特徴の使用に焦点を当てます。さらに、事前に指定された分析とカスタム分析という2つの方法で共変量を構築する方法に焦点を当て、デフォルトのセットを使用する方法は読者への課題とします。</p>
 <div id="コホートの生成" class="section level3 hasAnchor" number="12.8.1">
 <h3><span class="header-section-number">12.8.1</span> コホートの生成<a href="Characterization.html#コホートの生成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>最初に、特徴を抽出するためにコホートを生成する必要があります。コホートの生成は、Chapter <a href="Cohorts.html#Cohorts">11</a>で説明されています。この例では、高血圧に対して一次治療を開始し、1年間のフォローアップを行う人々を使用します（Appendix <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。他のコホートの特徴づけはAppendix <a href="CohortDefinitions.html#CohortDefinitions">B</a>として残します。コホートが<code>scratch.my_cohorts</code>というテーブルにコホート定義IDが1で生成されていることを仮定します。</p>
+<p>最初に、特性を評価するためにコホートを生成する必要があります。コホートの生成は、Chapter <a href="Cohorts.html#Cohorts">11</a>で説明されています。この例では、高血圧に対して一次治療を開始し、1年間のフォローアップを行う人々を使用します（Appendix <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。他のコホートの特性評価はAppendix <a href="CohortDefinitions.html#CohortDefinitions">B</a>として残します。コホートが<code>scratch.my_cohorts</code>というテーブルにコホート定義IDが1で生成されていることを仮定します。</p>
 </div>
 <div id="データ抽出" class="section level3 hasAnchor" number="12.8.2">
 <h3><span class="header-section-number">12.8.2</span> データ抽出<a href="Characterization.html#データ抽出" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -968,7 +977,7 @@ div.csl-indent {
 <span id="cb83-2"><a href="Characterization.html#cb83-2" tabindex="-1"></a>  <span class="at">useDemographicsGender =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb83-3"><a href="Characterization.html#cb83-3" tabindex="-1"></a>  <span class="at">useDemographicsAgeGroup =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb83-4"><a href="Characterization.html#cb83-4" tabindex="-1"></a>  <span class="at">useConditionOccurrenceAnyTimePrior =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>これにより、性別、年齢（5年ごとの年齢グループ）、およびコホート開始日までの期間に観察された各概念についての二進共変量が作成されます。</p>
+<p>これにより、性別、年齢（5年ごとの年齢グループ）、およびコホート開始日までの期間に観察された各コンセプトについての二進共変量が作成されます。</p>
 <p>多くの事前に指定された分析は、短期、中期、長期の時間枠を参照しています。デフォルトでは、これらの枠は次のように定義されています：</p>
 <ul>
 <li><strong>長期</strong>: コホート開始日を含む365日前まで</li>
@@ -984,7 +993,7 @@ div.csl-indent {
 <span id="cb84-6"><a href="Characterization.html#cb84-6" tabindex="-1"></a>                                    <span class="at">shortTermStartDays =</span> <span class="sc">-</span><span class="dv">14</span>,</span>
 <span id="cb84-7"><a href="Characterization.html#cb84-7" tabindex="-1"></a>                                    <span class="at">endDays =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <p>これにより、長期の枠はコホート開始日を含まない180日前まで、短期の枠はコホート開始日を含まない14日前までに再定義されます。</p>
-<p>また、どの概念IDを使用するかしないかを指定することもできます：</p>
+<p>また、どのコンセプトIDを使用するかしないかを指定することもできます：</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="Characterization.html#cb85-1" tabindex="-1"></a>settings <span class="ot">&lt;-</span> <span class="fu">createCovariateSettings</span>(<span class="at">useConditionEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb85-2"><a href="Characterization.html#cb85-2" tabindex="-1"></a>                                    <span class="at">useConditionEraShortTerm =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb85-3"><a href="Characterization.html#cb85-3" tabindex="-1"></a>                                    <span class="at">useDrugEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
@@ -1026,7 +1035,7 @@ div.csl-indent {
 </div>
 <div id="出力形式" class="section level3 hasAnchor" number="12.8.5">
 <h3><span class="header-section-number">12.8.5</span> 出力形式<a href="Characterization.html#出力形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>集計された<code>covariateData</code>オブジェクトの主なコンポーネントは、二進および連続的な共変量に対してそれぞれ<code>covariates</code>および<code>covariatesContinuous</code>です：</p>
+<p>集計された<code>covariateData</code>オブジェクトの主なコンポーネントは、二値および連続的な共変量に対してそれぞれ<code>covariates</code>および<code>covariatesContinuous</code>です：</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="Characterization.html#cb88-1" tabindex="-1"></a>covariateData2<span class="sc">$</span>covariates</span>
 <span id="cb88-2"><a href="Characterization.html#cb88-2" tabindex="-1"></a>covariateData2<span class="sc">$</span>covariatesContinuous</span></code></pre></div>
 </div>
@@ -1045,7 +1054,7 @@ div.csl-indent {
 図 12.17: 単一の人物におけるパスウェイ分析の文脈
 </p>
 </div>
-<p>図 <a href="Characterization.html#fig:pathwaysPersonEventView">12.17</a> では、その人物が開始日と終了日が定義されたターゲットコホートの一部であることを示しています。その後、番号付きの線分は、その人物が特定の期間、イベントコホートとしても特定される場所を示しています。イベントコホートは、CDMに表された任意の臨床イベントを記述することができるため、単一のドメインまたは概念に対してパスウェイを作成する必要はありません。</p>
+<p>図 <a href="Characterization.html#fig:pathwaysPersonEventView">12.17</a> では、その人物が開始日と終了日が定義されたターゲットコホートの一部であることを示しています。その後、番号付きの線分は、その人物が特定の期間、イベントコホートとしても特定される場所を示しています。イベントコホートは、CDMに表された任意の臨床イベントを記述することができるため、単一のドメインまたはコンセプトに対してパスウェイを作成する必要はありません。</p>
 <p>まず、ATLASの左側のバーで <img src="images/Characterization/atlasPathwaysMenuItem.png" /> をクリックして、新しいコホートパスウェイスタディを作成します。説明的な名前を提供し、保存ボタンを押します。</p>
 <div id="設計" class="section level3 hasAnchor" number="12.9.1">
 <h3><span class="header-section-number">12.9.1</span> 設計<a href="Characterization.html#設計" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1065,29 +1074,29 @@ div.csl-indent {
 </div>
 <p>完了すると、設計は上記のようになるはずです。次に、いくつかの追加の分析設定を決定する必要があります：</p>
 <ul>
-<li><strong>組み合わせウィンドウ</strong>: この設定では、イベント間の重複がイベントの組み合わせと見なされる日数の期間を定義できます。たとえば、2つのイベントコホート（イベントコホート1およびイベントコホート2）で表される2つの薬が組み合わせウィンドウ内で重複する場合、パスウェイアルゴリズムはそれらを「イベントコホート1 + イベントコホート2」として組み合わせます。</li>
+<li><strong>組み合わせウィンドウ</strong>: この設定では、イベント間の重複がイベントの組み合わせと見なされる日数の期間を定義できます。たとえば、2つのイベントコホート（イベントコホート1およびイベントコホート2）で表される2つの薬剤が組み合わせウィンドウ内で重複する場合、パスウェイアルゴリズムはそれらを「イベントコホート1 + イベントコホート2」として組み合わせます。</li>
 <li><strong>最小セル数</strong>: この数未満の人数のイベントコホートは、プライバシーを保護するために出力から除外されます。</li>
 <li><strong>最大経路長</strong>: 分析の対象となる一連のイベントの最大数を指します。</li>
 </ul>
 </div>
 <div id="実行-1" class="section level3 hasAnchor" number="12.9.2">
 <h3><span class="header-section-number">12.9.2</span> 実行<a href="Characterization.html#実行-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>パスウェイ分析の設計が完了すると、環境内の1つ以上のデータベースに対してこの設計を実行できます。これは、ATLASでのコホートの特徴付けで説明したのと同じ方法で機能します。完了したら、分析結果を確認できます。</p>
+<p>パスウェイ分析の設計が完了すると、環境内の1つ以上のデータベースに対してこの設計を実行できます。これは、ATLASでのコホートの特性評価で説明したのと同じ方法で機能します。完了したら、分析アウトカムを確認できます。</p>
 </div>
 <div id="結果の表示" class="section level3 hasAnchor" number="12.9.3">
 <h3><span class="header-section-number">12.9.3</span> 結果の表示<a href="Characterization.html#結果の表示" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasPathwaysResults"></span>
-<img src="images/Characterization/atlasPathwaysResults.png" alt="パスウェイ結果の凡例とサンバーストビジュアライゼーション" width="100%" />
+<img src="images/Characterization/atlasPathwaysResults.png" alt="パスウェイアウトカムの凡例とサンバーストビジュアライゼーション" width="100%" />
 <p class="caption">
-図 12.20: パスウェイ結果の凡例とサンバーストビジュアライゼーション
+図 12.20: パスウェイアウトカムの凡例とサンバーストビジュアライゼーション
 </p>
 </div>
-<p>パスウェイ分析の結果は3つのセクションに分かれています：凡例セクションでは、ターゲットコホートの総人数と、パスウェイ分析で1つ以上のイベントがあった人数が表示されます。その下には、サンバーストプロットの中央セクションに表示される各コホートのカラーコードが表示されます。</p>
+<p>パスウェイ分析のアウトカムは3つのセクションに分かれています：凡例セクションでは、ターゲットコホートの総人数と、パスウェイ分析で1つ以上のイベントがあった人数が表示されます。その下には、サンバーストプロットの中央セクションに表示される各コホートのカラーコードが表示されます。</p>
 <p>サンバーストプロットは、時間の経過に伴うさまざまなイベントパスウェイを表すビジュアライゼーションです。プロットの中心はコホートのエントリを表しており、最初のカラーディングは各イベントコホートにいる人々の割合を示しています。例では、円の中心は一線級治療を開始した高血圧者を示しています。その後、サンバーストプロットの最初のリングは、イベントコホート（例えば、ACE阻害剤、アンジオテンシン受容体遮断剤など）で定義された一線級治療を開始した人々の割合を示します。次のリングセットは、特定のイベントシーケンスにおいて2番目のイベントコホートを示します。データ内で2番目のイベントコホートが観察されない人々の割合は、リングの灰色の部分で表されます。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasPathwaysResultsPathDetails"></span>
-<img src="images/Characterization/atlasPathwaysResultsPathDetails.png" alt="経路の詳細を表示するパスウェイ結果" width="100%" />
+<img src="images/Characterization/atlasPathwaysResultsPathDetails.png" alt="経路の詳細を表示するパスウェイアウトカム" width="100%" />
 <p class="caption">
-図 12.21: 経路の詳細を表示するパスウェイ結果
+図 12.21: 経路の詳細を表示するパスウェイアウトカム
 </p>
 </div>
 <p>サンバーストプロットのセクションをクリックすると、右側に経路の詳細が表示されます。ここでは、ターゲットコホート内の最も多くの人々がACE阻害剤で一線級治療を開始し、そのグループから少数の人々がチアジド系利尿薬を開始していることがわかります。</p>
@@ -1095,7 +1104,7 @@ div.csl-indent {
 </div>
 <div id="atlas-における発生率分析" class="section level2 hasAnchor" number="12.10">
 <h2><span class="header-section-number">12.10</span> ATLAS における発生率分析<a href="Characterization.html#atlas-における発生率分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>発生率計算では、ターゲットコホート内の人々のうち、リスク期間中にアウトカムコホートを経験した人を記述します。ここでは、ACE阻害薬 (ACEi) およびチアジド系およびチアジド様利尿薬 (THZ) の新規使用者における血管浮腫 (Angioedema) および急性心筋梗塞 (AMI) のアウトカムを特徴づけるための発生率分析を設計します。これらのアウトカムを、薬物に曝露されている期間 (TAR) 中に評価します。さらに、ターゲットコホート (ACEi および THZ) への曝露中に新規のアンジオテンシン受容体拮抗薬 (ARB) 使用の発生率を測定するために、ARB の使用アウトカムを追加します。このアウトカム定義は、ターゲット集団の中で ARB の利用方法を理解するためのものです。</p>
+<p>発生率計算では、ターゲットコホート内の人々のうち、リスク期間中にアウトカムコホートを経験した人を記述します。ここでは、ACE阻害薬 (ACEi) およびチアジド系およびチアジド様利尿薬 (THZ) の新規使用者における血管浮腫 (Angioedema) および急性心筋梗塞 (AMI) のアウトカムの特性を評価するための発生率分析を設計します。これらのアウトカムを、薬剤に曝露されている期間 (TAR) 中に評価します。さらに、ターゲットコホート (ACEi および THZ) への曝露中に新規のアンジオテンシン受容体拮抗薬 (ARB) 使用の発生率を測定するために、ARB の使用アウトカムを追加します。このアウトカム定義は、ターゲット集団の中で ARB の利用方法を理解するためのものです。</p>
 <p>始めるには、ATLAS の左バーにある <img src="images/Characterization/atlasIncidenceMenuItem.png" /> をクリックして新しい発生率分析を作成します。説明的な名前を提供し、保存ボタン <img src="images/PopulationLevelEstimation/save.png" /> を押します。</p>
 <div id="設計-1" class="section level3 hasAnchor" number="12.10.1">
 <h3><span class="header-section-number">12.10.1</span> 設計<a href="Characterization.html#設計-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1113,7 +1122,7 @@ div.csl-indent {
 図 12.23: ターゲットおよびアウトカム定義の発生率。
 </p>
 </div>
-<p>次に、分析のリスク時間枠を定義します。上に示すように、リスク時間枠はコホートの開始日および終了日と相対しています。ここでは、ターゲットコホートの開始日の翌日をリスク時間枠の開始として定義します。次に、リスク時間枠をコホートの終了日に終了するよう定義します。この場合、ACEi および THZ コホートの定義には、薬物曝露が終了する時点をコホート終了日としています。</p>
+<p>次に、分析のリスク時間枠を定義します。上に示すように、リスク時間枠はコホートの開始日および終了日と相対しています。ここでは、ターゲットコホートの開始日の翌日をリスク時間枠の開始として定義します。次に、リスク時間枠をコホートの終了日に終了するよう定義します。この場合、ACEi および THZ コホートの定義には、薬剤曝露が終了する時点をコホート終了日としています。</p>
 <p>ATLAS では、分析仕様の一部としてターゲットコホートを層化する方法も提供されています:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasIncidenceStratifyFemale"></span>
 <img src="images/Characterization/atlasIncidenceStratifyFemale.png" alt="女性のための発生率層定義。" width="100%" />
@@ -1136,8 +1145,8 @@ div.csl-indent {
 </div>
 <div id="結果の表示-1" class="section level3 hasAnchor" number="12.10.3">
 <h3><span class="header-section-number">12.10.3</span> 結果の表示<a href="Characterization.html#結果の表示-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>生成タブでは、画面の上部でターゲットおよびアウトカムを選択して結果を表示することができます。このすぐ下には、分析で使用された各データベースの発生率のサマリーが表示されます。</p>
-<p>それらのドロップダウンリストから ACEi 使用者のターゲットコホートと急性心筋梗塞 (AMI) を選択します。<img src="images/Characterization/atlasIncidenceReportButton.png" /> ボタンをクリックして発生率分析の結果を表示します:</p>
+<p>生成タブでは、画面の上部でターゲットおよびアウトカムを選択してアウトカムを表示することができます。このすぐ下には、分析で使用された各データベースの発生率のサマリーが表示されます。</p>
+<p>それらのドロップダウンリストから ACEi 使用者のターゲットコホートと急性心筋梗塞 (AMI) を選択します。<img src="images/Characterization/atlasIncidenceReportButton.png" /> ボタンをクリックして発生率分析のアウトカムを表示します:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasIncidenceResults"></span>
 <img src="images/Characterization/atlasIncidenceResults.png" alt="発生率分析の出力 - AMI のアウトカムを持つ新規 ACEi 使用者。" width="100%" />
 <p class="caption">
@@ -1153,7 +1162,7 @@ div.csl-indent {
 図 12.27: 発生率 - ACEi 曝露中に ARB 処理を受けている新規 ACEi 使用者。
 </p>
 </div>
-<p>示されているように、計算されたメトリクスは同じですが、解釈は異なります。入力 (ARB 使用) が薬物利用推定を参照しているため、健康結果ではありません。</p>
+<p>示されているように、計算されたメトリクスは同じですが、解釈は異なります。入力 (ARB 使用) が薬剤利用推定を参照しているため、健康アウトカムではありません。</p>
 </div>
 </div>
 <div id="まとめ-8" class="section level2 hasAnchor" number="12.11">
@@ -1161,7 +1170,7 @@ div.csl-indent {
 
 <div class="rmdsummary">
 <ul>
-<li><p>OHDSI は、データベース全体または関心のあるコホートを特徴付けるためのツールを提供します。</p></li>
+<li><p>OHDSI は、データベース全体または関心のあるコホートの特性を評価するためのツールを提供します。</p></li>
 <li><p>コホートの特徴付けは、インデックス日（基準）前およびインデックス日後（ポストインデックス）の期間に関心のあるコホートを記述します。</p></li>
 <li><p>ATLAS の特徴付けモジュールおよび OHDSI メソッドライブラリは、複数の時間枠の基準特性を計算する機能を提供します。</p></li>
 <li><p>ATLAS の経路および発生率モジュールは、ポストインデックス期間中の記述統計を提供します。</p></li>
@@ -1174,13 +1183,13 @@ div.csl-indent {
 <h4>前提条件<a href="Characterization.html#前提条件-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>これらの演習には、ATLAS インスタンスへのアクセスが必要です。<a href="http://atlas-demo.ohdsi.org">http://atlas-demo.ohdsi.org</a> のインスタンスや、アクセス可能なその他のインスタンスを使用できます。</p>
 <div class="exercise">
-<p><span id="exr:exerciseCharacterization1" class="exercise"><strong>演習 12.1  </strong></span>私たちは、実際の世界でセレコキシブがどのように使用されているかを理解したいと考えています。始めに、この薬物に関するデータベースの情報を理解したいと考えています。ATLAS のデータソースモジュールを使用して、セレコキシブに関する情報を見つけてください。</p>
+<p><span id="exr:exerciseCharacterization1" class="exercise"><strong>演習 12.1  </strong></span>私たちは、実際の世界でセレコキシブがどのように使用されているかを理解したいと考えています。始めに、この薬剤に関するデータベースの情報を理解したいと考えています。ATLAS のデータソースモジュールを使用して、セレコキシブに関する情報を見つけてください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseCharacterization2" class="exercise"><strong>演習 12.2  </strong></span>セレコキシブ使用者の疾患の自然の歴史をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特徴付けを作成し、併存疾患および薬物曝露を示してください (Chapter <a href="Cohorts.html#Cohorts">11</a> で詳細な手順があります)。</p>
+<p><span id="exr:exerciseCharacterization2" class="exercise"><strong>演習 12.2  </strong></span>セレコキシブ使用者の疾患の自然の歴史をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特性評価を作成し、併存疾患および薬剤曝露を示してください (Chapter <a href="Cohorts.html#Cohorts">11</a> で詳細な手順があります)。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseCharacterization3" class="exercise"><strong>演習 12.3  </strong></span>セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a> (“消化管出血”) またはその子孫のいずれかの概念の発生として単純に定義される GI 出血イベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。</p>
+<p><span id="exr:exerciseCharacterization3" class="exercise"><strong>演習 12.3  </strong></span>セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a> (“消化管出血”) またはその子孫のいずれかのコンセプトの発生として単純に定義される GI 出血イベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。</p>
 </div>
 <p>提案された解答は Appendix <a href="SuggestedAnswers.html#Characterizationanswers">E.7</a> に記載されています。</p>
 
