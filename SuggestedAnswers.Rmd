@@ -4,7 +4,7 @@
 
 ## 共通データモデル {#Cdmanswers}
 
-#### Exercise \@ref(exr:exerciseJohnPerson) {-}
+#### 演習 \@ref(exr:exerciseJohnPerson) {-}
 
 演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
 
