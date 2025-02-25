@@ -1,4 +1,4 @@
-book_filename: "TheBookOfOhdsi"
+　book_filename: "TheBookOfOhdsi"
 language:
   label:
     fig: "図 "
@@ -17,7 +17,7 @@ language:
     solution: "解答. "
   ui:
     edit: "編集"
-    chapter_name: "第 "
+    chapter_name: "章番号 "
 delete_merged_file: true
 new_session: true
 
