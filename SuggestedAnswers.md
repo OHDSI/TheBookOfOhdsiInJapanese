@@ -1,12 +1,12 @@
-# --翻訳作業中--　推奨解答 {#SuggestedAnswers}
+# --翻訳作業中--　回答例 {#SuggestedAnswers}
 
-この付録には、本書の練習問題に対する推奨解答が含まれています。
+この付録には、本書の演習に対する回答例が含まれています。
 
 ## 共通データモデル {#Cdmanswers}
 
-#### 練習問題 \@ref(exr:exerciseJohnPerson) {-}
+#### Exercise \@ref(exr:exerciseJohnPerson) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
 
 Table: (\#tab:johnPerson) PERSONテーブル。
 
@@ -32,9 +32,9 @@ Table: (\#tab:johnPerson) PERSONテーブル。
 |ETHNICITY_SOURCE_ VALUE|NULL||
 |ETHNICITY_SOURCE_ CONCEPT_ID|0||
 
-#### 練習問題 \@ref(exr:exerciseJohnOp) {-}
+#### 演習 \@ref(exr:exerciseJohnOp) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
 
 Table: (\#tab:johnOp) OBSERVATION_PERIODテーブル。
 
@@ -46,9 +46,9 @@ Table: (\#tab:johnOp) OBSERVATION_PERIODテーブル。
 |OBSERVATION_PERIOD_ END_DATE|2019-07-01|データ抽出日以降のデータは期待されない。|
 |PERIOD_TYPE_ CONCEPT_ID|44814722| [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。|
 
-#### 練習問題 \@ref(exr:exerciseJohnDrug) {-}
+#### 演習 \@ref(exr:exerciseJohnDrug) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
 
 Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 
@@ -66,7 +66,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 |STOP_REASON|NULL||
 |REFILLS|NULL||
 |QUANTITY|NULL|提供されていない。|
-|DAYS_SUPPLY|30|練習問題に記述されている通り。|
+|DAYS_SUPPLY|30|演習に記述されている通り。|
 |SIG|NULL|提供されていない。|
 |ROUTE_CONCEPT_ID|4132161| [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) は「経口」を示す。|
 |LOT_NUMBER|NULL|提供されていない。|
@@ -77,7 +77,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 |DRUG_SOURCE_ CONCEPT_ID|583945| [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬物源の値を表す (NDCコード「76168009520」)。|
 |ROUTE_SOURCE_ VALUE|NULL||
 
-#### 練習問題 \@ref(exr:exerciseGiBleedRecords) {-}
+#### 演習 \@ref(exr:exerciseGiBleedRecords) {-}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルをクエリする必要があります：
 
@@ -103,7 +103,7 @@ head(result)
 ## 6                    1997       116               192671 ...
 ```
 
-#### 練習問題 \@ref(exr:exercisePersonSource) {-}
+#### 演習 \@ref(exr:exercisePersonSource) {-}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルのCONDITION_SOURCE_VALUEフィールドを使用してクエリを実行する必要があります：
 
@@ -127,7 +127,7 @@ head(result)
 ## 6                    1997       116               192671 ...
 ```
 
-#### 練習問題 \@ref(exr:exercisePerson61Records) {-}
+#### 演習 \@ref(exr:exercisePerson61Records) {-}
 
 この情報はOBSERVATION_PERIODテーブルに保存されています：
 
@@ -150,11 +150,11 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 ## 標準化された用語集 {#Vocabanswers}
 
-#### 練習問題 \@ref(exr:exerciseVocab1) {-}
+#### 演習 \@ref(exr:exerciseVocab1) {-}
 
 コンセプト ID 192671 ("胃腸出血")
 
-#### 練習問題 \@ref(exr:exerciseVocab2) {-}
+#### 演習 \@ref(exr:exerciseVocab2) {-}
 
 ICD-10CMコード：
 
@@ -166,7 +166,7 @@ ICD-9CMコード：
 - 578 "胃腸出血"
 - 578.9 "特定されていない胃腸出血"
 
-#### 練習問題 \@ref(exr:exerciseVocab3) {-}
+#### 演習 \@ref(exr:exerciseVocab3) {-}
 
 MedDRA推奨用語：
 
@@ -176,14 +176,14 @@ MedDRA推奨用語：
 
 ## 抽出変換ロード {#Etlanswers}
 
-#### 練習問題 \@ref(exr:exerciseEtl1) {-}
+#### 演習 \@ref(exr:exerciseEtl1) {-}
 
 A) データの専門家とCDMの専門家が協力してETLの設計を行う
 C) 医療の知識を持つ人がコードマッピングを作成する
 B) 技術者がETLを実装する
 D) 全員が品質管理に関与する
 
-#### 練習問題 \@ref(exr:exerciseEtl2) {-}
+#### 演習 \@ref(exr:exerciseEtl2) {-}
 
 カラム | 値 | 解答
 :---------------- |:----------- |:-----------------------
@@ -199,7 +199,7 @@ GENDER_SOURCE_ VALUE | F |
 RACE_SOURCE_VALUE | WHITE |
 ETHNICITY_SOURCE_ VALUE | NONE PROVIDED |
 
-#### 練習問題 \@ref(exr:exerciseEtl3) {-}
+#### 演習 \@ref(exr:exerciseEtl3) {-}
 
 カラム | 値
 :------------------------ |:-------------
@@ -213,7 +213,7 @@ VISIT_SOURCE_VALUE | inpatient
 
 ## データ分析のユースケース {#UseCasesanswers}
 
-#### 練習問題 \@ref(exr:exerciseUseCases1) {-}
+#### 演習 \@ref(exr:exerciseUseCases1) {-}
 
 1. 特徴量化
 
@@ -221,9 +221,10 @@ VISIT_SOURCE_VALUE | inpatient
 
 3. 集団レベルの推定
 
-#### 練習問題 \@ref(exr:exerciseUseCases2) {-}
+#### 演習 \@ref(exr:exerciseUseCases2) {-}
 
 そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
+
 ## SQLとR {#SqlAndRanswers}
 
 #### 演習 \@ref(exr:exercisePeopleCount) {-}

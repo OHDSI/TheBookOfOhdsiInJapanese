@@ -281,7 +281,7 @@
 
 \title{--翻訳作業中--　OHDSI指南書}
 \author{Observational Health Data Sciences and Informatics (OHDSI)}
-\date{2025-02-24}
+\date{2025-02-25}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{定理}[chapter]
@@ -3238,7 +3238,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.b36kny6uchildren ;"
+## [1] "SELECT * FROM temp_schema.j7c9nn3zchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -10444,16 +10444,16 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   参考文献
 \end{enumerate}
 
-\chapter{--翻訳作業中--　推奨解答}\label{SuggestedAnswers}
+\chapter{--翻訳作業中--　回答例}\label{SuggestedAnswers}
 
-この付録には、本書の練習問題に対する推奨解答が含まれています。
+この付録には、本書の演習に対する回答例が含まれています。
 
 \section{共通データモデル}\label{Cdmanswers}
 
-\subsubsection*{練習問題 \ref{exr:exerciseJohnPerson}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisejohnperson}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseJohnPerson}}
+\subsubsection*{Exercise \ref{exr:exerciseJohnPerson}}\label{exercise-refexrexercisejohnperson}
+\addcontentsline{toc}{subsubsection}{Exercise \ref{exr:exerciseJohnPerson}}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnPerson} のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnPerson} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}
@@ -10503,10 +10503,10 @@ ETHNICITY\_SOURCE\_ VALUE & NULL & \\
 ETHNICITY\_SOURCE\_ CONCEPT\_ID & 0 & \\
 \end{longtable}
 
-\subsubsection*{練習問題 \ref{exr:exerciseJohnOp}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisejohnop}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseJohnOp}}
+\subsubsection*{演習 \ref{exr:exerciseJohnOp}}\label{ux6f14ux7fd2-refexrexercisejohnop}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseJohnOp}}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnOp} のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnOp} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3151}}
@@ -10542,10 +10542,10 @@ OBSERVATION\_PERIOD\_ END\_DATE & 2019-07-01 & データ抽出日以降のデー
 PERIOD\_TYPE\_ CONCEPT\_ID & 44814722 & \href{http://athena.ohdsi.org/search-terms/terms/44814722}{44814724} は「保険加入期間」を示す。 \\
 \end{longtable}
 
-\subsubsection*{練習問題 \ref{exr:exerciseJohnDrug}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisejohndrug}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseJohnDrug}}
+\subsubsection*{演習 \ref{exr:exerciseJohnDrug}}\label{ux6f14ux7fd2-refexrexercisejohndrug}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseJohnDrug}}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnDrug} のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnDrug} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}
@@ -10586,7 +10586,7 @@ DRUG\_TYPE\_ CONCEPT\_ID & 38000177 & \href{http://athena.ohdsi.org/search-terms
 STOP\_REASON & NULL & \\
 REFILLS & NULL & \\
 QUANTITY & NULL & 提供されていない。 \\
-DAYS\_SUPPLY & 30 & 練習問題に記述されている通り。 \\
+DAYS\_SUPPLY & 30 & 演習に記述されている通り。 \\
 SIG & NULL & 提供されていない。 \\
 ROUTE\_CONCEPT\_ID & 4132161 & \href{http://athena.ohdsi.org/search-terms/terms/4132161}{4132161} は「経口」を示す。 \\
 LOT\_NUMBER & NULL & 提供されていない。 \\
@@ -10598,8 +10598,8 @@ DRUG\_SOURCE\_ CONCEPT\_ID & 583945 & \href{http://athena.ohdsi.org/search-terms
 ROUTE\_SOURCE\_ VALUE & NULL & \\
 \end{longtable}
 
-\subsubsection*{練習問題 \ref{exr:exerciseGiBleedRecords}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisegibleedrecords}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseGiBleedRecords}}
+\subsubsection*{演習 \ref{exr:exerciseGiBleedRecords}}\label{ux6f14ux7fd2-refexrexercisegibleedrecords}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseGiBleedRecords}}
 
 一連のレコードを見つけるには、CONDITION\_OCCURRENCEテーブルをクエリする必要があります：
 
@@ -10626,8 +10626,8 @@ ROUTE\_SOURCE\_ VALUE & NULL & \\
 ## 6                    1997       116               192671 ...
 \end{verbatim}
 
-\subsubsection*{練習問題 \ref{exr:exercisePersonSource}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisepersonsource}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exercisePersonSource}}
+\subsubsection*{演習 \ref{exr:exercisePersonSource}}\label{ux6f14ux7fd2-refexrexercisepersonsource}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exercisePersonSource}}
 
 一連のレコードを見つけるには、CONDITION\_OCCURRENCEテーブルのCONDITION\_SOURCE\_VALUEフィールドを使用してクエリを実行する必要があります：
 
@@ -10652,8 +10652,8 @@ ROUTE\_SOURCE\_ VALUE & NULL & \\
 ## 6                    1997       116               192671 ...
 \end{verbatim}
 
-\subsubsection*{練習問題 \ref{exr:exercisePerson61Records}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseperson61records}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exercisePerson61Records}}
+\subsubsection*{演習 \ref{exr:exercisePerson61Records}}\label{ux6f14ux7fd2-refexrexerciseperson61records}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exercisePerson61Records}}
 
 この情報はOBSERVATION\_PERIODテーブルに保存されています：
 
@@ -10676,13 +10676,13 @@ ROUTE\_SOURCE\_ VALUE & NULL & \\
 
 \section{標準化された用語集}\label{Vocabanswers}
 
-\subsubsection*{練習問題 \ref{exr:exerciseVocab1}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisevocab1}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseVocab1}}
+\subsubsection*{演習 \ref{exr:exerciseVocab1}}\label{ux6f14ux7fd2-refexrexercisevocab1}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab1}}
 
 コンセプト ID 192671 (``胃腸出血'')
 
-\subsubsection*{練習問題 \ref{exr:exerciseVocab2}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisevocab2}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseVocab2}}
+\subsubsection*{演習 \ref{exr:exerciseVocab2}}\label{ux6f14ux7fd2-refexrexercisevocab2}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab2}}
 
 ICD-10CMコード：
 
@@ -10704,8 +10704,8 @@ ICD-9CMコード：
   578.9 ``特定されていない胃腸出血''
 \end{itemize}
 
-\subsubsection*{練習問題 \ref{exr:exerciseVocab3}}\label{ux7df4ux7fd2ux554fux984c-refexrexercisevocab3}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseVocab3}}
+\subsubsection*{演習 \ref{exr:exerciseVocab3}}\label{ux6f14ux7fd2-refexrexercisevocab3}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab3}}
 
 MedDRA推奨用語：
 
@@ -10719,8 +10719,8 @@ MedDRA推奨用語：
 
 \section{抽出変換ロード}\label{Etlanswers}
 
-\subsubsection*{練習問題 \ref{exr:exerciseEtl1}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseetl1}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseEtl1}}
+\subsubsection*{演習 \ref{exr:exerciseEtl1}}\label{ux6f14ux7fd2-refexrexerciseetl1}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseEtl1}}
 
 \begin{enumerate}
 \def\labelenumi{\Alph{enumi})}
@@ -10735,8 +10735,8 @@ MedDRA推奨用語：
   全員が品質管理に関与する
 \end{enumerate}
 
-\subsubsection*{練習問題 \ref{exr:exerciseEtl2}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseetl2}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseEtl2}}
+\subsubsection*{演習 \ref{exr:exerciseEtl2}}\label{ux6f14ux7fd2-refexrexerciseetl2}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseEtl2}}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3208}}
@@ -10767,8 +10767,8 @@ RACE\_SOURCE\_VALUE & WHITE & \\
 ETHNICITY\_SOURCE\_ VALUE & NONE PROVIDED & \\
 \end{longtable}
 
-\subsubsection*{練習問題 \ref{exr:exerciseEtl3}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseetl3}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseEtl3}}
+\subsubsection*{演習 \ref{exr:exerciseEtl3}}\label{ux6f14ux7fd2-refexrexerciseetl3}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseEtl3}}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -10787,8 +10787,8 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 
 \section{データ分析のユースケース}\label{UseCasesanswers}
 
-\subsubsection*{練習問題 \ref{exr:exerciseUseCases1}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseusecases1}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseUseCases1}}
+\subsubsection*{演習 \ref{exr:exerciseUseCases1}}\label{ux6f14ux7fd2-refexrexerciseusecases1}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseUseCases1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -10800,11 +10800,12 @@ VISIT\_SOURCE\_VALUE & inpatient \\
   集団レベルの推定
 \end{enumerate}
 
-\subsubsection*{練習問題 \ref{exr:exerciseUseCases2}}\label{ux7df4ux7fd2ux554fux984c-refexrexerciseusecases2}
-\addcontentsline{toc}{subsubsection}{練習問題 \ref{exr:exerciseUseCases2}}
+\subsubsection*{演習 \ref{exr:exerciseUseCases2}}\label{ux6f14ux7fd2-refexrexerciseusecases2}
+\addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseUseCases2}}
 
 そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
-\#\# SQLとR \{\#SqlAndRanswers\}
+
+\section{SQLとR}\label{SqlAndRanswers}
 
 \subsubsection*{演習 \ref{exr:exercisePeopleCount}}\label{ux6f14ux7fd2-refexrexercisepeoplecount}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exercisePeopleCount}}
