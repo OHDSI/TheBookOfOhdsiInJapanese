@@ -1,4 +1,4 @@
-# --翻訳作業中--　SQLとR {#SqlAndR}
+# 第9章　--翻訳作業中--　SQLとR {#SqlAndR}
 
 *チャプタリーダー: Martijn Schuemie & Peter Rijnbeek*
 
@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.l5urdvtcchildren ;"
+## [1] "SELECT * FROM temp_schema.fkfgfs16children ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
