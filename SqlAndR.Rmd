@@ -9,7 +9,7 @@ require(DatabaseConnector)
 
 共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、またはMicrosoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースをクエリすることによって機能しますが、適切なアクセス権を持っていれば、私たちも直接データベースにクエリを実行することができます。これを行う主な理由は、現在のツールではサポートされていない分析を実行するためです。しかし、直接のクエリはミスを犯すリスクが高まり、OHDSIツールはしばしば適切なデータ分析へのガイドとして設計されているため、直接クエリにはそのようなガイドが提供されません。
 
-リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。SQLの基本コマンドは確かに標準化されており、すべてのソフトウェアプラットフォームで同じですが、各プラットフォームには独自の方言があり、微妙な変更があります。例えば、SQL ServerでPERSONテーブルの上位10行を取得するには、次のように入力します： \index{SQL} \index{structured query language|see {SQL}}
+リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。SQLの基本コマンドは確かに標準化されており、すべてのソフトウェアプラットフォームで同じですが、各プラットフォームには独自の表現があり、微妙な変更があります。例えば、SQL ServerでPERSONテーブルの上位10行を取得するには、次のように入力します： \index{SQL} \index{structured query language|see {SQL}}
 
 ```{sql,eval=FALSE}
 SELECT TOP 10 * FROM person;
@@ -21,13 +21,13 @@ SELECT TOP 10 * FROM person;
 SELECT * FROM person LIMIT 10;
 ```
 
-OHDSIでは、プラットフォーム固有の方言に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは[SqlRender](https://ohdsi.github.io/SqlRender/)パッケージを開発しました。これは、ある標準方言から後述するサポートされる方言のいずれかに翻訳できるRパッケージです。この標準方言 - **OHDSI SQL** - は主にSQL Server SQL方言のサブセットです。今章の例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
+OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは[SqlRender](https://ohdsi.github.io/SqlRender/)パッケージを開発しました。これは、ある標準表現から後述するサポートされる表現のいずれかに翻訳できるRパッケージです。この標準表現 - **OHDSI SQL** - は主にSQL Server SQL表現のサブセットです。今章の例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
 各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できる1つのRパッケージである[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを開発しました。DatabaseConnectorも今章後半で説明します。 \index{DatabaseConnector}
 
 したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
 
-この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化語彙を使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発現率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化ボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発現率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -91,9 +91,9 @@ sql <- "SELECT * FROM cohort {@x IN (1,2,3)} ? {WHERE subject_id = 1};"
 render(sql,x = 2)
 ```
 
-### 他のSQL方言への翻訳
+### 他のSQL表現への置換
 
-[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージのもう一つの機能は、OHDSI SQLから他のSQL方言へ翻訳することです。例えば：
+[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージのもう一つの機能は、OHDSI SQLから他のSQL表現へ翻訳することです。例えば：
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT TOP 10 * FROM person;"
@@ -103,7 +103,7 @@ translate(sql, targetDialect = "postgresql")
 `targetDialect` パラメータには次の値が設定可能です："oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", "sql server"。 \index{SqlRender!translation}
 
 ```{block2, type='rmdimportant'}
-すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての方言に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL方言として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。
+すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての表現に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL表現として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。
 
 ```
 
@@ -111,7 +111,7 @@ translate(sql, targetDialect = "postgresql")
 
 #### Translateがサポートする関数と構造 {-}
 
-これらのSQL Server関数はテストされ、各方言への正確な翻訳が確認されています：\index{SqlRender!supported functions}
+これらのSQL Server関数はテストされ、各表現への正確な翻訳が確認されています：\index{SqlRender!supported functions}
 
 表: (\#tab:sqlFunctions) supported by translate
 
@@ -198,11 +198,11 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### 文字列の連結 {-}
 
-文字列連結は、SQL Serverが他の方言よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であることを推測しようとします。上記の例では、明示的な文字列（シングルクォートで囲まれたスペース）があるため、翻訳は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知らず、プラス記号を正しく残しません。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。したがって、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、```CONCAT()``` 関数を使用するのがベストです。
+文字列連結は、SQL Serverが他の表現よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であることを推測しようとします。上記の例では、明示的な文字列（シングルクォートで囲まれたスペース）があるため、翻訳は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知らず、プラス記号を正しく残しません。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。したがって、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、```CONCAT()``` 関数を使用するのがベストです。
 
 #### テーブルエイリアスとASキーワード {-}
 
-多くのSQL方言ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題ありません。例えば、これらのSQL文はSQL Server、PostgreSQL、Redshiftなどのプラットフォームで問題ありません：
+多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題ありません。例えば、これらのSQL文はSQL Server、PostgreSQL、Redshiftなどのプラットフォームで問題ありません：
 
 ```sql
 -- Using AS keyword
@@ -245,7 +245,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 
 #### 暗黙的なキャスト {-}
 
-SQL Serverが他の方言よりも特異である数少ない点の1つは、暗黙のキャストを許可することです。例えば、このコードはSQL Serverで動作します：
+SQL Serverが他の表現よりも特異である数少ない点の1つは、暗黙のキャストを許可することです。例えば、このコードはSQL Serverで動作します：
 
 ```sql
 CREATE TABLE #temp (txt VARCHAR);
@@ -256,7 +256,7 @@ SELECT '1';
 SELECT * FROM #temp WHERE txt = 1;
 ```
 
-`txt` はVARCHARフィールドであり、私たちはそれを整数と比較していますが、SQL Serverは自動的に適切なタイプにキャストして比較を許可します。これに対して、PostgreSQLなどの他の方言は、VARCHARとINTを比較しようとするとエラーをスローします。
+`txt` はVARCHARフィールドであり、私たちはそれを整数と比較していますが、SQL Serverは自動的に適切なタイプにキャストして比較を許可します。これに対して、PostgreSQLなどの他の表現は、VARCHARとINTを比較しようとするとエラーをスローします。
 
 したがって、常にキャストを明示的に行う必要があります。上記の例では、最後の文は次のいずれかに置き換える必要があります：
 
@@ -285,7 +285,7 @@ SELECT * FROM concept WHERE LOWER(concept_class_id) = 'clinical finding'
 
 #### スキーマとデータベース {-}
 
-SQL Serverでは、テーブルはスキーマにあり、スキーマはデータベースに存在します。例えば、`cdm_data.dbo.person` は `cdm_data` データベース内の `dbo` スキーマ内の `person` テーブルを指します。他の方言でも同様の階層が存在しますが、使用方法が非常に異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（しばしば `dbo` と呼ばれる）が存在し、ユーザーは異なるデータベースのデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一のセッション内で異なるデータベースのデータを使用することはできませんが、通常他のデータベースム範多くのスキーマがあります。 PostgreSQLでは、SQL Serverのデータベースに相当するのはスキーマであると言えます。
+SQL Serverでは、テーブルはスキーマにあり、スキーマはデータベースに存在します。例えば、`cdm_data.dbo.person` は `cdm_data` データベース内の `dbo` スキーマ内の `person` テーブルを指します。他の表現でも同様の階層が存在しますが、使用方法が非常に異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（しばしば `dbo` と呼ばれる）が存在し、ユーザーは異なるデータベースのデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一のセッション内で異なるデータベースのデータを使用することはできませんが、通常他のデータベースム範多くのスキーマがあります。 PostgreSQLでは、SQL Serverのデータベースに相当するのはスキーマであると言えます。
 
 したがって、SQL Serverのデータベースとスキーマを単一のパラメータに連結することをお勧めします。このパラメータを `@databaseSchema` と呼ぶことが一般的です。例えば、パラメータ化されたSQLでは次のようになります：
 ```sql
@@ -432,7 +432,7 @@ SELECT COUNT(*) AS person_count FROM @cdm.person;
 | ------------:|
 | 26299001     |
 
-あるいは、観察期間の平均長に関心があるかもしれません：
+あるいは、観察期間の平均に関心があるかもしれません：
 
 ```sql
 SELECT AVG(DATEDIFF(DAY,
@@ -519,7 +519,7 @@ cat("  0%  25%  50%  75% 100%
 
 ここでは、サーバー上で年齢を計算し、すべての年齢をダウンロードし、その後年齢分布を計算します。しかし、これはデータベースサーバーから数百万行のデータをダウンロードする必要があるため、非常に効率的ではありません。計算がSQLで行われるべきかRで行われるべきかは、ケースバイケースで判断する必要があります。
 
-クエリは、CDM内のソース値を使用することができます。例えば、最も頻繁に使用される条件のソースコードのトップ10を取得するには、次のようにします：
+クエリは、CDM内のソース値を使用することができます。例えば、最も頻繁に使用されるコンディションのソースコードのトップ10を取得するには、次のようにします：
 
 ```sql
 SELECT TOP 10 condition_source_value,
@@ -543,9 +543,9 @@ ORDER BY -COUNT(*);
 
 ここでは、CONDITION_OCCURRENCEテーブル内のCONDITION_SOURCE_VALUEフィールドの値でレコードをグループ化し、各グループのレコード数をカウントしました。CONDITION_SOURCE_VALUEとそのカウントを取得し、カウントの逆順で並べ替えています。
 
-## クエリ時に語彙を使用する
+## クエリ時にボキャブラリを使用する
 
-多くの操作は、語彙を使用することで有用になります。語彙テーブルはCDMの一部であり、SQLクエリを使用して利用できます。ここでは、語彙に対するクエリをCDMに対するクエリと組み合わせる方法を示します。CDMの多くのフィールドには概念IDが含まれていますが、これらはCONCEPTテーブルを使用して解決できます。例えば、データベース内の人数を性別で階層化してカウントしたい場合、GENDER_CONCEPT_IDフィールドを概念名に解決することが便利です：
+多くの操作は、ボキャブラリを使用することで有用になります。ボキャブラリテーブルはCDMの一部であり、SQLクエリを使用して利用できます。ここでは、ボキャブラリに対するクエリをCDMに対するクエリと組み合わせる方法を示します。CDMの多くのフィールドにはコンセプトIDが含まれていますが、これらはCONCEPTテーブルを使用して解決できます。例えば、データベース内の人数を性別で階層化してカウントしたい場合、GENDER_CONCEPT_IDフィールドをコンセプト名に解決することが便利です：
 
 ```sql
 SELECT COUNT(*) AS subject_count,
@@ -560,7 +560,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-語彙の非常に強力な機能の一つは、その階層構造です。非常に一般的なクエリは、特定の概念とそのすべての子孫を探すものです。例えば、イププロフェンを含む処方件数を数えるとします：
+ボキャブラリの非常に強力な機能の一つは、その階層構造です。非常に一般的なクエリは、特定のコンセプトとそのすべての子孫を探すものです。例えば、イププロフェンを含む処方件数を数えるとします：
 
 ```sql
 SELECT COUNT(*) AS prescription_count
@@ -602,17 +602,18 @@ QueryLibraryは、SqlRenderを使用して、選択したSQLダイアレクト�
 
 > リシノプリル治療開始後の最初の1週間での血管浮腫の発生率は、年齢と性別で層別化されていますか？
 
-### 暴露
+### 曝露
 
-暴露をリシノプリルへの最初の暴露として定義します。最初とは、以前にリシノプリルに暴露されたことがないことを意味します。最初の暴露の前に365日間の連続した観察期間が必要です。
+曝露をリシノプリルへの最初の曝露として定義します。最初とは、以前にリシノプリルに曝露されたことがないことを意味します。最初の曝露の前に365日間の連続した観察期間が必要です。
 
-### 結果
+### アウトカム
 
 血管浮腫の診断コードが入院または救急（ER）訪問時に出現した場合を血管浮腫の発生と定義します。
 
 ### リスク期間
 
-治療開始後の最初の1週間の発生率を計算します。患者が1週間全部にわたって暴露されているかどうかは問いません。
+治療開始後の最初の1週間の発生率を計算します。患者が1週間全部にわたって曝露されているかどうかは問いません。
+
 ## SQLとRを使用した研究の実施
 
 OHDSIツールの規約に縛られることはありませんが、同じ原則に従うと便利です。この場合、OHDSIツールが動作するのと同様に、コホートテーブルを作成するためにSQLを使用します。COHORTテーブルはCDMに定義されており、我々も使用する事前定義されたフィールドセットがあります。まず、書き込み権限のあるデータベーススキーマにCOHORTテーブルを作成する必要がありますが、これはCDM形式でデータを保持しているスキーマとは異なるスキーマである可能性が高いです。
@@ -642,9 +643,9 @@ renderTranslateExecuteSql(conn, sql,
 
 ここでは、データベーススキーマおよびテーブル名をパラメータ化しているため、異なる環境に簡単に適応できます。結果として、データベースサーバー上に空のテーブルが作成されます。
 
-### 暴露コホート
+### 曝露コホート
 
-次に、暴露コホートを作成し、COHORTテーブルに挿入します：
+次に、曝露コホートを作成し、COHORTテーブルに挿入します：
 
 ```{r eval=FALSE}
 sql <- "
@@ -690,11 +691,11 @@ renderTranslateExecuteSql(conn, sql,
                           cdm_db_schema = cdmDbSchema)
 ```
 
-ここでは、CDMの標準テーブルであるDRUG_ERAテーブルを使用します。このテーブルはDRUG_EXPOSUREテーブルから自動的に派生されます。DRUG_ERAテーブルには連続する成分レベルの暴露期間が含まれるため、リシノプリルを検索すると、自動的にリシノプリルを含む薬物のすべての暴露を特定します。各人の最初の薬物暴露を選択し、OBSERVATION_PERIODテーブルと結合します。各人が複数の観察期間を持つことができるため、薬物暴露を含む期間にのみ結合されるよう注意が必要です。一方で、OBSERVATION_PERIOD_START_DATEとCOHORT_START_DATEの間に少なくとも365日の間隔を要求します。
+ここでは、CDMの標準テーブルであるDRUG_ERAテーブルを使用します。このテーブルはDRUG_EXPOSUREテーブルから自動的に派生されます。DRUG_ERAテーブルには連続する成分レベルの曝露期間が含まれるため、リシノプリルを検索すると、自動的にリシノプリルを含む薬物のすべての曝露を特定します。各人の最初の薬剤曝露を選択し、OBSERVATION_PERIODテーブルと結合します。各人が複数の観察期間を持つことができるため、薬剤曝露を含む期間にのみ結合されるよう注意が必要です。一方で、OBSERVATION_PERIOD_START_DATEとCOHORT_START_DATEの間に少なくとも365日の間隔を要求します。
 
-### 結果コホート
+### アウトカムコホート
 
-最後に、結果コホートを作成する必要があります：
+最後に、アウトカムコホートを作成する必要があります：
 
 ```{r eval=FALSE}
 sql <- "
@@ -759,7 +760,7 @@ WITH tar AS (
     ON subject_id = person.person_id
   INNER JOIN @cdm_db_schema.concept
     ON gender_concept_id = concept_id
-  WHERE cohort_definition_id = 1 -- 暴露
+  WHERE cohort_definition_id = 1 -- 曝露
 )
 SELECT days.gender,
     days.age,
@@ -798,7 +799,7 @@ results <- renderTranslateQuerySql(conn, sql,
                                    snakeCaseToCamelCase = TRUE)
 ```
 
-まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての暴露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間を切り詰めることに注意してください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。この場合、リスク時間の合計およびリスク期間中に発生する血管浮腫の数を数えるために使用します。
+まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間を切り詰めることに注意してください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。この場合、リスク時間の合計およびリスク期間中に発生する血管浮腫の数を数えるために使用します。
 
 SQLではフィールド名にスネークケースを使用するため（SQLは大文字小文字を区別しないため）、Rではキャメルケースを使用します（Rは大文字小文字を区別するため）。`results`データフレームの列名はキャメルケースになります。
 
@@ -846,9 +847,9 @@ OHDSI SQLとDatabaseConnectorおよびSqlRenderを組み合わせて使用する
 ## まとめ
 
 ```{block2, type='rmdsummary'}
-- **SQL**（Structured Query Language）は、Common Data Model（CDM）に準拠したデータベースを含む、データベースを照会するための標準言語です。
+- **SQL**（Structured Query Language）は、共通データモデル（CDM）に準拠したデータベースを含む、データベースを照会するための標準言語です。
 
-- 異なるデータベースプラットフォームは異なるSQL方言を持っており、照会するためには異なるツールが必要です。
+- 異なるデータベースプラットフォームは異なるSQL表現を持っており、照会するためには異なるツールが必要です。
 
 - **SqlRender**および**DatabaseConnector**Rパッケージは、CDM内のデータを照会するための統一された方法を提供し、同じ分析コードを異なる環境で変更なしで実行できるようにします。
 
@@ -886,7 +887,7 @@ SQL および R を使用して、少なくとも 1 回のセレコキシブの�
 
 ```
 ```{exercise, exerciseGiBleedsDuringCelecoxib}
-SQL および R を使用して、セレコキシブの服用中に胃腸出血の診断が出たケースの数を計算しなさい。(ヒント: 胃腸出血の概念 ID は [192671](http://athena.ohdsi.org/search-terms/terms/192671) です)
+SQL および R を使用して、セレコキシブの服用中に胃腸出血の診断が出たケースの数を計算しなさい。(ヒント: 胃腸出血のコンセプト ID は [192671](http://athena.ohdsi.org/search-terms/terms/192671) です)
 
 ```
 
