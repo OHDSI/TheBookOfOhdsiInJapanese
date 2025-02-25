@@ -1,4 +1,4 @@
-# --翻訳作業中--　標準化ボキャブラリ {#StandardizedVocabularies}
+# 第5章　--翻訳作業中--　標準化ボキャブラリ {#StandardizedVocabularies}
 
 \index{standardized vocabularies}
 
