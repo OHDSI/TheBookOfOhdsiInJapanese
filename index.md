@@ -23,7 +23,7 @@ link-citations: true
 cover-image: images/Cover/Cover.png
 site: bookdown::bookdown_site
 biblio-style: apalike
-url: https://ohdsi.github.io/TheBookOfOhdsi/
+url: https://ohdsi.github.io/TheBookOfOhdsiInJapanese/
 classoption: 11pt
 ---
 
@@ -41,11 +41,11 @@ classoption: 11pt
 
 この本は5つの主要な部に分かれています：
 
-I.   OHDSIコミュニティ
-II.  統一されたデータ表現
+I.  OHDSIコミュニティ
+II. 統一されたデータ表現
 III. データ分析
-IV.  エビデンスの質
-V.   OHDSI研究
+IV. エビデンスの質
+V.  OHDSI研究
 
 各部には複数の章があり、各章は次の順序に従います：導入、理論、実践、要約、演習。
 
@@ -139,6 +139,6 @@ SqlRender & 1.6.2\\
 
 ![](images/Preface/cc0.png)
 
-## 本書が作成された方法{.unnumbered}
+## 本書が作成された方法 {.unnumbered}
 
 この本は [RMarkdown](https://rmarkdown.rstudio.com) を使用して [bookdown](https://bookdown.org) パッケージで書かれています。オンラインバージョンはソースリポジトリ <https://github.com/OHDSI/TheBookOfOhdsiInJapanese/> から自動的に再構築され、継続的統合システム ["travis"](http://travis-ci.org/) によって管理されます。定期的に本の状態のスナップショットが取得され、「版（エディション）」としてマークされます。これらの版はAmazonから物理コピーとして入手できます（訳者注：物理コピーは英語版のみ入手可能）。
