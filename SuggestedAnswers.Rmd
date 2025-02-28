@@ -4,80 +4,80 @@
 
 ## 共通データモデル {#Cdmanswers}
 
-#### 演習 \@ref(exr:exerciseJohnPerson) {-}
+#### 演習 \@ref(exr:exerciseJohnPerson) {.unnumbered}
 
 演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
 
-Table: (\#tab:johnPerson) PERSONテーブル。
+| カラム名 | 値 | 説明 |
+|:---|:---|:---|
+| PERSON_ID | 2 | 一意の整数。 |
+| GENDER_CONCEPT_ID | 8507 | 男性のコンセプト ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。 |
+| YEAR_OF_BIRTH | 1974 |  |
+| MONTH_OF_BIRTH | 8 |  |
+| DAY_OF_BIRTH | 4 |  |
+| BIRTH_DATETIME | 1974-08-04 00:00:00 | 時間が不明な場合は真夜中（00:00:00）を使用。 |
+| DEATH_DATETIME | NULL |  |
+| RACE_CONCEPT_ID | 8516 | アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。 |
+| ETHNICITY\_ CONCEPT_ID | 38003564 | [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「ヒスパニックではない」ことを示す。 |
+| LOCATION_ID |  | 住所は不明。 |
+| PROVIDER_ID |  | 主治医が不明。 |
+| CARE_SITE |  | 主治療施設が不明。 |
+| PERSON_SOURCE\_ VALUE | NULL | 提供されていない。 |
+| GENDER_SOURCE\_ VALUE | Man | 説明で使用されたテキスト。 |
+| GENDER_SOURCE\_ CONCEPT_ID | 0 |  |
+| RACE_SOURCE\_ VALUE | African American | 説明で使用されたテキスト。 |
+| RACE_SOURCE\_ CONCEPT_ID | 0 |  |
+| ETHNICITY_SOURCE\_ VALUE | NULL |  |
+| ETHNICITY_SOURCE\_ CONCEPT_ID | 0 |  |
 
-カラム名|値|説明
-:---------------------|:-----------|:--------------------------------------
-|PERSON_ID|2|一意の整数。|
-|GENDER_CONCEPT_ID|8507|男性のコンセプト ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。|
-|YEAR_OF_BIRTH|1974||
-|MONTH_OF_BIRTH|8||
-|DAY_OF_BIRTH|4||
-|BIRTH_DATETIME|1974-08-04 00:00:00|時間が不明な場合は真夜中（00:00:00）を使用。|
-|DEATH_DATETIME|NULL||
-|RACE_CONCEPT_ID|8516|アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。|
-|ETHNICITY_ CONCEPT_ID|38003564| [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「ヒスパニックではない」ことを示す。|
-|LOCATION_ID||住所は不明。|
-|PROVIDER_ID||主治医が不明。|
-|CARE_SITE||主治療施設が不明。|
-|PERSON_SOURCE_ VALUE|NULL|提供されていない。|
-|GENDER_SOURCE_ VALUE|Man|説明で使用されたテキスト。|
-|GENDER_SOURCE_ CONCEPT_ID|0||
-|RACE_SOURCE_ VALUE|African American|説明で使用されたテキスト。|
-|RACE_SOURCE_ CONCEPT_ID|0||
-|ETHNICITY_SOURCE_ VALUE|NULL||
-|ETHNICITY_SOURCE_ CONCEPT_ID|0||
+: (#tab:johnPerson) PERSONテーブル。
 
-#### 演習 \@ref(exr:exerciseJohnOp) {-}
+#### 演習 \@ref(exr:exerciseJohnOp) {.unnumbered}
 
 演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
 
-Table: (\#tab:johnOp) OBSERVATION_PERIODテーブル。
+| カラム名 | 値 | 説明 |
+|:---|:---|:---|
+| OBSERVATION\_ PERIOD_ID | 2 | 一意の整数。 |
+| PERSON_ID | 2 | これはPERSONテーブルのジョンのレコードへの外部キー。 |
+| OBSERVATION_PERIOD\_ START_DATE | 2015-01-01 | 加入日の日付。 |
+| OBSERVATION_PERIOD\_ END_DATE | 2019-07-01 | データ抽出日以降のデータは期待されない。 |
+| PERIOD_TYPE\_ CONCEPT_ID | 44814722 | [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。 |
 
-カラム名|値|説明
-:----------------------|:----------|:--------------------------------------
-|OBSERVATION_ PERIOD_ID|2|一意の整数。|
-|PERSON_ID|2|これはPERSONテーブルのジョンのレコードへの外部キー。|
-|OBSERVATION_PERIOD_ START_DATE|2015-01-01|加入日の日付。|
-|OBSERVATION_PERIOD_ END_DATE|2019-07-01|データ抽出日以降のデータは期待されない。|
-|PERIOD_TYPE_ CONCEPT_ID|44814722| [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。|
+: (#tab:johnOp) OBSERVATION_PERIODテーブル。
 
-#### 演習 \@ref(exr:exerciseJohnDrug) {-}
+#### 演習 \@ref(exr:exerciseJohnDrug) {.unnumbered}
 
 演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
 
-Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
+| カラム名 | 値 | 説明 |
+|:---|:---|:---|
+| DRUG_EXPOSURE_ID | 1001 | 一意の整数。 |
+| PERSON_ID | 2 | これはPERSONテーブルのジョンのレコードへの外部キー。 |
+| DRUG_CONCEPT_ID | 19078461 | 提供されたNDCコードは標準コンセプト [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。 |
+| DRUG_EXPOSURE\_ START_DATE | 2019-05-01 | 薬物暴露の開始日。 |
+| DRUG_EXPOSURE\_ START_DATETIME | 2019-05-01 00:00:00 | 時間が不明なため真夜中を使用。 |
+| DRUG_EXPOSURE\_ END_DATE | 2019-05-31 | 開始日 + 日数供給に基づく。 |
+| DRUG_EXPOSURE\_ END_DATETIME | 2019-05-31 00:00:00 | 時間が不明なため真夜中を使用。 |
+| VERBATIM_END_DATE | NULL | 提供されていない。 |
+| DRUG_TYPE\_ CONCEPT_ID | 38000177 | [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) は「処方箋を書いた」ことを示す。 |
+| STOP_REASON | NULL |  |
+| REFILLS | NULL |  |
+| QUANTITY | NULL | 提供されていない。 |
+| DAYS_SUPPLY | 30 | 演習に記述されている通り。 |
+| SIG | NULL | 提供されていない。 |
+| ROUTE_CONCEPT_ID | 4132161 | [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) は「経口」を示す。 |
+| LOT_NUMBER | NULL | 提供されていない。 |
+| PROVIDER_ID | NULL | 提供されていない。 |
+| VISIT_OCCURRENCE\_ ID | NULL | 訪問に関する情報は提供されなかった。 |
+| VISIT_DETAIL_ID | NULL |  |
+| DRUG_SOURCE\_ VALUE | 76168009520 | 提供されたNDCコード。 |
+| DRUG_SOURCE\_ CONCEPT_ID | 583945 | [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬物源の値を表す (NDCコード「76168009520」)。 |
+| ROUTE_SOURCE\_ VALUE | NULL |  |
 
-カラム名|値|説明
-:---------------------|:-----------|:--------------------------------------
-|DRUG_EXPOSURE_ID|1001|一意の整数。|
-|PERSON_ID|2|これはPERSONテーブルのジョンのレコードへの外部キー。|
-|DRUG_CONCEPT_ID|19078461|提供されたNDCコードは標準コンセプト [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。|
-|DRUG_EXPOSURE_ START_DATE|2019-05-01|薬物暴露の開始日。|
-|DRUG_EXPOSURE_ START_DATETIME|2019-05-01 00:00:00|時間が不明なため真夜中を使用。|
-|DRUG_EXPOSURE_ END_DATE|2019-05-31|開始日 + 日数供給に基づく。|
-|DRUG_EXPOSURE_ END_DATETIME|2019-05-31 00:00:00|時間が不明なため真夜中を使用。|
-|VERBATIM_END_DATE|NULL|提供されていない。|
-|DRUG_TYPE_ CONCEPT_ID|38000177| [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) は「処方箋を書いた」ことを示す。|
-|STOP_REASON|NULL||
-|REFILLS|NULL||
-|QUANTITY|NULL|提供されていない。|
-|DAYS_SUPPLY|30|演習に記述されている通り。|
-|SIG|NULL|提供されていない。|
-|ROUTE_CONCEPT_ID|4132161| [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) は「経口」を示す。|
-|LOT_NUMBER|NULL|提供されていない。|
-|PROVIDER_ID|NULL|提供されていない。|
-|VISIT_OCCURRENCE_ ID|NULL|訪問に関する情報は提供されなかった。|
-|VISIT_DETAIL_ID|NULL||
-|DRUG_SOURCE_ VALUE|76168009520|提供されたNDCコード。|
-|DRUG_SOURCE_ CONCEPT_ID|583945| [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬物源の値を表す (NDCコード「76168009520」)。|
-|ROUTE_SOURCE_ VALUE|NULL||
+: (#tab:johnDrug) DRUG_EXPOSUREテーブル。
 
-#### 演習 \@ref(exr:exerciseGiBleedRecords) {-}
+#### 演習 \@ref(exr:exerciseGiBleedRecords) {.unnumbered}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルをクエリする必要があります：
 
@@ -91,6 +91,7 @@ WHERE condition_concept_id = 192671;"
 result <- renderTranslateQuerySql(connection, sql, cdm = "main")
 head(result)
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 1                    4657       273               192671 ...
@@ -102,7 +103,7 @@ cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ")
 ```
 
-#### 演習 \@ref(exr:exercisePersonSource) {-}
+#### 演習 \@ref(exr:exercisePersonSource) {.unnumbered}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルのCONDITION_SOURCE_VALUEフィールドを使用してクエリを実行する必要があります：
 
@@ -114,6 +115,7 @@ WHERE condition_source_value = 'K92.2';"
 result <- renderTranslateQuerySql(connection, sql, cdm = "main")
 head(result)
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 1                    4657       273               192671 ...
@@ -125,7 +127,7 @@ cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ")
 ```
 
-#### 演習 \@ref(exr:exercisePerson61Records) {-}
+#### 演習 \@ref(exr:exercisePerson61Records) {.unnumbered}
 
 この情報はOBSERVATION_PERIODテーブルに保存されています：
 
@@ -139,93 +141,91 @@ WHERE person_id = 61;"
 renderTranslateQuerySql(connection, sql, cdm = "main")
 
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
 1                    61        61                    1968-01-21 ...
 ")
 ```
 
-
 ## 標準化された用語集 {#Vocabanswers}
 
-#### 演習 \@ref(exr:exerciseVocab1) {-}
+#### 演習 \@ref(exr:exerciseVocab1) {.unnumbered}
 
 コンセプト ID 192671 ("胃腸出血")
 
-#### 演習 \@ref(exr:exerciseVocab2) {-}
+#### 演習 \@ref(exr:exerciseVocab2) {.unnumbered}
 
 ICD-10CMコード：
 
-- K29.91 "出血を伴う特定されていない胃十二指腸炎"
-- K92.2 "特定されていない胃腸出血"
+-   K29.91 "出血を伴う特定されていない胃十二指腸炎"
+-   K92.2 "特定されていない胃腸出血"
 
 ICD-9CMコード：
 
-- 578 "胃腸出血"
-- 578.9 "特定されていない胃腸出血"
+-   578 "胃腸出血"
+-   578.9 "特定されていない胃腸出血"
 
-#### 演習 \@ref(exr:exerciseVocab3) {-}
+#### 演習 \@ref(exr:exerciseVocab3) {.unnumbered}
 
 MedDRA推奨用語：
 
-- "胃腸出血" (コンセプトID 35707864)
-- "腸出血" (コンセプトID 35707858)
-
+-   "胃腸出血" (コンセプトID 35707864)
+-   "腸出血" (コンセプトID 35707858)
 
 ## 抽出変換ロード {#Etlanswers}
 
-#### 演習 \@ref(exr:exerciseEtl1) {-}
+#### 演習 \@ref(exr:exerciseEtl1) {.unnumbered}
 
-A) データの専門家とCDMの専門家が協力してETLの設計を行う
-C) 医療の知識を持つ人がコードマッピングを作成する
-B) 技術者がETLを実装する
-D) 全員が品質管理に関与する
+A)  データの専門家とCDMの専門家が協力してETLの設計を行う
+B)  医療の知識を持つ人がコードマッピングを作成する
+C)  技術者がETLを実装する
+D)  全員が品質管理に関与する
 
-#### 演習 \@ref(exr:exerciseEtl2) {-}
+#### 演習 \@ref(exr:exerciseEtl2) {.unnumbered}
 
-カラム | 値 | 解答
-:---------------- |:----------- |:-----------------------
-PERSON_ID | A123B456 | このカラムは整数型のデータタイプを持っているため、ソースのレコード値を数値に変換する必要がある。
-GENDER_CONCEPT_ID | 8532 |
-YEAR_OF_BIRTH | NULL | 月や誕生日が不明な場合は、推測しない。月や誕生日がなくても存在できる人です。生年がない人は除外する必要がある。この人は生年がないため除外する必要がある。
-MONTH_OF_BIRTH | NULL |
-DAY_OF_BIRTH | NULL |
-RACE_CONCEPT_ID | 0 | 人種はWHITEであり、これは8527にマッピングされるべき。
-ETHNICITY_CONCEPT_ ID | 8527 | 民族性は提供されていないため、これは0にマッピングされるべき。
-PERSON_SOURCE_ VALUE | A123B456 |
-GENDER_SOURCE_ VALUE | F |
-RACE_SOURCE_VALUE | WHITE |
-ETHNICITY_SOURCE_ VALUE | NONE PROVIDED |
+| カラム | 値 | 解答 |
+|:---|:---|:---|
+| PERSON_ID | A123B456 | このカラムは整数型のデータタイプを持っているため、ソースのレコード値を数値に変換する必要がある。 |
+| GENDER_CONCEPT_ID | 8532 |  |
+| YEAR_OF_BIRTH | NULL | 月や誕生日が不明な場合は、推測しない。月や誕生日がなくても存在できる人です。生年がない人は除外する必要がある。この人は生年がないため除外する必要がある。 |
+| MONTH_OF_BIRTH | NULL |  |
+| DAY_OF_BIRTH | NULL |  |
+| RACE_CONCEPT_ID | 0 | 人種はWHITEであり、これは8527にマッピングされるべき。 |
+| ETHNICITY_CONCEPT\_ ID | 8527 | 民族性は提供されていないため、これは0にマッピングされるべき。 |
+| PERSON_SOURCE\_ VALUE | A123B456 |  |
+| GENDER_SOURCE\_ VALUE | F |  |
+| RACE_SOURCE_VALUE | WHITE |  |
+| ETHNICITY_SOURCE\_ VALUE | NONE PROVIDED |  |
 
-#### 演習 \@ref(exr:exerciseEtl3) {-}
+#### 演習 \@ref(exr:exerciseEtl3) {.unnumbered}
 
-カラム | 値
-:------------------------ |:-------------
-VISIT_OCCURRENCE_ID | 1
-PERSON_ID | 11
-VISIT_START_DATE | 2004-09-26
-VISIT_END_DATE | 2004-09-30
-VISIT_CONCEPT_ID | 9201
-VISIT_SOURCE_VALUE | inpatient
-
+| カラム              | 値         |
+|:--------------------|:-----------|
+| VISIT_OCCURRENCE_ID | 1          |
+| PERSON_ID           | 11         |
+| VISIT_START_DATE    | 2004-09-26 |
+| VISIT_END_DATE      | 2004-09-30 |
+| VISIT_CONCEPT_ID    | 9201       |
+| VISIT_SOURCE_VALUE  | inpatient  |
 
 ## データ分析のユースケース {#UseCasesanswers}
 
-#### 演習 \@ref(exr:exerciseUseCases1) {-}
+#### 演習 \@ref(exr:exerciseUseCases1) {.unnumbered}
 
-1. 特徴量化
+1.  特徴量化
 
-2. 患者レベルの予測
+2.  患者レベルの予測
 
-3. 集団レベルの推定
+3.  集団レベルの推定
 
-#### 演習 \@ref(exr:exerciseUseCases2) {-}
+#### 演習 \@ref(exr:exerciseUseCases2) {.unnumbered}
 
 そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
 
 ## SQLとR {#SqlAndRanswers}
 
-#### 演習 \@ref(exr:exercisePeopleCount) {-}
+#### 演習 \@ref(exr:exercisePeopleCount) {.unnumbered}
 
 人数を計算するには、単純にPERSONテーブルをクエリすればよいです:
 
@@ -237,13 +237,14 @@ FROM @cdm.person;"
 
 renderTranslateQuerySql(connection, sql, cdm = "main")
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  PERSON_COUNT
 1         2694
 ")
 ```
 
-#### 演習 \@ref(exr:exerciseCelecoxibUsers) {-}
+#### 演習 \@ref(exr:exerciseCelecoxibUsers) {.unnumbered}
 
 セレコキシブの処方を少なくとも1回受けた人の人数を計算するには、DRUG_EXPOSUREテーブルをクエリします。セレコキシブの成分を含むすべての薬剤を見つけるために、CONCEPT_ANCESTORおよびCONCEPTテーブルを結合します:
 
@@ -262,6 +263,7 @@ WHERE LOWER(ingredient.concept_name) = 'celecoxib'
 
 renderTranslateQuerySql(connection, sql, cdm = "main")
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  PERSON_COUNT
 1         1844
@@ -286,13 +288,14 @@ WHERE LOWER(ingredient.concept_name) = 'celecoxib'
 
 renderTranslateQuerySql(connection, sql, cdm = "main")
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  PERSON_COUNT
 1         1844
 ")
 ```
 
-#### 演習 \@ref(exr:exerciseGiBleedsDuringCelecoxib) {-}
+#### 演習 \@ref(exr:exerciseGiBleedsDuringCelecoxib) {.unnumbered}
 
 曝露期間中の診断数を計算するには、以前のクエリを拡張してCONDITION_OCCURRENCEテーブルに結合します。消化管出血を意味するすべての状態コンセプトを見つけるために、CONCEPT_ANCESTORテーブルに結合します:
 
@@ -315,6 +318,7 @@ WHERE LOWER(ingredient.concept_name) = 'celecoxib'
 
 renderTranslateQuerySql(connection, sql, cdm = "main")
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("  DIAGNOSE_COUNT
 1         41
@@ -325,13 +329,13 @@ cat("  DIAGNOSE_COUNT
 
 ## コホートの定義 {#Cohortsanswers}
 
-#### 演習 \@ref(exr:exerciseCohortsAtlas) {-}
+#### 演習 \@ref(exr:exerciseCohortsAtlas) {.unnumbered}
 
 以下の要件をエンコードする初期イベント基準を作成します:
 
-- ジクロフェナクの新規使用者
-- 16歳以上
-- 曝露前に少なくとも365日間の連続観察があること
+-   ジクロフェナクの新規使用者
+-   16歳以上
+-   曝露前に少なくとも365日間の連続観察があること
 
 完了したら、コホートエントリーイベントのセクションは図\@ref(fig:cohortsAtlasInitialEvents)のようになります。
 
@@ -375,7 +379,7 @@ knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet3.png")
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasExit.png")
 ```
 
-#### 演習 \@ref(exr:exerciseCohortsSql) {-}
+#### 演習 \@ref(exr:exerciseCohortsSql) {.unnumbered}
 
 読みやすさのためにSQLを2つのステップに分けます。まず、心筋梗塞のすべての状態発生を見つけ、それらを一時テーブル「#diagnoses」に格納します:
 
@@ -433,9 +437,10 @@ DROP TABLE #diagnoses;"
 
 renderTranslateExecuteSql(connection, sql)
 ```
+
 ## 特徴記述 {#Characterizationanswers}
 
-#### 演習 \@ref(exr:exerciseCharacterization1) {-}
+#### 演習 \@ref(exr:exerciseCharacterization1) {.unnumbered}
 
 ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリックし、興味のあるデータソースを選択します。ここでは、薬剤暴露レポートを選択し、「表」タブを選択して「セレコキシブ」を検索します（図 \@ref(fig:dataSourcesAtlas) 参照）。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の暴露を持っていることがわかります。これらの薬のいずれかをクリックすると、例えば年齢や性別の分布など、より詳細なビューを得ることができます。
 
@@ -443,7 +448,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 ```
 
-#### 演習 \@ref(exr:exerciseCharacterization2) {-}
+#### 演習 \@ref(exr:exerciseCharacterization2) {.unnumbered}
 
 ![](images/Cohorts/cohortdefinition.png)をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「セレコキシブ新規使用者」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 ![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:conceptSearchAtlas) 参照）。
 
@@ -469,7 +474,7 @@ knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterization.png")
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResults.png")
 ```
 
-#### 演習 \@ref(exr:exerciseCharacterization3) {-}
+#### 演習 \@ref(exr:exerciseCharacterization3) {.unnumbered}
 
 ![](images/Cohorts/cohortdefinition.png)をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「GI出血」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
 
@@ -500,9 +505,10 @@ knitr::include_graphics("images/SuggestedAnswers/irAnalysis.png")
 ```{r irResults, fig.cap='発生結果。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/irResults.png")
 ```
+
 ## 集団レベル推定 {#Pleanswers}
 
-#### 演習 \@ref(exr:exercisePle1) {-}
+#### 演習 \@ref(exr:exercisePle1) {.unnumbered}
 
 デフォルトの共変量セットを指定しますが、比較している2つの薬物を含むすべての子孫を除外しなければなりません。そうしないと、選択バイアスモデルが完全に予測可能になってしまいます：
 
@@ -548,7 +554,7 @@ cat("CohortMethodData オブジェクトのまとめ
 ")
 ```
 
-#### 演習 \@ref(exr:exercisePle2) {-}
+#### 演習 \@ref(exr:exercisePle2) {.unnumbered}
 
 仕様に従って研究集団を作成し、離脱図を出力します：
 
@@ -571,7 +577,7 @@ knitr::include_graphics("images/SuggestedAnswers/attrition.png")
 
 ここで、元のコホートと比較して被験者を失わなかったことがわかります。おそらく、ここで使用した制限がすでにコホートの定義に適用されているためです。
 
-#### 演習 \@ref(exr:exercisePle3) {-}
+#### 演習 \@ref(exr:exercisePle3) {.unnumbered}
 
 Cox 回帰を使用して単純な結果モデルをフィットさせます：
 
@@ -595,7 +601,7 @@ cat("モデルタイプ：cox
 
 セレコキシブの使用者とジクロフェナクの使用者が同等でない可能性が高く、これらのベースラインの違いによりすでに結果のリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのかかった推定値が生成される可能性があります。
 
-#### 演習 \@ref(exr:exercisePle4) {-}
+#### 演習 \@ref(exr:exercisePle4) {.unnumbered}
 
 抽出した共変量を使用して、研究集団に対して傾向スコアをフィットさせます。その後、傾向スコアの分布を示します：
 
@@ -604,6 +610,7 @@ ps <- createPs(cohortMethodData = cmData,
                population = studyPop)
 plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 ```
+
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/ps.png")
 ```
@@ -612,8 +619,7 @@ knitr::include_graphics("images/SuggestedAnswers/ps.png")
 
 傾向スコアモデルは0.63のAUCを達成し、対象と比較コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。
 
-
-#### 演習 \@ref(exr:exercisePle5) {-}
+#### 演習 \@ref(exr:exercisePle5) {.unnumbered}
 
 傾向スコアに基づいて集団を層別化し、層別化前後の共変量バランスを計算します：
 
@@ -626,13 +632,14 @@ plotCovariateBalanceScatterPlot(bal,
                                 beforeLabel = "層別化前",
                                 afterLabel = "層別化後")
 ```
+
 ```{r echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/scatter.png")
 ```
 
-さまざまなベースライン共変量が、層別化前（x軸）に大きな（>0.3）標準化された平均の差を示していることがわかります。層別化後のバランスが向上し、最大標準化された差が<= 0.1です。
+さまざまなベースライン共変量が、層別化前（x軸）に大きな（\>0.3）標準化された平均の差を示していることがわかります。層別化後のバランスが向上し、最大標準化された差が\<= 0.1です。
 
-#### 演習 \@ref(exr:exercisePle6) {-}
+#### 演習 \@ref(exr:exercisePle6) {.unnumbered}
 
 PS層別化で Cox 回帰モデルをフィットさせます：
 
@@ -657,13 +664,9 @@ cat("モデルタイプ：cox
 
 調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの暴露グループ間のベースラインの違いを調整することによって、バイアスを減らしているためです。
 
-
-
-
-
 ## 患者レベル予測 {#Plpanswers}
 
-#### 演習 \@ref(exr:exercisePlp1) {-}
+#### 演習 \@ref(exr:exercisePlp1) {.unnumbered}
 
 共変量設定のセットを指定し、データベースからデータを抽出するために`getPlpData`関数を使用します：
 
@@ -692,6 +695,7 @@ plpData <- getPlpData(connectionDetails = connectionDetails,
 
 summary(plpData)
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("plpData オブジェクトのまとめ
 
@@ -710,7 +714,7 @@ cat("plpData オブジェクトのまとめ
 ")
 ```
 
-#### 演習 \@ref(exr:exercisePlp2) {-}
+#### 演習 \@ref(exr:exercisePlp2) {.unnumbered}
 
 プロジェクトに興味のあるアウトカム（この場合は抽出したデータに対して唯一のアウトカム）について調査集団を作成し、NSAIDを使用し始める前にそのアウトカムを経験した被験者を除外し、364日のリスク期間を必要とします：
 
@@ -730,13 +734,14 @@ population <- createStudyPopulation(plpData = plpData,
                                     includeAllOutcomes = TRUE)
 nrow(population)
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("[1] 2578")
 ```
 
 この場合、発症前の人々を除外することで数人が失われ、364日以上のリスク期間を要求しています。
 
-#### 演習 \@ref(exr:exercisePlp3) {-}
+#### 演習 \@ref(exr:exercisePlp3) {.unnumbered}
 
 LASSO モデルを実行するために、まずモデル設定オブジェクトを作成し、その後`runPlp`関数を呼び出します。この場合、データの75％を訓練データとして使用し、25％を評価データとして使用する人ベースの分割を行います：
 
@@ -765,9 +770,10 @@ viewPlp(lassoResults)
 ```{r plpShiny, fig.cap='患者レベル予測Shinyアプリ。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/plpShiny.png")
 ```
+
 ## データ品質 {#DataQualityanswers}
 
-#### 演習 \@ref(exr:exerciseRunAchilles) {-}
+#### 演習 \@ref(exr:exerciseRunAchilles) {.unnumbered}
 
 ACHILLESを実行するには:
 
@@ -780,7 +786,7 @@ result <- achilles(connectionDetails,
                    cdmVersion = "5.3.0")
 ```
 
-#### 演習 \@ref(exr:exerciseRunDQD) {-}
+#### 演習 \@ref(exr:exerciseRunDQD) {.unnumbered}
 
 データ品質ダッシュボードを実行するには:
 
@@ -793,7 +799,7 @@ DataQualityDashboard::executeDqChecks(
   outputFolder = "C:/dataQualityExample")
 ```
 
-#### 演習 \@ref(exr:exerciseViewDQD) {-}
+#### 演習 \@ref(exr:exerciseViewDQD) {.unnumbered}
 
 データ品質チェックのリストを見るには:
 
@@ -801,3 +807,4 @@ DataQualityDashboard::executeDqChecks(
 DataQualityDashboard::viewDqDashboard(
   "C:/dataQualityExample/Eunomia/results_Eunomia.json")
 ```
+
