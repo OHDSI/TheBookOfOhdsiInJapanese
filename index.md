@@ -2,7 +2,6 @@
 title: " --翻訳作業中--　OHDSI指南書"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "2025-02-28"
-output: word_document
 geometry:
 - paperheight=10in
 - paperwidth=7in
