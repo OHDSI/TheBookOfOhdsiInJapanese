@@ -2,13 +2,7 @@
 title: " --翻訳作業中--　OHDSI指南書"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "`r Sys.Date()`"
-output:
-  bookdown::pdf_book:
-    latex_engine: xelatex
-    keep_tex: true
-header-includes:
-  - \usepackage{xeCJK}
-  - \setCJKsansfont{IPAexGothic}  # ゴシック体の設定
+classoption: 11pt
 geometry:
 - paperheight=10in
 - paperwidth=7in
