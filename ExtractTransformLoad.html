@@ -195,7 +195,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めるか</a>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めようか</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#旅に参加しよう"><i class="fa fa-check"></i><b>2.1</b> 旅に参加しよう</a>
 <ul>
@@ -750,7 +750,7 @@ div.csl-indent {
 <p>ETLデザインプロセスを支援するために密接に統合された2つのツールが開発されました：White RabbitとRabbit-in-a-Hatです。</p>
 <div id="white-rabbit" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> White Rabbit<a href="ExtractTransformLoad.html#white-rabbit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>データベースでETLプロセスを開始するためには、データ（テーブル、フィールド、内容）を理解する必要があります。これが<a href="https://github.com/OHDSI/WhiteRabbit">White Rabbit</a>の役割です。White Rabbitは、縦断的な医療データベースを<a href="https://github.com/OHDSI/CommonDataModel">OMOP CDM</a>にETLするための準備を支援するソフトウェアツールです。White Rabbitはデータをスキャンし、ETLのデザインを開始するために必要なすべての情報を含むレポートを作成します。全てのソースコードとインストール手順、およびマニュアルへのリンクはGitHubで入手可能です<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>。 </p>
+<p>データベースでETLプロセスを開始するためには、データ（テーブル、フィールド、内容）を理解する必要があります。これが<a href="https://github.com/OHDSI/WhiteRabbit">White Rabbit</a>の役割です。White Rabbitは、縦断的な医療データベースを<a href="https://github.com/OHDSI/CommonDataModel">OMOP CDM</a>にETLするための準備を支援するソフトウェアツールです。White Rabbitはデータをスキャンし、ETLのデザインを開始するために必要なすべての情報を含むレポートを作成します。全てのソースコードとインストール手順、およびマニュアルへのリンクはGitHubで入手可能です<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>。 </p>
 <div id="範囲と目的" class="section level4 unnumbered hasAnchor">
 <h4>範囲と目的<a href="ExtractTransformLoad.html#範囲と目的" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>White Rabbitの主な機能は、ソースデータをスキャンし、フィールドに出現するテーブル、フィールド、値に関する詳細な情報を提供することです。ソースデータは、カンマ区切りのテキストファイルやデータベース（MySQL、SQL Server、Oracle、PostgreSQL、Microsoft APS、Microsoft Access、Amazon Redshift）に保存できます。スキャンによって、ETLデザイン時に参考文献として使用できるレポートが生成されます。例えば、Rabbit-In-a-Hatツールと一緒に使用することができます。White Rabbitは標準的なデータプロファイリングツールと異なり、生成された出力データファイルに個人識別情報（PII）を表示しないようにします。</p>
@@ -835,7 +835,7 @@ div.csl-indent {
 </div>
 <div id="etlロジックの記述" class="section level4 unnumbered hasAnchor">
 <h4>ETLロジックの記述<a href="ExtractTransformLoad.html#etlロジックの記述" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソースデータをOMOP CDMに変換する方法のロジックをデザインし、記述する準備が整います。次のセクションでは、Synthea<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>データベースのいくつかのテーブルが変換中にどのように見えるかを例示します。</p>
+<p>White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソースデータをOMOP CDMに変換する方法のロジックをデザインし、記述する準備が整います。次のセクションでは、Synthea<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>データベースのいくつかのテーブルが変換中にどのように見えるかを例示します。</p>
 </div>
 <div id="etlの一般的なフロー" class="section level4 unnumbered hasAnchor">
 <h4>ETLの一般的なフロー<a href="ExtractTransformLoad.html#etlの一般的なフロー" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -923,7 +923,7 @@ div.csl-indent {
 </ul>
 <div id="usagi" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Usagi<a href="ExtractTransformLoad.html#usagi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>。 </p>
+<p>Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>。 </p>
 <div id="範囲と目的-2" class="section level4 hasAnchor" number="6.2.1.1">
 <h4><span class="header-section-number">6.2.1.1</span> 範囲と目的<a href="ExtractTransformLoad.html#範囲と目的-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>マッピングが必要なソースコードはUsagiにロードされます（コードが英語でない場合は追加の翻訳列が必要です）。用語の類似性アプローチを使用してソースコードをボキャブラリコンセプトに接続します。ただし、これらのコード接続は手動で見直す必要があり、Usagiはこれを支援するインターフェースを提供します。Usagiはボキャブラリで標準コンセプトとしてマークされているコンセプトのみを提案します。</p>
@@ -1011,8 +1011,8 @@ div.csl-indent {
 <div id="etlの規約とthemis" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> ETLの規約とTHEMIS<a href="ExtractTransformLoad.html#etlの規約とthemis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>データをCDMに変換するグループが増えるにつれ、特定の状況でETLがどのように対処すべきかを指定する必要があることが明らかになりました。たとえば、出生年が欠けている個人記録の場合、ETLはどうすべきでしょうか？CDMの目標はヘルスケアデータを標準化することですが、各グループが特定のデータシナリオを異なる方法で処理すると、ネットワーク全体でデータを体系的に使用することが難しくなります。</p>
-<p>OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。</p>
-<p>すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。</p>
+<p>OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。</p>
+<p>すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。</p>
 </div>
 <div id="CDMandETLMaintenance" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> CDMおよびETLのメンテナンス<a href="ExtractTransformLoad.html#CDMandETLMaintenance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1029,7 +1029,7 @@ div.csl-indent {
 <li>80/20のルール。可能な限り、ソースコードを手動でコンセプトセットにマッピングするのに過度に時間を費やさないようにしましょう。理想的には、大多数のデータをカバーするソースコードをマッピングしてください。これで十分であり、将来のユースケースに基づいて残りのコードに対処することができます。</li>
 <li>研究の品質に見合わないデータを失うことを恐れなくても良い。それらはしばしば分析を開始する前に破棄されるレコードであり、私たちはETLプロセス中にそれらを削除します。</li>
 <li>CDMはメンテナンスが必要です。ETLが完了したからといって、再び触らないということではありません。生データが変更されるかもしれませんし、コードにバグがあるかもしれません。新しいボキャブラリやCDMの更新があるかもしれません。これらの変更に対応するためのリソースを計画しておくことで、ETLが常に最新の状態に保たれるようにしましょう。</li>
-<li>OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>をご覧ください。</li>
+<li>OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>をご覧ください。</li>
 </ul>
 </div>
 <div id="まとめ-4" class="section level2 hasAnchor" number="6.8">
@@ -1140,15 +1140,15 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDご�
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p><a href="https://github.com/OHDSI/WhiteRabbit" class="uri">https://github.com/OHDSI/WhiteRabbit</a>.<a href="ExtractTransformLoad.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>Synthea<sup>TM</sup>は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、<a href="https://github.com/synthetichealth/synthea/wiki">こちら</a>をご覧ください。<a href="ExtractTransformLoad.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p><a href="https://translate.google.com/" class="uri">https://translate.google.com/</a><a href="ExtractTransformLoad.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p><a href="https://github.com/OHDSI/Usagi" class="uri">https://github.com/OHDSI/Usagi</a><a href="ExtractTransformLoad.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p><a href="https://github.com/OHDSI/CommonDataModel/wiki" class="uri">https://github.com/OHDSI/CommonDataModel/wiki</a><a href="ExtractTransformLoad.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p><a href="https://github.com/OHDSI/Themis" class="uri">https://github.com/OHDSI/Themis</a><a href="ExtractTransformLoad.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="ExtractTransformLoad.html#fnref22" class="footnote-back">↩︎</a></p></li>
-<li id="fn23"><p><a href="https://forums.ohdsi.org/c/implementers" class="uri">https://forums.ohdsi.org/c/implementers</a><a href="ExtractTransformLoad.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<ol start="19">
+<li id="fn19"><p><a href="https://github.com/OHDSI/WhiteRabbit" class="uri">https://github.com/OHDSI/WhiteRabbit</a>.<a href="ExtractTransformLoad.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>Synthea<sup>TM</sup>は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、<a href="https://github.com/synthetichealth/synthea/wiki">こちら</a>をご覧ください。<a href="ExtractTransformLoad.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p><a href="https://translate.google.com/" class="uri">https://translate.google.com/</a><a href="ExtractTransformLoad.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p><a href="https://github.com/OHDSI/Usagi" class="uri">https://github.com/OHDSI/Usagi</a><a href="ExtractTransformLoad.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p><a href="https://github.com/OHDSI/CommonDataModel/wiki" class="uri">https://github.com/OHDSI/CommonDataModel/wiki</a><a href="ExtractTransformLoad.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p><a href="https://github.com/OHDSI/Themis" class="uri">https://github.com/OHDSI/Themis</a><a href="ExtractTransformLoad.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="ExtractTransformLoad.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p><a href="https://forums.ohdsi.org/c/implementers" class="uri">https://forums.ohdsi.org/c/implementers</a><a href="ExtractTransformLoad.html#fnref26" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

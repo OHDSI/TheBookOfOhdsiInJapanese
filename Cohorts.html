@@ -195,7 +195,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めるか</a>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めようか</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#旅に参加しよう"><i class="fa fa-check"></i><b>2.1</b> 旅に参加しよう</a>
 <ul>
@@ -839,7 +839,7 @@ div.csl-indent {
 <div id="確率的コホート定義" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> 確率的コホート定義<a href="Cohorts.html#確率的コホート定義" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ルールベースのコホート定義は、コホート定義を組み立てるための一般的な方法です。しかし、研究コホートを作成するために必要な専門家の合意を集めることは非常に時間がかかります。確率的コホート設計は、コホート属性の選択を迅速化するための代替手段であり、機械主導の方法です。このアプローチでは、監督された機械学習により、フェノタイピングアルゴリズムがコホート会員資格に寄与する属性がどのようにラベル付けされた例（ケース）から学習します。次に、このアルゴリズムを使用して、フェノタイプを定義する特性をより明確にし、フェノタイプ基準を変更する際に全体的な研究精度でどのようなトレードオフが発生するかを判断できます。 </p>
-<p>このアプローチをCDMデータに適用する例は、APHRODITE（自動フェノタイプルーチンオブザーバーション定義、識別、トレーニングおよび評価）Rパッケージ<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a>です。このパッケージは、不完全にラベル付けされたデータから学習する能力を組み合わせたコホートビルディングフレームワークを提供します <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> 。</p>
+<p>このアプローチをCDMデータに適用する例は、APHRODITE（自動フェノタイプルーチンオブザーバーション定義、識別、トレーニングおよび評価）Rパッケージ<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a>です。このパッケージは、不完全にラベル付けされたデータから学習する能力を組み合わせたコホートビルディングフレームワークを提供します <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> 。</p>
 </div>
 <div id="コホート定義の妥当性" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> コホート定義の妥当性<a href="Cohorts.html#コホート定義の妥当性" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -848,7 +848,7 @@ div.csl-indent {
 <p>この章の冒頭で述べたように、コホート定義は記録されたデータから観察したいことを推測する試みです。それがどの程度うまくいったかという問いが生じます。一般に、ルールに基づくコホート定義や確率的アルゴリズムの検証は、提案されたコホートを「ゴールドスタンダード」の参照（例: ケースの手動チャートレビュー）と比較する試験として考えられます。詳細はChapter <a href="ClinicalValidity.html#ClinicalValidity">16</a>（「臨床的妥当性」）に記載されています。</p>
 <div id="ohdsi-ゴールドスタンダード表現型ライブラリ" class="section level3 hasAnchor" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> OHDSI ゴールドスタンダード表現型ライブラリ<a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>既存のコホート定義とアルゴリズムの在庫と全体的な評価を支援するために、OHDSI ゴールドスタンダード表現型ライブラリ（GSPL）ワーキンググループが設立されました。GSPLワーキンググループの目的は、ルールベースおよび確率的手法からのコミュニティ支援のフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって検証されたコホート定義を研究やその他の活動に利用することができます。これらの「ゴールドスタンダード」定義は特定の設計と評価基準に従ってライブラリに保存されます。GSPLに関連する追加情報はOHDSIワーキンググループページを参照してください。<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> このワーキンググループの研究には、先のセクションで議論されたAPHRODITE <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> およびPheValuatorツール <span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> の他、OHDSIネットワーク全体での電子カルテおよびゲノミクスの <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> の共有に関する作業も含まれます <span class="citation">(<a href="#ref-Hripcsak2019eMERGE">G. Hripcsak et al. 2019</a>)</span>。表現型のキュレーションに関心がある場合は、このワーキンググループに貢献することを考えてみてください。 </p>
+<p>既存のコホート定義とアルゴリズムの在庫と全体的な評価を支援するために、OHDSI ゴールドスタンダード表現型ライブラリ（GSPL）ワーキンググループが設立されました。GSPLワーキンググループの目的は、ルールベースおよび確率的手法からのコミュニティ支援のフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって検証されたコホート定義を研究やその他の活動に利用することができます。これらの「ゴールドスタンダード」定義は特定の設計と評価基準に従ってライブラリに保存されます。GSPLに関連する追加情報はOHDSIワーキンググループページを参照してください。<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> このワーキンググループの研究には、先のセクションで議論されたAPHRODITE <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> およびPheValuatorツール <span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> の他、OHDSIネットワーク全体での電子カルテおよびゲノミクスの <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> の共有に関する作業も含まれます <span class="citation">(<a href="#ref-Hripcsak2019eMERGE">G. Hripcsak et al. 2019</a>)</span>。表現型のキュレーションに関心がある場合は、このワーキンググループに貢献することを考えてみてください。 </p>
 </div>
 </div>
 <div id="高血圧のコホート定義" class="section level2 hasAnchor" number="10.6">
@@ -1298,9 +1298,9 @@ Swerdel, J. N., G. Hripcsak, and P. B. Ryan. 2019. <span>“<span class="nocase"
 </div>
 <div class="footnotes">
 <hr />
-<ol start="34">
-<li id="fn34"><p><a href="https://github.com/OHDSI/Aphrodite" class="uri">https://github.com/OHDSI/Aphrodite</a><a href="Cohorts.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p><a href="https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg" class="uri">https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg</a><a href="Cohorts.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<ol start="37">
+<li id="fn37"><p><a href="https://github.com/OHDSI/Aphrodite" class="uri">https://github.com/OHDSI/Aphrodite</a><a href="Cohorts.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<li id="fn38"><p><a href="https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg" class="uri">https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg</a><a href="Cohorts.html#fnref38" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

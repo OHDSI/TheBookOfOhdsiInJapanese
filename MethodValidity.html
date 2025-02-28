@@ -195,7 +195,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めるか</a>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めようか</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#旅に参加しよう"><i class="fa fa-check"></i><b>2.1</b> 旅に参加しよう</a>
 <ul>
@@ -893,7 +893,7 @@ div.csl-indent {
 ## OHDSIメソッド評価ベンチマーク</p>
 <p></p>
 <p>メソッドの性能を評価する際には、研究の文脈に応じて、ネガティブコントロールおよびポジティブコントロールを使用して経験的に評価することが推奨されます（例えば、同じ曝露または同じ結果を使用するなど）。しかし、メソッドの性能を一般的に評価することにも価値があります。これがOHDSIメソッド評価ベンチマークが開発された理由です。このベンチマークは、慢性的または急性的な結果、長期的または短期的な曝露を含む広範なコントロール質問を使用して性能を評価します。このベンチマークの結果は、メソッドの全体的な有用性を示し、特定の文脈での経験的評価がまだ利用できない場合にメソッドの性能について事前の信念を形成するのに役立ちます。このベンチマークは、同じ曝露または同じ結果を共有する8つのカテゴリーに分けられた200の慎重に選択されたネガティブコントロールで構成されています。これらの200のネガティブコントロールから、セクション<a href="MethodValidity.html#PositiveControls">18.2.2</a>で説明されているように600の合成ポジティブコントロールが導出されます。メソッドを評価するためには、すべてのコントロールについて効果サイズの推定を行い、その後セクション<a href="MethodValidity.html#metrics">18.2.3</a>で説明されている指標を計算する必要があります。このベンチマークは公開されており、<a href="https://ohdsi.github.io/MethodEvaluation/articles/OhdsiMethodsBenchmark.html">OHDSIメソッドベンチマークの運用ビネット</a>で説明されているようにデプロイすることができます。<a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a>パッケージに含まれています。</p>
-<p>私たちはOHDSIメソッドライブラリのすべてのメソッドをこのベンチマークで評価し、各メソッドに対するさまざまな分析の選択を行いました。例えば、コホートメソッドは傾向スコアマッチング、層別化、および重み付けを使用して評価されました。この実験は4つの大規模な観察的医療データベースで実行されました。オンラインShinyアプリ<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>で閲覧可能な結果は、いくつかのメソッドは高いAUC（ネガティブコントロールからポジティブコントロールを区別する能力）を示しますが、ほとんどのメソッドはほとんどの設定で高い第1種過誤と95%信頼区間の低いカバレッジを示していることを示しています。図<a href="MethodValidity.html#fig:methodEval">18.6</a>に示すように。</p>
+<p>私たちはOHDSIメソッドライブラリのすべてのメソッドをこのベンチマークで評価し、各メソッドに対するさまざまな分析の選択を行いました。例えば、コホートメソッドは傾向スコアマッチング、層別化、および重み付けを使用して評価されました。この実験は4つの大規模な観察的医療データベースで実行されました。オンラインShinyアプリ<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>で閲覧可能な結果は、いくつかのメソッドは高いAUC（ネガティブコントロールからポジティブコントロールを区別する能力）を示しますが、ほとんどのメソッドはほとんどの設定で高い第1種過誤と95%信頼区間の低いカバレッジを示していることを示しています。図<a href="MethodValidity.html#fig:methodEval">18.6</a>に示すように。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:methodEval"></span>
 <img src="images/MethodValidity/methodEval.png" alt="メソッドライブラリのメソッドに対する95\%信頼区間のカバレッジ。各ドットは分析選択の特定セットの性能を表します。点線は名目上の性能（95\%カバレッジ）を示します。SCCS = 自己制御症例シリーズ、GI = 胃腸、IBD = 炎症性腸疾患。" width="100%" />
 <p class="caption">
@@ -949,8 +949,8 @@ Zaadstra, B. M., A. M. Chorus, S. van Buuren, H. Kalsbeek, and J. M. van Noort. 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="43">
-<li id="fn43"><p><a href="http://data.ohdsi.org/MethodEvalViewer/" class="uri">http://data.ohdsi.org/MethodEvalViewer/</a><a href="MethodValidity.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<ol start="46">
+<li id="fn46"><p><a href="http://data.ohdsi.org/MethodEvalViewer/" class="uri">http://data.ohdsi.org/MethodEvalViewer/</a><a href="MethodValidity.html#fnref46" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

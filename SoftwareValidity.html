@@ -195,7 +195,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めるか</a>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めようか</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#旅に参加しよう"><i class="fa fa-check"></i><b>2.1</b> 旅に参加しよう</a>
 <ul>
@@ -771,7 +771,7 @@ div.csl-indent {
 <h3><span class="header-section-number">17.1.4</span> Methods Libraryの使用<a href="SoftwareValidity.html#methods-libraryの使用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a> は、ほとんどの観察研究をわずか数行のコードで実装できるようにする、豊富な機能セットを提供しています。したがって、Methods Libraryを使用することで、研究コードの妥当性を確立する負担の多くがLibraryに移転されます。Methods Libraryの妥当性は、そのソフトウェア開発プロセスと広範囲のテストによって保証されています。
 ## メソッドライブラリのソフトウェア開発プロセス</p>
-<p>OHDSIメソッドライブラリはOHDSIコミュニティによって開発されています。このライブラリに対する提案された変更は、GitHubのイシュートラッカー（例としてCohortMethodのイシュートラッカー<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a>）とOHDSIフォーラム<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a>で議論されます。これらは一般に公開されており、誰でも参加できます。ライブラリにソフトウェアコードを貢献できるのはコミュニティのメンバーなら誰でも可能ですが、リリースバージョンに組み込まれる変更の最終承認は、OHDSI人口レベル推定作業グループのリーダーシップ（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI個別予測作業グループのリーダーシップ（Peter Rijnbeek博士とJenna Reps博士）のみが行います。</p>
+<p>OHDSIメソッドライブラリはOHDSIコミュニティによって開発されています。このライブラリに対する提案された変更は、GitHubのイシュートラッカー（例としてCohortMethodのイシュートラッカー<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a>）とOHDSIフォーラム<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>で議論されます。これらは一般に公開されており、誰でも参加できます。ライブラリにソフトウェアコードを貢献できるのはコミュニティのメンバーなら誰でも可能ですが、リリースバージョンに組み込まれる変更の最終承認は、OHDSI人口レベル推定作業グループのリーダーシップ（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI個別予測作業グループのリーダーシップ（Peter Rijnbeek博士とJenna Reps博士）のみが行います。</p>
 <p>ユーザーはGitHubリポジトリのマスターブランチから直接、または常にマスターブランチと最新の状態である「drat」というシステムを通じて、Rにおけるメソッドライブラリをインストールできます。いくつかのメソッドライブラリパッケージはRの包括的なRアーカイブネットワーク（CRAN）を通じて利用可能であり、その数は時間とともに増加する予定です。</p>
 <p>OHDSIは、メソッドライブラリの性能の正確性、信頼性、一貫性を最大限にするために、合理的なソフトウェア開発およびテスト手法を採用しています。重要なことに、メソッドライブラリはApache License V2の規約の下でリリースされており、R、C++、SQL、およびJavaのいずれのソースコードもOHDSIコミュニティの全てのメンバー、さらには一般の人々によるピアレビューに利用可能です。したがって、メソッドライブラリに組み込まれた全ての機能は、その正確性、信頼性、および一貫性に関して継続的な批判および改善を受けることになります。</p>
 </div>
@@ -787,7 +787,7 @@ div.csl-indent {
 </div>
 <div id="ドキュメンテーション" class="section level3 hasAnchor" number="17.1.6">
 <h3><span class="header-section-number">17.1.6</span> ドキュメンテーション<a href="SoftwareValidity.html#ドキュメンテーション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>メソッドライブラリのすべてのパッケージは、Rの内部ドキュメンテーションフレームワークを通じてドキュメント化されています。各パッケージには、そのパッケージ内で利用可能なすべての機能を説明するパッケージマニュアルがあります。関数のドキュメントとその実装の間のアライメントを促進するために、<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">roxygen2</a> ソフトウェアが使用され、関数のドキュメントとソースコードを1ファイルにまとめています。パッケージマニュアルはRのコマンドラインインターフェースを通じて随時利用可能であり、パッケージリポジトリ内のPDFとして、またはウェブページとして提供されています。さらに、多くのパッケージには特定のユースケースを強調したビネットもあります。すべてのドキュメントはメソッドライブラリのウェブサイト<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a>から閲覧することができます。</p>
+<p>メソッドライブラリのすべてのパッケージは、Rの内部ドキュメンテーションフレームワークを通じてドキュメント化されています。各パッケージには、そのパッケージ内で利用可能なすべての機能を説明するパッケージマニュアルがあります。関数のドキュメントとその実装の間のアライメントを促進するために、<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">roxygen2</a> ソフトウェアが使用され、関数のドキュメントとソースコードを1ファイルにまとめています。パッケージマニュアルはRのコマンドラインインターフェースを通じて随時利用可能であり、パッケージリポジトリ内のPDFとして、またはウェブページとして提供されています。さらに、多くのパッケージには特定のユースケースを強調したビネットもあります。すべてのドキュメントはメソッドライブラリのウェブサイト<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a>から閲覧することができます。</p>
 <p>すべてのメソッドライブラリのソースコードは最終ユーザーが利用可能です。コミュニティからのフィードバックは、GitHubのイシュートラッキングシステムおよびOHDSIフォーラムを利用して受け付けています。</p>
 </div>
 <div id="現行および過去のアーカイブバージョンの利用可能性" class="section level3 hasAnchor" number="17.1.7">
@@ -805,7 +805,7 @@ div.csl-indent {
 </div>
 <div id="物理的および論理的セキュリティ" class="section level3 hasAnchor" number="17.1.10">
 <h3><span class="header-section-number">17.1.10</span> 物理的および論理的セキュリティ<a href="SoftwareValidity.html#物理的および論理的セキュリティ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OHDSIメソッドライブラリはGitHub<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a>システムにホストされています。GitHubのセキュリティ対策は<a href="https://github.com/security">https://github.com/security</a>で記述されています。OHDSIコミュニティのメンバーがメソッドライブラリに修正を加えるにはユーザー名とパスワードが必要であり、マスターブランチを変更できるのは人口レベル推定作業グループおよび個別予測作業グループのリーダーシップのみです。ユーザーアカウントは標準的なセキュリティポリシーおよび機能要件に基づいてアクセスが制限されています。</p>
+<p>OHDSIメソッドライブラリはGitHub<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a>システムにホストされています。GitHubのセキュリティ対策は<a href="https://github.com/security">https://github.com/security</a>で記述されています。OHDSIコミュニティのメンバーがメソッドライブラリに修正を加えるにはユーザー名とパスワードが必要であり、マスターブランチを変更できるのは人口レベル推定作業グループおよび個別予測作業グループのリーダーシップのみです。ユーザーアカウントは標準的なセキュリティポリシーおよび機能要件に基づいてアクセスが制限されています。</p>
 </div>
 <div id="災害復旧" class="section level3 hasAnchor" number="17.1.11">
 <h3><span class="header-section-number">17.1.11</span> 災害復旧<a href="SoftwareValidity.html#災害復旧" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -848,11 +848,11 @@ Martin, Robert C. 2008. <em>Clean Code: A Handbook of Agile Software Craftsmansh
 </div>
 <div class="footnotes">
 <hr />
-<ol start="39">
-<li id="fn39"><p><a href="https://github.com/OHDSI/CohortMethod/issues" class="uri">https://github.com/OHDSI/CohortMethod/issues</a><a href="SoftwareValidity.html#fnref39" class="footnote-back">↩︎</a></p></li>
-<li id="fn40"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="SoftwareValidity.html#fnref40" class="footnote-back">↩︎</a></p></li>
-<li id="fn41"><p><a href="https://ohdsi.github.io/MethodsLibrary/" class="uri">https://ohdsi.github.io/MethodsLibrary/</a><a href="SoftwareValidity.html#fnref41" class="footnote-back">↩︎</a></p></li>
-<li id="fn42"><p><a href="https://github.com/" class="uri">https://github.com/</a><a href="SoftwareValidity.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<ol start="42">
+<li id="fn42"><p><a href="https://github.com/OHDSI/CohortMethod/issues" class="uri">https://github.com/OHDSI/CohortMethod/issues</a><a href="SoftwareValidity.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<li id="fn43"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="SoftwareValidity.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p><a href="https://ohdsi.github.io/MethodsLibrary/" class="uri">https://ohdsi.github.io/MethodsLibrary/</a><a href="SoftwareValidity.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p><a href="https://github.com/" class="uri">https://github.com/</a><a href="SoftwareValidity.html#fnref45" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

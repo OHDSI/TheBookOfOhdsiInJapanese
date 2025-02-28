@@ -195,7 +195,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.4" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#ohdsiにおける協力"><i class="fa fa-check"></i><b>1.4</b> OHDSIにおける協力</a></li>
 <li class="chapter" data-level="1.5" data-path="OhdsiCommunity.html"><a href="OhdsiCommunity.html#まとめ"><i class="fa fa-check"></i><b>1.5</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めるか</a>
+<li class="chapter" data-level="2" data-path="WhereToBegin.html"><a href="WhereToBegin.html"><i class="fa fa-check"></i><b>2</b> –翻訳作業中–　どこから始めようか</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="WhereToBegin.html"><a href="WhereToBegin.html#旅に参加しよう"><i class="fa fa-check"></i><b>2.1</b> 旅に参加しよう</a>
 <ul>
@@ -901,7 +901,7 @@ div.csl-indent {
 <p>別の評価として、研究のために開発されたコホート定義を使用して生成された結果コホートの有病率と時間とともに変化を見直し、外部クリニカルナレッジに基づいて期待されるものと一致するかどうかを確認します。たとえば、新薬の曝露は市場導入前には存在せず、導入後に時間とともに増加する可能性があります。同様に、アウトカムの有病率は、人口内でその症状の有病率として知られているものと一致する必要があります。ネットワーク全体で研究が実行される場合、データベース間でコホートの有病率を比較することができます。あるデータベースで非常に有病なコホートが別のデータベースで欠けている場合、DQの問題があるかもしれません。このような評価は、<em>臨床的妥当性</em>の概念と重なることに注意してください（Chapter <a href="ClinicalValidity.html#ClinicalValidity">16</a> で議論されています）。いくつかのデータベースで予期しない有病率を見つけるのは、DQの問題ではなく、コホート定義が関心のある健康状態を真に捉えていないため、または異なる患者集団を捉えたデータベースで健康状態が正当に異なるためである可能性があります。</p>
 <div id="マッピングのチェック" class="section level3 hasAnchor" number="15.2.1">
 <h3><span class="header-section-number">15.2.1</span> マッピングのチェック<a href="DataQuality.html#マッピングのチェック" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>しっかりと管理下にある可能なエラーの一つは、ソースコードから標準概念へのマッピングです。Vocabulary 内のマッピングは慎重に作成されており、コミュニティメンバーによって指摘されたマッピングのエラーは Vocabulary の問題トラッカー<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> で報告され、今後のリリースで修正されます。それでも、すべてのマッピングを手で完全にチェックすることは不可能であり、エラーが依然として存在する可能性があります。そのため、研究を実行する際には、研究に最も関連する概念のマッピングを確認することをお勧めします。幸いなことに、CDMでは標準概念だけでなく、ソースコードも保存するため、これを比較的簡単に行うことができます。研究で使用される概念にマッピングされたソースコードと、マッピングされていないソースコードの両方を確認できます。</p>
+<p>しっかりと管理下にある可能なエラーの一つは、ソースコードから標準概念へのマッピングです。Vocabulary 内のマッピングは慎重に作成されており、コミュニティメンバーによって指摘されたマッピングのエラーは Vocabulary の問題トラッカー<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> で報告され、今後のリリースで修正されます。それでも、すべてのマッピングを手で完全にチェックすることは不可能であり、エラーが依然として存在する可能性があります。そのため、研究を実行する際には、研究に最も関連する概念のマッピングを確認することをお勧めします。幸いなことに、CDMでは標準概念だけでなく、ソースコードも保存するため、これを比較的簡単に行うことができます。研究で使用される概念にマッピングされたソースコードと、マッピングされていないソースコードの両方を確認できます。</p>
 <p>マッピングされたソースコードを確認する方法の一つは、MethodEvaluation R パッケージの <code>checkCohortSourceCodes</code> 関数を使用することです。この関数は、ATLAS によって作成されたコホート定義を入力として使用し、コホート定義で使用される各コンセプトセットに対して、どのソースコードがセットの概念にマッピングされているかをチェックします。これにより、特定のソースコードに関連する時間的な問題を特定するためのコードの有病率も計算されます。図 <a href="DataQuality.html#fig:sourceCodes">15.2</a> のサンプル出力は、「抑うつ障害」と呼ばれるコンセプトセットの（部分的な）内訳を示しています。関心のあるデータベースでこのコンセプトセットで最も有病な概念は、概念 <a href="http://athena.ohdsi.org/search-terms/terms/440383">440383</a> (“抑うつ障害”) です。この概念には、データベース内の3つのソースコードがマッピングされています：ICD-9コード3.11およびICD-10コードF32.8とF32.89です。左側には概念全体の有病率が、最初は徐々に増加し、その後急激に減少していることが示されています。個々のコードを見ると、この減少はICD-9コードの使用が停止する時点と一致していることがわかります。これはICD-10コードの使用開始時点とも一致していますが、ICD-10コードの合計有病率はICD-9コードよりもはるかに小さくなっています。この例は、ICD-10コードF32.9（「大うつ病エピソード、特定不能」）もこの概念にマッピングされるべきものだったために発生しました。この問題はその後、Vocabularyで解決されました。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sourceCodes"></span>
 <img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes関数のサンプル出力。" width="100%" />
@@ -1128,8 +1128,8 @@ Weiskopf, Nicole Gray, and Chunhua Weng. 2013. <span>“Methods and Dimensions o
 </div>
 <div class="footnotes">
 <hr />
-<ol start="37">
-<li id="fn37"><p><a href="https://github.com/OHDSI/Vocabulary-v5.0/issues" class="uri">https://github.com/OHDSI/Vocabulary-v5.0/issues</a><a href="DataQuality.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<ol start="40">
+<li id="fn40"><p><a href="https://github.com/OHDSI/Vocabulary-v5.0/issues" class="uri">https://github.com/OHDSI/Vocabulary-v5.0/issues</a><a href="DataQuality.html#fnref40" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
