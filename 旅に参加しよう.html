@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章番号 7 第6章　–翻訳作業中–　抽出、変換、ロード | –翻訳作業中–　OHDSI指南書</title>
+  <title>章番号 3 2.1 旅に参加しよう | –翻訳作業中–　OHDSI指南書</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章番号 7 第6章　–翻訳作業中–　抽出、変換、ロード | –翻訳作業中–　OHDSI指南書" />
+  <meta property="og:title" content="章番号 3 2.1 旅に参加しよう | –翻訳作業中–　OHDSI指南書" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsi" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章番号 7 第6章　–翻訳作業中–　抽出、変換、ロード | –翻訳作業中–　OHDSI指南書" />
+  <meta name="twitter:title" content="章番号 3 2.1 旅に参加しよう | –翻訳作業中–　OHDSI指南書" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsi/images/Cover/Cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="StandardizedVocabularies.html"/>
-<link rel="next" href="第7章-翻訳作業中-データ解析.html"/>
+<link rel="prev" href="WhereToBegin.html"/>
+<link rel="next" href="OpenScience.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -729,424 +729,181 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ExtractTransformLoad" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">章番号 7</span> 第6章　–翻訳作業中–　抽出、変換、ロード<a href="ExtractTransformLoad.html#ExtractTransformLoad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>章の著者: Clair Blacketer &amp; Erica Voss</em></p>
-<div id="はじめに" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> はじめに<a href="ExtractTransformLoad.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ネイティブ/生データからOMOP共通データモデル（CDM）に移行するためには、抽出、変換、ロード（ETL）プロセスを作成する必要があります。このプロセスでは、データをCDMに再構築し、標準化されたボキャブラリへのマッピングを追加します。これは通常、一連の自動化スクリプト、例えばSQLスクリプトとして実装されます。このETLプロセスは、ソースデータが更新されたときに再実行できるよう、再現可能であることが重要です。 </p>
-<p>ETLの作成は通常、大規模な取り組みとなります。長年にわたり、私たちは以下の4つの主要なステップからなるベストプラクティスを開発しました：</p>
-<ol style="list-style-type: decimal">
-<li>データの専門家とCDMの専門家が共同でETLをデザインする。</li>
-<li>医学的知識を持つ人がコーディングのマッピングを作成する。</li>
-<li>技術者がETLを実装する。</li>
-<li>全員が品質管理に関与する。</li>
-</ol>
-<p>この章では、これらのステップそれぞれについて詳細に議論します。OHDSIコミュニティによっていくつかの支援ツールが開発されており、これらについても議論します。この章を締めくくるにあたり、CDMとETLのメンテナンスについても議論します。
-## ステップ 1: ETLのデザイン</p>
-<p>ETLのデザインと実装を明確に分けることが重要です。ETLのデザインにはソースデータとCDMの両方に関する広範な知識が必要です。一方、ETLの実装は通常、ETLを計算効率的に行うための技術的専門知識に依存します。両方を同時に行おうとすると、細かい点に気を取られてしまうことが多く、全体像に集中できなくなることがあります。</p>
-<p>ETLデザインプロセスを支援するために密接に統合された2つのツールが開発されました：White RabbitとRabbit-in-a-Hatです。</p>
-<div id="white-rabbit" class="section level3 hasAnchor" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> White Rabbit<a href="ExtractTransformLoad.html#white-rabbit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>データベースでETLプロセスを開始するためには、データ（テーブル、フィールド、内容）を理解する必要があります。これが<a href="https://github.com/OHDSI/WhiteRabbit">White Rabbit</a>の役割です。White Rabbitは、縦断的な医療データベースを<a href="https://github.com/OHDSI/CommonDataModel">OMOP CDM</a>にETLするための準備を支援するソフトウェアツールです。White Rabbitはデータをスキャンし、ETLのデザインを開始するために必要なすべての情報を含むレポートを作成します。全てのソースコードとインストール手順、およびマニュアルへのリンクはGitHubで入手可能です<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>。 </p>
-<div id="範囲と目的" class="section level4 unnumbered hasAnchor">
-<h4>範囲と目的<a href="ExtractTransformLoad.html#範囲と目的" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>White Rabbitの主な機能は、ソースデータをスキャンし、フィールドに出現するテーブル、フィールド、値に関する詳細な情報を提供することです。ソースデータは、カンマ区切りのテキストファイルやデータベース（MySQL、SQL Server、Oracle、PostgreSQL、Microsoft APS、Microsoft Access、Amazon Redshift）に保存できます。スキャンによって、ETLデザイン時に参考文献として使用できるレポートが生成されます。例えば、Rabbit-In-a-Hatツールと一緒に使用することができます。White Rabbitは標準的なデータプロファイリングツールと異なり、生成された出力データファイルに個人識別情報（PII）を表示しないようにします。</p>
-</div>
-<div id="プロセス概要" class="section level4 unnumbered hasAnchor">
-<h4>プロセス概要<a href="ExtractTransformLoad.html#プロセス概要" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>ソフトウェアを使用してソースデータをスキャンする一般的な手順：</p>
-<ol style="list-style-type: decimal">
-<li>結果をエクスポートするローカルデスクトップコンピュータの作業フォルダを設定します。</li>
-<li>ソースデータベースまたはCSVテキストファイルに接続し、接続をテストします。</li>
-<li>スキャン対象のテーブルを選択し、テーブルをスキャンします。</li>
-<li>White Rabbitがソースデータに関する情報をエクスポートします。</li>
-</ol>
-</div>
-<div id="作業フォルダの設定" class="section level4 unnumbered hasAnchor">
-<h4>作業フォルダの設定<a href="ExtractTransformLoad.html#作業フォルダの設定" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>White Rabbitアプリケーションをダウンロードしてインストールした後、最初に行うべきことは作業フォルダを設定することです。White Rabbitが作成するすべてのファイルはこのローカルフォルダにエクスポートされます。図<a href="ExtractTransformLoad.html#fig:WhiteRabbitLocation">7.1</a>に示されている「Pick Folder」ボタンを使用して、スキャンドキュメントを配置するローカル環境をナビゲートします。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:WhiteRabbitLocation"></span>
-<img src="images/ExtractTransformLoad/WhiteRabbitLocation.png" alt="White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン。" width="100%" />
+<div id="旅に参加しよう" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">章番号 3</span> 2.1 旅に参加しよう<a href="旅に参加しよう.html#旅に参加しよう" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>OHDSIは、患者、医療専門家、研究者、または私たちの目的に賛同する人など、誰もが積極的に参加することを歓迎します。OHDSIは包括的な会員モデルを維持しています。OHDSIのコラボレーターになるために会費は必要ありません。コラボレーションは、毎年のOHDSI会員カウントに含まれるために手を挙げるだけで簡単にできます。参加は完全に任意です。コラボレーターは、週ごとのコミュニティコールに参加するだけの人から、ネットワーク研究やOHDSI作業グループを率いる人まで、さまざまなレベルの貢献が可能です。データ保持者でなくても、活発なコミュニティメンバーとして参加できます。OHDSIコミュニティは、データ保持者、研究者、医療提供者、患者や消費者のすべてにサービスを提供することを目的としています。コラボレーターのプロフィールの記録はOHDSIウェブサイトで維持され、定期的に更新されます。メンバーシップはOHDSIコミュニティコール、作業グループや地域支部によって促進されます。</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:jointhejourney"></span>
+<img src="images/WhereToBegin/joinTheJourney.png" alt="旅に参加しよう - OHDSIコラボレーターになるには。" width="90%" />
 <p class="caption">
-図 7.1: White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン。
+図 3.1: 旅に参加しよう - OHDSIコラボレーターになるには。
 </p>
 </div>
-</div>
-<div id="データベースへの接続" class="section level4 unnumbered hasAnchor">
-<h4>データベースへの接続<a href="ExtractTransformLoad.html#データベースへの接続" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>White Rabbitは区切りテキストファイルとさまざまなデータベースプラットフォームをサポートします。各フィールドにマウスカーソルを置くと、必要な情報が表示されます。詳細についてはマニュアルをご覧ください。</p>
-</div>
-<div id="データベース内のテーブルをスキャン" class="section level4 unnumbered hasAnchor">
-<h4>データベース内のテーブルをスキャン<a href="ExtractTransformLoad.html#データベース内のテーブルをスキャン" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>データベースに接続した後、含まれるテーブルをスキャンできます。スキャンによってETLのデザインに役立つ情報を含むレポートが生成されます。図<a href="ExtractTransformLoad.html#fig:WhiteRabbitAddTables">7.2</a>に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックすることで、選択されたソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動選択する「Add all in DB」ボタンをクリックできます。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:WhiteRabbitAddTables"></span>
-<img src="images/ExtractTransformLoad/WhiteRabbitAddTables.png" alt="White Rabbit スキャンタブ。" width="100%" />
-<p class="caption">
-図 7.2: White Rabbit スキャンタブ。
-</p>
-</div>
-<p>スキャンにはいくつかの設定オプションもあります：</p>
+<div id="ohdsiフォーラム" class="section level3 hasAnchor" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> 2.1.1 OHDSIフォーラム<a href="旅に参加しよう.html#ohdsiフォーラム" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSIフォーラム<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>は、OHDSIコミュニティのコラボレーターが投稿メッセージの形で会話ができるオンラインディスカッションサイトです。フォーラムはツリー状のディレクトリ構造で構成されています。最上部は「カテゴリ」です。フォーラムは、関連するディスカッションのカテゴリに分けることができます。カテゴリの下にはサブフォーラムがあり、これらのサブフォーラムにはさらにサブフォーラムがあります。トピック（一般にはスレッドと呼ばれる）はサブフォーラムの最下層にあり、ここでフォーラムメンバーはディスカッションや投稿を開始できます。</p>
+<p>OHDSIフォーラムには、次のようなコンテンツのカテゴリがあります：</p>
 <ul>
-<li>「フィールド値をスキャン」をチェックすると、WhiteRabbitは列に表示される値を調査します。</li>
-<li>「最小セル数」はフィールド値のスキャン時のオプションです。デフォルトでは5に設定されており、ソースデータで5回未満表示された値は報告に表示されません。個別のデータセットには、この最小セル数に関する独自のルールがある場合があります。</li>
-<li>「テーブルあたりの行数」はフィールド値のスキャン時のオプションです。デフォルトでは、White Rabbitはテーブル内の100,000行をランダムに選択してスキャンします。</li>
+<li><strong>一般:</strong> OHDSIコミュニティに関する一般的なディスカッションと参加方法</li>
+<li><strong>実装者:</strong> 共通データモデルとOHDSI分析フレームワークをローカル環境に実装する方法についてのディスカッション</li>
+<li><strong>開発者:</strong> OHDSIアプリケーションや他のOMOP CDMを活用するツールのオープンソース開発についてのディスカッション</li>
+<li><strong>研究者:</strong> CDMベースの研究についてのディスカッション（エビデンス創出、共同研究、統計手法およびOHDSI研究ネットワークに関連するその他のトピックを含む）</li>
+<li><strong>CDMビルダー:</strong> 要件、ボキャブラリ、技術的側面を含む進行中のCDM開発についてのディスカッション</li>
+<li><strong>語彙ユーザー:</strong> ボキャブラリコンテンツに関するディスカッション</li>
+<li><strong>地域チャプター（例：韓国、中国、ヨーロッパ）:</strong> OMOP実装やOHDSIコミュニティ活動に関連する、母国語での地域でのディスカッション</li>
 </ul>
-<p>すべての設定が完了したら、「テーブルをスキャン」ボタンを押します。スキャンが完了すると、レポートが作業フォルダに書き込まれます。</p>
-</div>
-<div id="スキャンレポートの解釈" class="section level4 unnumbered hasAnchor">
-<h4>スキャンレポートの解釈<a href="ExtractTransformLoad.html#スキャンレポートの解釈" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>スキャンが完了すると、スキャンされた各テーブルと概要タブを含むExcelファイルが選択されたフォルダに生成されます。概要タブにはスキャンされたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータ型、フィールドの最大長、テーブル行数、スキャンされた行数、および各フィールドが空である頻度が一覧表示されます。図<a href="ExtractTransformLoad.html#fig:ScanOverviewTab">7.3</a>.に示されたサンプル概要タブ。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ScanOverviewTab"></span>
-<img src="images/ExtractTransformLoad/ScanOverviewTab.png" alt="スキャンレポートのサンプル概要タブ。" width="100%" />
-<p class="caption">
-図 7.3: スキャンレポートのサンプル概要タブ。
-</p>
-</div>
-<p>各テーブルのタブには、各フィールド、各フィールド内の値、および各値の頻度が表示されます。各ソーステーブル列は、Excelに2つの列を生成します。1つの列には、スキャン時に設定された「最小セル数」を超えるすべての固有値がリストされます。固有値のリストが切り捨てられた場合、リストの最後の値は「リスト切り捨て」と表示されます。これは、「最小セル数」で入力した数より少ない頻度で表示される1つ以上の追加の固有ソース値が存在することを示します。各固有値の横には、その値がサンプルに出現する頻度（発生回数）を含む2番目の列もあります。これらの2つの列（固有値と頻度）は、ワークブック内のプロファイリングされたテーブルのすべてのソースカラムについて繰り返されます。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scanSex"></span>
-<img src="images/ExtractTransformLoad/ScanSex.png" alt="単一列のサンプル値。" width="30%" />
-<p class="caption">
-図 7.4: 単一列のサンプル値。
-</p>
-</div>
-<p>レポートはソースデータを理解するために強力であり、存在するものを強調します。例えば、図<a href="ExtractTransformLoad.html#fig:scanSex">7.4</a>に示された結果がスキャンされたテーブルの「Sex」列に戻された場合、2つの一般的な値（1と2）がそれぞれ61,491回と35,401回出現したことが分かります。White Rabbitは1を男性、2を女性として定義することはなく、データホルダーが通常、ソースシステムに固有のソースコードを定義する必要があります。しかし、これらの2つの値（1と2）はデータに存在する唯一の値ではなく、このリストが切り捨てられたことが確認できます。これらの他の値は非常に低い頻度で出現し（「最小セル数」で定義）、しばしば不正確または非常に疑わしい値を表しています。ETLを生成する際には、高頻度のジェンダーコンセプト1と2を処理するだけでなく、この列に存在する他の低頻度の値にも対応するよう計画する必要があります。例えば、これらの低頻度のジェンダーが「NULL」であれば、そのデータを処理し、その状況に対処する方法をETLが知っていることを確認したいです。</p>
+<p>自分のトピックを投稿するには、アカウントにサインアップする必要があります。フォーラムのアカウントを取得し、一般的なトピックの「Welcome to OHDSI! - Please introduce yourself（OHDSIへようこそ！-自己紹介をお願いします」というスレッドで自己紹介することをお勧めします。返信して、1) 自己紹介と自分の仕事について少し教えてください、2) コミュニティでどのように貢献したいか教えてください（例：ソフトウェア開発、研究実施、研究論文の執筆など）。これでOHDSIの旅が始まります！ここから、ディスカッションに参加することをお勧めします。OHDSIコミュニティは、質問したり、新しいアイデアを議論したり、コラボレーションしたりするための手段としてフォーラムを使用することを推奨しています。</p>
+
+<div class="rmdimportant">
+<p>トピックを「ウォッチ」することができます。これは、ウォッチしているトピックに新しい投稿が追加されたときに、メールを受け取り、メールを介して投稿に直接返信できることを意味します。一般的なスレッドをウォッチして、今後の会議のアジェンダ、協力機会の詳細を受け取り、毎週のOHDSIダイジェストを直接受信トレイに届けましょう！</p>
 </div>
 </div>
-<div id="rabbit-in-a-hat" class="section level3 hasAnchor" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Rabbit-In-a-Hat<a href="ExtractTransformLoad.html#rabbit-in-a-hat" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>White Rabbitスキャンを手にしたら、ソースデータの全体像が掴めます。次に、これをCDMに変換するためのロジックを定義する必要があります。このデザイン作業には、ソースデータとCDMの両方に関する深い知識が必要です。White Rabbitソフトウェアと共に提供されるRabbit-in-a-Hatツールは、これらの分野の専門家チームをサポートするように特別にデザインされています。典型的な設定では、ETLデザインチームが一緒に部屋に集まり、Rabbit-in-a-Hatがスクリーンに投影されます。最初のラウンドでは、テーブル間のマッピングがコラボレーションで決定され、その後、フィールド間のマッピングがデザインされ、値をどのように変換するかのロジックが定義されます。 </p>
-<div id="範囲と目的-1" class="section level4 unnumbered hasAnchor">
-<h4>範囲と目的<a href="ExtractTransformLoad.html#範囲と目的-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Rabbit-In-a-HatはWhite Rabbitスキャンドキュメントを読み取り、表示するようにデザインされています。White Rabbitはソースデータに関する情報を生成し、Rabbit-In-a-Hatはその情報を使用して、グラフィカルユーザーインターフェイスを通じてソースデータをCDMのテーブルおよびカラムに接続することを可能にします。Rabbit-In-a-HatはETLプロセスのドキュメントを生成しますが、ETLを作成するコードは生成しません。</p>
+<div id="ohdsiイベント" class="section level3 hasAnchor" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> 2.1.2 OHDSIイベント<a href="旅に参加しよう.html#ohdsiイベント" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSIは、コラボレーター同士が互いから学び、将来の協力を促進する機会を提供するために、定期的に対面イベントを開催しています。これらのイベントはOHDSIウェブサイトで通知され、参加を希望する人は誰でも無料で参加できます。</p>
+<p>OHDSIシンポジウムは、米国、ヨーロッパ、アジアで毎年開催される学術会議で、コラボレーターが全体会議、ポスター発表、ソフトウェアのデモを通じて最新の研究を発表できます。OHDSIシンポジウムはネットワーキングのための素晴らしい場であり、コミュニティ全体での最新の進展について学ぶ機会です。OHDSIシンポジウムは通常、OHDSIチュートリアルが併設されており、コミュニティへの新規参加者がデータ標準や分析のベストプラクティスに関するトピックで実践的な取り組みを行う機会を提供しています。これらのチュートリアルは通常ビデオ録画され、イベント後にOHDSIウェブサイトで公開され、イベントに参加できなかった人も利用できます。</p>
+<p>OHDSIコラボレーターの対面イベントは、通常は共通の関心事の問題を中心に据えた小規模なフォーラムです。過去のイベントには、フェノタイプ・ハッカソン、データ品質ハッカソン、オープンソースソフトウェアのドキュメンテーション・ハッカソンなどがあります。OHDSIは、複数のスタディ ソンイベントを主催してきました。この複数日にわたるセッションの目的は、適切な観察分析を設計および実装し、OHDSIネットワーク全体で研究を実行し、一般への普及のために証拠を統合することにより、特定の研究問題に関してチームとして協力することです。これらのイベントのすべてにおいて、共通の問題を解決したいという共通の願望があるだけでなく、共同で問題解決を行うプロセスに関する学習と継続的な改善を促す歓迎的な環境を提供することにも共通の関心があります。</p>
+<p>OHDSIコミュニティの力についてもっと学びましょう。過去のシンポジウム、対面会議を検索し、OHDSIチュートリアルを視聴ください。OHDSIウェブサイトの<a href="https://www.ohdsi.org/past-events/">過去のイベント</a>セクションから視聴できます。過去のイベントは定期的に更新され、コミュニティイベントはアーカイブされています。</p>
 </div>
-<div id="プロセス概要-1" class="section level4 unnumbered hasAnchor">
-<h4>プロセス概要<a href="ExtractTransformLoad.html#プロセス概要-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>このソフトウェアを使用してETLのドキュメントを生成する一般的な手順：</p>
-<ol style="list-style-type: decimal">
-<li>White Rabbitのスキャン結果を完了させます。</li>
-<li>スキャン結果を開くと、インターフェースにソーステーブルおよびCDMテーブルが表示されます。</li>
-<li>ソーステーブルを対応するCDMテーブルに接続します。</li>
-<li>各ソーステーブルからCDMテーブルへの接続について、ソース列からCDM列への詳細を定義します。</li>
-<li>Rabbit-In-a-Hatの作業内容を保存し、MS Wordドキュメントにエクスポートします。</li>
-</ol>
+<div id="ohdsiコミュニティコール" class="section level3 hasAnchor" number="3.0.3">
+<h3><span class="header-section-number">3.0.3</span> 2.1.3 OHDSIコミュニティコール<a href="旅に参加しよう.html#ohdsiコミュニティコール" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSI コミュニティ コールは、OHDSI コミュニティ内で進行中の活動にスポットライトを当てる毎週の機会です。毎週火曜日の午前11時から12時(東部標準時)に開催される電話会議は、OHDSIコミュニティが集まり、最近の開発を共有し、個々の協力者、ワーキンググループ、コミュニティ全体の成果を認識する時間です。毎週の会議は記録され、プレゼンテーションはOHDSIWebサイトのリソースにアーカイブされます。</p>
+<p>OHDSIコラボレーターは、この毎週の電話会議への参加を歓迎し、コミュニティディスカッションのトピックを提案することを奨励されています。OHDSIコミュニティコールは、研究成果を共有し、進行中の作業に対するフィードバックを求め、開発中のオープンソースソフトウェアツールをデモンストレーションし、データモデリングと分析のためのコミュニティベストプラクティスを議論し、助成金/出版/会議ワークショップのための将来の協力機会をブレインストーミングする場となります。OHDSIコラボレーター会議のためのトピックを持っているコラボレーターは、OHDSIフォーラムにご意見を投稿してください。</p>
+<p>OHDSI コミュニティの新規参加者として、OHDSIネットワーク全体で何が起こっているかを把握するために、このコールシリーズをカレンダーに追加することをお勧めします。OHDSIコールに参加する場合は、OHDSIフォーラムでアナウンスを確認してください。<a href="https://forums.ohdsi.org/">OHDSIフォーラム</a>コミュニティコールのトピックは週ごとに異なります。OHDSIフォーラムのOHDSIウィークリーダイジェストで、毎週のプレゼンテーションのトピックの詳細情報を確認することもできます。新規参加者は、初回のコールで自己紹介し、自分自身、経歴、OHDSIに参加した理由についてコミュニティに話すよう求められます。</p>
 </div>
-<div id="etlロジックの記述" class="section level4 unnumbered hasAnchor">
-<h4>ETLロジックの記述<a href="ExtractTransformLoad.html#etlロジックの記述" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソースデータをOMOP CDMに変換する方法のロジックをデザインし、記述する準備が整います。次のセクションでは、Synthea<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>データベースのいくつかのテーブルが変換中にどのように見えるかを例示します。</p>
-</div>
-<div id="etlの一般的なフロー" class="section level4 unnumbered hasAnchor">
-<h4>ETLの一般的なフロー<a href="ExtractTransformLoad.html#etlの一般的なフロー" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>CDMは人中心のモデルであるため、まずPERSONテーブルをマッピングすることが常に良い考えです。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照しているため、最初にPERSONテーブルのロジックを解決すると、後で簡単になります。PERSONテーブルの後は、OBSERVATION_PERIODテーブルを次に変換するのが良いルールです。CDMデータベースの各人物には少なくとも1つのOBSERVATION_PERIODがあり、一般的に、人物のほとんどのイベントはこの期間内に発生します。PERSONおよびOBSERVATION_PERIODテーブルが完了したら、次は通常、PROVIDER、CARE_SITE、およびLOCATIONなどの次元テーブルを変換します。臨床テーブルの前に処理すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはしばしばETL全体で最も複雑なロジックであり、最も重要なものの1つです。人物の患者の旅の過程で発生するほとんどのイベントは受診期間中に発生します。これらのテーブルが完了したら、どのCDMテーブルを変換し、その順序を選択できます。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:etlFlow"></span>
-<img src="images/ExtractTransformLoad/flowOfEtl.png" alt="ETLの一般的なフローと、最初にマッピングするテーブル。" width="100%" />
-<p class="caption">
-図 7.5: ETLの一般的なフローと、最初にマッピングするテーブル。
-</p>
-</div>
-<p>CDM変換中に中間テーブルを作成する必要があることがよくあります。これは、イベントに正しいVISIT_OCCURRENCE_IDを割り当てるため、またはソースコードを標準コンセプトにマッピングするため（このステップをオンザフライで行うことはしばしば非常に遅い）です。中間テーブルは100％許可され推奨されています。ただし、変換が完了した後にこれらの中間テーブルを永続化し、それらに依存することは推奨されません。</p>
-</div>
-<div id="マッピング例personテーブル" class="section level4 unnumbered hasAnchor">
-<h4>マッピング例：Personテーブル<a href="ExtractTransformLoad.html#マッピング例personテーブル" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図<a href="ExtractTransformLoad.html#fig:syntheaPerson">7.6</a>. に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:syntheaPerson"></span>
-<img src="images/ExtractTransformLoad/syntheaPersonTable.png" alt="Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング。" width="100%" />
-<p class="caption">
-図 7.6: Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング。
-</p>
-</div>
-<p>表<a href="#tab:syntheaEtlPerson"><strong>??</strong></a>には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic &amp; comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。</p>
-<p>表：(＃tab:syntheaEtlPerson) Synthea PatientsテーブルをCDM PERSONテーブルに変換するためのETLロジック</p>
+<div id="ohdsiワークグループ" class="section level3 hasAnchor" number="3.0.4">
+<h3><span class="header-section-number">3.0.4</span> 2.1.4 OHDSIワークグループ<a href="旅に参加しよう.html#ohdsiワークグループ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSI には、ワークグループ チームが主導するさまざまな進行中のプロジェクトがあります。各ワークグループには独自のリーダーシップ チームがあり、プロジェクトの目的、目標、コミュニティに提供される成果物を決定します。ワークグループへの参加は、プロジェクトの目的と目標に貢献することに関心のあるすべての人に開かれています。ワークグループは、長期にわたる戦略的な目的の場合もあれば、コミュニティの特定のニーズを満たすための短期プロジェクトである場合もあります。ワークグループの会議の頻度は、プロジェクト リーダーシップによって決定され、グループごとに異なります。アクティブなワークグループのリストは、OHDSI Wiki OHDSIWiki](<a href="https://www.ohdsi.org/web/wiki/doku.php?id=projects:overview">https://www.ohdsi.org/web/wiki/doku.php?id=projects:overview)で管理されています</a>で管理されています){.uri}。 </p>
+<p>表2.1 <a href="#tab:OHDSIworkgroups">3.1</a> は、アクティブなOHDSI作業グループのクイックリファレンスです。是非コールに参加して、より多くを学ぶことをお勧めします。</p>
+<p>表: (#tab:OHDSIworkgroups) 注目すべきOHDSI作業グループ</p>
 <table>
 <colgroup>
-<col width="31%" />
-<col width="13%" />
-<col width="55%" />
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">目的フィールド</th>
-<th align="left">ソースフィールド</th>
-<th align="left">ロジックとコメント</th>
+<th align="left">ワークグループ名</th>
+<th align="left">目的</th>
+<th align="left">対象参加者</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">PERSON_ID</td>
-<td align="left"></td>
-<td align="left">自動生成。 PERSON_IDは実装時に生成されます。これは、ソースのid値がvarchar値であり、PERSON_IDは整数であるためです。 ソースのidフィールドは、その値を保持し、必要に応じてエラーチェックを行うためにPERSON_SOURCE_VALUEとして設定されます。</td>
+<td align="left">Atlas &amp; WebAPI</td>
+<td align="left">AtlasとWebAPIは、OMOP共通データモデルを基盤にして構築し、標準化された分析機能を提供するOHDSIオープンソースソフトウェアアーキテクチャの一部です。</td>
+<td align="left">オープンソースのAtlas/WebAPIプラットフォームを改善し、貢献することを目指すJava &amp; JavaScriptソフトウェア開発者</td>
 </tr>
 <tr class="even">
-<td align="left">GENDER_CONCEPT_ID</td>
-<td align="left">gender</td>
-<td align="left">性別が「M」の場合、GENDER_CONCEPT_IDは8507、性別が「F」の場合は8532に設定します。不明な性別を持つ行は削除します。これらの2つのコンセプトは、性別ドメインの唯一の標準コンセプトであるため選ばれました。不明な性別の患者を削除するかどうかの決定は、通常、サイトに基づいて行われますが、性別のない人々は分析から除外されるため、削除することを推奨します。</td>
+<td align="left">CDM &amp; Vocabulary</td>
+<td align="left">臨床患者データに適用される体系的、標準化された大規模な分析を目的として、OMOP 共通データ モデルの開発を継続します。他のワーキング グループによって開発された標準化された分析をサポートするため、国際的なコーディングシステムと患者ケアの臨床的側面のカバレッジを拡大することで、標準化されたボキャブラリの品質を向上させます。</td>
+<td align="left">OMOP共通データモデルと標準化ボキャブラリの改善に関心があり、すべてのニーズとユースケースに対応できる人</td>
 </tr>
 <tr class="odd">
-<td align="left">YEAR_OF_BIRTH</td>
-<td align="left">birthdate</td>
-<td align="left">生年月日から</td>
+<td align="left">Genomics</td>
+<td align="left">OMOP CDMを拡張して、患者のゲノムデータを組み込みます。グループは、さまざまなシーケンスプロセスからの遺伝子変異に関する情報を保存できる CDM 互換スキーマを定義します。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">Population-Level Estimation</td>
+<td align="left">正確で信頼性が高く、再現性のある集団レベルの効果推定につながる観察研究のための科学的手法を開発し、コミュニティによるこれらの手法の使用を促進します。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="odd">
+<td align="left">Natural Language Processing</td>
+<td align="left">OHDSI傘下の観察研究で、電子健康記録(EHR)のテキスト情報の使用を促進します。この目的を促進するため、グループはOHDSIコミュニティによる研究に臨床テキストを利用するために実装できる方法とソフトウェアを開発します。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">患者レベル予測</td>
+<td align="left">複数の関心対象の結果に利用でき、関心対象のあらゆる患者サブグループからの観察医療データに適用します、正確で十分に調整された患者中心の予測モデルを開発するための標準化されたプロセスを確立します。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="odd">
+<td align="left">Gold Standard Phenotype Library</td>
+<td align="left">OHDSIコミュニティのメンバーが、コミュニティで検証されたコホート定義を研究やその他の活動のために見つけ、評価し、利用できるようにします。</td>
+<td align="left">フェノタイプのキュレーションと検証に関心のあるすべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">FHIR Workgroup</td>
+<td align="left">OHDSI FHIR統合のロードマップを確立し、OHDSIベースの観察研究のためにEHRコミュニティ内でFHIR実装とデータを活用するための推奨を提供し、FHIRベースのツールとAPIを通じてOHDSIデータと研究結果を普及させるための推奨を提供します。</td>
+<td align="left">相互運用性に関心のあるすべての人が参加可能</td>
+</tr>
+<tr class="odd">
+<td align="left">GIS</td>
+<td align="left">OMOP CDMを拡張し、患者の環境曝露履歴をその臨床フェノタイプと関連付けるためにOHDSIツールを活用する</td>
+<td align="left">健康関連の地理属性に興味のあるすべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">Clinical Trials</td>
+<td align="left">OHDSIプラットフォームとエコシステムが試験のあらゆる側面で助けることができる臨床試験のユースケースを理解し、OHDSIツールの更新を支援してサポートします。</td>
+<td align="left">臨床試験に興味のあるすべての人に開放</td>
+</tr>
+<tr class="odd">
+<td align="left">THEMIS</td>
+<td align="left">各OMOPサイトで設計されたETLプロトコルが最高品質で再現可能かつ効率的であることを保証するためにOMOPCDMコンベント以上の標準コンベントを開発します。</td>
+<td align="left">ETL標準化に関心のあるすべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">Metadata &amp; Annotations</td>
+<td align="left">観察データセットに関する有用なデータアーティファクトを研究者が消費し作成できるようにするために、共通データモデルに人間および機械によって作成されたメタデータおよび注釈を格納する標準プロセスを定義すること。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="odd">
+<td align="left">Patient Generated Health Data (PGHD)</td>
+<td align="left">スマートフォン/アプリ/ウェアラブルデバイスで生成されるPGHDのETLコンベント、臨床データとの統合プロセス、および分析プロセスを開発することを目指すワークグループです。</td>
+<td align="left">すべての人が参加可能</td>
+</tr>
+<tr class="even">
+<td align="left">Women of OHDSI</td>
+<td align="left">OHDSI コミュニティ内の女性が集まり、科学、技術、工学、数学 (STEM) 分野で働く女性として直面する課題について話し合うためのフォーラムを提供します。女性が意見を共有し、懸念を表明し、OHDSI コミュニティが STEM 分野の女性をどのようにサポートできるかについてアイデアを提案し、最終的には女性がコミュニティ内およびそれぞれの分野でリーダーになれるよう刺激を与える議論を促進することを目指しています。</td>
+<td align="left">このミッションに賛同する人は参加可能</td>
+</tr>
+<tr class="odd">
+<td align="left">Steering Committee</td>
+<td align="left">OHDSIのすべての活動とイベントが、成長を続けるコミュニティのニーズに合致していることを確認することで、OHDSI の使命、ビジョン、および価値観を維持します。さらに、このグループは、OHDSI の将来の方向性についてガイダンスを提供することで、コロンビアに拠点を置く OHDSI 調整センターの諮問グループとして機能します。</td>
+<td align="left">コミュニティ内のリーダー</td>
 </tr>
 </tbody>
 </table>
 </div>
+<div id="ohdsi地域支部" class="section level3 hasAnchor" number="3.0.5">
+<h3><span class="header-section-number">3.0.5</span> 2.1.5 OHDSI地域支部<a href="旅に参加しよう.html#ohdsi地域支部" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSI 地域支部は、地理的な地域に所在し、地域特有の問題に対処するためにローカル ネットワーク イベントや会議を開催したいと考えている OHDSI コラボレーターのグループを表します。現在、OHDSI地域支部は、ヨーロッパ OHDSI4、韓国 OHDSI5、中国 OHDSI6 にあります。ご自身の地域で OHDSI 地域支部を設立したい場合は、OHDSI Webサイトで説明されているOHDSI地域支部のプロセスに従って設立できます。</p>
 </div>
+<div id="ohdsiリサーチネットワーク" class="section level3 hasAnchor" number="3.0.6">
+<h3><span class="header-section-number">3.0.6</span> 2.1.6 OHDSIリサーチネットワーク<a href="旅に参加しよう.html#ohdsiリサーチネットワーク" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>OHDSI のコラボレーターの多くは、データをOMOP共通データモデルに変換することに関心を持っています。OHDSI研究ネットワークは、抽出、変換、ロード(ETL)プロセスを経てOMOPに準拠した観測データベースの多様なグローバルコミュニティを表しています。OHDSIコミュニティでの取り組みにデータの変換が含まれる場合は、OMOP CDMとボキャブラリに関するチュートリアル、変換を支援する無料で利用できるツール、特定のドメインまたはデータ変換の種類を対象とするワークグループなど、取り組みを支援する多数のコミュニティリソースがあります。OHDSIのコラボレーターは、OHDSIフォーラムを利用して、CDM変換中に発生する課題について話し合い、トラブルシューティングすることをお勧めします。</p>
 </div>
-<div id="ステップ2-コードマッピングの作成" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> ステップ2: コードマッピングの作成<a href="ExtractTransformLoad.html#ステップ2-コードマッピングの作成" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>OMOPボキャブラリには時間とともにますます多くのソースコードが追加されています。これは、CDMにデータを変換する際のコーディングシステムが既に含まれており、マッピングされている可能性があることを意味します。含まれているボキャブラリを確認するために、OMOPボキャブラリのVOCABULARYテーブルをチェックしてください。非標準のソースコード（例：ICD-10CMコード）から標準コンセプト（例：SNOMEDコード）へのマッピングを抽出するには、relationship_id =「Maps to」を持つCONCEPT_RELATIONSHIPテーブルのレコードを使用できます。例えば、ICD-10CMコード「I21」（「急性心筋梗塞」）の標準コンセプトIDを見つけるためには、次のSQLを使用します：</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="ExtractTransformLoad.html#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> concept_id_2 <span class="kw">AS</span> standard_concept_id</span>
-<span id="cb4-2"><a href="ExtractTransformLoad.html#cb4-2" tabindex="-1"></a><span class="kw">FROM</span> concept_relationship</span>
-<span id="cb4-3"><a href="ExtractTransformLoad.html#cb4-3" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> concept <span class="kw">AS</span> source_concept</span>
-<span id="cb4-4"><a href="ExtractTransformLoad.html#cb4-4" tabindex="-1"></a>  <span class="kw">ON</span> concept_id <span class="op">=</span> concept_id_1</span>
-<span id="cb4-5"><a href="ExtractTransformLoad.html#cb4-5" tabindex="-1"></a><span class="kw">WHERE</span> concept_code <span class="op">=</span> <span class="st">&#39;I21&#39;</span></span>
-<span id="cb4-6"><a href="ExtractTransformLoad.html#cb4-6" tabindex="-1"></a>  <span class="kw">AND</span> vocabulary_id <span class="op">=</span> <span class="st">&#39;ICD10CM&#39;</span></span>
-<span id="cb4-7"><a href="ExtractTransformLoad.html#cb4-7" tabindex="-1"></a>  <span class="kw">AND</span> relationship_id <span class="op">=</span> <span class="st">&#39;Maps to&#39;</span>;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">STANDARD_CONCEPT_ID</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">312327</td>
-</tr>
-</tbody>
-</table>
-<p>残念ながら、ソースデータがボキャブラリに含まれていないコーディングシステムを使用している場合もあります。この場合、ソースコーディングシステムから標準コンセプトへのマッピングを作成する必要があります。コードマッピングは特にソースコーディングシステムに多くのコードが含まれている場合、気が遠くなる作業です。作業を楽にするために以下のことを行うことができます：</p>
-<ul>
-<li>最も頻繁に使用されるコードに焦点を当てる。本当に使用されていないか、ほとんど使用されていないコードに労力を割く価値はありません。</li>
-<li>可能な限り既存の情報を活用する。例えば、多くの国の薬品コーディングシステムはATCにマッピングされています。ATCは多くの目的には詳細でないかもしれませんが、ATCとRxNormのコンセプトの関係を使って適切なRxNormコードを推測することができます。</li>
-<li>Usagiを使用。</li>
-</ul>
-<div id="usagi" class="section level3 hasAnchor" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Usagi<a href="ExtractTransformLoad.html#usagi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>。 </p>
-<div id="範囲と目的-2" class="section level4 hasAnchor" number="7.2.1.1">
-<h4><span class="header-section-number">7.2.1.1</span> 範囲と目的<a href="ExtractTransformLoad.html#範囲と目的-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>マッピングが必要なソースコードはUsagiにロードされます（コードが英語でない場合は追加の翻訳列が必要です）。用語の類似性アプローチを使用してソースコードをボキャブラリコンセプトに接続します。ただし、これらのコード接続は手動で見直す必要があり、Usagiはこれを支援するインターフェースを提供します。Usagiはボキャブラリで標準コンセプトとしてマークされているコンセプトのみを提案します。</p>
+<div id="どこにフィットするか" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> どこにフィットするか<a href="旅に参加しよう.html#どこにフィットするか" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>今頃あなたは「OHDSIコミュニティに自分はどこにフィットするのか？」と疑問に思っているかもしれません。</p>
+<p><strong>私は臨床研究者で研究を始めたいと思っています。</strong> 特定の質問に答えるためにOHDSIリサーチネットワークを使用したい臨床研究者であるなら、たとえば論文を発表したいと考えているなら、あなたは正しい場所にいます。OHDSIフォーラムの<a href="https://forums.ohdsi.org/c/researchers">OHDSIリサーチャーズトピック</a>にアイデアを投稿することから始めましょう。これにより、同様の関心を持つ研究者とつながることができます。OHDSIは論文の出版を好んでおり、リサーチクエスチョンを分析や論文にしていくための多くのリソースを多く提供しています。詳しくは、詳細は第 11 章、第 12 章、および第 13 章 <a href="Characterization.html#Characterization">12</a>、<a href="PopulationLevelEstimation.html#PopulationLevelEstimation">13</a>、<a href="PatientLevelPrediction.html#PatientLevelPrediction">14</a>をご覧ください。</p>
+<p><strong>私はOHDSIコミュニティが産出する情報を読み消費したいと思っています。</strong> あなたが患者であっても、実践中の臨床医であっても、ヘルスケアの主題専門知識を持っている人であっても、OHDSIは健康結果をよりよく理解するのに役立つ高品質なエビデンスを提供したいと考えています。コードを書くのは久しぶりかもしれません。プログラムを書いたことがないかもしれません。あなたにはこのコミュニティに居場所があります。私たちはあなたを<em>エビデンス消費者</em>と呼びます。あなたはOHDSIの研究を行動に変えつつあります。OHDSIが生成したエビデンス、生成しているエビデンスを知るために選別し、おそらくあなたに関連する質問も提案したいと考えています。ディスカッションに参加していただきたいと思います。<a href="http://forums.ohdsi.org">OHDSIフォーラム</a>で質問を始めましょう。コミュニティコールに参加し、最新の研究について聞いてください。OHDSIシンポジウムや対面ミーティングに参加してコミュニティと直接交流しましょう。あなたの質問はOHDSIコミュニティの重要な部分です。声を上げて、あなたが探しているエビデンスについてもっと学ばせてください！</p>
+<p><strong>私はヘルスケアのリーダーシップの役割で働いています。データ所有者である、またはその代表であるかもしれません。私の組織のためにOMOP CDMとOHDSI分析ツールの有用性を評価しています。</strong> 組織の管理者/リーダーとして、あなたはOHDSIについて耳にしており、OMOP CDMがあなたのユースケースにどのように役立つかを知りたがっているかもしれません。<a href="https://www.ohdsi.org/past-events/">OHDSI過去のイベント</a>の資料を確認して研究の本体を確認することから始めるかもしれません。コミュニティコールに参加してただ聞くだけでも構いません。Chapter <a href="DataAnalyticsUseCases.html#DataAnalyticsUseCases">8</a>（データ分析ユースケース）が、OMOP CDMとOHDSI分析ツールがどのような種類の研究を可能にするかを理解するのに役立つかもしれません。旅の途中でOHDSIコミュニティがあなたをサポートします。興味のある具体的な分野がある場合は、例を求めて遠慮せず声を上げてください。世界中の200以上の組織がOHDSIで協力しています。コミュニティの価値を示すための多くの成功事例があります。</p>
+<p><strong>私はデータベース管理者で、私の機関のデータをOMOP CDMにETL/変換することを考えています。</strong> データを「OMOP」することを選択することは、斬新で価値のある取り組みです。ETLプロセスを開始しようとしている場合、<a href="https://www.ohdsi-europe.org/images/symposium-2019/tutorials/OHDSI_Vocabulary_CDM_Tutorial.pdf">OHDSIコミュニティETLチュートリアルスライド</a>を参照したり、次回のOHDSIシンポジウムに登録したりしてください。THEMIS作業グループのコールに参加し、OHDSIフォーラムで質問に参加することも考えてみてください。OMOP CDMの成功した実装を支援することに興味を持っているコミュニティの知識が豊富です。恥ずかしがらずに！</p>
+<p><strong>私はバイオ統計学者であり、OHDSIツールスタックに貢献することに興味があります。</strong> あなたはRに詳しい。また、Gitにコミットする方法を知っています。何よりも、OHDSIメソッドライブラリにあなたの専門知識を持ち込み、これらの方法論をさらに発展させたいと思っています。現行のコミュニティの優先事項についてさらに聞くために、ポピュレーションレベル推定または患者レベル予測作業グループのコールに参加することから始めましょう。OHDSIツールを使用している際に、該当するGitHubリポジトリ（例：SQL Renderパッケージの問題であれば、OHDSI/SqlRenderのGitHubリポジトリに提出します）に問題を報告することもできます。あなたの貢献を歓迎します！</p>
+<p><strong>私はソフトウェア開発者で、OHDSIツールスタックを補完するツールを開発することに興味があります。</strong> コミュニティへようこそ！OHDSIのミッションの一環として、私たちのツールはApacheライセンスの下でオープンソースとして管理されています。OHDSIツールスタックを補完するソリューションの開発を歓迎しています。作業グループに参加し、アイデアを提案してください。OHDSIはオープンサイエンスとオープンコラボレーションに強く投資していることを心に留めておいてください。独自のアルゴリズムやソフトウェアソリューションは歓迎されますが、私たちのソフトウェア開発の主な焦点ではありません。</p>
+<p><strong>私はコンサルタントであり、OHDSIコミュニティに助言したいと考えています。</strong> コミュニティへようこそ！あなたの専門知識は貴重であり、感謝されています。適切な場合には、OHDSIフォーラムでサービスを宣伝することができます。OHDSIチュートリアルに参加し、年間を通じてシンポジウムの講演やOHDSIの対面ミーティングで専門知識を共有することを検討してください。</p>
+<p><strong>私は学生であり、OHDSIについてもっと学びたいと思っています。</strong> あなたは正しい場所にいます！OHDSIコミュニティコールに参加し、自己紹介を考えてみてください。OHDSIチュートリアルに深入りし、OHDSIシンポジウムや対面ミーティングに参加してOHDSIコミュニティが提供する方法とツールについてさらに学ぶことをお勧めします。特定の研究関心がある場合は、OHDSIフォーラムのリサーチャートピックに投稿して教えてください。多くの組織がOHDSIが支援する研究の機会を提供しています（例：ポストドック、研究フェローシップ）。OHDSIフォーラムにはこれらの機会に関する最新情報が掲載されています。</p>
 </div>
-<div id="プロセス概要-2" class="section level4 hasAnchor" number="7.2.1.2">
-<h4><span class="header-section-number">7.2.1.2</span> プロセス概要<a href="ExtractTransformLoad.html#プロセス概要-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>このソフトウェアを使用する一般的な手順は次のとおりです：</p>
-<ol style="list-style-type: decimal">
-<li>マッピングしたいソースシステムからソースコードをロードします。</li>
-<li>Usagiは用語の類似性アプローチを実行してソースコードをボキャブラリコンセプトにマッピングします。</li>
-<li>Usagiのインターフェースを利用して、自動提案の正しさを確認し、必要に応じて改善します。コードシステムと医療用語に精通した個人によるレビューが推奨されます。</li>
-<li>ボキャブラリのSOURCE_TO_CONCEPT_MAPにマッピングをエクスポートします。</li>
-</ol>
-</div>
-<div id="ソースコードをusagiにインポート" class="section level4 hasAnchor" number="7.2.1.3">
-<h4><span class="header-section-number">7.2.1.3</span> ソースコードをUsagiにインポート<a href="ExtractTransformLoad.html#ソースコードをusagiにインポート" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>ソースコードをCSVまたはExcel (.xlsx) ファイルにエクスポートします。これには、ソースコードと英語のソースコード記述が含まれている必要がありますが、追加の情報（例：投与単位、元の言語の説明（翻訳された場合））も持ち込むことができます。さらに、コードの頻度も持ち込むことが望ましく、これによりどのコードに最も労力をかけるべきかを優先的に決定するのに役立ちます（例：1,000個のソースコードがあっても、システム内で本当に使用されるのは100個だけかもしれません）。英語に翻訳する必要がある場合は、Google Translateを使用します。</p>
-<p>注意事項: ソースコードの抽出はドメインごとに分けて行い、1つの大きなファイルにまとめないでください（例：薬剤、処置、コンディション、観察）。</p>
-<p>ソースコードはFile → Import codesメニューからUsagiにロードされます。ここでは「Import codes …」が表示される（図<a href="ExtractTransformLoad.html#fig:usagiImport">7.7</a>）。この図では、ソースコード用語がオランダ語で、英語に翻訳されたものも含まれています。Usagiは英語の翻訳を利用して標準ボキャブラリにマッピングします。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:usagiImport"></span>
-<img src="images/ExtractTransformLoad/usagiImport.png" alt="Usagiコード入力画面。" width="100%" />
-<p class="caption">
-図 7.7: Usagiコード入力画面。
-</p>
-</div>
-<p>「Column mapping」セクション（左下）では、インポートされたテーブルをUsagiに対してどのように使用するかを定義します。ドロップダウンメニューにマウスを合わせると、それぞれの列の定義が表示されるポップアップが表示されます。Usagiは「Additional info」列をソースコードとボキャブラリコンセプトコードを関連付けるための情報として使用しませんが、この追加の情報はソースコードマッピングを確認する個々人を支援するのに役立ちますので、含めるべきです。</p>
-<p>また、「Filters」セクション（右下）で、Usagiがマッピングする際の制限を設定できます。例えば、図<a href="ExtractTransformLoad.html#fig:usagiImport">7.7</a>では、ユーザーはソースコードをConditionドメインのコンセプトにマッピングしています。デフォルトでは、Usagiは標準コンセプトにしかマッピングしませんが、「Filter standard concepts」をオフにすると、Usagiは分類コンセプトも考慮します。各フィルターについて詳細を知るためには、異なるフィルターにマウスをホバーさせてください。</p>
-<p>特別なフィルターとして「Filter by automatically selected concepts / ATC code」があります。制限する情報がある場合、Auto concept ID列（セミコロンで区切られた）にCONCEPT_IDsまたはATCコードのリストを提供することで検索を制限できます。例えば、薬剤の場合、既に各薬剤にATCコードが割り当てられているかもしれません。ATCコードは単一のRxNorm薬剤コードを特定しませんが、ボキャブラリ内のATCコードに該当するコンセプトのみを検索することで検索範囲を制限するのに役立ちます。ATCコードを使用するには、以下の手順に従います：</p>
-<ol style="list-style-type: decimal">
-<li>Column mapping部で、“Auto concept ID column”から”ATC column”に切り替える</li>
-<li>Column mapping部で、ATCコードの列を”AT</li>
-</ol>
-</div>
-</div>
-</div>
-<div id="ステップ-3-etlの実装" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> ステップ 3: ETLの実装<a href="ExtractTransformLoad.html#ステップ-3-etlの実装" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>デザインとコードマッピングが完了したら、ETLプロセスをソフトウェアで実装することができます。ETLのデザイン段階では、ソースデータとCDMに詳しい人が共同で作業することをおすすめしました。同様に、ETLを実装する際には、大量のデータを扱う経験があり、ETLの実装経験がある人を使うことが望ましいです。これは、あなたのグループ外の個人と協力することや、実装を担当する技術顧問を雇うことを意味するかもしれません。また、これは一度きりの費用ではないことにも注意が必要です。今後もETLの維持と運用を担当するために、少なくとも一部の時間を捧げる個人やチームがいることが望ましいです（詳細はセクション <a href="ExtractTransformLoad.html#CDMandETLMaintenance">7.6</a> を参照してください）。</p>
-<p>実装の具体的な内容はサイトごとに異なり、インフラ、データベースの規模、ETLの複雑さ、利用可能な技術専門知識など多くの要因に依存します。そのため、OHDSIコミュニティはETLの最適な実装方法について正式な推奨を行っていません。シンプルなSQLビルダー、SAS、C#、Java、およびKettleを使用するグループもいます。それぞれに長所と短所があり、技術に精通している人がいなければどれも使えません。</p>
-<p>様々なETLの例をいくつか挙げます（複雑さの順に記載）：</p>
-<ul>
-<li>ETL-Synthea - Syntheaデータベースを変換するために書かれたSQLビルダー
-<ul>
-<li><a href="https://github.com/OHDSI/etl-synthea">https://github.com/OHDSI/etl-synthea</a></li>
-</ul></li>
-<li>ETL-CDMBuilder - 複数のデータベースを変換するためにデザインされた.NETアプリケーション
-<ul>
-<li><a href="https://github.com/OHDSI/etl-cdmbuilder">https://github.com/OHDSI/etl-cdmbuilder</a></li>
-</ul></li>
-<li>ETL-LambdaBuilder - AWS lambda機能を使用するビルダー
-<ul>
-<li><a href="https://github.com/OHDSI/etl-lambdabuilder">https://github.com/OHDSI/etl-lambdabuilder</a></li>
-</ul></li>
-</ul>
-<p>複数回の独立した試みの後、ユーザーフレンドリーな”究極の”ETLツールの開発を断念しました。このようなツールはETLの80%にはうまく機能しますが、残りの20%のETLには、ソースデータベース固有の低レベルのコードを書く必要があります。</p>
-<p>技術者が実装を開始する準備ができたら、ETLデザイン文書を彼らと共有するべきです。ドキュメントには開発を開始するための十分な情報が含まれているはずですが、開発プロセス中にETLデザイン者が質問に応じることができるようにすることが重要です。デザイン者には明確な論理も、データやCDMに不慣れな実装者にはわかりにくいことがあります。実装フェーズはチーム全体の努力として維持されるべきです。実装者とデザイン者の間で、CDMの作成とテストのプロセスを繰り返し行い、両グループがすべての論理が正しく実行されたことに同意するまで進行することが受け入れられた慣行とされています。</p>
-</div>
-<div id="ステップ-4-品質管理" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> ステップ 4: 品質管理<a href="ExtractTransformLoad.html#ステップ-4-品質管理" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>抽出、変換、ロードプロセスでは品質管理が反復的です。一般的なパターンは、ロジックの記述-&gt;ロジックの実装-&gt;ロジックのテスト-&gt;ロジックの修正・記述です。CDMをテストする方法はいくつもありますが、以下は何年にもわたるETL実装を通じてコミュニティ全体で開発された推奨ステップです。 </p>
-<ul>
-<li>ETLデザイン文書、コンピュータコード、およびコードマッピングのレビュー。1人の人がミスをすることは常にあるので、必ず他の1人以上が行ったことをレビューするべきです。
-<ul>
-<li>コンピュータコードにおける最大の問題は、ネイティブデータのソースコードが標準コンセプトにどのようにマッピングされるかに起因します。特に日付特有のコード（NDCなど）の場合、マッピングは難しくなることがあります。どの領域でもマッピングが行われる場合は、正しいソースボキャブラリが適切なコンセプトIDに変換されているかを必ず再確認してください。</li>
-</ul></li>
-<li>ソースデータとターゲットデータのサンプルに関する情報を手動で比較します。
-<ul>
-<li>最大のユニークなレコード数を持つ理想的な1人のデータを追跡するのが役立つことがあります。1人のデータを追跡することで、CDMのデータが合意されたロジックに基づいて期待されるように見えない場合に問題が浮かび上がります。</li>
-</ul></li>
-<li>ソースデータとターゲットデータの全体的なカウントを比較します。
-<ul>
-<li>特定の問題にどのように対処するかによって、カウントに期待される差異があるかもしれません。たとえば、NULL性別の人々を解析から完全に除外する協力者がいます。また、CDMの受診期間がネイティブデータの受診やエンカウンターと異なるように構築されることもあります。そのため、ソースデータとCDMデータ間の全体的なカウントを比較する際には、これらの違いに留意し、期待する必要があります。</li>
-</ul></li>
-<li>ソースデータで既に行われた研究をCDMバージョンで再現します。
-<ul>
-<li>これはソースデータとCDMバージョンとの間の主要な違いを理解するための良い方法ですが、少し時間がかかります。</li>
-</ul></li>
-<li>ETLで対処する必要があるソースデータのパターンを再現するユニットテストを作成します。たとえば、性別情報のない患者が削除されるべき場合、性別がない個人のユニットテストを作成し、ビルダーがどのように処理するかを評価します。
-<ul>
-<li>ユニットテストは、ETL変換の品質と精度を評価する際に非常に便利です。通常、変換元データの構造を模倣する非常に小さいデータセットを作成します。このデータセット内の各個人またはレコードは、ETL文書に記載されている特定のロジックをテストします。この方法では、問題を特定し、失敗したロジックを特定するのが簡単になります。小さいサイズはコンピュータコードの実行が非常に速くなり、反復とエラーの特定を迅速に行えます。</li>
-</ul></li>
-</ul>
-<p>これらは、ETLの観点から品質管理にアプローチする高レベルの方法です。OHDSIコミュニティ内で進行中のデータ品質への取り組みの詳細については、Chapter <a href="DataQuality.html#DataQuality">16</a> を参照してください。</p>
-</div>
-<div id="etlの規約とthemis" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> ETLの規約とTHEMIS<a href="ExtractTransformLoad.html#etlの規約とthemis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>データをCDMに変換するグループが増えるにつれ、特定の状況でETLがどのように対処すべきかを指定する必要があることが明らかになりました。たとえば、出生年が欠けている個人記録の場合、ETLはどうすべきでしょうか？CDMの目標はヘルスケアデータを標準化することですが、各グループが特定のデータシナリオを異なる方法で処理すると、ネットワーク全体でデータを体系的に使用することが難しくなります。</p>
-<p>OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。</p>
-<p>すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。</p>
-</div>
-<div id="CDMandETLMaintenance" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> CDMおよびETLのメンテナンス<a href="ExtractTransformLoad.html#CDMandETLMaintenance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ETLをデザインし、マッピングを作成し、ETLを実装し、品質管理措置を構築することは容易な作業ではありません。残念ながら、この努力はそこで終わりではありません。最初のCDMが構築されると、ETLメンテナンスのサイクルが継続的に行われます。メンテナンスが必要となる一般的なトリガーは以下の通りです：ソースデータの変更、ETLのバグ、新しいOMOPボキャブラリのリリース、またはCDM自体の変更や更新です。これらのトリガーが発生すると、ETLドキュメント、ETLを実行するソフトウェアプログラミング、テストケースや品質管理の更新が必要になる場合があります。</p>
-<p>医療データソースは常に変化し続けることがよくあります。新しいデータが利用可能になるかもしれません（例：データに新しい列が追加される）。存在しなかった患者のシナリオが突然現れるかもしれません（例：生まれる前に死亡記録がある新しい患者）。データの理解が向上するかもしれません（例：保険請求データの処理の方法により、入院出産に関する記録の一部が外来として処理されること）。すべてのソースデータの変更がETL処理の変更を引き起こすわけではありませんが、最低限、ETL処理を中断する変更は対処する必要があります。</p>
-<p>バグが見つかった場合、それに対処する必要があります。しかし、すべてのバグが同じ重要性を持っているわけではないことを忘れないでください。例えば、COSTテーブルではcost列が整数に丸められていたとしましょう（例：ソースデータに$3.82があったのに、CDMで$4.00になっている）。データを使用して主に患者の薬剤曝露やコンディションの特性評価を行う研究者が多い場合、このようなバグは重要ではなく、将来的に対処することができます。しかし、データを使用する主要な研究者に健康経済学者も含まれていた場合、これは直ちに対処する必要がある重大なバグとなります。</p>
-<p>OMOPボキャブラリもまた、ソースデータと同様に常に変化しています。実際、ボキャブラリは1ヶ月に何度も更新されることがあります。各CDMは特定のボキャブラリバージョンで実行されており、新しい改善されたボキャブラリで実行すると、標準化されたボキャブラリにソースコードがマッピングされる方法が変わる可能性があります。ボキャブラリの違いはしばしば些細なものですが、新しいボキャブラリがリリースされるたびに新しいCDMを構築することは不要です。しかし、年間に1回か2回程度、新しいボキャブラリを採用することが良いとされています。この場合、CDMを再処理する必要があります。新しいバージョンのボキャブラリの変更がETLコード自体の更新を必要とすることはまれです。</p>
-<p>CDMまたはETLのメンテナンスが必要となる最後のトリガーは、共通データモデル自体の更新時です。コミュニティが成長し、新しいデータ要件が見つかると、これがCDMに追加データを保存することにつながるかもしれません。これは、以前はCDMに保存されていなかったデータが新しいCDMバージョンに保存場所を持つ可能性があることを意味します。既存のCDM構造の変更は頻繁ではありませんが、可能性はあります。例えば、CDMが元のDATEフィールドからDATETIMEフィールドを採用したことで、ETL処理にエラーが発生する可能性があります。CDMバージョンは頻繁にはリリースされず、サイトは移行するタイミングを選択できます。</p>
-</div>
-<div id="etlに関する最終的な考察" class="section level2 hasAnchor" number="7.7">
-<h2><span class="header-section-number">7.7</span> ETLに関する最終的な考察<a href="ExtractTransformLoad.html#etlに関する最終的な考察" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ETLプロセスにはさまざまな理由で困難があります。その中でも、私たちが処理しているソースデータの独自性により、「1つの解決策がすべてに適合する」という解決策を作成するのが難しいことが最大の理由の1つです。しかし、過去数年で以下のような貴重な教訓を得ました。</p>
-<ul>
-<li>80/20のルール。可能な限り、ソースコードを手動でコンセプトセットにマッピングするのに過度に時間を費やさないようにしましょう。理想的には、大多数のデータをカバーするソースコードをマッピングしてください。これで十分であり、将来のユースケースに基づいて残りのコードに対処することができます。</li>
-<li>研究の品質に見合わないデータを失うことを恐れなくても良い。それらはしばしば分析を開始する前に破棄されるレコードであり、私たちはETLプロセス中にそれらを削除します。</li>
-<li>CDMはメンテナンスが必要です。ETLが完了したからといって、再び触らないということではありません。生データが変更されるかもしれませんし、コードにバグがあるかもしれません。新しいボキャブラリやCDMの更新があるかもしれません。これらの変更に対応するためのリソースを計画しておくことで、ETLが常に最新の状態に保たれるようにしましょう。</li>
-<li>OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>をご覧ください。</li>
-</ul>
-</div>
-<div id="まとめ-4" class="section level2 hasAnchor" number="7.8">
-<h2><span class="header-section-number">7.8</span> まとめ<a href="ExtractTransformLoad.html#まとめ-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="まとめ-1" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> まとめ<a href="旅に参加しよう.html#まとめ-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 <div class="rmdsummary">
 <ul>
-<li><p>ETLにアプローチするための一般的に合意されたプロセスが存在します</p>
-<ul>
-<li>データ専門家とCDM専門家が協力してETLをデザイン</li>
-<li>医療知識を持つ人々がコードマッピングを作成</li>
-<li>技術者がETLを実装</li>
-<li>すべての関係者が品質管理に関与</li>
-</ul></li>
-<li><p>OHDSIコミュニティはこれらのステップを促進するためにツールを開発しており、これらは自由に使用できます</p></li>
-<li><p>ガイドとして使用できる多くのETL例や合意された慣習があります</p></li>
+<li>OHDSIコミュニティに参加するのは、挨拶するのと同じくらい簡単です！<strong>OHDSIフォーラム</strong>に投稿し、コミュニティコールに参加してください。</li>
+<li>研究やETLに関する質問をOHDSIフォーラムに投稿してください。</li>
 </ul>
 </div>
-</div>
-<div id="演習-1" class="section level2 hasAnchor" number="7.9">
-<h2><span class="header-section-number">7.9</span> 演習<a href="ExtractTransformLoad.html#演習-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="exercise">
-<p><span id="exr:exerciseEtl1" class="exercise"><strong>演習 7.1  </strong></span>ETLプロセスのステップを適切な順序に並べてください：</p>
-<ol style="list-style-type: upper-alpha">
-<li>データ専門家とCDM専門家が協力してETLをデザイン</li>
-<li>技術者がETLを実装</li>
-<li>医療知識を持つ人々がコードマッピングを作成</li>
-<li>すべての関係者が品質管理に関与</li>
-</ol>
-</div>
-<div class="exercise">
-<p><span id="exr:exerciseEtl2" class="exercise"><strong>演習 7.2  </strong></span>選択したOHDSIリソースを使用して、表<a href="#tab:exercisePersonTable">7.1</a>に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：</p>
-<p>表: (#tab:exercisePersonTable) PERSONテーブル。</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">列</th>
-<th align="left">値</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">PERSON_ID</td>
-<td align="left">A123B456</td>
-</tr>
-<tr class="even">
-<td align="left">GENDER_CONCEPT_ID</td>
-<td align="left">8532</td>
-</tr>
-<tr class="odd">
-<td align="left">YEAR_OF_BIRTH</td>
-<td align="left">NULL</td>
-</tr>
-<tr class="even">
-<td align="left">MONTH_OF_BIRTH</td>
-<td align="left">NULL</td>
-</tr>
-<tr class="odd">
-<td align="left">DAY_OF_BIRTH</td>
-<td align="left">NULL</td>
-</tr>
-<tr class="even">
-<td align="left">RACE_CONCEPT_ID</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="left">ETHNICITY_CONCEPT_ID</td>
-<td align="left">8527</td>
-</tr>
-<tr class="even">
-<td align="left">PERSON_SOURCE_VALUE</td>
-<td align="left">A123B456</td>
-</tr>
-<tr class="odd">
-<td align="left">GENDER_SOURCE_VALUE</td>
-<td align="left">F</td>
-</tr>
-<tr class="even">
-<td align="left">RACE_SOURCE_VALUE</td>
-<td align="left">WHITE</td>
-</tr>
-<tr class="odd">
-<td align="left">ETHNICITY_SOURCE_VALUE</td>
-<td align="left">提供されていない</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="exercise">
-<p><span id="exr:exerciseEtl3" class="exercise"><strong>演習 7.3  </strong></span>VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
-PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある限り、請求行をまとめます。まとめられた入院請求ごとに1つの入院受診期間と見なし、以下を設定します：</p>
-<ul>
-<li>MIN(START)をVISIT_START_DATEとして設定</li>
-<li>MAX(END)をVISIT_END_DATEとして設定</li>
-<li>“IP”をPLACE_OF_SERVICE_SOURCE_VALUEとして設定</li>
-</ul>
-<p>ソースデータに図<a href="ExtractTransformLoad.html#fig:exerciseSourceData">7.8</a>に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exerciseSourceData"></span>
-<img src="images/ExtractTransformLoad/exerciseSourceData.png" alt="例のソースデータ。" width="100%" />
-<p class="caption">
-図 7.8: 例のソースデータ。
-</p>
-</div>
-<p>提案された回答は付録<a href="SuggestedAnswers.html#Etlanswers">E.3</a>に見つけることができます。</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p><a href="https://github.com/OHDSI/WhiteRabbit" class="uri">https://github.com/OHDSI/WhiteRabbit</a>.<a href="ExtractTransformLoad.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>Synthea<sup>TM</sup>は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、<a href="https://github.com/synthetichealth/synthea/wiki">こちら</a>をご覧ください。<a href="ExtractTransformLoad.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p><a href="https://translate.google.com/" class="uri">https://translate.google.com/</a><a href="ExtractTransformLoad.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p><a href="https://github.com/OHDSI/Usagi" class="uri">https://github.com/OHDSI/Usagi</a><a href="ExtractTransformLoad.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p><a href="https://github.com/OHDSI/CommonDataModel/wiki" class="uri">https://github.com/OHDSI/CommonDataModel/wiki</a><a href="ExtractTransformLoad.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p><a href="https://github.com/OHDSI/Themis" class="uri">https://github.com/OHDSI/Themis</a><a href="ExtractTransformLoad.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="ExtractTransformLoad.html#fnref22" class="footnote-back">↩︎</a></p></li>
-<li id="fn23"><p><a href="https://forums.ohdsi.org/c/implementers" class="uri">https://forums.ohdsi.org/c/implementers</a><a href="ExtractTransformLoad.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<ol start="3">
+<li id="fn3"><p><a href="https://forums.ohdsi.org" class="uri">https://forums.ohdsi.org</a><a href="旅に参加しよう.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1154,8 +911,8 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDご�
           </div>
         </div>
       </div>
-<a href="StandardizedVocabularies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="第7章-翻訳作業中-データ解析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="WhereToBegin.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="OpenScience.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1186,7 +943,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/ExtractTransformLoad.Rmd",
+    "link": "https://github.com/OHDSI/TheBookOfOhdsiInFrench/edit/main/WhereToBegin.Rmd",
     "text": "編集"
   },
   "history": {

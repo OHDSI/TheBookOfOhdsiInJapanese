@@ -117,10 +117,6 @@ Table: (\#tab:hypertensionAceMono) 高血圧性障害
 | :----------- |:------------ | :--- | :----- | :--------- |
 | 316866 | 高血圧性障害 | いいえ | はい | いいえ |
 
-<<<<<<< HEAD
-Table: (\#tab:htnDrugsAceMono) 高血圧薬
-=======
->>>>>>> d84f15c84472a96d3c9d50b58c4246cdb83ccaa1
 
 Table: (\#tab:htnDrugsAceMono) 高血圧薬
 
@@ -219,10 +215,6 @@ Table: (\#tab:ami) 入院または緊急診療
 | 314666 | 陳旧性心筋梗塞 | はい | はい | いいえ |
 | 4329847 | 心筋梗塞 | いいえ | はい | いいえ |
 
-<<<<<<< HEAD
-Table: (\#tab:inpatientOrErAmi) 入院または緊急診療
-=======
->>>>>>> d84f15c84472a96d3c9d50b58c4246cdb83ccaa1
 
 Table: (\#tab:inpatientOrErAmi) 入院または緊急診療
 
