@@ -16,8 +16,8 @@ language:
     remark: "備考. "
     solution: "解答. "
   ui:
-    edit: "編集"
-    chapter_name: "章番号 "
+    edit: "エディション"
+    chapter_name: "第 %s章 "
 delete_merged_file: true
 new_session: true
 
