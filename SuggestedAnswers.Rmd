@@ -1,25 +1,25 @@
-# --翻訳作業中--　推奨解答 {#SuggestedAnswers}
+# --翻訳作業中--　回答例 {#SuggestedAnswers}
 
-この付録には、本書の練習問題に対する推奨解答が含まれています。
+この付録には、本書の演習に対する回答例が含まれています。
 
 ## 共通データモデル {#Cdmanswers}
 
-#### 練習問題 \@ref(exr:exerciseJohnPerson) {-}
+#### 演習 \@ref(exr:exerciseJohnPerson) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
 
 Table: (\#tab:johnPerson) PERSONテーブル。
 
 カラム名|値|説明
 :---------------------|:-----------|:--------------------------------------
 |PERSON_ID|2|一意の整数。|
-|GENDER_CONCEPT_ID|8507|男性の概念 ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。|
+|GENDER_CONCEPT_ID|8507|男性のコンセプト ID は [8507](http://athena.ohdsi.org/search-terms/terms/8507)。|
 |YEAR_OF_BIRTH|1974||
 |MONTH_OF_BIRTH|8||
 |DAY_OF_BIRTH|4||
 |BIRTH_DATETIME|1974-08-04 00:00:00|時間が不明な場合は真夜中（00:00:00）を使用。|
 |DEATH_DATETIME|NULL||
-|RACE_CONCEPT_ID|8516|アフリカ系アメリカ人の概念 ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。|
+|RACE_CONCEPT_ID|8516|アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。|
 |ETHNICITY_ CONCEPT_ID|38003564| [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「ヒスパニックではない」ことを示す。|
 |LOCATION_ID||住所は不明。|
 |PROVIDER_ID||主治医が不明。|
@@ -32,9 +32,9 @@ Table: (\#tab:johnPerson) PERSONテーブル。
 |ETHNICITY_SOURCE_ VALUE|NULL||
 |ETHNICITY_SOURCE_ CONCEPT_ID|0||
 
-#### 練習問題 \@ref(exr:exerciseJohnOp) {-}
+#### 演習 \@ref(exr:exerciseJohnOp) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
 
 Table: (\#tab:johnOp) OBSERVATION_PERIODテーブル。
 
@@ -46,9 +46,9 @@ Table: (\#tab:johnOp) OBSERVATION_PERIODテーブル。
 |OBSERVATION_PERIOD_ END_DATE|2019-07-01|データ抽出日以降のデータは期待されない。|
 |PERIOD_TYPE_ CONCEPT_ID|44814722| [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。|
 
-#### 練習問題 \@ref(exr:exerciseJohnDrug) {-}
+#### 演習 \@ref(exr:exerciseJohnDrug) {-}
 
-練習問題で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
+演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
 
 Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 
@@ -56,7 +56,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 :---------------------|:-----------|:--------------------------------------
 |DRUG_EXPOSURE_ID|1001|一意の整数。|
 |PERSON_ID|2|これはPERSONテーブルのジョンのレコードへの外部キー。|
-|DRUG_CONCEPT_ID|19078461|提供されたNDCコードは標準概念 [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。|
+|DRUG_CONCEPT_ID|19078461|提供されたNDCコードは標準コンセプト [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。|
 |DRUG_EXPOSURE_ START_DATE|2019-05-01|薬物暴露の開始日。|
 |DRUG_EXPOSURE_ START_DATETIME|2019-05-01 00:00:00|時間が不明なため真夜中を使用。|
 |DRUG_EXPOSURE_ END_DATE|2019-05-31|開始日 + 日数供給に基づく。|
@@ -66,7 +66,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 |STOP_REASON|NULL||
 |REFILLS|NULL||
 |QUANTITY|NULL|提供されていない。|
-|DAYS_SUPPLY|30|練習問題に記述されている通り。|
+|DAYS_SUPPLY|30|演習に記述されている通り。|
 |SIG|NULL|提供されていない。|
 |ROUTE_CONCEPT_ID|4132161| [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) は「経口」を示す。|
 |LOT_NUMBER|NULL|提供されていない。|
@@ -77,7 +77,7 @@ Table: (\#tab:johnDrug) DRUG_EXPOSUREテーブル。
 |DRUG_SOURCE_ CONCEPT_ID|583945| [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬物源の値を表す (NDCコード「76168009520」)。|
 |ROUTE_SOURCE_ VALUE|NULL||
 
-#### 練習問題 \@ref(exr:exerciseGiBleedRecords) {-}
+#### 演習 \@ref(exr:exerciseGiBleedRecords) {-}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルをクエリする必要があります：
 
@@ -102,7 +102,7 @@ cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ")
 ```
 
-#### 練習問題 \@ref(exr:exercisePersonSource) {-}
+#### 演習 \@ref(exr:exercisePersonSource) {-}
 
 一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルのCONDITION_SOURCE_VALUEフィールドを使用してクエリを実行する必要があります：
 
@@ -125,7 +125,7 @@ cat("  CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ")
 ```
 
-#### 練習問題 \@ref(exr:exercisePerson61Records) {-}
+#### 演習 \@ref(exr:exercisePerson61Records) {-}
 
 この情報はOBSERVATION_PERIODテーブルに保存されています：
 
@@ -148,11 +148,11 @@ cat("  OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
 
 ## 標準化された用語集 {#Vocabanswers}
 
-#### 練習問題 \@ref(exr:exerciseVocab1) {-}
+#### 演習 \@ref(exr:exerciseVocab1) {-}
 
-概念 ID 192671 ("胃腸出血")
+コンセプト ID 192671 ("胃腸出血")
 
-#### 練習問題 \@ref(exr:exerciseVocab2) {-}
+#### 演習 \@ref(exr:exerciseVocab2) {-}
 
 ICD-10CMコード：
 
@@ -164,24 +164,24 @@ ICD-9CMコード：
 - 578 "胃腸出血"
 - 578.9 "特定されていない胃腸出血"
 
-#### 練習問題 \@ref(exr:exerciseVocab3) {-}
+#### 演習 \@ref(exr:exerciseVocab3) {-}
 
 MedDRA推奨用語：
 
-- "胃腸出血" (概念ID 35707864)
-- "腸出血" (概念ID 35707858)
+- "胃腸出血" (コンセプトID 35707864)
+- "腸出血" (コンセプトID 35707858)
 
 
 ## 抽出変換ロード {#Etlanswers}
 
-#### 練習問題 \@ref(exr:exerciseEtl1) {-}
+#### 演習 \@ref(exr:exerciseEtl1) {-}
 
 A) データの専門家とCDMの専門家が協力してETLの設計を行う
 C) 医療の知識を持つ人がコードマッピングを作成する
 B) 技術者がETLを実装する
 D) 全員が品質管理に関与する
 
-#### 練習問題 \@ref(exr:exerciseEtl2) {-}
+#### 演習 \@ref(exr:exerciseEtl2) {-}
 
 カラム | 値 | 解答
 :---------------- |:----------- |:-----------------------
@@ -197,7 +197,7 @@ GENDER_SOURCE_ VALUE | F |
 RACE_SOURCE_VALUE | WHITE |
 ETHNICITY_SOURCE_ VALUE | NONE PROVIDED |
 
-#### 練習問題 \@ref(exr:exerciseEtl3) {-}
+#### 演習 \@ref(exr:exerciseEtl3) {-}
 
 カラム | 値
 :------------------------ |:-------------
@@ -211,7 +211,7 @@ VISIT_SOURCE_VALUE | inpatient
 
 ## データ分析のユースケース {#UseCasesanswers}
 
-#### 練習問題 \@ref(exr:exerciseUseCases1) {-}
+#### 演習 \@ref(exr:exerciseUseCases1) {-}
 
 1. 特徴量化
 
@@ -219,9 +219,10 @@ VISIT_SOURCE_VALUE | inpatient
 
 3. 集団レベルの推定
 
-#### 練習問題 \@ref(exr:exerciseUseCases2) {-}
+#### 演習 \@ref(exr:exerciseUseCases2) {-}
 
 そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
+
 ## SQLとR {#SqlAndRanswers}
 
 #### 演習 \@ref(exr:exercisePeopleCount) {-}
@@ -338,9 +339,9 @@ cat("  DIAGNOSE_COUNT
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInitialEvents.png")
 ```
 
-ジクロフェナクの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet1)のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。
+ジクロフェナクのコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet1)のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。
 
-```{r cohortsAtlasConceptSet1, fig.cap='ジクロフェナクの概念セット表現。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r cohortsAtlasConceptSet1, fig.cap='ジクロフェナクのコンセプトセット表現。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet1.png")
 ```
 
@@ -350,9 +351,9 @@ knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet1.png")
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInclusion1.png")
 ```
 
-NSAIDsの概念セット表現は図\@ref(fig:cohortsAtlasConceptSet2)のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。
+NSAIDsのコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet2)のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。
 
-```{r cohortsAtlasConceptSet2, fig.cap='NSAIDsの概念セット表現',echo=FALSE, out.width='100%', fig.align='center'}
+```{r cohortsAtlasConceptSet2, fig.cap='NSAIDsのコンセプトセット表現',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet2.png")
 ```
 
@@ -362,9 +363,9 @@ knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet2.png")
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInclusion2.png")
 ```
 
-「広範な悪性腫瘍」の概念セット表現は図\@ref(fig:cohortsAtlasConceptSet3)のようになり、上位概念「悪性腫瘍」とそのすべての子孫を含めます。
+「広範な悪性腫瘍」のコンセプトセット表現は図\@ref(fig:cohortsAtlasConceptSet3)のようになり、上位コンセプト「悪性腫瘍」とそのすべての子孫を含めます。
 
-```{r cohortsAtlasConceptSet3, fig.cap='広範な悪性腫瘍の概念セット表現',echo=FALSE, out.width='100%', fig.align='center'}
+```{r cohortsAtlasConceptSet3, fig.cap='広範な悪性腫瘍のコンセプトセット表現',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet3.png")
 ```
 
@@ -530,9 +531,9 @@ summary(cmData)
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("CohortMethodData オブジェクトのまとめ
 
-治療概念ID：1
-比較概念ID：2
-結果概念ID：3
+治療コンセプトID：1
+比較コンセプトID：2
+結果コンセプトID：3
 
 治療を受けた人数：1800
 比較された人数：830
@@ -694,8 +695,8 @@ summary(plpData)
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("plpData オブジェクトのまとめ
 
-リスク対象コホート概念 ID：-1
-結果概念ID：3
+リスク対象コホートコンセプト ID：-1
+結果コンセプトID：3
 
 人数：2630
 
