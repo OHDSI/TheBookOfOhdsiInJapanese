@@ -3210,7 +3210,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.ws3czqxkchildren ;"
+## [1] "SELECT * FROM temp_schema.trjvgqyxchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -9218,19 +9218,19 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{itemize}
 \tightlist
 \item
-  その人の履歴において初回の\emph{ACE阻害薬}（表\ref{tab:aceInhibitors}）への曝露
+  その人の履歴において初回の\emph{ACE阻害薬}（表 \ref{tab:aceInhibitors}）への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における全てのイベント。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に限定します：その個人における全てのイベント。
 
-適格コホートとしてイベントを次のように制限します：その個人における全てのイベント。
+適格コホートとしてイベントを次のように限定します：その個人における全てのイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 カスタム薬剤曝露期間の終了基準：ここでは、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホート終了日はその曝露期間の終了日を使用します。そうでない場合、そのインデックスイベントを含む観察期間の終了日を使用します。
 
-\emph{ACE阻害薬}（表\ref{tab:aceInhibitors}）の曝露期間終了日を使用
+\emph{ACE阻害薬}（表 \ref{tab:aceInhibitors}）の曝露期間終了日を使用
 
 \begin{itemize}
 \tightlist
@@ -9285,7 +9285,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   その人の履歴において初回の\emph{ACE阻害薬}（表 \ref{tab:aceInhibitorsMono}）への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における最も早いイベント。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に限定します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb}
 \addcontentsline{toc}{subsubsection}{選択ルール}
@@ -9320,7 +9320,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   インデックス開始日0日前から7日後の間に始まる\emph{高血圧薬}（表 \ref{tab:htnDrugsAceMono}）の明確な薬物曝露期間の出現がちょうど1回です。
 \end{itemize}
 
-適格コホートとしてイベントを次のように制限します：その個人における最も早いイベント。
+適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-1}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
@@ -9469,7 +9469,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   \emph{急性心筋梗塞}（表 \ref{tab:ami}）のコンディション出現
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも0日前からインデックス日0日後の間の連続した観察があり、インデックスイベントを以下に制限します：その個人における全てのイベント。
+かつ、インデックス日から遡って少なくとも0日前からインデックス日0日後の間の連続した観察があり、インデックスイベントを以下に限定します：その個人における全てのイベント。
 
 主要イベントがありとなるのは、以下のいずれかの基準を満たす人：
 
@@ -9479,19 +9479,19 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   インデックス日から遡るすべての日から0日後の間に始まり、ビジット終了日がインデックス開始日0日後からインデックス開始日後の全ての日の間に終了すると一致する\emph{入院または救急室受診} (表 \ref{tab:inpatientOrErAmi})のビジット出現が少なくとも1件。
 \end{itemize}
 
-インデックスイベントのコホートを制限します：その個人における全てのイベント。
+インデックスイベントのコホート次のように限定します：その個人における全てのイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-2}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 日付オフセット終了基準：
 
-このコホート定義の終了日は、インデックスイベントの開始日から7日後となります。
+このコホート定義の終了日は、インデックスイベントの開始日から7日後とします。
 
 \subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-2}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-180日間のギャップサイズで期間によりコホートを圧縮する。
+180日間のギャップサイズで期間によりコホートを圧縮します。
 
 \subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-2}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
@@ -9567,7 +9567,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   \emph{血管性浮腫}のコンディション出現（表 \ref{tab:angioedema}）
 \end{itemize}
 
-イベント発生日の前と後少なくとも0日間の連続した観察期間を持ち、初回イベントを次のように制限します：その個人における全てのイベント。
+イベント発生日の前と後少なくとも0日間の連続した観察期間を持ち、初回イベントを次のように限定します：その個人における全てのイベント。
 
 主要イベントがありとなるのは、以下のいずれかの基準を満たす人：
 
@@ -9577,19 +9577,19 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   \emph{入院または救急室ビジット} インデックス日前全ての日と後0日の間に開始し、インデックス日前0日と後全ての日の間に終了する(表 \ref{tab:inpatientOrEr})で特定されるビジットが少なくとも1回発生します。
 \end{itemize}
 
-初回イベントのコホートを制限する：各個人の全てのイベント。
+初回イベントのコホートを次のように限定します：各個人の全てのイベント。
 
-適格なコホートを制限する：各個人の全てのイベント。
+適格なコホートを次のように限定します：各個人の全てのイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-3}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-このコホート定義の終了日はインデックスイベントの開始日から7日後とする
+このコホート定義の終了日はインデックスイベントの開始日から7日後とします。
 
-\subsubsection*{コホートの圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux5727ux7e2eux306eux8003ux3048ux65b9}
-\addcontentsline{toc}{subsubsection}{コホートの圧縮の考え方}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-3}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-30日間のギャップサイズで期間によりコホートを圧縮する。
+30日間のギャップサイズで期間によりコホートを圧縮します。
 
 \subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-3}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
@@ -9664,7 +9664,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   その人の履歴において初回の\emph{サイアザイドまたはサイアザイド様利尿薬}（表 \ref{tab:thiazidesMono}）への曝露
 \end{itemize}
 
-かつ、インデックス日からの遡って少なくとも365日間からインデックス日0日後の間の連続した観察があり、初回イベントを以下のように制限します：その個人における最も早いイベント。
+かつ、インデックス日からの遡って少なくとも365日間からインデックス日0日後の間の連続した観察があり、初回イベントを次のように限定します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb-1}
 \addcontentsline{toc}{subsubsection}{選択ルール}
@@ -9699,7 +9699,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   インデックス開始日0日前から7日後の間に始まる\emph{高血圧薬}(表 \ref{tab:htnDrugsThzMono})の明確な薬物曝露期間の出現がちょうど1回です。
 \end{itemize}
 
-適格コホートとしてイベントを次のように制限します：その個人における最も早いイベント。
+適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-4}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
@@ -9716,7 +9716,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   薬剤曝露終了後0日追加します。
 \end{itemize}
 
-\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-3}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-4}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
 0日間のギャップによりコホートを圧縮します。
@@ -9842,7 +9842,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   その人の履歴において初回の\emph{第一選択高血圧治療薬}（表 \ref{tab:HTN1yrFO1stLine}）への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前からインデックス日365日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における最も早いイベント。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日365日後の間の連続した観察があり、初期イベントを次のように限定します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb-2}
 \addcontentsline{toc}{subsubsection}{選択ルール}
@@ -9857,14 +9857,14 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   かつ、インデックス開始日からさかのぼって365日と後0日までの間に\emph{高血圧性障害}（表 \ref{tab:HTN1yrFOHypertensiveDisorder}）のコンディションがが少なくとも1回出現します。
 \end{itemize}
 
-初回イベントのコホートを次のように制限します：その個人における最も早いイベント。 適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
+初回イベントのコホートを次のように限定します：その個人における最も早いイベント。 適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
 
 \subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-5}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 終了日の考え方は選択されません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日になります。
 
-\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-4}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-5}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
 0日間のギャップによりコホートを圧縮します。
@@ -10020,7 +10020,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   \emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の薬物への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも0日前から０日後の間の連続した観察があり、初回イベントを以下に制限します：その個人のすべてのイベント。
+かつ、インデックス日から遡って少なくとも0日前から０日後の間の連続した観察があり、初回イベントを次のように限定します：その個人のすべてのイベント。
 
 適格なコホートを個人ごとのすべてのイベントに限定します。
 
@@ -10039,7 +10039,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   薬剤曝露終了後0日追加します。
 \end{itemize}
 
-\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-5}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-6}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
 30日間のギャップサイズで期間によりコホート圧縮します。
