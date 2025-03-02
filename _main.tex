@@ -3223,7 +3223,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.n0hfc14ochildren ;"
+## [1] "SELECT * FROM temp_schema.ezuy70sachildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -10711,12 +10711,12 @@ ROUTE\_SOURCE\_ VALUE & NULL & \\
 ## 1                    61        61                    1968-01-21 ...
 \end{verbatim}
 
-\section{標準化された用語集}\label{Vocabanswers}
+\section{標準化されたボキャブラリ}\label{Vocabanswers}
 
 \subsubsection*{演習 \ref{exr:exerciseVocab1}}\label{ux6f14ux7fd2-refexrexercisevocab1}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab1}}
 
-コンセプト ID 192671 (``胃腸出血'')
+コンセプト ID 192671 (``消化管出血'')
 
 \subsubsection*{演習 \ref{exr:exerciseVocab2}}\label{ux6f14ux7fd2-refexrexercisevocab2}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab2}}
@@ -10726,9 +10726,9 @@ ICD-10CMコード：
 \begin{itemize}
 \tightlist
 \item
-  K29.91 ``出血を伴う特定されていない胃十二指腸炎''
+  K29.91 ``出血を伴う胃十二指腸炎、詳細不明''
 \item
-  K92.2 ``特定されていない胃腸出血''
+  K92.2 ``消化管出血、詳細不明''
 \end{itemize}
 
 ICD-9CMコード：
@@ -10736,25 +10736,25 @@ ICD-9CMコード：
 \begin{itemize}
 \tightlist
 \item
-  578 ``胃腸出血''
+  578 ``消化管出血''
 \item
-  578.9 ``特定されていない胃腸出血''
+  578.9 ``消化管出血、詳細不明''
 \end{itemize}
 
 \subsubsection*{演習 \ref{exr:exerciseVocab3}}\label{ux6f14ux7fd2-refexrexercisevocab3}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseVocab3}}
 
-MedDRA推奨用語：
+MedDRA基本語（Preferred Terms, PT)：
 
 \begin{itemize}
 \tightlist
 \item
-  ``胃腸出血'' (コンセプトID 35707864)
+  ``消化管出血'' (コンセプトID 35707864)
 \item
   ``腸出血'' (コンセプトID 35707858)
 \end{itemize}
 
-\section{抽出変換ロード}\label{Etlanswers}
+\section{ETL (Extract-Transform-Load)}\label{Etlanswers}
 
 \subsubsection*{演習 \ref{exr:exerciseEtl1}}\label{ux6f14ux7fd2-refexrexerciseetl1}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseEtl1}}
@@ -10763,13 +10763,13 @@ MedDRA推奨用語：
 \def\labelenumi{\Alph{enumi})}
 \tightlist
 \item
-  データの専門家とCDMの専門家が協力してETLの設計を行う
+  データの専門家とCDMの専門家が協力してETLの設計を行います。
 \item
-  医療の知識を持つ人がコードマッピングを作成する
+  医学知識を持つ人がコードマッピングを作成します。
 \item
-  技術者がETLを実装する
+  エンジニアがETLを実装します。
 \item
-  全員が品質管理に関与する
+  全員が品質管理に関与します。
 \end{enumerate}
 
 \subsubsection*{演習 \ref{exr:exerciseEtl2}}\label{ux6f14ux7fd2-refexrexerciseetl2}
@@ -10785,19 +10785,19 @@ MedDRA推奨用語：
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 値
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-解答
+回答
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-PERSON\_ID & A123B456 & このカラムは整数型のデータタイプを持っているため、ソースのレコード値を数値に変換する必要がある。 \\
+PERSON\_ID & A123B456 & このカラムは整数型のデータタイプを持っているため、ソースのレコード値を数値に変換する必要があります。 \\
 GENDER\_CONCEPT\_ID & 8532 & \\
-YEAR\_OF\_BIRTH & NULL & 月や誕生日が不明な場合は、推測しない。月や誕生日がなくても存在できる人です。生年がない人は除外する必要がある。この人は生年がないため除外する必要がある。 \\
+YEAR\_OF\_BIRTH & NULL & 生年月日の月や日が不明な場合は推測しません。PERSONは、生年月日の月や日がなくても存在可能です。生まれた年の情報がない場合には、そのPERSONは除外する必要があります。この人は生年月日の年がないため除外する必要がありました。 \\
 MONTH\_OF\_BIRTH & NULL & \\
 DAY\_OF\_BIRTH & NULL & \\
-RACE\_CONCEPT\_ID & 0 & 人種はWHITEであり、これは8527にマッピングされるべき。 \\
-ETHNICITY\_CONCEPT\_ ID & 8527 & 民族性は提供されていないため、これは0にマッピングされるべき。 \\
+RACE\_CONCEPT\_ID & 0 & 人種はWHITEであり、これは8527にマッピングされるべきです。 \\
+ETHNICITY\_CONCEPT\_ ID & 8527 & 民族の情報が提供されていないため、これは0にマッピングされるべきです。 \\
 PERSON\_SOURCE\_ VALUE & A123B456 & \\
 GENDER\_SOURCE\_ VALUE & F & \\
 RACE\_SOURCE\_VALUE & WHITE & \\
@@ -10830,7 +10830,7 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  特徴量化
+  特性の評価
 \item
   患者レベルの予測
 \item
@@ -10840,7 +10840,7 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 \subsubsection*{演習 \ref{exr:exerciseUseCases2}}\label{ux6f14ux7fd2-refexrexerciseusecases2}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseUseCases2}}
 
-そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって摂取するからです。これは人間間の比較を無効にします。ジクロフェナクコホートの各患者に対して曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
+そうではないかもしれません。ジクロフェナク曝露コホートと比較可能な非曝露コホートを定義することは、多くの場合不可能です。なぜなら、人々はジクロフェナクを理由があって服用するからです。このことは、異なる対象の間の比較を妨げます。ジクロフェナクコホートのそれぞれの患者の中で曝露されていない時間を特定することで、個人内での比較がある程度可能かもしれませんが、ここでも同様の問題が発生します。こうした時間は比較できないことが多く、ある時間に曝露されている理由と別の時間に曝露されていない理由が異なるからです。
 
 \section{SQLとR}\label{SqlAndRanswers}
 
@@ -10893,9 +10893,9 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 ## 1         1844
 \end{verbatim}
 
-\texttt{COUNT(DISTINCT(person\_id))}を使用して、重複することなく個別の人数を見つけ出すことに注意してください。これは、人が複数の処方薬を持っている場合があるためです。また、検索が「celecoxib」であることを大文字小文字を区別しないように\texttt{LOWER}関数を使用していることにも注意してください。
+\texttt{COUNT(DISTINCT(person\_id))}を使用して、重複することない人数を求めることに注意してください。これは、各患者が複数の処方を受けたかもしれないからです。また、「celecoxib」の検索で、大文字小文字を区別しないように\texttt{LOWER}関数を使用していることにも注意してください。
 
-代替方法として、すでに成分レベルにまとめられているDRUG\_ERAテーブルを使用することもできます:
+代わりに、すでに成分レベルにまとめられているDRUG\_ERAテーブルを使用することもできます:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10922,7 +10922,7 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 \subsubsection*{演習 \ref{exr:exerciseGiBleedsDuringCelecoxib}}\label{ux6f14ux7fd2-refexrexercisegibleedsduringcelecoxib}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseGiBleedsDuringCelecoxib}}
 
-曝露期間中の診断数を計算するには、以前のクエリを拡張してCONDITION\_OCCURRENCEテーブルに結合します。消化管出血を意味するすべての状態コンセプトを見つけるために、CONCEPT\_ANCESTORテーブルに結合します:
+曝露期間中の診断の数を計算するには、以前のクエリを拡張してCONDITION\_OCCURRENCEテーブルに結合します。消化管出血を意味するすべてのコンディションのコンセプトを見つけるために、CONCEPT\_ANCESTORテーブルに結合します:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10951,26 +10951,26 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 ## 1         41
 \end{verbatim}
 
-この場合、DRUG\_EXPOSUREテーブルではなくDRUG\_ERAテーブルを使用することが重要です。なぜなら、同じ成分を含む薬物暴露が重なる可能性があり、薬物時期は重ならないからです。これにより重複して数えることを避けられます。例えば、ある人が同時に2つのセレコキシブを含む薬物を受け取った場合、これは2つの薬物暴露として記録され、その期間中に発生する診断は2回カウントされてしまうでしょう。2つの暴露は1つの重ならない薬物時期に統合されます。
+この場合、DRUG\_EXPOSUREテーブルではなくDRUG\_ERAテーブルを使用することが重要です。なぜなら、同じ成分を含む薬剤の曝露が重なる可能性がありますが、薬剤の曝露期間は重なることがないからです。これにより重複して数えることを避けることができます。例えば、ある人が同時に2種類のセレコキシブを含む薬剤を受け取ったとしましょう。これは2つの薬剤曝露として記録され、その期間中に発生する診断は2回カウントされてしまうでしょう。2つの曝露は1つの重なりのない薬剤曝露期間に統合されます。
 
 \section{コホートの定義}\label{Cohortsanswers}
 
 \subsubsection*{演習 \ref{exr:exerciseCohortsAtlas}}\label{ux6f14ux7fd2-refexrexercisecohortsatlas}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseCohortsAtlas}}
 
-以下の要件をエンコードする初期イベント基準を作成します:
+以下の要件をコード化する初期イベント基準を作成します:
 
 \begin{itemize}
 \tightlist
 \item
-  ジクロフェナクの新規使用者
+  ジクロフェナクの新規ユーザー
 \item
-  16歳以上
+  年齢は16歳以上
 \item
-  曝露前に少なくとも365日間の連続観察があること
+  曝露前に少なくとも365日間の連続した観察期間があること
 \end{itemize}
 
-完了したら、コホートエントリーイベントのセクションは図\ref{fig:cohortsAtlasInitialEvents}のようになります。
+完了したときには、コホート・エントリー・イベントのセクションは図 \ref{fig:cohortsAtlasInitialEvents}のようになります。
 
 \begin{figure}
 
@@ -10978,10 +10978,10 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 
 }
 
-\caption{ジクロフェナクの新規使用者向けのコホートエントリーイベント設定}\label{fig:cohortsAtlasInitialEvents}
+\caption{ジクロフェナクの新規ユーザーのコホート・エントリー・イベント設定}\label{fig:cohortsAtlasInitialEvents}
 \end{figure}
 
-ジクロフェナクのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet1}のようになり、成分「Diclofenac」とそのすべての子孫を含め、ジクロフェナクを含むすべての薬剤を含むようになります。
+ジクロフェナクのコンセプトセットは図 \ref{fig:cohortsAtlasConceptSet1}のように、成分「Diclofenac」とそのすべての下位層を含むので、ジクロフェナクを含むすべての薬剤を含むことになります。
 
 \begin{figure}
 
@@ -10989,10 +10989,10 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 
 }
 
-\caption{ジクロフェナクのコンセプトセット表現。}\label{fig:cohortsAtlasConceptSet1}
+\caption{ジクロフェナクのコンセプトセット}\label{fig:cohortsAtlasConceptSet1}
 \end{figure}
 
-次に、NSAIDの以前の曝露がないことを要求します。これは図\ref{fig:cohortsAtlasInclusion1}のようになります。
+次に、図 \ref{fig:cohortsAtlasInclusion1}に示されるように、NSAIDの曝露の履歴がないことを求めます。
 
 \begin{figure}
 
@@ -11000,10 +11000,10 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 
 }
 
-\caption{NSAIDの以前の曝露なしを要求。}\label{fig:cohortsAtlasInclusion1}
+\caption{NSAID曝露の履歴がないことの要求}\label{fig:cohortsAtlasInclusion1}
 \end{figure}
 
-NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}のようになり、NSAIDsクラスとそのすべての子孫を含め、NSAIDを含むすべての薬剤を含むようになります。
+NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下位層を含めるように、図 \ref{fig:cohortsAtlasConceptSet2}のようになるはずで、よって、NSAIDを含むすべての薬剤を含むことになります。
 
 \begin{figure}
 
@@ -11011,10 +11011,10 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 
 }
 
-\caption{NSAIDsのコンセプトセット表現}\label{fig:cohortsAtlasConceptSet2}
+\caption{NSAIDsのコンセプトセット}\label{fig:cohortsAtlasConceptSet2}
 \end{figure}
 
-さらに、がんの以前の診断がないことも要求します。これは図\ref{fig:cohortsAtlasInclusion2}のようになります。
+さらに、図\ref{fig:cohortsAtlasInclusion2}のよう、以前にがんの診断がないことも要求します。
 
 \begin{figure}
 
@@ -11022,10 +11022,10 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 
 }
 
-\caption{以前にがんの診断がないことを要求。}\label{fig:cohortsAtlasInclusion2}
+\caption{以前にがんの診断がないことの要求}\label{fig:cohortsAtlasInclusion2}
 \end{figure}
 
-「広範な悪性腫瘍」のコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet3}のようになり、上位コンセプト「悪性腫瘍」とそのすべての子孫を含めます。
+「広範な悪性腫瘍」のコンセプトセットは、上位コンセプト「悪性腫瘍」とそのすべての下位層を含み、図 \ref{fig:cohortsAtlasConceptSet3}のようになるはずです。
 
 \begin{figure}
 
@@ -11033,10 +11033,10 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 
 }
 
-\caption{広範な悪性腫瘍のコンセプトセット表現}\label{fig:cohortsAtlasConceptSet3}
+\caption{広範な悪性腫瘍のコンセプトセット}\label{fig:cohortsAtlasConceptSet3}
 \end{figure}
 
-最後に、曝露中止をコホート退出基準として定義します（30日間のギャップを許容します）。これは図\ref{fig:cohortsAtlasExit}のようになります。
+最後に、図 \ref{fig:cohortsAtlasExit}のように。曝露中断をコホート・エグジット基準として定義します（30日間のギャップを許容します）。
 
 \begin{figure}
 
@@ -11044,13 +11044,13 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 
 }
 
-\caption{コホート終了日の設定。}\label{fig:cohortsAtlasExit}
+\caption{コホート・イグジット日の設定}\label{fig:cohortsAtlasExit}
 \end{figure}
 
 \subsubsection*{演習 \ref{exr:exerciseCohortsSql}}\label{ux6f14ux7fd2-refexrexercisecohortssql}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseCohortsSql}}
 
-読みやすさのためにSQLを2つのステップに分けます。まず、心筋梗塞のすべての状態発生を見つけ、それらを一時テーブル「\#diagnoses」に格納します:
+読みやすくするため、ここではSQLを2つのステップに分けます。まず、すべての心筋梗塞コンディションの出現を同定し、それらを一時テーブル「\#diagnoses」に格納します:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11075,7 +11075,7 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 \end{Highlighting}
 \end{Shaded}
 
-次に、入院またはER訪問中に発生したものだけを選択し、ユニークなCOHORT\_DEFINITION\_ID（ここでは「1」を選択しました）を使用します:
+次に、入院または救急室受診時に出現したもののみを選択し、特定のCOHORT\_DEFINITION\_ID（ここでは「1」を選択しました）を使用します:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11098,9 +11098,9 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 \end{Highlighting}
 \end{Shaded}
 
-条件と訪問をVISIT\_OCCURRENCE\_IDに基づいて結合する代替アプローチも考えられます。この方法は、状態が入院またはER訪問に関連して記録されたことを保証するため、より正確かもしれません。しかし、多くの観察データベースは、訪問と診断のリンクを記録していないため、日付を使用することを選択しました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。
+コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT\_OCCURRENCE\_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室受診に関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。
 
-また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、興味があるのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。
+また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、関心を持つのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。
 
 一時テーブルが不要になったらクリーンアップすることをお勧めします:
 
@@ -11113,12 +11113,12 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 \end{Highlighting}
 \end{Shaded}
 
-\section{特徴記述}\label{Characterizationanswers}
+\section{特性の評価}\label{Characterizationanswers}
 
 \subsubsection*{演習 \ref{exr:exerciseCharacterization1}}\label{ux6f14ux7fd2-refexrexercisecharacterization1}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseCharacterization1}}
 
-ATLASで\includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}をクリックし、興味のあるデータソースを選択します。ここでは、薬剤暴露レポートを選択し、「表」タブを選択して「セレコキシブ」を検索します（図 \ref{fig:dataSourcesAtlas} 参照）。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の暴露を持っていることがわかります。これらの薬のいずれかをクリックすると、例えば年齢や性別の分布など、より詳細なビューを得ることができます。
+ATLASで\includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}をクリックし、興味のあるデータソースを選択します。図 \ref{fig:dataSourcesAtlas}のように、薬剤曝露レポートを選択し、「Table (表)」タブを選択して「celecoxib (セレコキシブ)」を検索することができます。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の曝露を含むことがわかります。これらの薬剤をクリックすると、例えばその薬剤の年齢や性別の分布など、より詳細なビューを得ることができます。
 
 \begin{figure}
 
@@ -11126,13 +11126,13 @@ ATLASで\includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}�
 
 }
 
-\caption{データソースの特徴記述。}\label{fig:dataSourcesAtlas}
+\caption{データソースの特性の評価}\label{fig:dataSourcesAtlas}
 \end{figure}
 
 \subsubsection*{演習 \ref{exr:exerciseCharacterization2}}\label{ux6f14ux7fd2-refexrexercisecharacterization2}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseCharacterization2}}
 
-\includegraphics{images/Cohorts/cohortdefinition.png}をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「セレコキシブ新規使用者」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 \includegraphics{images/Cohorts/search-2.png}モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 \includegraphics{images/Cohorts/shoppingcart.png}をクリックしてコンセプトセットにコンセプトを追加します（図 \ref{fig:conceptSearchAtlas} 参照）。
+\includegraphics{images/Cohorts/cohortdefinition.png}をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 \includegraphics{images/Cohorts/search-2.png}モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 \includegraphics{images/Cohorts/shoppingcart.png}をクリックしてコンセプトセットにコンセプトを追加します（図 \ref{fig:conceptSearchAtlas} 参照）。
 
 \begin{figure}
 
