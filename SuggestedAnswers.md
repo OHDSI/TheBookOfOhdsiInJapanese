@@ -1,4 +1,4 @@
-# --翻訳作業中--　回答例 {#SuggestedAnswers}
+# 回答例 {#SuggestedAnswers}
 
 この付録には、本書の演習に対する回答例が含まれています。
 

@@ -1,4 +1,4 @@
-# --翻訳作業中--　陰性対照 {#NegativeControlsAppendix}
+# 陰性対照 {#NegativeControlsAppendix}
 
 この付録には、本書のさまざまな章で使用される陰性対照が含まれています。
 
