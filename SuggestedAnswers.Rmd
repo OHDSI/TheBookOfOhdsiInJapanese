@@ -450,33 +450,33 @@ knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 
 #### 演習 \@ref(exr:exerciseCharacterization2) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 ![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:conceptSearchAtlas) 参照）。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「Celecoxib (セレコキシブ)」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「Celecoxib (セレコキシブ)」を検索し、クラスを「Ingredient (成分)」、標準コンセプトを「Standard (標準)」とするように限定し、 ![](images/Cohorts/shoppingcart.png)をクリックして、図 \@ref(fig:conceptSearchAtlas)に示されるように、コンセプトセットにコンセプトを追加します。
 
-```{r conceptSearchAtlas, fig.cap='成分「セレコキシブ」の標準コンセプトの選択。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r conceptSearchAtlas, fig.cap='成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/conceptSearchAtlas.png")
 ```
 
-図 \@ref(fig:conceptSearchAtlas) の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「+初期イベントを追加」をクリックしてから「薬剤期間を追加」をクリックします。薬剤期間基準のために以前に作成したコンセプトセットを選択します。「属性を追加...」をクリックして「最初の暴露基準を追加」を選択します。インデックス日の前に少なくとも365日の連続観察が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート・イグジット、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
-```{r celecoxibCohortDefinition, fig.cap='単純なセレコキシブ新規使用者のコホート定義。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCohortDefinition, fig.cap='セレコキシブ新規ユーザーの単純なコホート定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCohortDefinition.png")
 ```
 
-コホートが定義されたので、その特徴を記述できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「新しい特徴記述」を選択します。特徴記述に意味のある名前（例：「セレコキシブ新規使用者の特徴記述」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「特徴分析」の下で、「インポート」をクリックし、少なくとも1つの状態分析と1つの薬剤分析を選択します。たとえば、「任意の期間前の薬剤グループ期間」と「任意の期間前の状態グループ期間」を選択します。特徴記述の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特徴記述設定を保存してください。
+コホートを定義したので、その特性を評価できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の 評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
 
-```{r celecoxibCharacterization, fig.cap='特徴記述設定。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCharacterization, fig.cap='特性評価設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterization.png")
 ```
 
-「実行」タブをクリックし、1つのデータソースについて「生成」をクリックします。生成が完了するまで時間がかかる場合があります。完了すると、「最新の結果を表示」をクリックできます。結果画面は、例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しない状態が表示されることがあります（図 \@ref(fig:celecoxibCharacterizationResults) 参照）。
+「Executions (実行)」タブをクリックし、1つのデータソースについて「Generate (作成)」をクリックします。作成が完了するまで時間を要する場合があります。完了すると、「View latest results (最新の結果を表示)」をクリックできます。結果画面は、図 \@ref(fig:celecoxibCharacterizationResults)のように見えるはずで、図には例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しないコンディションが表示されることがあります。
 
-```{r celecoxibCharacterizationResults, fig.cap='特徴記述結果。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r celecoxibCharacterizationResults, fig.cap='特性評価の結果',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResults.png")
 ```
 
 #### 演習 \@ref(exr:exerciseCharacterization3) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「GI出血」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed (消化管出血)」）を付け、「Concept Sets　(コンセプトセット)」タブに移動します。「New Concept Set (新しいコンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
 
 ```{r giBleedSearch, fig.cap='「消化管出血」の標準コンセプトの選択。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedSearch.png")
