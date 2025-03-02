@@ -281,7 +281,7 @@
 
 \title{--翻訳作業中--　OHDSI指南書}
 \author{Observational Health Data Sciences and Informatics (OHDSI)}
-\date{2025-03-01}
+\date{2025-03-02}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{定理}[chapter]
@@ -3210,7 +3210,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.hckydcvlchildren ;"
+## [1] "SELECT * FROM temp_schema.ws3czqxkchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -9210,8 +9210,8 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 
 \section{ACE阻害薬}\label{AceInhibitors}
 
-\subsubsection*{インデックスイベントコホート}\label{ux30a4ux30f3ux30c7ux30c3ux30afux30b9ux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
-\addcontentsline{toc}{subsubsection}{インデックスイベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
 以下のいずれかを持つ人：
 
@@ -9221,7 +9221,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   その人の履歴において初回の\emph{ACE阻害薬}（表\ref{tab:aceInhibitors}）への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前、0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における全てのイベント。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における全てのイベント。
 
 適格コホートとしてイベントを次のように制限します：その個人における全てのイベント。
 
@@ -9272,10 +9272,10 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 1373225 & ペリンドプリル & いいえ & はい & いいえ \\
 \end{longtable}
 
-\section{ACE阻害薬単剤療法新規使用者}\label{AceInhibitorsMono}
+\section{ACE阻害薬単剤療法新規ユーザー}\label{AceInhibitorsMono}
 
-\subsubsection*{インデックスイベントコホート}\label{ux30a4ux30f3ux30c7ux30c3ux30afux30b9ux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-1}
-\addcontentsline{toc}{subsubsection}{インデックスイベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-1}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
 以下のいずれかを持つ人：
 
@@ -9285,60 +9285,62 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
   その人の履歴において初回の\emph{ACE阻害薬}（表 \ref{tab:aceInhibitorsMono}）への曝露
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前、0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における最も早いイベント。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日0日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb}
 \addcontentsline{toc}{subsubsection}{選択ルール}
 
-選択基準\#1：治療開始前1年間に高血圧の診断を受けている
+選択基準\#1：治療開始前1年間に高血圧の診断を受けています。
 
-以下の全ての基準を満たす：
+以下の全ての基準を満たします：
 
 \begin{itemize}
 \tightlist
 \item
-  インデックス開始日から365日前から0日後の間にイベントが始まる1回以上の\emph{高血圧性障害}（表 \ref{tab:hypertensionAceMono}）の状態出現
+  インデックス開始日から遡って365日前からインデックス開始日0日後の間に少なくとも1回の\emph{高血圧性障害}（表 \ref{tab:hypertensionAceMono}）のコンディションが出現します。
 \end{itemize}
 
-選択基準\#2：病歴に高血圧治療薬の使用がない
+選択基準\#2：病歴に高血圧治療薬の使用がありません。
 
-以下の全ての基準を満たす：
+以下の全ての基準を満たします：
 
 \begin{itemize}
 \tightlist
 \item
-  インデックス開始日の前日までのすべての日にイベントが始まる\emph{高血圧薬}（表 \ref{tab:htnDrugsAceMono}）の薬物使用が完全に0件
+  インデックス開始日1日前までのすべての日に始まる\emph{高血圧薬}（表 \ref{tab:htnDrugsAceMono}）の薬物使用が完全に0回です。
 \end{itemize}
 
-選択基準\#3：ACE単剤療法のみを受けており、併用治療を行っていない
+選択基準\#3：ACE単剤療法のみを受けており、併用治療を行っていません。
 
-以下のすべての基準を満たす：
+以下のすべての基準を満たします：
 
 \begin{itemize}
 \tightlist
 \item
-  インデックス開始日の0日前から7日後の間にイベントが始まる\emph{高血圧薬}（表 \ref{tab:htnDrugsAceMono}）の薬物時代の異なる発生がちょうど1件
+  インデックス開始日0日前から7日後の間に始まる\emph{高血圧薬}（表 \ref{tab:htnDrugsAceMono}）の明確な薬物曝露期間の出現がちょうど1回です。
 \end{itemize}
 
 適格コホートとしてイベントを次のように制限します：その個人における最も早いイベント。
 
-\subsubsection*{最終日の考え方}\label{ux6700ux7d42ux65e5ux306eux8003ux3048ux65b9}
-\addcontentsline{toc}{subsubsection}{最終日の考え方}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-カスタム薬剤時代の終了基準：この考え方は、指定されたコンセプトセットで見つかったコードから薬剤時代を作成します。インデックスイベントが時代内で見つかった場合、コホートの終了日はその時代の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
+カスタム薬剤曝露期間の終了の基準：この考え方は、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホートの終了日はその曝露期間の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
+
+\emph{ACE阻害薬}の曝露期間の終了日 (表 \ref{tab:aceInhibitorsMono})
 
 \begin{itemize}
 \tightlist
 \item
-  使用間隔が30日以内
+  薬剤曝露間隔が30日を許容します。
 \item
-  使用終了後0日追加
+  薬剤曝露終了後0日追加します。
 \end{itemize}
 
-\subsubsection*{コホート統合の考え方}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux306eux8003ux3048ux65b9}
-\addcontentsline{toc}{subsubsection}{コホート統合の考え方}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-1}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-0日間のギャップサイズで時代によるコホート統合。
+0日間のギャップサイズで期間によりコホート圧縮します。
 
 \subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-1}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
@@ -9381,11 +9383,6 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \endlastfoot
 316866 & 高血圧性障害 & いいえ & はい & いいえ \\
 \end{longtable}
-
-\textless\textless\textless\textless\textless\textless\textless{} HEAD
-Table: \label{tab:htnDrugsAceMono} 高血圧薬
-=======
-\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater{} d84f15c84472a96d3c9d50b58c4246cdb83ccaa1
 
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:htnDrugsAceMono} 高血圧薬}\tabularnewline
@@ -9461,8 +9458,8 @@ Table: \label{tab:htnDrugsAceMono} 高血圧薬
 
 \section{急性心筋梗塞（AMI）}\label{Ami}
 
-\subsubsection*{初期イベントコホート}\label{ux521dux671fux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
-\addcontentsline{toc}{subsubsection}{初期イベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-2}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
 以下のいずれかを持つ人：
 
@@ -9472,34 +9469,35 @@ Table: \label{tab:htnDrugsAceMono} 高血圧薬
   \emph{急性心筋梗塞}（表 \ref{tab:ami}）のコンディション出現
 \end{itemize}
 
-かつ、インデックス日から遡って少なくとも365日前、0日後の間の連続した観察があり、インデックスイベントを以下に制限します：その個人における全てのイベント。
+かつ、インデックス日から遡って少なくとも0日前からインデックス日0日後の間の連続した観察があり、インデックスイベントを以下に制限します：その個人における全てのイベント。
 
 主要イベントがありとなるのは、以下のいずれかの基準を満たす人：
 
 \begin{itemize}
 \tightlist
 \item
-  インデックス日から遡るすべての日に、終了がインデックス開始日後の日と一致する\emph{入院または緊急診療} (表 \ref{tab:inpatientOrErAmi}) のビジット出現が少なくとも1件
+  インデックス日から遡るすべての日から0日後の間に始まり、ビジット終了日がインデックス開始日0日後からインデックス開始日後の全ての日の間に終了すると一致する\emph{入院または救急室受診} (表 \ref{tab:inpatientOrErAmi})のビジット出現が少なくとも1件。
 \end{itemize}
 
 インデックスイベントのコホートを制限します：その個人における全てのイベント。
 
-\subsubsection*{最終日の考え方}\label{ux6700ux7d42ux65e5ux306eux8003ux3048ux65b9-1}
-\addcontentsline{toc}{subsubsection}{最終日の考え方}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-2}
+\addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-日付オフセット終了基準。
+日付オフセット終了基準：
+
 このコホート定義の終了日は、インデックスイベントの開始日から7日後となります。
 
-\subsubsection*{コホート統合の考え方}\label{ux30b3ux30dbux30fcux30c8ux7d71ux5408ux306eux8003ux3048ux65b9-1}
-\addcontentsline{toc}{subsubsection}{コホート統合の考え方}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-2}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-180日間のギャップサイズで時代によるコホート統合。
+180日間のギャップサイズで期間によりコホートを圧縮する。
 
 \subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-2}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:ami} 入院または緊急診療}\tabularnewline
+\caption{\label{tab:ami} 入院または救急室受診}\tabularnewline
 \toprule\noalign{}
 コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
 \midrule\noalign{}
@@ -9514,67 +9512,87 @@ Table: \label{tab:htnDrugsAceMono} 高血圧薬
 4329847 & 心筋梗塞 & いいえ & はい & いいえ \\
 \end{longtable}
 
-\textless\textless\textless\textless\textless\textless\textless{} HEAD
-Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
-=======
-\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater{} d84f15c84472a96d3c9d50b58c4246cdb83ccaa1
-
-\begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:inpatientOrErAmi} 入院または緊急診療}\tabularnewline
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\caption{\label{tab:inpatientOrErAmi} 入院または救急室受診}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マッピング元
+\end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マッピング元
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-262 & 緊急室と入院ビジット & いいえ & はい & いいえ \\
+262 & 救急室および入院ビジット & いいえ & はい & いいえ \\
 9201 & 入院ビジット & いいえ & はい & いいえ \\
-9203 & 緊急室訪問 & いいえ & はい & いいえ \\
+9203 & 救急室ビジット & いいえ & はい & いいえ \\
 \end{longtable}
 
 \section{血管性浮腫}\label{Angioedema}
 
-\subsubsection*{初発イベントコホート}\label{ux521dux767aux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8}
-\addcontentsline{toc}{subsubsection}{初発イベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-3}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
-以下のいずれかを持っている人々：
-
-\begin{itemize}
-\tightlist
-\item
-  \emph{血管性浮腫}の状態発生（表 \ref{tab:angioedema}）
-\end{itemize}
-
-イベントの発生日の前後少なくとも0日間の継続観察を持ち、初発イベントを制限する：各人の全てのイベント。
-
-主なイベントに一致する人々には以下を含む：以下のいずれかの基準を持っている：
+以下のいずれかを持つ人：
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{入院または救急室ビジット} (表 \ref{tab:inpatientOrEr})のビジット発生の少なくとも1回、イベントが発生日の前全ての日と後0日以内に開始し、イベントが発生日の前0日と後全ての日の間に終了
+  \emph{血管性浮腫}のコンディション出現（表 \ref{tab:angioedema}）
 \end{itemize}
 
-初発イベントのコホートを制限する：各人の全てのイベント。
+イベント発生日の前と後少なくとも0日間の連続した観察期間を持ち、初回イベントを次のように制限します：その個人における全てのイベント。
 
-適格なコホートを制限する：各人の全てのイベント。
+主要イベントがありとなるのは、以下のいずれかの基準を満たす人：
 
-\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-1}
+\begin{itemize}
+\tightlist
+\item
+  \emph{入院または救急室ビジット} インデックス日前全ての日と後0日の間に開始し、インデックス日前0日と後全ての日の間に終了する(表 \ref{tab:inpatientOrEr})で特定されるビジットが少なくとも1回発生します。
+\end{itemize}
+
+初回イベントのコホートを制限する：各個人の全てのイベント。
+
+適格なコホートを制限する：各個人の全てのイベント。
+
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-3}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
 このコホート定義の終了日はインデックスイベントの開始日から7日後とする
 
-\subsubsection*{コホートの折りたたみの考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux306eux8003ux3048ux65b9}
-\addcontentsline{toc}{subsubsection}{コホートの折りたたみの考え方}
+\subsubsection*{コホートの圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux5727ux7e2eux306eux8003ux3048ux65b9}
+\addcontentsline{toc}{subsubsection}{コホートの圧縮の考え方}
 
-期間を30日のギャップサイズで折りたたむ。
+30日間のギャップサイズで期間によりコホートを圧縮する。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-1}
-\addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-3}
+\addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:angioedema} 血管性浮腫}\tabularnewline
@@ -9591,14 +9609,39 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 432791 & 血管性浮腫 & いいえ & はい & いいえ \\
 \end{longtable}
 
-\begin{longtable}[]{@{}lllll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \caption{\label{tab:inpatientOrEr} 入院または救急室ビジット}\tabularnewline
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マッピング元
+\end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
+\begin{minipage}[b]{\linewidth}\raggedright
+コンセプトID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+コンセプト名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+除外
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+下位層
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+マッピング元
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -9608,81 +9651,81 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 9203 & 救急室ビジット & いいえ & はい & いいえ \\
 \end{longtable}
 
-\section{サイアザイド系利尿薬単剤療法の新規使用者}\label{ThiazidesMono}
+\section{サイアザイド様利尿薬単剤療法の新規ユーザー使用者}\label{ThiazidesMono}
 
-\subsubsection*{初発イベントコホート}\label{ux521dux767aux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-1}
-\addcontentsline{toc}{subsubsection}{初発イベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-4}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
-以下のいずれかを持っている人々：
+以下のいずれかを持つ人：
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{サイアザイド類またはサイアザイド類似利尿薬}（表 \ref{tab:thiazidesMono}）の初めての薬物使用
+  その人の履歴において初回の\emph{サイアザイドまたはサイアザイド様利尿薬}（表 \ref{tab:thiazidesMono}）への曝露
 \end{itemize}
 
-イベントの発生日の前少なくとも365日間と発生日後0日の継続観察を持ち、初発イベントを制限する：各人の最初のイベント。
+かつ、インデックス日からの遡って少なくとも365日間からインデックス日0日後の間の連続した観察があり、初回イベントを以下のように制限します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb-1}
 \addcontentsline{toc}{subsubsection}{選択ルール}
 
-選択基準1：治療の1年前に高血圧診断を持つ
+選択基準1：治療前の1年間に高血圧の診断をうけています。
 
-以下の全ての基準を持っている：
-
-\begin{itemize}
-\tightlist
-\item
-  \emph{高血圧性障害} (表 \ref{tab:hypertensionThzMono})の状態発生の少なくとも1回、イベントがインデックス開始日の前365日以内に開始
-\end{itemize}
-
-選択基準2：医療歴に高血圧治療用薬物の過去使用がない
-
-以下の全ての基準を持っている：
+以下の全ての基準を満たします：
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{高血圧治療薬} (表 \ref{tab:htnDrugsThzMono})の薬物使用発生が全ての日の前日とイベント開始日の前日1日の間に0回
+  インデックス開始日から遡って365日前からインデックス開始日0日後の間に少なくとも1回の \emph{高血圧性障害} (表 \ref{tab:hypertensionThzMono})のコンディションが出現します。
 \end{itemize}
 
-選択基準3：一剤療法としてACEのみを使用し、併用治療がない
+選択基準\#2：病歴に高血圧治療薬の使用がありません。
 
-以下の全ての基準を持っている：
+以下の全ての基準を満たします：
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{高血圧治療薬} (表 \ref{tab:htnDrugsThzMono})の薬剤期間がインデックス開始日の前0日から後7日の間に1回のみ存在
+  インデックス開始日1日前までのすべての日に始まる\emph{高血圧薬}(表 \ref{tab:htnDrugsThzMono})の薬物使用が完全に0回です。
 \end{itemize}
 
-適格なコホートを制限する：各人の最初のイベント。
+選択基準\#3：ACE単剤療法のみを受けており、併用治療を行っていません。
 
-\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-2}
+以下のすべての基準を満たします：
+
+\begin{itemize}
+\tightlist
+\item
+  インデックス開始日0日前から7日後の間に始まる\emph{高血圧薬}(表 \ref{tab:htnDrugsThzMono})の明確な薬物曝露期間の出現がちょうど1回です。
+\end{itemize}
+
+適格コホートとしてイベントを次のように制限します：その個人における最も早いイベント。
+
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-4}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-カスタム薬剤期間終了基準：この考え方により、指定されたコンセプトセットで見つかったコードから薬剤期間が作成されます。インデックスイベントが期間内に見つかった場合、コホートの終了日はその期間の終了日を使用します。それ以外の場合は、インデックスイベントを含む観察期間の終了日を使用します。
+カスタム薬剤曝露期間の終了の基準：この考え方は、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホートの終了日はその曝露期間の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
 
-\emph{サイアザイド類またはサイアザイド類似利尿薬}（表 \ref{tab:thiazidesMono}）の期間終了日を使用
+\emph{サイアザイドまたはサイアザイド様利尿薬}（表 \ref{tab:thiazidesMono}）の曝露期間の終了日
 
 \begin{itemize}
 \tightlist
 \item
-  使用間の30日を許容
+  薬剤曝露間隔が30日を許容します。
 \item
-  曝露終了後0日を追加
+  薬剤曝露終了後0日追加します。
 \end{itemize}
 
-\subsubsection*{コホートの折りたたみの考え方}\label{ux30b3ux30dbux30fcux30c8ux306eux6298ux308aux305fux305fux307fux306eux8003ux3048ux65b9-1}
-\addcontentsline{toc}{subsubsection}{コホートの折りたたみの考え方}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-3}
+\addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-ギャップサイズ0日でコホートを期間ごとに折りたたむ。
+0日間のギャップによりコホートを圧縮します。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-2}
-\addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-4}
+\addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:thiazidesMono} サイアザイド類またはサイアザイド類似利尿薬}\tabularnewline
+\caption{\label{tab:thiazidesMono} サイアザイドまたはサイアザイド様利尿薬}\tabularnewline
 \toprule\noalign{}
 コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
 \midrule\noalign{}
@@ -9786,48 +9829,47 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 40235485 & アジルサルタン & いいえ & はい & いいえ \\
 \end{longtable}
 
-\section{初回高血圧治療を開始する患者}\label{HTN1yrFO}
+\section{高血圧のための第一選択治療を開始する患者}\label{HTN1yrFO}
 
-\subsubsection*{インデックスイベントコホート}\label{ux30a4ux30f3ux30c7ux30c3ux30afux30b9ux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-2}
-\addcontentsline{toc}{subsubsection}{インデックスイベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-5}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
-以下のいずれかを持つ人々：
+以下のいずれかを持つ人：
 
 \begin{itemize}
 \tightlist
 \item
-  個人の履歴で初めての\emph{初回高血圧治療薬}（表 \ref{tab:HTN1yrFO1stLine}）の薬物使用
+  その人の履歴において初回の\emph{第一選択高血圧治療薬}（表 \ref{tab:HTN1yrFO1stLine}）への曝露
 \end{itemize}
 
-イベントのインデックス日から前の最低365日間と後の365日間の連続した観察期間を持ち、初イベントを個人ごとに最初のイベントに限定します。
+かつ、インデックス日から遡って少なくとも365日前からインデックス日365日後の間の連続した観察があり、初期イベントを以下に制限します：その個人における最も早いイベント。
 
 \subsubsection*{選択ルール}\label{ux9078ux629eux30ebux30fcux30eb-2}
 \addcontentsline{toc}{subsubsection}{選択ルール}
 
-以下のすべての条件を満たすこと：
+以下の全ての基準を満たすこと：
 
 \begin{itemize}
 \tightlist
 \item
-  インデックス開始日前のすべての日と1日前の間にイベントが開始される\emph{高血圧薬}（表 \ref{tab:HTN1yrFODrugs}）の薬物使用が正確に0回
+  インデックス開始日1日前までのすべての日に少なくとも1回の\emph{高血圧治療薬}（表 \ref{tab:HTN1yrFODrugs}）の薬剤への曝露がちょうど0回出現します。
 \item
-  また、インデックス開始日から前365日間から後0日までの間に\emph{高血圧性障害}（表 \ref{tab:HTN1yrFOHypertensiveDisorder}）が少なくとも1回発生していること
+  かつ、インデックス開始日からさかのぼって365日と後0日までの間に\emph{高血圧性障害}（表 \ref{tab:HTN1yrFOHypertensiveDisorder}）のコンディションがが少なくとも1回出現します。
 \end{itemize}
 
-インデックスイベントのコホートを個人ごとに最初のイベントに限定します。
-適格なコホートを個人ごとに最初のイベントに限定します。
+初回イベントのコホートを次のように制限します：その個人における最も早いイベント。 適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
 
-\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-3}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-5}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-終了日の考え方は選択されていません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日となります。
+終了日の考え方は選択されません。デフォルトでは、コホート終了日はインデックスイベントを含む観察期間の終了日になります。
 
-\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-1}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-4}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-ギャップサイズ0日でエラによるコホートの圧縮を行います。
+0日間のギャップによりコホートを圧縮します。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-3}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-5}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -9875,7 +9917,7 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 \end{longtable}
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:HTN1yrFODrugs} 高血圧薬}\tabularnewline
+\caption{\label{tab:HTN1yrFODrugs} 高血圧治療薬}\tabularnewline
 \toprule\noalign{}
 コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
 \midrule\noalign{}
@@ -9961,48 +10003,48 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 316866 & 高血圧性障害 & NO & YES & NO \\
 \end{longtable}
 
-\section{3年以上のフォローアップがある初回高血圧治療患者}\label{HTN3yrFO}
+\section{追跡期間が3年以上ある高血圧のための第一選択治療を開始する患者}\label{HTN3yrFO}
 
-\emph{コホート定義 \ref{HTN1yrFO}} と同じだが、連続観察期間がインデックスイベント日から365日前と\textbf{1095日}後の観察期間が必要
+\emph{コホート定義} \ref{HTN1yrFO} と同じだが、インデックス日から遡って少なくとも365日前から\textbf{1095日}後の連続した観察がある。
 
 \section{ACE阻害薬の使用}\label{ACEiUse}
 
-\subsubsection*{インデックスイベントコホート}\label{ux30a4ux30f3ux30c7ux30c3ux30afux30b9ux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-3}
-\addcontentsline{toc}{subsubsection}{インデックスイベントコホート}
+\subsubsection*{初回イベントコホート}\label{ux521dux56deux30a4ux30d9ux30f3ux30c8ux30b3ux30dbux30fcux30c8-6}
+\addcontentsline{toc}{subsubsection}{初回イベントコホート}
 
-以下のいずれかを持つ人々：
+以下のいずれかを持つ人：
 
 \begin{itemize}
 \tightlist
 \item
-  \emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の薬物使用
+  \emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の薬物への曝露
 \end{itemize}
 
-イベントのインデックス日から前後0日間の連続した観察期間を持ち、初イベントを個人ごとのすべてのイベントに限定します。
+かつ、インデックス日から遡って少なくとも0日前から０日後の間の連続した観察があり、初回イベントを以下に制限します：その個人のすべてのイベント。
 
 適格なコホートを個人ごとのすべてのイベントに限定します。
 
-\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-4}
+\subsubsection*{終了日の考え方}\label{ux7d42ux4e86ux65e5ux306eux8003ux3048ux65b9-6}
 \addcontentsline{toc}{subsubsection}{終了日の考え方}
 
-この考え方は、指定されたコンセプトセットのコードからドラッグエラを作成します。インデックスイベントがエラの範囲内に見つかった場合、コホート終了日はエラの終了日を使用します。それ以外の場合、コホート終了日はインデックスイベントを含む観察期間の終了日を使用します。
+この考え方は、指定されたコンセプトセットで見つかったコードから薬剤曝露期間を作成します。インデックスイベントが曝露期間内で見つかった場合、コホートの終了日はその曝露期間の終了日を使用します。そうでない場合、インデックスイベントを含む観察期間の終了日を使用します。
 
-\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）のエラ終了日を使用し、
+\emph{ACE阻害薬}の曝露期間の終了日（表 \ref{tab:ACEiUseACE}）
 
 \begin{itemize}
 \tightlist
 \item
-  30日間の使用数の間隔を許可
+  薬剤曝露間隔が30日を許容します。
 \item
-  露出終了後0日を追加
+  薬剤曝露終了後0日追加します。
 \end{itemize}
 
-\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-2}
+\subsubsection*{コホート圧縮の考え方}\label{ux30b3ux30dbux30fcux30c8ux5727ux7e2eux306eux8003ux3048ux65b9-5}
 \addcontentsline{toc}{subsubsection}{コホート圧縮の考え方}
 
-ギャップサイズ30日でエラによりコホートを圧縮します。
+30日間のギャップサイズで期間によりコホート圧縮します。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-4}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-6}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -10031,9 +10073,9 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{アンジオテンシン受容体拮抗薬（ARB）の使用}\label{ARBUse}
 
-\emph{コホート定義 \ref{ACEiUse}} と同じだが、\emph{アンジオテンシン受容体拮抗薬（ARB）}（表 \ref{tab:ARBUseARBs}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用される。
+\emph{コホート定義} \ref{ACEiUse} と同じですが、\emph{アンジオテンシン受容体拮抗薬（ARB）}（表 \ref{tab:ARBUseARBs}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用されます。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-5}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-7}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -10058,15 +10100,15 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 40235485 & アジルサルタン & NO & YES & NO \\
 \end{longtable}
 
-\section{サイアザイド系およびサイアザイド様利尿薬の使用}\label{THZUse}
+\section{サイアザイドおよびサイアザイド様利尿薬の使用}\label{THZUse}
 
-\emph{コホート定義 \ref{ACEiUse}} と同じだが、\emph{サイアザイド系およびサイアザイド様利尿薬}（表 \ref{tab:THZUseTHZ}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用される。
+\emph{コホート定義} \ref{ACEiUse} と同じですが、\emph{サイアザイドおよびサイアザイド様利尿薬}（表 \ref{tab:THZUseTHZ}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用されます。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-6}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-8}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
-\caption{\label{tab:THZUseTHZ} サイアザイド系およびサイアザイド様利尿薬}\tabularnewline
+\caption{\label{tab:THZUseTHZ} サイアザイドおよびサイアザイド様利尿薬}\tabularnewline
 \toprule\noalign{}
 コンセプトID & コンセプト名 & 除外 & 下位層 & マッピング元 \\
 \midrule\noalign{}
@@ -10085,9 +10127,9 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）の使用}\label{dCCBUse}
 
-\emph{コホート定義 \ref{ACEiUse}} と同じだが、\emph{ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）}（表 \ref{tab:dCCBUsedCBB}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用される。
+\emph{コホート定義} \ref{ACEiUse} と同じですが、\emph{ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）}（表 \ref{tab:dCCBUsedCBB}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用されます。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-7}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-9}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -10112,9 +10154,9 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）の使用}\label{ndCCBUse}
 
-\emph{コホート定義 \ref{ACEiUse}} と同じだが、\emph{非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）}（表 \ref{tab:ndCCBUsendCCB}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用される。
+\emph{コホート定義} \ref{ACEiUse} と同じですが、\emph{非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）}（表 \ref{tab:ndCCBUsendCCB}）が\emph{ACE阻害薬}（表 \ref{tab:ACEiUseACE}）の代わりに使用されます。
 
-\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-8}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-10}
 \addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -10135,10 +10177,10 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{β遮断薬使用}\label{BBUse}
 
-\emph{ACE阻害剤使用 \ref{ACEiUse}} と同様に、\emph{β遮断薬} (表 \ref{tab:BBUseBB}) を \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE})に置き換えた場合。
+\emph{コホート定義} \ref{ACEiUse} と同じですが、\emph{β遮断薬} (表 \ref{tab:BBUseBB}) が \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE})の代わりに使用されます。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-3}
-\addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-11}
+\addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:BBUseBB} β遮断薬}\tabularnewline
@@ -10168,10 +10210,10 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{ループ利尿薬使用}\label{DLoopUse}
 
-\emph{ACE阻害剤使用 \ref{ACEiUse}} と同様に、\emph{ループ利尿薬} (表 \ref{tab:DLoopUseDLoops}) を \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE}) に置き換えた場合。
+\emph{ACE阻害剤使用} \ref{ACEiUse} と同じですが、\emph{ループ利尿薬} (表 \ref{tab:DLoopUseDLoops}) が\emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE}) の代わりに使用されます。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-4}
-\addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
+\subsubsection*{コンセプトセット定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux5b9aux7fa9-12}
+\addcontentsline{toc}{subsubsection}{コンセプトセット定義}
 
 \begin{longtable}[]{@{}lllll@{}}
 \caption{\label{tab:DLoopUseDLoops} ループ利尿薬}\tabularnewline
@@ -10192,9 +10234,9 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{カリウム保持性利尿薬使用}\label{DPUse}
 
-\emph{ACE阻害剤使用 \ref{ACEiUse}} と同様に、\emph{カリウム保持性利尿薬} (表 \ref{tab:DPUseDPs}) を \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE}) に置き換えた場合。
+\emph{ACE阻害剤使用} \ref{ACEiUse} と同じですが、\emph{カリウム保持性利尿薬} (表 \ref{tab:DPUseDPs}) が \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE}) の代わりに使用されます。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-5}
+\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-1}
 \addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
 
 \begin{longtable}[]{@{}lllll@{}}
@@ -10215,9 +10257,9 @@ Table: \label{tab:inpatientOrErAmi} 入院または緊急診療
 
 \section{α1遮断薬使用}\label{A1BUse}
 
-\emph{ACE阻害剤使用 \ref{ACEiUse}} と同様に、\emph{α1遮断薬} (表 \ref{tab:A1BUseA1Bs}) を \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE})に置き換えた場合。
+\emph{ACE阻害剤使用} \ref{ACEiUse} と同じですが、\emph{α1遮断薬} (表 \ref{tab:A1BUseA1Bs}) が \emph{ACE阻害剤} (表 \ref{tab:ACEiUseACE})の代わりに使用されます。
 
-\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-6}
+\subsubsection*{コンセプトセットの定義}\label{ux30b3ux30f3ux30bbux30d7ux30c8ux30bbux30c3ux30c8ux306eux5b9aux7fa9-2}
 \addcontentsline{toc}{subsubsection}{コンセプトセットの定義}
 
 \begin{longtable}[]{@{}lllll@{}}
