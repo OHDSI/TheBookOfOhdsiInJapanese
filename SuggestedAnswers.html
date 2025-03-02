@@ -738,7 +738,7 @@ div.csl-indent {
 <h2><span class="header-section-number">E.1</span> 共通データモデル<a href="SuggestedAnswers.html#Cdmanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="演習-refexrexercisejohnperson" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exerciseJohnPerson">4.1</a><a href="SuggestedAnswers.html#演習-refexrexercisejohnperson" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>演習で説明されている内容に基づいて、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnPerson">E.1</a> のようになるはずです。</p>
+<p>演習で説明されている内容に基づくと、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnPerson">E.1</a> のようになるはずです。</p>
 <table>
 <caption><span id="tab:johnPerson">表 E.1: </span> PERSONテーブル。</caption>
 <colgroup>
@@ -797,7 +797,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">ETHNICITY_ CONCEPT_ID</td>
 <td align="left">38003564</td>
-<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a> は「ヒスパニックではない」ことを示す。</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a> は「非ヒスパニック」を示す。</td>
 </tr>
 <tr class="even">
 <td align="left">LOCATION_ID</td>
@@ -812,7 +812,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">CARE_SITE</td>
 <td align="left"></td>
-<td align="left">主治療施設が不明。</td>
+<td align="left">主たる医療施設が不明。</td>
 </tr>
 <tr class="odd">
 <td align="left">PERSON_SOURCE_ VALUE</td>
@@ -854,7 +854,7 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexercisejohnop" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exerciseJohnOp">4.2</a><a href="SuggestedAnswers.html#演習-refexrexercisejohnop" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>演習で説明されている内容に基づいて、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnOp">E.2</a> のようになるはずです。</p>
+<p>演習で説明されている内容に基づくと、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnOp">E.2</a> のようになるはずです。</p>
 <table>
 <caption><span id="tab:johnOp">表 E.2: </span> OBSERVATION_PERIODテーブル。</caption>
 <colgroup>
@@ -1396,7 +1396,7 @@ div.csl-indent {
 <span id="cb155-12"><a href="SuggestedAnswers.html#cb155-12" tabindex="-1"></a><span class="st">  AND condition_concept_id NOT IN (</span></span>
 <span id="cb155-13"><a href="SuggestedAnswers.html#cb155-13" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
 <span id="cb155-14"><a href="SuggestedAnswers.html#cb155-14" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
-<span id="cb155-15"><a href="SuggestedAnswers.html#cb155-15" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 314666 -- 古い心筋梗塞</span></span>
+<span id="cb155-15"><a href="SuggestedAnswers.html#cb155-15" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 314666 -- 陳旧性心筋梗塞</span></span>
 <span id="cb155-16"><a href="SuggestedAnswers.html#cb155-16" tabindex="-1"></a><span class="st">);&quot;</span></span>
 <span id="cb155-17"><a href="SuggestedAnswers.html#cb155-17" tabindex="-1"></a></span>
 <span id="cb155-18"><a href="SuggestedAnswers.html#cb155-18" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
@@ -1414,7 +1414,7 @@ div.csl-indent {
 <span id="cb156-11"><a href="SuggestedAnswers.html#cb156-11" tabindex="-1"></a><span class="st">  ON subject_id = person_id</span></span>
 <span id="cb156-12"><a href="SuggestedAnswers.html#cb156-12" tabindex="-1"></a><span class="st">    AND cohort_start_date &gt;= visit_start_date</span></span>
 <span id="cb156-13"><a href="SuggestedAnswers.html#cb156-13" tabindex="-1"></a><span class="st">    AND cohort_start_date &lt;= visit_end_date</span></span>
-<span id="cb156-14"><a href="SuggestedAnswers.html#cb156-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院またはER;&quot;</span></span>
+<span id="cb156-14"><a href="SuggestedAnswers.html#cb156-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院または救急室ビジット;&quot;</span></span>
 <span id="cb156-15"><a href="SuggestedAnswers.html#cb156-15" tabindex="-1"></a></span>
 <span id="cb156-16"><a href="SuggestedAnswers.html#cb156-16" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <p>条件と訪問をVISIT_OCCURRENCE_IDに基づいて結合する代替アプローチも考えられます。この方法は、状態が入院またはER訪問に関連して記録されたことを保証するため、より正確かもしれません。しかし、多くの観察データベースは、訪問と診断のリンクを記録していないため、日付を使用することを選択しました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。</p>

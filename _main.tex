@@ -3210,7 +3210,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.zbus252rchildren ;"
+## [1] "SELECT * FROM temp_schema.spacng8lchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -10477,7 +10477,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \subsubsection*{演習 \ref{exr:exerciseJohnPerson}}\label{ux6f14ux7fd2-refexrexercisejohnperson}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseJohnPerson}}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnPerson} のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \ref{tab:johnPerson} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -10514,10 +10514,10 @@ DAY\_OF\_BIRTH & 4 & \\
 BIRTH\_DATETIME & 1974-08-04 00:00:00 & 時間が不明な場合は真夜中（00:00:00）を使用。 \\
 DEATH\_DATETIME & NULL & \\
 RACE\_CONCEPT\_ID & 8516 & アフリカ系アメリカ人のコンセプト ID は \href{http://athena.ohdsi.org/search-terms/terms/8516}{8516}。 \\
-ETHNICITY\_ CONCEPT\_ID & 38003564 & \href{http://athena.ohdsi.org/search-terms/terms/38003564}{38003564} は「ヒスパニックではない」ことを示す。 \\
+ETHNICITY\_ CONCEPT\_ID & 38003564 & \href{http://athena.ohdsi.org/search-terms/terms/38003564}{38003564} は「非ヒスパニック」を示す。 \\
 LOCATION\_ID & & 住所は不明。 \\
 PROVIDER\_ID & & 主治医が不明。 \\
-CARE\_SITE & & 主治療施設が不明。 \\
+CARE\_SITE & & 主たる医療施設が不明。 \\
 PERSON\_SOURCE\_ VALUE & NULL & 提供されていない。 \\
 GENDER\_SOURCE\_ VALUE & Man & 説明で使用されたテキスト。 \\
 GENDER\_SOURCE\_ CONCEPT\_ID & 0 & \\
@@ -10530,7 +10530,7 @@ ETHNICITY\_SOURCE\_ CONCEPT\_ID & 0 & \\
 \subsubsection*{演習 \ref{exr:exerciseJohnOp}}\label{ux6f14ux7fd2-refexrexercisejohnop}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseJohnOp}}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnOp} のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \ref{tab:johnOp} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -11055,7 +11055,7 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 \StringTok{  AND condition\_concept\_id NOT IN (}
 \StringTok{    SELECT descendant\_concept\_id}
 \StringTok{    FROM @cdm.concept\_ancestor}
-\StringTok{    WHERE ancestor\_concept\_id = 314666 {-}{-} 古い心筋梗塞}
+\StringTok{    WHERE ancestor\_concept\_id = 314666 {-}{-} 陳旧性心筋梗塞}
 \StringTok{);"}
 
 \FunctionTok{renderTranslateExecuteSql}\NormalTok{(connection, sql, }\AttributeTok{cdm =} \StringTok{"main"}\NormalTok{)}
@@ -11079,7 +11079,7 @@ NSAIDsのコンセプトセット表現は図\ref{fig:cohortsAtlasConceptSet2}�
 \StringTok{  ON subject\_id = person\_id}
 \StringTok{    AND cohort\_start\_date \textgreater{}= visit\_start\_date}
 \StringTok{    AND cohort\_start\_date \textless{}= visit\_end\_date}
-\StringTok{WHERE visit\_concept\_id IN (9201, 9203, 262); {-}{-} 入院またはER;"}
+\StringTok{WHERE visit\_concept\_id IN (9201, 9203, 262); {-}{-} 入院または救急室ビジット;"}
 
 \FunctionTok{renderTranslateExecuteSql}\NormalTok{(connection, sql, }\AttributeTok{cdm =} \StringTok{"main"}\NormalTok{)}
 \end{Highlighting}

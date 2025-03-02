@@ -6,7 +6,7 @@
 
 #### 演習 \@ref(exr:exerciseJohnPerson) {.unnumbered}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \@ref(tab:johnPerson) のようになるはずです。
 
 | カラム名 | 値 | 説明 |
 |:---|:---|:---|
@@ -18,10 +18,10 @@
 | BIRTH_DATETIME | 1974-08-04 00:00:00 | 時間が不明な場合は真夜中（00:00:00）を使用。 |
 | DEATH_DATETIME | NULL |  |
 | RACE_CONCEPT_ID | 8516 | アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。 |
-| ETHNICITY\_ CONCEPT_ID | 38003564 | [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「ヒスパニックではない」ことを示す。 |
+| ETHNICITY\_ CONCEPT_ID | 38003564 | [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「非ヒスパニック」を示す。 |
 | LOCATION_ID |  | 住所は不明。 |
 | PROVIDER_ID |  | 主治医が不明。 |
-| CARE_SITE |  | 主治療施設が不明。 |
+| CARE_SITE |  | 主たる医療施設が不明。 |
 | PERSON_SOURCE\_ VALUE | NULL | 提供されていない。 |
 | GENDER_SOURCE\_ VALUE | Man | 説明で使用されたテキスト。 |
 | GENDER_SOURCE\_ CONCEPT_ID | 0 |  |
@@ -34,7 +34,7 @@
 
 #### 演習 \@ref(exr:exerciseJohnOp) {.unnumbered}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \@ref(tab:johnOp) のようになるはずです。
 
 | カラム名 | 値 | 説明 |
 |:---|:---|:---|
@@ -440,7 +440,7 @@ WHERE condition_concept_id IN (
   AND condition_concept_id NOT IN (
     SELECT descendant_concept_id
     FROM @cdm.concept_ancestor
-    WHERE ancestor_concept_id = 314666 -- 古い心筋梗塞
+    WHERE ancestor_concept_id = 314666 -- 陳旧性心筋梗塞
 );"
 
 renderTranslateExecuteSql(connection, sql, cdm = "main")
@@ -463,7 +463,7 @@ INNER JOIN @cdm.visit_occurrence
   ON subject_id = person_id
     AND cohort_start_date >= visit_start_date
     AND cohort_start_date <= visit_end_date
-WHERE visit_concept_id IN (9201, 9203, 262); -- 入院またはER;"
+WHERE visit_concept_id IN (9201, 9203, 262); -- 入院または救急室ビジット;"
 
 renderTranslateExecuteSql(connection, sql, cdm = "main")
 ```
@@ -917,4 +917,3 @@ DataQualityDashboard::executeDqChecks(
 DataQualityDashboard::viewDqDashboard(
   "C:/dataQualityExample/Eunomia/results_Eunomia.json")
 ```
-
