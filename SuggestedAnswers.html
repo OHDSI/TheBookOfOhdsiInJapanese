@@ -706,8 +706,8 @@ div.csl-indent {
 <li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQLとR</a></li>
 <li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> コホートの定義</a></li>
 <li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> 特性の評価</a></li>
-<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> 集団レベル推定</a></li>
-<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> 患者レベル予測</a></li>
+<li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> 集団レベルの推定</a></li>
+<li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> 患者レベルの予測</a></li>
 <li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> データ品質</a></li>
 <li class="chapter" data-level="E.11" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#section"><i class="fa fa-check"></i><b>E.11</b> </a></li>
 </ul></li>
@@ -1441,79 +1441,79 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexercisecharacterization2" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="Characterization.html#exr:exerciseCharacterization2">11.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecharacterization2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 <img src="images/Cohorts/search-2.png" />モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 <img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトセットにコンセプトを追加します（図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">E.9</a> 参照）。</p>
+<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「Celecoxib (セレコキシブ)」）を付けます。 <img src="images/Cohorts/search-2.png" />モジュールを開き、「Celecoxib (セレコキシブ)」を検索し、クラスを「Ingredient (成分)」、標準コンセプトを「Standard (標準)」とするように限定し、 <img src="images/Cohorts/shoppingcart.png" />をクリックして、図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">E.9</a>に示されるように、コンセプトセットにコンセプトを追加します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:conceptSearchAtlas"></span>
-<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="成分「セレコキシブ」の標準コンセプトの選択。" width="100%" />
+<img src="images/SuggestedAnswers/conceptSearchAtlas.png" alt="成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択" width="100%" />
 <p class="caption">
-図 E.9: 成分「セレコキシブ」の標準コンセプトの選択。
+図 E.9: 成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択
 </p>
 </div>
-<p>図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">E.9</a> の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「+初期イベントを追加」をクリックしてから「薬剤期間を追加」をクリックします。薬剤期間基準のために以前に作成したコンセプトセットを選択します。「属性を追加…」をクリックして「最初の暴露基準を追加」を選択します。インデックス日の前に少なくとも365日の連続観察が必要と設定します。結果は図 <a href="SuggestedAnswers.html#fig:celecoxibCohortDefinition">E.10</a> のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。 <img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存し、<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
+<p>図 <a href="SuggestedAnswers.html#fig:conceptSearchAtlas">E.9</a> の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加…)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 <a href="SuggestedAnswers.html#fig:celecoxibCohortDefinition">E.10</a> のようになるはずです。選択基準、コホート・イグジット、コホート期間の選択はそのままにします。 <img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存ることを忘れないでください。<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCohortDefinition"></span>
-<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="単純なセレコキシブ新規使用者のコホート定義。" width="100%" />
+<img src="images/SuggestedAnswers/celecoxibCohortDefinition.png" alt="セレコキシブ新規ユーザーの単純なコホート定義" width="100%" />
 <p class="caption">
-図 E.10: 単純なセレコキシブ新規使用者のコホート定義。
+図 E.10: セレコキシブ新規ユーザーの単純なコホート定義
 </p>
 </div>
-<p>コホートが定義されたので、その特徴を記述できます。<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックして「新しい特徴記述」を選択します。特徴記述に意味のある名前（例：「セレコキシブ新規使用者の特徴記述」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「特徴分析」の下で、「インポート」をクリックし、少なくとも1つの状態分析と1つの薬剤分析を選択します。たとえば、「任意の期間前の薬剤グループ期間」と「任意の期間前の状態グループ期間」を選択します。特徴記述の定義は図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterization">E.11</a> のようになっているはずです。 <img src="images/Cohorts/save.png" />をクリックして特徴記述設定を保存してください。</p>
+<p>コホートを定義したので、その特性を評価できます。<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の評価の定義は図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterization">E.11</a> のようになっているはずです。 <img src="images/Cohorts/save.png" />をクリックして特性評価の設定を保存してください。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCharacterization"></span>
-<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="特徴記述設定。" width="100%" />
+<img src="images/SuggestedAnswers/celecoxibCharacterization.png" alt="特性評価設定" width="100%" />
 <p class="caption">
-図 E.11: 特徴記述設定。
+図 E.11: 特性評価設定
 </p>
 </div>
-<p>「実行」タブをクリックし、1つのデータソースについて「生成」をクリックします。生成が完了するまで時間がかかる場合があります。完了すると、「最新の結果を表示」をクリックできます。結果画面は、例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しない状態が表示されることがあります（図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterizationResults">E.12</a> 参照）。</p>
+<p>「Executions (実行)」タブをクリックし、1つのデータソースについて「Generate (作成)」をクリックします。作成が完了するまで時間を要する場合があります。完了すると、「View latest results (最新の結果を表示)」をクリックできます。結果画面は、図 <a href="SuggestedAnswers.html#fig:celecoxibCharacterizationResults">E.12</a>のように見えるはずで、図には例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しないコンディションが表示されることがあります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:celecoxibCharacterizationResults"></span>
-<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="特徴記述結果。" width="100%" />
+<img src="images/SuggestedAnswers/celecoxibCharacterizationResults.png" alt="特性評価の結果" width="100%" />
 <p class="caption">
-図 E.12: 特徴記述結果。
+図 E.12: 特性評価の結果
 </p>
 </div>
 </div>
 <div id="演習-refexrexercisecharacterization3" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="Characterization.html#exr:exerciseCharacterization3">11.3</a><a href="SuggestedAnswers.html#演習-refexrexercisecharacterization3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「GI出血」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。<img src="images/Cohorts/search-2.png" /> モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある<img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトセットにコンセプトを追加します（図 <a href="SuggestedAnswers.html#fig:giBleedSearch">E.13</a> 参照）。</p>
+<p><img src="images/Cohorts/cohortdefinition.png" />をクリックして「New cohort (新規コホート)」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed (消化管出血)」）を付け、「Concept Sets　(コンセプトセット)」タブに移動します。「New Concept Set (新しいコンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「GI bleed (消化管出血)」）を付けます。<img src="images/Cohorts/search-2.png" /> モジュールを開き、「Gastrointestinal hemorrhage (消化管出血)」を検索し、一番上のコンセプトの横にある<img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトセットにコンセプトを追加します（図 <a href="SuggestedAnswers.html#fig:giBleedSearch">E.13</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedSearch"></span>
-<img src="images/SuggestedAnswers/giBleedSearch.png" alt="「消化管出血」の標準コンセプトの選択。" width="100%" />
+<img src="images/SuggestedAnswers/giBleedSearch.png" alt="「Gastrointestinal hemorrhage (消化管出血)」の標準コンセプトの選択" width="100%" />
 <p class="caption">
-図 E.13: 「消化管出血」の標準コンセプトの選択。
+図 E.13: 「Gastrointestinal hemorrhage (消化管出血)」の標準コンセプトの選択
 </p>
 </div>
-<p>図 <a href="SuggestedAnswers.html#fig:giBleedSearch">E.13</a> の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「コンセプトセット」タブを再度開き、GI出血コンセプトの横にある「子孫」をチェックします（図 <a href="SuggestedAnswers.html#fig:giBleedDescendants">E.14</a> 参照）。</p>
+<p>図 <a href="SuggestedAnswers.html#fig:giBleedSearch">E.13</a> の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」をチェックします（図 <a href="SuggestedAnswers.html#fig:giBleedDescendants">E.14</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedDescendants"></span>
-<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="「消化管出血」のすべての子孫を追加。" width="100%" />
+<img src="images/SuggestedAnswers/giBleedDescendants.png" alt="「Gastrointestinal hemorrhage (消化管出血)」のすべての下位層を追加" width="100%" />
 <p class="caption">
-図 E.14: 「消化管出血」のすべての子孫を追加。
+図 E.14: 「Gastrointestinal hemorrhage (消化管出血)」のすべての下位層を追加
 </p>
 </div>
-<p>「定義」タブに戻り、「+初期イベントを追加」をクリックしてから「状態出現を追加」をクリックします。状態出現基準のために以前に作成したコンセプトセットを選択します。結果は図 <a href="SuggestedAnswers.html#fig:giBleedCohortDefinition">E.15</a> のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。<img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存し、<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
+<p>「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 <a href="SuggestedAnswers.html#fig:giBleedCohortDefinition">E.15</a> のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。<img src="images/Cohorts/save.png" />をクリックしてコホート定義を保存し、<img src="images/SuggestedAnswers/close.png" /> をクリックして終了します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:giBleedCohortDefinition"></span>
-<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="単純な消化管出血コホート定義。" width="100%" />
+<img src="images/SuggestedAnswers/giBleedCohortDefinition.png" alt="単純な消化管出血コホート定義" width="100%" />
 <p class="caption">
-図 E.15: 単純な消化管出血コホート定義。
+図 E.15: 単純な消化管出血コホート定義
 </p>
 </div>
-<p>コホートが定義されたので、発生率を計算できます。<img src="images/Characterization/atlasIncidenceMenuItem.png" />をクリックして「新しい分析」を選択します。分析に意味のある名前（例：「セレコキシブ開始後のGI出血発生率」）を付けます。「ターゲットコホートを追加」をクリックし、私たちのセレコキシブ新規使用者コホートを選択します。「アウトカムコホートを追加」をクリックし、新しいGI出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 <a href="SuggestedAnswers.html#fig:irAnalysis">E.16</a> のようになっているはずです。<img src="images/Cohorts/save.png" />をクリックして分析設定を保存してください。</p>
+<p>これでコホートが定義されたので、発生率が計算できます。<img src="images/Characterization/atlasIncidenceMenuItem.png" />をクリックして「New Analysis (新規分析)」を選択します。分析に意味の通じる名前（例：「Incidence of GI bleed after celecoxib initiation (セレコキシブ開始後の消化管出血発生率)」）を付けます。「Add Target Cohort (ターゲットコホートを追加)」をクリックし、セレコキシブ新規ユーザーコホートを選択します。「Add Outcome Cohort (アウトカムコホートを追加)」をクリックし、作成した消化管出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 <a href="SuggestedAnswers.html#fig:irAnalysis">E.16</a> のようになっているはずです。<img src="images/Cohorts/save.png" />をクリックして分析設定を保存してください。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:irAnalysis"></span>
-<img src="images/SuggestedAnswers/irAnalysis.png" alt="発生率分析。" width="100%" />
+<img src="images/SuggestedAnswers/irAnalysis.png" alt="発生率の分析" width="100%" />
 <p class="caption">
-図 E.16: 発生率分析。
+図 E.16: 発生率の分析
 </p>
 </div>
-<p>「生成」タブをクリックし、「生成」をクリックします。1つのデータソースを選択し、「生成」をクリックします。完了すると、計算された発生率と割合が表示されます（図 <a href="SuggestedAnswers.html#fig:irResults">E.17</a> 参照）。</p>
+<p>「Generation (作成)」タブをクリックし、「Generation (作成)」をクリックします。データソースを1つ選択し、「Generation (作成)」をクリックします。完了すると、計算された発生率と発生割合が表示されます（図 <a href="SuggestedAnswers.html#fig:irResults">E.17</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:irResults"></span>
-<img src="images/SuggestedAnswers/irResults.png" alt="発生結果。" width="100%" />
+<img src="images/SuggestedAnswers/irResults.png" alt="発生率の結果" width="100%" />
 <p class="caption">
-図 E.17: 発生結果。
+図 E.17: 発生率の結果
 </p>
 </div>
 </div>
 </div>
 <div id="Pleanswers" class="section level2 hasAnchor" number="25.8">
-<h2><span class="header-section-number">E.8</span> 集団レベル推定<a href="SuggestedAnswers.html#Pleanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">E.8</span> 集団レベルの推定<a href="SuggestedAnswers.html#Pleanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="演習-refexrexerciseple1" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle1">12.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseple1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>デフォルトの共変量セットを指定しますが、比較している2つの薬物を含むすべての子孫を除外しなければなりません。そうしないと、選択バイアスモデルが完全に予測可能になってしまいます：</p>
+<p>デフォルトの共変量セットを指定しますが、比較している2つの薬剤を含むすべての下位層を除外しなければなりません。そうしないと、傾向スコアモデルが完全に予測可能になってしまいます：</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="SuggestedAnswers.html#cb158-1" tabindex="-1"></a><span class="fu">library</span>(CohortMethod)</span>
 <span id="cb158-2"><a href="SuggestedAnswers.html#cb158-2" tabindex="-1"></a>nsaids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1118084</span>, <span class="dv">1124300</span>) <span class="co"># セレコキシブ、ジクロフェナク</span></span>
 <span id="cb158-3"><a href="SuggestedAnswers.html#cb158-3" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createDefaultCovariateSettings</span>(</span>
@@ -1535,16 +1535,16 @@ div.csl-indent {
 <span id="cb158-19"><a href="SuggestedAnswers.html#cb158-19" tabindex="-1"></a><span class="fu">summary</span>(cmData)</span></code></pre></div>
 <pre><code>## CohortMethodData オブジェクトのまとめ
 ## 
-## 治療コンセプトID：1
-## 比較コンセプトID：2
-## 結果コンセプトID：3
+## 治療群のコンセプトID：1
+## 比較群のコンセプトID：2
+## アウトカムコンセプトID：3
 ## 
-## 治療を受けた人数：1800
-## 比較された人数：830
+## 治療群の人数：1800
+## 比較群の人数：830
 ## 
-## 結果のカウント：
-##   イベントの数 人数
-## 3          479       479
+## アウトカムのカウント：
+##   イベント  数     人数
+## 3          479      479
 ## 
 ## 共変量：
 ## 共変量の数：389
@@ -1552,7 +1552,7 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexerciseple2" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle2">12.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseple2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>仕様に従って研究集団を作成し、離脱図を出力します：</p>
+<p>仕様に従って研究対象集団を作成し、脱落を示す図を出力します：</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="SuggestedAnswers.html#cb160-1" tabindex="-1"></a>studyPop <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(</span>
 <span id="cb160-2"><a href="SuggestedAnswers.html#cb160-2" tabindex="-1"></a>  <span class="at">cohortMethodData =</span> cmData,</span>
 <span id="cb160-3"><a href="SuggestedAnswers.html#cb160-3" tabindex="-1"></a>  <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
@@ -1564,11 +1564,11 @@ div.csl-indent {
 <span id="cb160-9"><a href="SuggestedAnswers.html#cb160-9" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">99999</span>)</span>
 <span id="cb160-10"><a href="SuggestedAnswers.html#cb160-10" tabindex="-1"></a><span class="fu">drawAttritionDiagram</span>(studyPop)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/attrition.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>ここで、元のコホートと比較して被験者を失わなかったことがわかります。おそらく、ここで使用した制限がすでにコホートの定義に適用されているためです。</p>
+<p>元のコホートと比較して研究対象が失われなかったことが見てとれます。なぜなら、ここで使用した限定要件がすでにコホートの定義に適用されているためです。</p>
 </div>
 <div id="演習-refexrexerciseple3" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle3">12.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseple3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Cox 回帰を使用して単純な結果モデルをフィットさせます：</p>
+<p>Cox回帰モデルを使用して単純なアウトカムをフィットさせます：</p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="SuggestedAnswers.html#cb161-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> studyPop,</span>
 <span id="cb161-2"><a href="SuggestedAnswers.html#cb161-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>)</span>
 <span id="cb161-3"><a href="SuggestedAnswers.html#cb161-3" tabindex="-1"></a>model</span></code></pre></div>
@@ -1578,19 +1578,19 @@ div.csl-indent {
 ## 反トリートメント重み付けの使用：FALSE
 ## ステータス：OK
 ## 
-##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
-## 治療       1.34612    1.10065    1.65741 0.29723    0.1044</code></pre>
-<p>セレコキシブの使用者とジクロフェナクの使用者が同等でない可能性が高く、これらのベースラインの違いによりすでに結果のリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのかかった推定値が生成される可能性があります。</p>
+##         推定値  下限 .95  上限 .95  ログ相対リスク ログ相対リスク標準誤差
+## 治療   1.34612   1.10065   1.65741        0.29723                  0.1044</code></pre>
+<p>セレコキシブのユーザーとジクロフェナクのユーザーが交換可能でない可能性が高く、ベースラインの違いにより、すでにアウトカムのリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのある推定値が計算される可能性があります。</p>
 </div>
 <div id="演習-refexrexerciseple4" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle4">12.4</a><a href="SuggestedAnswers.html#演習-refexrexerciseple4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>抽出した共変量を使用して、研究集団に対して傾向スコアをフィットさせます。その後、傾向スコアの分布を示します：</p>
+<p>抽出したすべての共変量を使用し、研究集団に対して傾向スコアモデルをフィットさせます。その後、傾向スコアの分布を示します：</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="SuggestedAnswers.html#cb163-1" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">createPs</span>(<span class="at">cohortMethodData =</span> cmData,</span>
 <span id="cb163-2"><a href="SuggestedAnswers.html#cb163-2" tabindex="-1"></a>               <span class="at">population =</span> studyPop)</span>
 <span id="cb163-3"><a href="SuggestedAnswers.html#cb163-3" tabindex="-1"></a><span class="fu">plotPs</span>(ps, <span class="at">showCountsLabel =</span> <span class="cn">TRUE</span>, <span class="at">showAucLabel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/ps.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>この分布が少し奇妙に見えるのは、小さなシミュレーションデータセットを使用しているためです。実際の傾向スコア分布は通常、より滑らかです。</p>
-<p>傾向スコアモデルは0.63のAUCを達成し、対象と比較コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。</p>
+<p>この分布には、いくつかのスパイクがあり少し奇妙に見えることに注意してください。これは、非常に小さなシミュレーションデータセットを使用しているためです。実際の傾向スコアの分布はより滑らかであることが通常です。</p>
+<p>傾向スコアモデルは0.63のAUCを達成し、ターゲットのコホートと比較群コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。</p>
 </div>
 <div id="演習-refexrexerciseple5" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle5">12.5</a><a href="SuggestedAnswers.html#演習-refexrexerciseple5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1603,11 +1603,11 @@ div.csl-indent {
 <span id="cb164-6"><a href="SuggestedAnswers.html#cb164-6" tabindex="-1"></a>                                <span class="at">beforeLabel =</span> <span class="st">&quot;層別化前&quot;</span>,</span>
 <span id="cb164-7"><a href="SuggestedAnswers.html#cb164-7" tabindex="-1"></a>                                <span class="at">afterLabel =</span> <span class="st">&quot;層別化後&quot;</span>)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/scatter.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>さまざまなベースライン共変量が、層別化前（x軸）に大きな（&gt;0.3）標準化された平均の差を示していることがわかります。層別化後のバランスが向上し、最大標準化された差が&lt;= 0.1です。</p>
+<p>さまざまなベースライン共変量が、層別化前（x軸）には大きな（&gt;0.3）標準化平均差(standardized mean difference, SMD)を示していることがわかります。層別化後のバランスが向上し、標準化平均差は最大でも&lt;= 0.1です。</p>
 </div>
 <div id="演習-refexrexerciseple6" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle6">12.6</a><a href="SuggestedAnswers.html#演習-refexrexerciseple6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>PS層別化で Cox 回帰モデルをフィットさせます：</p>
+<p>傾向スコアによる層別化し、 Cox 回帰モデルをフィットさせます：</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="SuggestedAnswers.html#cb165-1" tabindex="-1"></a>adjModel <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> strataPop,</span>
 <span id="cb165-2"><a href="SuggestedAnswers.html#cb165-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>,</span>
 <span id="cb165-3"><a href="SuggestedAnswers.html#cb165-3" tabindex="-1"></a>                         <span class="at">stratified =</span> <span class="cn">TRUE</span>)</span>
@@ -1615,16 +1615,16 @@ div.csl-indent {
 <pre><code>## モデルタイプ：cox
 ## 階層化：TRUE
 ## 共変量の使用：FALSE
-## 反トリートメント重み付けの使用：FALSE
+## 逆確率重みづけ(IPTW)の使用：FALSE
 ## ステータス：OK
 ## 
-##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
-## 治療       1.13211    0.92132    1.40008 0.12409    0.1068</code></pre>
-<p>調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの暴露グループ間のベースラインの違いを調整することによって、バイアスを減らしているためです。</p>
+##         推定値  下限 .95  上限 .95  ログ相対リスク ログ相対リスク標準誤差
+## 治療   1.13211   0.92132   1.40008         0.12409                 0.1068</code></pre>
+<p>調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの曝露群間のベースラインの違いを調整することによって、バイアスを減ったためです。</p>
 </div>
 </div>
 <div id="Plpanswers" class="section level2 hasAnchor" number="25.9">
-<h2><span class="header-section-number">E.9</span> 患者レベル予測<a href="SuggestedAnswers.html#Plpanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">E.9</span> 患者レベルの予測<a href="SuggestedAnswers.html#Plpanswers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="演習-refexrexerciseplp1" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp1">13.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>共変量設定のセットを指定し、データベースからデータを抽出するために<code>getPlpData</code>関数を使用します：</p>
@@ -1653,14 +1653,14 @@ div.csl-indent {
 <span id="cb167-23"><a href="SuggestedAnswers.html#cb167-23" tabindex="-1"></a><span class="fu">summary</span>(plpData)</span></code></pre></div>
 <pre><code>## plpData オブジェクトのまとめ
 ## 
-## リスク対象コホートコンセプト ID：-1
-## 結果コンセプトID：3
+## At riskであるコホートコンセプト ID：-1
+## アウトカムコンセプトID：3
 ## 
 ## 人数：2630
 ## 
 ## 結果のカウント：
-##   イベントの数 人数
-## 3          479       479
+##   イベント  数 　人数
+## 3          479  　479
 ## 
 ## 共変量：
 ## 共変量の数：245
@@ -1668,7 +1668,7 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexerciseplp2" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp2">13.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>プロジェクトに興味のあるアウトカム（この場合は抽出したデータに対して唯一のアウトカム）について調査集団を作成し、NSAIDを使用し始める前にそのアウトカムを経験した被験者を除外し、364日のリスク期間を必要とします：</p>
+<p>関心の対象であるアウトカムの研究対象集団を（この場合は抽出したデータに対して唯一のアウトカム）を作成します。ここでは、NSAIDを使用し始める前にそのアウトカムが出現した対象を除外し、364日のリスク期間があることを必要条件とします。</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="SuggestedAnswers.html#cb169-1" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(<span class="at">plpData =</span> plpData,</span>
 <span id="cb169-2"><a href="SuggestedAnswers.html#cb169-2" tabindex="-1"></a>                                    <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
 <span id="cb169-3"><a href="SuggestedAnswers.html#cb169-3" tabindex="-1"></a>                                    <span class="at">washoutPeriod =</span> <span class="dv">364</span>,</span>
@@ -1684,11 +1684,11 @@ div.csl-indent {
 <span id="cb169-13"><a href="SuggestedAnswers.html#cb169-13" tabindex="-1"></a>                                    <span class="at">includeAllOutcomes =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb169-14"><a href="SuggestedAnswers.html#cb169-14" tabindex="-1"></a><span class="fu">nrow</span>(population)</span></code></pre></div>
 <pre><code>## [1] 2578</code></pre>
-<p>この場合、発症前の人々を除外することで数人が失われ、364日以上のリスク期間を要求しています。</p>
+<p>この場合、アウトカムがすでに出現した対象を除外することと364日以上のリスク期間を要求することにより、数名が失われました。</p>
 </div>
 <div id="演習-refexrexerciseplp3" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp3">13.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>LASSO モデルを実行するために、まずモデル設定オブジェクトを作成し、その後<code>runPlp</code>関数を呼び出します。この場合、データの75％を訓練データとして使用し、25％を評価データとして使用する人ベースの分割を行います：</p>
+<p>LASSOモデルを実行するために、まずモデル設定オブジェクトを作成し、その後<code>runPlp</code>関数を呼び出します。この場合、人単位で分割し、データの75％をトレーニングデータとして使用し、25％をデータで評価します。：</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="SuggestedAnswers.html#cb171-1" tabindex="-1"></a>lassoModel <span class="ot">&lt;-</span> <span class="fu">setLassoLogisticRegression</span>(<span class="at">seed =</span> <span class="dv">0</span>)</span>
 <span id="cb171-2"><a href="SuggestedAnswers.html#cb171-2" tabindex="-1"></a></span>
 <span id="cb171-3"><a href="SuggestedAnswers.html#cb171-3" tabindex="-1"></a>lassoResults <span class="ot">&lt;-</span> <span class="fu">runPlp</span>(<span class="at">population =</span> population,</span>
@@ -1698,14 +1698,14 @@ div.csl-indent {
 <span id="cb171-7"><a href="SuggestedAnswers.html#cb171-7" tabindex="-1"></a>                       <span class="at">testFraction =</span> <span class="fl">0.25</span>,</span>
 <span id="cb171-8"><a href="SuggestedAnswers.html#cb171-8" tabindex="-1"></a>                       <span class="at">nfold =</span> <span class="dv">2</span>,</span>
 <span id="cb171-9"><a href="SuggestedAnswers.html#cb171-9" tabindex="-1"></a>                       <span class="at">splitSeed =</span> <span class="dv">0</span>)</span></code></pre></div>
-<p>この例では、LASSOのクロスバリデーションとトレイン・テスト分割の両方に対してランダムシードを設定し、複数回の実行で結果が同じになるようにします。</p>
+<p>この例では、LASSOのクロスバリデーションと訓練用・テスト用データ分割の両方に対して乱数によるシード値を設定し、複数回の実行で結果が同じになるようにしていることに注意してください。</p>
 <p>Shinyアプリを使用して結果を表示することができます：</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="SuggestedAnswers.html#cb172-1" tabindex="-1"></a><span class="fu">viewPlp</span>(lassoResults)</span></code></pre></div>
-<p>これにより、図<a href="SuggestedAnswers.html#fig:plpShiny">E.18</a>に示すようにアプリが起動されます。ここで、テストセットのAUCが0.645であり、ランダムな推測よりも優れているが、臨床実践には十分ではないかもしれないことがわかります。</p>
+<p>これにより、図 <a href="SuggestedAnswers.html#fig:plpShiny">E.18</a>に示されるようにアプリが起動されます。ここで、テスト用データセットのAUCが0.645であり、ランダムな推測よりも優れているものの、臨床における実装には十分ではないかもしれないことがわかります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:plpShiny"></span>
-<img src="images/SuggestedAnswers/plpShiny.png" alt="患者レベル予測Shinyアプリ。" width="100%" />
+<img src="images/SuggestedAnswers/plpShiny.png" alt="Shinyアプリによる患者レベルの予測の表示" width="100%" />
 <p class="caption">
-図 E.18: 患者レベル予測Shinyアプリ。
+図 E.18: Shinyアプリによる患者レベルの予測の表示
 </p>
 </div>
 </div>
@@ -1724,7 +1724,7 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexerciserundqd" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="DataQuality.html#exr:exerciseRunDQD">15.2</a><a href="SuggestedAnswers.html#演習-refexrexerciserundqd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>データ品質ダッシュボードを実行するには:</p>
+<p>データ品質ダッシュボード(Data Quality Dashbard, DQD)を実行するには:</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="SuggestedAnswers.html#cb174-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(</span>
 <span id="cb174-2"><a href="SuggestedAnswers.html#cb174-2" tabindex="-1"></a>  connectionDetails,</span>
 <span id="cb174-3"><a href="SuggestedAnswers.html#cb174-3" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>

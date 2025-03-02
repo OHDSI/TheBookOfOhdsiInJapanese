@@ -499,7 +499,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 #### 演習 \@ref(exr:exerciseCharacterization2) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「セレコキシブ」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「セレコキシブ」を検索し、クラスを「成分」、標準コンセプトを「標準」とするように制限し、 ![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:conceptSearchAtlas) 参照）。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「Celecoxib (セレコキシブ)」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「Celecoxib (セレコキシブ)」を検索し、クラスを「Ingredient (成分)」、標準コンセプトを「Standard (標準)」とするように限定し、 ![](images/Cohorts/shoppingcart.png)をクリックして、図 \@ref(fig:conceptSearchAtlas)に示されるように、コンセプトセットにコンセプトを追加します。
 
 \begin{figure}
 
@@ -507,10 +507,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{成分「セレコキシブ」の標準コンセプトの選択。}(\#fig:conceptSearchAtlas)
+\caption{成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択}(\#fig:conceptSearchAtlas)
 \end{figure}
 
-図 \@ref(fig:conceptSearchAtlas) の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「+初期イベントを追加」をクリックしてから「薬剤期間を追加」をクリックします。薬剤期間基準のために以前に作成したコンセプトセットを選択します。「属性を追加...」をクリックして「最初の暴露基準を追加」を選択します。インデックス日の前に少なくとも365日の連続観察が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート・イグジット、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -518,10 +518,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{単純なセレコキシブ新規使用者のコホート定義。}(\#fig:celecoxibCohortDefinition)
+\caption{セレコキシブ新規ユーザーの単純なコホート定義}(\#fig:celecoxibCohortDefinition)
 \end{figure}
 
-コホートが定義されたので、その特徴を記述できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「新しい特徴記述」を選択します。特徴記述に意味のある名前（例：「セレコキシブ新規使用者の特徴記述」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「特徴分析」の下で、「インポート」をクリックし、少なくとも1つの状態分析と1つの薬剤分析を選択します。たとえば、「任意の期間前の薬剤グループ期間」と「任意の期間前の状態グループ期間」を選択します。特徴記述の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特徴記述設定を保存してください。
+コホートを定義したので、その特性を評価できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
 
 \begin{figure}
 
@@ -529,10 +529,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{特徴記述設定。}(\#fig:celecoxibCharacterization)
+\caption{特性評価設定}(\#fig:celecoxibCharacterization)
 \end{figure}
 
-「実行」タブをクリックし、1つのデータソースについて「生成」をクリックします。生成が完了するまで時間がかかる場合があります。完了すると、「最新の結果を表示」をクリックできます。結果画面は、例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しない状態が表示されることがあります（図 \@ref(fig:celecoxibCharacterizationResults) 参照）。
+「Executions (実行)」タブをクリックし、1つのデータソースについて「Generate (作成)」をクリックします。作成が完了するまで時間を要する場合があります。完了すると、「View latest results (最新の結果を表示)」をクリックできます。結果画面は、図 \@ref(fig:celecoxibCharacterizationResults)のように見えるはずで、図には例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しないコンディションが表示されることがあります。
 
 \begin{figure}
 
@@ -540,12 +540,12 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{特徴記述結果。}(\#fig:celecoxibCharacterizationResults)
+\caption{特性評価の結果}(\#fig:celecoxibCharacterizationResults)
 \end{figure}
 
 #### 演習 \@ref(exr:exerciseCharacterization3) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「新しいコホート」を作成します。コホートに意味のある名前（例：「GI出血」）を付け、「コンセプトセット」タブに移動します。「新しいコンセプトセット」をクリックし、コンセプトセットに意味のある名前（例：「GI出血」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「消化管出血」を検索し、トップコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed (消化管出血)」）を付け、「Concept Sets　(コンセプトセット)」タブに移動します。「New Concept Set (新しいコンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「GI bleed (消化管出血)」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「Gastrointestinal hemorrhage (消化管出血)」を検索し、一番上のコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
 
 \begin{figure}
 
@@ -553,10 +553,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{「消化管出血」の標準コンセプトの選択。}(\#fig:giBleedSearch)
+\caption{「Gastrointestinal hemorrhage (消化管出血)」の標準コンセプトの選択}(\#fig:giBleedSearch)
 \end{figure}
 
-図 \@ref(fig:giBleedSearch) の左上に表示されている左矢印をクリックしてコホート定義に戻ります。「コンセプトセット」タブを再度開き、GI出血コンセプトの横にある「子孫」をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
+図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
 
 \begin{figure}
 
@@ -564,10 +564,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{「消化管出血」のすべての子孫を追加。}(\#fig:giBleedDescendants)
+\caption{「Gastrointestinal hemorrhage (消化管出血)」のすべての下位層を追加}(\#fig:giBleedDescendants)
 \end{figure}
 
-「定義」タブに戻り、「+初期イベントを追加」をクリックしてから「状態出現を追加」をクリックします。状態出現基準のために以前に作成したコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようである必要があります。包括基準、コホート終了、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -575,10 +575,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{単純な消化管出血コホート定義。}(\#fig:giBleedCohortDefinition)
+\caption{単純な消化管出血コホート定義}(\#fig:giBleedCohortDefinition)
 \end{figure}
 
-コホートが定義されたので、発生率を計算できます。![](images/Characterization/atlasIncidenceMenuItem.png)をクリックして「新しい分析」を選択します。分析に意味のある名前（例：「セレコキシブ開始後のGI出血発生率」）を付けます。「ターゲットコホートを追加」をクリックし、私たちのセレコキシブ新規使用者コホートを選択します。「アウトカムコホートを追加」をクリックし、新しいGI出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 \@ref(fig:irAnalysis) のようになっているはずです。![](images/Cohorts/save.png)をクリックして分析設定を保存してください。
+これでコホートが定義されたので、発生率が計算できます。![](images/Characterization/atlasIncidenceMenuItem.png)をクリックして「New Analysis (新規分析)」を選択します。分析に意味の通じる名前（例：「Incidence of GI bleed after celecoxib initiation (セレコキシブ開始後の消化管出血発生率)」）を付けます。「Add Target Cohort (ターゲットコホートを追加)」をクリックし、セレコキシブ新規ユーザーコホートを選択します。「Add Outcome Cohort (アウトカムコホートを追加)」をクリックし、作成した消化管出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 \@ref(fig:irAnalysis) のようになっているはずです。![](images/Cohorts/save.png)をクリックして分析設定を保存してください。
 
 \begin{figure}
 
@@ -586,10 +586,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{発生率分析。}(\#fig:irAnalysis)
+\caption{発生率の分析}(\#fig:irAnalysis)
 \end{figure}
 
-「生成」タブをクリックし、「生成」をクリックします。1つのデータソースを選択し、「生成」をクリックします。完了すると、計算された発生率と割合が表示されます（図 \@ref(fig:irResults) 参照）。
+「Generation (作成)」タブをクリックし、「Generation (作成)」をクリックします。データソースを1つ選択し、「Generation (作成)」をクリックします。完了すると、計算された発生率と発生割合が表示されます（図 \@ref(fig:irResults) 参照）。
 
 \begin{figure}
 
@@ -597,14 +597,14 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{発生結果。}(\#fig:irResults)
+\caption{発生率の結果}(\#fig:irResults)
 \end{figure}
 
-## 集団レベル推定 {#Pleanswers}
+## 集団レベルの推定 {#Pleanswers}
 
 #### 演習 \@ref(exr:exercisePle1) {.unnumbered}
 
-デフォルトの共変量セットを指定しますが、比較している2つの薬物を含むすべての子孫を除外しなければなりません。そうしないと、選択バイアスモデルが完全に予測可能になってしまいます：
+デフォルトの共変量セットを指定しますが、比較している2つの薬剤を含むすべての下位層を除外しなければなりません。そうしないと、傾向スコアモデルが完全に予測可能になってしまいます：
 
 
 ``` r
@@ -633,16 +633,16 @@ summary(cmData)
 ```
 ## CohortMethodData オブジェクトのまとめ
 ## 
-## 治療コンセプトID：1
-## 比較コンセプトID：2
-## 結果コンセプトID：3
+## 治療群のコンセプトID：1
+## 比較群のコンセプトID：2
+## アウトカムコンセプトID：3
 ## 
-## 治療を受けた人数：1800
-## 比較された人数：830
+## 治療群の人数：1800
+## 比較群の人数：830
 ## 
-## 結果のカウント：
-##   イベントの数 人数
-## 3          479       479
+## アウトカムのカウント：
+##   イベント  数     人数
+## 3          479      479
 ## 
 ## 共変量：
 ## 共変量の数：389
@@ -651,7 +651,7 @@ summary(cmData)
 
 #### 演習 \@ref(exr:exercisePle2) {.unnumbered}
 
-仕様に従って研究集団を作成し、離脱図を出力します：
+仕様に従って研究対象集団を作成し、脱落を示す図を出力します：
 
 
 ``` r
@@ -670,11 +670,11 @@ drawAttritionDiagram(studyPop)
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/SuggestedAnswers/attrition} \end{center}
 
-ここで、元のコホートと比較して被験者を失わなかったことがわかります。おそらく、ここで使用した制限がすでにコホートの定義に適用されているためです。
+元のコホートと比較して研究対象が失われなかったことが見てとれます。なぜなら、ここで使用した限定要件がすでにコホートの定義に適用されているためです。
 
 #### 演習 \@ref(exr:exercisePle3) {.unnumbered}
 
-Cox 回帰を使用して単純な結果モデルをフィットさせます：
+Cox回帰モデルを使用して単純なアウトカムをフィットさせます：
 
 
 ``` r
@@ -691,15 +691,15 @@ model
 ## 反トリートメント重み付けの使用：FALSE
 ## ステータス：OK
 ## 
-##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
-## 治療       1.34612    1.10065    1.65741 0.29723    0.1044
+##         推定値  下限 .95  上限 .95  ログ相対リスク ログ相対リスク標準誤差
+## 治療   1.34612   1.10065   1.65741        0.29723                  0.1044
 ```
 
-セレコキシブの使用者とジクロフェナクの使用者が同等でない可能性が高く、これらのベースラインの違いによりすでに結果のリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのかかった推定値が生成される可能性があります。
+セレコキシブのユーザーとジクロフェナクのユーザーが交換可能でない可能性が高く、ベースラインの違いにより、すでにアウトカムのリスクが異なる可能性があります。この分析のようにこれらの違いを調整しない場合、バイアスのある推定値が計算される可能性があります。
 
 #### 演習 \@ref(exr:exercisePle4) {.unnumbered}
 
-抽出した共変量を使用して、研究集団に対して傾向スコアをフィットさせます。その後、傾向スコアの分布を示します：
+抽出したすべての共変量を使用し、研究集団に対して傾向スコアモデルをフィットさせます。その後、傾向スコアの分布を示します：
 
 
 ``` r
@@ -711,9 +711,9 @@ plotPs(ps, showCountsLabel = TRUE, showAucLabel = TRUE)
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/SuggestedAnswers/ps} \end{center}
 
-この分布が少し奇妙に見えるのは、小さなシミュレーションデータセットを使用しているためです。実際の傾向スコア分布は通常、より滑らかです。
+この分布には、いくつかのスパイクがあり少し奇妙に見えることに注意してください。これは、非常に小さなシミュレーションデータセットを使用しているためです。実際の傾向スコアの分布はより滑らかであることが通常です。
 
-傾向スコアモデルは0.63のAUCを達成し、対象と比較コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。
+傾向スコアモデルは0.63のAUCを達成し、ターゲットのコホートと比較群コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。
 
 #### 演習 \@ref(exr:exercisePle5) {.unnumbered}
 
@@ -733,11 +733,11 @@ plotCovariateBalanceScatterPlot(bal,
 
 \begin{center}\includegraphics[width=0.7\linewidth]{images/SuggestedAnswers/scatter} \end{center}
 
-さまざまなベースライン共変量が、層別化前（x軸）に大きな（\>0.3）標準化された平均の差を示していることがわかります。層別化後のバランスが向上し、最大標準化された差が\<= 0.1です。
+さまざまなベースライン共変量が、層別化前（x軸）には大きな（\>0.3）標準化平均差(standardized mean difference, SMD)を示していることがわかります。層別化後のバランスが向上し、標準化平均差は最大でも\<= 0.1です。
 
 #### 演習 \@ref(exr:exercisePle6) {.unnumbered}
 
-PS層別化で Cox 回帰モデルをフィットさせます：
+傾向スコアによる層別化し、 Cox 回帰モデルをフィットさせます：
 
 
 ``` r
@@ -752,16 +752,16 @@ adjModel
 ## モデルタイプ：cox
 ## 階層化：TRUE
 ## 共変量の使用：FALSE
-## 反トリートメント重み付けの使用：FALSE
+## 逆確率重みづけ(IPTW)の使用：FALSE
 ## ステータス：OK
 ## 
-##           推定値 下限 .95 上限 .95   ログ相対リスク ログ相対リスクの標準誤差
-## 治療       1.13211    0.92132    1.40008 0.12409    0.1068
+##         推定値  下限 .95  上限 .95  ログ相対リスク ログ相対リスク標準誤差
+## 治療   1.13211   0.92132   1.40008         0.12409                 0.1068
 ```
 
-調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの暴露グループ間のベースラインの違いを調整することによって、バイアスを減らしているためです。
+調整後の推定値が未調整の推定値より低くなり、95％信頼区間が1を含むようになったことがわかります。これは、2つの曝露群間のベースラインの違いを調整することによって、バイアスを減ったためです。
 
-## 患者レベル予測 {#Plpanswers}
+## 患者レベルの予測 {#Plpanswers}
 
 #### 演習 \@ref(exr:exercisePlp1) {.unnumbered}
 
@@ -798,14 +798,14 @@ summary(plpData)
 ```
 ## plpData オブジェクトのまとめ
 ## 
-## リスク対象コホートコンセプト ID：-1
-## 結果コンセプトID：3
+## At riskであるコホートコンセプト ID：-1
+## アウトカムコンセプトID：3
 ## 
 ## 人数：2630
 ## 
 ## 結果のカウント：
-##   イベントの数 人数
-## 3          479       479
+##   イベント  数 　人数
+## 3          479  　479
 ## 
 ## 共変量：
 ## 共変量の数：245
@@ -814,7 +814,7 @@ summary(plpData)
 
 #### 演習 \@ref(exr:exercisePlp2) {.unnumbered}
 
-プロジェクトに興味のあるアウトカム（この場合は抽出したデータに対して唯一のアウトカム）について調査集団を作成し、NSAIDを使用し始める前にそのアウトカムを経験した被験者を除外し、364日のリスク期間を必要とします：
+関心の対象であるアウトカムの研究対象集団を（この場合は抽出したデータに対して唯一のアウトカム）を作成します。ここでは、NSAIDを使用し始める前にそのアウトカムが出現した対象を除外し、364日のリスク期間があることを必要条件とします。
 
 
 ``` r
@@ -839,11 +839,11 @@ nrow(population)
 ## [1] 2578
 ```
 
-この場合、発症前の人々を除外することで数人が失われ、364日以上のリスク期間を要求しています。
+この場合、アウトカムがすでに出現した対象を除外することと364日以上のリスク期間を要求することにより、数名が失われました。
 
 #### 演習 \@ref(exr:exercisePlp3) {.unnumbered}
 
-LASSO モデルを実行するために、まずモデル設定オブジェクトを作成し、その後`runPlp`関数を呼び出します。この場合、データの75％を訓練データとして使用し、25％を評価データとして使用する人ベースの分割を行います：
+LASSOモデルを実行するために、まずモデル設定オブジェクトを作成し、その後`runPlp`関数を呼び出します。この場合、人単位で分割し、データの75％をトレーニングデータとして使用し、25％をデータで評価します。：
 
 
 ``` r
@@ -858,7 +858,7 @@ lassoResults <- runPlp(population = population,
                        splitSeed = 0)
 ```
 
-この例では、LASSOのクロスバリデーションとトレイン・テスト分割の両方に対してランダムシードを設定し、複数回の実行で結果が同じになるようにします。
+この例では、LASSOのクロスバリデーションと訓練用・テスト用データ分割の両方に対して乱数によるシード値を設定し、複数回の実行で結果が同じになるようにしていることに注意してください。
 
 Shinyアプリを使用して結果を表示することができます：
 
@@ -867,7 +867,7 @@ Shinyアプリを使用して結果を表示することができます：
 viewPlp(lassoResults)
 ```
 
-これにより、図\@ref(fig:plpShiny)に示すようにアプリが起動されます。ここで、テストセットのAUCが0.645であり、ランダムな推測よりも優れているが、臨床実践には十分ではないかもしれないことがわかります。
+これにより、図 \@ref(fig:plpShiny)に示されるようにアプリが起動されます。ここで、テスト用データセットのAUCが0.645であり、ランダムな推測よりも優れているものの、臨床における実装には十分ではないかもしれないことがわかります。
 
 \begin{figure}
 
@@ -875,7 +875,7 @@ viewPlp(lassoResults)
 
 }
 
-\caption{患者レベル予測Shinyアプリ。}(\#fig:plpShiny)
+\caption{Shinyアプリによる患者レベルの予測の表示}(\#fig:plpShiny)
 \end{figure}
 
 ## データ品質 {#DataQualityanswers}
@@ -896,7 +896,7 @@ result <- achilles(connectionDetails,
 
 #### 演習 \@ref(exr:exerciseRunDQD) {.unnumbered}
 
-データ品質ダッシュボードを実行するには:
+データ品質ダッシュボード(Data Quality Dashbard, DQD)を実行するには:
 
 
 ``` r
