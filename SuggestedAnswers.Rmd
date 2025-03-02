@@ -15,7 +15,7 @@
 | YEAR_OF_BIRTH | 1974 |  |
 | MONTH_OF_BIRTH | 8 |  |
 | DAY_OF_BIRTH | 4 |  |
-| BIRTH_DATETIME | 1974-08-04 00:00:00 | 時間が不明な場合は真夜中（00:00:00）を使用。 |
+| BIRTH_DATETIME | 1974-08-04 00:00:00 | 時間が不明な場合は0時（00:00:00）を使用。 |
 | DEATH_DATETIME | NULL |  |
 | RACE_CONCEPT_ID | 8516 | アフリカ系アメリカ人のコンセプト ID は [8516](http://athena.ohdsi.org/search-terms/terms/8516)。 |
 | ETHNICITY\_ CONCEPT_ID | 38003564 | [38003564](http://athena.ohdsi.org/search-terms/terms/38003564) は「非ヒスパニック」を示す。 |
@@ -41,26 +41,26 @@
 | OBSERVATION\_ PERIOD_ID | 2 | 一意の整数。 |
 | PERSON_ID | 2 | これはPERSONテーブルのジョンのレコードへの外部キー。 |
 | OBSERVATION_PERIOD\_ START_DATE | 2015-01-01 | 加入日の日付。 |
-| OBSERVATION_PERIOD\_ END_DATE | 2019-07-01 | データ抽出日以降のデータは期待されない。 |
+| OBSERVATION_PERIOD\_ END_DATE | 2019-07-01 | データ抽出日以降のデータが存在することは期待されない。 |
 | PERIOD_TYPE\_ CONCEPT_ID | 44814722 | [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。 |
 
 : (#tab:johnOp) OBSERVATION_PERIODテーブル。
 
 #### 演習 \@ref(exr:exerciseJohnDrug) {.unnumbered}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \@ref(tab:johnDrug) のようになるはずです。
 
 | カラム名 | 値 | 説明 |
 |:---|:---|:---|
 | DRUG_EXPOSURE_ID | 1001 | 一意の整数。 |
 | PERSON_ID | 2 | これはPERSONテーブルのジョンのレコードへの外部キー。 |
 | DRUG_CONCEPT_ID | 19078461 | 提供されたNDCコードは標準コンセプト [19078461](http://athena.ohdsi.org/search-terms/terms/19078461) にマッピングされる。 |
-| DRUG_EXPOSURE\_ START_DATE | 2019-05-01 | 薬物暴露の開始日。 |
-| DRUG_EXPOSURE\_ START_DATETIME | 2019-05-01 00:00:00 | 時間が不明なため真夜中を使用。 |
-| DRUG_EXPOSURE\_ END_DATE | 2019-05-31 | 開始日 + 日数供給に基づく。 |
-| DRUG_EXPOSURE\_ END_DATETIME | 2019-05-31 00:00:00 | 時間が不明なため真夜中を使用。 |
+| DRUG_EXPOSURE\_ START_DATE | 2019-05-01 | 薬剤への曝露開始日。 |
+| DRUG_EXPOSURE\_ START_DATETIME | 2019-05-01 00:00:00 | 時間が不明なため0時を使用。 |
+| DRUG_EXPOSURE\_ END_DATE | 2019-05-31 | 開始日 + 処方日数に基づく。 |
+| DRUG_EXPOSURE\_ END_DATETIME | 2019-05-31 00:00:00 | 時間が不明なため0時を使用。 |
 | VERBATIM_END_DATE | NULL | 提供されていない。 |
-| DRUG_TYPE\_ CONCEPT_ID | 38000177 | [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) は「処方箋を書いた」ことを示す。 |
+| DRUG_TYPE\_ CONCEPT_ID | 38000177 | [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) は「書かれた処方箋」を示す。 |
 | STOP_REASON | NULL |  |
 | REFILLS | NULL |  |
 | QUANTITY | NULL | 提供されていない。 |
@@ -69,10 +69,10 @@
 | ROUTE_CONCEPT_ID | 4132161 | [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) は「経口」を示す。 |
 | LOT_NUMBER | NULL | 提供されていない。 |
 | PROVIDER_ID | NULL | 提供されていない。 |
-| VISIT_OCCURRENCE\_ ID | NULL | 訪問に関する情報は提供されなかった。 |
+| VISIT_OCCURRENCE\_ ID | NULL | ビジットに関する情報は提供されなかった。 |
 | VISIT_DETAIL_ID | NULL |  |
 | DRUG_SOURCE\_ VALUE | 76168009520 | 提供されたNDCコード。 |
-| DRUG_SOURCE\_ CONCEPT_ID | 583945 | [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬物源の値を表す (NDCコード「76168009520」)。 |
+| DRUG_SOURCE\_ CONCEPT_ID | 583945 | [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬剤のソースコードの値を表す (NDCコード「76168009520」)。 |
 | ROUTE_SOURCE\_ VALUE | NULL |  |
 
 : (#tab:johnDrug) DRUG_EXPOSUREテーブル。
@@ -807,3 +807,4 @@ DataQualityDashboard::executeDqChecks(
 DataQualityDashboard::viewDqDashboard(
   "C:/dataQualityExample/Eunomia/results_Eunomia.json")
 ```
+
