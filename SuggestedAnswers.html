@@ -783,7 +783,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">BIRTH_DATETIME</td>
 <td align="left">1974-08-04 00:00:00</td>
-<td align="left">時間が不明な場合は真夜中（00:00:00）を使用。</td>
+<td align="left">時間が不明な場合は0時（00:00:00）を使用。</td>
 </tr>
 <tr class="odd">
 <td align="left">DEATH_DATETIME</td>
@@ -889,7 +889,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">OBSERVATION_PERIOD_ END_DATE</td>
 <td align="left">2019-07-01</td>
-<td align="left">データ抽出日以降のデータは期待されない。</td>
+<td align="left">データ抽出日以降のデータが存在することは期待されない。</td>
 </tr>
 <tr class="odd">
 <td align="left">PERIOD_TYPE_ CONCEPT_ID</td>
@@ -901,7 +901,7 @@ div.csl-indent {
 </div>
 <div id="演習-refexrexercisejohndrug" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exerciseJohnDrug">4.3</a><a href="SuggestedAnswers.html#演習-refexrexercisejohndrug" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>演習で説明されている内容に基づいて、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnDrug">E.3</a> のようになるはずです。</p>
+<p>演習で説明されている内容に基づくと、ジョンのレコードは表 <a href="SuggestedAnswers.html#tab:johnDrug">E.3</a> のようになるはずです。</p>
 <table>
 <caption><span id="tab:johnDrug">表 E.3: </span> DRUG_EXPOSUREテーブル。</caption>
 <colgroup>
@@ -935,22 +935,22 @@ div.csl-indent {
 <tr class="even">
 <td align="left">DRUG_EXPOSURE_ START_DATE</td>
 <td align="left">2019-05-01</td>
-<td align="left">薬物暴露の開始日。</td>
+<td align="left">薬剤への曝露開始日。</td>
 </tr>
 <tr class="odd">
 <td align="left">DRUG_EXPOSURE_ START_DATETIME</td>
 <td align="left">2019-05-01 00:00:00</td>
-<td align="left">時間が不明なため真夜中を使用。</td>
+<td align="left">時間が不明なため0時を使用。</td>
 </tr>
 <tr class="even">
 <td align="left">DRUG_EXPOSURE_ END_DATE</td>
 <td align="left">2019-05-31</td>
-<td align="left">開始日 + 日数供給に基づく。</td>
+<td align="left">開始日 + 処方日数に基づく。</td>
 </tr>
 <tr class="odd">
 <td align="left">DRUG_EXPOSURE_ END_DATETIME</td>
 <td align="left">2019-05-31 00:00:00</td>
-<td align="left">時間が不明なため真夜中を使用。</td>
+<td align="left">時間が不明なため0時を使用。</td>
 </tr>
 <tr class="even">
 <td align="left">VERBATIM_END_DATE</td>
@@ -960,7 +960,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_TYPE_ CONCEPT_ID</td>
 <td align="left">38000177</td>
-<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> は「処方箋を書いた」ことを示す。</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> は「書かれた処方箋」を示す。</td>
 </tr>
 <tr class="even">
 <td align="left">STOP_REASON</td>
@@ -1005,7 +1005,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">VISIT_OCCURRENCE_ ID</td>
 <td align="left">NULL</td>
-<td align="left">訪問に関する情報は提供されなかった。</td>
+<td align="left">ビジットに関する情報は提供されなかった。</td>
 </tr>
 <tr class="odd">
 <td align="left">VISIT_DETAIL_ID</td>
@@ -1020,7 +1020,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_SOURCE_ CONCEPT_ID</td>
 <td align="left">583945</td>
-<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/750264">583945</a> は薬物源の値を表す (NDCコード「76168009520」)。</td>
+<td align="left"><a href="http://athena.ohdsi.org/search-terms/terms/750264">583945</a> は薬剤のソースコードの値を表す (NDCコード「76168009520」)。</td>
 </tr>
 <tr class="even">
 <td align="left">ROUTE_SOURCE_ VALUE</td>

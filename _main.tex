@@ -3223,7 +3223,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.bwy5n83qchildren ;"
+## [1] "SELECT * FROM temp_schema.n0hfc14ochildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -10524,7 +10524,7 @@ GENDER\_CONCEPT\_ID & 8507 & 男性のコンセプト ID は \href{http://athena
 YEAR\_OF\_BIRTH & 1974 & \\
 MONTH\_OF\_BIRTH & 8 & \\
 DAY\_OF\_BIRTH & 4 & \\
-BIRTH\_DATETIME & 1974-08-04 00:00:00 & 時間が不明な場合は真夜中（00:00:00）を使用。 \\
+BIRTH\_DATETIME & 1974-08-04 00:00:00 & 時間が不明な場合は0時（00:00:00）を使用。 \\
 DEATH\_DATETIME & NULL & \\
 RACE\_CONCEPT\_ID & 8516 & アフリカ系アメリカ人のコンセプト ID は \href{http://athena.ohdsi.org/search-terms/terms/8516}{8516}。 \\
 ETHNICITY\_ CONCEPT\_ID & 38003564 & \href{http://athena.ohdsi.org/search-terms/terms/38003564}{38003564} は「非ヒスパニック」を示す。 \\
@@ -10575,14 +10575,14 @@ ETHNICITY\_SOURCE\_ CONCEPT\_ID & 0 & \\
 OBSERVATION\_ PERIOD\_ID & 2 & 一意の整数。 \\
 PERSON\_ID & 2 & これはPERSONテーブルのジョンのレコードへの外部キー。 \\
 OBSERVATION\_PERIOD\_ START\_DATE & 2015-01-01 & 加入日の日付。 \\
-OBSERVATION\_PERIOD\_ END\_DATE & 2019-07-01 & データ抽出日以降のデータは期待されない。 \\
+OBSERVATION\_PERIOD\_ END\_DATE & 2019-07-01 & データ抽出日以降のデータが存在することは期待されない。 \\
 PERIOD\_TYPE\_ CONCEPT\_ID & 44814722 & \href{http://athena.ohdsi.org/search-terms/terms/44814722}{44814724} は「保険加入期間」を示す。 \\
 \end{longtable}
 
 \subsubsection*{演習 \ref{exr:exerciseJohnDrug}}\label{ux6f14ux7fd2-refexrexercisejohndrug}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseJohnDrug}}
 
-演習で説明されている内容に基づいて、ジョンのレコードは表 \ref{tab:johnDrug} のようになるはずです。
+演習で説明されている内容に基づくと、ジョンのレコードは表 \ref{tab:johnDrug} のようになるはずです。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -10614,12 +10614,12 @@ PERIOD\_TYPE\_ CONCEPT\_ID & 44814722 & \href{http://athena.ohdsi.org/search-ter
 DRUG\_EXPOSURE\_ID & 1001 & 一意の整数。 \\
 PERSON\_ID & 2 & これはPERSONテーブルのジョンのレコードへの外部キー。 \\
 DRUG\_CONCEPT\_ID & 19078461 & 提供されたNDCコードは標準コンセプト \href{http://athena.ohdsi.org/search-terms/terms/19078461}{19078461} にマッピングされる。 \\
-DRUG\_EXPOSURE\_ START\_DATE & 2019-05-01 & 薬物暴露の開始日。 \\
-DRUG\_EXPOSURE\_ START\_DATETIME & 2019-05-01 00:00:00 & 時間が不明なため真夜中を使用。 \\
-DRUG\_EXPOSURE\_ END\_DATE & 2019-05-31 & 開始日 + 日数供給に基づく。 \\
-DRUG\_EXPOSURE\_ END\_DATETIME & 2019-05-31 00:00:00 & 時間が不明なため真夜中を使用。 \\
+DRUG\_EXPOSURE\_ START\_DATE & 2019-05-01 & 薬剤への曝露開始日。 \\
+DRUG\_EXPOSURE\_ START\_DATETIME & 2019-05-01 00:00:00 & 時間が不明なため0時を使用。 \\
+DRUG\_EXPOSURE\_ END\_DATE & 2019-05-31 & 開始日 + 処方日数に基づく。 \\
+DRUG\_EXPOSURE\_ END\_DATETIME & 2019-05-31 00:00:00 & 時間が不明なため0時を使用。 \\
 VERBATIM\_END\_DATE & NULL & 提供されていない。 \\
-DRUG\_TYPE\_ CONCEPT\_ID & 38000177 & \href{http://athena.ohdsi.org/search-terms/terms/38000177}{38000177} は「処方箋を書いた」ことを示す。 \\
+DRUG\_TYPE\_ CONCEPT\_ID & 38000177 & \href{http://athena.ohdsi.org/search-terms/terms/38000177}{38000177} は「書かれた処方箋」を示す。 \\
 STOP\_REASON & NULL & \\
 REFILLS & NULL & \\
 QUANTITY & NULL & 提供されていない。 \\
@@ -10628,10 +10628,10 @@ SIG & NULL & 提供されていない。 \\
 ROUTE\_CONCEPT\_ID & 4132161 & \href{http://athena.ohdsi.org/search-terms/terms/4132161}{4132161} は「経口」を示す。 \\
 LOT\_NUMBER & NULL & 提供されていない。 \\
 PROVIDER\_ID & NULL & 提供されていない。 \\
-VISIT\_OCCURRENCE\_ ID & NULL & 訪問に関する情報は提供されなかった。 \\
+VISIT\_OCCURRENCE\_ ID & NULL & ビジットに関する情報は提供されなかった。 \\
 VISIT\_DETAIL\_ID & NULL & \\
 DRUG\_SOURCE\_ VALUE & 76168009520 & 提供されたNDCコード。 \\
-DRUG\_SOURCE\_ CONCEPT\_ID & 583945 & \href{http://athena.ohdsi.org/search-terms/terms/750264}{583945} は薬物源の値を表す (NDCコード「76168009520」)。 \\
+DRUG\_SOURCE\_ CONCEPT\_ID & 583945 & \href{http://athena.ohdsi.org/search-terms/terms/750264}{583945} は薬剤のソースコードの値を表す (NDCコード「76168009520」)。 \\
 ROUTE\_SOURCE\_ VALUE & NULL & \\
 \end{longtable}
 
