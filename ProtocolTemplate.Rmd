@@ -1,4 +1,4 @@
-# --翻訳作業中-- プロトコルテンプレート {#ProtocolTemplate}
+# プロトコルテンプレート {#ProtocolTemplate}
 
 1.  目次
 2.  略語一覧
