@@ -52,11 +52,19 @@ OHDSIコミュニティが提供するもう一つの重要なリソースはオ
 
 \index{オープンサイエンス!オープンディスコース}
 
-オープンスタンダード、オープンソース、オープンデータは素晴らしい資産ですが、それだけでは医療行為に影響を与えることはできません。オープンサイエンスの実践とOHDSIのインパクトの鍵となるのは、医療上のエビデンスの生成と科学の医療行為への応用です。OHDSIコミュニティは、米国、欧州、アジアで毎年開催されるOHDSIシンポジウムを複数開催しているほか、中国や韓国などでも実践コミュニティを展開しています。これらのシンポジウムでは、統計的手法、データ、ソフトウェアツール、標準化された用語、OHDSIオープンソースコミュニティのその他のあらゆる側面における進歩について議論されています。OHDSIフォーラム[^openscience-6]やWiki[^openscience-7]は、世界中の何千人もの研究者が観察研究を実施する上で役立っています。コミュニティコール[14](https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn14)^やGitHubのコード、問題、プルリクエスト^[15](https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn15)\^は、コードやCDMなどのオープンコミュニティの資産を常に進化させており、OHDSIネットワーク研究では、世界中の何億件もの患者記録を用いて、グローバルな観察研究がオープンかつ透明性の高い方法で実施されています。コミュニティ全体でオープンな姿勢とオープンな議論が奨励されており、この本もまさに、OHDSI wiki、コミュニティの呼びかけ、GitHub リポジトリによって促進されたオープンなプロセスを通じて執筆されています。^[16](https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn16)^ ただし、OHDSI のコラボレーターなしには、プロセスやツールは空虚な殻にすぎないことを強調しておく必要があります。実際、OHDSIコミュニティの真価は、第[1章](https://ohdsi.github.io/TheBookOfOhdsi/OhdsiCommunity.html#OhdsiCommunity)で議論したように、コラボレーションとオープンサイエンスを通じて健康を改善するというビジョンを共有するメンバーにある、という主張も成り立ちます。
+オープンスタンダード、オープンソース、オープンデータは素晴らしい資産ですが、それだけでは医療行為に影響を与えることはできません。オープンサイエンスの実践とOHDSIのインパクトの鍵となるのは、医療上のエビデンスの生成と科学の医療行為への応用です。OHDSIコミュニティは、米国、欧州、アジアで毎年開催されるOHDSIシンポジウムを複数開催しているほか、中国や韓国などでも実践コミュニティを展開しています。これらのシンポジウムでは、統計的手法、データ、ソフトウェアツール、標準化された用語、OHDSIオープンソースコミュニティのその他のあらゆる側面における進歩について議論されています。OHDSIフォーラム[^openscience-6]やWiki[^openscience-7]は、世界中の何千人もの研究者が観察研究を実施する上で役立っています。コミュニティコール[^openscience-8]やGitHubのコード、問題、プルリクエスト[^openscience-9]は、コードやCDMなどのオープンコミュニティの資産を常に進化させており、OHDSIネットワーク研究では、世界中の何億件もの患者記録を用いて、グローバルな観察研究がオープンかつ透明性の高い方法で実施されています。
 
-[^openscience-6]: <https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn12>
+[^openscience-6]: <https://forums.ohdsi.org>
 
-[^openscience-7]: ^<https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn17>^
+[^openscience-7]: <https://www.ohdsi.org/web/wiki>
+
+[^openscience-8]: <https://www.ohdsi.org/web/wiki/doku.php?id=projects:overview>
+
+[^openscience-9]: <https://github.com/ohdsi>
+
+コミュニティ全体でオープンな姿勢とオープンな議論が奨励されており、この本もまさに、OHDSI wiki、コミュニティコール、GitHub リポジトリによって促進されたオープンなプロセスを通じて執筆されています[^openscience-10]。ただし、OHDSI のコラボレーターなしには、プロセスやツールは空虚な殻にすぎないことを強調しておく必要があります。実際、OHDSIコミュニティの真価は、第[1章](https://ohdsi.github.io/TheBookOfOhdsi/OhdsiCommunity.html#OhdsiCommunity)で議論したように、コラボレーションとオープンサイエンスを通じて健康を改善するというビジョンを共有するメンバーにある、という主張も成り立ちます。
+
+[^openscience-10]: <https://github.com/OHDSI/TheBookOfOhdsi>
 
 ## OHDSIとFAIRガイディングプリンシプルズ
 
@@ -68,9 +76,9 @@ OHDSIコミュニティが提供するもう一つの重要なリソースはオ
 
 ### 検索可能性
 
-OMOPにマッピングされ、分析に用いられる医療データベースは、科学的観点から、将来の参照と再現のために保存されるべきです。OMOPデータベースの永続的な識別子の使用は、まだ広く普及しているとは言えません。その理由の一つとして、これらのデータベースはファイアウォールの内側や内部ネットワークに置かれていることが多く、必ずしもインターネットに接続されているわけではないことが挙げられます。しかし、データベースの概要を記述子レコードとして公開し、引用目的などで参照できるようにすることは十分に可能です。この方法は、例えばEMIFカタログ[^openscience-8]で採用されており、データ収集の目的、ソース、ボキャブラリや用語、アクセス制御の仕組み、ライセンス、同意など、データベースの包括的な記録を提供しています（Oliveira、Trifan、Silva [2019年](https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#ref-Oliveira2019)）。このアプローチは、IMI EHDENプロジェクトでさらに発展しています。
+OMOPにマッピングされ、分析に用いられる医療データベースは、科学的観点から、将来の参照と再現のために保存されるべきです。OMOPデータベースの永続的な識別子の使用は、まだ広く普及しているとは言えません。その理由の一つとして、これらのデータベースはファイアウォールの内側や内部ネットワークに置かれていることが多く、必ずしもインターネットに接続されているわけではないことが挙げられます。しかし、データベースの概要を記述子レコードとして公開し、引用目的などで参照できるようにすることは十分に可能です。この方法は、例えばEMIFカタログ[^openscience-11]で採用されており、データ収集の目的、ソース、ボキャブラリや用語、アクセス制御の仕組み、ライセンス、同意など、データベースの包括的な記録を提供しています（Oliveira、Trifan、Silva [2019年](https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#ref-Oliveira2019)）。このアプローチは、IMI EHDENプロジェクトでさらに発展しています。
 
-[^openscience-8]: <https://ohdsi.github.io/TheBookOfOhdsi/OpenScience.html#fn17>
+[^openscience-11]: <https://emif-catalogue.eu>
 
 ### アクセシビリティ
 
