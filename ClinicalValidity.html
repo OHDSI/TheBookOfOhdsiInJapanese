@@ -23,7 +23,7 @@
 <meta name="author" content="Observational Health Data Sciences and Informatics (OHDSI)" />
 
 
-<meta name="date" content="2025-03-02" />
+<meta name="date" content="2025-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -596,13 +596,21 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="16" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html"><i class="fa fa-check"></i><b>16</b> –翻訳作業中–　臨床的妥当性</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 医療データベースの特性</a>
+<li class="chapter" data-level="16.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CharacteristicsOfDatabase"><i class="fa fa-check"></i><b>16.1</b> 医療データベースの特性</a></li>
+<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#CohortValidation"><i class="fa fa-check"></i><b>16.2</b> コホートバリデーション</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#コホート評価指標"><i class="fa fa-check"></i><b>16.1.1</b> コホート評価指標</a></li>
-<li class="chapter" data-level="16.1.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#ソースレコード検証の例"><i class="fa fa-check"></i><b>16.1.2</b> ソースレコード検証の例</a></li>
-<li class="chapter" data-level="16.1.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluatorによる検証例"><i class="fa fa-check"></i><b>16.1.3</b> PheValuatorによる検証例</a></li>
+<li class="chapter" data-level="16.2.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#コホート評価指標"><i class="fa fa-check"></i><b>16.2.1</b> コホート評価指標</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#要約"><i class="fa fa-check"></i><b>16.2</b> 要約</a></li>
+<li class="chapter" data-level="16.3" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#ソースレコード検証"><i class="fa fa-check"></i><b>16.3</b> ソースレコード検証</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#ソースレコード検証の例"><i class="fa fa-check"></i><b>16.3.1</b> ソースレコード検証の例</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluator"><i class="fa fa-check"></i><b>16.4</b> PheValuator</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#phevaluatorによる検証例"><i class="fa fa-check"></i><b>16.4.1</b> PheValuatorによる検証例</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> 証拠の一般化可能性</a></li>
+<li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#要約"><i class="fa fa-check"></i><b>16.6</b> 要約</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> –翻訳作業中–　ソフトウェアの妥当性</a>
 <ul>
@@ -734,7 +742,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ClinicalValidity" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">章 16</span> –翻訳作業中–　臨床的妥当性<a href="ClinicalValidity.html#ClinicalValidity" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>チャプターリード: Joel Swerdel, Seng Chan You, Ray Chen &amp; Patrick Ryan</em></p>
+<p><em>章の著者: Joel Swerdel, Seng Chan You, Ray Chen &amp; Patrick Ryan</em></p>
 <blockquote>
 <p>物質をエネルギーに変換する可能性は、鳥がほとんどいない国で暗闇の中で鳥を撃つようなものだ。 <em>アインシュタイン, 1935</em></p>
 </blockquote>
@@ -742,16 +750,18 @@ div.csl-indent {
 <div id="CharacteristicsOfDatabase" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> 医療データベースの特性<a href="ClinicalValidity.html#CharacteristicsOfDatabase" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ここで見つけたのは、ACE阻害薬の<strong>処方</strong>と血管浮腫の関係であり、ACE阻害薬の<strong>使用</strong>と血管浮腫の関係ではないかもしれない。データの質については前章（<a href="DataQuality.html#DataQuality">15</a>章）で既に議論した。コモンデータモデル（CDM）への変換されたデータベースの質は、元のデータベースを超えることはできない。ここでは、ほとんどの医療利用データベースの特性について話している。OHDSIで使用される多くのデータベースは、行政請求データまたは電子健康记录（EHR）から派生している。請求データとEHRはそれぞれ異なるデータキャプチャプロセスを持っており、どちらも研究が主な目的ではない。請求記録のデータ要素は、臨床医と支払者の間の経済取引のためにキャプチャされ、提供者が患者に提供したサービスが支払機関によって合意されるように十分に正当化されることを目的としている。EHR記録のデータ要素は、臨床ケアと管理運用をサポートするためにキャプチャされ、通常、特定の医療システム内の提供者が現在のサービスを記録し、同一システム内でのフォローアップケアに必要なコンテキストを提供するために必要と感じる情報のみを反映している場合がある。患者の完全な医療履歴を表さず、健康システム間のデータを統合していない可能性がある。</p>
-<p>観察データから信頼できる証拠を生成するためには、患者がケアを求めた瞬間からそのケアを反映するデータが分析に使用される瞬間までデータがどのような道筋をたどるかを研究者が理解することが有用である。例として、「薬物曝露」は臨床医が書いた処方箋、薬局のディスペンシング記録、病院の手続き的投与、または患者自身が報告した薬物履歴など、さまざまな観察データソースから推測される可能性がある。データソースは、薬物の使用者が誰であるか、いつ、そしてどのくらいの期間使用されたかについての推論に対する信頼度に影響を与える可能性がある。データキャプチャプロセスは、無料サンプルや店頭販売薬が記録されない場合、または処方箋を書かれた患者が処方箋を埋めない、または処方された薬を従順に摂取しない場合など、曝露の過小評価を引き起こす可能性がある。曝露と結果の確定における潜在的なバイアスを理解し、さらに理想的にはこれらの測定誤差を定量化し、調整することが、利用可能なデータから導き出される証拠の妥当性に対する信頼度を高めることができる。
-## コホートバリデーション {#CohortValidation}</p>
+<p>観察データから信頼できる証拠を生成するためには、患者がケアを求めた瞬間からそのケアを反映するデータが分析に使用される瞬間までデータがどのような道筋をたどるかを研究者が理解することが有用である。例として、「薬物曝露」は臨床医が書いた処方箋、薬局のディスペンシング記録、病院の手続き的投与、または患者自身が報告した薬物履歴など、さまざまな観察データソースから推測される可能性がある。データソースは、薬物の使用者が誰であるか、いつ、そしてどのくらいの期間使用されたかについての推論に対する信頼度に影響を与える可能性がある。データキャプチャプロセスは、無料サンプルや店頭販売薬が記録されない場合、または処方箋を書かれた患者が処方箋を埋めない、または処方された薬を従順に摂取しない場合など、曝露の過小評価を引き起こす可能性がある。曝露と結果の確定における潜在的なバイアスを理解し、さらに理想的にはこれらの測定誤差を定量化し、調整することが、利用可能なデータから導き出される証拠の妥当性に対する信頼度を高めることができる。</p>
+</div>
+<div id="CohortValidation" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> コホートバリデーション<a href="ClinicalValidity.html#CohortValidation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="citation">G. Hripcsak and Albers (<a href="#ref-hripcsak_2017">2017</a>)</span> は、「表現型は生物の観察可能で潜在的に変化する状態の仕様であり、遺伝子型とは区別される。遺伝子型は生物の遺伝的構成から派生するものである。表現型という用語は、電子健康記録（EHR）データから推測される患者の特性に適用される。研究者たちは、インフォマティクスの初期から、構造化データとナラティブデータの両方からEHR表現型化を行ってきた。その目的は、生のEHRデータ、クレームデータ、または他の臨床的に関連するデータに基づいてターゲットとなる概念について結論を導き出すことである。表現型アルゴリズムとは、表現型を識別または特徴付けるアルゴリズムのことであり、ドメインエキスパートや知識工学の専門家によって生成される場合もあれば、最近の知識工学または多様な形式の機械学習による研究を含む、データの新しい表現を生成することでもある。」</p>
 <p>この説明は、臨床的有効性を考える上で強調するのに役立ついくつかの属性を明確に示している。1) 観察可能なものであることを明確にしており（したがって観察データにキャプチャされる可能性がある）、2) 表現型仕様に時間の概念を含んでいる（人の状態は変わる可能性があるため）、3) 表現型を望ましい意図として区別し、表現型アルゴリズムをその意図の実装として区別している。</p>
 <p>OHDSIは、一定期間の一つまたは複数の包含基準を満たす人物の集合を定義するために「コホート」という用語を採用している。「コホート定義」は、観察ベースデータベースに対してコホートを具現化するために必要なロジックを表している。この点で、コホート定義（または表現型アルゴリズム）は、対象となる臨床状態に属する人物を表現することを意図したコホートを作成するために使用される。</p>
 <p>臨床的特徴づけ、集団レベルの効果推定、患者レベルの予測を含むほとんどのタイプの観察研究には、研究プロセスの一部として一つまたは複数のコホートの確立が必要である。これらの分析によって生成された証拠の有効性を評価するためには、各コホートについて次の質問を考慮する必要がある：コホート定義と利用可能な観察データに基づいてコホートに識別された人物が、実際に表現型に属する人物をどの程度正確に反映しているか？</p>
 <p>集団レベルの推定の例（Chapter <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>） “ACE阻害薬はチアジドまたはチアジド様利尿薬と比較して血管浮腫を引き起こすのか？”に戻ると、3つのコホートを定義する必要がある：ACE阻害薬の新規使用者の対象コホート、チアジド利尿薬の新規使用者の比較コホート、および血管浮腫を発症する人物の結果コホート。すべてのACE阻害薬またはチアジド利尿薬の使用が完全にキャプチャされていることにどれだけ自信があるだろうか？これにより、「新規使用者」は初めて観察された暴露によって特定され、以前の使用が考慮されることはないのか。ACE阻害薬の暴露記録を持つ人物が実際に薬に暴露されたことを推測でき、薬の暴露がない人物が実際には暴露されていないことを推測できるのか？薬の使用開始または中止時に「ACE阻害薬使用」状態として分類される期間を定義することに不確実性があるのか？「血管浮腫」状態を持つと記録された人物が実際に皮膚下の速やかな腫れを経験し、他の種類の皮膚アレルギー反応と区別されるのか？血管浮腫を発症した患者のうち、観察データを基にコホート定義に基づいてこれらの臨床ケースを特定するために医療を受けた患者の割合はどれくらいか？薬による誘発の可能性のある血管浮腫イベントが、食物アレルギーやウイルス感染症など他の要因によるイベントとどれだけうまく区別されるのか？疾病発症のタイミングが十分にキャプチャされているのか、暴露状態と結果発生の時間的関連性に自信を持てるのか？このような質問に答えることが、臨床的有効性の核心にある。</p>
 <p>この章では、コホート定義の検証方法について説明する。最初に、コホート定義の有効性を測定するために使用する指標について説明し、次にこれらの指標を推定するための2つの方法について述べる：1) ソースレコード検証による臨床評価と、2) 診断予測モデリングを使用した半自動化方法であるPheValuator。</p>
-<div id="コホート評価指標" class="section level3 hasAnchor" number="16.1.1">
-<h3><span class="header-section-number">16.1.1</span> コホート評価指標<a href="ClinicalValidity.html#コホート評価指標" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="コホート評価指標" class="section level3 hasAnchor" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> コホート評価指標<a href="ClinicalValidity.html#コホート評価指標" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>研究のためのコホート定義が確定したら、その定義の有効性を評価することができる。一般的な有効性評価手法は、定義されたコホート内の一部または全部の人物を参照となる「ゴールドスタンダード」と比較し、結果をコンフュージョンマトリックス（2×2のクロス集計表）に表現するものである。コンフュージョンマトリックスの要素は図 <a href="ClinicalValidity.html#fig:matrix">16.1</a> に示されている。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:matrix"></span>
 <img src="images/ClinicalValidity/matrix.png" alt="コンフュージョンマトリックス" width="75%" />
@@ -773,9 +783,11 @@ div.csl-indent {
 <p>NPV = 真陰性 / (真陰性 + 偽陰性)</p></li>
 </ol>
 <p>これらの指標の完璧なスコアは 100% である。観察データの性質上、完璧なスコアは通常は異例である。<span class="citation">Rubbo et al. (<a href="#ref-Rubbo2015phenotypes">2015</a>)</span> は、心筋梗塞のコホート定義を検証する研究をレビューした。検討した33の研究のうち、1つのデータセットで1つのコホート定義がPPVの完璧なスコアを達成した。全体として、33の研究のうち31がPPVが70%以上であると報告していた。しかし、33の研究のうち11のみが感度を、5が特異度を報告していた。PPVは感度、特異度、および有病率の関数である。すなわち、異なる有病率のデータセットは、感度と特異度を一定に保ったままで異なるPPV値を生成する。感度と特異度がなければ、不完全なコホート定義によるバイアスを補正することはできない。また、健康状態の誤分類が差別的である場合、すなわちコホート定義が一つのグループに対して比較グループに対して異なるパフォーマンスを示す場合、または非差別的である場合、コホート定義が両方の比較グループに対して同様に機能する場合、それぞれのバイアスが発生する可能性がある。このような潜在的な差別的誤分類を検証する以前のコホート定義の検証研究はないが、これは効果推定に強いバイアスをもたらす可能性がある。</p>
-<p>コホート定義のパフォーマンス指標が確立されたら、これらはその定義を使用する研究結果の調整に使用される可能性がある。理論的には、これらの測定誤差推定値による研究結果の調整は十分に確立されている。しかし、実際には、パフォーマンス特性の取得の難しさのため、これらの調整を検討することはめったにない。
-このセクションの残りの部分では、ゴールドスタンダードを決定するために使用される方法について説明する。
-## ソースレコード検証</p>
+<p>コホート定義のパフォーマンス指標が確立されたら、これらはその定義を使用する研究結果の調整に使用される可能性がある。理論的には、これらの測定誤差推定値による研究結果の調整は十分に確立されている。しかし、実際には、パフォーマンス特性の取得の難しさのため、これらの調整を検討することはめったにない。 このセクションの残りの部分では、ゴールドスタンダードを決定するために使用される方法について説明する。</p>
+</div>
+</div>
+<div id="ソースレコード検証" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> ソースレコード検証<a href="ClinicalValidity.html#ソースレコード検証" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
 <p>コホート定義を検証するために一般的に用いられる方法の一つに、ソースレコード検証を通じた臨床的判定があります。これは、対象とする臨床状態や特性を適切に分類するために十分な知識を持つ一人または複数の領域の専門家による個人の記録の徹底的な調査です。カルテレビューは一般的に以下のステップを踏みます：</p>
 <ol style="list-style-type: decimal">
@@ -788,9 +800,8 @@ div.csl-indent {
 </ol>
 <p>カルテレビューの結果は通常、陽性適中率（PPV）という1つのパフォーマンス特性の評価に限られます。これは、評価対象のコホート定義が望ましい状態や特性を持っていると考えられる個人のみを生成するためです。したがって、コホートサンプルの各個人は臨床判定に基づいて真陽性か偽陽性かに分類されます。コホート定義によって特定されなかった全人口（表現型）のすべての人々についての知識がない限り、偽陰性を特定することはできず、混同行列の残りの部分を埋めることができないため、残りのパフォーマンス特性を生成することもできません。ポテンシャルな方法としては、全データベースのカルテレビューや、腫瘍登録などの包括的な臨床レジストリの利用があります（下記の例参照）。代替案として、コホート定義に該当しない人々をサンプルし予測陰性の部分集合を作成し、上記のステップ3-6を繰り返してこれらの患者が本当に対象の臨床状態や特性を欠いているかどうかを確認することができます。これにより、陰性適中率（NPV）の推定が可能になり、表現型の有病率の適切な推定ができれば感度と特異度も推定できます。</p>
 <p>ソースレコード検証を通じた臨床的判定にはいくつかの制限があります。前述したように、カルテレビューは非常に時間とリソースを要するプロセスであり、PPVなどの単一メトリックの評価にさえ困難を伴います。この制限により、全人口を評価して完全な混同行列を埋めることの実用性が大幅に阻害されます。さらに、上記のプロセスの複数のステップには研究結果にバイアスをもたらす可能性があります。例えば、EHRがアクセスしづらい場合や、EHRが存在しない場合、もしくは個別の患者の同意が必要な場合、評価対象のサブセットが真にランダムでなく、サンプリングバイアスや選択バイアスが導入される可能性があります。また、手動での判定は人的エラーや誤分類に影響されるため、必ずしも完璧に正確なメトリックを表わしているわけではありません。多くの研究では、過半数決定に基づくコンセンサスを得るプロセスが含まれ、人々に対してバイナリ分類を導くが、評価者間の不一致を反映していません。</p>
-</div>
-<div id="ソースレコード検証の例" class="section level3 hasAnchor" number="16.1.2">
-<h3><span class="header-section-number">16.1.2</span> ソースレコード検証の例<a href="ClinicalValidity.html#ソースレコード検証の例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ソースレコード検証の例" class="section level3 hasAnchor" number="16.3.1">
+<h3><span class="header-section-number">16.3.1</span> ソースレコード検証の例<a href="ClinicalValidity.html#ソースレコード検証の例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>コホート定義を検証するためのカルテレビューのプロセスの例として、コロンビア大学アービング医療センター（CUIMC）の研究が挙げられます。この研究では、国立がん研究所（NCI）のフィージビリティスタディの一環として、複数のがんに対するコホート定義を検証しました。以下のステップは、これらのがんの一つである前立腺がんに関する検証の例です：</p>
 <ol style="list-style-type: decimal">
 <li>提案書を提出し、OHDSIがんフェノタイピング研究のためにIRBの同意を取得。</li>
@@ -805,10 +816,13 @@ div.csl-indent {
 <li>推定感度、PPV、および有病率を使用して、このコホート定義の特異度を推定。</li>
 </ol>
 <p>前述したように、このプロセスは非常に時間と労力を要し、各コホート定義は個別に手動のカルテレビューを通じて評価され、CUIMCの腫瘍レジストリと関連付けられてすべてのパフォーマンスメトリクスを特定する必要がありました。IRBの承認プロセスだけでも迅速なレビューにもかかわらず数週間かかり、腫瘍レジストリへのアクセスを取得し、手動カルテレビュー自体のプロセスにもさらに数週間かかりました。</p>
-<p>心筋梗塞（MI）コホート定義の検証努力のレビューでは、<span class="citation">Rubbo et al. (<a href="#ref-Rubbo2015phenotypes">2015</a>)</span> によって、研究で使用されたコホート定義や検証方法、報告された結果に有意な異質性があることが示されました。著者らは急性心筋梗塞に対するゴールドスタンダードコホート定義が存在しないと結論付けました。また、このプロセスが費用と時間がかかり、ほとんどの研究が小さなサンプルサイズで検証を行っており、パフォーマンス特性の推定に広範な変動があることも指摘しました。33の研究の中で、すべての研究が陽性適中率を報告していたが、感度を報告したものは11研究のみであり、特異度を報告したものは5研究のみでした。前述のように、感度と特異度の推定なしには、誤分類バイアスの統計的補正を行うことはできません。
-## PheValuator</p>
+<p>心筋梗塞（MI）コホート定義の検証努力のレビューでは、<span class="citation">Rubbo et al. (<a href="#ref-Rubbo2015phenotypes">2015</a>)</span> によって、研究で使用されたコホート定義や検証方法、報告された結果に有意な異質性があることが示されました。著者らは急性心筋梗塞に対するゴールドスタンダードコホート定義が存在しないと結論付けました。また、このプロセスが費用と時間がかかり、ほとんどの研究が小さなサンプルサイズで検証を行っており、パフォーマンス特性の推定に広範な変動があることも指摘しました。33の研究の中で、すべての研究が陽性適中率を報告していたが、感度を報告したものは11研究のみであり、特異度を報告したものは5研究のみでした。前述のように、感度と特異度の推定なしには、誤分類バイアスの統計的補正を行うことはできません。</p>
+</div>
+</div>
+<div id="phevaluator" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> PheValuator<a href="ClinicalValidity.html#phevaluator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
-<p>OHDSIコミュニティでは、診断予測モデルを用いたゴールドスタンダードの構築に別のアプローチを開発しました。<span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> 一般的な考え方は、臨床医がソースレコードの検証で行う健康アウトカムの確認をエミュレートすることであり、これを自動化し、スケールで適用できるようにすることです。このツールは、PheValuatorというオープンソースのRパッケージとして開発されています。<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a> PheValuatorは、Patient Level Predictionパッケージの関数を使用します。</p>
+<p>OHDSIコミュニティでは、診断予測モデルを用いたゴールドスタンダードの構築に別のアプローチを開発しました。<span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> 一般的な考え方は、臨床医がソースレコードの検証で行う健康アウトカムの確認をエミュレートすることであり、これを自動化し、スケールで適用できるようにすることです。このツールは、PheValuatorというオープンソースのRパッケージとして開発されています<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a>。 PheValuatorは、Patient Level Predictionパッケージの関数を使用します。</p>
 <p>プロセスは以下の通りです：</p>
 <ol style="list-style-type: decimal">
 <li>極めて特定の（“<strong>xSpec</strong>”）コホートを作成する：診断予測モデルを訓練する際に、関心のあるアウトカムを持つ可能性の非常に高い一群を使用して、ノイズの多い正のラベルとするためのコホートを決定します。</li>
@@ -819,18 +833,17 @@ div.csl-indent {
 </ol>
 <p>このアプローチの主な制限は、その人が健康アウトカムを持つ確率の推定がデータベース内のデータによって制約されることです。データベースによっては、臨床医のメモなど重要な情報が利用できない場合があります。</p>
 <p>診断予測モデリングでは、疾患を持つ人と持たない人を区別するモデルを作成します。Patient-Level Prediction章（Chapter <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>）で述べたように、予測モデルは<em>ターゲットコホート</em>と<em>アウトカムコホート</em>を使用して開発されます。ターゲットコホートは健康アウトカムを持つ人と持たない人を含みます。アウトカムコホートは、ターゲットコホートの中で健康アウトカムを持つ人を特定します。PheValuatorプロセスでは、非常に特定のコホート定義、すなわち“xSpec”コホートを使用して、予測モデルのアウトカムコホートを決定します。xSpecコホートは、関心のある疾患を持つ可能性が非常に高い人々を見つけるための定義を使用します。xSpecコホートは、関心の国関連の健康アウトカムの複数の状態発現記録を持つ人として定義されることがあります。例えば、心房細動の場合、心房細動の診断コードを10回以上持つ人を含むかもしれません。MIの急性アウトカムの場合、5回のMI発生を使用し、少なくとも2回の入院設定からの発生を含めるかもしれません。予測モデルのターゲットコホートは、関心のある健康アウトカムを持つ可能性が低い人々とxSpecコホートに含まれる人々の合併から構成されます。関心のある健康アウトカムを持つ可能性が低い人々を決定するために、データベース全体からサンプルを取り、xSpecコホートを定義するために使用された概念を含む記録を持つ人を除外することが典型的です。この方法には制限があります。xSpecコホートの人々は、他の疾患を持つ人々とは異なる特性を持つかもしれません。また、これらの人が平均患者よりも初診後の観察期間が長かったかもしれません。予測モデルを生成するためにLASSOロジスティック回帰を使用します。<span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> このアルゴリズムは簡潔なモデルを提供し、通常、データセット全体に存在する可能性のある多くの共線連続因子を除去します。PheValuatorソフトウェアの現バージョンでは、全ての人のデータ（全観察期間）に基づいてアウトカムの有無が評価され、コホート開始日の正確さは評価されません。</p>
-</div>
-<div id="phevaluatorによる検証例" class="section level3 hasAnchor" number="16.1.3">
-<h3><span class="header-section-number">16.1.3</span> PheValuatorによる検証例<a href="ClinicalValidity.html#phevaluatorによる検証例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="phevaluatorによる検証例" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> PheValuatorによる検証例<a href="ClinicalValidity.html#phevaluatorによる検証例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>急性心筋梗塞を経験した人々を特定する必要がある研究において、コホート定義の完全な性能特性を評価するためにPheValuatorを使用することができます。</p>
 <p>MIのコホート定義をテストするための手順は次のとおりです：</p>
 <div id="ステップ-1-xspec-コホートの定義" class="section level4 unnumbered hasAnchor">
 <h4>ステップ 1: xSpec コホートの定義<a href="ClinicalValidity.html#ステップ-1-xspec-コホートの定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>高確率でMIを持つ人々を決定します。私たちは、心筋梗塞またはその子孫の概念を使用した状態発生記録を要求し、病院における入院訪問から5日以内にMIが一回以上記録され、365日以内に患者記録にMIが4回以上記録されていることを必要としました。図 <a href="ClinicalValidity.html#fig:xSpec">16.2</a> はATLASにおけるMIのxSpecコホート定義を示しています。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:xSpec"></span>
-<img src="images/ClinicalValidity/xSpec.png" alt="心筋梗塞の極めて特定されたコホート定義（xSpec）。" width="100%" />
+<img src="images/ClinicalValidity/xSpec.png" alt="心筋梗塞の極めて特定されたコホート定義（xSpec）" width="100%" />
 <p class="caption">
-図 16.2: 心筋梗塞の極めて特定されたコホート定義（xSpec）。
+図 16.2: 心筋梗塞の極めて特定されたコホート定義（xSpec）
 </p>
 </div>
 </div>
@@ -838,9 +851,9 @@ div.csl-indent {
 <h4>ステップ 2: xSens コホートの定義<a href="ClinicalValidity.html#ステップ-2-xsens-コホートの定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>次に、非常に感度の高いコホート（xSens）を開発します。このコホートは、医療歴においていつでも心筋梗塞の概念を含む状態発生記録を少なくとも1回持っている人々として定義されるかもしれません。図 <a href="ClinicalValidity.html#fig:xSens">16.3</a> はATLASにおけるMIのxSensコホート定義を示しています。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:xSens"></span>
-<img src="images/ClinicalValidity/xSens.png" alt="心筋梗塞の極度に感度の高いコホート定義（xSens）。" width="100%" />
+<img src="images/ClinicalValidity/xSens.png" alt="心筋梗塞の極度に感度の高いコホート定義（xSens）" width="100%" />
 <p class="caption">
-図 16.3: 心筋梗塞の極度に感度の高いコホート定義（xSens）。
+図 16.3: 心筋梗塞の極度に感度の高いコホート定義（xSens）
 </p>
 </div>
 </div>
@@ -912,15 +925,17 @@ div.csl-indent {
 </div>
 <div id="ステップ-5-コホート定義の作成とテスト" class="section level4 unnumbered hasAnchor">
 <h4>ステップ 5: コホート定義の作成とテスト<a href="ClinicalValidity.html#ステップ-5-コホート定義の作成とテスト" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>次のステップは、評価対象のコホート定義を作成しテストすることです。コホートの使用目的に応じて、所望の性能特性が異なる場合があります。ある
-## 証拠の一般化可能性 {#GeneralizabilityOfEvidence}</p>
-<p>コホートが適切に定義され、特定の観察データベースの文脈内で完全に評価されたとしても、その臨床的妥当性は、結果が関心のある対象集団に対してどの程度一般化可能と見なされるかによって制限されます。ある主題に関する多数の観察研究は異なる結果を示すことがありますが、それは設計や分析法だけでなく、データソースの選択にも起因します。<span class="citation">(<a href="#ref-madigan_2013は"><strong>madigan_2013は?</strong></a>)</span>、データベースの選択が観察研究の結果に影響を与えることを実証しました。彼らは10の観察データベースにわたり、53の薬物-結果ペアと2つの研究デザイン（コホート研究および自己対照症例シリーズ）における結果の異質性を体系的に調査しました。研究デザインを一定に保ったとしても、効果推定値に大きな異質性が観察されました。</p>
+<p>次のステップは、評価対象のコホート定義を作成しテストすることです。コホートの使用目的に応じて、所望の性能特性が異なる場合があります。</p>
+</div>
+</div>
+</div>
+<div id="GeneralizabilityOfEvidence" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> 証拠の一般化可能性<a href="ClinicalValidity.html#GeneralizabilityOfEvidence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>コホートが適切に定義され、特定の観察データベースの文脈内で完全に評価されたとしても、その臨床的妥当性は、結果が関心のある対象集団に対してどの程度一般化可能と見なされるかによって制限されます。ある主題に関する多数の観察研究は異なる結果を示すことがありますが、それは設計や分析法だけでなく、データソースの選択にも起因します。<span class="citation">Madigan et al. (<a href="#ref-madigan_2013">2013</a>)</span> は、データベースの選択が観察研究の結果に影響を与えることを実証しました。彼らは10の観察データベースにわたり、53の薬物-結果ペアと2つの研究デザイン（コホート研究および自己対照症例シリーズ）における結果の異質性を体系的に調査しました。研究デザインを一定に保ったとしても、効果推定値に大きな異質性が観察されました。</p>
 <p>OHDSIネットワーク全体では、観察データベースは代表する集団（例えば、小児 vs. 高齢者、民間保険の従業員 vs. 公共保険の失業者）、データが収集されるケア設定（例えば、入院患者 vs. 外来患者、プライマリケア vs. 二次/専門ケア）、データ収集プロセス（例えば、行政請求データ、電子健康記録、臨床レジストリ）、およびケアが基づく国や地域の医療システムに大きな違いがあります。これらの違いは、疾患と医療介入の効果を研究するときに観察される異質性として現れることがあり、またネットワーク研究の中で証拠を提供する各データソースの質に対する信頼にも影響を与える可能性があります。OHDSIネットワーク内のすべてのデータベースはCDMに標準化されていますが、標準化は集団全体に存在する本来の異質性を減少させるものではなく、ネットワーク全体で異質性を調査し、より良く理解するための一貫したフレームワークを提供するものにすぎません。OHDSI研究ネットワークは、世界中のさまざまなデータベースに同じ分析プロセスを適用する環境を提供し、研究者が他の方法論的側面を一定に保ちながら、複数のデータソースにわたる結果を解釈できるようにします。OHDSIのネットワーク研究におけるオープンサイエンスへの協力的アプローチは、参加するデータパートナー間で臨床分野の知識を持つ者と分析の専門知識を持つ方法論者が共に協力し合うことで、データの臨床的妥当性の集団的理解に到達する一つの方法です。これにより、これらのデータを使用して生成された証拠に対する信頼の基盤を構築することが期待されます。</p>
 </div>
-</div>
-</div>
-<div id="要約" class="section level2 hasAnchor" number="16.2">
-<h2><span class="header-section-number">16.2</span> 要約<a href="ClinicalValidity.html#要約" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="要約" class="section level2 hasAnchor" number="16.6">
+<h2><span class="header-section-number">16.6</span> 要約<a href="ClinicalValidity.html#要約" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 <div class="rmdsummary">
 <ul>
@@ -938,6 +953,9 @@ div.csl-indent {
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-hripcsak_2017" class="csl-entry">
 Hripcsak, G., and D. J. Albers. 2017. <span>“<span class="nocase"><span>H</span>igh-fidelity phenotyping: richness and freedom from bias</span>.”</span> <em>J Am Med Inform Assoc</em>, October.
+</div>
+<div id="ref-madigan_2013" class="csl-entry">
+Madigan, D., P. B. Ryan, M. Schuemie, P. E. Stang, J. M. Overhage, A. G. Hartzema, M. A. Suchard, W. DuMouchel, and J. A. Berlin. 2013. <span>“<span class="nocase"><span>E</span>valuating the impact of database heterogeneity on observational study results</span>.”</span> <em>Am. J. Epidemiol.</em> 178 (4): 645–51.
 </div>
 <div id="ref-Rubbo2015phenotypes" class="csl-entry">
 Rubbo, B., N. K. Fitzpatrick, S. Denaxas, M. Daskalopoulou, N. Yu, R. S. Patel, H. Hemingway, et al. 2015. <span>“<span class="nocase"><span>U</span>se of electronic health records to ascertain, validate and phenotype acute myocardial infarction: <span>A</span> systematic review and recommendations</span>.”</span> <em>Int. J. Cardiol.</em> 187: 705–11.
