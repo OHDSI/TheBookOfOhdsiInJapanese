@@ -100,33 +100,33 @@ PLE研究で強く推奨されるもう1つのオプションは、傾向スコ�
 
 ### プロトコルと研究パッケージの最終化
 
-Once the legwork for all the previous steps has been completed, a final protocol should be assembled that includes detailed cohort definitions and study design information ideally exported from ATLAS. In Appendix \@ref(ProtocolTemplate), we provide a sample table of contents for a full protocol for a PLE study. This can also be found on the OHDSI github. We provide this sample as a comprehensive guide and checklist, but note some sections may or may not be relevant for your study.
+これまでのステップをすべて終えたら、ATLASからエクスポートした詳細なコホート定義と試験デザイン情報を含む最終的なプロトコールを作成するのが理想的です。付録の\@ref(ProtocolTemplate)に、PLE研究の完全なプロトコルの目次のサンプルを示します。これはOHDSIのgithubにもあります。このサンプルは包括的なガイドとチェックリストとして提供しますが、いくつかのセクションはあなたの研究に関連する場合もあれば、そうでない場合もありますのでご注意ください。
 
-As shown in Figure \@ref(fig:studyProcess), assembling the final study protocol in human-readable form should be performed in parallel with preparing all the machine-readable study code that is incorporated into the final study package. These latter steps are referred to as study implementation in the diagram below. This will include export of the finalized study package from ATLAS and/or development of any custom code that may be required.
+図 \@ref(fig:studyProcess)に示すように、最終的な試験プロトコールを人が読める形で組み立てるのと並行して、最終的な試験パッケージに組み込まれるすべての機械可読試験コードを準備する必要があります。これらの後者のステップは、下図では試験の実施と呼ばれています。これには、ATLASからの最終化された試験パッケージのエクスポートや、必要とされるカスタムコードの開発が含まれます。
 
-The completed study package can then be used to execute only the preliminary diagnostics steps which in turn can be described in the protocol. For example, in the case of a new user cohort PLE study to examine comparative effectiveness of two treatments, the preliminary execution of study diagnostics steps will require cohort creation, propensity score creation, and matching to confirm that the target and comparator populations have sufficient overlap for the study to be feasible. Once this is determined, power calculations can be performed with the matched target and comparator cohorts intersected with the outcome cohort to obtain outcome counts and the results of these calculations can be described in the protocol. On the basis of these diagnostics results, a decision can then be made whether or not to move forward with executing the final outcome model. In the context of a characterization or a PLP study, there may be similar steps that need to be completed at this stage, although we don’t attempt to outline all scenarios here.
+完成した試験パッケージは、プロトコールに記載されている予備診断ステップのみを実行するために使用することができます。例えば、2つの治療法の比較有効性を検討する新しいユーザーコホートPLE試験の場合、予備診断ステップの実行にはコホートの作成、傾向スコアの作成、マッチングが必要で、試験が実施可能であるために標的集団と比較対象集団が十分に重複していることを確認します。これが決定されれば、マッチングされた対象集団と比較対象集団をアウトカム集団と交差させて検出力計算を行い、アウトカム数を求め、その結果をプロトコールに記載することができます。これらの診断結果に基づいて、最終的なアウトカムモデルの実行に進むかどうかを決定することができます。キャラクタリゼーションやPLP研究の文脈では、この段階で完了する必要がある同様の手順があるかもしれませんが、ここではすべてのシナリオについて概説することはしません。
 
-Importantly, we recommend at this stage to have your finalized protocol reviewed by clinical collaborators and stakeholders.
+重要なことは、この段階で、最終化したプロトコールを臨床協力者や利害関係者にレビューしてもらうことをお勧めすることです。
 
-```{r studyProcess, fig.cap='Diagram of the study process.',echo=FALSE, out.width='90%', fig.align='center'}
+```{r studyProcess, fig.cap='研究プロセスのダイアグラム',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/StudySteps/studyProcess.png")
 ```
 
-### Execute Study
+### 研究の実施
 
-Once all prior steps have been completed, study execution should ideally be straightforward. Of course, the code or process should be reviewed for fidelity to the methods and parameters outlined in the protocol. It may also be necessary to test and debug a study package to ensure it runs appropriately in your environment.
+すべての前段階が完了すれば、試験の実施は理想的には単純であるべきです。もちろん、プロトコールに概説されている方法やパラメータに忠実であるかどうか、コードやプロセスをレビューする必要があります。また、試験パッケージがあなたの環境で適切に実行されることを確認するために、試験パッケージのテストとデバッグが必要な場合もあります。
 
-### Interpretation and Write-Up
+### 解釈と報告
 
-In a well-defined study where sample sizes are sufficient and data quality is reasonable, the interpretation of results will often be straightforward. Similarly, because most of the work of creating a final report other than writing up the final results is done in the planning and creation of the protocol, the final write-up of a report or manuscript for publication will often be straightforward as well.
+サンプルサイズが十分で、データの質も妥当な、よく定義された研究では、結果の解釈は多くの場合簡単です。同様に、最終結果を書き上げる以外の最終報告書作成作業のほとんどは、計画立案とプロトコールの作成で行われるため、出版用の報告書や原稿の最終的な書き上げも、多くの場合簡単です。
 
-There are, however, some common situations where interpretation becomes more challenging and should be approached with caution.
+しかし、解釈が難しくなるような一般的な状況もあり、そのような場合は慎重に対応する必要があります。
 
-1.  Sample sizes are borderline for significance and confidence intervals become large
-2.  Specific for PLE: p-value calibration with negative controls may reveal substantial bias
-3.  Unanticipated data quality issues come to light during the process of running the study
+1.  サンプルサイズが有意性の境界線上にあり、信頼区間が大きくなる場合。
+2.  PLEに特有：陰性対照を用いたp値校正により、実質的なバイアスが明らかになることがあります。
+3.  試験の実施中に予期せぬデータの質の問題が明らかになった場合。
 
-For any given study, it will be up to the discretion of the study authors to report on any concerns above and temper their interpretation of study results accordingly. As with the protocol development process, we also recommend that the study findings and interpretations be reviewed by clinical experts and stakeholders prior to releasing a final report or submitting a manuscript for publication.
+どのような試験においても、上記の懸念事項を報告し、それに応じて試験結果の解釈を変えるかどうかは、試験著者の裁量に任されます。プロトコール作成過程と同様に、最終報告書の発表や論文投稿の前に、臨床の専門家や利害関係者による試験結果や解釈のレビューを受けることも推奨します。
 
 ## まとめ
 
