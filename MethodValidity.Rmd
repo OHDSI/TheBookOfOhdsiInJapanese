@@ -263,9 +263,11 @@ knitr::include_graphics("images/MethodValidity/controls.png")
 | Type 2 error   |  0.18 |
 | Non-estimable  |  0.08 |
 
-: (#tab:exampleMetrics) Method performance metrics derived from the negative and positive control estimates.
+: (#tab:exampleMetrics) ネガティブコントロールとポジティブコントロールの推定値から得られたメソッドのパフォーマンスメトリック
 
-We see that coverage and type 1 error are very close to their nominal values of 95% and 5%, respectively, and that the AUC is very high. This is certainly not always the case.
+カバレッジとタイプ1エラーは、それぞれ95％と5％という公称値に非常に近く、AUCも非常に高いことがわかります。これは必ずしもそうではありません。
+
+図(ref:fig:controls)では、真のハザード比が1であるとき、すべての信頼区間に1が含まれるわけではありませんが、表(ref:tab:exampleMetrics)の1型誤差は0%であることに注意してください。これは例外的な状況で、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージの信頼区間が尤度プロファイリングを使って推定されていることが原因です。これは従来の方法よりも正確ですが、信頼区間が非対称になることがあります。代わりにp値は対称信頼区間を仮定して計算され、これが第1種の過誤を計算するために用いられたものです。
 
 Note that although in Figure \@ref(fig:controls) not all confidence intervals include one when the true hazard ratio is one, the type 1 error in Table \@ref(tab:exampleMetrics) is 0%. This is an exceptional situation, caused by the fact that confidence intervals in the [Cyclops](https://ohdsi.github.io/Cyclops/) package are estimated using likelihood profiling, which is more accurate than traditional methods but can result in asymmetric confidence intervals. The p-value instead is computed assuming symmetrical confidence intervals, and this is what was used to compute the type 1 error.
 
