@@ -849,65 +849,65 @@ div.csl-indent {
 <p><code>createPhenoModel</code> 関数は評価コホートの中で関心のある健康アウトカムを持つ確率を評価するための診断予測モデルを開発します。この関数を使用するために、ステップ1と2で開発したxSpecおよびxSensコホートを利用します。xSpecコホートは<code>xSpecCohort</code>パラメーターとして関数に入力されます。xSensコホートはモデリングプロセスで使用されるターゲットコホートから除外すべきであることを示すために、<code>exclCohort</code>パラメーターとして入力されます。これを除外することで、健康アウトカムを持つ可能性の低い人々を決定することができます。このグループは「ノイズの多い負の」人物として考えることができます。すなわち、健康アウトカムの否定的である可能性が高い一群ですが、いくつかの人が健康アウトカムを持つ可能性があることを許容します。また、<code>prevCohort</code>パラメーターとしてxSensコホートを使用することができます。このパラメーターは、母集団における健康アウトカムの概算な有病率を決定するプロセスで使用されます。通常、データベースからの大規模なランダムサンプルは、関心のあるアウトカムの有病率に比例して、関心のあるアウトカムを持つ人が約含まれる母集団を生成するべきです。我々が説明した方法を使用することで、もはやランダムサンプルを持たないため、アウトカムを持つ人と持たない人の割合をリセットして予測モデルを再キャリブレートする必要があります。</p>
 <p>xSpecコホートを定義するために使用されたすべての概念はモデリングプロセスから除外されなければなりません。これを行うために、<code>excludedConcepts</code>パラメーターをxSpec定義に使用される概念のリストに設定します。例えば、MIの場合、心筋梗塞の概念とそのすべての子孫を使用してATLASに概念セットを作成しました。この例では、excludedConceptsパラメーターを4329847、心筋梗塞の概念IDに設定し、addDescendantsToExcludeパラメータをTRUEに設定して、除外された概念の子孫も除外されることを示しています。</p>
 <p>モデリングプロセスに含まれる人々の特性を指定するために使用できるいくつかのパラメーターがあります。モデルに含まれる人々の年齢を<code>lowerAgeLimit</code>パラメーターと<code>upperAgeLimit</code>パラメーターを設定して年齢の下限と上限を設定することで指定できます。特定の年齢層に対して作成される予定のコホート定義の場合、たとえば、子供の1型糖尿病のコホート定義が計画されている場合、5歳から17歳までの年齢を開発モデルに限定することができます。このようにして、テストされるコホート定義によって選択される人々に関連する特徴を持つモデルを生成することができます。性別を含む場合は、<code>gender</code>パラメーターに男性または女性の概念IDを設定します。デフォルトでは、パラメーターは男性と女性の両方を含むように設定されています。前立腺癌のような性特異的な健康アウトカムに役立ちます。記録上の最初の訪問に基づいて参加者の年齢を<code>startDate</code> ファイルでログ付けし開始日時をテスト、観察します。プロジェクトディレクトリの保存 pcdfプロジェクトフィールドで指定します。 次の例を参照してください:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ClinicalValidity.html#cb138-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;c:/temp&quot;</span>)</span>
-<span id="cb138-2"><a href="ClinicalValidity.html#cb138-2" tabindex="-1"></a><span class="fu">library</span>(PheValuator)</span>
-<span id="cb138-3"><a href="ClinicalValidity.html#cb138-3" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(</span>
-<span id="cb138-4"><a href="ClinicalValidity.html#cb138-4" tabindex="-1"></a>  <span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
-<span id="cb138-5"><a href="ClinicalValidity.html#cb138-5" tabindex="-1"></a>  <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
-<span id="cb138-6"><a href="ClinicalValidity.html#cb138-6" tabindex="-1"></a>  <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
-<span id="cb138-7"><a href="ClinicalValidity.html#cb138-7" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
-<span id="cb138-8"><a href="ClinicalValidity.html#cb138-8" tabindex="-1"></a></span>
-<span id="cb138-9"><a href="ClinicalValidity.html#cb138-9" tabindex="-1"></a>phenoTest <span class="ot">&lt;-</span> <span class="fu">createPhenoModel</span>(</span>
-<span id="cb138-10"><a href="ClinicalValidity.html#cb138-10" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb138-11"><a href="ClinicalValidity.html#cb138-11" tabindex="-1"></a>  <span class="at">xSpecCohort =</span> <span class="dv">10934</span>,</span>
-<span id="cb138-12"><a href="ClinicalValidity.html#cb138-12" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;my_cdm_data&quot;</span>,</span>
-<span id="cb138-13"><a href="ClinicalValidity.html#cb138-13" tabindex="-1"></a>  <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;my_results&quot;</span>,</span>
-<span id="cb138-14"><a href="ClinicalValidity.html#cb138-14" tabindex="-1"></a>  <span class="at">cohortDatabaseTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb138-15"><a href="ClinicalValidity.html#cb138-15" tabindex="-1"></a>  <span class="at">outDatabaseSchema =</span> <span class="st">&quot;scratch.dbo&quot;</span>, <span class="co">#書き込み権限が必要</span></span>
-<span id="cb138-16"><a href="ClinicalValidity.html#cb138-16" tabindex="-1"></a>  <span class="at">trainOutFile =</span> <span class="st">&quot;5XMI_train&quot;</span>,</span>
-<span id="cb138-17"><a href="ClinicalValidity.html#cb138-17" tabindex="-1"></a>  <span class="at">exclCohort =</span> <span class="dv">1770120</span>, <span class="co">#xSens コホート</span></span>
-<span id="cb138-18"><a href="ClinicalValidity.html#cb138-18" tabindex="-1"></a>  <span class="at">prevCohort =</span> <span class="dv">1770119</span>, <span class="co">#有病率決定のコホート</span></span>
-<span id="cb138-19"><a href="ClinicalValidity.html#cb138-19" tabindex="-1"></a>  <span class="at">modelAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
-<span id="cb138-20"><a href="ClinicalValidity.html#cb138-20" tabindex="-1"></a>  <span class="at">excludedConcepts =</span> <span class="fu">c</span>(<span class="dv">312327</span>, <span class="dv">314666</span>),</span>
-<span id="cb138-21"><a href="ClinicalValidity.html#cb138-21" tabindex="-1"></a>  <span class="at">addDescendantsToExclude =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb138-22"><a href="ClinicalValidity.html#cb138-22" tabindex="-1"></a>  <span class="at">cdmShortName =</span> <span class="st">&quot;myCDM&quot;</span>,</span>
-<span id="cb138-23"><a href="ClinicalValidity.html#cb138-23" tabindex="-1"></a>  <span class="at">mainPopnCohort =</span> <span class="dv">0</span>, <span class="co">#全人口を使用</span></span>
-<span id="cb138-24"><a href="ClinicalValidity.html#cb138-24" tabindex="-1"></a>  <span class="at">lowerAgeLimit =</span> <span class="dv">18</span>,</span>
-<span id="cb138-25"><a href="ClinicalValidity.html#cb138-25" tabindex="-1"></a>  <span class="at">upperAgeLimit =</span> <span class="dv">90</span>,</span>
-<span id="cb138-26"><a href="ClinicalValidity.html#cb138-26" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="dv">8507</span>, <span class="dv">8532</span>),</span>
-<span id="cb138-27"><a href="ClinicalValidity.html#cb138-27" tabindex="-1"></a>  <span class="at">startDate =</span> <span class="st">&quot;20100101&quot;</span>,</span>
-<span id="cb138-28"><a href="ClinicalValidity.html#cb138-28" tabindex="-1"></a>  <span class="at">endDate =</span> <span class="st">&quot;20171231&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="ClinicalValidity.html#cb137-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;c:/temp&quot;</span>)</span>
+<span id="cb137-2"><a href="ClinicalValidity.html#cb137-2" tabindex="-1"></a><span class="fu">library</span>(PheValuator)</span>
+<span id="cb137-3"><a href="ClinicalValidity.html#cb137-3" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(</span>
+<span id="cb137-4"><a href="ClinicalValidity.html#cb137-4" tabindex="-1"></a>  <span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
+<span id="cb137-5"><a href="ClinicalValidity.html#cb137-5" tabindex="-1"></a>  <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
+<span id="cb137-6"><a href="ClinicalValidity.html#cb137-6" tabindex="-1"></a>  <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
+<span id="cb137-7"><a href="ClinicalValidity.html#cb137-7" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
+<span id="cb137-8"><a href="ClinicalValidity.html#cb137-8" tabindex="-1"></a></span>
+<span id="cb137-9"><a href="ClinicalValidity.html#cb137-9" tabindex="-1"></a>phenoTest <span class="ot">&lt;-</span> <span class="fu">createPhenoModel</span>(</span>
+<span id="cb137-10"><a href="ClinicalValidity.html#cb137-10" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb137-11"><a href="ClinicalValidity.html#cb137-11" tabindex="-1"></a>  <span class="at">xSpecCohort =</span> <span class="dv">10934</span>,</span>
+<span id="cb137-12"><a href="ClinicalValidity.html#cb137-12" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;my_cdm_data&quot;</span>,</span>
+<span id="cb137-13"><a href="ClinicalValidity.html#cb137-13" tabindex="-1"></a>  <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;my_results&quot;</span>,</span>
+<span id="cb137-14"><a href="ClinicalValidity.html#cb137-14" tabindex="-1"></a>  <span class="at">cohortDatabaseTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb137-15"><a href="ClinicalValidity.html#cb137-15" tabindex="-1"></a>  <span class="at">outDatabaseSchema =</span> <span class="st">&quot;scratch.dbo&quot;</span>, <span class="co">#書き込み権限が必要</span></span>
+<span id="cb137-16"><a href="ClinicalValidity.html#cb137-16" tabindex="-1"></a>  <span class="at">trainOutFile =</span> <span class="st">&quot;5XMI_train&quot;</span>,</span>
+<span id="cb137-17"><a href="ClinicalValidity.html#cb137-17" tabindex="-1"></a>  <span class="at">exclCohort =</span> <span class="dv">1770120</span>, <span class="co">#xSens コホート</span></span>
+<span id="cb137-18"><a href="ClinicalValidity.html#cb137-18" tabindex="-1"></a>  <span class="at">prevCohort =</span> <span class="dv">1770119</span>, <span class="co">#有病率決定のコホート</span></span>
+<span id="cb137-19"><a href="ClinicalValidity.html#cb137-19" tabindex="-1"></a>  <span class="at">modelAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
+<span id="cb137-20"><a href="ClinicalValidity.html#cb137-20" tabindex="-1"></a>  <span class="at">excludedConcepts =</span> <span class="fu">c</span>(<span class="dv">312327</span>, <span class="dv">314666</span>),</span>
+<span id="cb137-21"><a href="ClinicalValidity.html#cb137-21" tabindex="-1"></a>  <span class="at">addDescendantsToExclude =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb137-22"><a href="ClinicalValidity.html#cb137-22" tabindex="-1"></a>  <span class="at">cdmShortName =</span> <span class="st">&quot;myCDM&quot;</span>,</span>
+<span id="cb137-23"><a href="ClinicalValidity.html#cb137-23" tabindex="-1"></a>  <span class="at">mainPopnCohort =</span> <span class="dv">0</span>, <span class="co">#全人口を使用</span></span>
+<span id="cb137-24"><a href="ClinicalValidity.html#cb137-24" tabindex="-1"></a>  <span class="at">lowerAgeLimit =</span> <span class="dv">18</span>,</span>
+<span id="cb137-25"><a href="ClinicalValidity.html#cb137-25" tabindex="-1"></a>  <span class="at">upperAgeLimit =</span> <span class="dv">90</span>,</span>
+<span id="cb137-26"><a href="ClinicalValidity.html#cb137-26" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="dv">8507</span>, <span class="dv">8532</span>),</span>
+<span id="cb137-27"><a href="ClinicalValidity.html#cb137-27" tabindex="-1"></a>  <span class="at">startDate =</span> <span class="st">&quot;20100101&quot;</span>,</span>
+<span id="cb137-28"><a href="ClinicalValidity.html#cb137-28" tabindex="-1"></a>  <span class="at">endDate =</span> <span class="st">&quot;20171231&quot;</span>)</span></code></pre></div>
 <p>この例では、“my_results” データベースに定義されたコホートを使用し、コホートテーブルの位置（cohortDatabaseSchema、cohortDatabaseTable - “my_results.cohort”）と、モデルが条件、薬物曝露などを見つける場所（cdmDatabaseSchema - “my_cdm_data”）を指定しています。モデルに含まれる人々は、2010年1月1日から2017年12月31日の間にCDMでの最初の訪問を持つ人々です。また、xSpec コホートの作成に使用された概念ID312327、314666、およびその子孫を特に除外しています。最初の訪問時の彼らの年齢は18歳から90歳です。上記のパラメーターにより、このステップの出力される予測モデルの名前は以下の通りです：“c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds”</p>
 </div>
 <div id="ステップ-4-評価コホートの作成" class="section level4 unnumbered hasAnchor">
 <h4>ステップ 4: 評価コホートの作成<a href="ClinicalValidity.html#ステップ-4-評価コホートの作成" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>createEvalCohort</code>関数は、PatientLevelPredictionパッケージの<code>applyModel</code>関数を使用して、各人に関心のある健康アウトカムの予測確率を持つ大規模なコホートを生成します。この関数には、xSpecコホートを指定する（<code>xSpecCohort</code>パラメータにxSpecコホートIDを設定）のが必要です。また、前のステップで行ったように、評価コホートに含まれる人々の特性を指定することができます。これには、年齢の下限および上限（それぞれ<code>lowerAgeLimit</code>および<code>upperAgeLimit</code>引数で設定）、性別（<code>gender</code>パラメータに男性および/または女性の概念IDを設定）、開始および終了日（それぞれ<code>startDate</code>および<code>endDate</code>引数で設定）、および選択する母集団を指定する<code>mainPopnCohort</code>を使用して大規模な母集団を指定することが含まれます。</p>
 <p>例えば：</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ClinicalValidity.html#cb139-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;c:/temp&quot;</span>)</span>
-<span id="cb139-2"><a href="ClinicalValidity.html#cb139-2" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(</span>
-<span id="cb139-3"><a href="ClinicalValidity.html#cb139-3" tabindex="-1"></a>  <span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
-<span id="cb139-4"><a href="ClinicalValidity.html#cb139-4" tabindex="-1"></a>  <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
-<span id="cb139-5"><a href="ClinicalValidity.html#cb139-5" tabindex="-1"></a>  <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
-<span id="cb139-6"><a href="ClinicalValidity.html#cb139-6" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
-<span id="cb139-7"><a href="ClinicalValidity.html#cb139-7" tabindex="-1"></a></span>
-<span id="cb139-8"><a href="ClinicalValidity.html#cb139-8" tabindex="-1"></a>evalCohort <span class="ot">&lt;-</span> <span class="fu">createEvalCohort</span>(</span>
-<span id="cb139-9"><a href="ClinicalValidity.html#cb139-9" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb139-10"><a href="ClinicalValidity.html#cb139-10" tabindex="-1"></a>  <span class="at">xSpecCohort =</span> <span class="dv">10934</span>,</span>
-<span id="cb139-11"><a href="ClinicalValidity.html#cb139-11" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;my_cdm_data&quot;</span>,</span>
-<span id="cb139-12"><a href="ClinicalValidity.html#cb139-12" tabindex="-1"></a>  <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;my_results&quot;</span>,</span>
-<span id="cb139-13"><a href="ClinicalValidity.html#cb139-13" tabindex="-1"></a>  <span class="at">cohortDatabaseTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb139-14"><a href="ClinicalValidity.html#cb139-14" tabindex="-1"></a>  <span class="at">outDatabaseSchema =</span> <span class="st">&quot;scratch.dbo&quot;</span>,</span>
-<span id="cb139-15"><a href="ClinicalValidity.html#cb139-15" tabindex="-1"></a>  <span class="at">testOutFile =</span> <span class="st">&quot;5XMI_eval&quot;</span>,</span>
-<span id="cb139-16"><a href="ClinicalValidity.html#cb139-16" tabindex="-1"></a>  <span class="at">trainOutFile =</span> <span class="st">&quot;5XMI_train&quot;</span>,</span>
-<span id="cb139-17"><a href="ClinicalValidity.html#cb139-17" tabindex="-1"></a>  <span class="at">modelAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
-<span id="cb139-18"><a href="ClinicalValidity.html#cb139-18" tabindex="-1"></a>  <span class="at">evalAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
-<span id="cb139-19"><a href="ClinicalValidity.html#cb139-19" tabindex="-1"></a>  <span class="at">cdmShortName =</span> <span class="st">&quot;myCDM&quot;</span>,</span>
-<span id="cb139-20"><a href="ClinicalValidity.html#cb139-20" tabindex="-1"></a>  <span class="at">mainPopnCohort =</span> <span class="dv">0</span>,</span>
-<span id="cb139-21"><a href="ClinicalValidity.html#cb139-21" tabindex="-1"></a>  <span class="at">lowerAgeLimit =</span> <span class="dv">18</span>,</span>
-<span id="cb139-22"><a href="ClinicalValidity.html#cb139-22" tabindex="-1"></a>  <span class="at">upperAgeLimit =</span> <span class="dv">90</span>,</span>
-<span id="cb139-23"><a href="ClinicalValidity.html#cb139-23" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="dv">8507</span>, <span class="dv">8532</span>),</span>
-<span id="cb139-24"><a href="ClinicalValidity.html#cb139-24" tabindex="-1"></a>  <span class="at">startDate =</span> <span class="st">&quot;20100101&quot;</span>,</span>
-<span id="cb139-25"><a href="ClinicalValidity.html#cb139-25" tabindex="-1"></a>  <span class="at">endDate =</span> <span class="st">&quot;20171231&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ClinicalValidity.html#cb138-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;c:/temp&quot;</span>)</span>
+<span id="cb138-2"><a href="ClinicalValidity.html#cb138-2" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(</span>
+<span id="cb138-3"><a href="ClinicalValidity.html#cb138-3" tabindex="-1"></a>  <span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
+<span id="cb138-4"><a href="ClinicalValidity.html#cb138-4" tabindex="-1"></a>  <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
+<span id="cb138-5"><a href="ClinicalValidity.html#cb138-5" tabindex="-1"></a>  <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
+<span id="cb138-6"><a href="ClinicalValidity.html#cb138-6" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
+<span id="cb138-7"><a href="ClinicalValidity.html#cb138-7" tabindex="-1"></a></span>
+<span id="cb138-8"><a href="ClinicalValidity.html#cb138-8" tabindex="-1"></a>evalCohort <span class="ot">&lt;-</span> <span class="fu">createEvalCohort</span>(</span>
+<span id="cb138-9"><a href="ClinicalValidity.html#cb138-9" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb138-10"><a href="ClinicalValidity.html#cb138-10" tabindex="-1"></a>  <span class="at">xSpecCohort =</span> <span class="dv">10934</span>,</span>
+<span id="cb138-11"><a href="ClinicalValidity.html#cb138-11" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;my_cdm_data&quot;</span>,</span>
+<span id="cb138-12"><a href="ClinicalValidity.html#cb138-12" tabindex="-1"></a>  <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;my_results&quot;</span>,</span>
+<span id="cb138-13"><a href="ClinicalValidity.html#cb138-13" tabindex="-1"></a>  <span class="at">cohortDatabaseTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb138-14"><a href="ClinicalValidity.html#cb138-14" tabindex="-1"></a>  <span class="at">outDatabaseSchema =</span> <span class="st">&quot;scratch.dbo&quot;</span>,</span>
+<span id="cb138-15"><a href="ClinicalValidity.html#cb138-15" tabindex="-1"></a>  <span class="at">testOutFile =</span> <span class="st">&quot;5XMI_eval&quot;</span>,</span>
+<span id="cb138-16"><a href="ClinicalValidity.html#cb138-16" tabindex="-1"></a>  <span class="at">trainOutFile =</span> <span class="st">&quot;5XMI_train&quot;</span>,</span>
+<span id="cb138-17"><a href="ClinicalValidity.html#cb138-17" tabindex="-1"></a>  <span class="at">modelAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
+<span id="cb138-18"><a href="ClinicalValidity.html#cb138-18" tabindex="-1"></a>  <span class="at">evalAnalysisId =</span> <span class="st">&quot;20181206V1&quot;</span>,</span>
+<span id="cb138-19"><a href="ClinicalValidity.html#cb138-19" tabindex="-1"></a>  <span class="at">cdmShortName =</span> <span class="st">&quot;myCDM&quot;</span>,</span>
+<span id="cb138-20"><a href="ClinicalValidity.html#cb138-20" tabindex="-1"></a>  <span class="at">mainPopnCohort =</span> <span class="dv">0</span>,</span>
+<span id="cb138-21"><a href="ClinicalValidity.html#cb138-21" tabindex="-1"></a>  <span class="at">lowerAgeLimit =</span> <span class="dv">18</span>,</span>
+<span id="cb138-22"><a href="ClinicalValidity.html#cb138-22" tabindex="-1"></a>  <span class="at">upperAgeLimit =</span> <span class="dv">90</span>,</span>
+<span id="cb138-23"><a href="ClinicalValidity.html#cb138-23" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="dv">8507</span>, <span class="dv">8532</span>),</span>
+<span id="cb138-24"><a href="ClinicalValidity.html#cb138-24" tabindex="-1"></a>  <span class="at">startDate =</span> <span class="st">&quot;20100101&quot;</span>,</span>
+<span id="cb138-25"><a href="ClinicalValidity.html#cb138-25" tabindex="-1"></a>  <span class="at">endDate =</span> <span class="st">&quot;20171231&quot;</span>)</span></code></pre></div>
 <p>この例では、関数がモデルファイル「c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds」を使用して評価コホートファイル「c:/temp/lr_results_5XMI_eval_myCDM_ePPV0.75_20181206V1.rds」を生成することを指定しています。このステップで作成されたモデルと評価コホートファイルは、次のステップで提供されるコホート定義の評価に使用されます。</p>
 </div>
 <div id="ステップ-5-コホート定義の作成とテスト" class="section level4 unnumbered hasAnchor">

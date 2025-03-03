@@ -851,33 +851,33 @@ div.csl-indent {
 <h3><span class="header-section-number">18.2.6</span> コントロールの仲間<a href="MethodValidity.html#コントロールの仲間" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ネガティブコントロールセットを定義したら、それらを研究に含める必要があります。まず、ネガティブコントロール状態概念を結果コホートに変換するロジックを定義する必要があります。セクション<a href="#evaluationSettings"><strong>??</strong></a>では、ATLASがユーザーが選択するいくつかのオプションに基づいてそのようなコホートを作成する方法について説明しています。しばしばコホートメソッドではネガティブコントロール概念またはその子孫のいずれかのいずれの発生に基づいたコホートを作成するだけで済みます。研究がRで実装されている場合、SQL（Structured Query Language）を使用してネガティブコントロールコホートを構築できます。Chapter <a href="SqlAndR.html#SqlAndR">9</a>では、SQLおよびRを使用してコホートを作成する方法について説明しています。適切なSQLおよびRを書くことは読者の練習として残しておきます。</p>
 <p>OHDSIツールは、ネガティブコントロールから生成されるポジティブコントロールを自動的に生成し、それらを含める機能も提供しています。この機能は、セクション<a href="#evaluationSettings"><strong>??</strong></a>で説明されるATLASの評価設定セクションにあり、<a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a>パッケージの<code>synthesizePositiveControls</code>関数で実装されています。ここでは、各ネガティブコントロールに対して1.5、2、4の真の効果サイズを持つ3つのポジティブコントロールを生成します：</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="MethodValidity.html#cb140-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
-<span id="cb140-2"><a href="MethodValidity.html#cb140-2" tabindex="-1"></a><span class="co"># ターゲット曝露（ACEi = 1）のみを使用して、すべてのネガティブコントロール曝露-結果ペアを含むデータフレームを作成</span></span>
-<span id="cb140-3"><a href="MethodValidity.html#cb140-3" tabindex="-1"></a>eoPairs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">exposureId =</span> <span class="dv">1</span>,</span>
-<span id="cb140-4"><a href="MethodValidity.html#cb140-4" tabindex="-1"></a>                      <span class="at">outcomeId =</span> ncs)</span>
-<span id="cb140-5"><a href="MethodValidity.html#cb140-5" tabindex="-1"></a></span>
-<span id="cb140-6"><a href="MethodValidity.html#cb140-6" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">synthesizePositiveControls</span>(</span>
-<span id="cb140-7"><a href="MethodValidity.html#cb140-7" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb140-8"><a href="MethodValidity.html#cb140-8" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb140-9"><a href="MethodValidity.html#cb140-9" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb140-10"><a href="MethodValidity.html#cb140-10" tabindex="-1"></a>  <span class="at">exposureTable =</span> cohortTable,</span>
-<span id="cb140-11"><a href="MethodValidity.html#cb140-11" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb140-12"><a href="MethodValidity.html#cb140-12" tabindex="-1"></a>  <span class="at">outcomeTable =</span> cohortTable,</span>
-<span id="cb140-13"><a href="MethodValidity.html#cb140-13" tabindex="-1"></a>  <span class="at">outputDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb140-14"><a href="MethodValidity.html#cb140-14" tabindex="-1"></a>  <span class="at">outputTable =</span> cohortTable,</span>
-<span id="cb140-15"><a href="MethodValidity.html#cb140-15" tabindex="-1"></a>  <span class="at">createOutputTable =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb140-16"><a href="MethodValidity.html#cb140-16" tabindex="-1"></a>  <span class="at">modelType =</span> <span class="st">&quot;survival&quot;</span>,</span>
-<span id="cb140-17"><a href="MethodValidity.html#cb140-17" tabindex="-1"></a>  <span class="at">firstExposureOnly =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb140-18"><a href="MethodValidity.html#cb140-18" tabindex="-1"></a>  <span class="at">firstOutcomeOnly =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb140-19"><a href="MethodValidity.html#cb140-19" tabindex="-1"></a>  <span class="at">removePeopleWithPriorOutcomes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb140-20"><a href="MethodValidity.html#cb140-20" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">365</span>,</span>
-<span id="cb140-21"><a href="MethodValidity.html#cb140-21" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
-<span id="cb140-22"><a href="MethodValidity.html#cb140-22" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">0</span>,</span>
-<span id="cb140-23"><a href="MethodValidity.html#cb140-23" tabindex="-1"></a>  <span class="at">endAnchor =</span> <span class="st">&quot;cohort end&quot;</span>,</span>
-<span id="cb140-24"><a href="MethodValidity.html#cb140-24" tabindex="-1"></a>  <span class="at">exposureOutcomePairs =</span> eoPairs,</span>
-<span id="cb140-25"><a href="MethodValidity.html#cb140-25" tabindex="-1"></a>  <span class="at">effectSizes =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
-<span id="cb140-26"><a href="MethodValidity.html#cb140-26" tabindex="-1"></a>  <span class="at">cdmVersion =</span> cdmVersion,</span>
-<span id="cb140-27"><a href="MethodValidity.html#cb140-27" tabindex="-1"></a>  <span class="at">workFolder =</span> <span class="fu">file.path</span>(outputFolder, <span class="st">&quot;pcSynthesis&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="MethodValidity.html#cb139-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
+<span id="cb139-2"><a href="MethodValidity.html#cb139-2" tabindex="-1"></a><span class="co"># ターゲット曝露（ACEi = 1）のみを使用して、すべてのネガティブコントロール曝露-結果ペアを含むデータフレームを作成</span></span>
+<span id="cb139-3"><a href="MethodValidity.html#cb139-3" tabindex="-1"></a>eoPairs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">exposureId =</span> <span class="dv">1</span>,</span>
+<span id="cb139-4"><a href="MethodValidity.html#cb139-4" tabindex="-1"></a>                      <span class="at">outcomeId =</span> ncs)</span>
+<span id="cb139-5"><a href="MethodValidity.html#cb139-5" tabindex="-1"></a></span>
+<span id="cb139-6"><a href="MethodValidity.html#cb139-6" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">synthesizePositiveControls</span>(</span>
+<span id="cb139-7"><a href="MethodValidity.html#cb139-7" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb139-8"><a href="MethodValidity.html#cb139-8" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb139-9"><a href="MethodValidity.html#cb139-9" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb139-10"><a href="MethodValidity.html#cb139-10" tabindex="-1"></a>  <span class="at">exposureTable =</span> cohortTable,</span>
+<span id="cb139-11"><a href="MethodValidity.html#cb139-11" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb139-12"><a href="MethodValidity.html#cb139-12" tabindex="-1"></a>  <span class="at">outcomeTable =</span> cohortTable,</span>
+<span id="cb139-13"><a href="MethodValidity.html#cb139-13" tabindex="-1"></a>  <span class="at">outputDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb139-14"><a href="MethodValidity.html#cb139-14" tabindex="-1"></a>  <span class="at">outputTable =</span> cohortTable,</span>
+<span id="cb139-15"><a href="MethodValidity.html#cb139-15" tabindex="-1"></a>  <span class="at">createOutputTable =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb139-16"><a href="MethodValidity.html#cb139-16" tabindex="-1"></a>  <span class="at">modelType =</span> <span class="st">&quot;survival&quot;</span>,</span>
+<span id="cb139-17"><a href="MethodValidity.html#cb139-17" tabindex="-1"></a>  <span class="at">firstExposureOnly =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb139-18"><a href="MethodValidity.html#cb139-18" tabindex="-1"></a>  <span class="at">firstOutcomeOnly =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb139-19"><a href="MethodValidity.html#cb139-19" tabindex="-1"></a>  <span class="at">removePeopleWithPriorOutcomes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb139-20"><a href="MethodValidity.html#cb139-20" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">365</span>,</span>
+<span id="cb139-21"><a href="MethodValidity.html#cb139-21" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
+<span id="cb139-22"><a href="MethodValidity.html#cb139-22" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">0</span>,</span>
+<span id="cb139-23"><a href="MethodValidity.html#cb139-23" tabindex="-1"></a>  <span class="at">endAnchor =</span> <span class="st">&quot;cohort end&quot;</span>,</span>
+<span id="cb139-24"><a href="MethodValidity.html#cb139-24" tabindex="-1"></a>  <span class="at">exposureOutcomePairs =</span> eoPairs,</span>
+<span id="cb139-25"><a href="MethodValidity.html#cb139-25" tabindex="-1"></a>  <span class="at">effectSizes =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb139-26"><a href="MethodValidity.html#cb139-26" tabindex="-1"></a>  <span class="at">cdmVersion =</span> cdmVersion,</span>
+<span id="cb139-27"><a href="MethodValidity.html#cb139-27" tabindex="-1"></a>  <span class="at">workFolder =</span> <span class="fu">file.path</span>(outputFolder, <span class="st">&quot;pcSynthesis&quot;</span>))</span></code></pre></div>
 <p>リスクのある時間設定を推定研究デザインで使用されたものと一致させる必要があることに注意してください。<code>synthesizePositiveControls</code>関数が曝露およびネガティブコントロール結果に関連する情報を抽出し、曝露-結果ペアごとに結果モデルを適合させ、結果を合成します。ポジティブコントロールの結果コホートは、<code>cohortDbSchema</code>および<code>cohortTable</code>によって指定されたコホートテーブルに追加されます。生成された<code>pcs</code>データフレームには、合成ポジティブコントロールに関する情報が含まれます。</p>
 <p>次に、興味のある効果を推定するために使用する同じ研究を実行し、ネガティブおよびポジティブコントロールの効果も推定します。ATLASの比較ダイアログでネガティブコントロールのセットを設定すると、ATLASがこれらのコントロールの推定値を計算するように指示します。同様に、評価設定でポジティブコントロールを生成することを指定すると、これらが分析に含まれます。Rでは、ネガティブおよびポジティブコントロールは他のすべての結果と同様に扱われます。<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>のすべての推定パッケージは、効率的な方法で多くの効果を推定することを容易にします。</p>
 </div>
