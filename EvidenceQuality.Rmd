@@ -2,11 +2,7 @@
 
 # エビデンスの質 {#EvidenceQuality}
 
-<<<<<<< HEAD
-*章リード: Patrick Ryan & Jon Duke*
-=======
 *章の著者: Patrick Ryan & Jon Duke*
->>>>>>> b6a32c0f87976a25fc93e3647d145223df6fe11b
 
 \index{evidence quality}
 
