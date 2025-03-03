@@ -2,7 +2,7 @@
 
 # エビデンスの質 {#EvidenceQuality}
 
-*章の著者: Patrick Ryan & Jon Duke*
+*章リード: Patrick Ryan & Jon Duke*
 
 \index{evidence quality}
 
