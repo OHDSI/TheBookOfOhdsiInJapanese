@@ -274,17 +274,11 @@ knitr::include_graphics("images/MethodValidity/controls.png")
 | Type 2 error   |  0.18 |
 | Non-estimable  |  0.08 |
 
-<<<<<<< HEAD
-: (#tab:exampleMetrics) ネガティブおよびポジティブコントロールの推定値から導出されたメソッドのパフォーマンス指標。
-
-カバー率と第1種の過誤は、それぞれ95%と5%という公称値に非常に近い値であり、AUCは非常に高い値であることがわかります。 しかし、これは常に当てはまるわけではありません。
-=======
 : (#tab:exampleMetrics) ネガティブコントロールとポジティブコントロールの推定値から得られたメソッドのパフォーマンスメトリック
 
 カバレッジとタイプ1エラーは、それぞれ95％と5％という公称値に非常に近く、AUCも非常に高いことがわかります。これは必ずしもそうではありません。
 
 図(ref:fig:controls)では、真のハザード比が1であるとき、すべての信頼区間に1が含まれるわけではありませんが、表(ref:tab:exampleMetrics)の1型誤差は0%であることに注意してください。これは例外的な状況で、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージの信頼区間が尤度プロファイリングを使って推定されていることが原因です。これは従来の方法よりも正確ですが、信頼区間が非対称になることがあります。代わりにp値は対称信頼区間を仮定して計算され、これが第1種の過誤を計算するために用いられたものです。
->>>>>>> 1d1966c09a38f43467776b894ff58199dde67652
 
 図[18.5](https://ohdsi.github.io/TheBookOfOhdsi/MethodValidity.html#fig:controls)では、真のハザード比が1である場合の信頼区間すべてに1が含まれていませんが、表[18.1](https://ohdsi.github.io/TheBookOfOhdsi/MethodValidity.html#tab:exampleMetrics)の第1種の過誤は0%です。これは例外的な状況であり、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージの信頼区間が尤度プロファイリングを用いて推定されることによるものです。この方法は従来の方法よりも正確ですが、非対称な信頼区間になる可能性があります。一方、p値は対称な信頼区間を仮定して計算され、これは第1種の過誤を計算する際に使用されたものです。
 
@@ -362,7 +356,7 @@ knitr::include_graphics("images/MethodValidity/forestCal.png")
 我々の分析におけるデザインの選択肢のひとつは、傾向スコアで変数比マッチングを使用することだった。しかし、傾向スコアで層別化を使用することも可能だった。この選択肢については不明な点があるため、両方を使用することにした。表[18.2](https://ohdsi.github.io/TheBookOfOhdsi/MethodValidity.html#tab:sensAnalysis)は、変数比マッチングと層別化（10の均等サイズの層）を使用した場合のAMIと血管性浮腫に対する効果サイズ推定値を示している（較正ありと較正なしの両方）。
 
 | Outcome | Adjustment | Uncalibrated | Calibrated |
-|:-----------------|:-----------------|------------------|------------------|
+|:---|:---|----|----|
 | Angioedema | Matching | 4.32 (2.45 - 8.08) | 4.75 (2.52 - 9.04) |
 | Angioedema | Stratification | 4.57 (3.00 - 7.19) | 4.52 (2.85 - 7.19) |
 | Acute myocardial infarction | Matching | 1.13 (0.59 - 2.18) | 1.15 (0.58 - 2.30) |
