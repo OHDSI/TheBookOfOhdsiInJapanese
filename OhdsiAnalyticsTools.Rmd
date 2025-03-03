@@ -24,7 +24,7 @@ ATLASとMethods Libraryは独立していません。ATLASで呼び出される�
 
 ## 分析戦略
 
-CDMに対する分析を実装するために使用する戦略、たとえばカスタムコーディングやMethods Libraryで提供される標準分析コードの使用に加えて、それらの分析技術を使用して証拠を生成するための複数の戦略も存在します。図\@ref(fig:strategies)は、OHDSIで使用される3つの戦略を示しています。
+CDMに対する分析を実装するために使用する戦略、たとえばカスタムコーディングやMethods Libraryで提供される標準分析コードの使用に加えて、それらの分析技術を使用してエビデンスを生成するための複数の戦略も存在します。図\@ref(fig:strategies)は、OHDSIで使用される3つの戦略を示しています。
 
 ```{r strategies, fig.cap='(臨床の)質問に対する証拠を生成するための戦略。', echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/strategies.png")
@@ -34,7 +34,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/strategies.png")
 
 第二の戦略では、リアルタイムまたは準リアルタイムで特定のクラスの質問に回答できるアプリケーションを開発します。アプリケーションが開発されると、ユーザーはクエリをインタラクティブに定義し、それを送信して結果を表示できます。この戦略の一例は、ATLASのコホート定義および生成ツールです。このツールは、ユーザーが様々な複雑さのコホート定義を指定し、データベースに対して定義を実行して、さまざまな包含および除外基準を満たす人数を見ることを可能にします。
 
-第三の戦略では、同様に質問のクラスに焦点を当てますが、そのクラス内のすべての質問に対する証拠を網羅的に生成しようとします。ユーザーはその後、さまざまなインターフェースを通じて必要に応じて証拠を探索できます。一例は、うつ病治療の影響に関するOHDSI研究です　[@schuemie_2018b]。 この研究では、すべてのうつ病治療が、4つの大規模な観察研究データベースで関心のある多数のアウトカムに対して比較されました。17,718の経験的に校正されたハザード比と広範な研究診断を含む結果の全セットは、インタラクティブなウェブアプリで利用できます。<http://data.ohdsi.org/SystematicEvidence/>\
+第三の戦略では、同様に質問のクラスに焦点を当てますが、そのクラス内のすべての質問に対する証拠を網羅的に生成しようとします。ユーザーはその後、さまざまなインターフェースを通じて必要に応じて証拠を探索できます。一例は、うつ病治療の影響に関するOHDSI研究です　[@schuemie_2018b]。 この研究では、すべてのうつ病治療が、4つの大規模な観察研究データベースで関心のある多数のアウトカムに対して比較されました。17,718の経験的にキャリブレーションされたハザード比と広範な研究診断を含む結果の全セットは、インタラクティブなウェブアプリで利用できます。<http://data.ohdsi.org/SystematicEvidence/>\
 
 ## ATLAS
 
@@ -68,9 +68,9 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 
 :   特性の評価は、定義された1つ以上のコホートを調査し、これらの患者集団に関する特性を要約するための分析機能です。この機能はリアルタイムクエリ戦略を使用しており、第\@ref(Characterization)章で議論されています。
 
-コホートパスウェイ \index{ATLAS!コホートパスウェイ}
+コホート経路 \index{ATLAS!コホートパスウェイ}
 
-:   コホートパスウェイは、1つ以上の集団内で発生する臨床イベントのシーケンスを調査するための分析ツールです。この機能については、第\@ref(Characterization)章で議論されています。
+:   コホートパス経路は、1つ以上の集団内で発生する臨床イベントのシーケンスを調査するための分析ツールです。この機能については、第\@ref(Characterization)章で議論されています。
 
 発生率 \index{ATLAS!発生率}
 
@@ -118,31 +118,31 @@ ATLASのインストールは、OHDSI WebAPIと組み合わせて行われます
 
 [^ohdsianalyticstools-4]: <https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide>
 
-## メソッドライブラリ
+## Methods library
 
-[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{methods library}
+[OHDSI Methods library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{methods library}
 
-```{r methodsLibrary, fig.cap='OHDSIメソッドライブラリのパッケージ。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r methodsLibrary, fig.cap='OHDSIMethods libraryのパッケージ。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
 ```
 
-これらのパッケージは、CDM内のデータから始まり、推定値や支援統計、図表を生成する完全な観察研究を実施するためのR関数を提供します。これらのパッケージはCDM内の観察データと直接対話し、カスタム分析を可能にし、あるいは標準化された高度な分析機能を提供することができます（詳細はChapter \@ref(SqlAndR)、Chapter \@ref(Characterization)、Chapter \@ref(PopulationLevelEstimation)、Chapter \@ref(PatientLevelPrediction)を参照してください）。メソッドライブラリは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、およびメソッドによって生成される推定値の経験的キャリブレーションなど、過去および現在の研究から学んだベストプラクティスをサポートしています。
+これらのパッケージは、CDM内のデータから始まり、推定値や支援統計、図表を生成する完全な観察研究を実施するためのR関数を提供します。これらのパッケージはCDM内の観察データと直接やりとりし、カスタム分析を可能にし、あるいは標準化された高度な分析機能を提供することができます（詳細はChapter \@ref(SqlAndR)、Chapter \@ref(Characterization)、Chapter \@ref(PopulationLevelEstimation)、Chapter \@ref(PatientLevelPrediction)を参照してください）。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、およびメソッドによって生成される推定値の経験的キャリブレーションなど、過去および現在の研究から学んだベストプラクティスをサポートしています。
 
-メソッドライブラリは多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使われており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。メソッドライブラリにおけるメソッドの実装の妥当性についてはChapter \@ref(SoftwareValidity)で説明されています。
+Methods libraryは多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使われており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。Methods libraryにおけるメソッドの実装の妥当性についてはChapter \@ref(SoftwareValidity)で説明されています。
 
 ### 大規模分析サポート
 
-すべてのパッケージで組み込まれている主な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多くの曝露とアウトカムに対して効果サイズの推定を行うことを可能にし、様々な分析設定を使用して、必要な中間データセットおよび最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・コンパレータペアに対して複数のアウトカムに使用される傾向スコアモデルの適合など、使い回しが可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並行して行われます。
+すべてのパッケージで組み込まれている主な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多くの曝露とアウトカムに対して効果サイズの推定を行うことを可能にし、様々な分析設定を使用して、必要な中間データセットおよび最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・コンパレータペアに対して複数のアウトカムが使用される傾向スコアモデルの適合など、使い回しが可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並行して行われます。
 
 この計算効率は一度に多くの質問に答える大規模分析を可能にし、我々のメソッドの操作特性を測定し、Chapter \@ref(MethodValidity)で説明されているように推定値の経験的キャリブレーションを行うために必要な対照仮説（例：陰性対照）を含むことが重要です。 \index{control hypotheses}
 
 ### ビッグデータ対応 {#BigDataSupport}
 
-メソッドライブラリは、非常に大きなデータベースに対しても計算を行うことができるようにデザインされています。これは次の三つの方法で達成されます：
+Methods libraryは、非常に大きなデータベースに対しても計算を行うことができるようにデザインされています。これは次の三つの方法で達成されます：
 
-1.  大部分のデータ操作はデータベースサーバーで行われます。分析は通常、データベース内の全データのごく一部しか必要としないため、メソッドライブラリはSqlRenderおよびDatabaseConnectorパッケージを介してサーバー上で高度な操作を行い、関連データを前処理および抽出することができます。
-2.  大量のローカルデータオブジェクトはメモリ効率の良い方法で保存されます。ローカルマシンにダウンロードされるデータについては、メソッドライブラリは[ff](https://cran.r-project.org/web/packages/ff)パッケージを使用して大規模データオブジェクトを保存および操作します。これにより、メモリに収まらない大きなデータと作業することが可能です。
-3.  必要に応じて高性能コンピューティングが適用されます。例えば、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージは、メソッドライブラリ全体で使用される高効率な回帰エンジンを実装しており、これにより通常は適合できない大規模な回帰（多くの変数、大量の観測値）を実行することができます。
+1.  大部分のデータ操作はデータベースサーバーで行われます。分析は通常、データベース内の全データのごく一部しか必要としないため、Methods libraryはSqlRenderおよびDatabaseConnectorパッケージを介してサーバー上で高度な操作を行い、関連データを前処理および抽出することができます。
+2.  大量のローカルデータオブジェクトはメモリ効率の良い方法で保存されます。ローカルマシンにダウンロードされるデータについては、Methods libraryは[ff](https://cran.r-project.org/web/packages/ff)パッケージを使用して大規模データオブジェクトを保存および操作します。これにより、メモリに収まらない大きなデータと作業することが可能です。
+3.  必要に応じて高性能コンピューティングが適用されます。例えば、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージは、Methods library全体で使用される高効率な回帰エンジンを実装しており、これにより通常は適合できない大規模な回帰（多くの変数、大量の観測値）を実行することができます。
 
 ### ドキュメント
 
@@ -158,9 +158,9 @@ Rはパッケージを文書化するための標準的な方法を提供しま�
 
 システム要件を検討する際に関連する二つのコンピューティング環境があります：データベースサーバーと分析ワークステーションです。 \index{system requirements}
 
-データベースサーバーはCDM形式の観察医療データを保持する必要があります。メソッドライブラリは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、およびビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）を含む幅広いデータベース管理システムをサポートしています。
+データベースサーバーはCDM形式の観察医療データを保持する必要があります。Methods libraryは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、およびビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）を含む幅広いデータベース管理システムをサポートしています。
 
-分析ワークステーションは、メソッドライブラリがインストールされ実行される場所です。これがローカルマシン（例えば、ノートパソコン）か、RStudio Serverが実行されるリモートサーバーかに関わらず、Rがインストールされている必要があります。可能であればRStudioも一緒にインストールすることをお勧めします。また、Methods LibraryはJavaがインストールされている必要があります。分析ワークステーションはデータベースサーバーに接続できる必要があり、具体的にはファイアウォールがその間のアクセスポートを開いている必要があります。一部の分析は計算集中的であるため、複数のプロเซッサコアと十分なメモリを持つことが分析の高速化につながります。少なくとも4つのコアと16ギガバイトのメモリを推奨します。
+分析ワークステーションは、Methods libraryがインストールされ実行される場所です。これがローカルマシン（例えば、ノートパソコン）か、RStudio Serverが実行されるリモートサーバーかに関わらず、Rがインストールされている必要があります。可能であればRStudioも一緒にインストールすることをお勧めします。また、Methods LibraryはJavaがインストールされている必要があります。分析ワークステーションはデータベースサーバーに接続できる必要があり、具体的にはファイアウォールがその間のアクセスポートを開いている必要があります。一部の分析は計算集中的であるため、複数のプロセッサコアと十分なメモリを持つことが分析の高速化につながります。少なくとも4つのコアと16ギガバイトのメモリを推奨します。
 
 ### インストール方法 {#installR}
 
@@ -176,7 +176,7 @@ ATLASやMethods Libraryを含む全体のOHDSIツールスタックを組織内�
 
 ### Broadsea
 
-Broadsea[^ohdsianalyticstools-7]はDockerコンテナ技術を使用します。[\^\^dockerUrl] OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行され、すべてのソフトウェアがインストールされてすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主要なOHDSIツールが含まれています。 \index{tools deployment!Broadsea}
+Broadsea[^ohdsianalyticstools-7]はDockerコンテナ技術を使用します。[\^\^dockerUrl] OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行され、すべてのソフトウェアがインストールされてすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods libraryやATLASを含む主要なOHDSIツールが含まれています。 \index{tools deployment!Broadsea}
 
 [^ohdsianalyticstools-7]: <https://github.com/OHDSI/Broadsea>
 
