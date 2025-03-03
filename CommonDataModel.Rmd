@@ -297,7 +297,7 @@ Table: (\#tab:conditionOccurrence) CONDITION_OCCURRENCEテーブル。
 ```
 
 
-## 練習問題
+## 演習
 
 #### 前提条件 {-}
 
