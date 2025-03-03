@@ -18,7 +18,7 @@ description: The Observational Health Data Sciences and Informatics (OHDSI) „Å´„
 documentclass: book
 favicon: images/favicon.ico
 github-repo: OHDSI/TheBookOfOhdsi
-link-citations: true
+link-citations: yes
 cover-image: images/Cover/Cover.png
 site: bookdown::bookdown_site
 biblio-style: apalike
