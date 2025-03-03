@@ -293,7 +293,7 @@ CONDITION_OCCURRENCEテーブルのレコードは、提供者によって観察
 
 ```
 
-## 練習問題
+## 演習
 
 #### 前提条件 {.unnumbered}
 
