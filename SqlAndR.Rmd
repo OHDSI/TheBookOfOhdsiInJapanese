@@ -1,4 +1,4 @@
-# 第9章　--翻訳作業中--　SQLとR {#SqlAndR}
+# --翻訳作業中--　SQLとR {#SqlAndR}
 
 *チャプタリーダー: Martijn Schuemie & Peter Rijnbeek*
 
