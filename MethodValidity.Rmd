@@ -354,7 +354,7 @@ knitr::include_graphics("images/MethodValidity/forestCal.png")
 分析におけるデザインの選択肢のひとつは、傾向スコアで変数比マッチングを使用することでした。しかし、傾向スコアで層別化を使用することも可能でした。この選択肢については不明な点があるため、両方を使用することにしました。表[18.2](https://ohdsi.github.io/TheBookOfOhdsi/MethodValidity.html#tab:sensAnalysis)は、変数比マッチングと層別化（10の均等サイズの層）を使用した場合のAMIと血管性浮腫に対する効果サイズ推定値を示している（キャリブレーションありとキャリブレーションなしの両方）。
 
 | Outcome | Adjustment | Uncalibrated | Calibrated |
-|:-----------------|:-----------------|------------------|------------------|
+|:---|:---|----|----|
 | Angioedema | Matching | 4.32 (2.45 - 8.08) | 4.75 (2.52 - 9.04) |
 | Angioedema | Stratification | 4.57 (3.00 - 7.19) | 4.52 (2.85 - 7.19) |
 | Acute myocardial infarction | Matching | 1.13 (0.59 - 2.18) | 1.15 (0.58 - 2.30) |
