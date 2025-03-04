@@ -10,9 +10,9 @@
 
 それぞれの観察データベースは、主なニーズに応じてすべての臨床イベントを均等にキャプチャするわけではありません。したがって、研究結果は多くの異なるデータソースから引き出され、潜在的なキャプチャバイアスの影響を理解するために比較および対比されなければなりません。さらに、統計的検出力を持って結論を引き出すためには、大量の観察された患者が必要です。このため、複数のデータソースを同時に評価し分析する必要があります。これを行うためには、データを共通のデータ標準に統合する必要があります。また、患者データには高いレベルの保護が必要です。従来の方法で解析目的でデータを抽出するには、厳格なデータ使用契約と複雑なアクセス制御が必要です。共通データ標準は、この抽出ステップを省略し、標準化された解析をネイティブ環境で実行できるようにすることで、この必要性を軽減できます。データが解析に提供されるのではなく、解析がデータに提供されるのです。
 
-この標準を提供するのが共通データモデル（CDM）です。標準化された内容（第\@ref(StandardizedVocabularies)章参照）と組み合わせたCDMは、研究方法が体系的に適用され、意味のある比較可能な再現性のある結果を生成することを保証します。この章では、データモデル自体の概要、デザイン、規約、および一部のテーブルについての考察を概説します。
+この標準を提供するのが共通データモデル（CDM）です。標準化された内容（第 \@ref(StandardizedVocabularies) 章参照）と組み合わせたCDMは、研究方法が体系的に適用され、意味のある比較可能な再現性のある結果を生成することを保証します。この章では、データモデル自体の概要、デザイン、規約、および一部のテーブルについての考察を概説します。
 
-CDMのすべてのテーブルの概要は、図\@ref(fig:cdmDiagram)に示されています。 \index{Common Data Model!データモデル図}
+CDMのすべてのテーブルの概要は、図 \@ref(fig:cdmDiagram)に示されています。 \index{Common Data Model!データモデル図}
 
 ```{r cdmDiagram, fig.cap="CDMバージョン6.0のすべてのテーブルの概要。テーブル間のすべての関係が示されているわけではありません。", echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/CommonDataModel/cdmDiagram.png")
@@ -24,8 +24,8 @@ CDMは、以下の目的のために最適化されています。 \index{Common
 
 -   特定の医療介入（薬物曝露、処置、医療政策の変更など）およびアウトカム（コンディション、処置、他の薬物曝露など）を持つ患者集団を特定する。
 -   人口統計情報、疾患の自然経過、医療提供、利用および費用、併存疾患、治療および治療の順序などさまざまなパラメータに関するこれらの患者集団の特性を評価する。
--   個々の患者でこれらのアウトカムが発生する可能性を予測する - 第\@ref(PatientLevelPrediction)章参照。
--   これらの介入が集団に及ぼす影響を推定する - 第\@ref(PopulationLevelEstimation)章参照。
+-   個々の患者でこれらのアウトカムが発生する可能性を予測する ―― 第 \@ref(PatientLevelPrediction) 章参照。
+-   これらの介入が集団に及ぼす影響を推定する ―― 第 \@ref(PopulationLevelEstimation) 章参照。
 
 この目標を達成するために、CDMの開発は以下のデザイン要素に従います：
 
@@ -56,13 +56,11 @@ CDMは「人中心」のモデルと見なされており、すべての臨床�
 
 CDMはプラットフォームに依存しません。データ型はANSI SQLデータ型（VARCHAR、INTEGER、FLOAT、DATE、DATETIME、CLOB）を用いて一般的に定義されます。VARCHARには最小必要文字列長のみが指定され、具体的なCDMのインスタンス内で拡張できます。CDMは日付および日時の形式を規定しません。CDMに対する標準クエリは、ローカルインスタンスおよび日付/日時の設定によって異なる場合があります。
 
-*注意*: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、Chapter \@ref(OhdsiAnalyticsTools)をご覧ください。
+*注意*: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 \@ref(OhdsiAnalyticsTools) 章をご覧ください。
 
 ### ドメインの一般的な規約 {#domains}
 
-異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルおよびフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション \@ref(conceptDomains) 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、そのコンセプトが記録されるテーブルを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールド対応規則により、コードやコンセプトの明確な位置が常に確保されます。例えば、症状、徴候、および診断コンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。手順薬と呼ばれるものは通常、ソースデータの処置テーブルに処置コードとして記録されます。CDMでは、これらのレコードはDRUG_EXPOSUREテーブルにあります。なぜなら、マッピングされた標準コンセプトが薬剤ドメインに割り当てられているからです。ドメイン数は合計30であり、テーブル\@ref(tab:domains)に示されています。
-
-表: (#tab:domains) 各ドメインに属する標準コンセプトの数。
+異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルおよびフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション \@ref(conceptDomains) 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、そのコンセプトが記録されるテーブルを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールド対応規則により、コードやコンセプトの明確な位置が常に確保されます。例えば、症状、徴候、および診断コンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。手順薬と呼ばれるものは通常、ソースデータの処置テーブルに処置コードとして記録されます。CDMでは、これらのレコードはDRUG_EXPOSUREテーブルにあります。なぜなら、マッピングされた標準コンセプトが薬剤ドメインに割り当てられているからです。ドメイン数は合計30であり、 表 \@ref(tab:domains)に示されています。
 
 | コンセプト数 | ドメインID         | コンセプト数 | ドメインID          |
 |:-------------|:-------------------|:-------------|:--------------------|
@@ -82,17 +80,17 @@ CDMはプラットフォームに依存しません。データ型はANSI SQLデ
 | 336          | Type Concept       | 2            | Ethnicity           |
 | 194          | Relationship       | 1            | Observation Type    |
 
+: (#tab:domains) 各ドメインに属する標準コンセプトの数
+
 ### コンテンツのコンセプトによる表現
 
 CDMデータテーブル内の各レコードのコンテンツは完全に正規化され、コンセプトを通じて表現されます。コンセプトはイベントテーブルにCONCEPT_ID値として格納され、これはCONCEPTテーブルの外部キーです。CONCEPTテーブルは一般的な参照テーブルとして機能します。すべてのCDMインスタンスは、コンセプトの参考文献として同じCONCEPTテーブルを使用します。これにより、CDMとともにOHDSI研究ネットワークの基盤となる相互運用性の主要メカニズムが提供されます。標準コンセプトが存在しない場合や特定できない場合、CONCEPT_IDの値は0として設定されます。これは、存在しないコンセプト、不明またはマッピング不可能な値を表します。
 
-CONCEPTテーブルのレコードには、各コンセプトに関する詳細な情報（名前、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの祖先など、コンセプトに関連するその他の情報は、標準化されたボキャブラリのテーブルに含まれています（Chapter \@ref(StandardizedVocabularies)参照）。
+CONCEPTテーブルのレコードには、各コンセプトに関する詳細な情報（名前、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの祖先など、コンセプトに関連するその他の情報は、標準化されたボキャブラリのテーブルに含まれています（第 \@ref(StandardizedVocabularies) 章参照）。
 
 ### フィールドの一般的な命名規約
 
 すべてのテーブルにわたる変数名は1つの規約に従います。
-
-表: (#tab:fieldConventions) フィールド名の規約。
 
 | 記法 | 説明 |
 |:---|:---|
@@ -101,6 +99,8 @@ CONCEPTテーブルのレコードには、各コンセプトに関する詳細�
 | [Event]\_SOURCE_CONCEPT_ID | CONCEPT参照テーブルのレコードへの外部キーです。このコンセプトは、以下のソース値と等価であり、標準コンセプトである場合、それは[Event]\_CONCEPT_IDと同一です。例えば、CONDITION_SOURCE_CONCEPT_ID = [45431665](http://athena.ohdsi.org/search-terms/terms/45431665)は、Read用語「吐き気」のコンセプトを示し、同様にCONDITION_CONCEPT_IDは標準のSNOMED-CTコンセプト[31967](http://athena.ohdsi.org/search-terms/terms/31967)です。標準分析アプリケーションの場合、ソースコンセプトの使用は推奨されません。なぜなら、標準コンセプトだけがイベントの意味的内容を明確に表現し、ソースコンセプトは相互運用可能ではないためです。 |
 | [Event]\_TYPE_CONCEPT_ID | ソース情報の出所を示す標準化されたボキャブラリ内のコンセプト参照テーブルにレコードがある外部キーです。このフィールド名にもかかわらず、これはイベントの種類やコンセプトの種類ではなく、このレコードを作成したキャプチャメカニズムを宣言します。例として、DRUG_TYPE_CONCEPT_IDは、薬の記録が薬局の分配イベント（「薬局分配」）から導出されたのか、処方アプリケーション（「処方手書き」）から導出されたのかを区別します。 |
 | [Event]\_SOURCE_VALUE | ソースデータにイベントがどのように表現されているかを反映する逐語的なコードまたはフリーテキスト文字列です。これらのソース値はデータソース間で調和されていないため、標準分析アプリケーションでの使用は推奨されていません。たとえば、CONDITION_SOURCE_VALUEには「78702」の記録が含まれ、これはドットなしの表記で書かれたICD-9コード787.02に対応する可能性があります。 |
+
+: (#tab:fieldConventions) フィールド名の規約
 
 ### コンセプトとソース値の違い {#concepts-Sources}
 
@@ -117,7 +117,7 @@ CONCEPTテーブルのレコードには、各コンセプトに関する詳細�
 knitr::include_graphics("images/CommonDataModel/pulmTubICD9.png")
 ```
 
-文脈なしにコード011を見ると、UB04語彙から「病院入院（メディケアパートAを含む）」、またはDRG語彙から「合併症、併存疾患がない神経系腫瘍」と解釈できる可能性があります。ここでコンセプトID（ソースおよび標準の両方）が役立ちます。011のICD9CMコードを表すCONCEPT_ID値は[44828631](http://athena.ohdsi.org/search-terms/terms/44828631)です。これにより、ICD9CMがUB04およびDRGから区別されます。ICD9CM TBソースコンセプトは、Figure \@ref(fig:pulmTubMap) で示されるように、「非標準から標準へのマップ（OMOP）」の関係を通じて、SNOMEDボキャブラリの標準コンセプト [253954](http://athena.ohdsi.org/search-terms/terms/253954)にマッピングされる。このマッピング関係は、Read、ICD10、CIEL、MeSHコードなどについても同様であるため、標準SNOMEDコンセプトを参考文献とする研究には、対応するすべてのソースコードが含まれることになる。
+文脈なしにコード011を見ると、UB04語彙から「病院入院（メディケアパートAを含む）」、またはDRG語彙から「合併症、併存疾患がない神経系腫瘍」と解釈できる可能性があります。ここでコンセプトID（ソースおよび標準の両方）が役立ちます。011のICD9CMコードを表すCONCEPT_ID値は[44828631](http://athena.ohdsi.org/search-terms/terms/44828631)です。これにより、ICD9CMがUB04およびDRGから区別されます。ICD9CM TBソースコンセプトは、図 \@ref(fig:pulmTubMap) で示されるように、「非標準から標準へのマップ（OMOP）」の関係を通じて、SNOMEDボキャブラリの標準コンセプト [253954](http://athena.ohdsi.org/search-terms/terms/253954)にマッピングされる。このマッピング関係は、Read、ICD10、CIEL、MeSHコードなどについても同様であるため、標準SNOMEDコンセプトを参考文献とする研究には、対応するすべてのソースコードが含まれることになる。
 
 ```{r pulmTubMap, fig.cap="肺結核のSNOMEDコード",echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/CommonDataModel/pulmTubMap.png")
@@ -129,7 +129,7 @@ knitr::include_graphics("images/CommonDataModel/pulmTubMap.png")
 
 \index{共通データモデル!標準化テーブル}
 
-CDMには16の臨床イベントテーブル、10のボキャブラリテーブル、2つのメタデータテーブル、4つのヘルスシステムデータテーブル、2つの医療経済データテーブル、3つの標準化された派生要素、および2つの結果スキーマテーブルが含まれています。 これらのテーブルはCDM Wikiで完全に仕様化されています [^commondatamodel-1]。
+CDMには16の臨床イベントテーブル、10のボキャブラリテーブル、2つのメタデータテーブル、4つのヘルスシステムデータテーブル、2つの医療経済データテーブル、3つの標準化された派生要素、および2つの結果スキーマテーブルが含まれています。 これらのテーブルはCDM Wikiで完全に仕様化されています[^commondatamodel-1]。
 
 [^commondatamodel-1]: <https://github.com/OHDSI/CommonDataModel/wiki>
 
@@ -180,7 +180,7 @@ Laurenは何年も子宮内膜症の症状を経験していました。しか�
 | ETHNICITY_SOURCE\_ VALUE | english | ソースに表示されるままのエスニティ値がここに保存されます。 |
 | ETHNICITY_SOURCE\_ CONCEPT_ID | 0 | 同様にGENDER_SOURCE_CONCEPT_IDの原則が適用されます。 |
 
-: (#tab:person) PERSONテーブル。
+: (#tab:person) PERSONテーブル
 
 ### OBSERVATION_PERIODテーブル {#observationPeriod}
 
@@ -188,7 +188,7 @@ OBSERVATION_PERIODテーブルは、少なくとも患者の人口統計、コ�
 
 #### Laurenの観察期間はどのように定義されているのですか？ {.unnumbered}
 
-Laurenの情報がTable \@ref(tab:encounters)に示されているようにEHRシステムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：
+Laurenの情報が表 \@ref(tab:encounters)に示されているようにEHRシステムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：
 
 | エンカウンターID | 開始日     | 終了日     | タイプ   |
 |:-----------------|:-----------|:-----------|:---------|
@@ -199,7 +199,7 @@ Laurenの情報がTable \@ref(tab:encounters)に示されているようにEHR�
 | 101              | 2013-01-14 | 2013-01-14 | 歩行可能 |
 | 102              | 2013-01-17 | 2013-01-24 | 入院患者 |
 
-: (#tab:encounters) Laurenのヘルスケアエンカウンター。
+: (#tab:encounters) Laurenのヘルスケアエンカウンター
 
 エンカウンターレコードに基づいて彼女のOBSERVATION_PERIODテーブルは次のようになるかもしれません：
 
@@ -211,7 +211,7 @@ Laurenの情報がTable \@ref(tab:encounters)に示されているようにEHR�
 | OBSERVATION_PERIOD\_ END_DATE | 2013-01-24 | これは彼女の記録された最後のエンカウンターの終了日です。 |
 | PERIOD_TYPE\_ CONCEPT_ID | 44814725 | 「Obs Period Type」コンセプトクラスのベストオプションは[44814724](http://athena.ohdsi.org/search-terms/terms/44814724)で、「ヘルスケアエンカウンターをカバーする期間」を表します。 |
 
-: (#tab:observationPeriod) OBSERVATION_PERIODテーブル。
+: (#tab:observationPeriod) OBSERVATION_PERIODテーブル
 
 ### VISIT_OCCURRENCE {#visitOccurrence}
 
@@ -223,27 +223,25 @@ VISIT_OCCURRENCEテーブルは、患者の医療システムとの出会いに�
 
 | 列名 | 値 | 説明 |
 |:---|:---|:---|
-| VISIT_OCCURRENCE\_ ID | 514 | これは通常、自動生成された値で、各レコードに一意の識別子を生成します。 |
+| VISIT_OCCURRENCE_ID | 514 | これは通常、自動生成された値で、各レコードに一意の識別子を生成します。 |
 | PERSON_ID | 1 | これはPERSONテーブルでLauraのレコードにリンクする外部キーです。 |
 | VISIT_CONCEPT_ID | 9201 | 入院患者訪問を参照するキーは[9201](http://athena.ohdsi.org/search-terms/terms/9201)です。 |
 | VISIT_START_DATE | 2013-01-17 | 訪問の開始日です。 |
-| VISIT_START\_ DATETIME | 2013-01-17 00:00:00 | 訪問の日付と時間です。時間が不明なため、真夜中が使用されます。 |
+| VISIT_START_DATETIME | 2013-01-17 00:00:00 | 訪問の日付と時間です。時間が不明なため、真夜中が使用されます。 |
 | VISIT_END_DATE | 2013-01-24 | 訪問の終了日です。これは1日の訪問である場合、終了日は開始日に一致します。 |
 | VISIT_END_DATETIME | 2013-01-24 00:00:00 | 訪問の終了日と時間です。時間が不明なため、真夜中が使用されます。 |
 | VISIT_TYPE\_ CONCEPT_ID | 32034 | 訪問レコードの出所を示します。保険請求、病院請求、EHR記録など。これらのエンカウンターがEHRレコードに似ている例として、[32035](http://athena.ohdsi.org/search-terms/terms/32035)（「EHRエンカウンターレコードから派生した訪問」）のコンセプトIDが使用されています。 |
 | PROVIDER_ID | NULL | エンカウンターレコードに提供者が関連付けられている場合、その提供者のIDがこのフィールドに入ります。これが提供者テーブルのPROVIDER_IDフィールドの内容である必要があります。 |
 | CARE_SITE_ID | NULL | エンカウンターレコードに関連するケアサイトがある場合、そのケアサイトのIDがこのフィールドに入ります。これがCARE_SITEテーブルのCARE_SITE_IDであるべきです。 |
-| VISIT_SOURCE\_ VALUE | 入院 | 訪問値はソースでどのように表示されるかに基づいてここに入ります。Laurenのデータにはそれがありません。 |
-| VISIT_SOURCE\_ CONCEPT_ID | NULL | 訪問値は、ソースがOHDSIによって認識されている辞書ボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトID値がここに入ります。Laurenのデータにはそれがありません。 |
-| ADMITTED_FROM\_ CONCEPT_ID | NULL | 既知の場合、どこから患者が入院したかを表すコンセプトが含まれます。このコンセプトは「訪問」ドメインを持つべきです。例えば、患者が自宅から病院に入院した場合には、コンセプトID [8536](http://athena.ohdsi.org/search-terms/terms/8536)「自宅」が含まれます。 |
+| VISIT_SOURCE\_ VALUE | inpatient | 訪問値はソースでどのように表示されるかに基づいてここに入ります。Laurenのデータにはそれがありません。 |
+| VISIT_SOURCE\_ CONCEPT_ID | 0 | 訪問値は、ソースがOHDSIによって認識されている辞書ボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトID値がここに入ります。Laurenのデータにはそれがありません。 |
+| ADMITTED_FROM\_ CONCEPT_ID | 0 | 既知の場合、どこから患者が入院したかを表すコンセプトが含まれます。このコンセプトは「訪問」ドメインを持つべきです。例えば、患者が自宅から病院に入院した場合には、コンセプトID [8536](http://athena.ohdsi.org/search-terms/terms/8536)「自宅」が含まれます。 |
 | ADMITTED_FROM\_ SOURCE_CONCEPT_ID | NULL | どこから患者が入院したかを表すソース値が含まれます。上記の例では「home」です。 |
-| DISCHARGE_TO\_ CONCEPT_ID | NULL | 既知の場合、どこに患者が退院したかを表すコンセプトが含まれます。このコンセプトは「訪問」ドメインを持つべきです。例えば、患者が介助生活施設に引き渡された場合、コンセプトID [8615](http://athena.ohdsi.org/search-terms/terms/8615)「介助生活施設」が含まれます。 |
-| DISCHARGE_TO\_ SOURCE_VALUE | NULL | どこに患者が退院したかを表すソース値が含まれます。上記の例では「Assisted living facility」です。 |
-| PRECEDING_VIS |  |  |
+| DISCHARGE_TO\_ CONCEPT_ID | 0 | 既知の場合、どこに患者が退院したかを表すコンセプトが含まれます。このコンセプトは「訪問」ドメインを持つべきです。例えば、患者が介助生活施設に引き渡された場合、コンセプトID [8615](http://athena.ohdsi.org/search-terms/terms/8615)「介助生活施設」が含まれます。 |
+| DISCHARGE_TO\_ SOURCE_VALUE | 0 | どこに患者が退院したかを表すソース値が含まれます。上記の例では「Assisted living facility」です。 |
+| PRECEDING_VISIT\_ OCCURRENCE_ID | NULL | 現在の訪問の直前の訪問を示します。ADMITTED_FROM_CONCEPT_IDとは対照的に、これは実際の訪問記録をリンクし、訪問コンセプトではなくされます。また、注意すべきは後続の訪問がないことです。 |
 
-: (#tab:visitOccurrence) VISIT_OCCURRENCEテーブル。
-
-IT\_ OCCURRENCE_ID\|NULL\|現在の訪問の直前の訪問を示します。ADMITTED_FROM_CONCEPT_IDとは対照的に、これは実際の訪問記録をリンクし、訪問コンセプトではなくされます。また、注意すべきは後続の訪問がないことです。\|
+: (#tab:visitOccurrence) VISIT_OCCURRENCEテーブル
 
 -   患者は1回の訪問中に複数のヘルスケア提供者と交流する可能性があり、これは特に入院の場合においてよく見られます。これらの交流はVISIT_DETAILテーブルに記録されることができます。この章で詳しく取り上げられていませんが、VISIT_DETAILテーブルについては詳細を[CDM wiki](https://github.com/OHDSI/CommonDataModel/wiki/VISIT_DETAIL)で読むことができます。
 
@@ -268,19 +266,24 @@ CONDITION_OCCURRENCEテーブルのレコードは、提供者によって観察
 | CONDITION_START\_ DATETIME | 2010-01-06 00:00:00 | 状態が記録された日付と時間です。真夜中が使用され、時間が不明です。 |
 | CONDITION_END\_ DATE | NULL | 状態が終了したと見なされる日付ですが、これはほとんど記録されていません。 |
 | CONDITION_END\_ DATETIME | NULL | 既知の場合、状態が終了したと見なされる日付と時間です。 |
-| CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列はレコードの出所を示すことを意図しています。たとえば、保険請求、病院請求記録、EHR記録など。 |
+| CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列はレコードの出所を示すことを意図しています。たとえば、保険請求、病院請求記録、EHR記録など。 この例には「EHRエンカウンタ診断」としてコンセプトID [32020](http://athena.ohdsi.org/search-terms/terms/32020) が使用されています。 |
+| CONDITION_STATUS\_ CONCEPT_ID | 0 | 既知の場合、これは周りの環境を意味します。たとえば、状態が「入院診断」などであれば、コンセプトIDが [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |
+| STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
+| PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
+| VISIT_OCCURRENCE\_ ID | 509 | コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。 |
+| CONDITION_SOURCE\_ VALUE | 266599000 | これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表す概念はCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。 |
+| CONDITION_SOURCE\_ CONCEPT_ID | 194696 | ソースからのコンディションの値が OHDSI で認識されるボキャブラリを使用してコード化されている場合、その値を表すコンセプトID がここに入ります。月経困難症の例では、ソース値はSNOMED コードなので、そのコードを表すコンセプトは 194696 です。この場合、CONDITION_CONCEPT_ID フィールドと同じ値になります。 |
+| CONDITION_STATUS\_ SOURCE_VALUE | 0 | もしソースからのコンディション・ステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。 |
 
-: (#tab:conditionOccurrence) CONDITION_OCCURRENCEテーブル。
-
-在資料の例には「EHRエンカウンタ診断」としてコンセプトID [32020](http://athena.ohdsi.org/search-terms/terms/32020) が使用されています。\| \|CONDITION_STATUS\_ CONCEPT_ID\|NULL\|既知の場合、これは周りの環境を意味します。たとえば、状態が「入院診断」などであれば、コンセプトIDが [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。\| \|STOP_REASON\|NULL\|既知の場合、ソースデータ
+: (#tab:conditionOccurrence) CONDITION_OCCURRENCEテーブル
 
 ### DRUG_EXPOSURE {#drugExposure}
 
 DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的導入または実際の導入に関する記録を取得します。薬剤には、処方薬、市販薬、ワクチン、高分子生物学的製剤が含まれます。薬剤への曝露は、オーダーに関連する臨床イベント、書かれた処方箋、薬局での調剤、処置による投与、およびその他の患者報告情報から推測されます。
 
-#### ローレンの薬物への曝露はどのように表現されますか？ {.unnumbered}
+#### Laurenの薬物への曝露はどのように表現されますか？ {.unnumbered}
 
-月経困難症の痛みを改善するために、ローレンは2010年01月06日の来院時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG_EXPOSUREテーブルでは以下のようになります：
+月経困難症の痛みを改善するために、Laurenは2010年01月06日の来院時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG_EXPOSUREテーブルでは以下のようになります：
 
 | 列名 | 値 | 説明 |
 |:---|:---|:---|
@@ -328,7 +331,7 @@ PROCEDURE_OCCURRENCEテーブルには、医療提供者が診断または治療
 | PROCEDURE_DATE | 2013-01-14 | 処置が実施された日付。 |
 | PROCEDURE\_ DATETIME | 2013-01-14 00:00:00 | 処置が行われた日付と時刻。時刻が不明な場合は0時を使用します。 |
 | PROCEDURE_TYPE\_ CONCEPT_ID | 38000275 | このカラムは処置記録の出所、すなわち保険請求、EHRオーダーなどからのものであるかどう かについての情報を提供するためのものです。この例では、処置記録がEHR記録からのものであるため、概念ID [38000275](http://athena.ohdsi.org/search-terms/terms/38000275) (「EHR order list entry」)が使用されています。 |
-| MODIFIER_CONCEPT\_ ID | 0 | これは手技の修飾子を表す概念 ID を意味します。例えば、CPT4 の処置が両側で行われたと記録されている場合、コンセプト ID [42739579](http://athena.ohdsi.org/search-terms/terms/42739579) (「両側処置」) が使用されます。 |
+| MODIFIER_CONCEPT\_ ID | 0 | これは手技の修飾子を表すコンセプトID を意味します。例えば、CPT4 の処置が両側で行われたと記録されている場合、コンセプト ID [42739579](http://athena.ohdsi.org/search-terms/terms/42739579) (「両側処置」) が使用されます。 |
 | QUANTITY | 0 | オーダーされたまたは実施された処置の数。数がない場合、0と1はすべて同じ意味です。 |
 | PROVIDER_ID | NULL | ProcedureレコードにProviderがリストされている場合、そのProviderのIDがこのフィールドに入ります。これはPROVIDERテーブルのPROVIDER_IDに対する外部キーでなければなりません。 |
 | VISIT_OCCURRENCE\_ ID | 740 | 既知の場合、これは処置が施行されたビジット（VISIT_OCCURRENCEテーブルから取得したVISIT_occurrence_idとして表されます）です。 |
@@ -337,7 +340,7 @@ PROCEDURE_OCCURRENCEテーブルには、医療提供者が診断または治療
 | PROCEDURE_SOURCE\_ CONCEPT_ID | 4127451 | 処置のソースデータの値を表すコンセプトです。 |
 | MODIFIER_SOURCE\_ VALUE | NULL | ソース・データに表示される修飾子のソース・コード。 |
 
-: (#tab:procedureOccurrence) PROCEDURE_OCCURRENCEテーブル.
+: (#tab:procedureOccurrence) PROCEDURE_OCCURRENCEテーブル
 
 ## 追加情報
 
@@ -385,7 +388,7 @@ PROCEDURE_OCCURRENCEテーブルには、医療提供者が診断または治療
 
 #### 前提条件 {.unnumbered}
 
-最後の3つの課題には、セクション\@ref（installR）で説明されているようにR、R-Studio、およびJavaがインストールされていることが前提となります。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、および[Eunomia](https://ohdsi.github.io/Eunomia/)パッケージも必要で、以下のコマンドでインストールできます：
+最後の3つの課題には、セクション \@ref(installR) で説明されているようにR、R-Studio、およびJavaがインストールされていることが前提となります。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、および[Eunomia](https://ohdsi.github.io/Eunomia/)パッケージも必要で、以下のコマンドでインストールできます：
 
 ```{r eval=FALSE}
 install.packages(c("SqlRender", "DatabaseConnector", "remotes"))
@@ -424,4 +427,4 @@ SQLとRを使用して、PERSON_ID 61の人物の観察期間を取得してく�
 
 ```
 
-提案される答えは付録\@ref（Cdmanswers）にあります。
+提案される答えは付録 \@ref(Cdmanswers)にあります。
