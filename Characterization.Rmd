@@ -1,4 +1,4 @@
-# 第11章　--翻訳作業中--　特性評価 {#Characterization}
+# --翻訳作業中--　特性評価 {#Characterization}
 
 *章の著者: Anthony Sena & Daniel Prieto-Alhambra*
 
@@ -9,7 +9,7 @@
 -   **治療経路**：特定の期間に受けた介入の順序を記述する。
 -   **発生率**：リスク時間中の集団におけるアウトカムの発生率を測定する。
 
-データベースレベルの特性の評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、\@ref(Cohorts)章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を**ベースライン時間**と定義し、インデックス日以降のすべての時間を**ポストインデックス時間**と呼びます。
+データベースレベルの特性の評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、第 \@ref(Cohorts)章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を**ベースライン時間**と定義し、インデックス日以降のすべての時間を**ポストインデックス時間**と呼びます。
 
 特性の評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性の評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
 
@@ -28,7 +28,7 @@
 
 コホート特性評価は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬剤およびデバイスの曝露、処置およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。
 
-コホート特性の評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性の評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています　[@VONELM2008344]。\index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
+コホート特性の評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性の評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています [@VONELM2008344]。\index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
 ## 治療経路
 
@@ -36,7 +36,7 @@
 
 経路分析は、特定のコンディションを診断された人々が最初の薬剤処方/供給から受けた治療（イベント）を要約することを目的としています。この研究では、治療はそれぞれ2型糖尿病、高血圧および抑うつ症の診断後に記述されました。その後、各個人のイベントは集計され、各コンディションおよび各データベースに対して要約統計として視覚化されました。
 
-```{r treatmentPathwaysSunburstDataViz, fig.cap='高血圧のためのOHDSI治療経路「サンバースト」可視化', echo=FALSE, out.width='100%', fig.align='center'}
+```{r treatmentPathwaysSunburstDataViz, fig.cap='高血圧のためのOHDSI治療経路「サンバースト」グラフ', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.png")
 ```
 
@@ -50,7 +50,7 @@ knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.p
 
 発生率および割合は、時間の経過とともに人口における新しいアウトカムの発生を評価するための公衆衛生の統計です。図 \@ref(fig:incidenceTimeline) は、単一の人に対する発生率の計算コンポーネントを示すことを目的としています： \index{incidence}
 
-```{r incidenceTimeline, fig.cap='発生率計算コンポーネントの人単位のビュー。この例では、リスク時間はコホート開始の翌日に始まり、コホート終了時に終了する。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r incidenceTimeline, fig.cap='発生率計算コンポーネントの人単位のビュー。この例では、リスク時間はコホート開始の翌日に始まり、コホート終了時に終了します。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/incidenceTimeline.png")
 ```
 
@@ -59,16 +59,16 @@ knitr::include_graphics("images/Characterization/incidenceTimeline.png")
 発生率を計算するための2つの尺度があります：
 
 $$
-発生割合 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{リスク時間を持つコホート内の人数}
+発生割合 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{\#\;リスク時間を持つコホート内の人数}
 $$
 
 発生割合は、リスク時間中に集団内で発生した新しいアウトカムの割合を提供します。別の言い方をすると、これは定義された時間枠内で関心集団内でアウトカムを得た割合を示します。\index{incidence!proportion}
 
 $$
-発生率 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{コホート内の人々によって提供されたリスク時間}
+発生率 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{コホート内の人々によって提供されたリスク時間の人年}
 $$
 
-発生率は、集団の累積的なリスク時間内で新しいアウトカムの数を測定する尺度です。リスク時間中にある人がアウトカムを経験した場合、その人のリスク時間への寄与はアウトカムの発生時点で停止します。累積的なリスク時間は**人時間**と呼ばれ、日、月または年単位で表現されます。\index{incidence!rate} \index{person-time}
+発生率は、集団の累積的なリスク時間内で新しいアウトカムの数を測定する尺度です。リスク時間中にある人がアウトカムを経験した場合、その人のリスク時間への寄与はアウトカムの発生時点で停止します。累積的なリスク時間は**人年**と呼ばれ、日、月または年単位で表現されます。\index{incidence!rate} \index{person-time}
 
 治療に対して計算される場合、発生割合および発生率は、特定の治療の使用の集団レベルのDUSの古典的な尺度です。
 
@@ -82,23 +82,23 @@ $$
 
 ここでは、[ACHILLES](https://github.com/OHDSI/Achilles) を使用して作成されたデータベース特性評価統計を調査するために、ATLASのデータソースモジュールを使用する方法を示します。まず、ATLASの左バーで ![](images/Characterization/atlasDataSourcesMenuItem.png) をクリックして開始します。ATLASに表示される最初のドロップダウンリストで、調査するデータベースを選択します。次に、データベースの下のドロップダウンを使用してレポートを探索し始めます。これを行うには、レポートドロップダウンリストから「Condition Occurrence」を選択し、データベースに存在するすべての症状のツリーマップ表示が現れます：
 
-```{r atlasDataSourcesConditionTreemap, fig.cap='Atlas Data Sources: Condition Occurrence Treemap',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasDataSourcesConditionTreemap, fig.cap='ATLASデータソース: コンディション出現のツリーマップ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionTreemap.png")
 ```
 
-特定の関心のある症状を検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、個人の数、発生率、および個人ごとの記録数を確認します。上部のフィルターボックスを使用して、コンセプト名に「hypertension」を含む項目に基づいてリストをフィルタリングできます：
+特定の関心のある症状を検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、個人の数、発生率、および個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に "hypertension (高血圧)" を含む項目に基づいてリストをフィルタリングできます：
 
-```{r atlasDataSourcesConditionFiltered, fig.cap='ATLASデータソース: コンセプト名に「高血圧」が含まれる疾患。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasDataSourcesConditionFiltered, fig.cap='ATLASデータソース: コンセプト名に "hypertension (高血圧)" が含まれるコンディション',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionFiltered.png")
 ```
 
-特定の症状の詳細なドリルダウンレポートを表示するには、行をクリックします。この場合、「essential hypertension」を選択して、選択されたコンディションの時系列および性別別の傾向、月別の発生率、コンディションとの共記録タイプ、および診断の初回発生時の年齢の内訳を確認します：
+特定の症状の詳細なドリルダウンレポートを表示するには、行をクリックします。この場合、"essential hypertension (本態性高血圧)" を選択して、選択されたコンディションの時系列および性別毎の傾向、月別の有病率、記録された病型、および診断の初回発生時の年齢の分布を確認します：
 
 ```{r atlasDataSourcesDrillDownReport, fig.cap='ATLASデータソース: 本態性高血圧ドリルダウンレポート',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesDrillDownReport.png")
 ```
 
-高血圧コンセプトの存在および時間の経過に伴う傾向についてデータベースの特性を確認した後、高血圧患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するために「Drug Era」レポートを使用します。興味のある項目をレビューするためにデータベース特性を探索した後、高血圧者を特性化するためのコホートの構築を進める準備が整います。
+高血圧コンセプトの存在および時間の経過に伴う傾向についてデータベースの特性を確認した後、高血圧患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するために "Drug Era (薬剤曝露期間)" レポートを使用します。興味のある項目をレビューするためにデータベース特性を探索した後、高血圧者を特性化するためのコホートの構築を進める準備が整います。
 
 ## ATLASにおけるコホート特性分析
 
@@ -106,7 +106,7 @@ knitr::include_graphics("images/Characterization/atlasDataSourcesDrillDownReport
 
 ### デザイン
 
-特性の評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 \@ref(HTN1yrFO)）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（附録 \@ref(HTN3yrFO)）。
+特性の評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 \@ref(HTN1yrFO)）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（付録 \@ref(HTN3yrFO)）。
 
 #### コホート定義 {.unnumbered}
 
@@ -114,7 +114,7 @@ knitr::include_graphics("images/Characterization/atlasDataSourcesDrillDownReport
 knitr::include_graphics("images/Characterization/atlasCharacterizationCohortSelection.png")
 ```
 
-コホートは既にATLASで作成されていると仮定しています（Chapter \@ref(Cohorts)を参照）。![](images/Characterization/atlasImportButton.png)をクリックし、図 \@ref(fig:atlasCharacterizationCohortSelection)に示すようにコホートを選択します。次に、これらのコホートを特性の評価するために使用する特性を定義します。
+コホートは既にATLASで作成されていると仮定しています（第 \@ref(Cohorts) 章を参照）。![](images/Characterization/atlasImportButton.png)をクリックし、図 \@ref(fig:atlasCharacterizationCohortSelection) に示すようにコホートを選択します。次に、これらのコホートを特性の評価するために使用する特性を定義します。
 
 #### 特性選択 {.unnumbered}
 
@@ -126,7 +126,7 @@ ATLASにはOMOP CDMにモデル化された臨床ドメイン全体で特性の�
 knitr::include_graphics("images/Characterization/atlasCharacterizationFeatureSelection.png")
 ```
 
-上図は、説明と共に選択された特性のリストを示しています。名前が「Demographics」で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：Visit, Procedure, Condition, Drugなど）で始まる特性は、そのドメインにおけるすべての記録された観察を特性評価します。各ドメイン特性には4つの選択肢があります：
+上図は、説明と共に選択された特性のリストを示しています。名前が"Demographics (人口動態的特性)"で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特性は、そのドメインにおけるすべての記録された観察を特性評価します。各ドメイン特性には4つの選択肢があります：
 
 -   **Any time prior**: コホート開始前のすべての利用可能な時間を使用します。
 -   **Long term**: コホート開始日までの365日。
@@ -156,7 +156,7 @@ ATLASのサブグループ分析は階層とは異なります。階層は相互
 knitr::include_graphics("images/Characterization/atlasCharacterizationExecutions.png")
 ```
 
-分析が完了したら、「All Executions」ボタンをクリックしてレポートを表示し、実行リストから「View Reports」を選択します。あるいは、「View latest result」をクリックして、最後に実行されたアウトカムを表示することもできます。
+分析が完了したら、"All Executions (すべてを実行)" ボタンをクリックしてレポートを表示し、実行リストから "View Reports (レポートを見る)" を選択します。あるいは、"View latest result (最新の結果を見る)" をクリックして、最後に実行されたアウトカムを表示することもできます。
 
 ### 結果
 
@@ -164,23 +164,23 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationExecutions
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSummary.png")
 ```
 
-結果は、選択された各コホートの異なる特性の表形式のビューを提供します。図 \@ref(fig:atlasCharacterizationResultsSummary)では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
+結果は、選択された各コホートの異なる特性の表形式のビューを提供します。図 \@ref(fig:atlasCharacterizationResultsSummary) では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
 
-検索ボックスを使用してアウトカムをフィルタリングし、「不整脈」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示します（図 \@ref(fig:atlasCharacterizationResultsExplore）に示すように）。
+検索ボックスを使用してアウトカムをフィルタリングし、「不整脈」が履歴にある人々の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示します（図 \@ref(fig:atlasCharacterizationResultsExplore) 参照）。
 
 ```{r atlasCharacterizationResultsExplore, fig.cap='特性アウトカム - 単一コンセプトの探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExplore.png")
 ```
 
-コホートのすべての条件コンセプトを特性評価したので、「explore」オプションを使用して、選択されたコンセプト（この場合は心房細動）のすべての大元および下位層に含まれるコンセプトのビューを有効にします。この探索により、高血圧のある人々に現れる可能性のある他の心疾患を探索するためにコンセプトの階層をナビゲートすることができます。要約ビューと同様に、カウントと割合が表示されます。
+コホートのすべての条件コンセプトを特性評価したので、"explore (探索する)" オプションを使用して、選択されたコンセプト（この場合は心房細動）のすべての大元および下位層に含まれるコンセプトのビューを有効にします。この探索により、高血圧のある人々に現れる可能性のある他の心疾患を探索するためにコンセプトの階層をナビゲートすることができます。要約ビューと同様に、カウントと割合が表示されます。
 
-この特性アウトカムを使用して、高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema」を検索します（図 \@ref(fig:atlasCharacterizationResultsContra）を参照）。
+この特性アウトカムを使用して、高血圧治療に禁忌のある条件（例：血管浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は "edema (浮腫)" を検索します（図 \@ref(fig:atlasCharacterizationResultsContra) を参照）。
 
 ```{r atlasCharacterizationResultsContra, fig.cap='特性評価の結果 - 禁忌条件の探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContra.png")
 ```
 
-再度、「explore」機能を使用して、高血圧集団における浮腫の特性を見て血管浮腫の有病率を見つけます：
+再度、"explore (探索する)"機能を使用して、高血圧集団における浮腫の特性を見て血管浮腫の有病率を見つけます：
 
 ```{r atlasCharacterizationResultsContraExplore, fig.cap='特性アウトカム - 禁忌条件の詳細を探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContraExplore.png")
@@ -222,7 +222,7 @@ FeatureExtractionは、個人ベースの特徴と集計された特徴の2つ�
 
 ### コホートのインスタンス化
 
-最初に、特性を評価するためにコホートをインスタンス化する必要があります。コホートのインスタンス化は、Chapter \@ref(Cohorts)で説明されています。この例では、高血圧に対して一次治療を開始し、1年間のフォローアップを行う人々を使用します（Appendix \@ref(HTN1yrFO)）。他のコホートの特性評価はAppendix \@ref(CohortDefinitions)として残します。コホートが`scratch.my_cohorts`というテーブルにコホート定義IDが1で生成されていることを仮定します。
+最初に、特性を評価するためにコホートをインスタンス化する必要があります。コホートのインスタンス化は、第 \@ref(Cohorts) 章で説明されています。この例では、高血圧に対して一次治療を開始し、1年間のフォローアップを行う人々を使用します（付録 \@ref(HTN1yrFO)）。他のコホートの特性評価は付録 \@ref(CohortDefinitions)として残します。コホートが`scratch.my_cohorts`というテーブルにコホート定義IDが1で生成されていることを仮定します。
 
 ### データ抽出
 
@@ -293,7 +293,6 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 
 ```{block2, type='rmdimportant'}
 上記すべての例について、「aggregated = TRUE」の使用は、FeatureExtractionに要約統計を提供することを指示します。このフラグを除外すると、コホート内の各個人の共変量が計算されます。
-
 ```
 
 ### 集計された共変量の作成
@@ -318,12 +317,9 @@ summary(covariateData2)
 出力は次のようになります：
 
 ```         
-
 ## CovariateData Object Summary
 ##
-
 ## Number of Covariates: 41330
-
 ## Number of Non-Zero Covariate Values: 41330
 ```
 
@@ -342,7 +338,7 @@ FeatureExtractionは、カスタム共変量を定義および利用する能力
 
 ## ATLASにおけるコホート経路分析
 
-経路分析の目標は、1つ以上の興味のあるコホート内で治療がどのように順序づけられているかを理解することです。[適用される方法は\@Hripcsak7329](mailto:適用される方法は@Hripcsak7329){.email} によって報告された設計に基づいています。これらの方法は一般化され、ATLASのCohort Pathwaysという機能に組み込まれました。
+経路分析の目標は、1つ以上の興味のあるコホート内で治療がどのように順序づけられているかを理解することです。適用される方法は @Hripcsak7329 によって報告された設計に基づいています。これらの方法は一般化され、ATLASのCohort Pathwaysという機能に組み込まれました。
 
 コホート経路の目的は、1つ以上のターゲットコホートのコホート開始日以降のイベントを要約する分析機能を提供することです。そのために、対象となる人口の臨床イベントを特定するためのイベントコホートと呼ばれるコホートセットを作成します。これがターゲットコホート内の人物に対してどのように見えるかを例として示します。
 
@@ -356,15 +352,15 @@ knitr::include_graphics("images/Characterization/pathwaysPersonEventView.png")
 
 ### デザイン
 
-まず、1年および3年のフォローアップ付きの高血圧の初回治療を開始するコホートを引き続き使用します（Appendix \@ref(HTN1yrFO), \@ref(HTN3yrFO)）。ボタンを使用して2つのコホートをインポートします。
+まず、1年および3年のフォローアップ付きの高血圧の初回治療を開始するコホートを引き続き使用します（付録 \@ref(HTN1yrFO)、 \@ref(HTN3yrFO)）。ボタンを使用して2つのコホートをインポートします。
 
 ```{r atlasPathwaysTargetCohorts, fig.cap='ターゲットコホートを選択したパスウェイ分析',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysTargetCohorts.png")
 ```
 
-次に、興味のある各一線級降圧薬のイベントコホートを作成して、イベントコホートを定義します。まず、ACE阻害剤の使用者のコホートを作成し、コホートの終了日を継続曝露の終了日と定義します。同様に他の8つの降圧薬のコホートも作成し、これらの定義はAppendix \@ref(ACEiUse)-\@ref(A1BUse)に記載してあります。完了したら、![](images/Characterization/atlasImportButton.png) ボタンを使用して、これらを経路デザインのイベントコホートセクションにインポートします。
+次に、興味のある各第一選択の降圧薬のイベントコホートを作成して、イベントコホートを定義します。まず、ACE阻害剤の使用者のコホートを作成し、コホートの終了日を継続曝露の終了日と定義します。同様に他の8つの降圧薬のコホートも作成し、これらの定義は付録 \@ref(ACEiUse) － \@ref(A1BUse) に記載してあります。完了したら、![](images/Characterization/atlasImportButton.png) ボタンを使用して、これらを経路デザインのイベントコホートセクションにインポートします。
 
-```{r atlasPathwaysEventCohorts, fig.cap='初回一線級降圧治療を開始するためのイベントコホート',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasPathwaysEventCohorts, fig.cap='初回第一選択降圧治療を開始するためのイベントコホート',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasPathwaysEventCohorts.png")
 ```
 
@@ -396,21 +392,21 @@ knitr::include_graphics("images/Characterization/atlasPathwaysResultsPathDetails
 
 ## ATLAS における発生率分析
 
-発生率計算では、ターゲットコホート内の人々のうち、リスク期間中にアウトカムコホートを経験した人を記述します。ここでは、ACE阻害薬 (ACEi) およびThiazidesおよびthiazide様利尿薬 (THZ) の新規使用者における血管浮腫 (Angioedema) および急性心筋梗塞 (AMI) のアウトカムの特性を評価するための発生率分析を設計します。これらのアウトカムを、薬剤に曝露されている期間 (TAR) 中に評価します。さらに、ターゲットコホート (ACEi および THZ) への曝露中に新規のアンジオテンシン受容体拮抗薬 (ARB) 使用の発生率を測定するために、ARB の使用アウトカムを追加します。このアウトカム定義は、ターゲット集団の中で ARB の利用方法を理解するためのものです。
+発生率計算では、ターゲットコホート内の人々のうち、リスク期間中にアウトカムコホートを経験した人を記述します。ここでは、ACE阻害薬 (ACEi) およびサイアザイドおよびサイアザイド様利尿薬 (THZ) の新規ユーザーにおける血管浮腫 (Angioedema) および急性心筋梗塞 (AMI) のアウトカムの特性を評価するための発生率分析を設計します。これらのアウトカムを、薬剤に曝露されている期間 (TAR) 中に評価します。さらに、ターゲットコホート (ACEi および THZ) への曝露中に新規のアンジオテンシン受容体拮抗薬 (ARB) 使用の発生率を測定するために、ARB の使用アウトカムを追加します。このアウトカム定義は、ターゲット集団の中で ARB の利用方法を理解するためのものです。
 
 始めるには、ATLAS の左バーにある ![](images/Characterization/atlasIncidenceMenuItem.png) をクリックして新しい発生率分析を作成します。説明的な名前を提供し、保存ボタン ![](images/PopulationLevelEstimation/save.png) を押します。
 
 ### デザイン
 
-本例で使用されるコホートは、既に ATLAS に作成されていると仮定します (Chapter \@ref(Cohorts) で説明)。付録には、ターゲットコホート (Appendix \@ref(AceInhibitorsMono), \@ref(ThiazidesMono)) およびアウトカムコホート (Appendix \@ref(Angioedema), \@ref(Ami), \@ref(ARBUse)) の完全な定義が提供されています。
+本例で使用されるコホートは、既に ATLAS に作成されていると仮定します (第 \@ref(Cohorts) 章 で説明)。付録には、ターゲットコホート (付録 \@ref(AceInhibitorsMono)、\@ref(ThiazidesMono)) およびアウトカムコホート (付録 \@ref(Angioedema)、 \@ref(Ami)、 \@ref(ARBUse)) の完全な定義が提供されています。
 
-```{r atlasIncidenceCohortSelection, fig.cap='ターゲットおよびアウトカム定義の発生率。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceCohortSelection, fig.cap='ターゲットおよびアウトカム定義の発生率',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceCohortSelection.png")
 ```
 
-定義タブで、 *New users of ACE inhibitors* コホートと *New users of Thiazide or Thiazide-like diuretics* コホートを選択します。ダイアログを閉じて、これらのコホートが設計に追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから *acute myocardial infarction events* 、 *angioedema events* 、および *Angiotensin receptor blocker (ARB) use* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートが設計のアウトカムコホートセクションに追加されたことを確認します。
+定義タブで、 *New users of ACE inhibitors (ACE阻害薬の新規ユーザー)* コホートと *New users of Thiazide or Thiazide-like diuretics (サイアザイドまたはサイアザイド様利尿薬の新規ユーザー)* コホートを選択します。ダイアログを閉じて、これらのコホートが設計に追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから *acute myocardial infarction events　(急性心筋梗塞イベント)* 、 *angioedema events* 、および *Angiotensin receptor blocker (ARB) use (アンジオテンシン受容体拮抗薬 (ARB) の新規ユーザー)* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートが設計のアウトカムコホートセクションに追加されたことを確認します。
 
-```{r atlasIncidenceTimeAtRisk, fig.cap='ターゲットおよびアウトカム定義の発生率。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceTimeAtRisk, fig.cap='ターゲットおよびアウトカム定義の発生率',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceTimeAtRisk.png")
 ```
 
@@ -418,17 +414,17 @@ knitr::include_graphics("images/Characterization/atlasIncidenceTimeAtRisk.png")
 
 ATLAS では、分析仕様の一部としてターゲットコホートを層化する方法も提供されています:
 
-```{r atlasIncidenceStratifyFemale, fig.cap='女性における発生率の層別定義。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceStratifyFemale, fig.cap='女性における発生率の層別定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceStratifyFemale.png")
 ```
 
-これを行うには、[New Stratify Criteria] ボタンをクリックし、Chapter 11 で説明されている手順に従います。設計が完了したので、一つ以上のデータベースに対して設計を実行に移ることができます。
+これを行うには、[New Stratify Criteria] ボタンをクリックし、第 11 章で説明されている手順に従います。設計が完了したので、一つ以上のデータベースに対して設計を実行に移ることができます。
 
 ### 実行
 
 [生成] タブをクリックし、 ![](images/Characterization/atlasIncidenceGenerate.png) ボタンをクリックして、分析を実行するデータベースの一覧を表示します:
 
-```{r atlasIncidenceSourceSelection, fig.cap='発生率分析実行。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceSourceSelection, fig.cap='発生率分析実行',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceSourceSelection.png")
 ```
 
@@ -440,7 +436,7 @@ knitr::include_graphics("images/Characterization/atlasIncidenceSourceSelection.p
 
 それらのドロップダウンリストから ACEi 使用者のターゲットコホートと急性心筋梗塞 (AMI) を選択します。![](images/Characterization/atlasIncidenceReportButton.png) ボタンをクリックして発生率分析のアウトカムを表示します:
 
-```{r atlasIncidenceResults, fig.cap='発生率分析の出力 - AMI のアウトカムを持つ新規 ACEi 使用者。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceResults, fig.cap='発生率分析の出力 - AMI のアウトカムを持つ新規 ACEi 使用者',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceResults.png")
 ```
 
@@ -450,7 +446,7 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResults.png")
 
 ACEi 集団の中で ARB 新規使用の発生率を確認するための同じ情報を収集することができます。画面上部のドロップダウンでアウトカムを ARB 使用に変更し、 ![](images/Characterization/atlasIncidenceReportButton.png) ボタンをクリックして詳細を確認します。
 
-```{r atlasIncidenceResultsARB, fig.cap='発生率 - ACEi 曝露中に ARB 処理を受けている新規 ACEi 使用者。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasIncidenceResultsARB, fig.cap='発生率 - ACEi 曝露中に ARB 処理を受けている新規 ACEi 使用者',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 ```
 
@@ -481,11 +477,11 @@ knitr::include_graphics("images/Characterization/atlasIncidenceResultsARB.png")
 ```
 
 ```{exercise, exerciseCharacterization2}
-セレコキシブ使用者の疾患の自然経過をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特性評価を作成し、併存疾患および薬剤曝露を示してください (Chapter \@ref(Cohorts) で詳細な手順があります)。
+セレコキシブ使用者の疾患の自然経過をより理解したいと考えています。365 日のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し、このコホートの特性評価を作成し、併存疾患および薬剤曝露を示してください (第 \@ref(Cohorts) 章 に詳細な手順があります)。
 ```
 
 ```{exercise, exerciseCharacterization3}
 セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。[192671](http://athena.ohdsi.org/search-terms/terms/192671) ("消化管出血") またはその下位層に含まれるいずれかのコンセプトの発生として単純に定義される GI 出血イベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。
 ```
 
-提案された解答は Appendix \@ref(Characterizationanswers) に記載されています。
+提案された解答は 付録 \@ref(Characterizationanswers) に記載されています。
