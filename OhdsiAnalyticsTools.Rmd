@@ -118,7 +118,7 @@ ATLASのインストールは、OHDSI WebAPIと組み合わせて行われます
 
 [^ohdsianalyticstools-4]: <https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide>
 
-## Methods library
+## Methods Library
 
 [OHDSI Methods library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{methods library}
 
@@ -168,7 +168,85 @@ OHDSI Rパッケージを実行するために必要な環境をインストー�
 
 1.  **R**は統計的コンピューティング環境です。基本的なユーザインターフェースとして主にコマンドラインインターフェースを提供します。
 2.  **Rtools**は、WindowsでRパッケージをソースからビルドするために必要なプログラム群です。
-3.  **RStudio**は、Rを使いやすくするIDE（統合開発環境）です。コードエディタ、デバッグ、およびビジュアルツールが含まれています。よろしくお願いいたします。
+3.  **RStudio**は、Rを使いやすくするIDE（統合開発環境）です。コードエディタ、デバッグ、およびビジュアルツールが含まれています。
+4.  **Java** is a computing environment that is needed to run some of the components in the OHDSI R packages, for example those needed to connect to a database.
+
+Below we describe how to install each of these in a Windows environment.
+
+```{block2, type='rmdimportant'}
+In Windows, both R and Java come in 32-bit and 64-bits architectures. If you install R in both architectures, you **must** also install Java in both architectures. It is recommended to only install the 64-bit version of R.
+```
+
+#### Installing R {.unnumbered}
+
+1.  Go to <https://cran.r-project.org/>, click on "Download R for Windows", then "base", then click the Download link indicated in Figure \@ref(fig:downloadR).
+
+```{r downloadR, fig.cap='Downloading R from CRAN.',echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/OhdsiAnalyticsTools/downloadR.png")
+```
+
+2.  After the download has completed, run the installer. Use the default options everywhere, with two exceptions: First, it is better not to install into program files. Instead, just make R a subfolder of your C drive as shown in Figure \@ref(fig:rDestination). Second, to avoid problems due to differing architectures between R and Java, disable the 32-bit architecture as shown in Figure \@ref(fig:no32Bits).
+
+```{r rDestination, fig.cap='Settings the destination folder for R.',echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("images/OhdsiAnalyticsTools/rDestination.png")
+```
+
+```{r no32Bits, fig.cap='Disabling the 32-bit version of R.',echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
+```
+
+Once completed, you should be able to select R from your Start Menu.
+
+#### Installing Rtools {.unnumbered}
+
+1.  Go to <https://cran.r-project.org/>, click on "Download R for Windows", then "Rtools", and select the very latest version of Rtools to download.
+
+2.  After downloading has completed run the installer. Select the default options everywhere.
+
+#### Installing RStudio {.unnumbered}
+
+1.  Go to <https://www.rstudio.com/>, select "Download RStudio" (or the "Download" button under "RStudio"), opt for the free version, and download the installer for Windows as shown in Figure \@ref(fig:downloadRStudio).
+
+```{r downloadRStudio, fig.cap='Downloading RStudio.',echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/OhdsiAnalyticsTools/downloadRStudio.png")
+```
+
+2.  After downloading, start the installer, and use the default options everywhere.
+
+#### Installing Java {.unnumbered}
+
+1.  Go to <https://java.com/en/download/manual.jsp>, and select the Windows 64-bit installer as shown in Figure \@ref(fig:downloadJava). If you also installed the 32-bit version of R, you *must* also install the other (32-bit) version of Java.
+
+```{r downloadJava, fig.cap='Downloading Java.',echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/OhdsiAnalyticsTools/downloadJava.png")
+```
+
+2.  After downloading just run the installer.
+
+#### Verifying the Installation {.unnumbered}
+
+You should now be ready to go, but we should make sure. Start RStudio, and type
+
+```{r eval=FALSE}
+install.packages("SqlRender")
+library(SqlRender)
+translate("SELECT TOP 10 * FROM person;", "postgresql")
+```
+
+```{r echo=FALSE}
+library(SqlRender)
+translate("SELECT TOP 10 * FROM person;", "postgresql")
+```
+
+This function uses Java, so if all goes well we know both R and Java have been installed correctly!
+
+Another test is to see if source packages can be built. Run the following R code to install the `CohortMethod` package from the OHDSI GitHub repository:
+
+```{r eval=FALSE}
+install.packages("drat")
+drat::addRepo("OHDSI")
+install.packages("CohortMethod")
+```
 
 ## 展開戦略
 
