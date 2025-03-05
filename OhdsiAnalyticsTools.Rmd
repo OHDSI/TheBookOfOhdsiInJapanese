@@ -8,15 +8,15 @@ OHDSIは、患者レベルの観察データに対するさまざまなデータ
 
 ## 分析の実装 {#analysisImplementation}
 
-図\@ref(fig:implementations)は、CDMを使用してデータベースに対して研究を実装するために選択できるさまざまな方法を示しています。 \index{analysis implementation}
+図 \@ref(fig:implementations) は、CDMを使用してデータベースに対して研究を実装するために選択できるさまざまな方法を示しています。 \index{analysis implementation}
 
-```{r implementations, fig.cap='CDMのデータに対する分析を実装するさまざまな方法。', echo=FALSE, out.width='90%', fig.align='center'}
+```{r implementations, fig.cap='CDMのデータに対する分析を実装するさまざまな方法', echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/implementations.png")
 ```
 
 研究を実装するための主なアプローチは3つあります。最初の方法は、OHDSIが提供するツールを一切使用しないカスタムコードを作成することです。たとえば、R、SAS、またはその他の言語でゼロから分析を作成することができます。これにより最大の柔軟性が得られ、特定の分析がツールでサポートされていない場合は唯一の選択肢となるかもしれません。しかし、この方法は多くの技術的スキル、時間、および努力を必要とし、分析が複雑になるほどコード内のエラーを避けることが困難になります。
 
-2番目の方法は、Rで分析を開発し、[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)のパッケージを使用することです。最低限、Chapter \@ref(SqlAndR)で詳述されている、さまざまなデータベースプラットフォームに同じコードを実行できるようにする[SqlRender](https://ohdsi.github.io/SqlRender/)および[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを使用できます。その他のパッケージ、例えば[CohortMethod](https://ohdsi.github.io/CohortMethod/)や[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)は、CDMに対する高度な分析のためのR関数を提供し、自分のコード内で呼び出すことができます。これでも多くの技術的専門知識が必要ですが、Methods Libraryの検証済みのコンポーネントを再利用することで、完全にカスタムコードを使用する場合よりも効率的かつエラーが少なくなります。
+2番目の方法は、Rで分析を開発し、[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)のパッケージを使用することです。最低限、第 \@ref(SqlAndR) 章で詳述されている、さまざまなデータベースプラットフォームに同じコードを実行できるようにする[SqlRender](https://ohdsi.github.io/SqlRender/)および[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを使用できます。その他のパッケージ、例えば[CohortMethod](https://ohdsi.github.io/CohortMethod/)や[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)は、CDMに対する高度な分析のためのR関数を提供し、自分のコード内で呼び出すことができます。これでも多くの技術的専門知識が必要ですが、Methods Libraryの検証済みのコンポーネントを再利用することで、完全にカスタムコードを使用する場合よりも効率的かつエラーが少なくなります。
 
 3番目の方法は、非プログラマが効率的に広範な分析を行うことができるウェブベースのツールである[ATLAS](https://github.com/OHDSI/Atlas/wiki)を使用することです。ATLASはMethods Librariesを使用しますが、分析をすデザインるための単純なグラフィカルインターフェイスを提供し、多くの場合、分析を実行するために必要なRコードを生成します。ただし、Methods Libraryで利用可能なすべてのオプションをサポートしているわけではありません。大多数の研究はATLASを通じて行うことが期待されますが、2番目の方法が提供する柔軟性を必要とする研究も存在します。
 
@@ -24,17 +24,17 @@ ATLASとMethods Libraryは独立していません。ATLASで呼び出される�
 
 ## 分析戦略
 
-CDMに対する分析を実装するために使用する戦略、たとえばカスタムコーディングやMethods Libraryで提供される標準分析コードの使用に加えて、それらの分析技術を使用してエビデンスを生成するための複数の戦略も存在します。図\@ref(fig:strategies)は、OHDSIで使用される3つの戦略を示しています。
+CDMに対する分析を実装するために使用する戦略、たとえばカスタムコーディングやMethods Libraryで提供される標準分析コードの使用に加えて、それらの分析技術を使用してエビデンスを生成するための複数の戦略も存在します。図 \@ref(fig:strategies) は、OHDSIで使用される3つの戦略を示しています。
 
-```{r strategies, fig.cap='(臨床の)質問に対する証拠を生成するための戦略。', echo=FALSE, out.width='90%', fig.align='center'}
+```{r strategies, fig.cap='(臨床の)質問に対する証拠を生成するための戦略', echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/strategies.png")
 ```
 
-最初の戦略では、各分析を個別の研究として扱います。分析はプロトコルで事前に指定され、コードとして実装され、データに対して実行され、その後、結果がコンパイルされ解釈されます。各質問ごとに、すべてのステップを繰り返す必要があります。そのような分析の一例は、levetiracetamとphenytoinを比較した際の血管浮腫のリスクに関するOHDSI研究です　[@duke_2017]。 ここでは、まずプロトコルが作成され、OHDSI Methods Libraryを使用した分析コードが開発され、OHDSIネットワーク全体で実行され、結果がジャーナル公表されました。
+最初の戦略では、各分析を個別の研究として扱います。分析はプロトコルで事前に指定され、コードとして実装され、データに対して実行され、その後、結果がコンパイルされ解釈されます。各質問ごとに、すべてのステップを繰り返す必要があります。そのような分析の一例は、levetiracetamとphenytoinを比較した際の血管浮腫のリスクに関するOHDSI研究です[@duke_2017]。 ここでは、まずプロトコルが作成され、OHDSI Methods Libraryを使用した分析コードが開発され、OHDSIネットワーク全体で実行され、結果がジャーナル公表されました。
 
 第二の戦略では、リアルタイムまたは準リアルタイムで特定のクラスの質問に回答できるアプリケーションを開発します。アプリケーションが開発されると、ユーザーはクエリをインタラクティブに定義し、それを送信して結果を表示できます。この戦略の一例は、ATLASのコホート定義および生成ツールです。このツールは、ユーザーが様々な複雑さのコホート定義を指定し、データベースに対して定義を実行して、さまざまな包含および除外基準を満たす人数を見ることを可能にします。
 
-第三の戦略では、同様に質問のクラスに焦点を当てますが、そのクラス内のすべての質問に対する証拠を網羅的に生成しようとします。ユーザーはその後、さまざまなインターフェースを通じて必要に応じて証拠を探索できます。一例は、うつ病治療の影響に関するOHDSI研究です　[@schuemie_2018b]。 この研究では、すべてのうつ病治療が、4つの大規模な観察研究データベースで関心のある多数のアウトカムに対して比較されました。17,718の経験的にキャリブレーションされたハザード比と広範な研究診断を含む結果の全セットは、インタラクティブなウェブアプリ [^ohdsianalyticstools-1] で利用できます。
+第三の戦略では、同様に質問のクラスに焦点を当てますが、そのクラス内のすべての質問に対する証拠を網羅的に生成しようとします。ユーザーはその後、さまざまなインターフェースを通じて必要に応じて証拠を探索できます。一例は、うつ病治療の影響に関するOHDSI研究です[@schuemie_2018b]。 この研究では、すべてのうつ病治療が、4つの大規模な観察研究データベースで関心のある多数のアウトカムに対して比較されました。17,718の経験的にキャリブレーションされたハザード比と広範な研究診断を含む結果の全セットは、インタラクティブなウェブアプリ [^ohdsianalyticstools-1] で利用できます。
 
 [^ohdsianalyticstools-1]: <http://data.ohdsi.org/SystematicEvidence/>
 
@@ -48,7 +48,7 @@ ATLASは、CDM形式の標準化された患者レベルの観察データに対
 knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 ```
 
-図\@ref(fig:atlas)にATLASのスクリーンショットが提供されています。左側にはATLASの様々な機能を示すナビゲーションバーがあります。
+図 \@ref(fig:atlas) にATLASのスクリーンショットが提供されています。左側にはATLASの様々な機能を示すナビゲーションバーがあります。
 
 データソース \index{ATLAS!データソース} \index{Achilles|see {ATLAS!データソース}}
 
@@ -126,19 +126,19 @@ ATLASのインストールは、OHDSI WebAPIと組み合わせて行われます
 
 [OHDSI Methods library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{methods library}
 
-```{r methodsLibrary, fig.cap='OHDSIMethods libraryのパッケージ。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r methodsLibrary, fig.cap='OHDSI Methods Libraryのパッケージ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
 ```
 
-これらのパッケージは、CDM内のデータから始まり、推定値や支援統計、図表を生成する完全な観察研究を実施するためのR関数を提供します。これらのパッケージはCDM内の観察データと直接やりとりし、カスタム分析を可能にし、あるいは標準化された高度な分析機能を提供することができます（詳細はChapter \@ref(SqlAndR)、Chapter \@ref(Characterization)、Chapter \@ref(PopulationLevelEstimation)、Chapter \@ref(PatientLevelPrediction)を参照してください）。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、およびメソッドによって生成される推定値の経験的キャリブレーションなど、過去および現在の研究から学んだベストプラクティスをサポートしています。
+これらのパッケージは、CDM内のデータから始まり、推定値や支援統計、図表を生成する完全な観察研究を実施するためのR関数を提供します。これらのパッケージはCDM内の観察データと直接やりとりし、カスタム分析を可能にし、あるいは標準化された高度な分析機能を提供することができます（詳細は第 \@ref(SqlAndR)、 \@ref(Characterization)、 \@ref(PopulationLevelEstimation)、 \@ref(PatientLevelPrediction) 章を参照してください）。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、およびメソッドによって生成される推定値の経験的キャリブレーションなど、過去および現在の研究から学んだベストプラクティスをサポートしています。
 
-Methods libraryは多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使われており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。Methods libraryにおけるメソッドの実装の妥当性についてはChapter \@ref(SoftwareValidity)で説明されています。
+Methods libraryは多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使われており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。Methods libraryにおけるメソッドの実装の妥当性については第 \@ref(SoftwareValidity) 章で説明されています。
 
 ### 大規模分析サポート
 
 すべてのパッケージで組み込まれている主な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多くの曝露とアウトカムに対して効果サイズの推定を行うことを可能にし、様々な分析設定を使用して、必要な中間データセットおよび最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・コンパレータペアに対して複数のアウトカムが使用される傾向スコアモデルの適合など、使い回しが可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並行して行われます。
 
-この計算効率は一度に多くの質問に答える大規模分析を可能にし、我々のメソッドの操作特性を測定し、Chapter \@ref(MethodValidity)で説明されているように推定値の経験的キャリブレーションを行うために必要な対照仮説（例：陰性対照）を含むことが重要です。 \index{control hypotheses}
+この計算効率は一度に多くの質問に答える大規模分析を可能にし、我々のメソッドの操作特性を測定し、第 \@ref(MethodValidity) 章で説明されているように推定値の経験的キャリブレーションを行うために必要な対照仮説（例：陰性対照）を含むことが重要です。 \index{control hypotheses}
 
 ### ビッグデータ対応 {#BigDataSupport}
 
@@ -183,19 +183,19 @@ Windowsでは、RとJavaの両方に32ビットと64ビットのアーキテク�
 
 #### Rのインストール {.unnumbered}
 
-1.  <https://cran.r-project.org/> で、図 \@ref(fig:downloadR) に示されるように「Download R for Windows (ウインドウズのためのRをダウンロード)」「base」 の順にクリックし、ダウンロードしてください。
+1.  <https://cran.r-project.org/> で、図 \@ref(fig:downloadR) に示されるように「Download R for Windows (ウインドウズのためのRをダウンロード)」、「base」 の順にクリックし、ダウンロードしてください。
 
 ```{r downloadR, fig.cap='CRANからのRのダウンロード',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadR.png")
 ```
 
-2.  ダウンロードが完了したら、インストーラを実行してください。2つの例外を除いて、すべてデフォルトのオプションを使用してください： まず、プログラムファイルにはインストールしない方が良いでしょう。その代わりに、図 \@ref(fig:rDestination)のように、RをCドライブのサブフォルダにしてください。2つ目は、RとJavaのアーキテクチャの違いによる問題を避けるため、図 \@ref(fig:no32Bits) のように32ビットアーキテクチャを無効にすることです。
+2.  ダウンロードが完了したら、インストーラを実行してください。2つの例外を除いて、すべてデフォルトのオプションを使用してください： まず、プログラムファイルにはインストールしない方が良いでしょう。その代わりに、図 \@ref(fig:rDestination) のように、RをCドライブのサブフォルダにしてください。2つ目は、RとJavaのアーキテクチャの違いによる問題を避けるため、図 \@ref(fig:no32Bits) のように32ビットアーキテクチャを無効にすることです。
 
-```{r rDestination, fig.cap='Rフォルダの場所を設定します',echo=FALSE, out.width='80%', fig.align='center'}
+```{r rDestination, fig.cap='Rフォルダの設定',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/rDestination.png")
 ```
 
-```{r no32Bits, fig.cap='32ビットバージョンのRを無効にします',echo=FALSE, out.width='80%', fig.align='center'}
+```{r no32Bits, fig.cap='32ビットバージョンのRを無効化',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 ```
 
@@ -203,13 +203,13 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/no32Bits.png")
 
 #### Rtoolsのインストール {.unnumbered}
 
-1.  <https://cran.r-project.org/>で、「Download R for Windows」、次に「Rtools」をクリックし、最新版のRtoolsをダウンロードしてください。
+1.  <https://cran.r-project.org/> で、「Download R for Windows」、次に「Rtools」をクリックし、最新版のRtoolsをダウンロードしてください。
 
 2.  ダウンロードしたら、インストーラを実行してください。すべてデフォルトのオプションを選択してください。
 
 #### RStudioのインストール {.unnumbered}
 
-1.  <https://www.rstudio.com/>で、「Download RStudio」またはRStudioの下の「ダウンロード」ボタンをクリックし、無料版を選択、図 \@ref(fig:downloadRStudio) に示されるようにウインドウズ用のインストーラをダウンロードしてください。
+1.  <https://www.rstudio.com/> で、「Download RStudio」またはRStudioの下の「ダウンロード」ボタンをクリックし、無料版を選択、図 \@ref(fig:downloadRStudio) に示されるようにウインドウズ用のインストーラをダウンロードしてください。
 
 ```{r downloadRStudio, fig.cap='RStudioのダウンロード',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadRStudio.png")
@@ -219,7 +219,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/downloadRStudio.png")
 
 #### Javaのインストール {.unnumbered}
 
-1.  <https://java.com/en/download/manual.jsp>で、図 \@ref(fig:downloadJava) に示されるように、ウインドウズ64ビット版のインストーラを選択してください。32ビット版のRもインストールしている場合には、Javaも32ビット版をインストールしなけ得ればなりません。
+1.  <https://java.com/en/download/manual.jsp> で、図 \@ref(fig:downloadJava) に示されるように、ウインドウズ64ビット版のインストーラを選択してください。32ビット版のRもインストールしている場合には、Javaも32ビット版をインストールしなけ得ればなりません。
 
 ```{r downloadJava, fig.cap='Javaのダウンロード',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/downloadJava.png")
@@ -272,7 +272,7 @@ Amazonは、AWSクラウドコンピューティング環境でボタンをク�
 
 [^ohdsianalyticstools-12]: <https://github.com/OHDSI/OHDSIonAWS>
 
-OHDSI-in-a-Boxは学習環境として特に作成されており、OHDSIコミュニティによって提供されるほとんどのチュートリアルで使用されます。これには多くのOHDSIツール、サンプルデータセット、RStudioおよび他の補助ソフトウェアが一つの低コストのWindows仮想マシンに含まれています。CDMを保存するためにPostgreSQLデータベースが使用され、ATLASの中間結果も格納されます。OMOP CDMデータマッピングおよびETLツールもOHDSI-in-a-Boxに含まれています。OHDSI-in-a-Boxのアーキテクチャは図\@ref(fig:ohdsiinaboxDiagram)に示されています。
+OHDSI-in-a-Boxは学習環境として特に作成されており、OHDSIコミュニティによって提供されるほとんどのチュートリアルで使用されます。これには多くのOHDSIツール、サンプルデータセット、RStudioおよび他の補助ソフトウェアが一つの低コストのWindows仮想マシンに含まれています。CDMを保存するためにPostgreSQLデータベースが使用され、ATLASの中間結果も格納されます。OMOP CDMデータマッピングおよびETLツールもOHDSI-in-a-Boxに含まれています。OHDSI-in-a-Boxのアーキテクチャは図 \@ref(fig:ohdsiinaboxDiagram) に示されています。
 
 ```{r ohdsiinaboxDiagram, fig.cap='OHDSI-in-a-BoxのAmazon Web Servicesアーキテクチャ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/OHDSI-in-a-BoxDiagram.png")
