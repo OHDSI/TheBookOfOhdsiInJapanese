@@ -233,26 +233,24 @@ Usagiがマップを提案した場合、ユーザはより良いマッピング
 
 #### コンセプト情報 {.unnumbered}
 
-マップする適切な概念を探す場合、概念の「社会的生活」を考慮することが重要です。ある概念の意味は、その概念の階層における位置に部分的に依存することがあります。また、語彙の中には、階層的な関係がほとんどない、あるいは全くない「孤児概念」が存在することがあり、それらはターゲット概念としては適していません。また、ALT + Cキーを押すか、上部メニューバーのview -\> Concept informationを選択することで、より多くの情報を表示することができます。
-
-When looking for appropriate concepts to map to, it is important to consider the “social life” of a concept. The meaning of a concept might depend partially on its place in the hierarchy, and sometimes there are “orphan concepts” in the vocabulary with few or no hierarchical relationships, which would be ill-suited as target concepts. Usagi will often report the number of parents and children a concept has, and it also possible to show more information by pressing ALT + C or selecting view –\> Concept information in the top menu bar.
+マップする適切なコンセプトを探す場合、コンセプトの「社会性」を考慮することが重要です。あるコンセプトの意味は、そのコンセプトの階層における位置に部分的に依存することがあります。また、ボキャブラリの中には、階層的な関係がほとんどない、あるいは全くない「孤立したコンセプト」が存在することがあり、それらはターゲットにするコンセプトとしては適していません。また、ALT + Cキーを押すか、上部メニューバーのview （閲覧）-\> Concept information (コンセプト情報) を選択することで、より多くの情報を表示することができます。
 
 ```{r usagiConceptInfo, fig.cap="Usagi コンセプト情報パネル", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
 ```
 
-Figure \@ref(fig:usagiConceptInfo) shows the concept information panel. It shows general information about a concept, as well as its parents, children, and other source codes that map to the concept. Users can use this panel to navigate the hierarchy and potentially choose a different target concept.
+図 \@ref(fig:usagiConceptInfo) にコンセプト情報パネルを示します。このパネルには、コンセプトに関する一般的な情報と、そのコンセプトにマップされる親、子、その他のソース・コードが表示されます。このパネルを使用して階層を移動し、別のターゲット・コンセプトを選択することができます。
 
-Continue to move through this process, code by code, until all codes have been checked. In the list of source codes at the top of the screen, by selecting the column heading you can sort the codes. Often, we suggest going from the highest frequency codes to the lowest. In the bottom left of the screen you can see the number of codes that have approved mappings, and how many code occurrences that corresponds to.
+すべてのコードがチェックされるまで、コードごとにこのプロセスを続行します。画面上部のソース・コードのリストで、列見出しを選択すると、コードを並べ替えることができます。多くの場合、頻度の高いコードから低いコードに並べ替えることをお勧めします。画面左下には、マッピングが承認されたコードの数と、そのコードの出現回数が表示されます。
 
-It is possible to add comments to mappings, which could be used to document why a mapping decision was made.
+マッピングにコメントを追加することができ、そのマッピングがどのように決定されたのかを記録することに利用できます。
 
-#### Best Practices {.unnumbered}
+#### ベスト・プラクティス {.unnumbered}
 
--   Use someone who has experience with coding schemes.
--   By clicking on a column name, you can sort the columns in the “Overview Table”. It may be valuable to sort on “Match Score”; reviewing codes that Usagi is most confident on first may quickly knock out a significant chunk of codes. Also sorting on “Frequency” is valuable, spending more effort on frequent codes versus non-frequent is important.
--   It is okay to map some codes to CONCEPT_ID = 0, some codes may not be worth it to find a good map and others may just lack a proper map.
--   It is important to consider the context of a concept, specifically its parents and children.
+-   コーディングスキームの経験がある人に参加してもらってください。
+-   列名をクリックすると、「コンセプトテーブル」の列を並べ替えることができます。"Match Score (マッチングスコア)"で並べ替えることは価値があるかもしれません。Usagiが最も自信を持っているコードを最初にレビューすることで、かなりの数のコードがすぐに終えることができるかもしれません。また、"Frequency (頻度)" での並べ替えも重要です。頻度の高いコードに対して、そうでないコードよりも労力を費やすことは重要です。
+-   場合によっては、CONCEPT_ID = 0にマップするコードも良作です。良いマップを見つける価値がないコードもありますし、適切なマップがないコードもあります。
+-   コンセプトの文脈、特にその親と子を考慮することが重要です。
 
 #### Export the Usagi Map Created {.unnumbered}
 
