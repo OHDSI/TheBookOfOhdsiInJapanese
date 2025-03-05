@@ -18,9 +18,8 @@ language:
   ui:
     edit: "エディション"
     chapter_name: "章 "
-
 delete_merged_file: true
-new_session: true
+new_session: yes
 
 
 rmd_files: [

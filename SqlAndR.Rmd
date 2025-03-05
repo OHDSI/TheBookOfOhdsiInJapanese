@@ -27,7 +27,7 @@ OHDSIでは、プラットフォーム固有の表現に依存しないことを
 
 したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
 
-この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション \@ref(QueryTheCdm) では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -104,7 +104,6 @@ translate(sql, targetDialect = "postgresql")
 
 ```{block2, type='rmdimportant'}
 すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての表現に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL表現として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。
-
 ```
 
 最善を尽くしても、すべてのサポートプラットフォームでエラーなしに実行できるOHDSI SQLを書くにはかなりの注意が必要です。以下にその検討事項を詳述します。
@@ -113,8 +112,11 @@ translate(sql, targetDialect = "postgresql")
 
 これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
+<<<<<<< HEAD
 表: (\\#tab:sqlFunctions) supported by translate
 
+=======
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 | 関数              | 関数        | 関数       |
 |:------------------|:------------|:-----------|
 | ABS               | EXP         | RAND       |
@@ -135,6 +137,8 @@ translate(sql, targetDialect = "postgresql")
 | DATETIMEFROMPARTS | NEWID       |            |
 | DAY               | PI          |            |
 | EOMONTH           | POWER       |            |
+
+: (#tab:sqlFunctions) "translate (翻訳)によりサポートされる機能
 
 \* Oracleでは特別な権限が必要です。SQLiteでは同等のものがありません。
 
@@ -309,9 +313,15 @@ SQL Serverでは、値にデータベース名とスキーマ名の両方を含�
 launchSqlRenderDeveloper()
 ```
 
-これにより、図\@ref(fig:sqlDeveloper)に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[\^sqlDeveloperUrl]
+これにより、図 \@ref(fig:sqlDeveloper) に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています[^sqlandr-1]。
 
-\`\`\`{r sqlDeveloper, fig.cap='The SqlDeveloper'
+[^sqlandr-1]: <http://data.ohdsi.org/SqlDeveloper/>
+
+```{r sqlDeveloper, fig.cap='The SqlDeveloper Shiny app.',echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
+```
+
+このアプリでは、OHDSI SQLを入力し、ターゲットの方言を選択し、SQLに表示されるパラメータの値を入力すると、翻訳が自動的に下部に表示されます。
 
 ## DatabaseConnector {#DatabaseConnector}
 
@@ -397,7 +407,7 @@ executeSql(conn, "TRUNCATE TABLE foo; DROP TABLE foo;")
 
 ### ffdfオブジェクトを使用したクエリの実行
 
-データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション\@ref(BigDataSupport)で述べたように、そのような場合は`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
+データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション \@ref(BigDataSupport) で述べたように、そのような場合は`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
 
 ```{r eval=FALSE}
 x <- querySql.ffdf(conn, "SELECT * FROM person")
@@ -598,11 +608,11 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-1]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-2]。
+QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-2]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-3]。
 
-[^sqlandr-1]: <http://data.ohdsi.org/QueryLibrary>
+[^sqlandr-2]: <http://data.ohdsi.org/QueryLibrary>
 
-[^sqlandr-2]: <https://github.com/OHDSI/QueryLibrary>
+[^sqlandr-3]: <https://github.com/OHDSI/QueryLibrary>
 
 ```{r queryLibrary, fig.cap='クエリライブラリ：CDMに対するSQLクエリのライブラリ。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SqlAndR/queryLibrary.png")

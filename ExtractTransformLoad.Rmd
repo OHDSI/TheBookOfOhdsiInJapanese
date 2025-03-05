@@ -1,4 +1,4 @@
-# 第6章　--翻訳作業中--　抽出、変換、ロード {#ExtractTransformLoad}
+# --翻訳作業中--　抽出、変換、ロード {#ExtractTransformLoad}
 
 *章の著者: Clair Blacketer & Erica Voss*
 
@@ -13,7 +13,13 @@ ETLの作成は通常、大規模な取り組みとなります。長年にわ�
 3.  技術者がETLを実装する。
 4.  全員が品質管理に関与する。
 
+<<<<<<< HEAD
 この章では、これらのステップそれぞれについて詳細に議論します。OHDSIコミュニティによっていくつかの支援ツールが開発されており、これらについても議論します。この章を締めくくるにあたり、CDMとETLのメンテナンスについても議論します。 \## ステップ 1: ETLのデザイン
+=======
+この章では、これらのステップそれぞれについて詳細に議論します。OHDSIコミュニティによっていくつかの支援ツールが開発されており、これらについても議論します。この章を締めくくるにあたり、CDMとETLのメンテナンスについても議論します。
+
+## ステップ 1: ETLのデザイン
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 ETLのデザインと実装を明確に分けることが重要です。ETLのデザインにはソースデータとCDMの両方に関する広範な知識が必要です。一方、ETLの実装は通常、ETLを計算効率的に行うための技術的専門知識に依存します。両方を同時に行おうとすると、細かい点に気を取られてしまうことが多く、全体像に集中できなくなることがあります。
 
@@ -42,7 +48,7 @@ White Rabbitの主な機能は、ソースデータをスキャンし、フィ�
 
 White Rabbitアプリケーションをダウンロードしてインストールした後、最初に行うべきことは作業フォルダを設定することです。White Rabbitが作成するすべてのファイルはこのローカルフォルダにエクスポートされます。図\@ref(fig:WhiteRabbitLocation)に示されている「Pick Folder」ボタンを使用して、スキャンドキュメントを配置するローカル環境をナビゲートします。
 
-```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitLocation.png")
 ```
 
@@ -54,7 +60,7 @@ White Rabbitは区切りテキストファイルとさまざまなデータベ�
 
 データベースに接続した後、含まれるテーブルをスキャンできます。スキャンによってETLのデザインに役立つ情報を含むレポートが生成されます。図\@ref(fig:WhiteRabbitAddTables)に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックすることで、選択されたソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動選択する「Add all in DB」ボタンをクリックできます。
 
-```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ。', echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 ```
 
@@ -70,13 +76,13 @@ knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 
 スキャンが完了すると、スキャンされた各テーブルと概要タブを含むExcelファイルが選択されたフォルダに生成されます。概要タブにはスキャンされたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータ型、フィールドの最大長、テーブル行数、スキャンされた行数、および各フィールドが空である頻度が一覧表示されます。図\@ref(fig:ScanOverviewTab).に示されたサンプル概要タブ。
 
-```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanOverviewTab.png")
 ```
 
 各テーブルのタブには、各フィールド、各フィールド内の値、および各値の頻度が表示されます。各ソーステーブル列は、Excelに2つの列を生成します。1つの列には、スキャン時に設定された「最小セル数」を超えるすべての固有値がリストされます。固有値のリストが切り捨てられた場合、リストの最後の値は「リスト切り捨て」と表示されます。これは、「最小セル数」で入力した数より少ない頻度で表示される1つ以上の追加の固有ソース値が存在することを示します。各固有値の横には、その値がサンプルに出現する頻度（発生回数）を含む2番目の列もあります。これらの2つの列（固有値と頻度）は、ワークブック内のプロファイリングされたテーブルのすべてのソースカラムについて繰り返されます。
 
-```{r scanSex, fig.cap="単一列のサンプル値。", echo=FALSE, out.width='30%', fig.align='center'}
+```{r scanSex, fig.cap="単一列のサンプル値", echo=FALSE, out.width='30%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanSex.png")
 ```
 
@@ -104,13 +110,17 @@ Rabbit-In-a-HatはWhite Rabbitスキャンドキュメントを読み取り、�
 
 White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソースデータをOMOP CDMに変換する方法のロジックをデザインし、記述する準備が整います。次のセクションでは、Synthea[^extracttransformload-2]データベースのいくつかのテーブルが変換中にどのように見えるかを例示します。
 
+<<<<<<< HEAD
 [^extracttransformload-2]: Synthea^TM^は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、[こちら](https://github.com/synthetichealth/synthea/wiki)をご覧ください。
+=======
+[^extracttransformload-2]: Synthea^TM^は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、こちら：<https://github.com/synthetichealth/synthea/wiki> をご覧ください。
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 #### ETLの一般的なフロー {.unnumbered}
 
 CDMは人中心のモデルであるため、まずPERSONテーブルをマッピングすることが常に良い考えです。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照しているため、最初にPERSONテーブルのロジックを解決すると、後で簡単になります。PERSONテーブルの後は、OBSERVATION_PERIODテーブルを次に変換するのが良いルールです。CDMデータベースの各人物には少なくとも1つのOBSERVATION_PERIODがあり、一般的に、人物のほとんどのイベントはこの期間内に発生します。PERSONおよびOBSERVATION_PERIODテーブルが完了したら、次は通常、PROVIDER、CARE_SITE、およびLOCATIONなどの次元テーブルを変換します。臨床テーブルの前に処理すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはしばしばETL全体で最も複雑なロジックであり、最も重要なものの1つです。人物の患者の旅の過程で発生するほとんどのイベントは受診期間中に発生します。これらのテーブルが完了したら、どのCDMテーブルを変換し、その順序を選択できます。
 
-```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/flowOfEtl.png")
 ```
 
@@ -118,14 +128,15 @@ CDM変換中に中間テーブルを作成する必要があることがよく�
 
 #### マッピング例：Personテーブル {.unnumbered}
 
-Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson). に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
+Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson) に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
 
-```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/syntheaPersonTable.png")
 ```
 
-表\@ref(tab:syntheaEtlPerson)には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
+表 \@ref(tab:syntheaEtlPerson) には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
 
+<<<<<<< HEAD
 表：(\\＃tab:syntheaEtlPerson) Synthea PatientsテーブルをCDM PERSONテーブルに変換するためのETLロジック
 
 | 目的フィールド | ソースフィールド | ロジックとコメント |
@@ -133,6 +144,34 @@ knitr::include_graphics("images/ExtractTransformLoad/syntheaPersonTable.png")
 | PERSON_ID |  | 自動生成。 PERSON_IDは実装時に生成されます。これは、ソースのid値がvarchar値であり、PERSON_IDは整数であるためです。 ソースのidフィールドは、その値を保持し、必要に応じてエラーチェックを行うためにPERSON_SOURCE_VALUEとして設定されます。 |
 | GENDER_CONCEPT_ID | gender | 性別が「M」の場合、GENDER_CONCEPT_IDは8507、性別が「F」の場合は8532に設定します。不明な性別を持つ行は削除します。これらの2つのコンセプトは、性別ドメインの唯一の標準コンセプトであるため選ばれました。不明な性別の患者を削除するかどうかの決定は、通常、サイトに基づいて行われますが、性別のない人々は分析から除外されるため、削除することを推奨します。 |
 | YEAR_OF_BIRTH | birthdate | 生年月日から |
+=======
+| 目的フィールド | ソースフィールド | ロジックとコメント |
+|:---|:---|:---|
+| PERSON_ID |  | 自動生成。 PERSON_IDは実装時に生成されます。これは、ソースのid値がvarchar値であり、PERSON_IDは整数であるためです。 ソースのidフィールドは、その値を保持し、必要に応じてエラーチェックを行うためにPERSON_SOURCE_VALUEとして設定されます。 |
+| GENDER_CONCEPT_ID | gender | 性別が「M」の場合、GENDER_CONCEPT_IDは8507、性別が「F」の場合は8532に設定します。不明な性別を持つ行は削除します。これらの2つのコンセプトは、性別ドメインの唯一の標準コンセプトであるため選ばれました。不明な性別の患者を削除するかどうかの決定は、通常、サイトに基づいて行われますが、性別のない人々は分析から除外されるため、削除することを推奨します。 |
+| YEAR_OF_BIRTH | birthdate | 生年月日から年を採ります。 |
+| MONTH_OF_BIRTH | birthdate | 生年月日から月を採ります。 |
+| DAY_OF_BIRTH | birthdate | 生年月日から日を採ります。 |
+| BIRTH_DATETIME | birthdate | 0時を00:00:00とします。ここでは、ソースから出生時刻が提供されなかったため、0時を選択しました。 |
+| RACE_CONCEPT_ID | race | race = 'WHITE'の場合は8527、race = 'BLACK'の場合は8516、race = 'ASIAN'の場合は8515、それ以外の場合は0として設定されます。これらのコンセプトが選択されたのは、人種ドメ インに属する標準的なコンセプトであり、ソース内の人種カテゴリーに最も近いためです。 |
+| ETHNICITY\_ CONCEPT_ID | race ethnicity | race = 'HISPANIC'、または民族が ('CENTRAL_AMERICAN'、'DOMINICAN'、'MEXICAN'、'PUERTO_RICAN'、'SOUTH_AMERICAN') の場合、38003563 と設定され、それ以外の場合は 0 と設定されます。これは、複数のソース列が 1 つの CDM 列にどのように影響するかを示す良い例です。CDM では、民族は ヒスパニックまたは非ヒスパニック として表されるため、ソース列 race とソース列民族の両方の値がこの値を決定します。 |
+| LOCATION_ID |  |  |
+| PROVIDER_ID |  |  |
+| CARE_SITE_ID |  |  |
+| PERSON_SOURCE\_ VALUE | id |  |
+| GENDER_SOURCE\_ VALUE | gender |  |
+| GENDER_SOURCE\_ CONCEPT_ID |  |  |
+| RACE_SOURCE\_ VALUE | race |  |
+| RACE_SOURCE\_ CONCEPT_ID |  |  |
+| ETHNICITY\_ SOURCE_VALUE | ethnicity | この場合、ETHNICITY_SOURCE_VALUEはETHNICITY_CONCEPT_IDよりも粒度が高くなります。 |
+| ETHNICITY\_ SOURCE_CONCEPT_ID |  |  |
+
+: (#tab:syntheaEtlPerson) Synthea PatientsテーブルをCDM PERSONテーブルに変換するためのETLロジック
+
+SyntheaデータセットがCDMにどのようにマッピングされたかについては、仕様書全文をご覧ください[^extracttransformload-3]。
+
+[^extracttransformload-3]: <https://ohdsi.github.io/ETL-Synthea/>
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 ## ステップ2: コードマッピングの作成
 
@@ -160,17 +199,25 @@ WHERE concept_code = 'I21'
 
 ### Usagi
 
+<<<<<<< HEAD
 Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate[^extracttransformload-3]は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です[^extracttransformload-4]。 \index{Usagi} \index{source code mapping|see {Usagi}}
 
 [^extracttransformload-3]: <https://translate.google.com/>
 
 [^extracttransformload-4]: <https://github.com/OHDSI/Usagi>
+=======
+Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate[^extracttransformload-4]は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です[^extracttransformload-5]。 \index{Usagi} \index{source code mapping|see {Usagi}}
 
-#### 範囲と目的
+[^extracttransformload-4]: <https://translate.google.com/>
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
+
+[^extracttransformload-5]: <https://github.com/OHDSI/Usagi>
+
+#### 範囲と目的 {.unnumbered}
 
 マッピングが必要なソースコードはUsagiにロードされます（コードが英語でない場合は追加の翻訳列が必要です）。用語の類似性アプローチを使用してソースコードをボキャブラリコンセプトに接続します。ただし、これらのコード接続は手動で見直す必要があり、Usagiはこれを支援するインターフェースを提供します。Usagiはボキャブラリで標準コンセプトとしてマークされているコンセプトのみを提案します。
 
-#### プロセス概要
+#### プロセス概要 {.unnumbered}
 
 このソフトウェアを使用する一般的な手順は次のとおりです：
 
@@ -179,7 +226,7 @@ Usagiはコードマッピングを手動で作成するプロセスを支援す
 3.  Usagiのインターフェースを利用して、自動提案の正しさを確認し、必要に応じて改善します。コードシステムと医療用語に精通した個人によるレビューが推奨されます。
 4.  ボキャブラリのSOURCE_TO_CONCEPT_MAPにマッピングをエクスポートします。
 
-#### ソースコードをUsagiにインポート
+#### ソースコードをUsagiにインポート {.unnumbered}
 
 ソースコードをCSVまたはExcel (.xlsx) ファイルにエクスポートします。これには、ソースコードと英語のソースコード記述が含まれている必要がありますが、追加の情報（例：投与単位、元の言語の説明（翻訳された場合））も持ち込むことができます。さらに、コードの頻度も持ち込むことが望ましく、これによりどのコードに最も労力をかけるべきかを優先的に決定するのに役立ちます（例：1,000個のソースコードがあっても、システム内で本当に使用されるのは100個だけかもしれません）。英語に翻訳する必要がある場合は、Google Translateを使用します。
 
@@ -187,7 +234,7 @@ Usagiはコードマッピングを手動で作成するプロセスを支援す
 
 ソースコードはFile → Import codesメニューからUsagiにロードされます。ここでは「Import codes …」が表示される（図\@ref(fig:usagiImport)）。この図では、ソースコード用語がオランダ語で、英語に翻訳されたものも含まれています。Usagiは英語の翻訳を利用して標準ボキャブラリにマッピングします。
 
-```{r usagiImport, fig.cap="Usagiコード入力画面。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r usagiImport, fig.cap="Usagiコード入力画面", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 ```
 
@@ -198,7 +245,86 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 特別なフィルターとして「Filter by automatically selected concepts / ATC code」があります。制限する情報がある場合、Auto concept ID列（セミコロンで区切られた）にCONCEPT_IDsまたはATCコードのリストを提供することで検索を制限できます。例えば、薬剤の場合、既に各薬剤にATCコードが割り当てられているかもしれません。ATCコードは単一のRxNorm薬剤コードを特定しませんが、ボキャブラリ内のATCコードに該当するコンセプトのみを検索することで検索範囲を制限するのに役立ちます。ATCコードを使用するには、以下の手順に従います：
 
 1.  Column mapping部で、"Auto concept ID column"から"ATC column"に切り替える
+<<<<<<< HEAD
 2.  Column mapping部で、ATCコードの列を"AT
+=======
+2.  Column mapping部でで、ATCコードを含む列を"ATC column"として選択します。
+3.  フィルターセクションで「ユーザーが選択したコンセプト/ATCコードによるフィルター」をオンにします。
+
+ATCコード以外の情報源を使用して制限することもできます。上図の例では、UMLSから派生した部分的なマッピングを使用してUsagiの検索を制限しています。この場合、"Auto concept ID column" を使用する必要があります。
+
+すべての設定が完了したら、"Import" ボタンをクリックしてファイルをインポートします。ファイルのインポートには、ソースコードをマッピングするために用語の類似性アルゴリズムを実行しているため、数分かかります。
+
+#### ソースコードからボキャブラリコンセプトマップへのレビュー {.unnumbered}
+
+ソースコードの入力ファイルをインポートすると、マッピング処理が始まります。図 \@ref(fig:usagiOverview) を見ると、Usagi の画面は、コンセプトテーブル、選択されているマッピング・セクション、 検索を実行する場所の 3 つの主要な部分で構成されていることがわかります。どのテーブルでも、右クリックで表示/非表示の列を選択でき、視覚的な複雑さを軽減できます。
+
+```{r usagiOverview, fig.cap="Usagiでのソースコード入力画面", echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/ExtractTransformLoad/usagiOverview.png")
+```
+
+#### 提案されたマッピングを承認する {.unnumbered}
+
+「コンセプトテーブル」には、ソース・コードとコンセプトの現在のマッピングが表示されます。ソース・コードをインポートした直後、このマッピングには、用語の類似性と任意の検索オプションに基づいて自動的に生成されたマッピング候補が含まれます。図 \@ref(fig:usagiOverview) の例では、ユーザーはドメインをコンディションに限定しているため、オランダ語のコンディションの英語名コードがコンディションドメインの標準コンセプトにマッピングされています。Usagi は、ソースコードの説明とコンセプト名および同義語を比較して、最適な一致を見つけます。ユーザは "Include source terms" (ソース用語を含む) を選択したため、Usagi は、特定のコンセプトにマッピングされるボキャブラリ内のすべてのソースコンセプトの名前と同義語も考慮しました。Usagi がマッピングできない場合は、CONCEPT_ID = 0 にマッピングされます。
+
+ソース・コードを関連する標準ボキャブラリにマッピングする際には、コーディング・システムの経験がある人が支援することをお勧めします。その人は、"Overview Table" （概要テーブル） のコードごとに作業して、Usagi が提案したマッピングを受け入れるか、新しいマッピングを選択します。例えば、図 \@(ref:fig:usagiOverview) を見ると、オランダ語の "Hoesten" は英語の "Cough" (咳嗽）に翻訳されています。Usagiは "Cough" を使って、"4158493-C/O - cough "という語彙概念にマッピングしました。このマッチしたペアのマッチングスコアは0.58でした（マッチングスコアは通常0～1で、1は確実に一致することを意味します）。この場合、私たちはこのマッピングに問題がないとします。画面右下の緑色の"Approve (承認)" ボタンを押すことで、このマッピングを承認できます。
+
+#### 新しいマッピングを検索する {.unnumbered}
+
+Usagiがマップを提案した場合、ユーザはより良いマッピングを見つけるか、マップを概念なし（CONCEPT_ID = 0）に設定する必要があります。図 \@ref(fig:usagiOverview)の例では、オランダ語の 「Hoesten」を 「Cough」と訳しています。Usagiの提案は、UMLSから自動的に導き出されたマッピングで特定された概念によって制限されており、結果は最適ではないかもしれません。検索機能では、実際の用語自体または検索ボックスのクエリを使用して、他のコンセプトを検索することができます。
+
+手動検索ボックスを使用する場合、Usagiはファジー検索を使用し、ANDやORのような論理演算子はサポートされていません。構造化検索クエリをサポートしていないことに留意する必要があります。
+
+この例を続けるために、より良いマッピングを見つけるために「Cough」という検索語を使用したとします。検索機能の「クエリ」セクションの右側には「フィルタ」セクションがあり、検索語を検索する際に語彙から結果を絞り込むオプションがあります。この場合、標準コンセプトのみを検索したいことがわかっているため、標準コンセプトにマッピングされるボキャブラリ内のソースコンセプトの名前と同義語に基づいてコンセプトを検索できるようにします。
+
+これらの検索条件を適用すると、「254761-Cough」が見つかり、これがオランダ語のコードにマッピングする適切なボキャブラリコンセプトである可能性があるように思えます。そのためには、「Selected Source Code（選択されたソースコード）」 セクションの更新で表示される 「Replace concept （コンセプトを置換する）」 ボタンを押し、「Approve (承認)」 ボタンを押します。また、「Add concept (コンセプトの追加)」 ボタンもあり、複数の標準化されたボキャブラリのコンセプトを 1 つのソースコードにマッピングすることができます。(例えば、ソースコードによっては、複数の疾患をひとまとめにしている場合がありますが、標準化されたボキャブラリではひとまとめにしていない場合があります）。
+
+#### コンセプト情報 {.unnumbered}
+
+マップする適切なコンセプトを探す場合、コンセプトの「社会性」を考慮することが重要です。あるコンセプトの意味は、そのコンセプトの階層における位置に部分的に依存することがあります。また、ボキャブラリの中には、階層的な関係がほとんどない、あるいは全くない「孤立したコンセプト」が存在することがあり、それらはターゲットにするコンセプトとしては適していません。また、ALT + Cキーを押すか、上部メニューバーのview （閲覧）-\> Concept information (コンセプト情報) を選択することで、より多くの情報を表示することができます。
+
+```{r usagiConceptInfo, fig.cap="Usagi コンセプト情報パネル", echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
+```
+
+図 \@ref(fig:usagiConceptInfo) にコンセプト情報パネルを示します。このパネルには、コンセプトに関する一般的な情報と、そのコンセプトにマップされる親、子、その他のソース・コードが表示されます。このパネルを使用して階層を移動し、別のターゲット・コンセプトを選択することができます。
+
+すべてのコードがチェックされるまで、コードごとにこのプロセスを続行します。画面上部のソース・コードのリストで、列見出しを選択すると、コードを並べ替えることができます。多くの場合、頻度の高いコードから低いコードに並べ替えることをお勧めします。画面左下には、マッピングが承認されたコードの数と、そのコードの出現回数が表示されます。
+
+マッピングにコメントを追加することができ、そのマッピングがどのように決定されたのかを記録することに利用できます。
+
+#### ベスト・プラクティス {.unnumbered}
+
+-   コーディングスキームの経験がある人に参加してもらってください。
+-   列名をクリックすると、「コンセプトテーブル」の列を並べ替えることができます。"Match Score (マッチングスコア)"で並べ替えることは価値があるかもしれません。Usagiが最も自信を持っているコードを最初にレビューすることで、かなりの数のコードがすぐに終えることができるかもしれません。また、"Frequency (頻度)" での並べ替えも重要です。頻度の高いコードに対して、そうでないコードよりも労力を費やすことは重要です。
+-   場合によっては、CONCEPT_ID = 0にマップするコードも良作です。良いマップを見つける価値がないコードもありますし、適切なマップがないコードもあります。
+-   コンセプトの文脈、特にその親と子を考慮することが重要です。
+
+#### Usagiで作成されたマッピングを出力する {.unnumbered}
+
+USAGI 内でマップを作成したら、それをエクスポートしてボキャブラリ SOURCE_TO_CONCEPT_MAP テーブルに追加するのが、今後マッピングを使用するための最良の方法です。
+
+マッピングをエクスポートするには、File (ファイル) -\> Export source_to_concept_map (ソースからコンセプトへのマッピングを出力) に進みます。どのSOURCE_VOCABULARY_IDを使用するかを尋ねるポップアップが表示されるので、短いID (識別子) を入力してください。UsagiはこのIDをSOURCE_VOCABULARY_IDとして使用し、SOURCE_TO_CONCEPT_MAPテーブルで特定のマッピングを識別できるようにします。
+
+SOURCE_VOCABULARY_IDを選択したら、出力したCSVに名前を付けて保存します。出力したCSVの構造はSOURCE_TO_CONCEPT_MAPテーブルになります。このマッピングは、ボキャブラリのSOURCE_TO_CONCEPT_MAPテーブルに追加できます。また、上記の手順で定義したSOURCE_VOCABULARY_IDを定義するVOCABULARYテーブルに1行を追加することも理にかなっています。最後に、「Approved (承認)」ステータスのマッピングのみがCSVファイルにエクスポートされることに注意してください。すなわち、マッピングをエクスポートするには、USAGIでマッピングを完了する必要があります。
+
+#### Usagiで作成されたマッピングを更新する {.unnumbered}
+
+多くの場合、マッピングは一度だけの作業ではありません。データが更新されると、新しいソース・コードが追加され、ボキャブラリが定期的に更新されるため、マッピングの更新が必要になる場合があります。
+
+ソース・コードのセットが更新された場合は、次の手順で更新できます。
+
+1.  新しいソース・コード・ファイルをインポートします。
+2.  File (ファイル) -\> Apply previous mapping (以前のマッピングを適用する) を選択します。
+3.  古いマッピングから引き継いだ承認済みのマッピングではないコードを見つけて、それらを通常通りマッピングします。
+
+ボキャブラリが更新されたら、以下の手順に従ってください：
+
+1.  Athena から新しいボキャブラリファイルをダウンロードします。
+2.  Usagi インデックスを再構築します（Help (ヘルプ) -\> Rebuild index (インデックスを再構築する)）。
+3.  マッピング・ファイルを開きます。
+4.  新しいバージョンのボキャブラリで標準コンセプトでなくなったコンセプトにマップされるコードを特定し、より適切なターゲットコンセプトを見つけます。
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 ## ステップ 3: ETLの実装
 
@@ -240,6 +366,7 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 
 データをCDMに変換するグループが増えるにつれ、特定の状況でETLがどのように対処すべきかを指定する必要があることが明らかになりました。たとえば、出生年が欠けている個人記録の場合、ETLはどうすべきでしょうか？CDMの目標はヘルスケアデータを標準化することですが、各グループが特定のデータシナリオを異なる方法で処理すると、ネットワーク全体でデータを体系的に使用することが難しくなります。
 
+<<<<<<< HEAD
 OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます[^extracttransformload-5]。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。
 
 [^extracttransformload-5]: <https://github.com/OHDSI/CommonDataModel/wiki>
@@ -249,6 +376,17 @@ OHDSIコミュニティは、一貫性を向上させるために慣行を文書
 [^extracttransformload-6]: <https://github.com/OHDSI/Themis>
 
 [^extracttransformload-7]: <http://forums.ohdsi.org/>
+=======
+OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます[^extracttransformload-6]。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。
+
+[^extracttransformload-6]: <https://github.com/OHDSI/CommonDataModel/wiki>
+
+すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS[^extracttransformload-7]は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします[^extracttransformload-8]。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。
+
+[^extracttransformload-7]: <https://github.com/OHDSI/Themis>
+
+[^extracttransformload-8]: <http://forums.ohdsi.org/>
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 ## CDMおよびETLのメンテナンス {#CDMandETLMaintenance}
 
@@ -269,9 +407,15 @@ ETLプロセスにはさまざまな理由で困難があります。その中�
 -   80/20のルール。可能な限り、ソースコードを手動でコンセプトセットにマッピングするのに過度に時間を費やさないようにしましょう。理想的には、大多数のデータをカバーするソースコードをマッピングしてください。これで十分であり、将来のユースケースに基づいて残りのコードに対処することができます。
 -   研究の品質に見合わないデータを失うことを恐れなくても良い。それらはしばしば分析を開始する前に破棄されるレコードであり、私たちはETLプロセス中にそれらを削除します。
 -   CDMはメンテナンスが必要です。ETLが完了したからといって、再び触らないということではありません。生データが変更されるかもしれませんし、コードにバグがあるかもしれません。新しいボキャブラリやCDMの更新があるかもしれません。これらの変更に対応するためのリソースを計画しておくことで、ETLが常に最新の状態に保たれるようにしましょう。
+<<<<<<< HEAD
 -   OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム[^extracttransformload-8]をご覧ください。
 
 [^extracttransformload-8]: <https://forums.ohdsi.org/c/implementers>
+=======
+-   OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム[^extracttransformload-9]をご覧ください。
+
+[^extracttransformload-9]: <https://forums.ohdsi.org/c/implementers>
+>>>>>>> 63f5a344f22fca7084ae3213128bbf04fca50b3b
 
 ## まとめ
 
@@ -292,7 +436,7 @@ ETLプロセスにはさまざまな理由で困難があります。その中�
 ## 演習
 
 ```{exercise, exerciseEtl1}
-ETLプロセスのステップを適切な順序に並べてください：
+ ETLプロセスのステップを適切な順序に並べてください：
 
 A) データ専門家とCDM専門家が協力してETLをデザイン
 B) 技術者がETLを実装
@@ -302,9 +446,9 @@ D) すべての関係者が品質管理に関与
 ```
 
 ```{exercise, exerciseEtl2}
-選択したOHDSIリソースを使用して、表\@ref(tab:exercisePersonTable)に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
+ 選択したOHDSIリソースを使用して、表 \@ref(tab:exercisePersonTable) に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
 
-表: (\#tab:exercisePersonTable) PERSONテーブル。
+Table: (\#tab:exercisePersonTable) PERSONテーブル
 
 列 | 値
 :---------------- |:-----------
@@ -323,14 +467,14 @@ ETHNICITY_SOURCE_VALUE | 提供されていない
 ```
 
 ```{exercise, exerciseEtl3}
-VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
+ VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
 PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある限り、請求行をまとめます。まとめられた入院請求ごとに1つの入院受診期間と見なし、以下を設定します：
 
 - MIN(START)をVISIT_START_DATEとして設定
 - MAX(END)をVISIT_END_DATEとして設定
 - "IP"をPLACE_OF_SERVICE_SOURCE_VALUEとして設定
 
-ソースデータに図\@ref(fig:exerciseSourceData)に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
+ソースデータに図 \@ref(fig:exerciseSourceData) に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
 
 ```
 
@@ -338,4 +482,4 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDご�
 knitr::include_graphics("images/ExtractTransformLoad/exerciseSourceData.png")
 ```
 
-提案された回答は付録\@ref(Etlanswers)に見つけることができます。
+提案された回答は付録 \@ref(Etlanswers) に見つけることができます。
