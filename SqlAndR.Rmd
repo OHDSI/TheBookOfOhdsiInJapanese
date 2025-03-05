@@ -309,9 +309,11 @@ SQL Serverでは、値にデータベース名とスキーマ名の両方を含�
 launchSqlRenderDeveloper()
 ```
 
-これにより、図\@ref(fig:sqlDeveloper)に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[\^sqlDeveloperUrl]
+これにより、図 \@ref(fig:sqlDeveloper) に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[\^sqlDeveloperUrl]
 
-\`\`\`{r sqlDeveloper, fig.cap='The SqlDeveloper'
+```{r sqlDeveloper, fig.cap='The SqlDeveloper Shiny app.',echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("images/SqlAndR/sqlDeveloper.png")
+```
 
 ## DatabaseConnector {#DatabaseConnector}
 
@@ -913,4 +915,3 @@ SQL および R を使用して、セレコキシブの服用中に胃腸出血�
 ```
 
 提案された解答は付録 \@ref(SqlAndRanswers) にあります。
-
