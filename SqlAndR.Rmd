@@ -113,7 +113,7 @@ translate(sql, targetDialect = "postgresql")
 
 これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
-表: (#tab:sqlFunctions) supported by translate
+表: (\\#tab:sqlFunctions) supported by translate
 
 | 関数              | 関数        | 関数       |
 |:------------------|:------------|:-----------|
@@ -913,4 +913,3 @@ SQL および R を使用して、セレコキシブの服用中に胃腸出血�
 ```
 
 提案された解答は付録 \@ref(SqlAndRanswers) にあります。
-

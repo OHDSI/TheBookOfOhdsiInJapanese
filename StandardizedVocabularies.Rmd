@@ -22,24 +22,26 @@ knitr::include_graphics("images/StandardizedVocabularies/bill.jpg")
 
 OHDSIは、観察研究のためのグローバルスタンダードであるOMOP CDMを開発しました。CDMの一部として、OMOPで標準化されたボキャブラリは次の2つの主要な目的のために利用可能です：
 
-- コミュニティで使用されるすべてのボキャブラリの共通リポジトリ
-- 研究での使用のための標準化とマッピング
+-   コミュニティで使用されるすべてのボキャブラリの共通リポジトリ
+-   研究での使用のための標準化とマッピング
 
 標準化されたボキャブラリは無料でコミュニティに提供されており、OMOP CDMインスタンスには必須の参考文献テーブルとして**使用しなければなりません**。
 
 ### 標準化されたボキャブラリの構築
 
-標準化されたボキャブラリのすべてのボキャブラリは、共通の形式に統合されています。これにより、研究者が元のボキャブラリの複数の異なる形式とライフサイクルの慣例を理解して扱う必要がなくなります。すべてのボキャブラリは定期的に更新され、Pallasシステムを使用して統合されます[^pallasUrl]。これは、全体のOMOP CDMワークグループの一部であるOHDSIボキャブラリチームによって構築および運営されています。誤りを見つけた場合は、OHDSIフォーラム[^forums2Url]またはCDM GitHubページ[^cdmIssuesUrl]に投稿して、私たちのリソースを改善するのにご協力ください。 \index{Pallas system}
+標準化されたボキャブラリのすべてのボキャブラリは、共通の形式に統合されています。これにより、研究者が元のボキャブラリの複数の異なる形式とライフサイクルの慣例を理解して扱う必要がなくなります。すべてのボキャブラリは定期的に更新され、Pallasシステムを使用して統合されます[^standardizedvocabularies-1]。これは、全体のOMOP CDMワークグループの一部であるOHDSIボキャブラリチームによって構築および運営されています。誤りを見つけた場合は、OHDSIフォーラム[^standardizedvocabularies-2]またはCDM GitHubページ[^standardizedvocabularies-3]に投稿して、私たちのリソースを改善するのにご協力ください。 \index{Pallas system}
 
-[^pallasUrl]: https://github.com/OHDSI/Vocabulary-v5.0
-[^forums2Url]: https://forums.ohdsi.org
-[^cdmIssuesUrl]: https://github.com/OHDSI/CommonDataModel/issues
+[^standardizedvocabularies-1]: <https://github.com/OHDSI/Vocabulary-v5.0>
+
+[^standardizedvocabularies-2]: <https://forums.ohdsi.org>
+
+[^standardizedvocabularies-3]: <https://github.com/OHDSI/CommonDataModel/issues>
 
 ### 標準化されたボキャブラリへのアクセス {#accessVocabularies}
 
-標準化されたボキャブラリを取得するためには、自分でPallasを実行する必要はありません。代わりに、ATHENA[^athenaUrl]から最新バージョンをダウンロードし、ローカルデータベースにロードできます。ATHENAでは、ボキャブラリのファセット検索も可能です。 \index{ATHENA} \index{standardized vocabularies!download} \index{standardized vocabularies!search}
+標準化されたボキャブラリを取得するためには、自分でPallasを実行する必要はありません。代わりに、ATHENA[^standardizedvocabularies-4]から最新バージョンをダウンロードし、ローカルデータベースにロードできます。ATHENAでは、ボキャブラリのファセット検索も可能です。 \index{ATHENA} \index{standardized vocabularies!download} \index{standardized vocabularies!search}
 
-[^athenaUrl]: http://athena.ohdsi.org
+[^standardizedvocabularies-4]: <http://athena.ohdsi.org>
 
 OMOP CDMのボキャブラリをすべて選んで、標準化されたボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション\@ref(standardConcepts)参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスの証明を示すか、適切な人々と連絡を取り合うためのサポートを提供します。
 
@@ -67,8 +69,7 @@ knitr::include_graphics("images/StandardizedVocabularies/concept.png")
 
 ### ドメイン {#conceptDomains}
 
-各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメインに対する短い大文字小文字区別のない一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧または事前コード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション\@ref(standardConcepts)参照）は常に単一のドメインに割り当てられます。ドメインはまた、臨床イベントまたはイベント属性がCDMテーブルおよびフィールドのどこに記録されるかを指示します。
-ドメインの割り当ては、[Pallas](https://github.com/ohDSI/vocabulary-v5.0)に示されているヒューリスティックを使用してボキャブラリの取り込み中に行われるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図\@ref(fig:domains)参照）。\index{domain!concept}
+各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメインに対する短い大文字小文字区別のない一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧または事前コード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション\@ref(standardConcepts)参照）は常に単一のドメインに割り当てられます。ドメインはまた、臨床イベントまたはイベント属性がCDMテーブルおよびフィールドのどこに記録されるかを指示します。 ドメインの割り当ては、[Pallas](https://github.com/ohDSI/vocabulary-v5.0)に示されているヒューリスティックを使用してボキャブラリの取り込み中に行われるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図\@ref(fig:domains)参照）。\index{domain!concept}
 
 ```{r domains, fig.cap='手続きボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/domains.png")
@@ -84,20 +85,20 @@ knitr::include_graphics("images/StandardizedVocabularies/domains.png")
 
 一部のボキャブラリはコードまたはコンセプトを分類しており、それを大文字小文字区別のない一意の英数字IDで示します。たとえば、SNOMEDには「意味タグ」と呼ばれる33のコンセプトクラスがあり、臨床所見、社会的状況、身体構造などがあります。これらはコンセプトの垂直的な区分です。また、MedDRAやRxNormのように、階層的な階層の横方向のレベルを分類するコンセプトクラスを持つものもあります。コンセプトクラスを持たないボキャブラリ（例えばHCPCS）の場合、ボキャブラリIDがConcept Class IDとして使用されます。 \index{concept!class}
 
-表: (\#tab:sublassification) コンセプトクラスにおける水平および垂直のサブ分類原則を持つボキャブラリと持たないボキャブラリ。
+表: (\\#tab:sublassification) コンセプトクラスにおける水平および垂直のサブ分類原則を持つボキャブラリと持たないボキャブラリ。
 
-コンセプトクラスの区分原則 | ボキャブラリ
-:-------- |:----------------------------------
-水平 | すべての薬物ボキャブラリ、ATC、CDT、Episode、HCPCS、HemOnc、ICDs、MedDRA、OSM、国勢調査
-垂直 | CIEL、HES専門、ICDO3、MeSH、NAACCR、NDFRT、OPCS4、PCORNET、Plan、PPI、Provider、SNOMED、SPL、UCUM
-混在 | CPT4、ISBT、LOINC
-なし | APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、訪問
+| コンセプトクラスの区分原則 | ボキャブラリ |
+|:---|:---|
+| 水平 | すべての薬物ボキャブラリ、ATC、CDT、Episode、HCPCS、HemOnc、ICDs、MedDRA、OSM、国勢調査 |
+| 垂直 | CIEL、HES専門、ICDO3、MeSH、NAACCR、NDFRT、OPCS4、PCORNET、Plan、PPI、Provider、SNOMED、SPL、UCUM |
+| 混在 | CPT4、ISBT、LOINC |
+| なし | APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、訪問 |
 
 水平コンセプトクラスにより、特定の階層レベルを決定することができます。たとえば、薬物ボキャブラリRxNormにおけるコンセプトクラス「Ingredient」は階層の最上位レベルを定義します。垂直モデルでは、コンセプトクラスのメンバーは最上位から最下位までの任意の階層レベルであることができます。
 
 ### 標準コンセプト {#standardConcepts}
 
-各臨床イベントを表す1つのコンセプトが標準として指定されます。たとえば、コンディションドメインにおいて、「心房細動」を定義するMESHコードD001281、CIELコード148203、SNOMEDコード49436004、ICD9CMコード427.31、およびReadコードG573000のすべてがSNOMEDコンセプトは標準であり、この条件をデータ内で表します。他のものは非標準またはソースコンセプトとして指定され、標準のものにマッピングされています。標準コンセプトはSTANDARD_CONCEPTフィールドに「S」で示されます。そして、これらの標準コンセプトのみが"_CONCEPT_ID"で終わるCDMフィールドにデータを記録するために使用されます。 \index{standard concept}
+各臨床イベントを表す1つのコンセプトが標準として指定されます。たとえば、コンディションドメインにおいて、「心房細動」を定義するMESHコードD001281、CIELコード148203、SNOMEDコード49436004、ICD9CMコード427.31、およびReadコードG573000のすべてがSNOMEDコンセプトは標準であり、この条件をデータ内で表します。他のものは非標準またはソースコンセプトとして指定され、標準のものにマッピングされています。標準コンセプトはSTANDARD_CONCEPTフィールドに「S」で示されます。そして、これらの標準コンセプトのみが"\_CONCEPT_ID"で終わるCDMフィールドにデータを記録するために使用されます。 \index{standard concept}
 
 ### 非標準コンセプト
 
@@ -113,56 +114,38 @@ knitr::include_graphics("images/StandardizedVocabularies/hierarchy.png")
 
 標準、非標準、分類のコンセプトの選択は、通常各ドメインごとにボキャブラリレベルで行われます。これはコンセプトの品質、内蔵の階層、およびボキャブラリの宣言された目的に基づいています。また、すべてのボキャブラリのコンセプトが標準コンセプトとして使用されているわけではありません。各ドメインごとに別々に指定されており、各コンセプトはアクティブである必要があります（セクション\@ref(コンセプトライフサイクル)参照）し、複数のボキャブラリから同じ意味を競うコンセプトがある場合、優先順位が設定されることがあります。つまり、「標準ボキャブラリ」などというものはありません。例については表\@ref(tab:vocabList)を参照してください。
 
-表: (\#tab:vocabList) 標準/非標準/分類コンセプトの割り当てに利用するボキャブラリのリスト。
+表: (\\#tab:vocabList) 標準/非標準/分類コンセプトの割り当てに利用するボキャブラリのリスト。
 
-ドメイン | 標準コンセプトのためのボキャブラリ | ソースコンセプトのためのボキャブラリ | 分類コンセプトのためのボキャブラリ
-:-------- |:--------------- |:--------------- |:-------------
-条件 | SNOMED, ICDO3 | SNOMED Veterinary | MedDRA
-手続き | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR | 現時点ではなし
-測定 | SNOMED, LOINC | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | 現時点ではなし
-薬剤 | RxNorm, RxNorm Extension, CVX | HCPCS, CPT4, HemOnc, NAACCR | ATC
-装置 | SNOMED | 他のボキャブラリ、現在は標準化されていない | 現時点ではなし
-観察 | SNOMED | 他のボキャブラリ | 現時点ではなし
-訪問 | CMS Place of Service, ABMT, NUCC | SNOMED, HCPCS, CPT4, UB04 | 現時点ではなし
+| ドメイン | 標準コンセプトのためのボキャブラリ | ソースコンセプトのためのボキャブラリ | 分類コンセプトのためのボキャブラリ |
+|:---|:---|:---|:---|
+| 条件 | SNOMED, ICDO3 | SNOMED Veterinary | MedDRA |
+| 手続き | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR | 現時点ではなし |
+| 測定 | SNOMED, LOINC | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | 現時点ではなし |
+| 薬剤 | RxNorm, RxNorm Extension, CVX | HCPCS, CPT4, HemOnc, NAACCR | ATC |
+| 装置 | SNOMED | 他のボキャブラリ、現在は標準化されていない | 現時点ではなし |
+| 観察 | SNOMED | 他のボキャブラリ | 現時点ではなし |
+| 訪問 | CMS Place of Service, ABMT, NUCC | SNOMED, HCPCS, CPT4, UB04 | 現時点ではなし |
 
 ### コンセプトコード
 
 コンセプトコードはソースボキャブラリで使用される識別子です。たとえば、ICD9CMまたはNDCコードはこのフィールドに保存され、OMOPテーブルはCONCEPTテーブルへの外部キーとしてコンセプトIDを使用します。その理由は、名前空間がボキャブラリを超えて重複するためです。つまり、同じコードが異なるボキャブラリで完全に異なる意味を持つことができます（表\@ref(tab:code1001)参照）。\index{concept!code}
 
-表: (\#tab:code1001) 同じコンセプトコード1001を持つが、異なるボキャブラリ、ドメイン、コンセプトクラスのコンセプト。
+表: (\\#tab:code1001) 同じコンセプトコード1001を持つが、異なるボキャブラリ、ドメイン、コンセプトクラスのコンセプト。
 
-コンセプトID | コンセプトコード | コンセプト名 | ドメインID | ボキャブラリID | コンセプトクラス
-:--------- |:---- |:------------ |:---------- |:---------- |:----------
-35803438 | 1001 | 顆粒球コロニー刺激因子 | 薬剤 | HemOnc | コンポーネントクラス
-35942070 | 1001 | AJCC TNM Clin T | 測定 | NAACCR | NAACCR変数
-1036059 | 1001 | アンチピリン | 薬剤 | RxNorm | 成分
-38003544 | 1001 | レジデンシャル治療 - 精神科 | 収益コード | 収益コード | 収益コード
-43228317 | 1001 | アセプロメタジンマレイン酸塩 | 薬剤 | BDPM | 成分
-45417187 | 1001 | ブロムフェニラミンマレイン酸塩、10 mg/ml注射用溶液 | 薬剤 | Multum | Multum
-45912144 | 1001 | 血清 | 標本 | CIEL | 標本
+| コンセプトID | コンセプトコード | コンセプト名 | ドメインID | ボキャブラリID | コンセプトクラス |
+|:---|:---|:---|:---|:---|:---|
+| 35803438 | 1001 | 顆粒球コロニー刺激因子 | 薬剤 | HemOnc | コンポーネントクラス |
+| 35942070 | 1001 | AJCC TNM Clin T | 測定 | NAACCR | NAACCR変数 |
+| 1036059 | 1001 | アンチピリン | 薬剤 | RxNorm | 成分 |
+| 38003544 | 1001 | レジデンシャル治療 - 精神科 | 収益コード | 収益コード | 収益コード |
+| 43228317 | 1001 | アセプロメタジンマレイン酸塩 | 薬剤 | BDPM | 成分 |
+| 45417187 | 1001 | ブロムフェニラミンマレイン酸塩、10 mg/ml注射用溶液 | 薬剤 | Multum | Multum |
+| 45912144 | 1001 | 血清 | 標本 | CIEL | 標本 |
 
 ### ライフサイクル {#conceptLifeCycle}
 
-ボキャブラリはめったに固定されたコード集合を持つ永久的なコーパスではありません。代わりに、コードとコンセプトは追加されたり廃止されたりします。OMOP CDMは縦断的な患者データをサポートするモデルであるため、過去に使用されたが現在はアクティブでないコンセプトや、新しいコンセプトをサポートし、それらを文脈に配置する必要があります。CONCEPTテーブルには、可能なライフサイクルの状態を説明する3つのフィールドがあります：VALID_START_DATE、VALID_END_DATE、およびINVALID_REASON。これらのフィールドの値はコンセプトのライフサイクルの状態によって異なります：
-- **アクティブまたは新しいコンセプト**
-	- 説明: 使用中のコンセプト。
-	- VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリへの取り込み日、またはそれが不明な場合は1970-1-1。
-	- VALID_END_DATE: 現在アクティブなコンセプトとして「不定期な将来で無効になる可能性があるが、現在はアクティブ」と示すための慣習として2099-12-31と設定されています。
-	- INVALID_REASON: NULL
-- **後継者のない廃止されたコンセプト**
-	- 説明: 標準コンセプトとして使用できない非アクティブなコンセプト（セクション\@ref(standardConcepts)参照）。
-	- VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリへの取り込み日、またはそれが不明な場合は1970-1-1。
-	- VALID_END_DATE: 過去の日付で無効化を示す、またはそれが不明な場合はボキャブラリ更新の日。
-	- INVALID_REASON: "D"
-- **後継者のあるアップグレードされたコンセプト**
-	- 説明: 非アクティブなコンセプトですが、定義された後継者があります。これらは通常、重複排除を経たコンセプトです。
-	- VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリ取り込み日、または1970-1-1。
-	- VALID_END_DATE: 過去の日付でアップグレードを示す、またはボキャブラリ更新の日。
-	- INVALID_REASON: "U"
-- **新しいコンセプトのために再利用されたコード**
-	- 説明: ボキャブラリがこの廃止されたコンセプトのコードを新しいコンセプトのために再利用しました。
-	- VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合は語
-	
+ボキャブラリはめったに固定されたコード集合を持つ永久的なコーパスではありません。代わりに、コードとコンセプトは追加されたり廃止されたりします。OMOP CDMは縦断的な患者データをサポートするモデルであるため、過去に使用されたが現在はアクティブでないコンセプトや、新しいコンセプトをサポートし、それらを文脈に配置する必要があります。CONCEPTテーブルには、可能なライフサイクルの状態を説明する3つのフィールドがあります：VALID_START_DATE、VALID_END_DATE、およびINVALID_REASON。これらのフィールドの値はコンセプトのライフサイクルの状態によって異なります： - **アクティブまたは新しいコンセプト** - 説明: 使用中のコンセプト。 - VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリへの取り込み日、またはそれが不明な場合は1970-1-1。 - VALID_END_DATE: 現在アクティブなコンセプトとして「不定期な将来で無効になる可能性があるが、現在はアクティブ」と示すための慣習として2099-12-31と設定されています。 - INVALID_REASON: NULL - **後継者のない廃止されたコンセプト** - 説明: 標準コンセプトとして使用できない非アクティブなコンセプト（セクション\@ref(standardConcepts)参照）。 - VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリへの取り込み日、またはそれが不明な場合は1970-1-1。 - VALID_END_DATE: 過去の日付で無効化を示す、またはそれが不明な場合はボキャブラリ更新の日。 - INVALID_REASON: "D" - **後継者のあるアップグレードされたコンセプト** - 説明: 非アクティブなコンセプトですが、定義された後継者があります。これらは通常、重複排除を経たコンセプトです。 - VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合はボキャブラリ取り込み日、または1970-1-1。 - VALID_END_DATE: 過去の日付でアップグレードを示す、またはボキャブラリ更新の日。 - INVALID_REASON: "U" - **新しいコンセプトのために再利用されたコード** - 説明: ボキャブラリがこの廃止されたコンセプトのコードを新しいコンセプトのために再利用しました。 - VALID_START_DATE: コンセプトの生成日、またはそれが不明な場合は語
+
 ## 関係
 
 任意の2つのコンセプトは、そのドメインやボキャブラリーが同じであるかどうかに関係なく、定義された関係を持つことができます。関係の性質は、CONCEPT_RELATIONSHIPテーブルのRELATIONSHIP_IDフィールドにある、大文字小文字を区別する一意の英数字IDで示されます。関係は対称的であり、各関係には同等の関係が存在し、フィールドCONCEPT_ID_1とCONCEPT_ID_2の内容が入れ替わり、RELATIONSHIP_IDはその逆に変更されます。たとえば、「Maps to」関係には反対の関係「Mapped from」があります。\index{concept!relationship}
@@ -173,12 +156,12 @@ CONCEPT_RELATIONSHIPテーブルのレコードには、ライフサイクルフ
 
 これらの関係は、非標準のコンセプトから標準コンセプトへの変換を提供し、2つの関係IDペアによってサポートされています（表\@ref(tab:mappingRelationships)を参照）。\index{concept!mapping}
 
-Table: (\#tab:mappingRelationships) マッピング関係の種類。
+表: (\\#tab:mappingRelationships) マッピング関係の種類。
 
-関係IDペア | 目的
-:------------- | :----------------------------------------------------
-"Maps to"および"Mapped from" | 標準コンセプトへのマッピング。標準コンセプトはそれ自身にマッピングされ、非標準コンセプトは標準コンセプトにマッピングされます。ほとんどの非標準コンセプトとすべての標準コンセプトは、この関係を持ち、前者は*_SOURCE_CONCEPT_IDに、後者は*_CONCEPT_IDフィールドに保存されます。分類コンセプトはマッピングされません。
-"Maps to value"および"Value mapped from" | MEASUREMENTおよびOBSERVATIONテーブルのVALUE_AS_CONCEPT_IDフィールドに配置する値を表すコンセプトへのマッピング。
+| 関係IDペア | 目的 |
+|:---|:---|
+| "Maps to"および"Mapped from" | 標準コンセプトへのマッピング。標準コンセプトはそれ自身にマッピングされ、非標準コンセプトは標準コンセプトにマッピングされます。ほとんどの非標準コンセプトとすべての標準コンセプトは、この関係を持ち、前者は\*\_SOURCE_CONCEPT_IDに、後者は\*\_CONCEPT_IDフィールドに保存されます。分類コンセプトはマッピングされません。 |
+| "Maps to value"および"Value mapped from" | MEASUREMENTおよびOBSERVATIONテーブルのVALUE_AS_CONCEPT_IDフィールドに配置する値を表すコンセプトへのマッピング。 |
 
 これらのマッピング関係の目的は、同等のコンセプト間のクロスウォークを可能にし、臨床イベントがOMOP CDMでどのように表現されるかを統一することです。これは標準化されたボキャブラリの主要な成果です。
 
@@ -188,10 +171,10 @@ Table: (\#tab:mappingRelationships) マッピング関係の種類。
 
 「Maps to value」関係の目的は、エンティティ-属性-値（EAV）モデルに従ったOMOP CDMテーブルの値を分割することです。これは次の状況で典型的です：
 
-- 検査値と結果値からなる測定値
-- 個人または家族の疾患歴
-- 物質に対するアレルギー
-- 予防接種の必要性
+-   検査値と結果値からなる測定値
+-   個人または家族の疾患歴
+-   物質に対するアレルギー
+-   予防接種の必要性
 
 これらの状況では、ソースコンセプトは属性（テストまたは履歴）と値（テスト結果または病気）の組み合わせです。「Maps to」関係はこのソースを属性コンセプトにマッピングし、「Maps to value」は値コンセプトにマッピングします。例については図\@ref(fig:conceptValue)を参照してください。
 
@@ -201,9 +184,9 @@ knitr::include_graphics("images/StandardizedVocabularies/conceptValue.png")
 
 コンセプトのマッピングは、ネットワーク研究を行っているコミュニティの努力を支えるために提供されているOMOP標準化されたボキャブラリのもう一つの中心的な機能です。マッピング関係は外部ソースから派生するか、ボキャブラリチームによって手動で維持されます。これはそれらが完璧でないことを意味します。誤ったまたは異議のあるマッピング関係を見つけた場合、それを報告し、[フォーラム](https://forums.ohdsi.org)や[CDMの問題](https://github.com/OHDSI/CommonDataModel/issues)の投稿を通じてプロセスの改善に協力することが重要です。
 
-マッピング規則の詳細な説明は、OHDSI Wikiで見つけることができます。[^vocabMappingUrl]
+マッピング規則の詳細な説明は、OHDSI Wikiで見つけることができます。[^standardizedvocabularies-5]
 
-[^vocabMappingUrl]: https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:mapping
+[^standardizedvocabularies-5]: <https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:mapping>
 
 ### 階層関係
 
@@ -215,20 +198,20 @@ knitr::include_graphics("images/StandardizedVocabularies/conceptValue.png")
 
 ### 同一ボキャブラリーのコンセプト間の関係
 
-内部ボキャブラリ関係は通常、ボキャブラリプロバイダーによって提供されます。完全な説明は、OHDSI Wikiの個々のボキャブラリのボキャブラリー文書にあります。[^vocabVocabulariesUrl]
+内部ボキャブラリ関係は通常、ボキャブラリプロバイダーによって提供されます。完全な説明は、OHDSI Wikiの個々のボキャブラリのボキャブラリー文書にあります。[^standardizedvocabularies-6]
 
-[^vocabVocabulariesUrl]: https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary
+[^standardizedvocabularies-6]: <https://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary>
 
 これらの多くは、臨床イベント間の関係を定義しており、情報検索に使用することができます。例えば、尿道の障害は、「Finding site of」関係に従って見つけることができます（表\@ref(tab:findingSite)を参照）。
 
-Table: (\#tab:findingSite) 尿道の「Finding site of」関係で、すべてこの解剖学的構造に位置する状態を示しています。
+表: (\\#tab:findingSite) 尿道の「Finding site of」関係で、すべてこの解剖学的構造に位置する状態を示しています。
 
-CONCEPT_ID_1 | CONCEPT_ID_2
-:---------------- | :----------------------------
-4000504 "Urethra part" | 36713433 "部分的尿道重複"
-4000504 "Urethra part" | 433583 "下部尿道裂孔"
-4000504 "Urethra part" | 443533 "男性下部尿道裂孔"
-4000504 "Urethra part" | 4005956 "女性下部尿道裂孔"
+| CONCEPT_ID_1           | CONCEPT_ID_2               |
+|:-----------------------|:---------------------------|
+| 4000504 "Urethra part" | 36713433 "部分的尿道重複"  |
+| 4000504 "Urethra part" | 433583 "下部尿道裂孔"      |
+| 4000504 "Urethra part" | 443533 "男性下部尿道裂孔"  |
+| 4000504 "Urethra part" | 4005956 "女性下部尿道裂孔" |
 
 これらの関係の品質と包括性は、元のボキャブラリーの品質によって異なります。一般に、標準コンセプトを抽出するために使用されるボキャブラリーは、より良いキュレーションのために選ばれ、そのため、内部関係の品質も高い傾向があります。
 
@@ -250,7 +233,7 @@ knitr::include_graphics("images/StandardizedVocabularies/conceptAncestor.png")
 
 ## 内部参照テーブル
 
-DOMAIN_ID、VOCABULARY_ID、CONCEPT_CLASS_ID（すべてCONCEPTレコード内）およびCONCEPT_RELATIONSHIP_ID（CONCEPT_RELATIONSHIP内）はそれぞれ独自のボキャブラリによって制御されます。これらは、主キーとしての*_IDフィールド、詳細な*_NAMEフィールド、およびCONCEPTテーブルに戻る参照を持つ*_CONCEPT_IDフィールドを持つ4つの参照テーブルDOMAIN、VOCABULARY、CONCEPT_CLASS、およびRELATIONSHIPで定義されています。これらの重複レコードの目的は、自動ナビゲーションエンジンをサポートする情報モデルを提供することです。
+DOMAIN_ID、VOCABULARY_ID、CONCEPT_CLASS_ID（すべてCONCEPTレコード内）およびCONCEPT_RELATIONSHIP_ID（CONCEPT_RELATIONSHIP内）はそれぞれ独自のボキャブラリによって制御されます。これらは、主キーとしての\*\_IDフィールド、詳細な\*\_NAMEフィールド、およびCONCEPTテーブルに戻る参照を持つ\*\_CONCEPT_IDフィールドを持つ4つの参照テーブルDOMAIN、VOCABULARY、CONCEPT_CLASS、およびRELATIONSHIPで定義されています。これらの重複レコードの目的は、自動ナビゲーションエンジンをサポートする情報モデルを提供することです。
 
 VOCABULARYテーブルには、元のボキャブラリのソースとバージョンを参照するためのVOCABULARY_REFERENCEおよびVOCABULARY_VERSIONフィールドも含まれています。RELATIONSHIPテーブルには、DEFINES_ANCESTRY、IS_HIERARCHICAL、およびREVERSE_RELATIONSHIP_IDフィールドが追加されています。後者は、関係のペアに対するカウンター関係IDを定義します。
 
@@ -313,12 +296,13 @@ OMOP CDMと標準化されたボキャブラリにおける性別は、出生時
 
 ## 演習
 
-#### 前提条件 {-}
+#### 前提条件 {.unnumbered}
 
-最初の演習では、標準ボキャブラリのコンセプトを調べる必要があります。これはATHENA[^athenaCdm2Url]またはATLAS[^atlasCdm2Url]を通じて行うことができます。
+最初の演習では、標準ボキャブラリのコンセプトを調べる必要があります。これはATHENA[^standardizedvocabularies-7]またはATLAS[^standardizedvocabularies-8]を通じて行うことができます。
 
-[^athenaCdm2Url]: http://athena.ohdsi.org/
-[^atlasCdm2Url]: http://atlas-demo.ohdsi.org
+[^standardizedvocabularies-7]: <http://athena.ohdsi.org/>
+
+[^standardizedvocabularies-8]: <http://atlas-demo.ohdsi.org>
 
 ```{exercise, exerciseVocab1}
 "胃腸出血"の標準コンセプトIDは何ですか？
