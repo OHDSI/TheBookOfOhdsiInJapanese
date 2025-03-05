@@ -1,6 +1,6 @@
 # --翻訳作業中--　ソフトウェアの妥当性 {#SoftwareValidity}
 
-*章リード: Martijn Schuemie*
+*章の著者: Martijn Schuemie*
 
 ソフトウェアの妥当性に関する中心的な問題は
 
