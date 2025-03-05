@@ -2713,8 +2713,7 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON\_IDご�
 
 提案された回答は付録 \ref{Etlanswers} に見つけることができます。
 
-\chapter*{--翻訳作業中--　データ解析}\label{ux7ffbux8a33ux4f5cux696dux4e2d-ux30c7ux30fcux30bfux89e3ux6790}
-\addcontentsline{toc}{chapter}{--翻訳作業中--　データ解析}
+\part{--翻訳作業中--　データ解析}\label{part-ux7ffbux8a33ux4f5cux696dux4e2d-ux30c7ux30fcux30bfux89e3ux6790}
 
 \chapter{データ解析の使用例}\label{DataAnalyticsUseCases}
 
@@ -3454,7 +3453,7 @@ OHDSIでは、プラットフォーム固有の表現に依存しないことを
 
 したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
 
-この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\ref{QueryTheCdm}では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション \ref{QueryTheCdm} では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
 
 \section{SqlRender}\label{SqlRender}
 
@@ -3606,9 +3605,12 @@ SqlRenderは、従来のデータベースシステム（PostgreSQL、Microsoft 
 
 これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
-表: \label{tab:sqlFunctions} supported by translate
-
 \begin{longtable}[]{@{}lll@{}}
+\caption{\label{tab:sqlFunctions} ``translate (翻訳)によりサポートされる機能}\tabularnewline
+\toprule\noalign{}
+関数 & 関数 & 関数 \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 関数 & 関数 & 関数 \\
 \midrule\noalign{}
@@ -3758,7 +3760,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.lyxc4zeechildren ;"
+## [1] "SELECT * FROM temp_schema.w07sua4wchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -3852,7 +3854,7 @@ SQL Serverでは、値にデータベース名とスキーマ名の両方を含�
 \end{Highlighting}
 \end{Shaded}
 
-これにより、図 \ref{fig:sqlDeveloper} に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。{[}\^{}sqlDeveloperUrl{]}
+これにより、図 \ref{fig:sqlDeveloper} に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています\footnote{\url{http://data.ohdsi.org/SqlDeveloper/}}。
 
 \begin{figure}
 
@@ -3862,6 +3864,8 @@ SQL Serverでは、値にデータベース名とスキーマ名の両方を含�
 
 \caption{The SqlDeveloper Shiny app.}\label{fig:sqlDeveloper}
 \end{figure}
+
+このアプリでは、OHDSI SQLを入力し、ターゲットの方言を選択し、SQLに表示されるパラメータの値を入力すると、翻訳が自動的に下部に表示されます。
 
 \section{DatabaseConnector}\label{DatabaseConnector}
 
@@ -3964,7 +3968,7 @@ DatabaseConnectorは、従来のデータベースシステム（PostgreSQL、Mi
 
 \subsection{ffdfオブジェクトを使用したクエリの実行}\label{ffdfux30aaux30d6ux30b8ux30a7ux30afux30c8ux3092ux4f7fux7528ux3057ux305fux30afux30a8ux30eaux306eux5b9fux884c}
 
-データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション\ref{BigDataSupport}で述べたように、そのような場合は\texttt{ff}パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。\texttt{DatabaseConnector}はデータを直接ffdfオブジェクトにダウンロードすることができます：
+データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション \ref{BigDataSupport} で述べたように、そのような場合は\texttt{ff}パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。\texttt{DatabaseConnector}はデータを直接ffdfオブジェクトにダウンロードすることができます：
 
 \begin{Shaded}
 \begin{Highlighting}[]

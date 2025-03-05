@@ -321,7 +321,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.9" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#まとめ-4"><i class="fa fa-check"></i><b>6.9</b> まとめ</a></li>
 <li class="chapter" data-level="6.10" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#演習-2"><i class="fa fa-check"></i><b>6.10</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="翻訳作業中-データ解析.html"><a href="翻訳作業中-データ解析.html"><i class="fa fa-check"></i>–翻訳作業中–　データ解析</a></li>
+<li class="part"><span><b>III –翻訳作業中–　データ解析</b></span></li>
 <li class="chapter" data-level="7" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html"><i class="fa fa-check"></i><b>7</b> データ解析の使用例</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="DataAnalyticsUseCases.html"><a href="DataAnalyticsUseCases.html#特性の評価"><i class="fa fa-check"></i><b>7.1</b> 特性の評価</a></li>
@@ -674,7 +674,7 @@ div.csl-indent {
 <li class="chapter" data-level="18.4" data-path="MethodValidity.html"><a href="MethodValidity.html#ohdsiメソッド評価ベンチマーク"><i class="fa fa-check"></i><b>18.4</b> OHDSIメソッド評価ベンチマーク</a></li>
 <li class="chapter" data-level="18.5" data-path="MethodValidity.html"><a href="MethodValidity.html#まとめ-14"><i class="fa fa-check"></i><b>18.5</b> まとめ</a></li>
 </ul></li>
-<li class="part"><span><b>III OHDSI研究</b></span></li>
+<li class="part"><span><b>IV OHDSI研究</b></span></li>
 <li class="chapter" data-level="19" data-path="StudySteps.html"><a href="StudySteps.html"><i class="fa fa-check"></i><b>19</b> –翻訳作業中–　研究の段階</a>
 <ul>
 <li class="chapter" data-level="19.1" data-path="StudySteps.html"><a href="StudySteps.html#一般的なベストプラクティスガイドライン"><i class="fa fa-check"></i><b>19.1</b> 一般的なベストプラクティスガイドライン</a>
@@ -790,7 +790,7 @@ div.csl-indent {
 <p>OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは<a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>パッケージを開発しました。これは、ある標準表現から後述するサポートされる表現のいずれかに翻訳できるRパッケージです。この標準表現 - <strong>OHDSI SQL</strong> - は主にSQL Server SQL表現のサブセットです。今章の例示するSQL文はすべてOHDSI SQLを使用します。 </p>
 <p>各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できる1つのRパッケージである<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>パッケージを開発しました。DatabaseConnectorもこの章の後半で説明します。 </p>
 <p>したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 </p>
-<p>この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション<a href="SqlAndR.html#QueryTheCdm">9.3</a>では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 </p>
+<p>この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション <a href="SqlAndR.html#QueryTheCdm">9.3</a> では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 </p>
 <div id="SqlRender" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> SqlRender<a href="SqlAndR.html#SqlRender" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://ohdsi.github.io/SqlRender/">SqlRender</a> パッケージは CRAN（Comprehensive R Archive Network）で利用可能であり、以下の方法でインストールできます：</p>
@@ -845,14 +845,14 @@ div.csl-indent {
 <p><code>targetDialect</code> パラメータには次の値が設定可能です：“oracle”, “postgresql”, “pdw”, “redshift”, “impala”, “netezza”, “bigquery”, “sqlite”, “sql server”。 </p>
 
 <div class="rmdimportant">
-<p>すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての表現に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL表現として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。</p>
+すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての表現に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL表現として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。
 </div>
 <p>最善を尽くしても、すべてのサポートプラットフォームでエラーなしに実行できるOHDSI SQLを書くにはかなりの注意が必要です。以下にその検討事項を詳述します。</p>
 <div id="translateがサポートする関数と構造" class="section level4 unnumbered hasAnchor">
 <h4>Translateがサポートする関数と構造<a href="SqlAndR.html#translateがサポートする関数と構造" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：</p>
-<p>表: (#tab:sqlFunctions) supported by translate</p>
 <table>
+<caption><span id="tab:sqlFunctions">表 9.1: </span> “translate (翻訳)によりサポートされる機能</caption>
 <thead>
 <tr class="header">
 <th align="left">関数</th>
@@ -1045,7 +1045,7 @@ div.csl-indent {
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.d0u9my1gchildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.sg32v4nhchildren ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>
@@ -1087,13 +1087,14 @@ div.csl-indent {
 <p>パラメータ化されたSQLのデバッグは少し複雑になることがあります。レンダリングされたSQLのみがデータベースサーバーでテストできますが、コードの変更はパラメータ化された（レンダリング前の）SQLで行う必要があります。 </p>
 <p>ソースSQLをインタラクティブに編集し、レンダリングおよび翻訳されたSQLを生成するためのShinyアプリが SqlRender パッケージに含まれています。このアプリは次の方法で起動できます：</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="SqlAndR.html#cb40-1" tabindex="-1"></a><span class="fu">launchSqlRenderDeveloper</span>()</span></code></pre></div>
-<p>これにより、図 <a href="SqlAndR.html#fig:sqlDeveloper">9.1</a> に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[^sqlDeveloperUrl]</p>
+<p>これにより、図 <a href="SqlAndR.html#fig:sqlDeveloper">9.1</a> に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a>。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sqlDeveloper"></span>
 <img src="images/SqlAndR/sqlDeveloper.png" alt="The SqlDeveloper Shiny app." width="100%" />
 <p class="caption">
 図 9.1: The SqlDeveloper Shiny app.
 </p>
 </div>
+<p>このアプリでは、OHDSI SQLを入力し、ターゲットの方言を選択し、SQLに表示されるパラメータの値を入力すると、翻訳が自動的に下部に表示されます。</p>
 </div>
 </div>
 </div>
@@ -1144,7 +1145,7 @@ div.csl-indent {
 </div>
 <div id="ffdfオブジェクトを使用したクエリの実行" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> ffdfオブジェクトを使用したクエリの実行<a href="SqlAndR.html#ffdfオブジェクトを使用したクエリの実行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション<a href="OhdsiAnalyticsTools.html#BigDataSupport">8.4.2</a>で述べたように、そのような場合は<code>ff</code>パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。<code>DatabaseConnector</code>はデータを直接ffdfオブジェクトにダウンロードすることができます：</p>
+<p>データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション <a href="OhdsiAnalyticsTools.html#BigDataSupport">8.4.2</a> で述べたように、そのような場合は<code>ff</code>パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。<code>DatabaseConnector</code>はデータを直接ffdfオブジェクトにダウンロードすることができます：</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="SqlAndR.html#cb52-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">querySql.ffdf</span>(conn, <span class="st">&quot;SELECT * FROM person&quot;</span>)</span></code></pre></div>
 <p>xは現在ffdfオブジェクトです。</p>
 </div>
@@ -1394,7 +1395,7 @@ div.csl-indent {
 <div id="querylibrary" class="section level2 hasAnchor" number="9.5">
 <h2><span class="header-section-number">9.5</span> QueryLibrary<a href="SqlAndR.html#querylibrary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
-<p>QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a>として提供されており、図<a href="SqlAndR.html#fig:queryLibrary">9.2</a>に示すように、Rパッケージとしても利用できます<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a>。</p>
+<p>QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a>として提供されており、図<a href="SqlAndR.html#fig:queryLibrary">9.2</a>に示すように、Rパッケージとしても利用できます<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a>。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:queryLibrary"></span>
 <img src="images/SqlAndR/queryLibrary.png" alt="クエリライブラリ：CDMに対するSQLクエリのライブラリ。" width="100%" />
 <p class="caption">
@@ -1675,8 +1676,9 @@ Slater, Eve E., Debora D. Merrill, Harry A. Guess, Peter J. Roylance, Warren D. 
 <div class="footnotes">
 <hr />
 <ol start="51">
-<li id="fn51"><p><a href="http://data.ohdsi.org/QueryLibrary" class="uri">http://data.ohdsi.org/QueryLibrary</a><a href="SqlAndR.html#fnref51" class="footnote-back">↩︎</a></p></li>
-<li id="fn52"><p><a href="https://github.com/OHDSI/QueryLibrary" class="uri">https://github.com/OHDSI/QueryLibrary</a><a href="SqlAndR.html#fnref52" class="footnote-back">↩︎</a></p></li>
+<li id="fn51"><p><a href="http://data.ohdsi.org/SqlDeveloper/" class="uri">http://data.ohdsi.org/SqlDeveloper/</a><a href="SqlAndR.html#fnref51" class="footnote-back">↩︎</a></p></li>
+<li id="fn52"><p><a href="http://data.ohdsi.org/QueryLibrary" class="uri">http://data.ohdsi.org/QueryLibrary</a><a href="SqlAndR.html#fnref52" class="footnote-back">↩︎</a></p></li>
+<li id="fn53"><p><a href="https://github.com/OHDSI/QueryLibrary" class="uri">https://github.com/OHDSI/QueryLibrary</a><a href="SqlAndR.html#fnref53" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
