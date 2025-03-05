@@ -1,10 +1,10 @@
-# 第9章　--翻訳作業中--　SQLとR {#SqlAndR}
+# --翻訳作業中--　SQLとR {#SqlAndR}
 
-*チャプタリーダー: Martijn Schuemie & Peter Rijnbeek*
+*章の著者: Martijn Schuemie & Peter Rijnbeek*
 
 
 
-共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、またはMicrosoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースをクエリすることによって機能しますが、適切なアクセス権を持っていれば、私たちも直接データベースにクエリを実行することができます。これを行う主な理由は、現在のツールではサポートされていない分析を実行するためです。しかし、直接のクエリはミスを犯すリスクが高まり、OHDSIツールはしばしば適切なデータ分析へのガイドとして設計されているため、直接クエリにはそのようなガイドが提供されません。
+共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、またはMicrosoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods libraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースをクエリすることによって機能しますが、適切なアクセス権を持っていれば、私たちも直接データベースにクエリを実行することができます。これを行う主な理由は、現在のツールではサポートされていない分析を実行するためです。しかし、直接のクエリはミスを犯すリスクが高まり、OHDSIツールはしばしば適切なデータ分析へのガイドとしてデザインされているため、直接クエリにはそのようなガイドが提供されません。
 
 リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。SQLの基本コマンドは確かに標準化されており、すべてのソフトウェアプラットフォームで同じですが、各プラットフォームには独自の表現があり、微妙な変更があります。例えば、SQL ServerでPERSONテーブルの上位10行を取得するには、次のように入力します： \index{SQL} \index{structured query language|see {SQL}}
 
@@ -22,11 +22,11 @@ SELECT * FROM person LIMIT 10;
 
 OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは[SqlRender](https://ohdsi.github.io/SqlRender/)パッケージを開発しました。これは、ある標準表現から後述するサポートされる表現のいずれかに翻訳できるRパッケージです。この標準表現 - **OHDSI SQL** - は主にSQL Server SQL表現のサブセットです。今章の例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
-各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できる1つのRパッケージである[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを開発しました。DatabaseConnectorも今章後半で説明します。 \index{DatabaseConnector}
+各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できる1つのRパッケージである[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを開発しました。DatabaseConnectorもこの章の後半で説明します。 \index{DatabaseConnector}
 
 したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
 
-この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化ボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発現率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション\@ref(QueryTheCdm)では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
@@ -43,7 +43,7 @@ SqlRenderは、従来のデータベースシステム（PostgreSQL、Microsoft 
 
 パッケージの機能の一つは、SQLのパラメータ設定をサポートすることです。しばしば、いくつかのパラメータに基づいて小さなバリエーションのSQLを生成する必要があります。SqlRenderは、SQLコード内にパラメータ設定を可能にするシンプルなマークアップ文法を提供します。パラメータ値に基づいてSQLをレンダリングするには、`render()`関数を使用します。 \index{SqlRender!parameterization}
 
-#### パラメータ値の置換 {-}
+#### パラメータ値の置換 {.unnumbered}
 
 `@` 文字を使用して、レンダリング時に実際のパラメータ値と交換する必要があるパラメータ名を示します。以下の例では、SQL内で `a` という変数が言及されています。`render` 関数の呼び出しでは、このパラメータの値が定義されています：
 
@@ -69,7 +69,7 @@ render(sql, x = "observation", a = 123)
 ## [1] "SELECT * FROM observation WHERE person_id = 123;"
 ```
 
-パラメータ値は、数値、文字列、ブール値、ベクターであり、コンマ区切りリストに変換されます：
+パラメータ値は、数値、文字列、2つの値（真または偽）のみを持つ変数コンマ区切りのリストに変換されるベクトルを使用できます。：
 
 
 ``` r
@@ -81,7 +81,7 @@ render(sql, a = c(123, 234, 345))
 ## [1] "SELECT * FROM concept WHERE concept_id IN (123,234,345);"
 ```
 
-#### If-Then-Else {-}
+#### If-Then-Else {.unnumbered}
 
 時々、あるパラメータの値に基づいてコードのブロックをオンまたはオフにする必要があります。これは `{Condition} ? {if true} : {if false}` 構文を使用して行われます。*condition* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが表示されます（存在する場合）。
 
@@ -160,38 +160,38 @@ translate(sql, targetDialect = "postgresql")
 
 最善を尽くしても、すべてのサポートプラットフォームでエラーなしに実行できるOHDSI SQLを書くにはかなりの注意が必要です。以下にその検討事項を詳述します。
 
-#### Translateがサポートする関数と構造 {-}
+#### Translateがサポートする関数と構造 {.unnumbered}
 
-これらのSQL Server関数はテストされ、各表現への正確な翻訳が確認されています：\index{SqlRender!supported functions}
+これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
-表: (\#tab:sqlFunctions) supported by translate
+表: (#tab:sqlFunctions) supported by translate
 
-|関数                 |関数               |関数               |
-|:------------------- |:----------------- |:----------------- |
-|ABS                 |EXP                |RAND               |
-|ACOS                |FLOOR              |RANK               |
-|ASIN                |GETDATE            |RIGHT              |
-|ATAN                |HASHBYTES*         |ROUND              |
-|AVG                 |ISNULL             |ROW_NUMBER         |
-|CAST                |ISNUMERIC          |RTRIM              |
-|CEILING             |LEFT               |SIN                |
-|CHARINDEX           |LEN                |SQRT               |
-|CONCAT              |LOG                |SQUARE             |
-|COS                 |LOG10              |STDEV              |
-|COUNT               |LOWER              |SUM                |
-|COUNT_BIG           |LTRIM              |TAN                |
-|DATEADD             |MAX                |UPPER              |
-|DATEDIFF            |MIN                |VAR                |
-|DATEFROMPARTS       |MONTH              |YEAR               |
-|DATETIMEFROMPARTS   |NEWID              |                   |
-|DAY                 |PI                 |                   |
-|EOMONTH             |POWER              |                   |
+| 関数              | 関数        | 関数       |
+|:------------------|:------------|:-----------|
+| ABS               | EXP         | RAND       |
+| ACOS              | FLOOR       | RANK       |
+| ASIN              | GETDATE     | RIGHT      |
+| ATAN              | HASHBYTES\* | ROUND      |
+| AVG               | ISNULL      | ROW_NUMBER |
+| CAST              | ISNUMERIC   | RTRIM      |
+| CEILING           | LEFT        | SIN        |
+| CHARINDEX         | LEN         | SQRT       |
+| CONCAT            | LOG         | SQUARE     |
+| COS               | LOG10       | STDEV      |
+| COUNT             | LOWER       | SUM        |
+| COUNT_BIG         | LTRIM       | TAN        |
+| DATEADD           | MAX         | UPPER      |
+| DATEDIFF          | MIN         | VAR        |
+| DATEFROMPARTS     | MONTH       | YEAR       |
+| DATETIMEFROMPARTS | NEWID       |            |
+| DAY               | PI          |            |
+| EOMONTH           | POWER       |            |
 
 \* Oracleでは特別な権限が必要です。SQLiteでは同等のものがありません。
 
 同様に、多くのSQL構文構造がサポートされています。ここには、正確に翻訳されることが確認されている非網羅的なリストを示します：
 
-```sql
+``` sql
 -- Simple selects:
 SELECT * FROM table;
 
@@ -247,15 +247,15 @@ SELECT * FROM a INTERSECT SELECT * FROM b;
 SELECT * FROM a EXCEPT SELECT * FROM b;
 ```
 
-#### 文字列の連結 {-}
+#### 文字列の連結 {.unnumbered}
 
-文字列連結は、SQL Serverが他の表現よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であることを推測しようとします。上記の例では、明示的な文字列（シングルクォートで囲まれたスペース）があるため、翻訳は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知らず、プラス記号を正しく残しません。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。したがって、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、```CONCAT()``` 関数を使用するのがベストです。
+文字列連結は、SQL Serverが他の表現よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であることを推測しようとします。上記の例では、明示的な文字列（シングルクォートで囲まれたスペース）があるため、翻訳は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知らず、プラス記号を正しく残しません。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。したがって、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、`CONCAT()` 関数を使用するのがベストです。
 
-#### テーブルエイリアスとASキーワード {-}
+#### テーブルエイリアスとASキーワード {.unnumbered}
 
 多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題ありません。例えば、これらのSQL文はSQL Server、PostgreSQL、Redshiftなどのプラットフォームで問題ありません：
 
-```sql
+``` sql
 -- Using AS keyword
 SELECT *
 FROM my_table AS table_1
@@ -273,16 +273,17 @@ INNER JOIN (
 ON table_1.person_id = table_2.person_id;
 ```
 
-しかし、Oracleでは `AS` キーワードを使用するとエラーが発生します。上記の例では、最初のクエリが失敗します。そのため、テーブルのエイリアスを付ける際には `AS` キーワードを使用しないことを推奨します。（注：SqlRenderがこれを処理することはできません。Oracleが許可していない `AS` を使用しているかどうかを区別するのが難しいためです。）
+しかし、Oracleでは `AS` キーワードを使用するとエラーが発生します。上記の例では、最初のクエリが失敗します。そのため、テーブルのエイリアスを付ける際には `AS` キーワードを使用しないことを推奨します。（注：SqlRenderがこれを処理することはできません。Oracleが`AS` の使用を許可しているテーブルエイリアスを区別するのが難しいためです。）
 
-#### 一時テーブル {-}
+#### 一時テーブル {.unnumbered}
 
 一時テーブルは中間結果を保存するのに非常に便利で、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、一時テーブルは非常に良い特性を持っています：現在のユーザーのみに表示され、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleでは一時テーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに表示されることです。このため、OracleではSqlRenderが以下の方法で一時テーブルをエミュレートしようとします。
 
-1. 異なるユーザーからのテーブルが競合しないように、テーブル名にランダムな文字列を追加します。
-2. 一時テーブルが作成されるスキーマをユーザーが指定できるようにします。
+1.  異なるユーザーからのテーブルが競合しないように、テーブル名にランダムな文字列を追加します。
+2.  一時テーブルが作成されるスキーマをユーザーが指定できるようにします。
 
 例えば：
+
 
 ``` r
 sql <- "SELECT * FROM #children;"
@@ -295,7 +296,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.avc9409echildren ;"
+## [1] "SELECT * FROM temp_schema.jt66fwgdchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -304,13 +305,13 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 
 また、Oracleではテーブル名の長さが30文字に制限されているため、**一時テーブル名は最大22文字以内である必要があります**。セッションIDを追加すると名前が長くなりすぎるためです。
 
-さらに、Oracleでは一時テーブルは自動的に削除されないため、使用が終わったときにはすべての一時テーブルを明示的に ```TRUNCATE``` および ```DROP``` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
+さらに、Oracleでは一時テーブルは自動的に削除されないため、使用が終わったときにはすべての一時テーブルを明示的に `TRUNCATE` および `DROP` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
 
-#### 暗黙的なキャスト {-}
+#### 暗黙的なキャスト {.unnumbered}
 
 SQL Serverが他の表現よりも特異である数少ない点の1つは、暗黙のキャストを許可することです。例えば、このコードはSQL Serverで動作します：
 
-```sql
+``` sql
 CREATE TABLE #temp (txt VARCHAR);
 
 INSERT INTO #temp
@@ -323,42 +324,45 @@ SELECT * FROM #temp WHERE txt = 1;
 
 したがって、常にキャストを明示的に行う必要があります。上記の例では、最後の文は次のいずれかに置き換える必要があります：
 
-```sql
+``` sql
 SELECT * FROM #temp WHERE txt = CAST(1 AS VARCHAR);
 ```
 
 または
 
-```sql
+``` sql
 SELECT * FROM #temp WHERE CAST(txt AS INT) = 1;
 ```
 
-#### 文字列比較における大文字小文字の区別 {-}
+#### 文字列比較における大文字・小文字の区別 {.unnumbered}
 
-SQL Serverなどの一部のDBMSプラットフォームは常に大文字と小文字を区別せずに文字列比較を行いますが、PostgreSQLなどの他のプラットフォームは常に大文字と小文字を区別します。したがって、比較条件がケースを区別しないときに明示的に指定することをお勧めします。例えば、次のように：
+SQL Serverなどの一部のDBMSプラットフォームは常に大文字と小文字を区別せずに文字列比較を行いますが、PostgreSQLなどの他のプラットフォームは常に大文字と小文字を区別します。したがって、常に大文字・小文字の区別を前提に比較を行い、大文字・小文字の区別が不明な場合は明示的に大文字・小文字の区別をしないようにすることをお勧めします。例えば、次のように：
 
-```sql
+``` sql
 SELECT * FROM concept WHERE concept_class_id = 'Clinical Finding'
 ```
+
 代わりに次のように記述することが推奨されます：
 
-```sql
+``` sql
 SELECT * FROM concept WHERE LOWER(concept_class_id) = 'clinical finding'
 ```
 
-#### スキーマとデータベース {-}
+#### スキーマとデータベース {.unnumbered}
 
 SQL Serverでは、テーブルはスキーマにあり、スキーマはデータベースに存在します。例えば、`cdm_data.dbo.person` は `cdm_data` データベース内の `dbo` スキーマ内の `person` テーブルを指します。他の表現でも同様の階層が存在しますが、使用方法が非常に異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（しばしば `dbo` と呼ばれる）が存在し、ユーザーは異なるデータベースのデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一のセッション内で異なるデータベースのデータを使用することはできませんが、通常他のデータベースム範多くのスキーマがあります。 PostgreSQLでは、SQL Serverのデータベースに相当するのはスキーマであると言えます。
 
 したがって、SQL Serverのデータベースとスキーマを単一のパラメータに連結することをお勧めします。このパラメータを `@databaseSchema` と呼ぶことが一般的です。例えば、パラメータ化されたSQLでは次のようになります：
-```sql
+
+``` sql
 SELECT * FROM @databaseSchema.person
 ```
-SQL Serverでは、値にデータベースとスキーマの両方を含めることができます：`databaseSchema = "cdm_data.dbo"`。他のプラットフォームでは、同じコードを使用し、パラメータ値としてスキーマのみを指定します：`databaseSchema = "cdm_data"`。
+
+SQL Serverでは、値にデータベース名とスキーマ名の両方を含めることができます：`databaseSchema = "cdm_data.dbo"`。他のプラットフォームでは、同じコードを使用し、パラメータ値としてスキーマのみを指定します：`databaseSchema = "cdm_data"`。
 
 この方法が失敗する唯一の状況は `USE` コマンドです。`USE cdm_data.dbo;` はエラーをスローします。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、`USE` コマンドの使用を避けることをお勧めします。
 
-#### パラメータ化されたSQLのデバッグ {-}
+#### パラメータ化されたSQLのデバッグ {.unnumbered}
 
 パラメータ化されたSQLのデバッグは少し複雑になることがあります。レンダリングされたSQLのみがデータベースサーバーでテストできますが、コードの変更はパラメータ化された（レンダリング前の）SQLで行う必要があります。 \index{SqlRender!debugging}
 
@@ -369,9 +373,16 @@ SQL Serverでは、値にデータベースとスキーマの両方を含める�
 launchSqlRenderDeveloper()
 ```
 
-これにより、図\@ref(fig:sqlDeveloper)に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[^sqlDeveloperUrl]
+これにより、図 \@ref(fig:sqlDeveloper) に示すように、アプリがデフォルトのブラウザで開きます。アプリはウェブ上でも公開されています。[\^sqlDeveloperUrl]
 
-```{r sqlDeveloper, fig.cap='The SqlDeveloper'
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/SqlAndR/sqlDeveloper} 
+
+}
+
+\caption{The SqlDeveloper Shiny app.}(\#fig:sqlDeveloper)
+\end{figure}
 
 ## DatabaseConnector {#DatabaseConnector}
 
@@ -397,6 +408,7 @@ conn <- connect(dbms = "postgresql",
                 schema = "cdm")
 ```
 
+
 ```
 ## Connecting using PostgreSQL driver
 ```
@@ -420,6 +432,7 @@ conn <- connect(dbms = "postgresql",
                 schema = "cdm")
 ```
 
+
 ```
 ## Connecting using PostgreSQL driver
 ```
@@ -436,6 +449,7 @@ details <- createConnectionDetails(dbms = "postgresql",
 conn <- connect(details)
 ```
 
+
 ```
 ## Connecting using PostgreSQL driver
 ```
@@ -450,6 +464,7 @@ conn <- connect(details)
 ``` r
 querySql(conn, "SELECT TOP 3 * FROM person")
 ```
+
 
 ```
 ##   person_id gender_concept_id year_of_birth
@@ -486,6 +501,7 @@ x <- renderTranslateQuerySql(conn,
                              sql = "SELECT TOP 10 * FROM @schema.person",
                              schema = "cdm_synpuf")
 ```
+
 SQL Server専用の「TOP 10」構文は、PostgreSQLでは「LIMIT 10」などに変換され、SQLパラメーター`@schema`は提供された値「cdm_synpuf」に置き換えられます。
 
 ### テーブルの挿入
@@ -506,79 +522,83 @@ insertTable(conn, "mtcars", mtcars, createTable = TRUE)
 
 まず最初に、データベースに何人の人がいるかをクエリしてみましょう：
 
-```sql
+``` sql
 SELECT COUNT(*) AS person_count FROM @cdm.person;
 ```
+
 | PERSON_COUNT |
-| ------------:|
-| 26299001     |
+|-------------:|
+|     26299001 |
 
 あるいは、観察期間の平均に関心があるかもしれません：
 
-```sql
+``` sql
 SELECT AVG(DATEDIFF(DAY,
                     observation_period_start_date,
                     observation_period_end_date) / 365.25) AS num_years
 FROM @cdm.observation_period;
 ```
+
 | NUM_YEARS |
-| ---------:|
-| 1.980803  |
+|----------:|
+|  1.980803 |
 
 テーブルを結合して追加の統計を生成することができます。結合は通常、テーブル内の特定のフィールドに同じ値があることを要求することによって、複数のテーブルからフィールドを組み合わせます。例えば、ここでは、PERSONテーブルを、両方のテーブルのPERSON_IDフィールドでOBSERVATION_PERIODテーブルに結合します。つまり、この結合の結果は、新しいテーブル状のセットであり、両テーブルのすべてのフィールドを持ちますが、すべての行において両テーブルのPERSON_IDフィールドは同じ値でなければなりません。このようにして、OBSERVATION_PERIODテーブルのOBSERVATION_PERIOD_END_DATEフィールドとPERSONテーブルのyear_of_birthフィールドを使用して、観察終了時の最大年齢を計算することができます：
 
-```sql
+``` sql
 SELECT MAX(YEAR(observation_period_end_date) -
            year_of_birth) AS max_age
 FROM @cdm.person
 INNER JOIN @cdm.observation_period
   ON person.person_id = observation_period.person_id;
 ```
+
 | MAX_AGE |
-| -------:|
+|--------:|
 |      90 |
 
-観察開始時の年齢分布を決定するためには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、一般的なテーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルのように参照することができます。agesの行数を数えて"n"を生成し、各四分位数に対して、order_nrがnの小数より小さい最小年齢を見つけます。例えば、中央値を見つけるためには$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するためには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、一般的なテーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルのように参照することができます。agesの行数を数えて"n"を生成し、各四分位数に対して、order_nrがnの小数より小さい最小年齢を見つけます。例えば、中央値を見つけるためには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
-```sql
+``` sql
 WITH ages
 AS (
-	SELECT age,
-		ROW_NUMBER() OVER (
-			ORDER BY age
-			) order_nr
-	FROM (
-		SELECT YEAR(observation_period_start_date) - year_of_birth AS age
-		FROM @cdm.person
-		INNER JOIN @cdm.observation_period
-			ON person.person_id = observation_period.person_id
-		) age_computed
-	)
+    SELECT age,
+        ROW_NUMBER() OVER (
+            ORDER BY age
+            ) order_nr
+    FROM (
+        SELECT YEAR(observation_period_start_date) - year_of_birth AS age
+        FROM @cdm.person
+        INNER JOIN @cdm.observation_period
+            ON person.person_id = observation_period.person_id
+        ) age_computed
+    )
 SELECT MIN(age) AS min_age,
-	MIN(CASE
-			WHEN order_nr < .25 * n
-				THEN 9999
-			ELSE age
-			END) AS q25_age,
-	MIN(CASE
-			WHEN order_nr < .50 * n
-				THEN 9999
-			ELSE age
-			END) AS median_age,
-	MIN(CASE
-			WHEN order_nr < .75 * n
-				THEN 9999
-			ELSE age
-			END) AS q75_age,
-	MAX(age) AS max_age
+    MIN(CASE
+            WHEN order_nr < .25 * n
+                THEN 9999
+            ELSE age
+            END) AS q25_age,
+    MIN(CASE
+            WHEN order_nr < .50 * n
+                THEN 9999
+            ELSE age
+            END) AS median_age,
+    MIN(CASE
+            WHEN order_nr < .75 * n
+                THEN 9999
+            ELSE age
+            END) AS q75_age,
+    MAX(age) AS max_age
 FROM ages
 CROSS JOIN (
-	SELECT COUNT(*) AS n
-	FROM ages
-	) population_size;
+    SELECT COUNT(*) AS n
+    FROM ages
+    ) population_size;
 ```
+
 | MIN_AGE | Q25_AGE | MEDIAN_AGE | Q75_AGE | MAX_AGE |
-| -------:| -------:| ----------:| -------:| -------:|
+|--------:|--------:|-----------:|--------:|--------:|
 |       0 |       6 |         17 |      34 |      90 |
 
 より複雑な計算は、SQLの代わりにRを使用して行うこともできます。例えば、同じ結果を得るためにこのRコードを使用することができます：
@@ -594,24 +614,26 @@ age <- renderTranslateQuerySql(conn, sql, cdm = "cdm")
 quantile(age[, 1], c(0, 0.25, 0.5, 0.75, 1))
 ```
 
+
 ```
 ##   0%  25%  50%  75% 100%
 ##    0    6   17   34   90
 ```
 
-ここでは、サーバー上で年齢を計算し、すべての年齢をダウンロードし、その後年齢分布を計算します。しかし、これはデータベースサーバーから数百万行のデータをダウンロードする必要があるため、非常に効率的ではありません。計算がSQLで行われるべきかRで行われるべきかは、ケースバイケースで判断する必要があります。
+ここでは、サーバー上で年齢を計算し、すべての年齢をダウンロードし、その後年齢分布を計算します。しかし、これはデータベースサーバーから数百万行のデータをダウンロードする必要があるため、あまりに効率的ではありません。計算がSQLで行われるべきかRで行われるべきかは、ケースバイケースで判断する必要があります。
 
 クエリは、CDM内のソース値を使用することができます。例えば、最も頻繁に使用されるコンディションのソースコードのトップ10を取得するには、次のようにします：
 
-```sql
+``` sql
 SELECT TOP 10 condition_source_value,
   COUNT(*) AS code_count
 FROM @cdm.condition_occurrence
 GROUP BY condition_source_value
 ORDER BY -COUNT(*);
 ```
+
 | CONDITION_SOURCE_VALUE | CODE_COUNT |
-| ----------------------:| ----------:|
+|-----------------------:|-----------:|
 |                   4019 |   49094668 |
 |                  25000 |   36149139 |
 |                  78099 |   28908399 |
@@ -625,11 +647,11 @@ ORDER BY -COUNT(*);
 
 ここでは、CONDITION_OCCURRENCEテーブル内のCONDITION_SOURCE_VALUEフィールドの値でレコードをグループ化し、各グループのレコード数をカウントしました。CONDITION_SOURCE_VALUEとそのカウントを取得し、カウントの逆順で並べ替えています。
 
-## クエリ時にボキャブラリを使用する
+## クエリ実行時にボキャブラリを使用する
 
 多くの操作は、ボキャブラリを使用することで有用になります。ボキャブラリテーブルはCDMの一部であり、SQLクエリを使用して利用できます。ここでは、ボキャブラリに対するクエリをCDMに対するクエリと組み合わせる方法を示します。CDMの多くのフィールドにはコンセプトIDが含まれていますが、これらはCONCEPTテーブルを使用して解決できます。例えば、データベース内の人数を性別で階層化してカウントしたい場合、GENDER_CONCEPT_IDフィールドをコンセプト名に解決することが便利です：
 
-```sql
+``` sql
 SELECT COUNT(*) AS subject_count,
   concept_name
 FROM @cdm.person
@@ -637,14 +659,15 @@ INNER JOIN @cdm.concept
   ON person.gender_concept_id = concept.concept_id
 GROUP BY concept_name;
 ```
+
 | SUBJECT_COUNT | CONCEPT_NAME |
-| -------------:| ------------:|
+|--------------:|-------------:|
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-ボキャブラリの非常に強力な機能の一つは、その階層構造です。非常に一般的なクエリは、特定のコンセプトとそのすべての子孫を探すものです。例えば、イププロフェンを含む処方件数を数えるとします：
+ボキャブラリの非常に強力な機能の一つは、その階層構造です。非常に一般的なクエリは、特定のコンセプトとその下位層に含まれる全てのコンセプトを探すものです。例えば、イププロフェンを含む処方件数を数えるとします：
 
-```sql
+``` sql
 SELECT COUNT(*) AS prescription_count
 FROM @cdm.drug_exposure
 INNER JOIN @cdm.concept_ancestor
@@ -655,18 +678,20 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
   AND ingredient.concept_class_id = 'Ingredient'
   AND ingredient.standard_concept = 'S';
 ```
+
 | PRESCRIPTION_COUNT |
-| ------------------:|
+|-------------------:|
 |           26871214 |
 
 ## QueryLibrary
 
 \index{QueryLibrary}
 
-QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション[^queryLibraryUrl]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^queryLibraryPackageUrl]。
+QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-1]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-2]。
 
-[^queryLibraryUrl]: http://data.ohdsi.org/QueryLibrary
-[^queryLibraryPackageUrl]: https://github.com/OHDSI/QueryLibrary
+[^sqlandr-1]: <http://data.ohdsi.org/QueryLibrary>
+
+[^sqlandr-2]: <https://github.com/OHDSI/QueryLibrary>
 
 \begin{figure}
 
@@ -679,7 +704,7 @@ QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。�
 
 このライブラリの目的は、新しいユーザーがCDMのクエリ方法を学ぶ手助けをすることです。ライブラリ内のクエリは、OHDSIコミュニティによってレビューされ、承認されています。クエリライブラリは主にトレーニング目的で使用されますが、経験豊富なユーザーにとっても貴重なリソースです。
 
-QueryLibraryは、SqlRenderを使用して、選択したSQLダイアレクトでクエリを出力します。ユーザーはCDMのデータベーススキーマ、語彙のデータベーススキーマ（別々のものがある場合）、およびOracleの一時スキーマ（必要な場合）を指定することもでき、これらの設定でクエリが自動的にレンダリングされます。
+QueryLibraryは、SqlRenderを使用して、選択したSQLダイアレクトでクエリを出力します。ユーザーはCDMのデータベーススキーマ、ボキャブラリデータベーススキーマ（別々のものがある場合）、およびOracleの一時スキーマ（必要な場合）を指定することもでき、これらの設定でクエリが自動的にレンダリングされます。
 
 ## 簡単な研究のデザイン
 
@@ -822,7 +847,7 @@ renderTranslateExecuteSql(conn, sql,
                           cdm_db_schema = cdmDbSchema)
 ```
 
-ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管浮腫またはその子孫のすべての発生を見つけます。同じ日に複数の診断がある場合、それは同じ現象である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
+ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管浮腫またはその下位層に含まれるすべての発生を見つけます。同じ日に複数の診断がある場合、それは同じ現象である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
 
 ### 発症率の計算
 
@@ -890,7 +915,7 @@ results <- renderTranslateQuerySql(conn, sql,
                                    snakeCaseToCamelCase = TRUE)
 ```
 
-まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間を切り詰めることに注意してください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。この場合、リスク時間の合計およびリスク期間中に発生する血管浮腫の数を数えるために使用します。
+まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間を切り詰めることに注意してください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク時間の合計およびリスク期間中に発生する血管浮腫の数を数えるために使用します。
 
 SQLではフィールド名にスネークケースを使用するため（SQLは大文字小文字を区別しないため）、Rではキャメルケースを使用します（Rは大文字小文字を区別するため）。`results`データフレームの列名はキャメルケースになります。
 
@@ -910,6 +935,7 @@ ggplot(results, aes(x = age, y = ir, group = gender, color = gender)) +
   xlab("年齢") +
   ylab("発症率（1,000患者週間当たり）")
 ```
+
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/SqlAndR/ir} \end{center}
 
@@ -950,11 +976,12 @@ OHDSI SQLとDatabaseConnectorおよびSqlRenderを組み合わせて使用する
 - **QueryLibrary**は、CDM用の再利用可能なSQLクエリのコレクションを提供します。
 
 \EndKnitrBlock{rmdsummary}
-## 練習問題
 
-#### 前提条件 {-}
+## 演習
 
-これらの練習問題では、セクション \@ref(installR) に記載されているように、R、R-Studio、Java がインストールされていることを前提とします。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、および [Eunomia](https://ohdsi.github.io/Eunomia/) パッケージも必要です。以下の手順でインストールできます。
+#### 前提条件 {.unnumbered}
+
+これらの演習では、セクション \@ref(installR) に記載されているように、R、R-Studio、Java がインストールされていることを前提とします。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、および [Eunomia](https://ohdsi.github.io/Eunomia/) パッケージも必要です。以下の手順でインストールできます。
 
 
 ``` r
@@ -980,6 +1007,7 @@ SQL および R を使用して、データベース内に何人いるかを計�
 SQL および R を使用して、少なくとも 1 回のセレコキシブの処方を受けたことがある人の数を計算しなさい。
 
 :::
+
 ::: {.exercise #exerciseGiBleedsDuringCelecoxib}
 SQL および R を使用して、セレコキシブの服用中に胃腸出血の診断が出たケースの数を計算しなさい。(ヒント: 胃腸出血のコンセプト ID は [192671](http://athena.ohdsi.org/search-terms/terms/192671) です)
 

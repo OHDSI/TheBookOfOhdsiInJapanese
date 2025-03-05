@@ -1,7 +1,8 @@
 ---
 title: " --翻訳作業中--　OHDSI指南書"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
-date: "2025-03-03"
+date: "2025-03-05"
+classoption: 11pt
 geometry:
 - paperheight=10in
 - paperwidth=7in
@@ -17,13 +18,12 @@ bibliography:
 description: The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。
 documentclass: book
 favicon: images/favicon.ico
-github-repo: OHDSI/TheBookOfOhdsi
-link-citations: true
+github-repo: OHDSI/TheBookOfOhdsiInJapanese
+link-citations: yes
 cover-image: images/Cover/Cover.png
 site: bookdown::bookdown_site
 biblio-style: apalike
 url: https://ohdsi.github.io/TheBookOfOhdsiInJapanese/
-classoption: 11pt
 ---
 
 
