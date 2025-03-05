@@ -252,30 +252,30 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
 -   場合によっては、CONCEPT_ID = 0にマップするコードも良作です。良いマップを見つける価値がないコードもありますし、適切なマップがないコードもあります。
 -   コンセプトの文脈、特にその親と子を考慮することが重要です。
 
-#### Export the Usagi Map Created {.unnumbered}
+#### Usagiで作成されたマッピングを出力する {.unnumbered}
 
-Once you have created your map within USAGI, the best way to use it moving forward is to export it and append it to the Vocabulary SOURCE_TO_CONCEPT_MAP table.
+USAGI 内でマップを作成したら、それをエクスポートしてボキャブラリ SOURCE_TO_CONCEPT_MAP テーブルに追加するのが、今後マッピングを使用するための最良の方法です。
 
-To export your mappings, go to File –\> Export source_to_concept_map. A pop-up will appear asking you which SOURCE_VOCABULARY_ID you would like to use, type in a short identifier. Usagi will use this identifier. as the SOURCE_VOCABULARY_ID which will allow you to identify your specific mapping in the SOURCE_TO_CONCEPT_MAP table.
+マッピングをエクスポートするには、File (ファイル) -\> Export source_to_concept_map (ソースからコンセプトへのマッピングを出力) に進みます。どのSOURCE_VOCABULARY_IDを使用するかを尋ねるポップアップが表示されるので、短いID (識別子) を入力してください。UsagiはこのIDをSOURCE_VOCABULARY_IDとして使用し、SOURCE_TO_CONCEPT_MAPテーブルで特定のマッピングを識別できるようにします。
 
-After selecting the SOURCE_VOCABULARY_ID, you give your export CSV a name and save to location. The export CSV structure is in that of the SOURCE_TO_CONCEPT_MAP table. This mapping could be appended to the Vocabulary’s SOURCE_TO_CONCEPT_MAP table. It would also make sense to append a single row to the VOCABULARY table defining the SOURCE_VOCABULARY_ID you defined in the step above. Finally, it is important to note that only mappings with the “Approved” status will be exported into the CSV file; the mapping needs to be completed in USAGI in order to export it.
+SOURCE_VOCABULARY_IDを選択したら、出力したCSVに名前を付けて保存します。出力したCSVの構造はSOURCE_TO_CONCEPT_MAPテーブルになります。このマッピングは、ボキャブラリのSOURCE_TO_CONCEPT_MAPテーブルに追加できます。また、上記の手順で定義したSOURCE_VOCABULARY_IDを定義するVOCABULARYテーブルに1行を追加することも理にかなっています。最後に、「Approved (承認)」ステータスのマッピングのみがCSVファイルにエクスポートされることに注意してください。すなわち、マッピングをエクスポートするには、USAGIでマッピングを完了する必要があります。
 
-#### Updating an Usagi Mapping {.unnumbered}
+#### Usagiで作成されたマッピングを更新する {.unnumbered}
 
-Often a mapping is not a one-time effort. As data is updated perhaps new source codes are added, and the vocabulary is updated regularly, perhaps requiring an update of the mapping.
+多くの場合、マッピングは一度だけの作業ではありません。データが更新されると、新しいソース・コードが追加され、ボキャブラリが定期的に更新されるため、マッピングの更新が必要になる場合があります。
 
-When the set of source codes is updated the following steps can support the update:
+ソース・コードのセットが更新された場合は、次の手順で更新できます。
 
-1.  Import the new source code file
-2.  Choose File –\> Apply previous mapping, and select the old Usagi mapping file
-3.  Identify codes that haven't inherited approved mappings from the old mapping, and map them as usual.
+1.  新しいソース・コード・ファイルをインポートします。
+2.  File (ファイル) -\> Apply previous mapping (以前のマッピングを適用する) を選択します。
+3.  古いマッピングから引き継いだ承認済みのマッピングではないコードを見つけて、それらを通常通りマッピングします。
 
-When the vocabulary is updated, follow these steps:
+ボキャブラリが更新されたら、以下の手順に従ってください：
 
-1.  Download the new vocabulary files from Athena
-2.  Rebuild the Usagi index (Help –\> Rebuild index)
-3.  Open the mapping file
-4.  Identify codes that map to concepts that in the new vocabulary version no longer are Standard concepts, and find more appropriate target concepts.
+1.  Athena から新しいボキャブラリファイルをダウンロード
+2.  Usagi インデックスを再構築します（Help (ヘルプ) -\> Rebuild index (インデックスを再構築する)）。
+3.  マッピング・ファイルを開きます。
+4.  新しいバージョンのボキャブラリで標準コンセプトでなくなったコンセプトにマップされるコードを特定し、より適切なターゲットコンセプトを見つけます。
 
 ## ステップ 3: ETLの実装
 
