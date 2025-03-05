@@ -120,13 +120,13 @@ CDM変換中に中間テーブルを作成する必要があることがよく�
 
 #### マッピング例：Personテーブル {.unnumbered}
 
-Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson). に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
+Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson) に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
 
 ```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/syntheaPersonTable.png")
 ```
 
-表 \@ref(tab:syntheaEtlPerson)には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
+表 \@ref(tab:syntheaEtlPerson) には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
 
 | 目的フィールド | ソースフィールド | ロジックとコメント |
 |:---|:---|:---|
@@ -388,7 +388,7 @@ ETLプロセスにはさまざまな理由で困難があります。その中�
 ## 演習
 
 ```{exercise, exerciseEtl1}
-ETLプロセスのステップを適切な順序に並べてください：
+ ETLプロセスのステップを適切な順序に並べてください：
 
 A) データ専門家とCDM専門家が協力してETLをデザイン
 B) 技術者がETLを実装
@@ -398,9 +398,9 @@ D) すべての関係者が品質管理に関与
 ```
 
 ```{exercise, exerciseEtl2}
-選択したOHDSIリソースを使用して、表\@ref(tab:exercisePersonTable)に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
+ 選択したOHDSIリソースを使用して、表 \@ref(tab:exercisePersonTable) に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
 
-Table: (\#tab:exercisePersonTable) PERSONテーブル。
+Table: (\#tab:exercisePersonTable) PERSONテーブル
 
 列 | 値
 :---------------- |:-----------
@@ -419,14 +419,14 @@ ETHNICITY_SOURCE_VALUE | 提供されていない
 ```
 
 ```{exercise, exerciseEtl3}
-VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
+ VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
 PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある限り、請求行をまとめます。まとめられた入院請求ごとに1つの入院受診期間と見なし、以下を設定します：
 
 - MIN(START)をVISIT_START_DATEとして設定
 - MAX(END)をVISIT_END_DATEとして設定
 - "IP"をPLACE_OF_SERVICE_SOURCE_VALUEとして設定
 
-ソースデータに図\@ref(fig:exerciseSourceData)に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
+ソースデータに図 \@ref(fig:exerciseSourceData) に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
 
 ```
 
@@ -434,4 +434,4 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDご�
 knitr::include_graphics("images/ExtractTransformLoad/exerciseSourceData.png")
 ```
 
-提案された回答は付録\@ref(Etlanswers)に見つけることができます。
+提案された回答は付録 \@ref(Etlanswers) に見つけることができます。
