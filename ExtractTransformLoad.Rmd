@@ -44,7 +44,7 @@ White Rabbitの主な機能は、ソースデータをスキャンし、フィ�
 
 White Rabbitアプリケーションをダウンロードしてインストールした後、最初に行うべきことは作業フォルダを設定することです。White Rabbitが作成するすべてのファイルはこのローカルフォルダにエクスポートされます。図\@ref(fig:WhiteRabbitLocation)に示されている「Pick Folder」ボタンを使用して、スキャンドキュメントを配置するローカル環境をナビゲートします。
 
-```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitLocation.png")
 ```
 
@@ -56,7 +56,7 @@ White Rabbitは区切りテキストファイルとさまざまなデータベ�
 
 データベースに接続した後、含まれるテーブルをスキャンできます。スキャンによってETLのデザインに役立つ情報を含むレポートが生成されます。図\@ref(fig:WhiteRabbitAddTables)に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックすることで、選択されたソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動選択する「Add all in DB」ボタンをクリックできます。
 
-```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ。', echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 ```
 
@@ -72,13 +72,13 @@ knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 
 スキャンが完了すると、スキャンされた各テーブルと概要タブを含むExcelファイルが選択されたフォルダに生成されます。概要タブにはスキャンされたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータ型、フィールドの最大長、テーブル行数、スキャンされた行数、および各フィールドが空である頻度が一覧表示されます。図\@ref(fig:ScanOverviewTab).に示されたサンプル概要タブ。
 
-```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanOverviewTab.png")
 ```
 
 各テーブルのタブには、各フィールド、各フィールド内の値、および各値の頻度が表示されます。各ソーステーブル列は、Excelに2つの列を生成します。1つの列には、スキャン時に設定された「最小セル数」を超えるすべての固有値がリストされます。固有値のリストが切り捨てられた場合、リストの最後の値は「リスト切り捨て」と表示されます。これは、「最小セル数」で入力した数より少ない頻度で表示される1つ以上の追加の固有ソース値が存在することを示します。各固有値の横には、その値がサンプルに出現する頻度（発生回数）を含む2番目の列もあります。これらの2つの列（固有値と頻度）は、ワークブック内のプロファイリングされたテーブルのすべてのソースカラムについて繰り返されます。
 
-```{r scanSex, fig.cap="単一列のサンプル値。", echo=FALSE, out.width='30%', fig.align='center'}
+```{r scanSex, fig.cap="単一列のサンプル値", echo=FALSE, out.width='30%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanSex.png")
 ```
 
@@ -112,7 +112,7 @@ White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソー�
 
 CDMは人中心のモデルであるため、まずPERSONテーブルをマッピングすることが常に良い考えです。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照しているため、最初にPERSONテーブルのロジックを解決すると、後で簡単になります。PERSONテーブルの後は、OBSERVATION_PERIODテーブルを次に変換するのが良いルールです。CDMデータベースの各人物には少なくとも1つのOBSERVATION_PERIODがあり、一般的に、人物のほとんどのイベントはこの期間内に発生します。PERSONおよびOBSERVATION_PERIODテーブルが完了したら、次は通常、PROVIDER、CARE_SITE、およびLOCATIONなどの次元テーブルを変換します。臨床テーブルの前に処理すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはしばしばETL全体で最も複雑なロジックであり、最も重要なものの1つです。人物の患者の旅の過程で発生するほとんどのイベントは受診期間中に発生します。これらのテーブルが完了したら、どのCDMテーブルを変換し、その順序を選択できます。
 
-```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/flowOfEtl.png")
 ```
 
@@ -208,7 +208,7 @@ Usagiはコードマッピングを手動で作成するプロセスを支援す
 
 ソースコードはFile → Import codesメニューからUsagiにロードされます。ここでは「Import codes …」が表示される（図\@ref(fig:usagiImport)）。この図では、ソースコード用語がオランダ語で、英語に翻訳されたものも含まれています。Usagiは英語の翻訳を利用して標準ボキャブラリにマッピングします。
 
-```{r usagiImport, fig.cap="Usagiコード入力画面。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r usagiImport, fig.cap="Usagiコード入力画面", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 ```
 
@@ -400,7 +400,7 @@ D) すべての関係者が品質管理に関与
 ```{exercise, exerciseEtl2}
 選択したOHDSIリソースを使用して、表\@ref(tab:exercisePersonTable)に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
 
-表: (\#tab:exercisePersonTable) PERSONテーブル。
+Table: (\#tab:exercisePersonTable) PERSONテーブル。
 
 列 | 値
 :---------------- |:-----------
