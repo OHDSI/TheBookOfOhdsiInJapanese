@@ -1,4 +1,4 @@
-　book_filename: "TheBookOfOhdsiInJapanese"
+　book_filename: "TheBookOfOhdsi"
 language:
   label:
     fig: "図 "
@@ -18,7 +18,6 @@ language:
   ui:
     edit: "エディション"
     chapter_name: "章 "
-
 delete_merged_file: true
 new_session: true
 
