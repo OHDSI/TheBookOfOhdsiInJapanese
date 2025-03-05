@@ -6,8 +6,8 @@
 
 保険請求データや電子健康記録などの観察的な医療データは、治療の効果に関する現実世界のエビデンスを生成する機会を提供し、患者の生活を有意に改善することができます。本章では、特定の健康アウトカムに対する曝露（例えば、薬剤曝露や処置などの医療介入）の平均的な因果効果の推定を指す集団レベルの効果推定に焦点を当てます。以下では、2つの異なる推定タスクを検討します：
 
-- **直接効果推定**: アウトカムのリスクに対する曝露の効果を、曝露なしと比較して推定する。 \index{direct effect estimation}
-- **比較効果推定**: アウトカムのリスクに対する曝露（ターゲット曝露）の効果を、別の曝露（比較曝露）と比較して推定する。 \index{comparative effect estimation}
+-   **直接効果推定**: アウトカムのリスクに対する曝露の効果を、曝露なしと比較して推定する。 \index{direct effect estimation}
+-   **比較効果推定**: アウトカムのリスクに対する曝露（ターゲット曝露）の効果を、別の曝露（比較曝露）と比較して推定する。 \index{comparative effect estimation}
 
 いずれの場合でも、患者レベルの因果効果は事実のアウトカム、すなわち曝露を受けた患者に何が起こったかと、反事実のアウトカム、すなわち曝露がなかった場合（直接）や異なる曝露があった場合（比較）に何が起こったかを対比させます。各患者は事実のアウトカムのみを明らかにするため（因果推論の基本問題）、さまざまな効果推定デザインは異なるデバイスを使用して反事実のアウトカムを明らかにします。 \index{counterfactual}
 
@@ -23,17 +23,17 @@
 knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 ```
 
-コホートメソッドはランダム化臨床試験を模倣することを試みます　[@hernan_2016 ]。 ある治療（ターゲット）を開始した被験者は別の治療（比較対照）を開始した被験者と比較され、治療開始後の特定の期間、例えば治療を継続する期間にわたって追跡されます。コホート研究において我々が答えたい質問は、表\@ref(tab:cmChoices)にハイライトされた5つの選択を行うことで具体化されます。 \index{ターゲットコホート!コホートメソッド} \index{比較対照コホート} \index{アウトカムコホート!コホートメソッド}
+コホートメソッドはランダム化臨床試験を模倣することを試みます　[@hernan_2016]。 ある治療（ターゲット）を開始した被験者は別の治療（比較対照）を開始した被験者と比較され、治療開始後の特定の期間、例えば治療を継続する期間にわたって追跡されます。コホート研究において我々が答えたい質問は、表\@ref(tab:cmChoices)にハイライトされた5つの選択を行うことで具体化されます。 \index{ターゲットコホート!コホートメソッド} \index{比較対照コホート} \index{アウトカムコホート!コホートメソッド}
 
-表: (\#tab:cmChoices) 比較コホートデザインの主要な設計選択。
+表: (#tab:cmChoices) 比較コホートデザインの主要な設計選択。
 
-| 選択             | 説明                                                     |
-|:------------------|:---------------------------------------------------------|
-| ターゲットコホート| ターゲット治療を代表するコホート                          |
-| 比較対照コホート  | 比較対照治療を代表するコホート                            |
-| アウトカムコホート| 関心のあるアウトカムを代表するコホート                    |
-| リスク期間        | どの時点で（通常はターゲットおよび比較対照コホートの開始および終了日）アウトカムのリスクを考慮するか  |
-| モデル            | ターゲットと比較対照の間の違いを調整しながら効果を推定するために使用されるモデル  |
+| 選択 | 説明 |
+|:---|:---|
+| ターゲットコホート | ターゲット治療を代表するコホート |
+| 比較対照コホート | 比較対照治療を代表するコホート |
+| アウトカムコホート | 関心のあるアウトカムを代表するコホート |
+| リスク期間 | どの時点で（通常はターゲットおよび比較対照コホートの開始および終了日）アウトカムのリスクを考慮するか |
+| モデル | ターゲットと比較対照の間の違いを調整しながら効果を推定するために使用されるモデル |
 
 モデルの選択には、他の要素の中でも、アウトカムモデルの種類が含まれます。例えば、ロジスティック回帰を使用することができ、これはアウトカムが発生したかどうかを評価し、オッズ比を生成します。ロジスティック回帰はリスク期間がターゲットと比較対照で同じ長さであるか、または関係がないと仮定します。代替的に、定常発生率を仮定するポアソン回帰を選ぶこともできます。よく使用されるのは、リスク比を推定するための初回アウトカムまでの時間を考慮するコックス回帰であり、ターゲットと比較対照間で比例ハザードを仮定します。 \index{ロジスティック回帰} \index{ポアソン回帰} \index{コックス回帰} \index{コックス比例ハザードモデル|see {コックス回帰}}
 
@@ -50,7 +50,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 
 ランダム化試験では、（仮想的な）コイントスが患者を各グループに割り当てます。したがって、設計によって、患者がターゲット治療を受ける確率は患者の特性（例：年齢）とは無関係です。コインは患者を知りませんし、何よりも、ターゲット曝露を受ける患者の確率を正確にはっきりと知っています。そのアウトカム、試験の患者数が増えるにつれて、両方のグループの患者はどのような患者特性においても体系的に異なることは基本的にできません。このバランスの保証は、試験が測定した特性（例：年齢）および試験が測定しなかった特性（例：患者の遺伝的要因）にも適用されます。 \index{ランダム化試験}
 
-ある患者に対する*傾向スコア（PS）*は、その患者がターゲット治療を受ける確率です　[@rosenbaum_1983 ]。 バランスの取れた二群ランダム化試験では、傾向スコアはすべての患者に対して0.5です。傾向スコアで補正された観察研究では、治療開始時およびその前のデータに基づいて患者がターゲット治療を受ける確率を推定します（実際に受けた治療に関係なく）。これは単純な予測モデリングの応用です。ロジスティック回帰などのモデルを適合させ、患者がターゲット治療を受けるかどうかを予測し、各被験者の予測確率（PS）を生成するためにこのモデルを使用します。標準的なランダム化試験とは異なり、異なる患者は異なるターゲット治療を受ける確率を持ちます。PSは、PSが似たターゲット被験者と比較対照被験者をマッチングする、PSに基づいて研究集団を層化する、PSから導き出された治療重み付けの逆確率（IPTW）を使うなど、いくつかの方法で使用できます。マッチングの場合、各ターゲット被験者に対して一人の比較対照被験者だけを選択することも、一人以上の比較対照被験者を許容することもできます。これを可変比マッチングと言います　[@rassen_2012 ]。 \index{傾向スコアモデル} \index{傾向スコア!マッチング} \index{傾向スコア!層化} \index{傾向スコア!重み付け} \index{治療重み付けの逆確率 (IPTW)|see {傾向スコア!重み付け}} \index{可変比マッチング}
+ある患者に対する*傾向スコア（PS）*は、その患者がターゲット治療を受ける確率です　[@rosenbaum_1983]。 バランスの取れた二群ランダム化試験では、傾向スコアはすべての患者に対して0.5です。傾向スコアで補正された観察研究では、治療開始時およびその前のデータに基づいて患者がターゲット治療を受ける確率を推定します（実際に受けた治療に関係なく）。これは単純な予測モデリングの応用です。ロジスティック回帰などのモデルを適合させ、患者がターゲット治療を受けるかどうかを予測し、各被験者の予測確率（PS）を生成するためにこのモデルを使用します。標準的なランダム化試験とは異なり、異なる患者は異なるターゲット治療を受ける確率を持ちます。PSは、PSが似たターゲット被験者と比較対照被験者をマッチングする、PSに基づいて研究集団を層化する、PSから導き出された治療重み付けの逆確率（IPTW）を使うなど、いくつかの方法で使用できます。マッチングの場合、各ターゲット被験者に対して一人の比較対照被験者だけを選択することも、一人以上の比較対照被験者を許容することもできます。これを可変比マッチングと言います　[@rassen_2012]。 \index{傾向スコアモデル} \index{傾向スコア!マッチング} \index{傾向スコア!層化} \index{傾向スコア!重み付け} \index{治療重み付けの逆確率 (IPTW)|see {傾向スコア!重み付け}} \index{可変比マッチング}
 
 例えば、一対一のPSマッチングを用いるとします。Janのターゲット治療を受ける事前確率が0.4であり、実際にターゲット治療を受けたとします。もし、事前確率0.4でターゲット治療を受けるはずだったが実際には比較対照を受けた患者（Junという名前）が見つかれば、JanとJunのアウトカムを比較することは、測定された交絡因子に関しては、小規模なランダム化試験のようなものです。この比較は、ランダム化によって生成されるJan-Jun因果コントラストの推定をもたらします。次に、推定手順は次のようになります：ターゲットを受けた各患者に対して、事前確率が同じで比較対照を受けた一人以上の患者を見つけ、これらのマッチング群内でターゲット患者のアウトカムを比較対照患者のアウトカムと比較します。
 
@@ -58,7 +58,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 
 ### 変数選択 {#VariableSelection}
 
-以前は、PSは手動で選択された特性に基づいて計算されていましたが、OHDSIツールはそのような実践をサポートする一方で、特定の曝露およびアウトカムに基づいて選択されていない、より多くの汎用特性を使用することを好みます　[@tian_2018 ] 。これらの特性には、人口統計情報、治療開始前および当日に観察された診断、薬剤曝露、測定値、および医療処置が含まれます。通常、モデルには10,000から100,000の特有の特性が含まれ、これらを大規模な正則化回帰[@suchard_2013 ]を使用して適合させ、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージで実装します。本質的には、どの特性が治療割り当ての予測に関連するかをデータに決定させ、モデルに含めます。
+以前は、PSは手動で選択された特性に基づいて計算されていましたが、OHDSIツールはそのような実践をサポートする一方で、特定の曝露およびアウトカムに基づいて選択されていない、より多くの汎用特性を使用することを好みます　[@tian_2018] 。これらの特性には、人口統計情報、治療開始前および当日に観察された診断、薬剤曝露、測定値、および医療処置が含まれます。通常、モデルには10,000から100,000の特有の特性が含まれ、これらを大規模な正則化回帰[@suchard_2013]を使用して適合させ、[Cyclops](https://ohdsi.github.io/Cyclops/)パッケージで実装します。本質的には、どの特性が治療割り当ての予測に関連するかをデータに決定させ、モデルに含めます。
 
 ```{block2, type='rmdimportant'}
 典型的には、治療開始日の特性は治療の原因となる診断などの多くの関連データがその日に記録されているため、共変量収集ウィンドウに含まれるべきです。この日には、ターゲットおよび比較対照の治療自体も記録されているが、これらは傾向スコアモデルに含まれるべきではありません。なぜなら、私たちはまさにこれらを予測しようとしているからです。したがって、ターゲットおよび比較対照治療は共変量セットから明示的に除外する必要があります。
@@ -89,7 +89,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 
 \index{共変量バランス} \index{バランス|see {共変量バランス}}
 
-良い実践は常にPS調整がバランスの取れた患者群を生成するかどうかをチェックします。図\@ref(fig:balance)はバランスをチェックするための標準的なOHDSI出力を示しています。各患者特性について、露出グループ間の平均の標準化差をPS調整前後でプロットします。いくつかのガイドラインは、PS調整後の標準化差の上限を0.1とすることを推奨しています　[@rubin_2001 ]。
+良い実践は常にPS調整がバランスの取れた患者群を生成するかどうかをチェックします。図\@ref(fig:balance)はバランスをチェックするための標準的なOHDSI出力を示しています。各患者特性について、露出グループ間の平均の標準化差をPS調整前後でプロットします。いくつかのガイドラインは、PS調整後の標準化差の上限を0.1とすることを推奨しています　[@rubin_2001]。
 
 ## 自己対照コホートデザイン
 
@@ -99,7 +99,7 @@ $$\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCohort.png")
 ```
 
-自己対照コホート（SCC）デザイン [@ryan_2013 ] は曝露中のアウトカムの発生率を、曝露直前の時間におけるアウトカムの発生率と比較します。表 \@ref(tab:sccChoices) に示す4つの選択肢が、自己対照コホートの質問を定義します。\index{ターゲットコホート!自己対照コホートデザイン} \index{アウトカムコホート!自己対照コホートデザイン}
+自己対照コホート（SCC）デザイン [@ryan_2013] は曝露中のアウトカムの発生率を、曝露直前の時間におけるアウトカムの発生率と比較します。表 \@ref(tab:sccChoices) に示す4つの選択肢が、自己対照コホートの質問を定義します。\index{ターゲットコホート!自己対照コホートデザイン} \index{アウトカムコホート!自己対照コホートデザイン}
 
 ```{r sccChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -129,7 +129,7 @@ table
 knitr::include_graphics("images/PopulationLevelEstimation/caseControl.png")
 ```
 
-症例対照研究 [@vandenbroucke_2012 ] は、「特定の疾患のアウトカムを持つ人が、その疾患を持たない人よりも特定のエージェントにより頻繁に曝露されているかどうか」を問います。このため、中心的なアイディアは、興味のあるアウトカムを経験する被験者（「症例」）を、興味のあるアウトカムを経験しない被験者（「対照」）と比較することです。表 \@ref(tab:ccChoices) の選択肢が、症例対照の質問を定義します。\index{アウトカムコホート!症例対照デザイン} \index{ターゲットコホート!症例対照デザイン} \index{ネスティングコホート!症例対照デザイン}
+症例対照研究 [@vandenbroucke_2012] は、「特定の疾患のアウトカムを持つ人が、その疾患を持たない人よりも特定のエージェントにより頻繁に曝露されているかどうか」を問います。このため、中心的なアイディアは、興味のあるアウトカムを経験する被験者（「症例」）を、興味のあるアウトカムを経験しない被験者（「対照」）と比較することです。表 \@ref(tab:ccChoices) の選択肢が、症例対照の質問を定義します。\index{アウトカムコホート!症例対照デザイン} \index{ターゲットコホート!症例対照デザイン} \index{ネスティングコホート!症例対照デザイン}
 
 ```{r ccChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -160,7 +160,7 @@ table
 knitr::include_graphics("images/PopulationLevelEstimation/caseCrossover.png")
 ```
 
-症例交叉 [@maclure_1991 ] デザインは、アウトカムのタイミングでの曝露率が、アウトカムよりも前の事前に決められた日数での曝露率よりも異なるかどうかを評価します。これは、アウトカムが発生した日の特別な理由があるかどうかを判断しようとしています。表 \@ref(tab:ccrChoices) は、症例交叉の質問を定義する選択肢を示します。\index{アウトカムコホート!症例交叉デザイン} \index{ターゲットコホート!症例交叉デザイン}
+症例交叉 [@maclure_1991] デザインは、アウトカムのタイミングでの曝露率が、アウトカムよりも前の事前に決められた日数での曝露率よりも異なるかどうかを評価します。これは、アウトカムが発生した日の特別な理由があるかどうかを判断しようとしています。表 \@ref(tab:ccrChoices) は、症例交叉の質問を定義する選択肢を示します。\index{アウトカムコホート!症例交叉デザイン} \index{ターゲットコホート!症例交叉デザイン}
 
 ```{r ccrChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -180,7 +180,7 @@ if ( knitr:::is_latex_output()) {
 table
 ```
 
-症例は自分自身の対照として機能します。自己対照デザインとして、これらは人間間の差異による交絡に対して頑健であるべきです。ただし、アウトカムの日付が常にコントロール日付よりも後であるため、曝露の全体的な頻度が時間とともに増加する（または減少する）場合、方法は陽性バイアスを受ける可能性があります。これに対処するために、症例-時間-コントロールデザイン [@suissa_1995 ] が開発され、例えば年齢や性別で一致させた対照を症例交叉デザインに追加して、曝露のトレンドを調整します。\index{症例-時間-コントロールデザイン}
+症例は自分自身の対照として機能します。自己対照デザインとして、これらは人間間の差異による交絡に対して頑健であるべきです。ただし、アウトカムの日付が常にコントロール日付よりも後であるため、曝露の全体的な頻度が時間とともに増加する（または減少する）場合、方法は陽性バイアスを受ける可能性があります。これに対処するために、症例-時間-コントロールデザイン [@suissa_1995] が開発され、例えば年齢や性別で一致させた対照を症例交叉デザインに追加して、曝露のトレンドを調整します。\index{症例-時間-コントロールデザイン}
 
 ## 自己対照症例シリーズデザイン
 
@@ -190,7 +190,7 @@ table
 knitr::include_graphics("images/PopulationLevelEstimation/selfControlledCaseSeries.png")
 ```
 
-自己対照症例シリーズ（SCCS）デザイン[@farrington_1995; @whitaker_2006 ]は、曝露中のアウトカム発生率を、すべての非曝露期間中の発生率、これには曝露前、曝露間、曝露後の時間も含まれます、と比較します。これは、個人に依存したポアソン回帰であり、「患者がアウトカムを有する場合、曝露期間中の方が非曝露期間中よりもアウトカムが発生しやすいか？」という質問に答えようとします。表\@ref(tab:sccsChoices)の選択肢が SCCS の質問を定義します。 \index{アウトカムコホート!SCCS デザイン} \index{ターゲットコホート!SCCS デザイン}
+自己対照症例シリーズ（SCCS）デザイン[@farrington_1995; @whitaker_2006]は、曝露中のアウトカム発生率を、すべての非曝露期間中の発生率、これには曝露前、曝露間、曝露後の時間も含まれます、と比較します。これは、個人に依存したポアソン回帰であり、「患者がアウトカムを有する場合、曝露期間中の方が非曝露期間中よりもアウトカムが発生しやすいか？」という質問に答えようとします。表\@ref(tab:sccsChoices)の選択肢が SCCS の質問を定義します。 \index{アウトカムコホート!SCCS デザイン} \index{ターゲットコホート!SCCS デザイン}
 
 ```{r sccsChoices, echo=FALSE}
 table <- read.table(header = TRUE, sep = "|", stringsAsFactors = FALSE, strip.white = TRUE, text = "
@@ -210,15 +210,15 @@ if (knitr:::is_latex_output()) {
 table
 ```
 
-他の自己対照デザイン同様、SCCS は個人間の違いによる交絡に対して頑健ですが、時間変動する影響による交絡には脆弱です。これらを考慮するためのいくつかの調整が可能であり、たとえば年齢や季節を含めることができます。SCCSの特別なバリアントでは、関心のある曝露だけでなく、データベースに記録された他の薬剤すべての曝露を含めます　[@simpson_2013 ]。これにより、モデルに数千の追加変数が追加されます。この場合、関心のある曝露以外のすべての曝露の係数に、正則化ハイパーパラメータをクロスバリデーションで選択するL1正則化が適用されます。
+他の自己対照デザイン同様、SCCS は個人間の違いによる交絡に対して頑健ですが、時間変動する影響による交絡には脆弱です。これらを考慮するためのいくつかの調整が可能であり、たとえば年齢や季節を含めることができます。SCCSの特別なバリアントでは、関心のある曝露だけでなく、データベースに記録された他の薬剤すべての曝露を含めます　[@simpson_2013]。これにより、モデルに数千の追加変数が追加されます。この場合、関心のある曝露以外のすべての曝露の係数に、正則化ハイパーパラメータをクロスバリデーションで選択するL1正則化が適用されます。
 
-SCCSの重要な前提条件の一つは、観察期間の終了がアウトカムの日付と独立していることです。一部のアウトカム、特に心筋梗塞などの致命的なアウトカムにおいては、この前提が破られることがあります。SCCSの拡張版では、このような依存関係を修正するものがあります　[@farrington_2011 ]。
+SCCSの重要な前提条件の一つは、観察期間の終了がアウトカムの日付と独立していることです。一部のアウトカム、特に心筋梗塞などの致命的なアウトカムにおいては、この前提が破られることがあります。SCCSの拡張版では、このような依存関係を修正するものがあります　[@farrington_2011]。
 
 ## 高血圧研究のデザイン
 
 ### 問題の定義
 
-ACE 阻害薬（ACEi）は、高血圧や虚血性心疾患を持つ患者、特にうっ血性心不全、糖尿病、慢性腎臓病などの併存疾患を持つ患者によく使用されます　[@zaman_2002 ]。アンジオエデマは、唇、舌、口、喉頭、咽頭、または眼窩周囲の腫れとして現れる、深刻で時には命に関わる有害事象であり、これらの薬の使用と関連付けられています　[@sabroe_1997]。しかし、これらの薬剤使用に関連するアンジオエデマの絶対および相対リスクについての情報は限られています。既存の証拠は、主に特定のコホート（例えば、主に男性の退役軍人やメディケイド受給者）に基づいたものであり、他の集団に一般化できない可能性があります。また、イベント数が少ない研究に基づくものであり、不安定なリスク推定を提供します　[@powers_2012 ]。いくつかの観察研究は、ACEiをβ遮断薬と比較してアンジオエデマのリスクを評価しています[@magid_2010; @toh_2012 ]が、β遮断薬はもはや高血圧の一線級治療として推奨されていません　[@whelton_2018 ]。有力な代替治療法として、チアジド類およびチアジド様利尿薬（THZ）が考えられます。これらは高血圧や急性心筋梗塞（AMI）などの関連リスクを管理する上で同様に有効であり、アンジオエデマのリスクを増加させない可能性があります。
+ACE 阻害薬（ACEi）は、高血圧や虚血性心疾患を持つ患者、特にうっ血性心不全、糖尿病、慢性腎臓病などの併存疾患を持つ患者によく使用されます　[@zaman_2002]。アンジオエデマは、唇、舌、口、喉頭、咽頭、または眼窩周囲の腫れとして現れる、深刻で時には命に関わる有害事象であり、これらの薬の使用と関連付けられています　[@sabroe_1997]。しかし、これらの薬剤使用に関連するアンジオエデマの絶対および相対リスクについての情報は限られています。既存の証拠は、主に特定のコホート（例えば、主に男性の退役軍人やメディケイド受給者）に基づいたものであり、他の集団に一般化できない可能性があります。また、イベント数が少ない研究に基づくものであり、不安定なリスク推定を提供します　[@powers_2012]。いくつかの観察研究は、ACEiをβ遮断薬と比較してアンジオエデマのリスクを評価しています[@magid_2010; @toh_2012]が、β遮断薬はもはや高血圧の一線級治療として推奨されていません　[@whelton_2018]。有力な代替治療法として、チアジド類およびチアジド様利尿薬（THZ）が考えられます。これらは高血圧や急性心筋梗塞（AMI）などの関連リスクを管理する上で同様に有効であり、アンジオエデマのリスクを増加させない可能性があります。
 
 以下では、観察医療データに我々の集団レベル推定フレームワークを適用して、次の比較推定質問に対処する方法を示します：
 
@@ -246,15 +246,15 @@ ACE 阻害薬（ACEi）は、高血圧や虚血性心疾患を持つ患者、特
 
 ### 研究要約
 
-表 (\#tab:aceChoices)は、我々の比較コホート研究の主な設計選択肢を示します。
+表 (#tab:aceChoices)は、我々の比較コホート研究の主な設計選択肢を示します。
 
-| 選択肢         | 値                                                               |
-|:---------------|:-----------------------------------------------------------------|
-| ターゲットコホート | 高血圧の第一選択単剤療法としてのACE阻害薬の新規使用者。        |
-| 比較コホート    | 高血圧の第一選択単剤療法としてのチアジドまたはチアジド様利尿薬の新規使用者。 |
-| アウトカムコホート | アンジオエデマまたは急性心筋梗塞。                            |
-| リスク期間     | 治療開始の翌日から開始し、曝露が終了するまで。                    |
-| モデル         | 可変比マッチングを用いたコックス比例ハザードモデル。             |
+| 選択肢 | 値 |
+|:---|:---|
+| ターゲットコホート | 高血圧の第一選択単剤療法としてのACE阻害薬の新規使用者。 |
+| 比較コホート | 高血圧の第一選択単剤療法としてのチアジドまたはチアジド様利尿薬の新規使用者。 |
+| アウトカムコホート | アンジオエデマまたは急性心筋梗塞。 |
+| リスク期間 | 治療開始の翌日から開始し、曝露が終了するまで。 |
+| モデル | 可変比マッチングを用いたコックス比例ハザードモデル。 |
 
 ### コントロール質問
 
@@ -276,7 +276,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons.png")
 
 ターゲットと比較コホートのペアに対して複数のアウトカムを選択できることに注意してください。各アウトカムは独立したものとして扱われ、別々の分析アウトカムが得られます。
 
-#### 陰性対照アウトカム {-}
+#### 陰性対照アウトカム {.unnumbered}
 
 陰性対照アウトカムは、ターゲットまたはコンパレータによって引き起こされないと信じられているアウトカムであり、真のハザード比が1であると仮定されます。理想的には各アウトカムコホートの適切なコホート定義が必要ですが、通常は各陰性対照アウトカムごとに1つのコンセプトセットと、それらをアウトカムコホートに変換するための標準的なロジックしか持ちません。ここではコンセプトセットがChapter \@ref(MethodValidity)で説明されているとおりすでに作成されていると仮定し、それを選択するだけです。陰性対照コンセプトセットには、陰性対照ごとに1つのコンセプトが含まれ、その子孫は含まれないはずです。Figure \@ref(fig:ncConceptSet)は、この研究に使用された陰性対照コンセプトセットを示しています。
 
@@ -284,11 +284,11 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons.png")
 knitr::include_graphics("images/PopulationLevelEstimation/ncConceptSet.png")
 ```
 
-#### 含めるコンセプト {-}
+#### 含めるコンセプト {.unnumbered}
 
 コンセプトを選択するときに、生成したい共変量を指定できます。たとえば、傾向スコアモデルで使用するためです。ここで共変量を指定すると、それ以外の共変量（指定したもの以外）は除外されます。通常、ベースラインのすべての共変量を含め、正則化回帰モデルがすべての共変量をバランスさせるモデルを構築します。特定の共変量を指定する唯一の理由は、手動で共変量を選択した既存の研究を再現する場合です。これらの除外は、この比較セクションまたは分析セクションで指定できます。なぜなら、時には特定の比較に関連する場合（たとえば、比較における既知の交絡因子）、または特定の分析に関連する場合があります（たとえば、特定の共変量選択戦略を評価するとき）。
 
-#### 除外するコンセプト {-}
+#### 除外するコンセプト {.unnumbered}
 
 含めるコンセプトを指定する代わりに、*除外*するコンセプトを指定することもできます。このフィールドにコンセプトセットを送信すると、送信したコンセプトを除くすべての共変量を使用します。デフォルトの共変量セット（治療開始日のすべての薬剤および処置を含む）を使用する場合、ターゲットおよび比較治療、およびそれらに直接関連するコンセプトを除外する必要があります。たとえば、ターゲット曝露が注射可能なものである場合、薬剤だけでなく、プロペンシティモデルからその投与手技も除外する必要があります。この例では、除外したい共変量はACEiとTHZです。Figure \@ref(fig:covsToExclude)は、これらのコンセプトを含むコンセプトセットを示しています（その子孫も含まれます）。
 
@@ -306,7 +306,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons2.png")
 
 比較ダイアログを閉じた後、「分析設定を追加」をクリックできます。「分析名」とラベル付けされたボックスには、将来簡単に思い出せて見つけやすい一意の名前を付けることができます。たとえば、「傾向スコアマッチング」に設定することもできます。
 
-#### 研究集団 {-}
+#### 研究集団 {.unnumbered}
 
 分析に入る被験者のセットである研究集団を指定するさまざまなオプションがあります。多くのオプションは、コホート定義ツールでターゲットおよび比較コホートを設計する際に利用可能なオプションと重複しています。Estimationのオプションを使用する理由の1つは再利用性です。ターゲット、比較、およびアウトカムコホートを完全に独立して定義し、後でそれらの間に依存関係を追加できます。たとえば、治療開始前にアウトカムを持っていた人を削除したい場合、ターゲットおよび比較コホートの定義でこれを行うことができますが、すべてのアウトカムごとに別のコホートを作成する必要があります。代わりに、分析設定で事前のアウトカムを持つ人々を削除することができ、これで興味のある2つのアウトカム（および陰性対照アウトカム）のターゲットおよび比較コホートを再利用できます。
 
@@ -320,7 +320,7 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons2.png")
 
 ### コホートのインスタンス化
 
-最初にターゲットコホートおよびアウトカムコホートをインスタンス化する必要があります。コホートのインスタンス化は、セクション \(\@ref(Cohorts))で説明しています。付録にはターゲット（付録 \(\@ref(AceInhibitorsMono))）、比較（付録 \(\@ref(ThiazidesMono))）、およびアウトカム（付録 \(\@ref(Angioedema))）コホートの完全な定義が示されています。ACEi、THZ、および血管浮腫コホートが、それぞれコホート定義ID 1、2、3である `scratch.my_cohorts` という表にインスタンス化されていると仮定します。
+最初にターゲットコホートおよびアウトカムコホートをインスタンス化する必要があります。コホートのインスタンス化は、セクション (\@ref(Cohorts))で説明しています。付録にはターゲット（付録 (\@ref(AceInhibitorsMono))）、比較（付録 (\@ref(ThiazidesMono))）、およびアウトカム（付録 (\@ref(Angioedema))）コホートの完全な定義が示されています。ACEi、THZ、および血管浮腫コホートが、それぞれコホート定義ID 1、2、3である `scratch.my_cohorts` という表にインスタンス化されていると仮定します。
 
 ### データ抽出
 
@@ -375,6 +375,7 @@ cmData <- getDbCohortMethodData(connectionDetails = connectionDetails,
                                 covariateSettings = cs)
 cmData
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("CohortMethodDataオブジェクト
 
@@ -384,15 +385,16 @@ cat("CohortMethodDataオブジェクト
 ")
 ```
 
-多くのパラメーターがありますが、すべて[CohortMethodマニュアル](https://ohdsi.github.io/CohortMethod/reference/)に文書化されています。`createDefaultCovariateSettings`関数は[FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/)パッケージで説明されています。簡単に言えば、私たちのコホートを含むテーブルを指し、そのテーブル内でターゲット、コンパレータ、およびアウトカムを識別するコホート定義IDを指定しています。デフォルトの共変量セットが構築される指示を行い、インデックス日前日までに見つかったすべての状態、薬剤曝露、および手順に対する共変量を含むようにします。セクション \(\@ref(CohortMethod))で述べたように、共変量のセットからターゲットとコンパレータ処置を除外する必要があり、ここでは、2クラスすべての成分を一覧表示し、FeatureExtractionにこれらの成分を含むすべての薬剤を除外するように指示します。
+多くのパラメーターがありますが、すべて[CohortMethodマニュアル](https://ohdsi.github.io/CohortMethod/reference/)に文書化されています。`createDefaultCovariateSettings`関数は[FeatureExtraction](https://ohdsi.github.io/FeatureExtraction/)パッケージで説明されています。簡単に言えば、私たちのコホートを含むテーブルを指し、そのテーブル内でターゲット、コンパレータ、およびアウトカムを識別するコホート定義IDを指定しています。デフォルトの共変量セットが構築される指示を行い、インデックス日前日までに見つかったすべての状態、薬剤曝露、および手順に対する共変量を含むようにします。セクション (\@ref(CohortMethod))で述べたように、共変量のセットからターゲットとコンパレータ処置を除外する必要があり、ここでは、2クラスすべての成分を一覧表示し、FeatureExtractionにこれらの成分を含むすべての薬剤を除外するように指示します。
 
-コホート、アウトカム、および共変量に関するすべてのデータはサーバーから抽出され、`cohortMethodData`オブジェクトに保存されます。このオブジェクトは`ff`パッケージを使用して情報を保存するため、データが大きくてもRがメモリ不足にならないようにします（セクション \(\@ref(BigDataSupport))で述べたように）。
+コホート、アウトカム、および共変量に関するすべてのデータはサーバーから抽出され、`cohortMethodData`オブジェクトに保存されます。このオブジェクトは`ff`パッケージを使用して情報を保存するため、データが大きくてもRがメモリ不足にならないようにします（セクション (\@ref(BigDataSupport))で述べたように）。
 
 抽出したデータの詳細を確認するために、汎用`summary()`関数を使用できます：
 
 ```{r tidy=TRUE,eval=FALSE}
 summary(cmData)
 ```
+
 ```{r echo=FALSE,message=FALSE}
 cat("CohortMethodDataオブジェクトの要約
 
@@ -421,13 +423,13 @@ saveCohortMethodData(cmData, "AceiVsThzForAngioedema")
 
 将来のセッションでデータをロードするには、`loadCohortMethodData()`関数を使用できます。
 
-#### 新しいユーザーの定義 {-}
+#### 新しいユーザーの定義 {.unnumbered}
 
 通常、新しいユーザーは薬剤（ターゲットかコンパレータのいずれか）の初回使用として定義され、初回使用として真実である確率を高めるためにウォッシュアウト期間（初回使用前の最小日数）が使用されます。CohortMethodパッケージを使用する場合、新しい使用のための必要要件を3つの方法で適用できます：
 
-1. コホートの定義時。
-2. コホートを`getDbCohortMethodData`関数を使用してロードする際、`firstExposureOnly`、`removeDuplicateSubjects`、`restrictToCommonPeriod`、および`washoutPeriod`引数を使用。
-3. `createStudyPopulation`関数を使用して研究集団を定義する際（下記参照）。
+1.  コホートの定義時。
+2.  コホートを`getDbCohortMethodData`関数を使用してロードする際、`firstExposureOnly`、`removeDuplicateSubjects`、`restrictToCommonPeriod`、および`washoutPeriod`引数を使用。
+3.  `createStudyPopulation`関数を使用して研究集団を定義する際（下記参照）。
 
 オプション1の利点は、入力コホートがすでにCohortMethodパッケージの外部で完全に定義されているため、外部コホート特性化ツールがこの分析で使用される同じコホートで使用できることです。オプション2および3の利点は、DRUG_ERAテーブルを直接使用できるなど、自分で初回使用に制限する手間を省くことです。オプション2は3よりも効率的であるため、最初の使用に必要なデータを取得するだけで済みますが、オプション3は効率は低いものの、元のコホートを研究集団と比較できます。
 
@@ -455,6 +457,7 @@ studyPop <- createStudyPopulation(cohortMethodData = cmData,
 ```{r tidy=TRUE,eval=FALSE}
 getAttritionTable(studyPop)
 ```
+
 ```{r echo=FALSE,message=FALSE}
 cat("                   説明 ターゲット人数 コンパレータ人数 ...
 1             元のコホート         67212             35379 ...
@@ -492,6 +495,7 @@ outcomeModel <- fitOutcomeModel(population = matchedPop,
                                 stratified = TRUE)
 outcomeModel
 ```
+
 ```{r echo=FALSE,message=FALSE,eval=TRUE}
 cat("モデルタイプ：cox
 階層化：TRUE
@@ -508,10 +512,10 @@ cat("モデルタイプ：cox
 一般的に、ネガティブコントロールを含む多くのアウトカムに対して複数の分析を実行することを希望します。[CohortMethod](https://ohdsi.github.io/CohortMethod/)は、そのような研究を効率的に実行するための関数を提供します。これは[複数の分析の実行に関するパッケージのビネット](https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html)で詳細に説明されています。要約すると、関心のあるアウトカムおよびネガティブコントロールコホートが既に作成されていることを前提とし、分析したいすべてのターゲット・コンパレータ・アウトカムの組み合わせを指定できます：
 
 ```{r tidy=FALSE,eval=FALSE}
-# 関心のあるアウトカム
-ois <- c(3, 4) # 血管浮腫、AMI
+# Outcomes of interest:
+ois <- c(3, 4) # Angioedema, AMI
 
-# ネガティブコントロール
+# Negative controls:
 ncs <- c(434165,436409,199192,4088290,4092879,44783954,75911,137951,77965,
          376707,4103640,73241,133655,73560,434327,4213540,140842,81378,
          432303,4201390,46269889,134438,78619,201606,76786,4115402,
@@ -522,7 +526,128 @@ ncs <- c(434165,436409,199192,4088290,4092879,44783954,75911,137951,77965,
          4202045,373478,46286594,439790,81634,380706,141932,36713918,
          443172,81151,72748,378427,437264,194083,140641,440193,4115367)
 
-tcos <- create
+tcos <- createTargetComparatorOutcomes(targetId = 1,
+                                       comparatorId = 2,
+                                       outcomeIds = c(ois, ncs))
+
+tcosList <- list(tcos)
+```
+
+Next, we specify what arguments should be used when calling the various functions described previously in our example with one outcome:
+
+```{r tidy=FALSE,eval=FALSE}
+aceI <- c(1335471,1340128,1341927,1363749,1308216,1310756,1373225,
+          1331235,1334456,1342439)
+thz <- c(1395058,974166,978555,907013)
+
+cs <- createDefaultCovariateSettings(excludedCovariateConceptIds = c(aceI,
+                                                                     thz),
+                                     addDescendantsToExclude = TRUE)
+
+cmdArgs <- createGetDbCohortMethodDataArgs(
+  studyStartDate = "",
+  studyEndDate = "",
+  firstExposureOnly = FALSE,
+  removeDuplicateSubjects = FALSE,
+  restrictToCommonPeriod = FALSE,
+  washoutPeriod = 0,
+  covariateSettings = cs)
+
+spArgs <- createCreateStudyPopulationArgs(
+  firstExposureOnly = FALSE,
+  restrictToCommonPeriod = FALSE,
+  washoutPeriod = 0,
+  removeDuplicateSubjects = "remove all",
+  removeSubjectsWithPriorOutcome = TRUE,
+  minDaysAtRisk = 1,
+  startAnchor = "cohort start",
+  addExposureDaysToStart = FALSE,
+  endAnchor = "cohort end",
+  addExposureDaysToEnd = TRUE)
+
+psArgs <- createCreatePsArgs()
+
+matchArgs <- createMatchOnPsArgs(
+  caliper = 0.2,
+  caliperScale = "standardized logit",
+  maxRatio = 100)
+
+fomArgs <- createFitOutcomeModelArgs(
+  modelType = "cox",
+  stratified = TRUE)
+```
+
+We then combine these into a single analysis settings object, which we provide a unique analysis ID and some description. We can combine one or more analysis settings objects into a list:
+
+```{r tidy=FALSE,eval=FALSE}
+cmAnalysis <- createCmAnalysis(
+  analysisId = 1,
+  description = "Propensity score matching",
+  getDbCohortMethodDataArgs = cmdArgs,
+  createStudyPopArgs = spArgs,
+  createPs = TRUE,
+  createPsArgs = psArgs,
+  matchOnPs = TRUE,
+  matchOnPsArgs = matchArgs
+  fitOutcomeModel = TRUE,
+  fitOutcomeModelArgs = fomArgs)
+
+cmAnalysisList <- list(cmAnalysis)
+```
+
+We can now run the study including all comparisons and analysis settings:
+
+```{r tidy=FALSE,eval=FALSE}
+result <- runCmAnalyses(connectionDetails = connectionDetails,
+                        cdmDatabaseSchema = cdmDatabaseSchema,
+                        exposureDatabaseSchema = cohortDbSchema,
+                        exposureTable = cohortTable,
+                        outcomeDatabaseSchema = cohortDbSchema,
+                        outcomeTable = cohortTable,
+                        cdmVersion = cdmVersion,
+                        outputFolder = outputFolder,
+                        cmAnalysisList = cmAnalysisList,
+                        targetComparatorOutcomesList = tcosList)
+```
+
+The `result` object contains references to all the artifacts that were created. For example, we can retrieve the outcome model for AMI:
+
+```{r tidy=FALSE,eval=FALSE}
+omFile <- result$outcomeModelFile[result$targetId == 1 &
+                                    result$comparatorId == 2 &
+                                    result$outcomeId == 4 &
+                                    result$analysisId == 1]
+outcomeModel <- readRDS(file.path(outputFolder, omFile))
+outcomeModel
+```
+
+```{r echo=FALSE,message=FALSE,eval=TRUE}
+cat("Model type: cox
+Stratified: TRUE
+Use covariates: FALSE
+Use inverse probability of treatment weighting: FALSE
+Status: OK
+
+          Estimate lower .95 upper .95   logRr seLogRr
+treatment   1.1338    0.5921    2.1765 0.1256   0.332")
+```
+
+We can also retrieve the effect size estimates for all outcomes with one command:
+
+```{r tidy=FALSE,eval=FALSE}
+summ <- summarizeAnalyses(result, outputFolder = outputFolder)
+head(summ)
+```
+
+```{r echo=FALSE,message=FALSE,eval=TRUE}
+cat("    analysisId targetId comparatorId outcomeId        rr ...
+1            1        1            2     72748 0.9734698 ...
+2            1        1            2     73241 0.7067981 ...
+3            1        1            2     73560 1.0623951 ...
+4            1        1            2     75911 0.9952184 ...
+5            1        1            2     76786 1.0861746 ...
+6            1        1            2     77965 1.1439772 ...")
+```
 
 ## 研究の結果 {#studyOutputs}
 
@@ -532,24 +657,26 @@ tcos <- create
 
 まず、ターゲットコホートと比較対象コホートがある程度比較可能かどうかを評価する必要があります。そのためには、傾向モデルの受信者動作特性曲線(ROC)の下の面積（AUC）統計を計算できます。AUCが1である場合、治療の割り当てはベースライン共変量に基づいて完全に予測可能であり、したがって、2つのグループは比較不可能であることを示します。`computePsAuc`関数を使用してAUCを計算できます。私たちの例では0.79です。`plotPs`関数を使用して、図 \@ref(fig:ps)に示すような傾向スコア分布も生成できます。この図から、多くの人々にとって受けた治療が予測可能だったことがわかりますが、大量の重複があり、調整を使用して比較可能なグループを選択できることを示しています。 \index{preference score!example}
 
-```{r ps, fig.cap='傾向スコア分布。',echo=FALSE, out.width='80%', fig.align='center'}
+```{r ps, fig.cap='Preference score distribution.',echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/ps.png")
 ```
 
 一般的に、特にモデルが非常に予測的である場合には、傾向モデル自体も検査することが良い考えです。その方法で、最も予測的な変数を発見できるかもしれません。表 \@ref(tab:psModel)は、私たちの傾向モデルにおける主要な予測因子を示しています。変数があまりにも予測的である場合、CohortMethodパッケージは情報的なエラーを投げますが、すでに完全に予測可能であることがわかっているモデルを適合させようとはしません。 \index{propensity model!example}
 
-| ベータ | 共変量
-| ----:|:----------------------------------------------------------------------------|
-| -1.42 | 基準日から-30日から0日までの期間の疾患エラ: 浮腫 |
-| -1.11 | 基準日から0日から0日までの期間の薬剤エラ: 塩化カリウム |
-| 0.68 | 年齢グループ: 05-09 |
-| 0.64 | 基準日から-365日から0日までの期間の測定: レニン |
-| 0.63 | 基準日から-30日から0日までの期間の疾患エラ: 蕁麻疹 |
-| 0.57 | 基準日から-30日から0日までの期間の疾患エラ: タンパク尿 |
-| 0.55 | 基準日から-365日から0日までの期間の薬剤エラ: インスリン及び類似体 |
-| -0.54 | 人種: 黒人またはアフリカ系アメリカ人 |
-| 0.52 | (切片) |
-| 0.50 | 性別: 男性 |
+| ベータ | 共変量                                                            |
+|-------:|:------------------------------------------------------------------|
+|  -1.42 | 基準日から-30日から0日までの期間の疾患エラ: 浮腫                  |
+|  -1.11 | 基準日から0日から0日までの期間の薬剤エラ: 塩化カリウム            |
+|   0.68 | 年齢グループ: 05-09                                               |
+|   0.64 | 基準日から-365日から0日までの期間の測定: レニン                   |
+|   0.63 | 基準日から-30日から0日までの期間の疾患エラ: 蕁麻疹                |
+|   0.57 | 基準日から-30日から0日までの期間の疾患エラ: タンパク尿            |
+|   0.55 | 基準日から-365日から0日までの期間の薬剤エラ: インスリン及び類似体 |
+|  -0.54 | 人種: 黒人またはアフリカ系アメリカ人                              |
+|   0.52 | (切片)                                                            |
+|   0.50 | 性別: 男性                                                        |
+
+: (#tab:psModel) Top 10 predictors in the propensity model for ACEi and THZ. Positive values mean subjects with the covariate are more likely to receive the target treatment. "(Intercept)" indicates the intercept of this logistic regression model.
 
 ```{block2, type='rmdimportant'}
 変数が非常に予測的であると判明した場合、2つの可能な結論があります。変数が明らかに曝露の一部であると判明し、モデルを適合させる前に削除する必要があるか、または2つの集団が本当に比較不可能であり、解析を中止しなければならないという結論に達します。
@@ -604,9 +731,10 @@ knitr::include_graphics("images/PopulationLevelEstimation/kmPlot.png")
 - OHDSIメソッドライブラリに実装されているさまざまな設計は、適切な反事実を作成するための仮定が満たされているかどうかを評価するための診断を提供します。
 
 ```
+
 ## 演習
 
-#### 前提条件 {-}
+#### 前提条件 {.unnumbered}
 
 これらの演習を行うためには、R、R-Studio、およびJavaがセクション \@ref(installR) で説明されているようにインストールされていることを前提とします。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、[Eunomia](https://ohdsi.github.io/Eunomia/)、および[CohortMethod](https://ohdsi.github.io/CohortMethod/)パッケージも必要です。これらは次のコマンドでインストールできます：
 
@@ -628,7 +756,7 @@ CDMデータベースのスキーマは「main」です。また、これらの�
 Eunomia::createCohorts(connectionDetails)
 ```
 
-#### 問題定義 {-}
+#### 問題定義 {.unnumbered}
 
 > セレコキシブの新規使用者とジクロフェナクの新規使用者における消化管（GI）出血のリスクは？
 
@@ -659,3 +787,4 @@ PS階層を使用してコックス比例ハザードモデルを適合させま
 ```
 
 推奨される解答は付録 \@ref(Pleanswers) で見つけることができます。
+
