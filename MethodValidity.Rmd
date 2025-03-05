@@ -2,7 +2,7 @@
 
 \index{方法の妥当性}
 
-*章リード: Martijn Schuemie*
+*章の著者: Martijn Schuemie*
 
 方法の妥当性を検討する際、次の質問に答えようとします。
 
