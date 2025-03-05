@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章 10 第10章　–翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書</title>
+  <title>章 10 –翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章 10 第10章　–翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書" />
+  <meta property="og:title" content="章 10 –翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsiInJapanese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章 10 第10章　–翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書" />
+  <meta name="twitter:title" content="章 10 –翻訳作業中–　コホートの定義 | –翻訳作業中–　OHDSI指南書" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
@@ -402,7 +402,7 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="SqlAndR.html"><a href="SqlAndR.html#まとめ-7"><i class="fa fa-check"></i><b>9.8</b> まとめ</a></li>
 <li class="chapter" data-level="9.9" data-path="SqlAndR.html"><a href="SqlAndR.html#演習-4"><i class="fa fa-check"></i><b>9.9</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> 第10章　–翻訳作業中–　コホートの定義</a>
+<li class="chapter" data-level="10" data-path="Cohorts.html"><a href="Cohorts.html"><i class="fa fa-check"></i><b>10</b> –翻訳作業中–　コホートの定義</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="Cohorts.html"><a href="Cohorts.html#コホートとは"><i class="fa fa-check"></i><b>10.1</b> コホートとは？</a></li>
 <li class="chapter" data-level="10.2" data-path="Cohorts.html"><a href="Cohorts.html#ルールベースのコホート定義"><i class="fa fa-check"></i><b>10.2</b> ルールベースのコホート定義</a></li>
@@ -418,7 +418,8 @@ div.csl-indent {
 <li class="chapter" data-level="10.7.1" data-path="Cohorts.html"><a href="Cohorts.html#初期イベント基準"><i class="fa fa-check"></i><b>10.7.1</b> 初期イベント基準</a></li>
 <li class="chapter" data-level="10.7.2" data-path="Cohorts.html"><a href="Cohorts.html#コンセプトセットの定義"><i class="fa fa-check"></i><b>10.7.2</b> コンセプトセットの定義</a></li>
 <li class="chapter" data-level="10.7.3" data-path="Cohorts.html"><a href="Cohorts.html#追加の初期イベント基準"><i class="fa fa-check"></i><b>10.7.3</b> 追加の初期イベント基準</a></li>
-<li class="chapter" data-level="10.7.4" data-path="Cohorts.html"><a href="Cohorts.html#包括基準"><i class="fa fa-check"></i><b>10.7.4</b> 包括基準</a></li>
+<li class="chapter" data-level="10.7.4" data-path="Cohorts.html"><a href="Cohorts.html#選択基準"><i class="fa fa-check"></i><b>10.7.4</b> 選択基準</a></li>
+<li class="chapter" data-level="10.7.5" data-path="Cohorts.html"><a href="Cohorts.html#コホートエグジット基準"><i class="fa fa-check"></i><b>10.7.5</b> コホート・エグジット基準</a></li>
 </ul></li>
 <li class="chapter" data-level="10.8" data-path="Cohorts.html"><a href="Cohorts.html#sqlを使用したコホートの実装"><i class="fa fa-check"></i><b>10.8</b> SQLを使用したコホートの実装</a>
 <ul>
@@ -780,17 +781,17 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="Cohorts" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">章 10</span> 第10章　–翻訳作業中–　コホートの定義<a href="Cohorts.html#Cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>章の著者: Kristin Kostka!</em></p>
+<h1><span class="header-section-number">章 10</span> –翻訳作業中–　コホートの定義<a href="Cohorts.html#Cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>章の著者: Kristin Kostka</em></p>
 <p>観察型健康データ（<em>リアルワールドデータ</em>とも呼ばれる）は、患者の健康状態や医療の提供に関連するデータで、さまざまな情報源から日常的に収集されたデータです。そのため、OHDSIデータスチュワード（OHDSIの共同研究者で、各サイトのCDMにデータを維持している人々）は、電子健康記録（EHR）、医療保険請求データ、製品や疾患のレジストリ、自宅使用環境を含む患者が生成したデータ、およびモバイルデバイスなど健康状態に関する情報を提供できる他の情報源など、複数の情報源からデータをキャプチャする場合があります。これらのデータは研究目的で収集されたものではないため、興味のある臨床データ要素を明示的にキャプチャしていない場合があります。</p>
 <p>たとえば、医療保険請求データベースは、あるコンディション（例：血管浮腫）に対して提供されたすべての医療をキャプチャして関連コストが適切に補償されるようにデザインされており、実際のコンディションに関する情報はこの目的の一環としてのみキャプチャされます。このような観察データを研究目的で使用したい場合、データにキャプチャされているものを使用して本当に興味のあるものを推測するためのロジックを作成する必要があります。つまり、臨床イベントがどのように現れるかの定義を使用してコホートを作成する必要があるのです。たとえば、保険請求データベースで血管浮腫イベントを特定したい場合、血管浮腫の診断コードが緊急室の設定で記録されていることを要求するロジックを定義し、過去の血管浮腫の発生に対するフォローアップケアを単に説明する請求から区別するかもしれません。類似の考慮事項は、EHRに記録された日常的な医療の相互作用でキャプチャされるデータに対しても適用されます。データが二次的な目的で使用されているため、各データベースが元々何を目的として設計されたかを認識する必要があります。研究をデザインするたびに、さまざまな医療環境でコホートがどのように存在するのかについての細かな点を考慮する必要があります。</p>
 <p>この章では、コホート定義の作成と共有とは何か、コホートを開発する方法、およびATLASまたはSQLを使用して独自のコホートを作成する方法について説明します。</p>
 <div id="コホートとは" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> コホートとは？<a href="Cohorts.html#コホートとは" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>OHDSI研究では、コホートを一つ以上の包含基準を満たし、一定期間にわたってこれを維持している人々の集合として定義します。この用語はしばしば<em>表現型</em>と置き換えられます。コホートは、OHDSI分析ツールやネットワーク研究全体で研究質問を実行するための主要な構成要素として使用されます。たとえば、ACE阻害薬の開始による血管浮腫リスクを予測することを目的とした研究では、2つのコホートを定義します：アウトカムコホート（血管浮腫）およびターゲットコホート（ACE阻害薬を開始する人々）。OHDSIのコホートの重要な側面は、通常、研究内の他のコホートから独立して定義されるため、再利用が可能であることです。たとえば、血管浮腫コホートはターゲット集団外も含む集団全体のすべての血管浮腫イベントを特定します。分析時に必要に応じてこれらの二つのコホートの交差を取ります。この利点は、同じ血管浮腫コホート定義が、たとえばACE阻害薬と他の曝露を比較する推定研究など、他の分析でも使用できるということです。コホート定義は、研究の質問に応じて異なることがあります。</p>
+<p>OHDSI研究では、コホートを一つ以上の選択基準を満たし、一定期間にわたってこれを維持している人々の集合として定義します。この用語はしばしば<em>表現型</em>と置き換えられます。コホートは、OHDSI分析ツールやネットワーク研究全体で研究質問を実行するための主要な構成要素として使用されます。たとえば、ACE阻害薬の開始による血管浮腫リスクを予測することを目的とした研究では、2つのコホートを定義します：アウトカムコホート（血管浮腫）およびターゲットコホート（ACE阻害薬を開始する人々）。OHDSIのコホートの重要な側面は、通常、研究内の他のコホートから独立して定義されるため、再利用が可能であることです。たとえば、血管浮腫コホートはターゲット集団外も含む集団全体のすべての血管浮腫イベントを特定します。分析時に必要に応じてこれらの二つのコホートの交差を取ります。この利点は、同じ血管浮腫コホート定義が、たとえばACE阻害薬と他の曝露を比較する推定研究など、他の分析でも使用できるということです。コホート定義は、研究の質問に応じて異なることがあります。</p>
 
 <div class="rmdimportant">
-<p>コホートは、一つ以上の包含基準を満たし、それを一定期間維持する人々の集合です。</p>
+<p>コホートは、一つ以上の選択基準を満たし、それを一定期間維持する人々の集合です。</p>
 </div>
 <p> OHDSIで使用されるコホートの定義は、この分野の他の人々が使用するものとは異なるかもしれないことを理解することが重要です。たとえば、多くの査読済み科学論文では、コホートが特定の臨床コードのコードセット（例：ICD-9/ICD-10、NDC、HCPCSなど）に類似していると示唆されることがあります。コードセットはコホートを組み立てる際の重要な要素ですが、コホートはコードセットによって定義されません。コホートは、条件を満たすコードセットの使用方法に関する具体的なロジックを必要とします（例：これはICD-9/ICD-10コードの最初の発生ですか？任意の発生ですか？）。 よく定義されたコホートは、患者がコホートに入る方法とコホートから退出する方法を指定します。 </p>
 <p> OHDSIのコホート定義を利用するためのユニークなニュアンスには以下があります</p>
@@ -802,20 +803,20 @@ div.csl-indent {
 </ul>
 <p>コホートを構築するための主要なアプローチは二つあります：</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>ルールベースのコホート定義</strong> は、患者がコホートにいる時期を明示的なルールで説明します。これらのルールを定義するには通常、コホートの包含基準のルールを構築するために、対象となる治療領域の知識を持つ個人のドメインの専門知識に大きく依存する。</p></li>
+<li><p><strong>ルールベースのコホート定義</strong> は、患者がコホートにいる時期を明示的なルールで説明します。これらのルールを定義するには通常、コホートの選択基準のルールを構築するために、対象となる治療領域の知識を持つ個人のドメインの専門知識に大きく依存する。</p></li>
 <li><p><strong>確率的コホート定義</strong> は、コホートにいる患者の確率（0から100%の間の確率）を計算する確率モデルを使用します。この確率は、しきい値を使用してイエス・ノーの分類に変換できるか、または一部の研究デザインではそのまま使用できます。確率モデルは通常、機械学習（例：ロジスティック回帰）を使用して、関連する患者特性を自動的に特定するために例データでトレーニングされます。</p></li>
 </ol>
 <p>次のセクションでは、これらのアプローチについて詳しく説明します。</p>
 </div>
 <div id="ルールベースのコホート定義" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> ルールベースのコホート定義<a href="Cohorts.html#ルールベースのコホート定義" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ルールベースのコホート定義は、特定の期間内に明示的に一つまたは、複数の包含基準（例：「血管浮腫のある人」）を定義することから始まります（例：「過去6ヶ月以内にこの状態を発症した人」）。</p>
+<p>ルールベースのコホート定義は、特定の期間内に明示的に一つまたは、複数の選択基準（例：「血管浮腫のある人」）を定義することから始まります（例：「過去6ヶ月以内にこの状態を発症した人」）。</p>
 <p>これらの基準を組み立てるために使用する標準的なコンポーネントは次のとおりです：</p>
 <ul>
 <li><p><strong>ドメイン</strong>：データが保存されているCDMドメイン（例：「処置の発生」、「薬剤曝露」）は、臨床情報の種類およびそのCDMテーブル内に表現可能なコンセプトを定義します。ドメインについては、セクション<a href="CommonDataModel.html#domains">4.2.4</a>で詳しく説明されています。</p></li>
 <li><p><strong>コンセプトセット</strong>：臨床実体を包含する一つ以上の標準コンセプトを定義するデータ非依存の表現です。これらのコンセプトセットは、異なる観察健康データ間で相互運用可能であり、ボキャブラリ内の標準用語にマッピングされる臨床実体を表します。コンセプトセットについては、セクション<a href="Cohorts.html#conceptSets">10.3</a>で詳しく説明されています。</p></li>
 <li><p><strong>ドメイン固有の属性</strong>：関心のある臨床実体に関連する追加の属性（例：DRUG_EXPOSUREのDAYS_SUPPLYやMEASUREMENTのVALUE_AS_NUMBERやRANGE_HIGH）。</p></li>
-<li><p><strong>時間ロジック</strong>：包含基準とイベントとの関係を評価する時間間隔（例：指定された状態は曝露開始の365日前またはその日前後で発生する必要があります）。</p></li>
+<li><p><strong>時間ロジック</strong>：選択基準とイベントとの関係を評価する時間間隔（例：指定された状態は曝露開始の365日前またはその日前後で発生する必要があります）。</p></li>
 </ul>
 <p>コホート定義を構築する際、コホート属性を表すブロックのようにドメインを考えると便利です（図<a href="Cohorts.html#fig:cohortLegos">10.1</a>参照）。各ドメインの許容内容について混乱した場合は、共通データモデルの章（チャプター<a href="CommonDataModel.html#CommonDataModel">4</a>）を参照してください。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortLegos"></span>
@@ -827,15 +828,15 @@ div.csl-indent {
 <p>コホート定義作成時に自問すべきいくつかの質問があります：</p>
 <ul>
 <li><em>コホートエントリの時間を定義する初期イベントは何か？</em></li>
-<li><em>初期イベントに適用される包含基準は何か？</em></li>
+<li><em>初期イベントに適用される選択基準は何か？</em></li>
 <li><em>コホート退出の時間を定義するものは何か？</em></li>
 </ul>
 <p><strong>コホートエントリエベント</strong>：コホートエントリエベント（初期イベント）は、人々がコホートに参加する時点、つまり<strong>コホートインデックス日</strong>を定義します。コホートエントリエベントは、薬剤曝露、コンディション、処置、測定値、受診期間など、CDMで記録された任意のイベントであり得ます。初期イベントは、データが保存されているCDMドメイン（例：PROCEDURE_OCCURRENCE、DRUG_EXPOSUREなど）、臨床活動を特定するために作成されたコンセプトセット（例：状態のためのSNOMEDコード、薬剤のためのRxNormコード）、およびその他の特定の属性（例：発生時の年齢、初診断/処置/その他、開始日と終了日の指定、受診期間または基準の指定、供給日数など）によって定義されます。エントリエベントを持つ人々のセットは<strong>初期イベントコホート</strong>と呼ばれます。</p>
-<p><strong>包含基準</strong>：包含基準は、初期イベントコホートに適用され、さらに人々のセットを制限します。各包含基準は、データが保存されているCDMドメイン、臨床活動を表すコンセプトセット、ドメイン固有の属性（例：供給日数、受診期間など）、およびコホートインデックス日相対の時間論理によって定義されます。各包含基準は、初期イベントコホートからの人々の脱落に対する基準の影響を評価するために使用されます。<strong>適格コホート</strong>は、すべての包含基準を満たす初期イベントコホート内のすべての人々として定義されます。</p>
+<p><strong>選択基準</strong>：選択基準は、初期イベントコホートに適用され、さらに人々のセットを制限します。各選択基準は、データが保存されているCDMドメイン、臨床活動を表すコンセプトセット、ドメイン固有の属性（例：供給日数、受診期間など）、およびコホートインデックス日相対の時間論理によって定義されます。各選択基準は、初期イベントコホートからの人々の脱落に対する基準の影響を評価するために使用されます。<strong>適格コホート</strong>は、すべての選択基準を満たす初期イベントコホート内のすべての人々として定義されます。</p>
 <p><strong>コホート退出基準</strong>：コホート退出イベントは、ある人がコホート会員資格を失う時点を示します。コホート退出は、観察期間の終了、初期エントリエベント相対の固定時間間隔、関連する観察の一連の最後のイベント（例：持続的な薬剤曝露）または観察期間の他の打ち切りによって定義される場合があります。コホート退出戦略は、ある人が異なる時間間隔で複数回コホートに属することができるかどうかに影響を与えます。 </p>
 
 <div class="rmdimportant">
-<p>OHDSIツールでは、包含基準と除外基準の区別はありません。すべての基準は包含基準として形式化されます。例えば、「以前の高血圧のある人を除外する」という除外基準は、「以前の高血圧の発生が0回の人を含む」という包含基準として形式化されます。</p>
+<p>OHDSIツールでは、選択基準と除外基準の区別はありません。すべての基準は選択基準として形式化されます。例えば、「以前の高血圧のある人を除外する」という除外基準は、「以前の高血圧の発生が0回の人を含む」という選択基準として形式化されます。</p>
 </div>
 </div>
 <div id="conceptSets" class="section level2 hasAnchor" number="10.3">
@@ -849,7 +850,7 @@ div.csl-indent {
 </ul>
 <p>例えば、コンセプトセットの表現は、図に示されるように2つのコンセプトを含むことができます（表 <a href="Cohorts.html#tab:conceptSetExpression">10.1</a>）。ここでは、コンセプト<a href="http://athena.ohdsi.org/search-terms/terms/4329847">4329847</a>（「心筋梗塞」）およびそのすべての下位層に含まれるコンセプトを含む一方、コンセプト<a href="http://athena.ohdsi.org/search-terms/terms/314666">314666</a>（「古い心筋梗塞」）およびそのすべての子孫を除外します。</p>
 <table>
-<caption><span id="tab:conceptSetExpression">表 10.1: </span> コンセプトセットの表現の例。</caption>
+<caption><span id="tab:conceptSetExpression">表 10.1: </span> コンセプトセットの表現の例</caption>
 <thead>
 <tr class="header">
 <th>コンセプトID</th>
@@ -878,9 +879,9 @@ div.csl-indent {
 </table>
 <p>図に示すように（図<a href="Cohorts.html#fig:conceptSet">10.2</a>）、これは「心筋梗塞」およびその下位層に含まれるものを含むが、「古い心筋梗塞」およびその下位層に含まれるものは除外します。全体で、このコンセプトセットの表現は、ほぼ100の標準コンセプトを意味します。これらの標準コンセプトは、さまざまなデータベースに表示されるかもしれない何百ものソースコード（例：ICD-9およびICD-10コード）を反映します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:conceptSet"></span>
-<img src="images/Cohorts/conceptSet.png" alt="「心筋梗塞」（子孫を含む）を含むが、「古い心筋梗塞」（子孫を含む）を除外するコンセプトセット。" width="100%" />
+<img src="images/Cohorts/conceptSet.png" alt="「心筋梗塞」（下位層を含む）を含むが、「陳旧性心筋梗塞」（下位層を含む）を除外するコンセプトセット" width="100%" />
 <p class="caption">
-図 10.2: 「心筋梗塞」（子孫を含む）を含むが、「古い心筋梗塞」（子孫を含む）を除外するコンセプトセット。
+図 10.2: 「心筋梗塞」（下位層を含む）を含むが、「陳旧性心筋梗塞」（下位層を含む）を除外するコンセプトセット
 </p>
 </div>
 </div>
@@ -896,7 +897,7 @@ div.csl-indent {
 <p>この章の冒頭で述べたように、コホート定義は記録されたデータから観察したいことを推測する試みです。それがどの程度うまくいったかという問いが生じます。一般に、ルールに基づくコホート定義や確率的アルゴリズムの検証は、提案されたコホートを「ゴールドスタンダード」の参考文献（例: ケースの手動チャートレビュー）と比較する試験として考えられます。詳細はChapter <a href="ClinicalValidity.html#ClinicalValidity">16</a>（「臨床的妥当性」）に記載されています。</p>
 <div id="ohdsi-ゴールドスタンダード表現型ライブラリ" class="section level3 hasAnchor" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> OHDSI ゴールドスタンダード表現型ライブラリ<a href="Cohorts.html#ohdsi-ゴールドスタンダード表現型ライブラリ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>既存のコホート定義とアルゴリズムの在庫と全体的な評価を支援するために、OHDSI ゴールドスタンダード表現型ライブラリ（GSPL）ワークグループが設立されました。GSPLワークグループの目的は、ルールベースおよび確率的手法からのコミュニティ支援のフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって妥当性が確認されたコホート定義を研究やその他の活動に利用することができます。これらの「ゴールドスタンダード」定義は特定の設計と評価基準に従ってライブラリに保存されます。GSPLに関連する追加情報はOHDSIワークグループページを参照してください。<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a> このワークグループの研究には、先のセクションで議論されたAPHRODITE <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> およびPheValuatorツール <span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> の他、OHDSIネットワーク全体での電子カルテおよびゲノミクスの <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> の共有に関する作業も含まれます <span class="citation">(<a href="#ref-Hripcsak2019eMERGE">G. Hripcsak et al. 2019</a>)</span>。表現型のキュレーションに関心がある場合は、このワークグループに貢献することを考えてみてください。 </p>
+<p>既存のコホート定義とアルゴリズムの在庫と全体的な評価を支援するために、OHDSI ゴールドスタンダード表現型ライブラリ（GSPL）ワークグループが設立されました。GSPLワークグループの目的は、ルールベースおよび確率的手法からのコミュニティ支援のフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって妥当性が確認されたコホート定義を研究やその他の活動に利用することができます。これらの「ゴールドスタンダード」定義は特定の設計と評価基準に従ってライブラリに保存されます。GSPLに関連する追加情報はOHDSIワークグループページを参照してください<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a>。 このワークグループの研究には、先のセクションで議論されたAPHRODITE <span class="citation">(<a href="#ref-Banda2017APHRODITE">Banda et al. 2017</a>)</span> およびPheValuatorツール <span class="citation">(<a href="#ref-Swerdel2019phevaluator">Swerdel, Hripcsak, and Ryan 2019</a>)</span> の他、OHDSIネットワーク全体での電子カルテおよびゲノミクスの <a href="https://emerge.mc.vanderbilt.edu/">eMERGE</a> <a href="https://phekb.org/phenotypes">Phenotype Library</a> の共有に関する作業も含まれます <span class="citation">(<a href="#ref-Hripcsak2019eMERGE">G. Hripcsak et al. 2019</a>)</span>。表現型のキュレーションに関心がある場合は、このワークグループに貢献することを考えてみてください。 </p>
 </div>
 </div>
 <div id="高血圧のコホート定義" class="section level2 hasAnchor" number="10.6">
@@ -959,9 +960,9 @@ div.csl-indent {
 <p>使用したい用語を見つけたら、<img src="images/Cohorts/shoppingcart.png" />をクリックしてコンセプトを選択します。図<a href="Cohorts.html#fig:aceinhibitors">10.7</a>の左矢印を使用してコホート定義に戻ります。興味のある臨床コンセプトを見つけるための語彙のナビゲートは、チャプター<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>（標準化された語彙）に参照できます。</p>
 <p>図<a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a>は私たちのコンセプトセット表現を示しています。興味のあるすべてのACE阻害薬成分を選び、その子孫すべてを含め、これらの成分を含むすべての薬を含めています。「Included concepts」をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、「Included Source Codes」をクリックして様々なコーディングシステムに含まれているすべてのソースコードを調査できます。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:aceConceptSetExpression"></span>
-<img src="images/Cohorts/aceConceptSetExpression.png" alt="ACE阻害薬を含むコンセプトセット。" width="100%" />
+<img src="images/Cohorts/aceConceptSetExpression.png" alt="ACE阻害薬を含むコンセプトセット" width="100%" />
 <p class="caption">
-図 10.8: ACE阻害薬を含むコンセプトセット。
+図 10.8: ACE阻害薬を含むコンセプトセット
 </p>
 </div>
 </div>
@@ -986,9 +987,9 @@ div.csl-indent {
 </div>
 <p>これで初期の検証イベントが構築できました。初回の薬剤曝露をキャプチャするため、見落しがないことを知るために、ルックバックウィンドウを追加する必要があります。観察期間の短い患者が非表示の曝露を受ける場合があるため、観察期間の最低限度を規定することができます。これにより、記録の最初の発生をキャプチャしていることを確認するために、患者の履歴を見る最低期間を設定できます。この基準は他コホートでも異なる基準を選択することができます。365日間の継続的な観察を初期イベント前に要求します。観察期間を更新して、初期イベント後0日として更新します。最初のACE阻害薬の使用であることを保証するために、「earliest event」を選択します。図<a href="Cohorts.html#fig:initialEventAce">10.10</a>を参照してロジックを確認してください。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:initialEventAce"></span>
-<img src="images/Cohorts/initialEventAce.png" alt="インデックス日付前に必要な継続的観察を設定する。" width="100%" />
+<img src="images/Cohorts/initialEventAce.png" alt="インデックス日付前に必要な継続的観察を設定" width="100%" />
 <p class="caption">
-図 10.10: インデックス日付前に必要な継続的観察を設定する。
+図 10.10: インデックス日付前に必要な継続的観察を設定
 </p>
 </div>
 <p>このロジックがどのように組み合わさるかを説明すると、患者のタイムラインを組み立てることを考えることができます。</p>
@@ -1000,11 +1001,46 @@ div.csl-indent {
 </div>
 <p>図<a href="Cohorts.html#fig:EarliestEventExplained">10.11</a>では、各ラインがコホートに参加資格がある可能性のある単一の患者を表しています。塗りつぶされた星は、患者が指定された基準を満たすタイミングを表しています。追加の基準が適用されると、いくつかの星がより薄い色になります。これは、これらの患者が基準を満たす他の記録を持っていることを意味しますが、その基準を満たす前に他の記録があることを意味します。最終的な基準に達するまでに、私たちは初めてのACE阻害薬使用とその前の365日間の連続する観察を持つ患者の累積ビューを見ています。論理的には、最初のイベントに限定することは冗長ですが、すべての選択で明確なロジックを維持することに役立ちます。独自のコホートを構築するときには、<a href="http://forums.ohdsi.org">OHDSIフォーラム</a>の研究者セクションに参加して、コホート論理の構築について第二の意見を得ることをお勧めします。</p>
 </div>
-<div id="包括基準" class="section level3 hasAnchor" number="10.7.4">
-<h3><span class="header-section-number">10.7.4</span> 包括基準<a href="Cohorts.html#包括基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="選択基準" class="section level3 hasAnchor" number="10.7.4">
+<h3><span class="header-section-number">10.7.4</span> 選択基準<a href="Cohorts.html#選択基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>コホートエントリエベントを指定したら、追加の資格イベントを「Restrict initial events」または「New inclusion criteria」のいずれかに追加することができます。これら二つのオプション間の基本的な違いは、ATLASが提供する中間情報の内容です。「Restrict initial events」に追加基準を加えると、ATLASでカウントを生成するときに、これらすべての基準を満たす人の数だけが返されます。「New inclusion criteria」に基準を追加すると、追加の包括基準を適用することによって失う患者数を示す削減チャートが表示されます。各選択ルールがコホート定義の全体的な成功に与える影響を理解するために、包括基準セクションを利用することを強くお勧めします。特定の包括基準がコホートに入る人の数を大幅に制限する可能性があることがわかります。この段階では、コホートを大きくするためにこの基準を緩和する選択をするかもしれません。最終的には、このコホートを組み立てる専門家の合意に従います。</p>
 <p>コホートのメンバーシップに関するロジックをさらに追加するために「New inclusion criteria」をクリックしてください。このセクションの機能は、前述のコホート基準の構築方法と同じです。私たちの最初の追加基準は次のとおりです：<em>ACE阻害薬の最初の開始日から365日から0日以内の少なくとも1回の高血圧障害の発生がある患者のみ</em>。新しい包括基準を追加するには「New inclusion criteria」をクリックします。基準に名前を付け、必要に応じて探している内容についての簡単な説明を書き込むことができます。これは自分が定義している基準を覚えるためのもので、コホートの整合性に影響を与えるものではありません。</p>
-<p>新しい基準に注釈を付けたら、「+Add criteria to group」ボタンをクリックして、このルールの実際の基準を構築します。このボタンは「Add Initial Event」と同様に機能します。ただし、初期イベントを指定するわけではありません。複数の基準を追加できるため、「add criteria to group」と指定されています。たとえば、病気を見つけるための複数の方法（例：CONDITION_OCCURRENCEのロジック、この状態の代理としてのDRUG_EXPOSUREのロジック、この状態の代理としてのMEASUREMENTのロジック）があります。これらは別々のドメインであり、異なる基準を必要としますが、この状態を探すための1つの基準にグループ化できます。この場合、高血圧の診断を見つけるため「Add condition occurrence」を指定する。</p>
+<p>新しい基準に注釈を付けたら、「+Add criteria to group」ボタンをクリックして、このルールの実際の基準を構築します。このボタンは「Add Initial Event」と同様に機能します。ただし、初期イベントを指定するわけではありません。複数の基準を追加できるため、「add criteria to group」と指定されています。たとえば、病気を見つけるための複数の方法（例：CONDITION_OCCURRENCEのロジック、この状態の代理としてのDRUG_EXPOSUREのロジック、この状態の代理としてのMEASUREMENTのロジック）があります。これらは別々のドメインであり、異なる基準を必要としますが、この状態を探すための1つの基準にグループ化できます。</p>
+<p>この場合、高血圧症の診断を見つけたいので、「条件の発生」を追加します。このレコードに概念セットを添付することで、最初のイベントと同様の手順に従います。また、イベントがインデックス日（最初のACE阻害薬の使用）の365日前から0日後までの間に開始したことを指定します。次に、図 <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fig:ATLASIC1) に対してロジックを確認します。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASIC1"></span>
+<img src="images/Cohorts/ATLAS-IC1.png" alt="追加の選択基準 1" width="100%" />
+<p class="caption">
+図 10.12: 追加の選択基準 1
+</p>
+</div>
+<p>次に、患者を検索するための別の条件を追加します：<em>インデックス開始日の前日から当日までの全期間において、高血圧治療薬の使用歴がまったくない（ACE阻害薬の使用開始以前に高血圧治療薬を使用していない）</em>。このプロセスは、以前と同様に”New inclusion criteria (新規の選択基準)“ボタンをクリックし、この条件に注釈を追加し、”+Add criteria to group (グループに条件を追加)“をクリックすると開始されます。これは DRUG_EXPOSURE なので、”Add Drug Exposure (薬剤曝露を追加)“をクリックし、高血圧治療薬のコンセプトセットを添付し、インデックス日から遡るすべての日とインデックス日0日後の間（または図で示されているように「1日前」も同様）を指定します。選択した発生回数が <em>正確に 0</em> であることを確認してください。 図 <a href="Cohorts.html#fig:ATLASIC2">10.13</a> で、ロジックを確認してください。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASIC2"></span>
+<img src="images/Cohorts/ATLAS-IC2.png" alt="追加の選択基準 2" width="100%" />
+<p class="caption">
+図 10.13: 追加の選択基準 2
+</p>
+</div>
+<p>「出現なし」が「正確に0回出現」としてコード化される理由がわからないかもしれません。これは、ATLASが知識を咀嚼する方法のニュアンスです。ATLAS は選択条件のみを処理します。特定の属性が存在しないことを指定する場合は、論理演算子を使用する必要があります。例えば、「正確に0回」などです。ATLASの選択基準で使用できる論理演算子については、徐々に理解が深まるでしょう。</p>
+<p>最後に、患者を検索するために、もう一つ別の条件を追加します：<em>インデックス開始日の0日前から7日後までの間に高血圧治療薬が1回だけ処方されていること、かつ、高血圧治療薬（ACE阻害薬）を1種類しか処方されていないこと</em>。このプロセスは、前回と同様に”New inclusion criteria (新しい選択基準）“ボタンをクリックし、この条件に注釈を追加してから”+Add criteria to group (グループに条件を追加)“をクリックすると開始されます。これは DRUG_ERA なので、”Add Drug Era (薬剤曝露期間を追加)“をクリックし、高血圧治療薬のコンセプトセットを添付し、インデックス日の前0日および後7日を指定します。次に、図 <a href="Cohorts.html#fig:ATLASIC3">10.14</a> と照らし合わせてロジックを確認します。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASIC3"></span>
+<img src="images/Cohorts/ATLAS-IC3.png" alt="追加の選択基準 3" width="100%" />
+<p class="caption">
+図 10.14: 追加の選択基準 3
+</p>
+</div>
+</div>
+<div id="コホートエグジット基準" class="section level3 hasAnchor" number="10.7.5">
+<h3><span class="header-section-number">10.7.5</span> コホート・エグジット基準<a href="Cohorts.html#コホートエグジット基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>これで、すべての適格な選択基準が追加されました。次に、コホート・エグジット基準を指定する必要があります。「このコホートに含まれる対象ではなくなるのはどのような場合か？」と問うことになります。このコホートでは、薬剤曝露を受けた新規ユーザーを追跡しています。薬剤曝露に関連する継続的な観察期間を調べたいと考えています。そのため、コホート・エグジット基準、継続的な薬剤曝露の全般について適用されるように指定します。その後、薬剤への曝露が中断された場合は、その時点で患者はコホートから退出します。薬剤への曝露が中断された間の患者の状態が不明であるため、このような措置を取っています。また、薬剤への曝露間の許容可能なギャップを特定する持続ウィンドウの基準を設定することもできます。このケースでは、持続曝露の時期を推定する際に、曝露レコードの間の最大許容期間は30日間であると、この研究を主導する専門家が結論づけました。</p>
+<p><strong>なぜギャップが許容されるのでしょうか？</strong> データセットによっては、受療の一部しか観察できないことがあります。特に薬物曝露は、一定期間をカバーする処方箋の調剤を表している可能性があります。そのため、調剤単位が1日を超えているため、患者は論理的には依然として最初の薬物曝露を受けられる可能性があることを考慮し、薬物曝露の間には一定の時間的余裕を設けるようにしています。</p>
+<p>これを設定するには、イベントは”end of a continuous drug exposure (連続した薬剤曝露の終了)” まで継続するを選択します。次に、持続期間を”allow for a maximum of 30 days (最大30日間)“に設定し、「ACE阻害剤」のコンセプトセットを追加します。図 <a href="Cohorts.html#fig:ATLAScohortexit">10.15</a> と照らし合わせてロジックを確認しましょう。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLAScohortexit"></span>
+<img src="images/Cohorts/cohort-exit.png" alt="コホート・エグジット基準" width="100%" />
+<p class="caption">
+図 10.15: コホート・エグジット基準
+</p>
+</div>
+<p>このコホートの場合、他に打ち切りイベントはありません。しかし、打ち切りを指定する必要があるようなコホートを作成することもあるかもしれません。その場合には、コホート定義に他の属性を追加したのと同様の手順で作業を進めます。これで、コホートの作成が完了しました。<img src="images/Cohorts/save.png" /> ボタンをクリックしてください。おめでとうございます！コホートの作成は、OHDSIツールでリサーチ・クエスチョンに答えるための最も重要な構成要素です。“Export (出力)” タブを使用して、SQLコードまたはATLASに読み込むためのJSONファイルの形式により、他の共同研究者とコホート定義を共有することができます。</p>
 </div>
 </div>
 <div id="sqlを使用したコホートの実装" class="section level2 hasAnchor" number="10.8">
@@ -1323,8 +1359,8 @@ div.csl-indent {
 <div class="exercise">
 <p><span id="exr:exerciseCohortsSql" class="exercise"><strong>演習 10.2  </strong></span>SQLおよびRを使用して、既存のCOHORTテーブルにて急性心筋梗塞（AMI）のコホートを以下の基準に従って作成せよ：</p>
 <ul>
-<li>心筋梗塞の診断の発生（コンセプト4329847「心筋梗塞」およびそのすべての下位層に含まれるもの、コンセプト314666「古い心筋梗塞」およびその下位層に含まれるものを除く）。</li>
-<li>入院またはER受診期間（コンセプト9201、9203、262；それぞれ「入院」、 「緊急室訪問」、および「緊急室および入院訪問」）。</li>
+<li>心筋梗塞の診断の発生（コンセプト4329847「心筋梗塞」およびそのすべての下位層に含まれるもの、コンセプト314666「陳旧性心筋梗塞」およびその下位層に含まれるものを除く）。</li>
+<li>入院またはER受診期間（コンセプト9201、9203、262；それぞれ「入院」、 「救急室ビジット」、および「救急室および入院ビジット」）。</li>
 </ul>
 </div>
 <p>提案された解答は、Appendix <a href="SuggestedAnswers.html#Cohortsanswers">E.6</a> に記載されている。</p>
