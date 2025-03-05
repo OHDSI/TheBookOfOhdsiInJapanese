@@ -106,7 +106,7 @@ Rabbit-In-a-HatはWhite Rabbitスキャンドキュメントを読み取り、�
 
 White RabbitスキャンレポートをRabbit-In-a-Hatで開いたら、ソースデータをOMOP CDMに変換する方法のロジックをデザインし、記述する準備が整います。次のセクションでは、Synthea[^extracttransformload-2]データベースのいくつかのテーブルが変換中にどのように見えるかを例示します。
 
-[^extracttransformload-2]: Synthea^TM^は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、[こちら](https://github.com/synthetichealth/synthea/wiki)をご覧ください。
+[^extracttransformload-2]: Synthea^TM^は実際の患者をモデル化することを目的とした患者ジェネレーターです。データはアプリケーションに渡されたパラメータに基づいて作成されます。データの構造については、こちら：<https://github.com/synthetichealth/synthea/wiki> をご覧ください。
 
 #### ETLの一般的なフロー {.unnumbered}
 
@@ -122,19 +122,38 @@ CDM変換中に中間テーブルを作成する必要があることがよく�
 
 Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson). に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
 
-```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/syntheaPersonTable.png")
 ```
 
-表\@ref(tab:syntheaEtlPerson)には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
-
-表：(＃tab:syntheaEtlPerson) Synthea PatientsテーブルをCDM PERSONテーブルに変換するためのETLロジック
+表 \@ref(tab:syntheaEtlPerson)には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
 
 | 目的フィールド | ソースフィールド | ロジックとコメント |
 |:---|:---|:---|
 | PERSON_ID |  | 自動生成。 PERSON_IDは実装時に生成されます。これは、ソースのid値がvarchar値であり、PERSON_IDは整数であるためです。 ソースのidフィールドは、その値を保持し、必要に応じてエラーチェックを行うためにPERSON_SOURCE_VALUEとして設定されます。 |
 | GENDER_CONCEPT_ID | gender | 性別が「M」の場合、GENDER_CONCEPT_IDは8507、性別が「F」の場合は8532に設定します。不明な性別を持つ行は削除します。これらの2つのコンセプトは、性別ドメインの唯一の標準コンセプトであるため選ばれました。不明な性別の患者を削除するかどうかの決定は、通常、サイトに基づいて行われますが、性別のない人々は分析から除外されるため、削除することを推奨します。 |
-| YEAR_OF_BIRTH | birthdate | 生年月日から |
+| YEAR_OF_BIRTH | birthdate | 生年月日から年を採ります。 |
+| MONTH_OF_BIRTH | birthdate | 生年月日から月を採ります。 |
+| DAY_OF_BIRTH | birthdate | 生年月日から日を採ります。 |
+| BIRTH_DATETIME | birthdate | 0時を00:00:00とします。ここでは、ソースから出生時刻が提供されなかったため、0時を選択しました。 |
+| RACE_CONCEPT_ID | race | race = 'WHITE'の場合は8527、race = 'BLACK'の場合は8516、race = 'ASIAN'の場合は8515、それ以外の場合は0として設定されます。これらのコンセプトが選択されたのは、人種ドメ インに属する標準的なコンセプトであり、ソース内の人種カテゴリーに最も近いためです。 |
+| ETHNICITY\_ CONCEPT_ID | race ethnicity | race = 'HISPANIC'、または民族が ('CENTRAL_AMERICAN'、'DOMINICAN'、'MEXICAN'、'PUERTO_RICAN'、'SOUTH_AMERICAN') の場合、38003563 と設定され、それ以外の場合は 0 と設定されます。これは、複数のソース列が 1 つの CDM 列にどのように影響するかを示す良い例です。CDM では、民族は ヒスパニックまたは非ヒスパニック として表されるため、ソース列 race とソース列民族の両方の値がこの値を決定します。 |
+| LOCATION_ID |  |  |
+| PROVIDER_ID |  |  |
+| CARE_SITE_ID |  |  |
+| PERSON_SOURCE\_ VALUE | id |  |
+| GENDER_SOURCE\_ VALUE | gender |  |
+| GENDER_SOURCE\_ CONCEPT_ID |  |  |
+| RACE_SOURCE\_ VALUE | race |  |
+| RACE_SOURCE\_ CONCEPT_ID |  |  |
+| ETHNICITY\_ SOURCE_VALUE | ethnicity | この場合、ETHNICITY_SOURCE_VALUEはETHNICITY_CONCEPT_IDよりも粒度が高くなります。 |
+| ETHNICITY\_ SOURCE_CONCEPT_ID |  |  |
+
+: (#tab:syntheaEtlPerson) Synthea PatientsテーブルをCDM PERSONテーブルに変換するためのETLロジック
+
+SyntheaデータセットがCDMにどのようにマッピングされたかについては、仕様書全文をご覧ください[^extracttransformload-3]。
+
+[^extracttransformload-3]: <https://ohdsi.github.io/ETL-Synthea/>
 
 ## ステップ2: コードマッピングの作成
 
@@ -162,11 +181,11 @@ WHERE concept_code = 'I21'
 
 ### Usagi
 
-Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate[^extracttransformload-3]は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です[^extracttransformload-4]。 \index{Usagi} \index{source code mapping|see {Usagi}}
+Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コード記述のテキスト類似性に基づいたマッピングを提案できます。ソースコードが外国語でしか利用できない場合、Google Translate[^extracttransformload-4]は驚くほど良い翻訳を提供することがわかっています。Usagiは自動提案が正しくない場合に適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはそのマッピングがETLで使用される許可がされていることを示すことができます。UsagiはGitHubで入手可能です[^extracttransformload-5]。 \index{Usagi} \index{source code mapping|see {Usagi}}
 
-[^extracttransformload-3]: <https://translate.google.com/>
+[^extracttransformload-4]: <https://translate.google.com/>
 
-[^extracttransformload-4]: <https://github.com/OHDSI/Usagi>
+[^extracttransformload-5]: <https://github.com/OHDSI/Usagi>
 
 #### 範囲と目的 {.unnumbered}
 
@@ -252,30 +271,30 @@ knitr::include_graphics("images/ExtractTransformLoad/usagiConceptInfo.png")
 -   場合によっては、CONCEPT_ID = 0にマップするコードも良作です。良いマップを見つける価値がないコードもありますし、適切なマップがないコードもあります。
 -   コンセプトの文脈、特にその親と子を考慮することが重要です。
 
-#### Export the Usagi Map Created {.unnumbered}
+#### Usagiで作成されたマッピングを出力する {.unnumbered}
 
-Once you have created your map within USAGI, the best way to use it moving forward is to export it and append it to the Vocabulary SOURCE_TO_CONCEPT_MAP table.
+USAGI 内でマップを作成したら、それをエクスポートしてボキャブラリ SOURCE_TO_CONCEPT_MAP テーブルに追加するのが、今後マッピングを使用するための最良の方法です。
 
-To export your mappings, go to File –\> Export source_to_concept_map. A pop-up will appear asking you which SOURCE_VOCABULARY_ID you would like to use, type in a short identifier. Usagi will use this identifier. as the SOURCE_VOCABULARY_ID which will allow you to identify your specific mapping in the SOURCE_TO_CONCEPT_MAP table.
+マッピングをエクスポートするには、File (ファイル) -\> Export source_to_concept_map (ソースからコンセプトへのマッピングを出力) に進みます。どのSOURCE_VOCABULARY_IDを使用するかを尋ねるポップアップが表示されるので、短いID (識別子) を入力してください。UsagiはこのIDをSOURCE_VOCABULARY_IDとして使用し、SOURCE_TO_CONCEPT_MAPテーブルで特定のマッピングを識別できるようにします。
 
-After selecting the SOURCE_VOCABULARY_ID, you give your export CSV a name and save to location. The export CSV structure is in that of the SOURCE_TO_CONCEPT_MAP table. This mapping could be appended to the Vocabulary’s SOURCE_TO_CONCEPT_MAP table. It would also make sense to append a single row to the VOCABULARY table defining the SOURCE_VOCABULARY_ID you defined in the step above. Finally, it is important to note that only mappings with the “Approved” status will be exported into the CSV file; the mapping needs to be completed in USAGI in order to export it.
+SOURCE_VOCABULARY_IDを選択したら、出力したCSVに名前を付けて保存します。出力したCSVの構造はSOURCE_TO_CONCEPT_MAPテーブルになります。このマッピングは、ボキャブラリのSOURCE_TO_CONCEPT_MAPテーブルに追加できます。また、上記の手順で定義したSOURCE_VOCABULARY_IDを定義するVOCABULARYテーブルに1行を追加することも理にかなっています。最後に、「Approved (承認)」ステータスのマッピングのみがCSVファイルにエクスポートされることに注意してください。すなわち、マッピングをエクスポートするには、USAGIでマッピングを完了する必要があります。
 
-#### Updating an Usagi Mapping {.unnumbered}
+#### Usagiで作成されたマッピングを更新する {.unnumbered}
 
-Often a mapping is not a one-time effort. As data is updated perhaps new source codes are added, and the vocabulary is updated regularly, perhaps requiring an update of the mapping.
+多くの場合、マッピングは一度だけの作業ではありません。データが更新されると、新しいソース・コードが追加され、ボキャブラリが定期的に更新されるため、マッピングの更新が必要になる場合があります。
 
-When the set of source codes is updated the following steps can support the update:
+ソース・コードのセットが更新された場合は、次の手順で更新できます。
 
-1.  Import the new source code file
-2.  Choose File –\> Apply previous mapping, and select the old Usagi mapping file
-3.  Identify codes that haven't inherited approved mappings from the old mapping, and map them as usual.
+1.  新しいソース・コード・ファイルをインポートします。
+2.  File (ファイル) -\> Apply previous mapping (以前のマッピングを適用する) を選択します。
+3.  古いマッピングから引き継いだ承認済みのマッピングではないコードを見つけて、それらを通常通りマッピングします。
 
-When the vocabulary is updated, follow these steps:
+ボキャブラリが更新されたら、以下の手順に従ってください：
 
-1.  Download the new vocabulary files from Athena
-2.  Rebuild the Usagi index (Help –\> Rebuild index)
-3.  Open the mapping file
-4.  Identify codes that map to concepts that in the new vocabulary version no longer are Standard concepts, and find more appropriate target concepts.
+1.  Athena から新しいボキャブラリファイルをダウンロードします。
+2.  Usagi インデックスを再構築します（Help (ヘルプ) -\> Rebuild index (インデックスを再構築する)）。
+3.  マッピング・ファイルを開きます。
+4.  新しいバージョンのボキャブラリで標準コンセプトでなくなったコンセプトにマップされるコードを特定し、より適切なターゲットコンセプトを見つけます。
 
 ## ステップ 3: ETLの実装
 
@@ -317,15 +336,15 @@ When the vocabulary is updated, follow these steps:
 
 データをCDMに変換するグループが増えるにつれ、特定の状況でETLがどのように対処すべきかを指定する必要があることが明らかになりました。たとえば、出生年が欠けている個人記録の場合、ETLはどうすべきでしょうか？CDMの目標はヘルスケアデータを標準化することですが、各グループが特定のデータシナリオを異なる方法で処理すると、ネットワーク全体でデータを体系的に使用することが難しくなります。
 
-OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます[^extracttransformload-5]。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。
+OHDSIコミュニティは、一貫性を向上させるために慣行を文書化し始めました。OHDSIコミュニティが合意したこれらの定義された慣行は、CDM Wikiで見つけることができます[^extracttransformload-6]。各CDMテーブルには、ETLをデザインする際に参照できる独自の慣行セットがあります。たとえば、出生月や日が欠けている個人は許可されますが、出生年が欠けている場合、その個人は削除する必要があります。ETLをデザインする際には、コミュニティと一貫性のあるデザイン決定を行うために参考文献を参照してください。
 
-[^extracttransformload-5]: <https://github.com/OHDSI/CommonDataModel/wiki>
+[^extracttransformload-6]: <https://github.com/OHDSI/CommonDataModel/wiki>
 
-すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS[^extracttransformload-6]は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします[^extracttransformload-7]。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。
+すべてのデータシナリオを文書化し、発生した場合に何をするかをドキュメント化することは不可能ですが、共通のシナリオを文書化しようとしているOHDSIの作業グループがあります。THEMIS[^extracttransformload-7]は、コミュニティ内で慣行を収集し、それを明確にし、コミュニティと共有し、最終的な慣行をCDM Wikiに文書化する個人で構成されています。Themisは、古代ギリシャの神であり、秩序、公平さ、法、自然法、慣習を司るタイタネスであり、このグループの任務にふさわしいものでした。ETLを実行する際に、どのように処理すべきか判断に迷うシナリオがあった場合、THEMISはそのシナリオについてOHDSIフォーラムに質問を投げかけることをお勧めします[^extracttransformload-8]。おそらく、質問がある場合、他のコミュニティのメンバーも同じ質問を抱えている可能性があります。THEMISはこれらの議論、作業グループの会議、フェイス・トゥ・フェイスのディスカッションなどを利用して、他に文書化する必要がある慣行について情報を収集します。
 
-[^extracttransformload-6]: <https://github.com/OHDSI/Themis>
+[^extracttransformload-7]: <https://github.com/OHDSI/Themis>
 
-[^extracttransformload-7]: <http://forums.ohdsi.org/>
+[^extracttransformload-8]: <http://forums.ohdsi.org/>
 
 ## CDMおよびETLのメンテナンス {#CDMandETLMaintenance}
 
@@ -346,9 +365,9 @@ ETLプロセスにはさまざまな理由で困難があります。その中�
 -   80/20のルール。可能な限り、ソースコードを手動でコンセプトセットにマッピングするのに過度に時間を費やさないようにしましょう。理想的には、大多数のデータをカバーするソースコードをマッピングしてください。これで十分であり、将来のユースケースに基づいて残りのコードに対処することができます。
 -   研究の品質に見合わないデータを失うことを恐れなくても良い。それらはしばしば分析を開始する前に破棄されるレコードであり、私たちはETLプロセス中にそれらを削除します。
 -   CDMはメンテナンスが必要です。ETLが完了したからといって、再び触らないということではありません。生データが変更されるかもしれませんし、コードにバグがあるかもしれません。新しいボキャブラリやCDMの更新があるかもしれません。これらの変更に対応するためのリソースを計画しておくことで、ETLが常に最新の状態に保たれるようにしましょう。
--   OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム[^extracttransformload-8]をご覧ください。
+-   OHDSI CDMの開始、データベースの変換、分析ツールの実行のサポートが必要な場合は、実施者フォーラム[^extracttransformload-9]をご覧ください。
 
-[^extracttransformload-8]: <https://forums.ohdsi.org/c/implementers>
+[^extracttransformload-9]: <https://forums.ohdsi.org/c/implementers>
 
 ## まとめ
 
