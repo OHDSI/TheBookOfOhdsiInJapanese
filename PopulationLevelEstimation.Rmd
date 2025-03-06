@@ -1,4 +1,4 @@
-# 第12章　--翻訳作業中-- 集団レベルの推定 {#PopulationLevelEstimation}
+# --翻訳作業中-- 集団レベルの推定 {#PopulationLevelEstimation}
 
 *チャプターリード: Martijn Schuemie, David Madigan, Marc Suchard & Patrick Ryan*
 
@@ -312,125 +312,129 @@ knitr::include_graphics("images/PopulationLevelEstimation/comparisons2.png")
 
 **研究開始および終了日**を使用して、特定の期間に分析を制限できます。研究終了日はリスクウィンドウも切り詰め、研究終了日以降のアウトカムは考慮されません。研究開始日を選択する理由の1つは、研究している薬剤の1つが新しく、以前の期間には存在しなかったことです。自動で調整するには、「両方の曝露がデータ内に存在する期間に分析を制限しますか？」の質問に「はい」と回答します。医療行為が時間の経過とともに変わった場合（例：薬剤 警告のため）であり、特定の方法で 実践された時間にのみ興味がある場合、研究開始および終了日を調整する別の理由があります。
 
-The option "**Should only the first exposure per subject be included?**" can be used to restrict to the first exposure per patient. Often this is already done in the cohort definition, as is the case in this example. Similarly, the option "**The minimum required continuous observation time prior to index date for a person to be included in the cohort**" is often already set in the cohort definition, and can therefore be left at 0 here. Having observed time (as defined in the OBSERVATION_PERIOD table) before the index date ensures that there is sufficient information about the patient to calculate a propensity score, and is also often used to ensure the patient is truly a new user, and therefore was not exposed before.
+オプション "**Should only the first exposure per subject be included? (各対象の初回の曝露のみが含まれるべきか)**" を使用すると、患者ごとの最初の暴露に限定することができます。多くの場合、この例のようにコホート定義ですでに行われています。同様に、「**The minimum required continuous observation time prior to index date for a person to be included in the cohort (その個人をコホートに含めるための要件として、インデックス日の前の連続した観察時間の最小値)**」 というオプションは、コホート定義ですでに設定されていることが多いので、ここでは0のままにしておくことができます。インデックス日より前に観察時間がある(OBSERVATION_PERIODテーブルで定義されているように）ことは、傾向スコアを計算するのに十分な患者に関する情報があること、また患者が真の新規ユーザーであり、したがって以前に曝露されていないことを担保するためにもよく使われます。
 
-"**Remove subjects that are in both the target and comparator cohort?**" defines, together with the option "**If a subject is in multiple cohorts, should time-at-risk be censored when the new time-at-risk starts to prevent overlap?**" what happens when a subject is in both target and comparator cohorts. The first setting has three choices:
+"**Remove subjects that are in both target and comparator cohort? (ターゲットコホートと比較群コホートの両方に含まれる対象を除外しますか)**"は、"**If a subject is in multiple cohorts, should be censored time-at-risk when the new time-at-risk starts to prevent overlap? (対象が複数のコホートに含まれる場合、リスク期間の重複を避けるため、リスク期間は新しいリスク期間が開始した時点で打ち切りにしますか。)**" オプションと併せて、対象がターゲットコホートと比較コホートの両方に存在するいる場合にどのように取り扱うかを定義します。最初の設定には3つの選択肢があります：
 
--   "**Keep All**" indicating to keep the subjects in both cohorts. With this option it might be possible to double-count subjects and outcomes.
--   "**Keep First**" indicating to keep the subject in the first cohort that occurred.
--   "**Remove All**" indicating to remove the subject from both cohorts.
+-   "**Keep All** (すべてを保持します)" は、両方のコホートの対象を保持することを示す。このオプションでは、対象と結果がダブルカウントになる場合があります。
 
-If the options "keep all" or "keep first" are selected, we may wish to censor the time when a person is in both cohorts. This is illustrated in Figure \@ref(fig:tar). By default, the time-at-risk is defined relative to the cohort start and end date. In this example, the time-at-risk starts one day after cohort entry, and stops at cohort end. Without censoring the time-at-risk for the two cohorts might overlap. This is especially problematic if we choose to keep all, because any outcome that occurs during this overlap (as shown) will be counted twice. If we choose to censor, the first cohort's time-at-risk ends when the second cohort's time-at-risk starts.
+-   "**Keep First** (最初のコホートに保持します)" は、最初に発生したコホートに対象を残すことを示します。
 
-```{r tar, fig.cap='Time-at-risk (TAR) for subjects who are in both cohorts, assuming time-at-risk starts the day after treatment initiation, and stops at exposure end.',echo=FALSE, out.width='90%', fig.align='center'}
+-   "**Remove All** (すべてから除外します)" は、すべてのコホートから対象を除外することを示します。
+
+もし "Keep All" または "Keep First" のオプションが選択された場合、ある対象が両方のコホートにいる時間を打ち切りたいと思うかもしれません。これを図 \@ref(fig:tar)に示します。デフォルトでは、リスク時間はコホートの開始日と終了日を基準に定義されます。この例では、リスク時間はコホート開始の1日後に始まり、コホート終了までです。2つのコホートが重なる可能性があるリスク時間を打ち切らない場合、この重複したリスク時間に発生したアウトカムは、特に、すべてを保持することを選択した場合、（ここに示されているように）重複した時間に出現したアウトカムは2回カウントされるため、問題となります。打ち切りを選択した場合、最初のコホートのリスク時間は、2番目のコホートのリスク時間の開始時に終了します。
+
+```{r tar, fig.cap='リスク時間（Time-at-risk (TAR)）が薬剤曝露開始日から薬剤曝露終了時までと仮定した場合の2つのコホートに含まれる対象のリスク時間',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/tar.png")
 ```
 
-We can choose to **remove subjects that have the outcome prior to the risk window start**, because often a second outcome occurrence is the continuation of the first one. For instance, when someone develops heart failure, a second occurrence is likely, which means the heart failure probably never fully resolved in between. On the other hand, some outcomes are episodic, and it would be expected for patients to have more than one independent occurrence, like an upper respiratory infection. If we choose to remove people that had the outcome before, we can select **how many days we should look back when identifying prior outcomes**.
+アウトカムの2回目の出現は1回目の継続であることが多いため、**リスクウインドウが始まる前にアウトカムが出現した対象を除外する**ことを選択することができます。例えば、ある人に心不全が発症した場合、2回目の心不全の出現はよくあることでしょう、なぜなら1回目と2回目の心不全の間でその心不全は完全に解消することがないからです。一方、いくつかのアウトカムは間欠的なもので、上気道感染症のように、患者が複数の独立した転帰を持つことが予想されます。以前にその転帰を経験した人を除外する場合、**以前にアウトカムが出現したことを同定する際に何日前まで遡る**かを選択できます。
 
-Our choices for our example study are shown in Figure \@ref(fig:studyPopulation). Because our target and comparator cohort definitions already restrict to the first exposure and require observation time prior to treatment initiation, we do not apply these criteria here.
+私たちの研究の事例での選択は、図 \@ref(fig:studyPopulation)に示されています。対象コホートと比較対象コホートの定義は、すでに初回曝露に限定しており、治療開始前の観察時間が必要なので、ここではこれらの基準は適用しません。
 
 ```{r studyPopulation, fig.cap='Study population settings.',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/studyPopulation.png")
 ```
 
-#### Covariate Settings {.unnumbered}
+#### 共変量の設定 {.unnumbered}
 
-Here we specify the covariates to construct. These covariates are typically used in the propensity model, but can also be included in the outcome model (the Cox proportional hazards model in this case). If we **click to view details** of our covariate settings, we can select which sets of covariates to construct. However, the recommendation is to use the default set, which constructs covariates for demographics, all conditions, drugs, procedures, measurements, etc.
+ここでは共変量の構成を指定します。これらの共変量は通常傾向スコアモデルで使用されますが、アウトカムモデル（この場合はCox比例ハザードモデル）にも含めることができます。**click to view details (詳細を見るにはここをクリック)**をクリックすると、どの共変量の組み合わせを使用するか、選択することが出来ます。しかし、人口統計学的要素、すべてのコンディション、薬剤、処置、測定値などを含むデフォルトのセットを使用することです。
 
-We can modify the set of covariates by specifying concepts to **include** and/or **exclude**. These settings are the same as the ones found in Section \@ref(ComparisonSettings) on comparison settings. The reason why they can be found in two places is because sometimes these settings are related to a specific comparison, as is the case here because we wish to exclude the drugs we are comparing, and sometimes the settings are related to a specific analysis. When executing an analysis for a specific comparison using specific analysis settings, the OHDSI tools will take the union of these sets.
+**include (組入れ)**および/または**exclude (除外)**するコンセプトを指定することで、共変量のセットを変更できます。これらの設定は、セクション \@ref(ComparisonSettings) にある比較のための設定と同じです。これらの設定が2つの場所にある理由は、これらの設定は、比較のための薬剤を除外したい場合もある特定の比較に関連することがあるからです。特定の分析設定を使って特定の比較分析を実行するとき、OHDSIツールはこれらの集合の和を取ります。
 
-Figure \@ref(fig:covariateSettings) shows our choices for this study. Note that we have selected to add descendants to the concept to exclude, which we defined in the comparison settings in Figure \@ref(fig:comparisons2).
+図 \@ref(fig:covariateSettings)は、この研究で選択した内容を示しています。図 \@ref(fig:comparisons2) に定義するように、比較の設定で除外する概念に下位層を追加することを選択していることに注意して下さい。
 
-```{r covariateSettings, fig.cap='Covariate settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r covariateSettings, fig.cap='共変量の設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/covariateSettings.png")
 ```
 
-#### Time At Risk {.unnumbered}
+#### リスク時間 {.unnumbered}
 
-Time-at-risk is defined relative to the start and end dates of our target and comparator cohorts. In our example, we had set the cohort start date to start on treatment initiation, and cohort end date when exposure stops (for at least 30 days). We set the start of time-at-risk to one day after cohort start, so one day after treatment initiation. A reason to set the time-at-risk start to be later than the cohort start is because we may want to exclude outcome events that occur on the day of treatment initiation if we do not believe it biologically plausible they can be caused by the drug.
+リスク時間（Time-at-risk）は、対象コホートや比較コホートにおける開始日と終了日を基準に定義されます。私たちの例では、治療開始時がコホート開始日、（少なくとも30日間）曝露中止時をコホート終了日としたので、リスク時間の開始日をコホート開始の1日後、つまり治療開始の1日後に設定しました。リスク時間の開始をコホート開始より遅く設定する理由は、治療開始当日に発生したアウトカムが薬物によるものであると生物学的に妥当でないと考えられる場合には、除外したい場合があるからです。
 
-We set the end of the time-at-risk to the cohort end, so when exposure stops. We could choose to set the end date later if for example we believe events closely following treatment end may still be attributable to the exposure. In the extreme we could set the time-at-risk end to a large number of days (e.g. 99999) after the cohort end date, meaning we will effectively follow up subjects until observation end. Such a design is sometimes referred to as an *intent-to-treat* design.
+リスク時間の終了日は、コホートの終了日、つまり曝露が停止した時点としました。例えば、治療終了直後の事象が依然として曝露に起因すると考えられる場合は、終了日を遅く設定することもできます。極端な例では、コホート終了日の後、長い日数を経て（例えば99999日）リスク期間の終了日に設定することもできます。このようなデザインは*intent-to-treat*デザインと呼ばれることもあります。
 
-A patient with zero days at risk adds no information, so the **minimum days at risk** is normally set at one day. If there is a known latency for the side effect, then this may be increased to get a more informative proportion. It can also be used to create a cohort more similar to that of a randomized trial it is being compared to (e.g., all the patients in the randomized trial were observed for at least N days).
+リスク時間がゼロの患者は何の情報も提供しないので、**最小リスク日数**は通常1日に設定されます。副作用の潜伏期間がわかっている場合は、より意味のある発生割合を得るため、この日数を増やすことができます。また、比較するランダム化試験に近いコホートを作成するために使用することもできます（例えば、ランダム化試験のすべての患者が少なくともN日間観察された）。
 
 ```{block2, type='rmdimportant'}
-A golden rule in designing a cohort study is to never use information that falls after the cohort start date to define the study population, as this may introduce bias. For example, if we require everyone to have at least a year of time-at-risk, we will likely have limited our analyses to those who tolerate the treatment well. This setting should therefore be used with extreme care.
+コホート研究を計画する際の鉄則は、バイアスが含まれる可能性を除外するため、コホート開始日以降の情報を研究集団の定義に使用しないことです。例えば、全対象者に少なくとも1年間のリスク時間を要求した場合、解析対象は、治療に十分耐えられる人に限定することになります。そのため、この設定は細心の注意を払って行う必要があります。
 ```
 
-```{r timeAtRisk, fig.cap='Time-at-risk settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r timeAtRisk, fig.cap='リスク時間設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/timeAtRisk.png")
 ```
 
-#### Propensity Score Adjustment {.unnumbered}
+#### 傾向スコアによる調整 {.unnumbered}
 
-We can opt to **trim** the study population, removing people with extreme PS values. We can choose to remove the top and bottom percentage, or we can remove subjects whose preference score falls outside the range we specify. Trimming the cohorts is generally not recommended because it requires discarding observations, which reduces statistical power. It may be desirable to trim in some cases, for example when using IPTW. \index{propensity score!trimming}
+傾向スコア値が極端な人を除外して、研究対象集団を**切り取って整える**ことができます。上位と下位の何パーセントを除外するか、または傾向スコアが我々が指定した範囲から外れる対象を除外するかを選択できます。コホートのトリミングは、観察したことを破棄する必要があり、統計的検出力を低下させるので、一般に推奨されません。逆確率重み付け（IPTW）を使うときなど、トリミングすることが望ましい場合もあります。\index{propensity score!trimming}
 
-In addition to, or instead of trimming, we can choose to **stratify** or **match** on the propensity score. When stratifying we need to specify the **number of strata** and whether to select the strata based on the target, comparator, or entire study population. When matching we need to specify the **maximum number of people from the comparator group to match to each person in the target group**. Typical values are 1 for one-on-one matching, or a large number (e.g. 100) for variable-ratio matching. We also need to specify the **caliper**: the maximum allowed difference between propensity scores to allow a match. The caliper can be defined on difference **caliper scales**: \index{caliper!scale}
+トリミングに加えて、またはトリミングの代わりに、傾向スコアで**層別化**または**マッチング**を選択することができます。層別化する場合は、**層数**と、対象集団、比較対象集団、全研究対象集団のいずれに基づいて層を選択するかを指定する必要があります。マッチングの際には、**比較対象群から対象群の各人にマッチさせる最大人数**を指定する必要があります。典型的な値は、1対1のマッチングの場合は1、可変比率マッチングの場合は大きな数（例えば100）になります。また、**キャリパー**、すなわちマッチングする傾向スコア間の最大許容差を指定する必要があります。キャリパーは差の**キャリパー・スケール**で定義できます：\index{caliper!scale}
 
--   **The propensity score scale**: the PS itself
--   **The standardized scale**: in standard deviations of the PS distributions
--   **The standardized logit scale**: in standard deviations of the PS distributions after the logit transformation to make the PS more normally distributed.
+-   **傾向スコア尺度**：傾向スコアそのもの
 
-In case of doubt, we suggest using the default values, or consult the work on this topic by @austin_2011.
+-   **標準化尺度**：傾向スコア分布の標準偏差による
 
-Fitting large-scale propensity models can be computationally expensive, so we may want to restrict the data used to fit the model to just a sample of the data. By default the maximum size of the target and comparator cohort is set to 250,000. In most studies this limit will not be reached. It is also unlikely that more data will lead to a better model. Note that although a sample of the data may be used to fit the model, the model will be used to compute PS for the entire population.
+-   **標準化ロジット尺度**：傾向スコアをより正規分布にするためのロジット変換後の傾向スコア分布の標準偏差による
 
-**Test each covariate for correlation with the target assignment?** If any covariate has an unusually high correlation (either positive or negative), this will throw an error. This avoids lengthy calculation of a propensity model only to discover complete separation. Finding very high univariate correlation allows you to review the covariate to determine why it has high correlation and whether it should be dropped.
+疑問がある場合は、デフォルト値を使用するか、@austin_2011によるこのトピックに関する研究を参照することをお勧めします。
 
-**Use regularization when fitting the model?** The standard procedure is to include many covariates (typically more than 10,000) in the propensity model. In order to fit such models some regularization is required. If only a few hand-picked covariates are included, it is also possible to fit the model without regularization.
+大規模な傾向モデルの適合には計算コストがかかることがあるので、モデルの適合に使用するデータをデータのサンプルだけに制限したい場合があります。デフォルトでは、対象コホートと比較コホートの最大サイズは250,000に設定されています。ほとんどの研究では、この限界には達しません。また、データが多ければ多いほど、より良いモデルになるとは考えにくいです。データのサンプルはモデルのフィットに使用されるかもしれませんが、そのモデルは集団全体の傾向スコアを計算するために使用されることに注意してください。
 
-Figure \@ref(fig:psSettings) shows our choices for this study. Note that we select variable-ratio matching by setting the maximum number of people to match to 100.
+**Test each covariate for correlation with the target assignment? (各共変量とターゲットの割付の相関を検定しますか。)** 共変量が異常に高い相関（正または負）を持つ場合、これはエラーを出力します。これにより、完全な分離を発見するためだけに傾向モデルを長時間計算することを避けることができます。非常に高い単変量相関が見つかると、なぜその共変量が高い相関を持つのか検討し、そしてその共変量を削除すべきかどうかを決定するために、その共変量を見直すことができます。
 
-```{r psSettings, fig.cap='Propensity score adjustment settings.',echo=FALSE, out.width='100%', fig.align='center'}
+**Use regularization when fitting the model? (モデルをフィットするときに正則化をしますか。)** 標準的な手順は、傾向モデルに多くの共変量（通常10,000以上）を含めることです。このようなモデルを適合させるためには正則化が必要です。少数の厳選された共変量だけが含まれる場合は、正則化なしでモデルを適合させることも可能です。
+
+図 \@ref(fig:psSettings) は、この研究での選択を示しています。最大マッチング人数を100人に設定することで、可変比率マッチングを選択していることに注意してください。
+
+```{r psSettings, fig.cap='傾向スコアによる調整の設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/psSettings.png")
 ```
 
-#### Outcome Model Settings {.unnumbered}
+#### アウトカムモデルの設定 {.unnumbered}
 
-First, we need to **specify the statistical model we will use to estimate the relative risk of the outcome between target and comparator cohorts**. We can choose between Cox, Poisson, and logistic regression, as discussed briefly in Section \@ref(CohortMethod). For our example we choose a Cox proportional hazards model, which considers time to first event with possible censoring. Next, we need to specify **whether the regression should be conditioned on the strata**. One way to understand conditioning is to imagine a separate estimate is produced in each stratum, and then combined across strata. For one-to-one matching this is likely unnecessary and would just lose power. For stratification or variable-ratio matching it is required. \index{conditioned model} \index{stratified model|see {conditioned model}}
+最初に、**対象コホートと比較コホート間のアウトカムの相対リスクを推定するために使用する統計モデルを指定する**必要があります。セクション \@ref(CohortMethod) で簡単に述べたように、Cox、Poisson、ロジスティック回帰から選択できます。この例では、打ち切りの可能性がある最初のイベントまでの時間を考慮するCox比例ハザード・モデルを選択します。次に、回帰を**層で条件付けるかどうか**を指定する必要があります。条件づけを理解する1つの方法は、各層で別々の推定が生成され、そして層で結合されること考えることです。1対1のマッチングでは、これはおそらく不要で、検出力を失うだけです。層別マッチングや可変比率マッチングでは必要です。\index{conditioned model} \index{stratified model| {conditioned model}を参照}
 
-We can also choose to **add the covariates to the outcome model** to adjust the analysis. This can be done in addition or instead of using a propensity model. However, whereas there usually is ample data to fit a propensity model, with many people in both treatment groups, there is typically very little data to fit the outcome model, with only few people having the outcome. We therefore recommend keeping the outcome model as simple as possible and not include additional covariates.
+また、**共変量をアウトカムモデル**に追加して分析を調整することもできます。これは傾向モデルを使うことに加えて、または代わりに行うことができます。しかし、傾向モデルをフィットさせるには、両治療群に多くの人がいて十分なデータがあるのが普通ですが、アウトカムモデルをフィットさせるには、アウトカムを持つ人が少なくてデータがほとんどないのが普通です。したがって、アウトカムモデルはできるだけ単純にし、追加の共変量は含めないことをお勧めします。
 
-Instead of stratifying or matching on the propensity score we can also choose to **use inverse probability of treatment weighting** (IPTW).
+傾向スコアで層別化またはマッチングする代わりに、**逆確率重み付け (IPTW)**を使うこともできます。
 
-If we choose to include all covariates in the outcome model, it may make sense to use regularization when fitting the model if there are many covariates. Note that no regularization will be applied to the treatment variable to allow for unbiased estimation.
+結果モデルにすべての共変量を含めることを選択した場合、共変量が多ければ、モデルを適合させるときに正則化を使用することが理にかなっているかもしれません。不偏推定を可能にするために、治療変数には正則化は適用されないことに注意してください。
 
-Figure \@ref(fig:outcomeModelSettings) shows our choices for this study. Because we use variable-ratio matching, we must condition the regression on the strata (i.e. the matched sets).
+図 \@ref(fig:outcomeModelSettings) は、この研究での私たちの選択を示しています。可変比率マッチングを用いているため、回帰モデルでは層別条件付けをしなければなりません（マッチしたセットによって）。
 
-```{r outcomeModelSettings, fig.cap='Outcome model settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r outcomeModelSettings, fig.cap='アウトカムモデルの設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/outcomeModelSettings.png")
 ```
 
-### Evaluation Settings {#evaluationSettings}
+### 評価の設定 {#evaluationSettings}
 
-As described in Chapter \@ref(MethodValidity), negative and positive controls should be included in our study to evaluate the operating characteristics, and perform empirical calibration.
+第 \@ref(MethodValidity) 章にあるように、陰性対照と陽性対照を検討し、操作特性を評価し、経験的キャリブレーションを行う必要があります。
 
-#### Negative Control Outcome Cohort Definition {.unnumbered}
+#### 陰性対照アウトカムコホートの定義 {.unnumbered}
 
-In Section \@ref(ComparisonSettings) we selected a concept set representing the negative control outcomes. However, we need logic to convert concepts to cohorts to be used as outcomes in our analysis. ATLAS provides standard logic with three choices. The first choice is whether to **use all occurrences** or just the **first occurrence** of the concept. The second choice determines **whether occurrences of descendant concepts should be considered**. For example, occurrences of the descendant "ingrown nail of foot" can also be counted as an occurrence of the ancestor "ingrown nail." The third choice specifies which domains should be considered when looking for the concepts.
+セクション \@ref(ComparisonSettings) では、陰性対照アウトカムを表すコンセプトセットを選択しました。しかし、分析でアウトカムとして使用するために、コンセプトをコホートに変換するロジックが必要です。ATLASは3つの選択肢を持つ標準ロジックを提供します。最初の選択肢は、**すべての出現**を使用するか、**最初の出現**だけを使用するかです。2番目の選択肢は、**下位層コンセプトの出現を考慮するかどうか**を決定します。例えば、下位層の "ingrown nail of foot (足の陥入爪)" の出現も、上位層の "ingrown nail (陥入爪)" の出現として数えることができます。3番目の選択肢は、コンセプトを探すときにどのドメインを考慮するかを指定します。
 
-```{r ncSettings, fig.cap='Negative control outcome cohort definition settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r ncSettings, fig.cap='陰性対照アウトカムコホートの定義の設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/ncSettings.png")
 ```
 
-#### Positive Control Synthesis {.unnumbered}
+#### 陽性対照の合成 {.unnumbered}
 
-In addition to negative controls we can also include positive controls, which are exposure-outcome pairs where a causal effect is believed to exist with known effect size. For various reasons real positive controls are problematic, so instead we rely on synthetic positive controls, derived from negative controls as described in Chapter \@ref(MethodValidity). We can choose to **perform positive control synthesis**. If "yes", we must choose the **model type**, currently being "Poisson" and "survival". Since we use a survival (Cox) model in our estimation study, we should choose "survival". We define the time-at-risk model for the positive control synthesis to be the same as in our estimation settings, and similarly mimic the choices for the **minimum required continuous observation prior to exposure**, **should only the first exposure be included**, **should only the first outcome be included**, as well as **remove people with prior outcomes**. Figure \@ref(fig:outcomeModelSettings) shows the settings for the positive control synthesis.
+陰性対照に加えて、因果関係があると思われる曝露-結果ペアで、効果量が既知である陽性対照も含めることができます。様々な理由から、実際の陽性対照には問題があるため、その代わりに、第 \@ref(MethodValidity) 章で説明したように、陰性対照から得られる合成陽性対照を用いることがあります。**陽性対照の合成を行う**かどうかを選択できます。もし 「はい」であれば、**モデル・タイプ**を選択しなければなりませんが、現在の選択は「Poisson」と 「survival」です。私たちの集団レベルの推定の研究では生存（Cox）モデルを使用するので、「survival」を選択します。私たちは、陽性対照合成のためのリスク時間モデルを私たちの推定の設定と同じになるように定義し、同じく、**曝露前に最低限必要な連続した観察期間**、**最初の曝露のみを含めるべきか**、**最初のアウトカムのみを含めるべきか**、および**過去にアウトカムを持つ人を除外する**の選択を模倣します。図 \@ref(fig:outcomeModelSettings)に陽性対照合成の設定を示します。
 
-```{r pcSynthesis, fig.cap='Negative control outcome cohort definition settings.',echo=FALSE, out.width='100%', fig.align='center'}
+```{r pcSynthesis, fig.cap='陽性対照アウトカムの定義の設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/pcSynthesis.png")
 ```
 
-### Running the Study Package
+### 研究パッケージの実行
 
-Now that we have fully defined our study, we can export it as an executable R package. This package contains everything that is needed to execute the study at a site that has data in CDM. This includes the cohort definitions that can be used to instantiate the target, comparator and outcome cohorts, the negative control concept set and logic to create the negative control outcome cohorts, as well as the R code to execute the analysis. Before generating the package make sure to save your study, then click on the **Utilities** tab. Here we can review the set of analyses that will be performed. As mentioned before, every combination of a comparison and an analysis setting will result in a separate analysis. In our example we have specified two analyses: ACEi versus THZ for AMI, and ACEi versus THZ for angioedema, both using propensity score matching.
+これで研究の定義が完了したので、実行可能なRパッケージとしてエクスポートできます。このパッケージは、CDMにデータを持つサイトで試験を実行するために必要なすべてを含みます。これには、ターゲット、比較群、アウトカムのコホートをインスタンス化するために使用できるコホート定義、陰性対照のコンセプト・セット、陰性対照アウトカムのコホートを作成するロジック、さらに分析を実行するRコードが含まれます。パッケージを生成する前に、必ず研究を保存し、**Utilities (ユーティリティ)** タブをクリックしてください。ここで、実行される一連の分析をレビューできます。前述したように、比較と分析設定のすべての組み合わせは、別々の分析になります。この例では、2つの解析を指定しています：AMIに対するACEi対THZ、血管性浮腫に対するACEi対THZ、両者とも傾向スコアマッチングを使用しています。
 
-We must provide a name for our package, after which we can click on "Download" to download the zip file. The zip file contains an R package, with the usual required folder structure for R packages. [@Wickham_2015] To use this package we recommend using R Studio. If you are running R Studio locally, unzip the file, and double click the .Rproj file to open it in R Studio. If you are running R Studio on an R studio server, click ![](images/PopulationLevelEstimation/upload.png) to upload and unzip the file, then click on the .Rproj file to open the project.
+パッケージの名前を指定し、"Download (ダウンロード)" をクリックしてzipファイルをダウンロードします。zipファイルにはRパッケージが含まれており、Rパッケージに通常必要なフォルダ構造になっています[@Wickham_2015]。このパッケージを使用するには、R Studio の使用をお勧めします。R Studio をローカルで実行している場合は、ファイルを解凍し、.Rproj ファイルをダブルクリックして R Studio で開きます。RスタジオをRスタジオサーバーで実行している場合は、![](images/PopulationLevelEstimation/upload.png)をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。
 
-Once you have opened the project in R Studio, you can open the README file, and follow the instructions. Make sure to change all file paths to existing paths on your system.
+R Studioでプロジェクトを開いたら、READMEファイルを開き、指示に従ってください。すべてのファイルのパスを、システム上の既存のパスに変更してください。
 
-A common error message that may appear when running the study is "High correlation between covariate(s) and treatment detected." This indicates that when fitting the propensity model, some covariates were observed to be highly correlated with the exposure. Please review the covariates mentioned in the error message, and exclude them from the set of covariates if appropriate (see Section \@ref(VariableSelection)). \index{high correlation}
+研究の実行時に表示される一般的なエラーメッセージは、"High correlation between covariate(s) and treatment detected."（共変量と治療の間に高い相関が検出されました。）" です。これは傾向モデルのフィッティングの際に、いくつかの共変量が曝露と高い相関があることが観察されたことを示します。エラーメッセージに記載されている共変量を確認し、適切に共変量セットから除外してください (セクション \@ref(VariableSelection) 参照). \index{high correlation}
 
 ## Rを使用した研究の実施 {#pleR}
 
