@@ -44,7 +44,7 @@ White Rabbitの主な機能は、ソースデータをスキャンし、テー�
 
 White Rabbitアプリケーションをダウンロードしてインストールした後、まず最初に作業フォルダを設定する必要があります。White Rabbitが作成するすべてのファイルはこのローカルフォルダにエクスポートされます。図\@ref(fig:WhiteRabbitLocation)に示されている「Pick Folder（フォルダの選択）」ボタンを使用して、スキャン文書を保存するローカル環境をナビゲートします。
 
-```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitLocation, fig.cap='White Rabbitアプリケーションの作業フォルダを指定するための「Pick Folder」ボタン',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitLocation.png")
 ```
 
@@ -56,7 +56,7 @@ White Rabbitは区切りテキストファイルとさまざまなデータベ�
 
 データベースに接続後、含まれるテーブルをスキャンできます。スキャンによりETLのデザインに役立つ情報を含むレポートが生成されます。図\@ref(fig:WhiteRabbitAddTables)に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックして選択したソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動的に選択する「Add all in DB」ボタンをクリックできます。
 
-```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ。', echo=FALSE, out.width='100%', fig.align='center'}
+```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 ```
 
@@ -72,13 +72,13 @@ knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 
 スキャンが完了すると、選択したフォルダにスキャンしたテーブルごとにタブが設けられたExcelファイルが作成されます。 また、概要タブも用意されています。 概要タブには、スキャンしたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータタイプ、フィールドの最大長、テーブルの行数、スキャンした行数、各フィールドが空欄であることが判明した頻度が記載されています。図\@ref(fig:ScanOverviewTab).は、概要タブの例を示しています。
 
-```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanOverviewTab.png")
 ```
 
 各テーブルのタブには、各フィールド、各フィールド内の値、各値の頻度が示されます。各ソーステーブルの列は、Excelに2つの列を生成します。1つの列には、「最小セルカウント」がスキャン時に設定された値よりも大きいすべての異なる値がリストされます。一意の値のリストが切り捨てられた場合、リストの最後の値は「リストが切り捨てられました」となります。これは、「最小セルカウント」に入力された数値よりも少ない数の追加の一意のソース値が1つ以上存在することを示します。各一意の値の隣には、2番目の列として頻度（サンプルに含まれるその値の回数）が表示されます。この2つの列（一意の値と頻度）は、ワークブックでプロファイルされたテーブル内のすべてのソース列に対して繰り返されます。
 
-```{r scanSex, fig.cap="単一列のサンプル値。", echo=FALSE, out.width='30%', fig.align='center'}
+```{r scanSex, fig.cap="単一列のサンプル値", echo=FALSE, out.width='30%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanSex.png")
 ```
 
@@ -112,7 +112,7 @@ White RabbitスキャンレポートをRabbit-In-a-Hatで開くと、ソース�
 
 CDMは人中心のモデルであるため、まずPERSONテーブルをマッピングすることが常に良い考えです。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照しているため、最初にPERSONテーブルのロジックを解決すると、後で簡単になります。PERSONテーブルの後は、OBSERVATION_PERIODテーブルを次に変換するのが良いルールです。CDMデータベースの各人物には少なくとも1つのOBSERVATION_PERIODがあり、一般的に、人物のほとんどのイベントはこの期間内に発生します。PERSONおよびOBSERVATION_PERIODテーブルが完了したら、次は通常、PROVIDER、CARE_SITE、およびLOCATIONなどの次元テーブルを変換します。臨床テーブルの前に処理すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはしばしばETL全体で最も複雑なロジックであり、最も重要なものの1つです。人物の患者の旅の過程で発生するほとんどのイベントは受診期間中に発生します。これらのテーブルが完了したら、どのCDMテーブルを変換し、その順序を選択できます。
 
-```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r etlFlow, fig.cap="ETLの一般的なフローと、最初にマッピングするテーブル", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/flowOfEtl.png")
 ```
 
@@ -120,13 +120,13 @@ CDM変換中に中間テーブルを作成する必要があることがよく�
 
 #### マッピング例：Personテーブル {.unnumbered}
 
-Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson). に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
+Syntheaデータ構造にはpatientsテーブルに20のカラムがありますが、図\@ref(fig:syntheaPerson) に示されているように、すべてがPERSONテーブルを埋めるために必要ではありませんでした。これは非常に一般的であり、心配する必要はありません。この例では、Synthea patientsテーブルの多くのデータポイントはCDM PERSONテーブルで使用されなかったため、患者名、運転免許証番号、パスポート番号などの追加識別子でした。
 
 ```{r syntheaPerson, fig.cap='Synthea PatientsテーブルからCDM PERSONテーブルへのマッピング',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/syntheaPersonTable.png")
 ```
 
-表 \@ref(tab:syntheaEtlPerson)には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
+表 \@ref(tab:syntheaEtlPerson) には、Synthea patientsテーブルをCDM PERSONテーブルに変換するために課されたロジックが示されています。『Destination Field』（目的フィールド）は、CDMのどこにデータがマッピングされるかを示しています。『Source field』（ソースフィールド）は、CDMカラムを埋めるために使用されるソーステーブル（この場合はpatients）のカラムを強調します。最後に、『Logic & comments』（ロジックとコメント）カラムには、ロジックの説明が記載されています。
 
 | 目的フィールド | ソースフィールド | ロジックとコメント |
 |:---|:---|:---|
@@ -208,7 +208,7 @@ Usagiはコードマッピングを手動で作成するプロセスを支援す
 
 ソースコードはFile → Import codesメニューからUsagiにロードされます。ここでは「Import codes …」が表示される（図\@ref(fig:usagiImport)）。この図では、ソースコード用語がオランダ語で、英語に翻訳されたものも含まれています。Usagiは英語の翻訳を利用して標準ボキャブラリにマッピングします。
 
-```{r usagiImport, fig.cap="Usagiコード入力画面。", echo=FALSE, out.width='100%', fig.align='center'}
+```{r usagiImport, fig.cap="Usagiコード入力画面", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/usagiImport.png")
 ```
 
@@ -388,7 +388,7 @@ ETLプロセスにはさまざまな理由で困難があります。その中�
 ## 演習
 
 ```{exercise, exerciseEtl1}
-ETLプロセスのステップを適切な順序に並べてください：
+ ETLプロセスのステップを適切な順序に並べてください：
 
 A) データ専門家とCDM専門家が協力してETLをデザイン
 B) 技術者がETLを実装
@@ -398,9 +398,9 @@ D) すべての関係者が品質管理に関与
 ```
 
 ```{exercise, exerciseEtl2}
-選択したOHDSIリソースを使用して、表\@ref(tab:exercisePersonTable)に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
+ 選択したOHDSIリソースを使用して、表 \@ref(tab:exercisePersonTable) に示すPERSONレコードに関する4つの問題点を指摘してください（表はスペースのため省略されています）：
 
-表: (\#tab:exercisePersonTable) PERSONテーブル。
+Table: (\#tab:exercisePersonTable) PERSONテーブル
 
 列 | 値
 :---------------- |:-----------
@@ -419,14 +419,14 @@ ETHNICITY_SOURCE_VALUE | 提供されていない
 ```
 
 ```{exercise, exerciseEtl3}
-VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
+ VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれた一部のロジックです：
 PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある限り、請求行をまとめます。まとめられた入院請求ごとに1つの入院受診期間と見なし、以下を設定します：
 
 - MIN(START)をVISIT_START_DATEとして設定
 - MAX(END)をVISIT_END_DATEとして設定
 - "IP"をPLACE_OF_SERVICE_SOURCE_VALUEとして設定
 
-ソースデータに図\@ref(fig:exerciseSourceData)に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
+ソースデータに図 \@ref(fig:exerciseSourceData) に示されるような訪問セットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？
 
 ```
 
@@ -434,4 +434,4 @@ PATIENT、START、ENDを昇順で並べ替えます。その後、PERSON_IDご�
 knitr::include_graphics("images/ExtractTransformLoad/exerciseSourceData.png")
 ```
 
-提案された回答は付録\@ref(Etlanswers)に見つけることができます。
+提案された回答は付録 \@ref(Etlanswers) に見つけることができます。
