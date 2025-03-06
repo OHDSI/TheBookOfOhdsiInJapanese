@@ -1,4 +1,4 @@
-# --翻訳作業中--　データ解析 {.unnumbered}
+# (PART) --翻訳作業中--　データ解析 {.unnumbered}
 
 # データ解析の使用例 {#DataAnalyticsUseCases}
 
