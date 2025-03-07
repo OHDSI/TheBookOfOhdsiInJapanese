@@ -475,19 +475,19 @@ div.csl-indent {
 <li class="chapter" data-level="11.11" data-path="Characterization.html"><a href="Characterization.html#まとめ-8"><i class="fa fa-check"></i><b>11.11</b> まとめ</a></li>
 <li class="chapter" data-level="11.12" data-path="Characterization.html"><a href="Characterization.html#演習-6"><i class="fa fa-check"></i><b>11.12</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> –翻訳作業中– 集団レベルの推定</a>
+<li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> 集団レベルの推定</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> コホートメソッド設計</a>
 <ul>
 <li class="chapter" data-level="12.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#傾向スコア"><i class="fa fa-check"></i><b>12.1.1</b> 傾向スコア</a></li>
 <li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> 変数選択</a></li>
 <li class="chapter" data-level="12.1.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#カリパー"><i class="fa fa-check"></i><b>12.1.3</b> カリパー</a></li>
-<li class="chapter" data-level="12.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#オーバーラップ偏好スコア"><i class="fa fa-check"></i><b>12.1.4</b> オーバーラップ：偏好スコア</a></li>
+<li class="chapter" data-level="12.1.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#オーバーラップ選好スコア"><i class="fa fa-check"></i><b>12.1.4</b> オーバーラップ：選好スコア</a></li>
 <li class="chapter" data-level="12.1.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#バランス"><i class="fa fa-check"></i><b>12.1.5</b> バランス</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#自己対照コホートデザイン"><i class="fa fa-check"></i><b>12.2</b> 自己対照コホートデザイン</a></li>
 <li class="chapter" data-level="12.3" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例対照デザイン"><i class="fa fa-check"></i><b>12.3</b> 症例対照デザイン</a></li>
-<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#症例交叉デザイン"><i class="fa fa-check"></i><b>12.4</b> 症例交叉デザイン</a></li>
+<li class="chapter" data-level="12.4" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#ケースクロスオーバーデザイン"><i class="fa fa-check"></i><b>12.4</b> ケース・クロスオーバーデザイン</a></li>
 <li class="chapter" data-level="12.5" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#自己対照症例シリーズデザイン"><i class="fa fa-check"></i><b>12.5</b> 自己対照症例シリーズデザイン</a></li>
 <li class="chapter" data-level="12.6" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#高血圧研究のデザイン"><i class="fa fa-check"></i><b>12.6</b> 高血圧研究のデザイン</a>
 <ul>
@@ -944,34 +944,34 @@ div.csl-indent {
 <h3><span class="header-section-number">18.3.2</span> コントロールの仲間<a href="MethodValidity.html#コントロールの仲間" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ネガティブコントロールのセットを定義したら、それらを調査に含める必要があります。まず、ネガティブコントロール条件のコンセプトをアウトカムコホートに変換するためのロジックを定義する必要があります。第<a href="https://ohdsi.github.io/TheBookOfOhdsi/PopulationLevelEstimation.html#evaluationSettings">12.7.3</a>部では、ATLASがユーザーが選択するいくつかのオプションに基づいて、そのようなコホートを作成する方法について説明しています。多くの場合、単にネガティブコントロールのコンセプトまたはその子孫のいずれかの出現に基づいてコホートを作成することを選択します。研究が R で実施される場合、SQL（構造化問い合わせ言語）を使用してネガティブコントロールコホートを構築することができます。第 <a href="https://ohdsi.github.io/TheBookOfOhdsi/SqlAndR.html#SqlAndR">9 章</a>では、SQL および R を使用してコホートを作成する方法について説明しています。適切な SQL および R を記述する方法については、読者の練習問題とします。</p>
 <p>OHDSIツールは、ネガティブコントロールから派生したポジティブコントロールを自動的に生成して含める機能も提供しています。この機能は、第<a href="https://ohdsi.github.io/TheBookOfOhdsi/PopulationLevelEstimation.html#evaluationSettings">12.7.3</a>部で説明されているATLASの「評価設定」セクションにあり、<a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a>パッケージの<code>synthesizePositiveControls</code>関数に実装されています。ここでは、生存モデルを使用して、真の効果サイズが1.5、2、4の3つのポジティブコントロールを各ネガティブコントロールに対して生成します。</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="MethodValidity.html#cb154-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
-<span id="cb154-2"><a href="MethodValidity.html#cb154-2" tabindex="-1"></a><span class="co"># ターゲットの曝露（ACEi = 1）のみを使用して、</span></span>
-<span id="cb154-3"><a href="MethodValidity.html#cb154-3" tabindex="-1"></a><span class="co"># すべてのネガティブコントロールの曝露-アウトカムの組を含むデータフレームを作成</span></span>
-<span id="cb154-4"><a href="MethodValidity.html#cb154-4" tabindex="-1"></a>eoPairs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">exposureId =</span> <span class="dv">1</span>,</span>
-<span id="cb154-5"><a href="MethodValidity.html#cb154-5" tabindex="-1"></a>                      <span class="at">outcomeId =</span> ncs)</span>
-<span id="cb154-6"><a href="MethodValidity.html#cb154-6" tabindex="-1"></a></span>
-<span id="cb154-7"><a href="MethodValidity.html#cb154-7" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">synthesizePositiveControls</span>(</span>
-<span id="cb154-8"><a href="MethodValidity.html#cb154-8" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb154-9"><a href="MethodValidity.html#cb154-9" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb154-10"><a href="MethodValidity.html#cb154-10" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb154-11"><a href="MethodValidity.html#cb154-11" tabindex="-1"></a>  <span class="at">exposureTable =</span> cohortTable,</span>
-<span id="cb154-12"><a href="MethodValidity.html#cb154-12" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb154-13"><a href="MethodValidity.html#cb154-13" tabindex="-1"></a>  <span class="at">outcomeTable =</span> cohortTable,</span>
-<span id="cb154-14"><a href="MethodValidity.html#cb154-14" tabindex="-1"></a>  <span class="at">outputDatabaseSchema =</span> cohortDbSchema,</span>
-<span id="cb154-15"><a href="MethodValidity.html#cb154-15" tabindex="-1"></a>  <span class="at">outputTable =</span> cohortTable,</span>
-<span id="cb154-16"><a href="MethodValidity.html#cb154-16" tabindex="-1"></a>  <span class="at">createOutputTable =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb154-17"><a href="MethodValidity.html#cb154-17" tabindex="-1"></a>  <span class="at">modelType =</span> <span class="st">&quot;survival&quot;</span>,</span>
-<span id="cb154-18"><a href="MethodValidity.html#cb154-18" tabindex="-1"></a>  <span class="at">firstExposureOnly =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb154-19"><a href="MethodValidity.html#cb154-19" tabindex="-1"></a>  <span class="at">firstOutcomeOnly =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb154-20"><a href="MethodValidity.html#cb154-20" tabindex="-1"></a>  <span class="at">removePeopleWithPriorOutcomes =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb154-21"><a href="MethodValidity.html#cb154-21" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">365</span>,</span>
-<span id="cb154-22"><a href="MethodValidity.html#cb154-22" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
-<span id="cb154-23"><a href="MethodValidity.html#cb154-23" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">0</span>,</span>
-<span id="cb154-24"><a href="MethodValidity.html#cb154-24" tabindex="-1"></a>  <span class="at">endAnchor =</span> <span class="st">&quot;cohort end&quot;</span>,</span>
-<span id="cb154-25"><a href="MethodValidity.html#cb154-25" tabindex="-1"></a>  <span class="at">exposureOutcomePairs =</span> eoPairs,</span>
-<span id="cb154-26"><a href="MethodValidity.html#cb154-26" tabindex="-1"></a>  <span class="at">effectSizes =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
-<span id="cb154-27"><a href="MethodValidity.html#cb154-27" tabindex="-1"></a>  <span class="at">cdmVersion =</span> cdmVersion,</span>
-<span id="cb154-28"><a href="MethodValidity.html#cb154-28" tabindex="-1"></a>  <span class="at">workFolder =</span> <span class="fu">file.path</span>(outputFolder, <span class="st">&quot;pcSynthesis&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="MethodValidity.html#cb152-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
+<span id="cb152-2"><a href="MethodValidity.html#cb152-2" tabindex="-1"></a><span class="co"># ターゲットの曝露（ACEi = 1）のみを使用して、</span></span>
+<span id="cb152-3"><a href="MethodValidity.html#cb152-3" tabindex="-1"></a><span class="co"># すべてのネガティブコントロールの曝露-アウトカムの組を含むデータフレームを作成</span></span>
+<span id="cb152-4"><a href="MethodValidity.html#cb152-4" tabindex="-1"></a>eoPairs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">exposureId =</span> <span class="dv">1</span>,</span>
+<span id="cb152-5"><a href="MethodValidity.html#cb152-5" tabindex="-1"></a>                      <span class="at">outcomeId =</span> ncs)</span>
+<span id="cb152-6"><a href="MethodValidity.html#cb152-6" tabindex="-1"></a></span>
+<span id="cb152-7"><a href="MethodValidity.html#cb152-7" tabindex="-1"></a>pcs <span class="ot">&lt;-</span> <span class="fu">synthesizePositiveControls</span>(</span>
+<span id="cb152-8"><a href="MethodValidity.html#cb152-8" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb152-9"><a href="MethodValidity.html#cb152-9" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb152-10"><a href="MethodValidity.html#cb152-10" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb152-11"><a href="MethodValidity.html#cb152-11" tabindex="-1"></a>  <span class="at">exposureTable =</span> cohortTable,</span>
+<span id="cb152-12"><a href="MethodValidity.html#cb152-12" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb152-13"><a href="MethodValidity.html#cb152-13" tabindex="-1"></a>  <span class="at">outcomeTable =</span> cohortTable,</span>
+<span id="cb152-14"><a href="MethodValidity.html#cb152-14" tabindex="-1"></a>  <span class="at">outputDatabaseSchema =</span> cohortDbSchema,</span>
+<span id="cb152-15"><a href="MethodValidity.html#cb152-15" tabindex="-1"></a>  <span class="at">outputTable =</span> cohortTable,</span>
+<span id="cb152-16"><a href="MethodValidity.html#cb152-16" tabindex="-1"></a>  <span class="at">createOutputTable =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb152-17"><a href="MethodValidity.html#cb152-17" tabindex="-1"></a>  <span class="at">modelType =</span> <span class="st">&quot;survival&quot;</span>,</span>
+<span id="cb152-18"><a href="MethodValidity.html#cb152-18" tabindex="-1"></a>  <span class="at">firstExposureOnly =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb152-19"><a href="MethodValidity.html#cb152-19" tabindex="-1"></a>  <span class="at">firstOutcomeOnly =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb152-20"><a href="MethodValidity.html#cb152-20" tabindex="-1"></a>  <span class="at">removePeopleWithPriorOutcomes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb152-21"><a href="MethodValidity.html#cb152-21" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">365</span>,</span>
+<span id="cb152-22"><a href="MethodValidity.html#cb152-22" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
+<span id="cb152-23"><a href="MethodValidity.html#cb152-23" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">0</span>,</span>
+<span id="cb152-24"><a href="MethodValidity.html#cb152-24" tabindex="-1"></a>  <span class="at">endAnchor =</span> <span class="st">&quot;cohort end&quot;</span>,</span>
+<span id="cb152-25"><a href="MethodValidity.html#cb152-25" tabindex="-1"></a>  <span class="at">exposureOutcomePairs =</span> eoPairs,</span>
+<span id="cb152-26"><a href="MethodValidity.html#cb152-26" tabindex="-1"></a>  <span class="at">effectSizes =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb152-27"><a href="MethodValidity.html#cb152-27" tabindex="-1"></a>  <span class="at">cdmVersion =</span> cdmVersion,</span>
+<span id="cb152-28"><a href="MethodValidity.html#cb152-28" tabindex="-1"></a>  <span class="at">workFolder =</span> <span class="fu">file.path</span>(outputFolder, <span class="st">&quot;pcSynthesis&quot;</span>))</span></code></pre></div>
 <p>注意すべきは、推定研究のデザインで使用されたリスク時間設定を模倣しなければならないということです。<code>synthesizePositiveControls</code>関数は、曝露とネガティブコントロールのアウトカムに関する情報を抽出し、曝露とアウトカムの組み合わせごとにアウトカムモデルを適合させ、結果を統合します。ポジティブコントロールのアウトカムコホートは、<code>cohortDbSchema</code>および<code>cohortTable</code>で指定されたコホートテーブルに追加されます。結果の<code>pcs</code>データフレームには、統合されたポジティブコントロールの情報が含まれます。</p>
 <p>次に、効果を推定するために使用したのと同じ研究を実行して、ネガティブコントロールとポジティブコントロールの効果も推定する必要があります。ATLASの比較ダイアログでネガティブコントロールのセットを設定すると、ATLASはこれらのコントロールの推定値を計算するように指示されます。同様に、評価設定でポジティブコントロールを生成するように指定すると、それらも分析に含まれます。Rでは、ネガティブコントロールとポジティブコントロールは、他の結果と同様に処理されます。<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>のすべての推定パッケージは、多くの効果を効率的に推定することを容易に可能にします。</p>
 </div>
@@ -1030,16 +1030,16 @@ div.csl-indent {
 <div id="p値のキャリブレーション-1" class="section level3 hasAnchor" number="18.3.4">
 <h3><span class="header-section-number">18.3.4</span> P値のキャリブレーション<a href="MethodValidity.html#p値のキャリブレーション-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ネガティブコントロールの推定値を使用して、p値を調整することができます。これはShinyアプリでは自動的に行われ、Rでは手動で行うことができます。第<a href="https://ohdsi.github.io/TheBookOfOhdsi/PopulationLevelEstimation.html#MultipleAnalyses">12.8.6</a>部で説明したように、要約オブジェクト<code>summ</code>を作成したと仮定すると、経験的なキャリブレーション効果のプロットを作成することができます。</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="MethodValidity.html#cb155-1" tabindex="-1"></a><span class="co"># Estimates for negative controls (ncs) and outcomes of interest (ois):</span></span>
-<span id="cb155-2"><a href="MethodValidity.html#cb155-2" tabindex="-1"></a>ncEstimates <span class="ot">&lt;-</span> summ[summ<span class="sc">$</span>outcomeId <span class="sc">%in%</span> ncs, ]</span>
-<span id="cb155-3"><a href="MethodValidity.html#cb155-3" tabindex="-1"></a>oiEstimates <span class="ot">&lt;-</span> summ[summ<span class="sc">$</span>outcomeId <span class="sc">%in%</span> ois, ]</span>
-<span id="cb155-4"><a href="MethodValidity.html#cb155-4" tabindex="-1"></a></span>
-<span id="cb155-5"><a href="MethodValidity.html#cb155-5" tabindex="-1"></a><span class="fu">library</span>(EmpiricalCalibration)</span>
-<span id="cb155-6"><a href="MethodValidity.html#cb155-6" tabindex="-1"></a><span class="fu">plotCalibrationEffect</span>(<span class="at">logRrNegatives =</span> ncEstimates<span class="sc">$</span>logRr,</span>
-<span id="cb155-7"><a href="MethodValidity.html#cb155-7" tabindex="-1"></a>                      <span class="at">seLogRrNegatives =</span> ncEstimates<span class="sc">$</span>seLogRr,</span>
-<span id="cb155-8"><a href="MethodValidity.html#cb155-8" tabindex="-1"></a>                      <span class="at">logRrPositives =</span> oiEstimates<span class="sc">$</span>logRr,</span>
-<span id="cb155-9"><a href="MethodValidity.html#cb155-9" tabindex="-1"></a>                      <span class="at">seLogRrPositives =</span> oiEstimates<span class="sc">$</span>seLogRr,</span>
-<span id="cb155-10"><a href="MethodValidity.html#cb155-10" tabindex="-1"></a>                      <span class="at">showCis =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="MethodValidity.html#cb153-1" tabindex="-1"></a><span class="co"># Estimates for negative controls (ncs) and outcomes of interest (ois):</span></span>
+<span id="cb153-2"><a href="MethodValidity.html#cb153-2" tabindex="-1"></a>ncEstimates <span class="ot">&lt;-</span> summ[summ<span class="sc">$</span>outcomeId <span class="sc">%in%</span> ncs, ]</span>
+<span id="cb153-3"><a href="MethodValidity.html#cb153-3" tabindex="-1"></a>oiEstimates <span class="ot">&lt;-</span> summ[summ<span class="sc">$</span>outcomeId <span class="sc">%in%</span> ois, ]</span>
+<span id="cb153-4"><a href="MethodValidity.html#cb153-4" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="MethodValidity.html#cb153-5" tabindex="-1"></a><span class="fu">library</span>(EmpiricalCalibration)</span>
+<span id="cb153-6"><a href="MethodValidity.html#cb153-6" tabindex="-1"></a><span class="fu">plotCalibrationEffect</span>(<span class="at">logRrNegatives =</span> ncEstimates<span class="sc">$</span>logRr,</span>
+<span id="cb153-7"><a href="MethodValidity.html#cb153-7" tabindex="-1"></a>                      <span class="at">seLogRrNegatives =</span> ncEstimates<span class="sc">$</span>seLogRr,</span>
+<span id="cb153-8"><a href="MethodValidity.html#cb153-8" tabindex="-1"></a>                      <span class="at">logRrPositives =</span> oiEstimates<span class="sc">$</span>logRr,</span>
+<span id="cb153-9"><a href="MethodValidity.html#cb153-9" tabindex="-1"></a>                      <span class="at">seLogRrPositives =</span> oiEstimates<span class="sc">$</span>seLogRr,</span>
+<span id="cb153-10"><a href="MethodValidity.html#cb153-10" tabindex="-1"></a>                      <span class="at">showCis =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pValueCal"></span>
 <img src="images/MethodValidity/pValueCal.png" alt="P-value calibration: estimates below the dashed line have a conventional p &lt; 0.05. Estimates in the shaded area have calibrated p &lt; 0.05. The narrow band around the edge of the shaded area denotes the 95\% credible interval. Dots indicate negative controls. Diamonds indicate outcomes of interest." width="70%" />
 <p class="caption">
@@ -1048,14 +1048,14 @@ div.csl-indent {
 </div>
 <p>図<a href="https://ohdsi.github.io/TheBookOfOhdsi/MethodValidity.html#fig:pValueCal">18.6</a>では、陰影部分が破線で示された領域とほぼ完全に重なっていることがわかります。これは、ネガティブコントロールではほとんどバイアスが観察されなかったことを示しています。対象とするアウトカム（AMI）の1つは、破線と陰影部分の上にあり、未補正および補正後のp値の両方において帰無仮説を棄却できないことを示しています。もう一方のアウトカム（血管性浮腫）は、明らかにネガティブコントロールから際立っており、未補正および補正済みのp値がいずれも0.05未満である領域内に収まっています。</p>
 <p>補正済みのp値を計算することができます。</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="MethodValidity.html#cb156-1" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="fu">fitNull</span>(<span class="at">logRr =</span> ncEstimates<span class="sc">$</span>logRr,</span>
-<span id="cb156-2"><a href="MethodValidity.html#cb156-2" tabindex="-1"></a>                <span class="at">seLogRr =</span> ncEstimates<span class="sc">$</span>seLogRr)</span>
-<span id="cb156-3"><a href="MethodValidity.html#cb156-3" tabindex="-1"></a><span class="fu">calibrateP</span>(null,</span>
-<span id="cb156-4"><a href="MethodValidity.html#cb156-4" tabindex="-1"></a>           <span class="at">logRr=</span> oiEstimates<span class="sc">$</span>logRr,</span>
-<span id="cb156-5"><a href="MethodValidity.html#cb156-5" tabindex="-1"></a>           <span class="at">seLogRr =</span> oiEstimates<span class="sc">$</span>seLogRr)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="MethodValidity.html#cb154-1" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="fu">fitNull</span>(<span class="at">logRr =</span> ncEstimates<span class="sc">$</span>logRr,</span>
+<span id="cb154-2"><a href="MethodValidity.html#cb154-2" tabindex="-1"></a>                <span class="at">seLogRr =</span> ncEstimates<span class="sc">$</span>seLogRr)</span>
+<span id="cb154-3"><a href="MethodValidity.html#cb154-3" tabindex="-1"></a><span class="fu">calibrateP</span>(null,</span>
+<span id="cb154-4"><a href="MethodValidity.html#cb154-4" tabindex="-1"></a>           <span class="at">logRr=</span> oiEstimates<span class="sc">$</span>logRr,</span>
+<span id="cb154-5"><a href="MethodValidity.html#cb154-5" tabindex="-1"></a>           <span class="at">seLogRr =</span> oiEstimates<span class="sc">$</span>seLogRr)</span></code></pre></div>
 <pre><code>## [1] 1.604351e-06 7.159506e-01</code></pre>
 <p>そして、キャリブレーションされていないp値と比較してみましょう。</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="MethodValidity.html#cb158-1" tabindex="-1"></a>oiEstimates<span class="sc">$</span>p</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="MethodValidity.html#cb156-1" tabindex="-1"></a>oiEstimates<span class="sc">$</span>p</span></code></pre></div>
 <pre><code>## [1] [1] 1.483652e-06 7.052822e-01</code></pre>
 <p>予想通り、バイアスはほとんど観察されなかったため、未補正および補正後のp値は非常に類似しています。</p>
 </div>
