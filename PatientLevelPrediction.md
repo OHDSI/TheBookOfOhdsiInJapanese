@@ -1,6 +1,6 @@
-# 第13章　--翻訳作業中-- 患者レベル予測 {#PatientLevelPrediction}
+# 患者レベル予測 {#PatientLevelPrediction}
 
-*章Lead: Peter Rijnbeek & Jenna Reps*
+*著者: Peter Rijnbeek & Jenna Reps*
 
 \index{患者レベル予測}
 
@@ -8,13 +8,13 @@
 
 過去10年間で、臨床予測モデルを説明する出版物の数が大幅に増加しました。現在使用されているほとんどのモデルは、小さなデータセットを使用して推定されており、患者特性の限られたセットのみを考慮しています。この低いサンプルサイズ、従って低い統計的検出力は、データアナリストに強いモデリング仮定を行わせます。限られた患者特性の選択は、手元にある専門知識に強く導かれています。これは、患者が膨大なデジタルトレイルを生成する現代医学の現実とは対照的です。現在、ヘルスケアは電子健康記録（EHR）に保存された膨大な患者特有の情報を生成しています。これには、診断、投薬、検査アウトカムの形での構造化データ、および臨床記述に含まれる非構造化データが含まれます。患者の完全なEHRから得られる大量のデータを活用することで、どれだけの予測精度が向上するかは未知です。 \index{予測モデル}
 
-大規模データセットの解析に対する機械学習の進歩により、この種類のデータに対する患者レベルの予測の適用に対する関心が高まっています。しかし、患者レベルの予測に関する多くの発表された取り組みがモデル開発ガイドラインに従っておらず、広範な外部検証を行わない、またはモデルの詳細が不十分であるため、独立した研究者がモデルを再現し外部検証を行うことが難しくなっています。これにより、モデルの予測性能を公正に評価することが難しくなり、モデルが臨床実践で適切に使用される可能性が低くなります。標準を向上させるために、いくつかの論文が予測モデルの開発および報告のベストプラクティスに関するガイドラインを詳述しています。例えば、個々の予後または診断のための多変数予測モデルの透明な報告（TRIPOD）ステートメント[^tripodUrl]は、予測モデルの開発と検証を報告するための明確な推奨事項を提供し、透明性に関連するいくつかの懸念に対処しています。 \index{機械学習} \index{TRIPOD}
+大規模データセットの解析に対する機械学習の進歩により、この種類のデータに対する患者レベルの予測の適用に対する関心が高まっています。しかし、患者レベルの予測に関する多くの発表された取り組みがモデル開発ガイドラインに従っておらず、広範な外部検証を行わない、またはモデルの詳細が不十分であるため、独立した研究者がモデルを再現し外部検証を行うことが難しくなっています。これにより、モデルの予測性能を公正に評価することが難しくなり、モデルが臨床実践で適切に使用される可能性が低くなります。標準を向上させるために、いくつかの論文が予測モデルの開発および報告のベストプラクティスに関するガイドラインを詳述しています。例えば、個々の予後または診断のための多変数予測モデルの透明な報告（TRIPOD）ステートメント[^patientlevelprediction-1]は、予測モデルの開発と検証を報告するための明確な推奨事項を提供し、透明性に関連するいくつかの懸念に対処しています。 \index{機械学習} \index{TRIPOD}
 
-[^tripodUrl]: https://www.equator-network.org/reporting-guidelines/tripod-statement/
+[^patientlevelprediction-1]: <https://www.equator-network.org/reporting-guidelines/tripod-statement/>
 
 OHDSIのおかげで、大規模、患者特異的予測モデリングが現実のものとなり、共通データモデル（CDM）が前例のない規模での均一で透明な分析を可能にしました。CDMに標準化された拡大するデータベースネットワークは、さまざまなヘルスケア環境でのモデルの外部検証をグローバルに可能にします。私たちは、これがケアの質の向上が最も必要とされる大規模な患者コミュニティに直ちに貢献できる機会を提供すると信じています。このようなモデルは、真に個別化された医療を支援し、患者の治療アウトカムの劇的な向上を目指します。
 
-この章では、OHDSIの標準化された患者レベル予測のフレームワーク [@reps2018 ]を説明し、開発と検証のための確立されたベストプラクティスを実装する [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R パッケージについて説明します。まず、患者レベルの予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究アウトカムの普及のためのShinyアプリケーションの使用について説明します。
+この章では、OHDSIの標準化された患者レベル予測のフレームワーク [@reps2018]を説明し、開発と検証のための確立されたベストプラクティスを実装する [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) R パッケージについて説明します。まず、患者レベルの予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究アウトカムの普及のためのShinyアプリケーションの使用について説明します。
 
 ## 予測課題
 
@@ -30,34 +30,33 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 さらに、開発したいモデルの設計選択肢を検討し、内部および外部検証を行うための観察データセットを決定する必要があります。
 
-表: (\#tab:plpDesign) 予測設計における主要な設計選択肢。
+表: (#tab:plpDesign) 予測設計における主要な設計選択肢。
 
-| 選択肢          | 説明                                                |
-|:----------------- |:-------------------------------------------------------- |
-| ターゲットコホート | 予測したい人物のコホートをどのように定義しますか？       |
-| アウトカムコホート    | 予測したいアウトカムをどのように定義しますか？|
-| リスク期間      | t=0に対してどの時間ウィンドウで予測を行いますか？ |
-| モデル             | どのアルゴリズムを使用し、どの潜在的な予測変数を含めますか？ |
-
+| 選択肢 | 説明 |
+|:---|:---|
+| ターゲットコホート | 予測したい人物のコホートをどのように定義しますか？ |
+| アウトカムコホート | 予測したいアウトカムをどのように定義しますか？ |
+| リスク期間 | t=0に対してどの時間ウィンドウで予測を行いますか？ |
+| モデル | どのアルゴリズムを使用し、どの潜在的な予測変数を含めますか？ |
 
 この概念的フレームワークは、すべての種類の予測課題に適用されます。例えば：
 
-- 疾病の発症と進行
-  - **構造**: *[病気]*と新たに診断された患者の中で、*[診断からの時間枠内]*に*[別の病気または合併症]*を発症するのは誰ですか？
-  - **例**: 心房細動と新たに診断された患者の中で、次の3年の間に虚血性脳卒中を発症するのは誰ですか？
-- 治療選択
-  - **構造**: *[適応された疾患]*を持ち*、*[治療1]*または*[治療2]*で治療された患者の中で、*[治療1]*で治療されたのは誰ですか？
-  - **例**: ワルファリンまたはリバロキサバンを服用した心房細動患者の中で、ワルファリンを服用する患者は誰ですか？（例えば傾向スコアモデルとして）
-- 治療反応
-  - **構造**: *[治療]*の新規使用者の中で、*[時間枠内]*に*[ある効果]*を経験するのは誰ですか？
-  - **例**: メトホルミンを開始した糖尿病患者のうち、3年間メトホルミンを継続するのは誰ですか？
-- 治療安全性
-  - **構造**: *[治療]*の新規使用者の中で、*[時間枠内]*に*[副作用]*を経験するのは誰ですか？
-  - **例**: ワルファリンの新規使用者の中で、1年以内に消化管出血を経験するのは誰ですか？
-- 治療遵守
-  - **構造**: *[治療]*の新規使用者の中で、*[時間枠]*で*[遵守指標]*を達成するのは誰ですか？
-  - **例**: メトホルミンを開始した糖尿病患者のうち、1年後に80%以上の日数カバー率を達成するのは誰ですか？
-  
+-   疾病の発症と進行
+    -   **構造**: *[病気]*と新たに診断された患者の中で、*[診断からの時間枠内]*に*[別の病気または合併症]*を発症するのは誰ですか？
+    -   **例**: 心房細動と新たに診断された患者の中で、次の3年の間に虚血性脳卒中を発症するのは誰ですか？
+-   治療選択
+    -   **構造**: *[適応された疾患]*を持ち*、*[治療1]*または*[治療2]*で治療された患者の中で、*[治療1]\*で治療されたのは誰ですか？
+    -   **例**: ワルファリンまたはリバロキサバンを服用した心房細動患者の中で、ワルファリンを服用する患者は誰ですか？（例えば傾向スコアモデルとして）
+-   治療反応
+    -   **構造**: *[治療]*の新規使用者の中で、*[時間枠内]*に*[ある効果]*を経験するのは誰ですか？
+    -   **例**: メトホルミンを開始した糖尿病患者のうち、3年間メトホルミンを継続するのは誰ですか？
+-   治療安全性
+    -   **構造**: *[治療]*の新規使用者の中で、*[時間枠内]*に*[副作用]*を経験するのは誰ですか？
+    -   **例**: ワルファリンの新規使用者の中で、1年以内に消化管出血を経験するのは誰ですか？
+-   治療遵守
+    -   **構造**: *[治療]*の新規使用者の中で、*[時間枠]*で*[遵守指標]*を達成するのは誰ですか？
+    -   **例**: メトホルミンを開始した糖尿病患者のうち、1年後に80%以上の日数カバー率を達成するのは誰ですか？
+
 ## データ抽出
 
 予測モデルを作成する際には、監督学習として知られるプロセスを使用します。これは、機械学習の一形態で、目標変数と結び付いたラベル付きデータから、共変量とアウトカムステータスの関係を推測する方法です\index{supervised learning(監督学習)}。したがって、CDMからターゲットコホートに属する個人の共変量を抽出する方法、およびそのアウトカムステータスを取得する方法が必要です。
@@ -70,22 +69,22 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 表 \@ref(tab:plpExampleCohorts) は、2つのコホートが含まれたCOHORTテーブルの例を示しています。コホート定義IDが1のコホートはターゲットコホート（例：「最近心房細動と診断された人々」）です。コホート定義IDが2は、アウトカムコホートを定義します（例：「脳卒中」）。
 
-表： (\#tab:plpExampleCohorts) 例示的なCOHORTテーブル。簡潔のためにCOHORT_END_DATEは省略しています。
+表： (#tab:plpExampleCohorts) 例示的なCOHORTテーブル。簡潔のためにCOHORT_END_DATEは省略しています。
 
 | COHORT_DEFINITION_ID | SUBJECT_ID | COHORT_START_DATE |
 |:--------------------:|:----------:|:-----------------:|
-| 1                    |   1        | 2000-06-01        |
-| 1                    |   2        | 2001-06-01        |
-| 2                    |   2        | 2001-07-01        |
+|          1           |     1      |    2000-06-01     |
+|          1           |     2      |    2001-06-01     |
+|          2           |     2      |    2001-07-01     |
 
 表 \@ref(tab:plpExampleConditions) は、例示的なCONDITION_OCCURRENCEテーブルを示しています。Concept ID [320128](http://athena.ohdsi.org/search-terms/terms/320128) は「本態性高血圧」に該当します。
 
-表：(\#tab:plpExampleConditions) 例示的なCONDITION_OCCURRENCEテーブル。簡潔のため、3つの列のみ表示しています。
+表：(#tab:plpExampleConditions) 例示的なCONDITION_OCCURRENCEテーブル。簡潔のため、3つの列のみ表示しています。
 
 | PERSON_ID | CONDITION_CONCEPT_ID | CONDITION_START_DATE |
 |:---------:|:--------------------:|:--------------------:|
-| 1         | 320128               | 2000-10-01           |
-| 2         | 320128               | 2001-05-01           |
+|     1     |        320128        |      2000-10-01      |
+|     2     |        320128        |      2001-05-01      |
 
 この例示的なデータに基づき、時間のリスクが基準日（ターゲットコホートの開始日）から1年間と仮定すると、共変量とアウトカムステータスを構築できます。「前年の本態性高血圧」を示す共変量は、個人ID 1に対して0（非存在）（状態が基準日後に発生）と、個人ID 2に対して1（存在）を持ちます。同様に、アウトカムステータスは個人ID 1に対して0（この人はアウトカムコホートにエントリがない）、個人ID 2に対して1（基準日から1年以内にアウトカムが発生）となります。
 
@@ -118,11 +117,11 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 LASSO（最小絶対収縮および選択オペレーター）ロジスティック回帰は、変数の線形結合を学習し、最終的にロジスティック関数がその線形結合を0から1の値にマッピングする、一般化線形モデルの家族に属します。LASSO正則化は、モデルをトレーニングする際に目的関数に基づくモデルの複雑さに基づくコストを追加します。このコストは係数の線形結合の絶対値の合計です。このモデルは、このコストを最小限に抑えることで自動的に特徴選択を行います。大規模な正則化ロジスティック回帰を行うために [Cyclops](https://ohdsi.github.io/Cyclops/) （ロジスティック、ポアソン、サバイバル分析のためのサイクリック座標降下法）パッケージを使用しています。 \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
 
-Table: (\#tab:lassoParameters) 正則化ロジスティック回帰のハイパーパラメータ。
+| パラメータ | 説明               | 典型的な値 |
+|:-----------|:-------------------|:-----------|
+| 初期分散   | 事前分布の初期分散 | 0.1        |
 
-| パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
-| 初期分散 | 事前分布の初期分散 | 0.1 |
+: (#tab:lassoParameters) 正則化ロジスティック回帰のハイパーパラメータ。
 
 分散は交差検証でのサンプル外の尤度を最大化して最適化されるため、初期分散はアウトカムとして得られるモデルの性能にはほとんど影響しません。ただし、最適値からあまりに離れた初期分散を選択すると、適合時間が長くなる可能性があります。\index{variance} \index{hyper-parameter} \index{cross-validation}
 
@@ -130,37 +129,37 @@ Table: (\#tab:lassoParameters) 正則化ロジスティック回帰のハイパ�
 
 勾配ブースティングマシンはブースティングアンサンブル技術であり、我々の枠組みでは複数の決定木を組み合わせます。ブースティングは、繰り返し決定木を追加し、前の決定木で誤分類されたデータポイントにより多くの重みをコスト関数に追加して次の木をトレーニングします。高効率の勾配ブースティングフレームワークを実装した、CRANで利用可能なxgboost Rパッケージを使用しています。 \index{gradient boosting} \index{xgboost}
 
-Table: (\#tab:gbmParameters) 勾配ブースティングマシンのハイパーパラメータ。
+| パラメータ     | 説明                           | 典型的な値     |
+|:---------------|:-------------------------------|:---------------|
+| earlyStopRound | 改善がない場合の停止ラウンド数 | 25             |
+| learningRate   | ブースティングの学習率         | 0.005,0.01,0.1 |
+| maxDepth       | 木の最大深さ                   | 4,6,17         |
+| minRows        | ノード内の最小データポイント数 | 2              |
+| ntrees         | 木の数                         | 100,1000       |
 
-| パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
-| earlyStopRound | 改善がない場合の停止ラウンド数 | 25 |
-| learningRate| ブースティングの学習率 | 0.005,0.01,0.1|
-| maxDepth | 木の最大深さ | 4,6,17 |
-| minRows | ノード内の最小データポイント数 | 2 |
-| ntrees | 木の数 |100,1000|
+: (#tab:gbmParameters) 勾配ブースティングマシンのハイパーパラメータ。
 
 ### ランダムフォレスト
 
 ランダムフォレストは複数の決定木を組み合わせるバギングアンサンブル技術です。バギングの背後にあるアイデアは、弱い分類器を使用してそれらを強い分類器に組み合わせることで過適合の可能性を減らすことです。ランダムフォレストは、各木において変数のサブセットを使用し、木間でサブセットを異ならせることでこれを実現します。Pythonのsklearnのランダムフォレスト実装を使用しています。 \index{random forest} \index{python} \index{sklearn}
 
-Table: (\#tab:randomForestParameters) ランダムフォレストのハイパーパラメータ。
+| パラメータ | 説明         | 典型的な値                 |
+|:-----------|:-------------|:---------------------------|
+| maxDepth   | 木の最大深さ | 4,10,17                    |
+| mtries     | 各木の変数数 | -1 = 総変数数の平方根,5,20 |
+| ntrees     | 木の数       | 500                        |
 
-| パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
-| maxDepth | 木の最大深さ | 4,10,17 |
-| mtries | 各木の変数数 | -1 = 総変数数の平方根,5,20 |
-| ntrees | 木の数 | 500 |
+: (#tab:randomForestParameters) ランダムフォレストのハイパーパラメータ。
 
 ### K-近傍法
 
 K-nearest neighbors (KNN) は、ある距離測定を使用して新しい未ラベルデータポイントに最も近いラベル付きデータポイントK個を見つけるアルゴリズムです。新しいデータポイントの予測は、K個の近傍ラベル付きデータポイントの中で最も多く見られるクラスになります。KNNの制限として、モデルが新しいデータに対して予測を行うためにラベル付きデータを必要とし、そのデータはデータサイト間で共有しにくい場合が多いことがあります。我々のパッケージには、OHDSIで開発された大規模なKNN分類器である[BigKnn](https://github.com/OHDSI/BigKnn)パッケージが含まれています。 \index{k-nearest neighbors} \index{bigknn}
 
-Table: (\#tab:knnParameters) K-近傍法のハイパーパラメータ。
+| パラメータ | 説明   | 典型的な値 |
+|:-----------|:-------|:-----------|
+| k          | 近傍数 | 1000       |
 
-| パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
-| k | 近傍数 | 1000 |
+: (#tab:knnParameters) K-近傍法のハイパーパラメータ。
 
 ### ナイーブベイズ
 
@@ -170,37 +169,37 @@ Table: (\#tab:knnParameters) K-近傍法のハイパーパラメータ。
 
 AdaBoostはブースティングアンサンブル技術です。ブースティングは、繰り返し分類器を追加し、前の分類器で誤分類されたデータポイン規定の重みをコスト関数に追加して次の分類器をトレーニングします。Pythonのsklearn AdaboostClassifier実装を使用しています。 \index{adaboost} \index{python}
 
-Table: (\#tab:adaBoostParameters) AdaBoostのハイパーパラメータ。
-
 | パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
+|:---|:---|:---|
 | nEstimators | ブースティングが停止される最大推定器数 | 4 |
 | learningRate | 学習率が各分類器の貢献をlearning_rateによって抑え込みます。learningRateとnEstimatorsの間にはトレードオフがあります | 1 |
+
+: (#tab:adaBoostParameters) AdaBoostのハイパーパラメータ。
 
 ### 決定木
 
 決定木は、貪欲法を用いた個々のテストを使って変数空間を分割する分類器です。クラスを分離するために最も高い情報利得を持つ分割を見つけることを目指します。決定木は、大量の分割（木の深さ）を可能にすることで容易に過適合を引き起こし、しばしば正則化（例：剪定やモデルの複雑さを制限するハイパーパラメータの指定など）が必要です。Pythonのsklearn DecisionTreeClassifier実装を使用しています。 \index{decision tree} \index{python}
 
-Table: (\#tab:decisionTreeParameters) 決定木のハイパーパラメータ。
-
 | パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
+|:---|:---|:---|
 | classWeight | "Balance"または"None" | None |
 | maxDepth | 木の最大深さ | 10 |
-| minImpuritySplit | 木の成長中に早期停止するための閾値。ノードの不純物が閾値を上回る場合は分割され、そうでない場合はリーフとなります | 10^-7|
+| minImpuritySplit | 木の成長中に早期停止するための閾値。ノードの不純物が閾値を上回る場合は分割され、そうでない場合はリーフとなります | 10\^-7 |
 | minSamplesLeaf | 各リーフの最小サンプル数 | 10 |
 | minSamplesSplit | 各分割の最小サンプル数 | 2 |
+
+: (#tab:decisionTreeParameters) 決定木のハイパーパラメータ。
 
 ### 多層パーセプトロン
 
 多層パーセプトロンは、複数の層のノードを含むニューラルネットワークであり、入力を重み付けするために非線形関数を用います。最初の層は入力層、最後の層は出力層、その間に隠れ層があります。ニューラルネットワークは一般に逆伝播を使ってトレーニングされ、トレーニング入力がネットワークを前方に伝播して出力を生成し、出力とアウトカム状態の間の誤差が計算され、その誤差がネットワークを逆伝播して線形関数の重みを更新します。 \index{neural network} \index{perceptron} \index{back-propagation}
 
-Table: (\#tab:mpParameters) 多層パーセプトロンのハイパーパラメータ。
+| パラメータ | 説明           | 典型的な値 |
+|:-----------|:---------------|:-----------|
+| alpha      | l2正則化       | 0.00001    |
+| size       | 隠れノードの数 | 4          |
 
-| パラメータ | 説明 | 典型的な値 |
-|:-------- |:----------- |:-------------- |
-| alpha | l2正則化 | 0.00001 |
-| size | 隠れノードの数 | 4 |
+: (#tab:mpParameters) 多層パーセプトロンのハイパーパラメータ。
 
 ### ディープラーニング
 
@@ -223,51 +222,51 @@ Table: (\#tab:mpParameters) 多層パーセプトロンのハイパーパラメ�
 
 評価の種類には、以下のものがあります：
 
-- **内部検証**：同じデータベースから抽出された異なるデータセットを使用してモデルを開発および評価します。
-- **外部検証**：一つのデータベースでモデルを開発し、別のデータベースで評価します。 \index{検証!内部検証} \index{検証!外部検証}
+-   **内部検証**：同じデータベースから抽出された異なるデータセットを使用してモデルを開発および評価します。
+-   **外部検証**：一つのデータベースでモデルを開発し、別のデータベースで評価します。 \index{検証!内部検証} \index{検証!外部検証}
 
 内部検証の方法には、次の2つがあります：
 
-- **ホールドアウトセット**アプローチ：ラベル付きデータを独立した2つのセット、トレインセットとテストセット（ホールドアウトセット）に分割します。トレインセットはモデルの学習に使用され、テストセットはモデルの評価に使用されます。患者をランダムにトレインセットとテストセットに分けるか、以下の方法を選ぶことができます：
-    - 時間に基づいた分割（時間的検証）：例えば、特定の日付より前のデータで訓練し、その日付以降のデータで評価します。これにより、モデルが異なる時間帯に一般化されるかどうかを判断できます。
-    - 地理的位置に基づいた分割（空間的検証）。\index{検証!時間的検証} \index{検証!空間的検証}
-- **交差検証**：データが限られている場合に有用です。データを等しいサイズに分割し、$n$にプレ設定されたセットに分割します（例：$n=10$）。各セットに対して、そのセットのデータを除いた全てのデータでモデルを訓練し、ホールドアウトセットの予測を生成します。この方法で、すべてのデータが一度はモデル構築アルゴリズムを評価するために使用されます。患者レベルの予測フレームワークでは、交差検証を使用して最適なハイパーパラメータを選択します。 \index{交差検証}
+-   **ホールドアウトセット**アプローチ：ラベル付きデータを独立した2つのセット、トレインセットとテストセット（ホールドアウトセット）に分割します。トレインセットはモデルの学習に使用され、テストセットはモデルの評価に使用されます。患者をランダムにトレインセットとテストセットに分けるか、以下の方法を選ぶことができます：
+    -   時間に基づいた分割（時間的検証）：例えば、特定の日付より前のデータで訓練し、その日付以降のデータで評価します。これにより、モデルが異なる時間帯に一般化されるかどうかを判断できます。
+    -   地理的位置に基づいた分割（空間的検証）。\index{検証!時間的検証} \index{検証!空間的検証}
+-   **交差検証**：データが限られている場合に有用です。データを等しいサイズに分割し、$n$にプレ設定されたセットに分割します（例：$n=10$）。各セットに対して、そのセットのデータを除いた全てのデータでモデルを訓練し、ホールドアウトセットの予測を生成します。この方法で、すべてのデータが一度はモデル構築アルゴリズムを評価するために使用されます。患者レベルの予測フレームワークでは、交差検証を使用して最適なハイパーパラメータを選択します。 \index{交差検証}
 
 外部検証は、モデルが開発された設定外の別のデータベースに対するモデルの性能を評価することを目的としています。このモデルの移植性の尺度は重要です。なぜなら、モデルを訓練したデータベースだけでなく、他のデータベースでもモデルを適用したいからです。異なるデータベースは、異なる患者集団、異なる医療システム、および異なるデータキャプチャプロセスを表す可能性があります。大規模なデータベースセットでの予測モデルの外部検証は、モデルの受け入れと臨床実務への実装に向けて重要なステップだと考えています。
 
 ### パフォーマンス指標 {#performance}
 
-#### 閾値測定 {-}
+#### 閾値測定 {.unnumbered}
 
 予測モデルは、リスク期間中に患者がアウトカムを持つリスクに対応する0から1の間の値を各患者に割り当てます。値が0の場合、リスクは0％、値が0.5の場合、リスクは50％、値が1の場合、リスクは100％を意味します。精度、感度、特異度、陽性予測値などの一般的な指標は、リスク期間中にアウトカムを持つかどうかを分類するために使用される閾値を指定することによって計算できます。例えば、表 \@ref(tab:tabletheorytab) にあるように閾値を0.5と設定すると、患者1、3、7、および10は閾値0.5以上の予測リスクを持つため、アウトカムを持つと予測されます。他のすべての患者は0.5未満の予測リスクを持つため、アウトカムを持たないと予測されます。 \index{パフォーマンス指標} \index{精度} \index{感度} \index{特異度} \index{陽性予測値}
 
-Table: (\#tab:tabletheorytab) 予測確率に対する閾値の利用例。
+| 患者ID | 予測リスク | 0.5閾値での予測クラス | リスク期間中にアウトカムを持つ | タイプ |
+|:--:|:--:|:--:|:--:|:--:|
+| 1 | 0.8 | 1 | 1 | TP |
+| 2 | 0.1 | 0 | 0 | TN |
+| 3 | 0.7 | 1 | 0 | FP |
+| 4 | 0 | 0 | 0 | TN |
+| 5 | 0.05 | 0 | 0 | TN |
+| 6 | 0.1 | 0 | 0 | TN |
+| 7 | 0.9 | 1 | 1 | TP |
+| 8 | 0.2 | 0 | 1 | FN |
+| 9 | 0.3 | 0 | 0 | TN |
+| 10 | 0.5 | 1 | 0 | FP |
 
-| 患者ID    | 予測リスク  | 0.5閾値での予測クラス | リスク期間中にアウトカムを持つ | タイプ |
-|:-------:|:---------:|:---------:|:---------:|:------:|
-| 1   | 0.8 | 1| 1 | TP |
-| 2   | 0.1   | 0 | 0 | TN |
-| 3 | 0.7   | 1 | 0 | FP |
-| 4   | 0 | 0 | 0 | TN |
-| 5   | 0.05   |  0 | 0 | TN |
-| 6 | 0.1   | 0 | 0 | TN |
-| 7   | 0.9 | 1 | 1 | TP |
-| 8   | 0.2   |  0 | 1 | FN |
-| 9 | 0.3   | 0 | 0 | TN |
-| 10 | 0.5   | 1 | 0 | FP |
+: (#tab:tabletheorytab) 予測確率に対する閾値の利用例。
 
 患者が予測されたアウトカムを持ち、実際にアウトカムを持つ場合、それを真陽性（TP）と呼びます。患者が予測されたアウトカムを持っているが実際にはアウトカムを持っていない場合、それを偽陽性（FP）と呼びます。患者がアウトカムを持たないと予測され、実際にアウトカムを持っていない場合、それを真陰性（TN）と呼びます。最後に、患者がアウトカムを持たないと予測され、実際にアウトカムを持っている場合、それを偽陰性（FN）と呼びます。 \index{真陽性} \index{偽陽性} \index{真陰性} \index{偽陰性}
 
 以下の閾値ベースの指標を計算できます：
 
--	精度: $(TP+TN)/(TP+TN+FP+FN)$
--	感度: $TP/(TP+FN)$
--	特異度: $TN/(TN+FP)$
--	陽性予測値: $TP/(TP+FP)$
+-   精度: $(TP+TN)/(TP+TN+FP+FN)$
+-   感度: $TP/(TP+FN)$
+-   特異度: $TN/(TN+FP)$
+-   陽性予測値: $TP/(TP+FP)$
 
 これらの値は、閾値が下げられると増減する可能性があります。分類器の閾値を下げると、アウトカムの数を増やすことで分母を増やすことができます。以前の閾値が高すぎた場合、新しいアウトカムはすべて真陽性である可能性があり、これにより陽性予測値が増加します。以前の閾値が適切であったか低すぎた場合、さらなる閾値の低下は偽陽性を導入するため、陽性予測値が減少します。感度の場合、分母は分類器の閾値に依存しません（$TP+FN$は一定です）。このため、分類器の閾値を下げることで真陽性アウトカム数を増やし、感度を向上させる可能性があります。また、閾値を下げても感度が変わらない一方で、陽性予測値が変動することもあります。
 
-#### 識別力 {-}
+#### 識別力 {.unnumbered}
 
 識別力とは、リスク期間中にアウトカムを経験する患者に対して、より高いリスクを割り当てる能力のことです。受信者動作特性曲線（ROC曲線）は、全ての可能な閾値でx軸に1 - 特異度、y軸に感度をプロットすることで作成されます。ROCプロットの例は、この章の後半に図 \@ref(fig:shinyROC) で示されています。受信者動作特性曲線下の面積（AUC）は、識別力の全体的な測定値を示し、値が0.5はリスクがランダムに割り当てられることを示し、1は完璧な識別力を意味します。発表された予測モデルの多くは、AUCが0.6から0.8の範囲に収まります。 \index{AUC} \index{ROC} \index{識別力}
 
@@ -279,7 +278,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 非常に稀なアウトカムに対しては、AUCが高くても実際には実用的でない場合があります。なぜなら、閾値を超えるすべての陽性の背後には多くの陰性が存在し、陽性予測値が低くなる可能性があるからです。アウトカムの重大性および介入のコスト（健康リスクまたは金銭的）があるため、高い偽陽性率は望ましくないかもしれません。そのため、稀なアウトカムに対しては、適合率-再現率曲線下の面積（AUPRC）と呼ばれる別の測定値が推奨されます。AUPRCは、感度をx軸（再現率としても知られる）に、陽性予測値（適合率としても知られる）をy軸にプロットして生成される線の下の面積です。 \index{適合率-再現率曲線下の面積}
 
-#### キャリブレーション {-}
+#### キャリブレーション {.unnumbered}
 
 キャリブレーションは、モデルが正しいリスクを割り当てる能力です。例えば、モデルが100人の患者に10％のリスクを割り当てた場合、そのうち10人がリスク期間中にアウトカムを経験するべきです。同様に、モデルが100人の患者に80％のリスクを割り当てた場合、そのうち80人がリスク期間中にアウトカムを経験するべきです。キャリブレーションは、一般的に予測リスクに基づいて患者を十分位に分割し、各グループで平均予測リスクとリスク期間中にアウトカムを経験した患者の割合を計算することによって測定されます。次に、これらの10点（予測リスクをy軸、観測リスクをx軸にプロット）をプロットし、それらがx = yの線上に位置するかどうかを確認します。これがモデルが適切にキャリブレーションされていることを示します。キャリブレーションプロットの例は、この章の後半に図 \@ref(fig:shinyCal) で示されています。また、これらの点を使用して線形モデルをフィットし、切片（ゼロに近いはず）と傾き（1に近いはず）を計算します。もし、傾きが1より大きい場合、モデルは実際のリスクよりも高いリスクを割り当てており、傾きが1より小さい場合、モデルは実際のリスクよりも低いリスクを割り当てていることを意味します。非線形関係をよりよく捕捉するために、Smooth Calibration Curvesも実装しています。 \index{キャリブレーション}
 
@@ -289,7 +288,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 ### 問題の定義
 
-アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です [@byrd_2006 ]。 この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです　[@norman_2013 ]。 さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります　[@norman_2013; @thompson_1993 ]。 アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません　[@byrd_2006 ]。 ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します　[@circardi_2004 ]。 しかし、一部の症例は治療開始から数年後に発生することもあります　[@mara_1996 ]。 リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
+アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です [@byrd_2006]。 この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです　[@norman_2013]。 さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります　[@norman_2013; @thompson_1993]。 アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません　[@byrd_2006]。 ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します　[@circardi_2004]。 しかし、一部の症例は治療開始から数年後に発生することもあります　[@mara_1996]。 リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
 
 患者レベル予測フレームワークを観察医療データに適用して、次の患者レベルの予測問題に取り組みます：
 
@@ -299,15 +298,15 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 最終的な研究集団はターゲットコホートのサブセットであることが多いです。なぜなら、例えばアウトカムに依存する基準を適用したり、対象コホートのサブ集団で感度分析を行いたい場合があるからです。このため、次の質問に答える必要があります：
 
-- *ターゲットコホートの開始前にどの程度の観察期間が必要ですか？* この選択肢は、トレーニングデータで利用可能な患者時間や、将来モデルを適用したいデータソースで利用可能な時間に依存する可能性があります。最小観察期間が長いほど、各人のフィーチャー抽出に利用できる基礎履歴期間が長くなりますが、分析対象となる患者数は減少します。さらに、短期間や長期間のルックバック期間を選ぶには臨床的な理由があるかもしれません。私たちの例では、365日の履歴期間をルックバック期間（ウォッシュアウト期間）として使用します。
+-   *ターゲットコホートの開始前にどの程度の観察期間が必要ですか？* この選択肢は、トレーニングデータで利用可能な患者時間や、将来モデルを適用したいデータソースで利用可能な時間に依存する可能性があります。最小観察期間が長いほど、各人のフィーチャー抽出に利用できる基礎履歴期間が長くなりますが、分析対象となる患者数は減少します。さらに、短期間や長期間のルックバック期間を選ぶには臨床的な理由があるかもしれません。私たちの例では、365日の履歴期間をルックバック期間（ウォッシュアウト期間）として使用します。
 
-- *患者がターゲットコホートに複数回入ることができますか？* ターゲットコホートの定義では、個人は異なる期間にコホートに複数回適格となる可能性があります。例えば、異なる病気のエピソードを持っていたり、医療製品への曝露期間が異なる場合です。コホートの定義では必ずしも患者が一度だけ入る制限を適用するわけではありませんが、特定の患者レベルの予測問題の文脈では、このような制限を課すことがあります。私たちの例では、ACE阻害薬の初回使用に基づいているため、個人はターゲットコホートに一度しか入ることができません。
+-   *患者がターゲットコホートに複数回入ることができますか？* ターゲットコホートの定義では、個人は異なる期間にコホートに複数回適格となる可能性があります。例えば、異なる病気のエピソードを持っていたり、医療製品への曝露期間が異なる場合です。コホートの定義では必ずしも患者が一度だけ入る制限を適用するわけではありませんが、特定の患者レベルの予測問題の文脈では、このような制限を課すことがあります。私たちの例では、ACE阻害薬の初回使用に基づいているため、個人はターゲットコホートに一度しか入ることができません。
 
-- *以前にアウトカムを経験した人をコホートに含めることができますか？* ターゲットコホートに適格となる前にアウトカムを経験した人をコホートに含めるかどうかを決める必要があります。特定の患者レベルの予測問題によっては、初回のアウトカムの発生を予測したい場合があるため、以前にアウトカムを経験した患者はリスクがないため、ターゲットコホートから除外する必要があります。他の状況では、前回エピソードの予測を希望しているため、以前のアウトカムが将来のアウトカムの予測要因になる可能性もあります。私たちの予測例では、以前にアンギオエデマを持つ人を含めないことにします。
+-   *以前にアウトカムを経験した人をコホートに含めることができますか？* ターゲットコホートに適格となる前にアウトカムを経験した人をコホートに含めるかどうかを決める必要があります。特定の患者レベルの予測問題によっては、初回のアウトカムの発生を予測したい場合があるため、以前にアウトカムを経験した患者はリスクがないため、ターゲットコホートから除外する必要があります。他の状況では、前回エピソードの予測を希望しているため、以前のアウトカムが将来のアウトカムの予測要因になる可能性もあります。私たちの予測例では、以前にアンギオエデマを持つ人を含めないことにします。
 
-- *ターゲットコホート開始日に対してアウトカムを予測する期間をどう定義しますか？* この質問に答えるために、2つの決定を下す必要があります。最初に、リスク期間の開始日をターゲットコホートの開始日またはそれ以降に設定するかどうかの議論があります。開始日を遅らせる理由には、ターゲットコホート開始前に発生したアウトカムを記録に遅れて入力したケースや、アウトカムを防ぐための介入が理論上実施されるギャップを設けることが含まれます。第二に、リスク期間終了をターゲットコホートの開始日または終了日を基準とした日数オフセットとして設定します。私たちの問題では、ターゲットコホート開始後1日から365日までのリスク期間を予測します。
+-   *ターゲットコホート開始日に対してアウトカムを予測する期間をどう定義しますか？* この質問に答えるために、2つの決定を下す必要があります。最初に、リスク期間の開始日をターゲットコホートの開始日またはそれ以降に設定するかどうかの議論があります。開始日を遅らせる理由には、ターゲットコホート開始前に発生したアウトカムを記録に遅れて入力したケースや、アウトカムを防ぐための介入が理論上実施されるギャップを設けることが含まれます。第二に、リスク期間終了をターゲットコホートの開始日または終了日を基準とした日数オフセットとして設定します。私たちの問題では、ターゲットコホート開始後1日から365日までのリスク期間を予測します。
 
-- *最小リスク期間を要求しますか？* アウトカムが発生しなかったが、リスク期間終了前にデータベースを離れた患者を含めるかどうかを決める必要があります。これらの患者は私たちの観察が終わった後にアウトカムを経験する可能性があります。私たちの予測問題では、この質問に「はい」と答え、その理由で最小リスク期間を要求します。さらに、この制約がアウトカムを経験した人にも適用されるかどうかも決定する必要があります。アウトカムが死亡の場合、追跡期間が完了する前にセンサリングされる可能性が高いためです。
+-   *最小リスク期間を要求しますか？* アウトカムが発生しなかったが、リスク期間終了前にデータベースを離れた患者を含めるかどうかを決める必要があります。これらの患者は私たちの観察が終わった後にアウトカムを経験する可能性があります。私たちの予測問題では、この質問に「はい」と答え、その理由で最小リスク期間を要求します。さらに、この制約がアウトカムを経験した人にも適用されるかどうかも決定する必要があります。アウトカムが死亡の場合、追跡期間が完了する前にセンサリングされる可能性が高いためです。
 
 ### モデル開発設定
 
@@ -323,14 +322,14 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 これで、表 \@ref(tab:plpSummary)に示されるように、研究を完全に定義しました。
 
-表: (\#tab:plpSummary) 私たちの研究の主な設計選択。
+表: (#tab:plpSummary) 私たちの研究の主な設計選択。
 
-| 選択      | 値                          |
-|:----------------- |:-------------------------------------------------------- |
-| ターゲットコホート   | 初めてACE阻害薬を開始した患者。以前の観察期間が365日未満、または以前にアンギオエデマがない患者は除外されます。|
-| アウトカムコホート  | アンギオエデマ。                       |
-| リスク期間   | コホート開始後1日から365日。少なくとも364日のリスク期間が必要。 |
-| モデル       | Gradient Boosting Machine with hyper-parameters ntree: 5000, max depth: 4 or 7 or 10 and learning rate: 0.001 or 0.01 or 0.1 or 0.9. Covariates will include gender, age, conditions, drugs, drug groups, and visit count. データ分割: 75％トレーニング - 25％テスト、個人ごとにランダムに割り当てられます。 |
+| 選択 | 値 |
+|:---|:---|
+| ターゲットコホート | 初めてACE阻害薬を開始した患者。以前の観察期間が365日未満、または以前にアンギオエデマがない患者は除外されます。 |
+| アウトカムコホート | アンギオエデマ。 |
+| リスク期間 | コホート開始後1日から365日。少なくとも364日のリスク期間が必要。 |
+| モデル | Gradient Boosting Machine with hyper-parameters ntree: 5000, max depth: 4 or 7 or 10 and learning rate: 0.001 or 0.01 or 0.1 or 0.9. Covariates will include gender, age, conditions, drugs, drug groups, and visit count. データ分割: 75％トレーニング - 25％テスト、個人ごとにランダムに割り当てられます。 |
 
 ## ATLASでの研究の実装
 
@@ -357,7 +356,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 分析設定では、教師あり学習アルゴリズム、共変量と集団設定を選択できます。
 
-#### モデル設定 {-}
+#### モデル設定 {.unnumbered}
 
 モデル開発のために1つ以上の教師あり学習アルゴリズムを選ぶことができます。教師あり学習アルゴリズムを追加するには、「Add Model Settings」ボタンをクリックします。現在ATLASインターフェースでサポートされているすべてのモデルを含むドロップダウンが表示されます。ドロップダウンメニューの名前をクリックすることで、研究に含めたい教師あり学習モデルを選択できます。これでその特定のモデルのビューが表示され、ハイパーパラメータ値を選択できるようになります。複数の値が提供されると、クロスバリデーションを使用して最適な組み合わせを選択するために、すべての可能な値の組み合わせを網羅的に検索します。
 
@@ -372,13 +371,13 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 \caption{勾配ブースティングマシン設定}(\#fig:gbmSettings)
 \end{figure}
 
-#### 共変量設定 {-}
+#### 共変量設定 {.unnumbered}
 
 CDM形式の観察データから抽出できる標準共変量のセットを定義しました。共変量設定ビューでは、含める標準共変量を選択できます。異なるタイプの共変量設定を定義でき、それぞれのモデルは指定された共変量設定ごとに個別に作成されます。
 
 研究に共変量設定を追加するには、「Add Covariate Settings」をクリックします。これで共変量設定ビューが開きます。
 
-共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意の概念に対して構築されますが、例えばターゲットコホート定義にリンクされている場合、特定の概念を除外または含めることができます。特定の概念のみを含めるには、ATLASで概念セットを作成し、「**What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の下で![](images/PopulationLevelEstimation/open.png)をクリックして概念セットを選択します。概念セット内の概念に子孫概念を自動的に追加するには、「**Should descendant concepts be added to the list of included concepts?**」の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択された概念を除去する「**What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything)**」の質問にも繰り返します。最後のオプション「**A comma delimited list of covariate IDs that should be restricted to** 」では、共変量ID（概念IDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、包括設定と除外設定は図 \@ref(fig:covariateSettings1)のようになります。
+共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意のコンセプトに対して構築されますが、例えばターゲットコホート定義にリンクされている場合、特定のコンセプトを除外または含めることができます。特定のコンセプトのみを含めるには、ATLASでコンセプトセットを作成し、 "**What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量として、どのようなコンセプトを含めたいですか？（すべてを含めたい場合は空白のままにしてください）)**" の下で![](images/PopulationLevelEstimation/open.png)をクリックしてコンセプトセットを選択します。コンセプトセット内のコンセプトに下位層コンセプトを自動的に追加するには、 "**Should descendant concepts be added to the list of included concepts? (含まれるコンセプトのリストに下位層コンセプトを追加すべきでしょうか？)**" の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択されたコンセプトを除外する "**What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量から除外したいコンセプトは何ですか？（すべてを含める場合は空白のままにしてください）)**" の質問にも繰り返します。最後のオプション "**A comma delimited list of covariate IDs that should be restricted to (制限すべき共変数IDのコンマ区切りリスト)**" では、共変量ID（コンセプトIDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、適格基準設定と除外基準設定は図 \@ref(fig:covariateSettings1)のようになります。
 
 \begin{figure}
 
@@ -391,17 +390,27 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 次のセクションでは、時間に依存しない変数の選択ができます：
 
-- 性別: 男性または女性の性別を示す二値変数
-- 年齢: 年単位の連続変数
-- 年齢グループ: 5年ごとのバイナリ変数（0-4、5-9、...、95+）
-- 人種: 各人種のバイナリ変数 
-- 民族: 各民族のバイナリ変数
-- インデックス年: コホート開始年ごとのバイナリ変数
-- インデックス月: コホート開始月ごとのバイナリ変数
-- 以前の観察期間: [予測には推奨されません] コホート開始前の日数
-- 以後の観察期間: [予測には推奨されません] コホート開始日後の日数
-- コホート期間: コホートにいた期間の日数
-- インデックス年と月: [予測には推奨されません] コホート開始年と月の組み合わせ
+-   性別： 男性または女性の性別を示す二値変数
+
+-   年齢： 年単位の連続変数
+
+-   年齢グループ： 5年ごとのバイナリ変数（0-4、5-9、...、95+）
+
+-   人種： 各人種に関するバイナリ変数で、1は患者がその人種を記録していることを意味し、0はそうでないことを意味します。
+
+-   民族： 各民族性に関するバイナリ変数で、1は患者がその民族性を記録していることを意味し、0はそうでないことを意味します。
+
+-   インデックス年： 各コホート開始日の年を表すバイナリ変数で、1は患者のコホート開始年、0はそれ以外を表します。**インデックス年を含めることは、しばしば意味をなさないことがあります。なぜなら、私たちは将来にわたってモデルを適用したいからです**。
+
+-   インデックス月： 各コホート開始日の月を表すバイナリ変数で、1は患者のコホート開始日の月を表し、0はそれ以外を表します。
+
+-   前観察期間： [予測には推奨されません] コホート開始日以前に患者がデータベースに存在した日数に相当する連続変数
+
+-   後観察期間： [予測には推奨されません] 患者がコホート開始日以降データベースに存在した日数に相当する連続変数
+
+-   コホート時間： 患者がコホートに属していた日数（コホート終了日－コホート開始日）に対応する連続変数
+
+-   インデックス年と月： [予測には推奨されません] 各コホート開始日の年と月の組み合わせを表すバイナリ変数。1は患者のコホート開始日の年と月であることを表し、0はそれ以外を表します。
 
 これが完了すると、このセクションは図 \@ref(fig:covariateSettings2)のようになるはずです。
 
@@ -416,10 +425,10 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 標準共変量は共変量の柔軟な3つの時間間隔を可能にします：
 
-- 終了日: コホート開始日からの終了日[デフォルトは0日]
-- 長期 [デフォルト-365日からコホート開始前まで]
-- 中期 [デフォルト-180日からコホート開始前まで]
-- 短期 [デフォルト-30日からコホート開始前まで]
+-   終了日: コホート開始日からの終了日[デフォルトは0日]
+-   長期 [デフォルト-365日からコホート開始前まで]
+-   中期 [デフォルト-180日からコホート開始前まで]
+-   短期 [デフォルト-30日からコホート開始前まで]
 
 これが完了すると、このセクションは図 \@ref(fig:covariateSettings3)のようになるはずです。
 
@@ -432,14 +441,17 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 \caption{時間に依存する共変量.}(\#fig:covariateSettings3)
 \end{figure}
 
-次のオプションは、エラテーブルから抽出される共変量です：
+次のオプションは、期間テーブルから抽出される共変量です：
 
-- Condition: 選択した時間間隔とそのコンディションコンセプトIDごとに共変量を構築し、条件エラテーブルで指定された時間間隔内にコンセプトIDが存在する場合、共変量値は1、そうでない場合は0。
-- Condition group: 実体のエラテーブルに存在するコンセプトIDおよび子孫コンセプトIDの場合、共変量値は時間間隔内にあるもの。
-- Drug: 選択した時間間隔とその薬剤コンセプトIDごとに共変量を構築し、コンセプトIDが共変量値1または0になる
-- Drug group: 薬剤および子孫コンセプトIDに基づく共変量
+-   コンディション： 選択された各コンディションコンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間にコンディション期間をもつ（すなわち、その時間間隔の間にそのコンディションが開始または終了するか、またはその時間間隔の前に開始し、その時間間隔の後に終了する）コンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。
 
-オーバーラップ設定には、薬剤または症状がコホート開始日以前に開始し、終了がコホート開始日以後に続くものが含まれます。**エラの開始**オプションは時間間隔内に開始したものに限定します。
+-   コンディショングループ： 選択されたコンディションコンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間にコンディション期間を持つコンセプトID**またはその下位層のコンセプトID**がある場合、共変量値は 1、そうでない場合は 0。
+
+-   薬剤：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に薬剤（曝露）期間をもつコンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。
+
+-   薬剤グループ：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に薬剤（曝露）期間をもつコンセプトID**またはその下位層のコンセプトID**がある場合、共変量の値は 1、そうでない場合は 0。
+
+オーバーラップ設定には、薬剤または症状がコホート開始日以前に開始し、終了がコホート開始日以後に続くものが含まれます。**期間の開始**オプションは時間間隔内に開始したものに限定します。
 
 これが完了すると、このセクションは図 \@ref(fig:covariateSettings4)のようになるはずです。
 
@@ -449,16 +461,150 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 }
 
-\caption{エラ時間共変量.}(\#fig:covariateSettings4)
+\caption{期間時間共変量.}(\#fig:covariateSettings4)
 \end{figure}
 
 次のオプションは、各ドメインでのコンセプトIDに基づく共変量に基づきます：
 
-- Condition: 条件コンセプトIDおよび共同テーブル
-- Condition Primary Inpatient: 入院設定における主診断
-- Drug: 薬剤共変量
-- Procedure: 手続き共変量
-- Measurement: 測定共変量
+-   Condition: Construct covariates for each condition concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the condition occurrence table, the covariate value is 1, otherwise 0.
+-   Condition Primary Inpatient: One binary covariate per condition observed as a primary diagnosis in an inpatient setting in the condition_occurrence table.
+-   Drug: Construct covariates for each drug concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the drug exposure table, the covariate value is 1, otherwise 0.
+-   Procedure: Construct covariates for each procedure concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the procedure occurrence table, the covariate value is 1, otherwise 0.
+-   Measurement: Construct covariates for each measurement concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is 1, otherwise 0.
+-   Measurement Value: Construct covariates for each measurement concept ID with a value and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is the measurement value, otherwise 0.
+-   Measurement range group: Binary covariates indicating whether measurements are below, within, or above normal range.
+-   Observation: Construct covariates for each observation concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the observation table, the covariate value is 1, otherwise 0.
+-   Device: Construct covariates for each device concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the device table, the covariate value is 1, otherwise 0.
+-   Visit Count: Construct covariates for each visit and time interval selected and count the number of visits recorded during the time interval as the covariate value.
+-   Visit Concept Count: Construct covariates for each visit, domain and time interval selected and count the number of records per domain recorded during the visit type and time interval as the covariate value.
+
+The distinct count option counts the number of distinct concept IDs per domain and time interval.
+
+Once done, this section should look like Figure \@ref(fig:covariateSettings5).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/covariateSettings5} 
+
+}
+
+\caption{Time bound covariates.}(\#fig:covariateSettings5)
+\end{figure}
+
+The final option is whether to include commonly used risk scores as covariates. Once done, the risk score settings should look like Figure \@ref(fig:covariateSettings6).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/covariateSettings6} 
+
+}
+
+\caption{Risk score covariate settings.}(\#fig:covariateSettings6)
+\end{figure}
+
+#### Population Settings {.unnumbered}
+
+The population settings is where addition inclusion criteria can be applied to the target population and is also where the time-at-risk is defined. To add a population setting into the study, click on the "Add Population Settings" button. This will open up the population setting view.
+
+The first set of options enable the user to specify the time-at-risk period. This is the time interval where we look to see whether the outcome of interest occurs. If a patient has the outcome during the time-at-risk period then we will classify them as "Has outcome", otherwise they are classified as "No outcome". "**Define the time-at-risk window start, relative to target cohort entry:**" defines the start of the time-at-risk, relative to the target cohort start or end date. Similarly, "**Define the time-at-risk window end:**" defines the end of the time-at-risk.
+
+"**Minimum lookback period applied to target cohort**" specifies the minimum baseline period, the minimum number of days prior to the cohort start date that a patient is continuously observed. The default is 365 days. Expanding the minimum look-back will give a more complete picture of a patient (as they must have been observed for longer) but will filter patients who do not have the minimum number of days prior observation.
+
+If "**Should subjects without time at risk be removed?**" is set to yes, then a value for "**Minimum time at risk:**" is also required. This allows removing people who are lost to follow-up (i.e. that have left the database during the time-at-risk period). For example, if the time-at-risk period was 1 day from cohort start until 365 days from cohort start, then the full time-at-risk interval is 364 days (365-1). If we only want to include patients who are observed the whole interval, then we set the minimum time at risk to be 364. If we are happy as long as people are in the time-at-risk for the first 100 days, then we select minimum time at risk to be 100. In this case as the time-at-risk start is 1 day from the cohort start, a patient will be included if they remain in the database for at least 101 days from the cohort start date. If we set "Should subjects without time at risk be removed?" to 'No', then this will keep all patients, even those who drop out from the database during the time-at-risk.
+
+The option "**Include people with outcomes who are not observed for the whole at risk period?**" is related to the previous option. If set to "yes", then people who experience the outcome during the time-at-risk are always kept, even if they are not observed for the specified minimum amount of time.
+
+The option "**Should only the first exposure per subject be included?**" is only useful if our target cohort contains patients multiple times with different cohort start dates. In this situation, picking "yes" will result in only keeping the earliest target cohort date per patient in the analysis. Otherwise a patient can be in the dataset multiple times.
+
+Setting "**Remove patients who have observed the outcome prior to cohort entry?**" to "yes" will remove patients who have the outcome prior to the time-at-risk start date, so the model is for patients who have never experienced the outcome before. If "no" is selected, then patients could have had the outcome prior. Often, having the outcome prior is very predictive of having the outcome during the time-at-risk.
+
+Once done, the population settings dialog should look like Figure \@ref(fig:populationSettings).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/populationSettings} 
+
+}
+
+\caption{Population settings.}(\#fig:populationSettings)
+\end{figure}
+
+Now that we are finished with the Analysis Settings, the entire dialog should look like Figure \@ref(fig:analysisSettings).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/analysisSettings} 
+
+}
+
+\caption{Analysis settings.}(\#fig:analysisSettings)
+\end{figure}
+
+### Execution Settings
+
+There are three options:
+
+-   "**Perform sampling**": here we choose whether to perform sampling (default = "no"). If set to "yes", another option will appear: "**How many patients to use for a subset?**", where the sample size can be specified. Sampling can be an efficient means to determine if a model for a large population (e.g. 10 million patients) will be predictive by creating and testing the model with a sample of patients. For example, if the AUC is close to 0.5 in the sample, we might abandon the model.
+-   "**Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:**": here we choose the minimum covariate occurrence (default = 0.001). A minimum threshold value for covariate occurrence is necessary to remove rare events that are not representative of the overall population.
+-   "**Normalize covariate**": here we choose whether to normalize covariates (default = "yes"). Normalization of the covariates is usually necessary for successful implementation of a LASSO model.
+
+For our example we make the choices shown in Figure \@ref(fig:executionSettings).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/executionSettings} 
+
+}
+
+\caption{Execution settings.}(\#fig:executionSettings)
+\end{figure}
+
+### Training Settings
+
+There are four options:
+
+-   "**Specify how to split the test/train set:**" Select whether to differentiate the train/test data by person (stratified by outcome) or by time (older data to train the model, later data to evaluate the model).
+-   "**Percentage of the data to be used as the test set (0-100%)**": Select the percentage of data to be used as test data (default = 25%).
+-   "**The number of folds used in the cross validation**": Select the number of folds for cross-validation used to select the optimal hyper-parameter (default = 3).
+-   "**The seed used to split the test/train set when using a person type testSplit (optional):**": Select the random seed used to split the train/test set when using a person type test split.
+
+For our example we make the choices shown in Figure \@ref(fig:trainingSettings).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/PatientLevelPrediction/trainingSettings} 
+
+}
+
+\caption{Training settings.}(\#fig:trainingSettings)
+\end{figure}
+
+### Importing and Exporting a Study
+
+To export a study, click on the "Export" tab under "Utilities." ATLAS will produce JSON that can be directly copied and pasted into a file that contains all of the data, such as the study name, cohort definitions, models selected, covariates, settings, needed to run the study.
+
+To import a study, click on the "Import" tab under "Utilities." Paste the contents of a patient-level prediction study JSON into this window, then click on the Import button below the other tab buttons. Note that this will overwrite all previous settings for that study, so this is typically done using a new, empty study design.
+
+### Downloading the Study Package
+
+Click on the "Review & Download" tab under "Utilities." In the "Download Study Package" section, enter a descriptive name for the R package, noting that any illegal characters in R will automatically be removed from the file name by ATLAS. Click on ![](images/PatientLevelPrediction/download.png) to download the R package to a local folder.
+
+### Running the Study
+
+To run the R package requires having R, RStudio, and Java installed as described in Section \@ref(installR). Also required is the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) package, which can be installed in R using:
+
+
+``` r
+install.packages("drat")
+drat::addRepo("OHDSI")
+install.packages("PatientLevelPrediction")
+```
+
+Some of the machine learning algorithms require additional software to be installed. For a full description of how to install the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) package, see the ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html).
+
+To use the study R package we recommend using R Studio. If you are running R Studio locally, unzip the file generated by ATLAS, and double click the .Rproj file to open it in R Studio. If you are running R Studio on an R studio server, click ![](images/PopulationLevelEstimation/upload.png) to upload and unzip the file, then click on the .Rproj file to open the project.
+
+Once you have opened the project in R Studio, you can open the README file, and follow the instructions. Make sure to change all file paths to existing paths on your system.
 
 ## Rでの研究実施
 
@@ -668,14 +814,72 @@ population <- createStudyPopulation(plpData = plpData,
                                     removeSubjectsWithPriorOutcome = TRUE,
                                     priorOutcomeLookback = 9999,
                                     riskWindowStart = 1,
-                                    risk
-                                    
+                                    riskWindowEnd = 365,
+                                    addExposureDaysToStart = FALSE,
+                                    addExposureDaysToEnd = FALSE,
+                                    minTimeAtRisk = 364,
+                                    requireTimeAtRisk = TRUE,
+                                    includeAllOutcomes = TRUE
+)
+
+# apply the trained model on the new data
+validationResults <- applyModel(population, plpData, plpModel)
+```
+
+さらに簡単にできるように、必要なデータの抽出も行う外部検証を行うための `externalValidatePlp` 関数も提供しています。 `result <- runPlp(...)` を実行したと仮定すると、モデルに必要なデータを抽出して、新しいデータで評価することができます。検証対象集団が ID 1 と 2 のテーブル `mainschema.dob.cohort` にあり、CDM データがスキーマ `cdmschema.dob` にあると仮定すると：
+
+
+``` r
+valResult <- externalValidatePlp(
+	plpResult = result,
+	connectionDetails = connectionDetails,
+	validationSchemaTarget = 'mainschema.dob',
+	validationSchemaOutcome = 'mainschema.dob',
+	validationSchemaCdm = 'cdmschema.dbo',
+	databaseNames = 'new database',
+	validationTableTarget = 'cohort',
+	validationTableOutcome = 'cohort',
+	validationIdTarget = 1,
+	validationIdOutcome = 2
+)
+```
+
+モデルを検証する複数のデータベースがある場合、以下を実行できます：
+
+
+``` r
+valResults <- externalValidatePlp(
+	plpResult = result,
+	connectionDetails = connectionDetails,
+	validationSchemaTarget = list('mainschema.dob',
+								'difschema.dob',
+								'anotherschema.dob'),
+	validationSchemaOutcome = list('mainschema.dob',
+								 'difschema.dob',
+								 'anotherschema.dob'),
+	validationSchemaCdm = list('cdms1chema.dbo',
+							 'cdm2schema.dbo',
+							 'cdm3schema.dbo'),
+	databaseNames = list('new database 1',
+					   'new database 2',
+					   'new database 3'),
+	validationTableTarget = list('cohort1',
+							   'cohort2',
+							   'cohort3'),
+	validationTableOutcome = list('cohort1',
+								'cohort2',
+								'cohort3'),
+	validationIdTarget = list(1,3,5),
+	validationIdOutcome = list(2,4,6)
+)
+```
+
 ## アウトカム普及
 
 ### モデルパフォーマンス
 
 予測モデルのパフォーマンスを探索する最も簡単な方法は、`viewPlp`関数を使用することです。これはアウトカムオブジェクトを入力として必要とします。Rでモデルを開発する場合、`runPLp`のアウトカムを入力として使用できます。ATLASで生成された研究パッケージを使用する場合は、モデルの1つを読み込む必要があります（この例ではAnalysis_1を読み込みます）。\index{model viewer app}
-```
+
 
 ``` r
 plpResult <- loadPlpResult(file.path(outputFolder,
@@ -738,12 +942,11 @@ Shinyアプリケーションはテストセットとトレインセットのパ
 \caption{予測問題におけるattritionプロット}(\#fig:shinyAtt)
 \end{figure}
 
-
 ### モデルの比較
 
 ATLASで生成されたスタディパッケージは、異なる予測問題に対して多くの異なる予測モデルを生成および評価することができます。したがって、研究パッケージによって生成された出力専用に、複数のモデルを表示する追加のShinyアプリが開発されました。このアプリを起動するには、`viewMultiplePlp(outputFolder)`を実行します。ここで`outputFolder`は、`execute`コマンドを実行したときに指定した分析アウトカムを含むパスです（そして例として「Analysis_1」というサブフォルダーを含んでいる必要があります）。
 
-#### モデルの要約と設定の表示 {-}
+#### モデルの要約と設定の表示 {.unnumbered}
 
 インタラクティブなShinyアプリは、図 \@ref(fig:multiShinySummary)に示す要約ページから始まります。
 
@@ -758,9 +961,9 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 この要約ページの表には以下が含まれています：
 
-- モデルに関する基本情報（例：データベース情報、分類器タイプ、リスク期間設定、ターゲット集団およびアウトカム名）
-- ホールドアウトターゲット人口数およびアウトカム発生率
-- 判別指標：AUC、AUPRC
+-   モデルに関する基本情報（例：データベース情報、分類器タイプ、リスク期間設定、ターゲット集団およびアウトカム名）
+-   ホールドアウトターゲット人口数およびアウトカム発生率
+-   判別指標：AUC、AUPRC
 
 テーブルの左側にはフィルターオプションがあり、開発/検証データベース、モデルの種類、関心のあるリスク期間設定および/または関心のあるコホートを指定できます。例えば、ターゲットコホートオプションで「高血圧の第一選択の単剤療法としてのACE阻害剤の新規ユーザー」に対応するモデルを選択します。
 
@@ -777,7 +980,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 同様に、他のタブでモデルを生成するために使用された人口および共変量の設定を調べることもできます。
 
-#### モデルパフォーマンスの表示 {-}
+#### モデルパフォーマンスの表示 {.unnumbered}
 
 モデル行が選択されると、モデルパフォーマンスも表示できます。![](images/PatientLevelPrediction/performance.png) をクリックしてしきい値パフォーマンスの要約を表示します（図 \@ref(fig:shinyPerformanceSum)参照）。
 
@@ -827,7 +1030,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 1年以内のアウトカムを経験したグループの予測リスクと観察されたアウトカムの割合が一致しているように見えるので、モデルはよく校正されています。興味深いことに、人口統計学的キャリブレーションは、若年患者の場合、予測されたリスクが観察されたリスクよりも高いことを示しています。逆に80歳以上の患者の場合、モデルは観察されたリスクよりも低いリスクを予測しています。これは、若年および高齢者のために別々のモデルを開発する必要があることを示唆しているかもしれません。
 
-#### モデルの表示 {-}
+#### モデルの表示 {.unnumbered}
 
 最終モデルを検査するには、左側のメニューから![](images/PatientLevelPrediction/modelButton.png)オプションを選択します。これにより、図 \@ref(fig:shinyModelPlots)に示すモデル内の各変数のプロットと図 \@ref(fig:shinyModelTable)に示すすべての候補共変量を要約するテーブルが表示されます。変数プロットはバイナリ変数と連続変数に分かれています。X軸はアウトカムがない患者の中での有病率/平均値、Y軸はアウトカムがある患者の中での有病率/平均値です。従って、変数の点が対角線の上にある場合、その変数はアウトカムがある患者の方が一般的であり、点が対角線の下にある場合、その変数はアウトカムがない患者の方が一般的です。
 
@@ -880,7 +1083,6 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 詳細は関数のヘルプページを参照してください。
 
-
 ## まとめ
 
 \BeginKnitrBlock{rmdsummary}
@@ -899,7 +1101,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 ## 演習
 
-#### 前提条件 {-}
+#### 前提条件 {.unnumbered}
 
 これらの演習では、セクション \@ref(installR)で説明されているように、R、R-Studio、およびJavaがインストールされていることを前提としています。また、[SqlRender](https://ohdsi.github.io/SqlRender/)、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)、[Eunomia](https://ohdsi.github.io/Eunomia/)および[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)パッケージも必要です。これらは以下のコマンドでインストールできます：
 
@@ -924,7 +1126,7 @@ CDMデータベースのスキーマは「main」です。これらの演習で�
 Eunomia::createCohorts(connectionDetails)
 ```
 
-#### 問題定義 {-}
+#### 問題定義 {.unnumbered}
 
 > 初めてNSAIDs（非ステロイド性抗炎症剤）を使用し始めた患者において、次の年に消化管（GI）出血を発症する患者を予測します。
 
