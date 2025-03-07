@@ -1476,10 +1476,10 @@ div.csl-indent {
 </div>
 <p>次のオプションは、期間テーブルから抽出される共変量です：</p>
 <ul>
-<li><p>コンディション： 選択された各コンディションコンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間にコンディション期間をもつ（すなわち、その時間間隔の間にそのコンディションが開始または終了するか、またはその時間間隔の前に開始し、その時間間隔の後に終了する）コンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。</p></li>
-<li><p>コンディショングループ： 選択されたコンディションコンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間にコンディション期間を持つコンセプトID<strong>またはその下位層のコンセプトID</strong>がある場合、共変量値は 1、そうでない場合は 0。</p></li>
-<li><p>薬剤：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に薬剤（曝露）期間をもつコンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。</p></li>
-<li><p>薬剤グループ：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、ある患者に、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に薬剤（曝露）期間をもつコンセプトID<strong>またはその下位層のコンセプトID</strong>がある場合、共変量の値は 1、そうでない場合は 0。</p></li>
+<li><p>コンディション： 選択された各コンディションコンセプトIDと時間間隔ごとに共変量を構築し、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に、患者にコンディション期間をもつ（すなわち、その時間間隔の間にそのコンディションが開始または終了するか、またはその時間間隔の前に開始し、その時間間隔の後に終了する）コンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。</p></li>
+<li><p>コンディショングループ： 選択されたコンディションコンセプトIDと時間間隔ごとに共変量を構築し、CONDITON_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に、患者にコンディション期間を持つコンセプトID<strong>またはその下位層のコンセプトID</strong>がある場合、共変量値は 1、そうでない場合は 0。</p></li>
+<li><p>薬剤：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に、患者に薬剤（曝露）期間をもつコンセプトIDがある場合、共変量の値は 1、そうでない場合は 0。</p></li>
+<li><p>薬剤グループ：選択された各薬剤コンセプトIDと時間間隔ごとに共変量を構築し、DRUG_ERAテーブルにおいて、選択されたコホート開始日前の時間間隔の間に、患者に薬剤（曝露）期間をもつコンセプトID<strong>またはその下位層のコンセプトID</strong>がある場合、共変量の値は 1、そうでない場合は 0。</p></li>
 </ul>
 <p>オーバーラップ設定には、薬剤または症状がコホート開始日以前に開始し、終了がコホート開始日以後に続くものが含まれます。<strong>期間の開始</strong>オプションは時間間隔内に開始したものに限定します。</p>
 <p>これが完了すると、このセクションは図 <a href="PatientLevelPrediction.html#fig:covariateSettings4">13.9</a>のようになるはずです。</p>
@@ -1491,17 +1491,28 @@ div.csl-indent {
 </div>
 <p>次のオプションは、各ドメインでのコンセプトIDに基づく共変量に基づきます：</p>
 <ul>
-<li>Condition: Construct covariates for each condition concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the condition occurrence table, the covariate value is 1, otherwise 0.</li>
-<li>Condition Primary Inpatient: One binary covariate per condition observed as a primary diagnosis in an inpatient setting in the condition_occurrence table.</li>
-<li>Drug: Construct covariates for each drug concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the drug exposure table, the covariate value is 1, otherwise 0.</li>
-<li>Procedure: Construct covariates for each procedure concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the procedure occurrence table, the covariate value is 1, otherwise 0.</li>
-<li>Measurement: Construct covariates for each measurement concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is 1, otherwise 0.</li>
-<li>Measurement Value: Construct covariates for each measurement concept ID with a value and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is the measurement value, otherwise 0.</li>
-<li>Measurement range group: Binary covariates indicating whether measurements are below, within, or above normal range.</li>
-<li>Observation: Construct covariates for each observation concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the observation table, the covariate value is 1, otherwise 0.</li>
-<li>Device: Construct covariates for each device concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the device table, the covariate value is 1, otherwise 0.</li>
-<li>Visit Count: Construct covariates for each visit and time interval selected and count the number of visits recorded during the time interval as the covariate value.</li>
-<li>Visit Concept Count: Construct covariates for each visit, domain and time interval selected and count the number of records per domain recorded during the visit type and time interval as the covariate value.</li>
+<li><p>コンディション： 選択されたコンディションコンセプトIDと時間間隔ごとに共変量を構築し、CONDITION_OCCURRENCテーブルのコホート開始日前の指定された時間間隔に、患者がそのコンセプトIDを記録している場合、共変量の値は1、そうでない場合は0。</p></li>
+<li><p>主たる入院コンディション（Condition Primary Inpatient）： condition_occurrenceテーブルで入院患者の主たる診断として観察されたコンディションごとのバイナリ共変量。</p></li>
+<li><p>薬剤： 選択された薬剤コンセプトIDと時間間隔ごとに共変量を構築し、DRUG_ERAテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。</p></li>
+<li><p>処置（プロシージャー）：選択されたプロシージャーコンセプトIDと時間間隔ごとに共変量を構築し、PROCEDURE_ERAテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。</p></li>
+<li><p>測定値：選択された各測定概念 ID と時間間隔について共変量を構築し、測定テーブルで患者がコホート開始日前の 指定された時間間隔に記録された概念 ID を持つ場合、共変量値は 1、そうでない場合 0。</p></li>
+<li><p>測定値の値： 測定値：値と時間間隔が選択された各測定概念 ID の共変量を構築し、患者が測定表のコホート開始日前の指定された時間間隔に記録された概念 ID を持つ場合、共変量値は測定値となり、そうでない場合は 0。</p></li>
+<li><p>測定範囲グループ： 測定範囲グループ：測定値が正常範囲以下、範囲内、または正常範囲以上であるかを示すバイナリ共 変量。</p></li>
+<li><p>オブザベーション： 観察：選択された各観察概念 ID および時間間隔について共変量を構築し、観察テーブルのコホート 開始日前の指定された時間間隔に記録された概念 ID を持つ患者の場合、共変量値は 1、そうでない場合は 0。</p></li>
+<li><p>デバイス：選択された各デバイスについて共変量を構築します： デバイス：選択された各デバイスのコンセプト ID と時間間隔について共変量を構築し、デバイス テーブルのコホート開始日前の指定された時間間隔に記録されたコンセプト ID を持つ患者であれば共 変量値は 1、そうでなければ 0。</p></li>
+<li><p>訪問回数： 来院回数：選択した来院回数と時間間隔ごとに共変量を構築し、その時間間隔に記録された来院回数を共 変量値としてカウントします。</p></li>
+<li><p>来院概念カウント： 訪問概念数：選択された各訪問，領域，時間間隔について共変量を構築し，共変量値として，訪 問の種類と時間間隔の間に記録された領域ごとの記録数をカウント．</p></li>
+<li><p>Condition: Construct covariates for each condition concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the condition occurrence table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Condition Primary Inpatient: One binary covariate per condition observed as a primary diagnosis in an inpatient setting in the condition_occurrence table.</p></li>
+<li><p>Drug: Construct covariates for each drug concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the drug exposure table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Procedure: Construct covariates for each procedure concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the procedure occurrence table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Measurement: Construct covariates for each measurement concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Measurement Value: Construct covariates for each measurement concept ID with a value and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is the measurement value, otherwise 0.</p></li>
+<li><p>Measurement range group: Binary covariates indicating whether measurements are below, within, or above normal range.</p></li>
+<li><p>Observation: Construct covariates for each observation concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the observation table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Device: Construct covariates for each device concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the device table, the covariate value is 1, otherwise 0.</p></li>
+<li><p>Visit Count: Construct covariates for each visit and time interval selected and count the number of visits recorded during the time interval as the covariate value.</p></li>
+<li><p>Visit Concept Count: Construct covariates for each visit, domain and time interval selected and count the number of records per domain recorded during the visit type and time interval as the covariate value.</p></li>
 </ul>
 <p>The distinct count option counts the number of distinct concept IDs per domain and time interval.</p>
 <p>Once done, this section should look like Figure <a href="PatientLevelPrediction.html#fig:covariateSettings5">13.10</a>.</p>
