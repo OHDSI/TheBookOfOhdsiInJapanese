@@ -1083,14 +1083,14 @@ div.csl-indent {
 <div id="演習-refexrexercisegibleedrecords" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exerciseGiBleedRecords">4.4</a><a href="SuggestedAnswers.html#演習-refexrexercisegibleedrecords" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルをクエリする必要があります：</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="SuggestedAnswers.html#cb158-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb158-2"><a href="SuggestedAnswers.html#cb158-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb158-3"><a href="SuggestedAnswers.html#cb158-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
-<span id="cb158-4"><a href="SuggestedAnswers.html#cb158-4" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
-<span id="cb158-5"><a href="SuggestedAnswers.html#cb158-5" tabindex="-1"></a><span class="st">WHERE condition_concept_id = 192671;&quot;</span></span>
-<span id="cb158-6"><a href="SuggestedAnswers.html#cb158-6" tabindex="-1"></a></span>
-<span id="cb158-7"><a href="SuggestedAnswers.html#cb158-7" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
-<span id="cb158-8"><a href="SuggestedAnswers.html#cb158-8" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="SuggestedAnswers.html#cb160-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb160-2"><a href="SuggestedAnswers.html#cb160-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb160-3"><a href="SuggestedAnswers.html#cb160-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb160-4"><a href="SuggestedAnswers.html#cb160-4" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb160-5"><a href="SuggestedAnswers.html#cb160-5" tabindex="-1"></a><span class="st">WHERE condition_concept_id = 192671;&quot;</span></span>
+<span id="cb160-6"><a href="SuggestedAnswers.html#cb160-6" tabindex="-1"></a></span>
+<span id="cb160-7"><a href="SuggestedAnswers.html#cb160-7" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
+<span id="cb160-8"><a href="SuggestedAnswers.html#cb160-8" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
 <pre><code>##   CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ## 1                    4657       273               192671 ...
 ## 2                    1021        61               192671 ...
@@ -1102,12 +1102,12 @@ div.csl-indent {
 <div id="演習-refexrexercisepersonsource" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exercisePersonSource">4.5</a><a href="SuggestedAnswers.html#演習-refexrexercisepersonsource" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>一連のレコードを見つけるには、CONDITION_OCCURRENCEテーブルのCONDITION_SOURCE_VALUEフィールドを使用してクエリを実行する必要があります：</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="SuggestedAnswers.html#cb160-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
-<span id="cb160-2"><a href="SuggestedAnswers.html#cb160-2" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
-<span id="cb160-3"><a href="SuggestedAnswers.html#cb160-3" tabindex="-1"></a><span class="st">WHERE condition_source_value = &#39;K92.2&#39;;&quot;</span></span>
-<span id="cb160-4"><a href="SuggestedAnswers.html#cb160-4" tabindex="-1"></a></span>
-<span id="cb160-5"><a href="SuggestedAnswers.html#cb160-5" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
-<span id="cb160-6"><a href="SuggestedAnswers.html#cb160-6" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="SuggestedAnswers.html#cb162-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb162-2"><a href="SuggestedAnswers.html#cb162-2" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb162-3"><a href="SuggestedAnswers.html#cb162-3" tabindex="-1"></a><span class="st">WHERE condition_source_value = &#39;K92.2&#39;;&quot;</span></span>
+<span id="cb162-4"><a href="SuggestedAnswers.html#cb162-4" tabindex="-1"></a></span>
+<span id="cb162-5"><a href="SuggestedAnswers.html#cb162-5" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span>
+<span id="cb162-6"><a href="SuggestedAnswers.html#cb162-6" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div>
 <pre><code>##   CONDITION_OCCURRENCE_ID PERSON_ID CONDITION_CONCEPT_ID ...
 ## 1                    4657       273               192671 ...
 ## 2                    1021        61               192671 ...
@@ -1119,13 +1119,13 @@ div.csl-indent {
 <div id="演習-refexrexerciseperson61records" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="CommonDataModel.html#exr:exercisePerson61Records">4.6</a><a href="SuggestedAnswers.html#演習-refexrexerciseperson61records" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>この情報はOBSERVATION_PERIODテーブルに保存されています：</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="SuggestedAnswers.html#cb162-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb162-2"><a href="SuggestedAnswers.html#cb162-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb162-3"><a href="SuggestedAnswers.html#cb162-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
-<span id="cb162-4"><a href="SuggestedAnswers.html#cb162-4" tabindex="-1"></a><span class="st">FROM @cdm.observation_period</span></span>
-<span id="cb162-5"><a href="SuggestedAnswers.html#cb162-5" tabindex="-1"></a><span class="st">WHERE person_id = 61;&quot;</span></span>
-<span id="cb162-6"><a href="SuggestedAnswers.html#cb162-6" tabindex="-1"></a></span>
-<span id="cb162-7"><a href="SuggestedAnswers.html#cb162-7" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="SuggestedAnswers.html#cb164-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb164-2"><a href="SuggestedAnswers.html#cb164-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb164-3"><a href="SuggestedAnswers.html#cb164-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT *</span></span>
+<span id="cb164-4"><a href="SuggestedAnswers.html#cb164-4" tabindex="-1"></a><span class="st">FROM @cdm.observation_period</span></span>
+<span id="cb164-5"><a href="SuggestedAnswers.html#cb164-5" tabindex="-1"></a><span class="st">WHERE person_id = 61;&quot;</span></span>
+<span id="cb164-6"><a href="SuggestedAnswers.html#cb164-6" tabindex="-1"></a></span>
+<span id="cb164-7"><a href="SuggestedAnswers.html#cb164-7" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <pre><code>##   OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
 ## 1                    61        61                    1968-01-21 ...</code></pre>
 </div>
@@ -1301,70 +1301,70 @@ div.csl-indent {
 <div id="演習-refexrexercisepeoplecount" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="SqlAndR.html#exr:exercisePeopleCount">9.1</a><a href="SuggestedAnswers.html#演習-refexrexercisepeoplecount" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>人数を計算するには、単純にPERSONテーブルをクエリすればよいです:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="SuggestedAnswers.html#cb164-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb164-2"><a href="SuggestedAnswers.html#cb164-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb164-3"><a href="SuggestedAnswers.html#cb164-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS person_count</span></span>
-<span id="cb164-4"><a href="SuggestedAnswers.html#cb164-4" tabindex="-1"></a><span class="st">FROM @cdm.person;&quot;</span></span>
-<span id="cb164-5"><a href="SuggestedAnswers.html#cb164-5" tabindex="-1"></a></span>
-<span id="cb164-6"><a href="SuggestedAnswers.html#cb164-6" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="SuggestedAnswers.html#cb166-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb166-2"><a href="SuggestedAnswers.html#cb166-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb166-3"><a href="SuggestedAnswers.html#cb166-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS person_count</span></span>
+<span id="cb166-4"><a href="SuggestedAnswers.html#cb166-4" tabindex="-1"></a><span class="st">FROM @cdm.person;&quot;</span></span>
+<span id="cb166-5"><a href="SuggestedAnswers.html#cb166-5" tabindex="-1"></a></span>
+<span id="cb166-6"><a href="SuggestedAnswers.html#cb166-6" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <pre><code>##   PERSON_COUNT
 ## 1         2694</code></pre>
 </div>
 <div id="演習-refexrexercisecelecoxibusers" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="SqlAndR.html#exr:exerciseCelecoxibUsers">9.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecelecoxibusers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>セレコキシブの処方を少なくとも1回受けた人の人数を計算するには、DRUG_EXPOSUREテーブルをクエリします。セレコキシブの成分を含むすべての薬剤を見つけるために、CONCEPT_ANCESTORおよびCONCEPTテーブルを結合します:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="SuggestedAnswers.html#cb166-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb166-2"><a href="SuggestedAnswers.html#cb166-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb166-3"><a href="SuggestedAnswers.html#cb166-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
-<span id="cb166-4"><a href="SuggestedAnswers.html#cb166-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_exposure</span></span>
-<span id="cb166-5"><a href="SuggestedAnswers.html#cb166-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
-<span id="cb166-6"><a href="SuggestedAnswers.html#cb166-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = descendant_concept_id</span></span>
-<span id="cb166-7"><a href="SuggestedAnswers.html#cb166-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
-<span id="cb166-8"><a href="SuggestedAnswers.html#cb166-8" tabindex="-1"></a><span class="st">  ON ancestor_concept_id = ingredient.concept_id</span></span>
-<span id="cb166-9"><a href="SuggestedAnswers.html#cb166-9" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
-<span id="cb166-10"><a href="SuggestedAnswers.html#cb166-10" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
-<span id="cb166-11"><a href="SuggestedAnswers.html#cb166-11" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
-<span id="cb166-12"><a href="SuggestedAnswers.html#cb166-12" tabindex="-1"></a></span>
-<span id="cb166-13"><a href="SuggestedAnswers.html#cb166-13" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="SuggestedAnswers.html#cb168-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb168-2"><a href="SuggestedAnswers.html#cb168-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb168-3"><a href="SuggestedAnswers.html#cb168-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
+<span id="cb168-4"><a href="SuggestedAnswers.html#cb168-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_exposure</span></span>
+<span id="cb168-5"><a href="SuggestedAnswers.html#cb168-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
+<span id="cb168-6"><a href="SuggestedAnswers.html#cb168-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = descendant_concept_id</span></span>
+<span id="cb168-7"><a href="SuggestedAnswers.html#cb168-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb168-8"><a href="SuggestedAnswers.html#cb168-8" tabindex="-1"></a><span class="st">  ON ancestor_concept_id = ingredient.concept_id</span></span>
+<span id="cb168-9"><a href="SuggestedAnswers.html#cb168-9" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb168-10"><a href="SuggestedAnswers.html#cb168-10" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb168-11"><a href="SuggestedAnswers.html#cb168-11" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
+<span id="cb168-12"><a href="SuggestedAnswers.html#cb168-12" tabindex="-1"></a></span>
+<span id="cb168-13"><a href="SuggestedAnswers.html#cb168-13" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <pre><code>##   PERSON_COUNT
 ## 1         1844</code></pre>
 <p><code>COUNT(DISTINCT(person_id))</code>を使用して、重複することない人数を求めることに注意してください。これは、各患者が複数の処方を受けたかもしれないからです。また、「celecoxib」の検索で、大文字小文字を区別しないように<code>LOWER</code>関数を使用していることにも注意してください。</p>
 <p>代わりに、すでに成分レベルにまとめられているDRUG_ERAテーブルを使用することもできます:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="SuggestedAnswers.html#cb168-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb168-2"><a href="SuggestedAnswers.html#cb168-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb168-3"><a href="SuggestedAnswers.html#cb168-3" tabindex="-1"></a></span>
-<span id="cb168-4"><a href="SuggestedAnswers.html#cb168-4" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
-<span id="cb168-5"><a href="SuggestedAnswers.html#cb168-5" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
-<span id="cb168-6"><a href="SuggestedAnswers.html#cb168-6" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
-<span id="cb168-7"><a href="SuggestedAnswers.html#cb168-7" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
-<span id="cb168-8"><a href="SuggestedAnswers.html#cb168-8" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
-<span id="cb168-9"><a href="SuggestedAnswers.html#cb168-9" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
-<span id="cb168-10"><a href="SuggestedAnswers.html#cb168-10" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
-<span id="cb168-11"><a href="SuggestedAnswers.html#cb168-11" tabindex="-1"></a></span>
-<span id="cb168-12"><a href="SuggestedAnswers.html#cb168-12" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="SuggestedAnswers.html#cb170-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb170-2"><a href="SuggestedAnswers.html#cb170-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb170-3"><a href="SuggestedAnswers.html#cb170-3" tabindex="-1"></a></span>
+<span id="cb170-4"><a href="SuggestedAnswers.html#cb170-4" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(DISTINCT(person_id)) AS person_count</span></span>
+<span id="cb170-5"><a href="SuggestedAnswers.html#cb170-5" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
+<span id="cb170-6"><a href="SuggestedAnswers.html#cb170-6" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb170-7"><a href="SuggestedAnswers.html#cb170-7" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
+<span id="cb170-8"><a href="SuggestedAnswers.html#cb170-8" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb170-9"><a href="SuggestedAnswers.html#cb170-9" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb170-10"><a href="SuggestedAnswers.html#cb170-10" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;;&quot;</span></span>
+<span id="cb170-11"><a href="SuggestedAnswers.html#cb170-11" tabindex="-1"></a></span>
+<span id="cb170-12"><a href="SuggestedAnswers.html#cb170-12" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <pre><code>##   PERSON_COUNT
 ## 1         1844</code></pre>
 </div>
 <div id="演習-refexrexercisegibleedsduringcelecoxib" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="SqlAndR.html#exr:exerciseGiBleedsDuringCelecoxib">9.3</a><a href="SuggestedAnswers.html#演習-refexrexercisegibleedsduringcelecoxib" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>曝露期間中の診断の数を計算するには、以前のクエリを拡張してCONDITION_OCCURRENCEテーブルに結合します。消化管出血を意味するすべてのコンディションのコンセプトを見つけるために、CONCEPT_ANCESTORテーブルに結合します:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="SuggestedAnswers.html#cb170-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb170-2"><a href="SuggestedAnswers.html#cb170-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb170-3"><a href="SuggestedAnswers.html#cb170-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS diagnose_count</span></span>
-<span id="cb170-4"><a href="SuggestedAnswers.html#cb170-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
-<span id="cb170-5"><a href="SuggestedAnswers.html#cb170-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
-<span id="cb170-6"><a href="SuggestedAnswers.html#cb170-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
-<span id="cb170-7"><a href="SuggestedAnswers.html#cb170-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.condition_occurrence</span></span>
-<span id="cb170-8"><a href="SuggestedAnswers.html#cb170-8" tabindex="-1"></a><span class="st">  ON condition_start_date &gt;= drug_era_start_date</span></span>
-<span id="cb170-9"><a href="SuggestedAnswers.html#cb170-9" tabindex="-1"></a><span class="st">    AND condition_start_date &lt;= drug_era_end_date</span></span>
-<span id="cb170-10"><a href="SuggestedAnswers.html#cb170-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
-<span id="cb170-11"><a href="SuggestedAnswers.html#cb170-11" tabindex="-1"></a><span class="st">  ON condition_concept_id =descendant_concept_id</span></span>
-<span id="cb170-12"><a href="SuggestedAnswers.html#cb170-12" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
-<span id="cb170-13"><a href="SuggestedAnswers.html#cb170-13" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
-<span id="cb170-14"><a href="SuggestedAnswers.html#cb170-14" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;</span></span>
-<span id="cb170-15"><a href="SuggestedAnswers.html#cb170-15" tabindex="-1"></a><span class="st">  AND ancestor_concept_id = 192671;&quot;</span></span>
-<span id="cb170-16"><a href="SuggestedAnswers.html#cb170-16" tabindex="-1"></a></span>
-<span id="cb170-17"><a href="SuggestedAnswers.html#cb170-17" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="SuggestedAnswers.html#cb172-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb172-2"><a href="SuggestedAnswers.html#cb172-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb172-3"><a href="SuggestedAnswers.html#cb172-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT COUNT(*) AS diagnose_count</span></span>
+<span id="cb172-4"><a href="SuggestedAnswers.html#cb172-4" tabindex="-1"></a><span class="st">FROM @cdm.drug_era</span></span>
+<span id="cb172-5"><a href="SuggestedAnswers.html#cb172-5" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept ingredient</span></span>
+<span id="cb172-6"><a href="SuggestedAnswers.html#cb172-6" tabindex="-1"></a><span class="st">  ON drug_concept_id = ingredient.concept_id</span></span>
+<span id="cb172-7"><a href="SuggestedAnswers.html#cb172-7" tabindex="-1"></a><span class="st">INNER JOIN @cdm.condition_occurrence</span></span>
+<span id="cb172-8"><a href="SuggestedAnswers.html#cb172-8" tabindex="-1"></a><span class="st">  ON condition_start_date &gt;= drug_era_start_date</span></span>
+<span id="cb172-9"><a href="SuggestedAnswers.html#cb172-9" tabindex="-1"></a><span class="st">    AND condition_start_date &lt;= drug_era_end_date</span></span>
+<span id="cb172-10"><a href="SuggestedAnswers.html#cb172-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.concept_ancestor</span></span>
+<span id="cb172-11"><a href="SuggestedAnswers.html#cb172-11" tabindex="-1"></a><span class="st">  ON condition_concept_id =descendant_concept_id</span></span>
+<span id="cb172-12"><a href="SuggestedAnswers.html#cb172-12" tabindex="-1"></a><span class="st">WHERE LOWER(ingredient.concept_name) = &#39;celecoxib&#39;</span></span>
+<span id="cb172-13"><a href="SuggestedAnswers.html#cb172-13" tabindex="-1"></a><span class="st">  AND ingredient.concept_class_id = &#39;Ingredient&#39;</span></span>
+<span id="cb172-14"><a href="SuggestedAnswers.html#cb172-14" tabindex="-1"></a><span class="st">  AND ingredient.standard_concept = &#39;S&#39;</span></span>
+<span id="cb172-15"><a href="SuggestedAnswers.html#cb172-15" tabindex="-1"></a><span class="st">  AND ancestor_concept_id = 192671;&quot;</span></span>
+<span id="cb172-16"><a href="SuggestedAnswers.html#cb172-16" tabindex="-1"></a></span>
+<span id="cb172-17"><a href="SuggestedAnswers.html#cb172-17" tabindex="-1"></a><span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <pre><code>##   DIAGNOSE_COUNT
 ## 1         41</code></pre>
 <p>この場合、DRUG_EXPOSUREテーブルではなくDRUG_ERAテーブルを使用することが重要です。なぜなら、同じ成分を含む薬剤の曝露が重なる可能性がありますが、薬剤の曝露期間は重なることがないからです。これにより重複して数えることを避けることができます。例えば、ある人が同時に2種類のセレコキシブを含む薬剤を受け取ったとしましょう。これは2つの薬剤曝露として記録され、その期間中に発生する診断は2回カウントされてしまうでしょう。2つの曝露は1つの重なりのない薬剤曝露期間に統合されます。</p>
@@ -1433,48 +1433,48 @@ div.csl-indent {
 <div id="演習-refexrexercisecohortssql" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="Cohorts.html#exr:exerciseCohortsSql">10.2</a><a href="SuggestedAnswers.html#演習-refexrexercisecohortssql" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>読みやすくするため、ここではSQLを2つのステップに分けます。まず、すべての心筋梗塞コンディションの出現を同定し、それらを一時テーブル「#diagnoses」に格納します:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="SuggestedAnswers.html#cb172-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
-<span id="cb172-2"><a href="SuggestedAnswers.html#cb172-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
-<span id="cb172-3"><a href="SuggestedAnswers.html#cb172-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT person_id AS subject_id,</span></span>
-<span id="cb172-4"><a href="SuggestedAnswers.html#cb172-4" tabindex="-1"></a><span class="st">  condition_start_date AS cohort_start_date</span></span>
-<span id="cb172-5"><a href="SuggestedAnswers.html#cb172-5" tabindex="-1"></a><span class="st">INTO #diagnoses</span></span>
-<span id="cb172-6"><a href="SuggestedAnswers.html#cb172-6" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
-<span id="cb172-7"><a href="SuggestedAnswers.html#cb172-7" tabindex="-1"></a><span class="st">WHERE condition_concept_id IN (</span></span>
-<span id="cb172-8"><a href="SuggestedAnswers.html#cb172-8" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
-<span id="cb172-9"><a href="SuggestedAnswers.html#cb172-9" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
-<span id="cb172-10"><a href="SuggestedAnswers.html#cb172-10" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 4329847 -- 心筋梗塞</span></span>
-<span id="cb172-11"><a href="SuggestedAnswers.html#cb172-11" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb172-12"><a href="SuggestedAnswers.html#cb172-12" tabindex="-1"></a><span class="st">  AND condition_concept_id NOT IN (</span></span>
-<span id="cb172-13"><a href="SuggestedAnswers.html#cb172-13" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
-<span id="cb172-14"><a href="SuggestedAnswers.html#cb172-14" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
-<span id="cb172-15"><a href="SuggestedAnswers.html#cb172-15" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 314666 -- 陳旧性心筋梗塞</span></span>
-<span id="cb172-16"><a href="SuggestedAnswers.html#cb172-16" tabindex="-1"></a><span class="st">);&quot;</span></span>
-<span id="cb172-17"><a href="SuggestedAnswers.html#cb172-17" tabindex="-1"></a></span>
-<span id="cb172-18"><a href="SuggestedAnswers.html#cb172-18" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="SuggestedAnswers.html#cb174-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
+<span id="cb174-2"><a href="SuggestedAnswers.html#cb174-2" tabindex="-1"></a>connection <span class="ot">&lt;-</span> <span class="fu">connect</span>(connectionDetails)</span>
+<span id="cb174-3"><a href="SuggestedAnswers.html#cb174-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT person_id AS subject_id,</span></span>
+<span id="cb174-4"><a href="SuggestedAnswers.html#cb174-4" tabindex="-1"></a><span class="st">  condition_start_date AS cohort_start_date</span></span>
+<span id="cb174-5"><a href="SuggestedAnswers.html#cb174-5" tabindex="-1"></a><span class="st">INTO #diagnoses</span></span>
+<span id="cb174-6"><a href="SuggestedAnswers.html#cb174-6" tabindex="-1"></a><span class="st">FROM @cdm.condition_occurrence</span></span>
+<span id="cb174-7"><a href="SuggestedAnswers.html#cb174-7" tabindex="-1"></a><span class="st">WHERE condition_concept_id IN (</span></span>
+<span id="cb174-8"><a href="SuggestedAnswers.html#cb174-8" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
+<span id="cb174-9"><a href="SuggestedAnswers.html#cb174-9" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
+<span id="cb174-10"><a href="SuggestedAnswers.html#cb174-10" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 4329847 -- 心筋梗塞</span></span>
+<span id="cb174-11"><a href="SuggestedAnswers.html#cb174-11" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb174-12"><a href="SuggestedAnswers.html#cb174-12" tabindex="-1"></a><span class="st">  AND condition_concept_id NOT IN (</span></span>
+<span id="cb174-13"><a href="SuggestedAnswers.html#cb174-13" tabindex="-1"></a><span class="st">    SELECT descendant_concept_id</span></span>
+<span id="cb174-14"><a href="SuggestedAnswers.html#cb174-14" tabindex="-1"></a><span class="st">    FROM @cdm.concept_ancestor</span></span>
+<span id="cb174-15"><a href="SuggestedAnswers.html#cb174-15" tabindex="-1"></a><span class="st">    WHERE ancestor_concept_id = 314666 -- 陳旧性心筋梗塞</span></span>
+<span id="cb174-16"><a href="SuggestedAnswers.html#cb174-16" tabindex="-1"></a><span class="st">);&quot;</span></span>
+<span id="cb174-17"><a href="SuggestedAnswers.html#cb174-17" tabindex="-1"></a></span>
+<span id="cb174-18"><a href="SuggestedAnswers.html#cb174-18" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <p>次に、入院または救急室受診時に出現したもののみを選択し、特定のCOHORT_DEFINITION_ID（ここでは「1」を選択しました）を使用します:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="SuggestedAnswers.html#cb173-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;INSERT INTO @cdm.cohort (</span></span>
-<span id="cb173-2"><a href="SuggestedAnswers.html#cb173-2" tabindex="-1"></a><span class="st">  subject_id,</span></span>
-<span id="cb173-3"><a href="SuggestedAnswers.html#cb173-3" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
-<span id="cb173-4"><a href="SuggestedAnswers.html#cb173-4" tabindex="-1"></a><span class="st">  cohort_definition_id</span></span>
-<span id="cb173-5"><a href="SuggestedAnswers.html#cb173-5" tabindex="-1"></a><span class="st">  )</span></span>
-<span id="cb173-6"><a href="SuggestedAnswers.html#cb173-6" tabindex="-1"></a><span class="st">SELECT subject_id,</span></span>
-<span id="cb173-7"><a href="SuggestedAnswers.html#cb173-7" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
-<span id="cb173-8"><a href="SuggestedAnswers.html#cb173-8" tabindex="-1"></a><span class="st">  CAST (1 AS INT) AS cohort_definition_id</span></span>
-<span id="cb173-9"><a href="SuggestedAnswers.html#cb173-9" tabindex="-1"></a><span class="st">FROM #diagnoses</span></span>
-<span id="cb173-10"><a href="SuggestedAnswers.html#cb173-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.visit_occurrence</span></span>
-<span id="cb173-11"><a href="SuggestedAnswers.html#cb173-11" tabindex="-1"></a><span class="st">  ON subject_id = person_id</span></span>
-<span id="cb173-12"><a href="SuggestedAnswers.html#cb173-12" tabindex="-1"></a><span class="st">    AND cohort_start_date &gt;= visit_start_date</span></span>
-<span id="cb173-13"><a href="SuggestedAnswers.html#cb173-13" tabindex="-1"></a><span class="st">    AND cohort_start_date &lt;= visit_end_date</span></span>
-<span id="cb173-14"><a href="SuggestedAnswers.html#cb173-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院または救急室ビジット;&quot;</span></span>
-<span id="cb173-15"><a href="SuggestedAnswers.html#cb173-15" tabindex="-1"></a></span>
-<span id="cb173-16"><a href="SuggestedAnswers.html#cb173-16" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="SuggestedAnswers.html#cb175-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;INSERT INTO @cdm.cohort (</span></span>
+<span id="cb175-2"><a href="SuggestedAnswers.html#cb175-2" tabindex="-1"></a><span class="st">  subject_id,</span></span>
+<span id="cb175-3"><a href="SuggestedAnswers.html#cb175-3" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
+<span id="cb175-4"><a href="SuggestedAnswers.html#cb175-4" tabindex="-1"></a><span class="st">  cohort_definition_id</span></span>
+<span id="cb175-5"><a href="SuggestedAnswers.html#cb175-5" tabindex="-1"></a><span class="st">  )</span></span>
+<span id="cb175-6"><a href="SuggestedAnswers.html#cb175-6" tabindex="-1"></a><span class="st">SELECT subject_id,</span></span>
+<span id="cb175-7"><a href="SuggestedAnswers.html#cb175-7" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
+<span id="cb175-8"><a href="SuggestedAnswers.html#cb175-8" tabindex="-1"></a><span class="st">  CAST (1 AS INT) AS cohort_definition_id</span></span>
+<span id="cb175-9"><a href="SuggestedAnswers.html#cb175-9" tabindex="-1"></a><span class="st">FROM #diagnoses</span></span>
+<span id="cb175-10"><a href="SuggestedAnswers.html#cb175-10" tabindex="-1"></a><span class="st">INNER JOIN @cdm.visit_occurrence</span></span>
+<span id="cb175-11"><a href="SuggestedAnswers.html#cb175-11" tabindex="-1"></a><span class="st">  ON subject_id = person_id</span></span>
+<span id="cb175-12"><a href="SuggestedAnswers.html#cb175-12" tabindex="-1"></a><span class="st">    AND cohort_start_date &gt;= visit_start_date</span></span>
+<span id="cb175-13"><a href="SuggestedAnswers.html#cb175-13" tabindex="-1"></a><span class="st">    AND cohort_start_date &lt;= visit_end_date</span></span>
+<span id="cb175-14"><a href="SuggestedAnswers.html#cb175-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院または救急室ビジット;&quot;</span></span>
+<span id="cb175-15"><a href="SuggestedAnswers.html#cb175-15" tabindex="-1"></a></span>
+<span id="cb175-16"><a href="SuggestedAnswers.html#cb175-16" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <p>コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT_OCCURRENCE_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室受診に関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。</p>
 <p>また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、関心を持つのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。</p>
 <p>一時テーブルが不要になったらクリーンアップすることをお勧めします:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="SuggestedAnswers.html#cb174-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;TRUNCATE TABLE #diagnoses;</span></span>
-<span id="cb174-2"><a href="SuggestedAnswers.html#cb174-2" tabindex="-1"></a><span class="st">DROP TABLE #diagnoses;&quot;</span></span>
-<span id="cb174-3"><a href="SuggestedAnswers.html#cb174-3" tabindex="-1"></a></span>
-<span id="cb174-4"><a href="SuggestedAnswers.html#cb174-4" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="SuggestedAnswers.html#cb176-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;TRUNCATE TABLE #diagnoses;</span></span>
+<span id="cb176-2"><a href="SuggestedAnswers.html#cb176-2" tabindex="-1"></a><span class="st">DROP TABLE #diagnoses;&quot;</span></span>
+<span id="cb176-3"><a href="SuggestedAnswers.html#cb176-3" tabindex="-1"></a></span>
+<span id="cb176-4"><a href="SuggestedAnswers.html#cb176-4" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql)</span></code></pre></div>
 </div>
 </div>
 <div id="Characterizationanswers" class="section level2 hasAnchor" number="25.7">
@@ -1564,25 +1564,25 @@ div.csl-indent {
 <div id="演習-refexrexerciseple1" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle1">12.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseple1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>デフォルトの共変量セットを指定しますが、比較している2つの薬剤を含むすべての下位層を除外しなければなりません。そうしないと、傾向スコアモデルが完全に予測可能になってしまいます：</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="SuggestedAnswers.html#cb175-1" tabindex="-1"></a><span class="fu">library</span>(CohortMethod)</span>
-<span id="cb175-2"><a href="SuggestedAnswers.html#cb175-2" tabindex="-1"></a>nsaids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1118084</span>, <span class="dv">1124300</span>) <span class="co"># セレコキシブ、ジクロフェナク</span></span>
-<span id="cb175-3"><a href="SuggestedAnswers.html#cb175-3" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createDefaultCovariateSettings</span>(</span>
-<span id="cb175-4"><a href="SuggestedAnswers.html#cb175-4" tabindex="-1"></a>  <span class="at">excludedCovariateConceptIds =</span> nsaids,</span>
-<span id="cb175-5"><a href="SuggestedAnswers.html#cb175-5" tabindex="-1"></a>  <span class="at">addDescendantsToExclude =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb175-6"><a href="SuggestedAnswers.html#cb175-6" tabindex="-1"></a></span>
-<span id="cb175-7"><a href="SuggestedAnswers.html#cb175-7" tabindex="-1"></a><span class="co"># データの読み込み：</span></span>
-<span id="cb175-8"><a href="SuggestedAnswers.html#cb175-8" tabindex="-1"></a>cmData <span class="ot">&lt;-</span> <span class="fu">getDbCohortMethodData</span>(</span>
-<span id="cb175-9"><a href="SuggestedAnswers.html#cb175-9" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb175-10"><a href="SuggestedAnswers.html#cb175-10" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb175-11"><a href="SuggestedAnswers.html#cb175-11" tabindex="-1"></a>  <span class="at">targetId =</span> <span class="dv">1</span>,</span>
-<span id="cb175-12"><a href="SuggestedAnswers.html#cb175-12" tabindex="-1"></a>  <span class="at">comparatorId =</span> <span class="dv">2</span>,</span>
-<span id="cb175-13"><a href="SuggestedAnswers.html#cb175-13" tabindex="-1"></a>  <span class="at">outcomeIds =</span> <span class="dv">3</span>,</span>
-<span id="cb175-14"><a href="SuggestedAnswers.html#cb175-14" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb175-15"><a href="SuggestedAnswers.html#cb175-15" tabindex="-1"></a>  <span class="at">exposureTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb175-16"><a href="SuggestedAnswers.html#cb175-16" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb175-17"><a href="SuggestedAnswers.html#cb175-17" tabindex="-1"></a>  <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb175-18"><a href="SuggestedAnswers.html#cb175-18" tabindex="-1"></a>  <span class="at">covariateSettings =</span> covSettings)</span>
-<span id="cb175-19"><a href="SuggestedAnswers.html#cb175-19" tabindex="-1"></a><span class="fu">summary</span>(cmData)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="SuggestedAnswers.html#cb177-1" tabindex="-1"></a><span class="fu">library</span>(CohortMethod)</span>
+<span id="cb177-2"><a href="SuggestedAnswers.html#cb177-2" tabindex="-1"></a>nsaids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1118084</span>, <span class="dv">1124300</span>) <span class="co"># セレコキシブ、ジクロフェナク</span></span>
+<span id="cb177-3"><a href="SuggestedAnswers.html#cb177-3" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createDefaultCovariateSettings</span>(</span>
+<span id="cb177-4"><a href="SuggestedAnswers.html#cb177-4" tabindex="-1"></a>  <span class="at">excludedCovariateConceptIds =</span> nsaids,</span>
+<span id="cb177-5"><a href="SuggestedAnswers.html#cb177-5" tabindex="-1"></a>  <span class="at">addDescendantsToExclude =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb177-6"><a href="SuggestedAnswers.html#cb177-6" tabindex="-1"></a></span>
+<span id="cb177-7"><a href="SuggestedAnswers.html#cb177-7" tabindex="-1"></a><span class="co"># データの読み込み：</span></span>
+<span id="cb177-8"><a href="SuggestedAnswers.html#cb177-8" tabindex="-1"></a>cmData <span class="ot">&lt;-</span> <span class="fu">getDbCohortMethodData</span>(</span>
+<span id="cb177-9"><a href="SuggestedAnswers.html#cb177-9" tabindex="-1"></a>  <span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb177-10"><a href="SuggestedAnswers.html#cb177-10" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb177-11"><a href="SuggestedAnswers.html#cb177-11" tabindex="-1"></a>  <span class="at">targetId =</span> <span class="dv">1</span>,</span>
+<span id="cb177-12"><a href="SuggestedAnswers.html#cb177-12" tabindex="-1"></a>  <span class="at">comparatorId =</span> <span class="dv">2</span>,</span>
+<span id="cb177-13"><a href="SuggestedAnswers.html#cb177-13" tabindex="-1"></a>  <span class="at">outcomeIds =</span> <span class="dv">3</span>,</span>
+<span id="cb177-14"><a href="SuggestedAnswers.html#cb177-14" tabindex="-1"></a>  <span class="at">exposureDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb177-15"><a href="SuggestedAnswers.html#cb177-15" tabindex="-1"></a>  <span class="at">exposureTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb177-16"><a href="SuggestedAnswers.html#cb177-16" tabindex="-1"></a>  <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb177-17"><a href="SuggestedAnswers.html#cb177-17" tabindex="-1"></a>  <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb177-18"><a href="SuggestedAnswers.html#cb177-18" tabindex="-1"></a>  <span class="at">covariateSettings =</span> covSettings)</span>
+<span id="cb177-19"><a href="SuggestedAnswers.html#cb177-19" tabindex="-1"></a><span class="fu">summary</span>(cmData)</span></code></pre></div>
 <pre><code>## CohortMethodData オブジェクトのまとめ
 ## 
 ## 治療群のコンセプトID：1
@@ -1603,25 +1603,25 @@ div.csl-indent {
 <div id="演習-refexrexerciseple2" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle2">12.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseple2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>仕様に従って研究対象集団を作成し、脱落を示す図を出力します：</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="SuggestedAnswers.html#cb177-1" tabindex="-1"></a>studyPop <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(</span>
-<span id="cb177-2"><a href="SuggestedAnswers.html#cb177-2" tabindex="-1"></a>  <span class="at">cohortMethodData =</span> cmData,</span>
-<span id="cb177-3"><a href="SuggestedAnswers.html#cb177-3" tabindex="-1"></a>  <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
-<span id="cb177-4"><a href="SuggestedAnswers.html#cb177-4" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">180</span>,</span>
-<span id="cb177-5"><a href="SuggestedAnswers.html#cb177-5" tabindex="-1"></a>  <span class="at">removeDuplicateSubjects =</span> <span class="st">&quot;remove all&quot;</span>,</span>
-<span id="cb177-6"><a href="SuggestedAnswers.html#cb177-6" tabindex="-1"></a>  <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb177-7"><a href="SuggestedAnswers.html#cb177-7" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">0</span>,</span>
-<span id="cb177-8"><a href="SuggestedAnswers.html#cb177-8" tabindex="-1"></a>  <span class="at">startAnchor =</span> <span class="st">&quot;cohort start&quot;</span>,</span>
-<span id="cb177-9"><a href="SuggestedAnswers.html#cb177-9" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">99999</span>)</span>
-<span id="cb177-10"><a href="SuggestedAnswers.html#cb177-10" tabindex="-1"></a><span class="fu">drawAttritionDiagram</span>(studyPop)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="SuggestedAnswers.html#cb179-1" tabindex="-1"></a>studyPop <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(</span>
+<span id="cb179-2"><a href="SuggestedAnswers.html#cb179-2" tabindex="-1"></a>  <span class="at">cohortMethodData =</span> cmData,</span>
+<span id="cb179-3"><a href="SuggestedAnswers.html#cb179-3" tabindex="-1"></a>  <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
+<span id="cb179-4"><a href="SuggestedAnswers.html#cb179-4" tabindex="-1"></a>  <span class="at">washoutPeriod =</span> <span class="dv">180</span>,</span>
+<span id="cb179-5"><a href="SuggestedAnswers.html#cb179-5" tabindex="-1"></a>  <span class="at">removeDuplicateSubjects =</span> <span class="st">&quot;remove all&quot;</span>,</span>
+<span id="cb179-6"><a href="SuggestedAnswers.html#cb179-6" tabindex="-1"></a>  <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb179-7"><a href="SuggestedAnswers.html#cb179-7" tabindex="-1"></a>  <span class="at">riskWindowStart =</span> <span class="dv">0</span>,</span>
+<span id="cb179-8"><a href="SuggestedAnswers.html#cb179-8" tabindex="-1"></a>  <span class="at">startAnchor =</span> <span class="st">&quot;cohort start&quot;</span>,</span>
+<span id="cb179-9"><a href="SuggestedAnswers.html#cb179-9" tabindex="-1"></a>  <span class="at">riskWindowEnd =</span> <span class="dv">99999</span>)</span>
+<span id="cb179-10"><a href="SuggestedAnswers.html#cb179-10" tabindex="-1"></a><span class="fu">drawAttritionDiagram</span>(studyPop)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/attrition.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>元のコホートと比較して研究対象が失われなかったことが見てとれます。なぜなら、ここで使用した限定要件がすでにコホートの定義に適用されているためです。</p>
 </div>
 <div id="演習-refexrexerciseple3" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle3">12.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseple3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Cox回帰モデルを使用して単純なアウトカムをフィットさせます：</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="SuggestedAnswers.html#cb178-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> studyPop,</span>
-<span id="cb178-2"><a href="SuggestedAnswers.html#cb178-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>)</span>
-<span id="cb178-3"><a href="SuggestedAnswers.html#cb178-3" tabindex="-1"></a>model</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="SuggestedAnswers.html#cb180-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> studyPop,</span>
+<span id="cb180-2"><a href="SuggestedAnswers.html#cb180-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>)</span>
+<span id="cb180-3"><a href="SuggestedAnswers.html#cb180-3" tabindex="-1"></a>model</span></code></pre></div>
 <pre><code>## モデルタイプ：cox
 ## 階層化：FALSE
 ## 共変量の使用：FALSE
@@ -1635,9 +1635,9 @@ div.csl-indent {
 <div id="演習-refexrexerciseple4" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle4">12.4</a><a href="SuggestedAnswers.html#演習-refexrexerciseple4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>抽出したすべての共変量を使用し、研究集団に対して傾向スコアモデルをフィットさせます。その後、傾向スコアの分布を示します：</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="SuggestedAnswers.html#cb180-1" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">createPs</span>(<span class="at">cohortMethodData =</span> cmData,</span>
-<span id="cb180-2"><a href="SuggestedAnswers.html#cb180-2" tabindex="-1"></a>               <span class="at">population =</span> studyPop)</span>
-<span id="cb180-3"><a href="SuggestedAnswers.html#cb180-3" tabindex="-1"></a><span class="fu">plotPs</span>(ps, <span class="at">showCountsLabel =</span> <span class="cn">TRUE</span>, <span class="at">showAucLabel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="SuggestedAnswers.html#cb182-1" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">createPs</span>(<span class="at">cohortMethodData =</span> cmData,</span>
+<span id="cb182-2"><a href="SuggestedAnswers.html#cb182-2" tabindex="-1"></a>               <span class="at">population =</span> studyPop)</span>
+<span id="cb182-3"><a href="SuggestedAnswers.html#cb182-3" tabindex="-1"></a><span class="fu">plotPs</span>(ps, <span class="at">showCountsLabel =</span> <span class="cn">TRUE</span>, <span class="at">showAucLabel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/ps.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>この分布には、いくつかのスパイクがあり少し奇妙に見えることに注意してください。これは、非常に小さなシミュレーションデータセットを使用しているためです。実際の傾向スコアの分布はより滑らかであることが通常です。</p>
 <p>傾向スコアモデルは0.63のAUCを達成し、ターゲットのコホートと比較群コホートの間に違いがあることを示唆しています。両グループの間にかなりの重複があることがわかり、傾向スコア調整によって両方をより比較可能にすることができます。</p>
@@ -1645,23 +1645,23 @@ div.csl-indent {
 <div id="演習-refexrexerciseple5" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle5">12.5</a><a href="SuggestedAnswers.html#演習-refexrexerciseple5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>傾向スコアに基づいて集団を層別化し、層別化前後の共変量バランスを計算します：</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="SuggestedAnswers.html#cb181-1" tabindex="-1"></a>strataPop <span class="ot">&lt;-</span> <span class="fu">stratifyByPs</span>(ps, <span class="at">numberOfStrata =</span> <span class="dv">5</span>)</span>
-<span id="cb181-2"><a href="SuggestedAnswers.html#cb181-2" tabindex="-1"></a>bal <span class="ot">&lt;-</span> <span class="fu">computeCovariateBalance</span>(strataPop, cmData)</span>
-<span id="cb181-3"><a href="SuggestedAnswers.html#cb181-3" tabindex="-1"></a><span class="fu">plotCovariateBalanceScatterPlot</span>(bal,</span>
-<span id="cb181-4"><a href="SuggestedAnswers.html#cb181-4" tabindex="-1"></a>                                <span class="at">showCovariateCountLabel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb181-5"><a href="SuggestedAnswers.html#cb181-5" tabindex="-1"></a>                                <span class="at">showMaxLabel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb181-6"><a href="SuggestedAnswers.html#cb181-6" tabindex="-1"></a>                                <span class="at">beforeLabel =</span> <span class="st">&quot;層別化前&quot;</span>,</span>
-<span id="cb181-7"><a href="SuggestedAnswers.html#cb181-7" tabindex="-1"></a>                                <span class="at">afterLabel =</span> <span class="st">&quot;層別化後&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="SuggestedAnswers.html#cb183-1" tabindex="-1"></a>strataPop <span class="ot">&lt;-</span> <span class="fu">stratifyByPs</span>(ps, <span class="at">numberOfStrata =</span> <span class="dv">5</span>)</span>
+<span id="cb183-2"><a href="SuggestedAnswers.html#cb183-2" tabindex="-1"></a>bal <span class="ot">&lt;-</span> <span class="fu">computeCovariateBalance</span>(strataPop, cmData)</span>
+<span id="cb183-3"><a href="SuggestedAnswers.html#cb183-3" tabindex="-1"></a><span class="fu">plotCovariateBalanceScatterPlot</span>(bal,</span>
+<span id="cb183-4"><a href="SuggestedAnswers.html#cb183-4" tabindex="-1"></a>                                <span class="at">showCovariateCountLabel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb183-5"><a href="SuggestedAnswers.html#cb183-5" tabindex="-1"></a>                                <span class="at">showMaxLabel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb183-6"><a href="SuggestedAnswers.html#cb183-6" tabindex="-1"></a>                                <span class="at">beforeLabel =</span> <span class="st">&quot;層別化前&quot;</span>,</span>
+<span id="cb183-7"><a href="SuggestedAnswers.html#cb183-7" tabindex="-1"></a>                                <span class="at">afterLabel =</span> <span class="st">&quot;層別化後&quot;</span>)</span></code></pre></div>
 <p><img src="images/SuggestedAnswers/scatter.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>さまざまなベースライン共変量が、層別化前（x軸）には大きな（&gt;0.3）標準化平均差(standardized mean difference, SMD)を示していることがわかります。層別化後のバランスが向上し、標準化平均差は最大でも&lt;= 0.1です。</p>
 </div>
 <div id="演習-refexrexerciseple6" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PopulationLevelEstimation.html#exr:exercisePle6">12.6</a><a href="SuggestedAnswers.html#演習-refexrexerciseple6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>傾向スコアによる層別化し、 Cox 回帰モデルをフィットさせます：</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="SuggestedAnswers.html#cb182-1" tabindex="-1"></a>adjModel <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> strataPop,</span>
-<span id="cb182-2"><a href="SuggestedAnswers.html#cb182-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>,</span>
-<span id="cb182-3"><a href="SuggestedAnswers.html#cb182-3" tabindex="-1"></a>                         <span class="at">stratified =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb182-4"><a href="SuggestedAnswers.html#cb182-4" tabindex="-1"></a>adjModel</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="SuggestedAnswers.html#cb184-1" tabindex="-1"></a>adjModel <span class="ot">&lt;-</span> <span class="fu">fitOutcomeModel</span>(<span class="at">population =</span> strataPop,</span>
+<span id="cb184-2"><a href="SuggestedAnswers.html#cb184-2" tabindex="-1"></a>                         <span class="at">modelType =</span> <span class="st">&quot;cox&quot;</span>,</span>
+<span id="cb184-3"><a href="SuggestedAnswers.html#cb184-3" tabindex="-1"></a>                         <span class="at">stratified =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb184-4"><a href="SuggestedAnswers.html#cb184-4" tabindex="-1"></a>adjModel</span></code></pre></div>
 <pre><code>## モデルタイプ：cox
 ## 階層化：TRUE
 ## 共変量の使用：FALSE
@@ -1678,29 +1678,29 @@ div.csl-indent {
 <div id="演習-refexrexerciseplp1" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp1">13.1</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>共変量設定のセットを指定し、データベースからデータを抽出するために<code>getPlpData</code>関数を使用します：</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="SuggestedAnswers.html#cb184-1" tabindex="-1"></a><span class="fu">library</span>(PatientLevelPrediction)</span>
-<span id="cb184-2"><a href="SuggestedAnswers.html#cb184-2" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createCovariateSettings</span>(</span>
-<span id="cb184-3"><a href="SuggestedAnswers.html#cb184-3" tabindex="-1"></a>  <span class="at">useDemographicsGender =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-4"><a href="SuggestedAnswers.html#cb184-4" tabindex="-1"></a>  <span class="at">useDemographicsAge =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-5"><a href="SuggestedAnswers.html#cb184-5" tabindex="-1"></a>  <span class="at">useConditionGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-6"><a href="SuggestedAnswers.html#cb184-6" tabindex="-1"></a>  <span class="at">useConditionGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-7"><a href="SuggestedAnswers.html#cb184-7" tabindex="-1"></a>  <span class="at">useDrugGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-8"><a href="SuggestedAnswers.html#cb184-8" tabindex="-1"></a>  <span class="at">useDrugGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-9"><a href="SuggestedAnswers.html#cb184-9" tabindex="-1"></a>  <span class="at">useVisitConceptCountLongTerm =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb184-10"><a href="SuggestedAnswers.html#cb184-10" tabindex="-1"></a>  <span class="at">longTermStartDays =</span> <span class="sc">-</span><span class="dv">365</span>,</span>
-<span id="cb184-11"><a href="SuggestedAnswers.html#cb184-11" tabindex="-1"></a>  <span class="at">endDays =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb184-12"><a href="SuggestedAnswers.html#cb184-12" tabindex="-1"></a></span>
-<span id="cb184-13"><a href="SuggestedAnswers.html#cb184-13" tabindex="-1"></a>plpData <span class="ot">&lt;-</span> <span class="fu">getPlpData</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb184-14"><a href="SuggestedAnswers.html#cb184-14" tabindex="-1"></a>                      <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb184-15"><a href="SuggestedAnswers.html#cb184-15" tabindex="-1"></a>                      <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb184-16"><a href="SuggestedAnswers.html#cb184-16" tabindex="-1"></a>                      <span class="at">cohortTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb184-17"><a href="SuggestedAnswers.html#cb184-17" tabindex="-1"></a>                      <span class="at">cohortId =</span> <span class="dv">4</span>,</span>
-<span id="cb184-18"><a href="SuggestedAnswers.html#cb184-18" tabindex="-1"></a>                      <span class="at">covariateSettings =</span> covSettings,</span>
-<span id="cb184-19"><a href="SuggestedAnswers.html#cb184-19" tabindex="-1"></a>                      <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb184-20"><a href="SuggestedAnswers.html#cb184-20" tabindex="-1"></a>                      <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
-<span id="cb184-21"><a href="SuggestedAnswers.html#cb184-21" tabindex="-1"></a>                      <span class="at">outcomeIds =</span> <span class="dv">3</span>)</span>
-<span id="cb184-22"><a href="SuggestedAnswers.html#cb184-22" tabindex="-1"></a></span>
-<span id="cb184-23"><a href="SuggestedAnswers.html#cb184-23" tabindex="-1"></a><span class="fu">summary</span>(plpData)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="SuggestedAnswers.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(PatientLevelPrediction)</span>
+<span id="cb186-2"><a href="SuggestedAnswers.html#cb186-2" tabindex="-1"></a>covSettings <span class="ot">&lt;-</span> <span class="fu">createCovariateSettings</span>(</span>
+<span id="cb186-3"><a href="SuggestedAnswers.html#cb186-3" tabindex="-1"></a>  <span class="at">useDemographicsGender =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-4"><a href="SuggestedAnswers.html#cb186-4" tabindex="-1"></a>  <span class="at">useDemographicsAge =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-5"><a href="SuggestedAnswers.html#cb186-5" tabindex="-1"></a>  <span class="at">useConditionGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-6"><a href="SuggestedAnswers.html#cb186-6" tabindex="-1"></a>  <span class="at">useConditionGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-7"><a href="SuggestedAnswers.html#cb186-7" tabindex="-1"></a>  <span class="at">useDrugGroupEraLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-8"><a href="SuggestedAnswers.html#cb186-8" tabindex="-1"></a>  <span class="at">useDrugGroupEraAnyTimePrior =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-9"><a href="SuggestedAnswers.html#cb186-9" tabindex="-1"></a>  <span class="at">useVisitConceptCountLongTerm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb186-10"><a href="SuggestedAnswers.html#cb186-10" tabindex="-1"></a>  <span class="at">longTermStartDays =</span> <span class="sc">-</span><span class="dv">365</span>,</span>
+<span id="cb186-11"><a href="SuggestedAnswers.html#cb186-11" tabindex="-1"></a>  <span class="at">endDays =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb186-12"><a href="SuggestedAnswers.html#cb186-12" tabindex="-1"></a></span>
+<span id="cb186-13"><a href="SuggestedAnswers.html#cb186-13" tabindex="-1"></a>plpData <span class="ot">&lt;-</span> <span class="fu">getPlpData</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb186-14"><a href="SuggestedAnswers.html#cb186-14" tabindex="-1"></a>                      <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb186-15"><a href="SuggestedAnswers.html#cb186-15" tabindex="-1"></a>                      <span class="at">cohortDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb186-16"><a href="SuggestedAnswers.html#cb186-16" tabindex="-1"></a>                      <span class="at">cohortTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb186-17"><a href="SuggestedAnswers.html#cb186-17" tabindex="-1"></a>                      <span class="at">cohortId =</span> <span class="dv">4</span>,</span>
+<span id="cb186-18"><a href="SuggestedAnswers.html#cb186-18" tabindex="-1"></a>                      <span class="at">covariateSettings =</span> covSettings,</span>
+<span id="cb186-19"><a href="SuggestedAnswers.html#cb186-19" tabindex="-1"></a>                      <span class="at">outcomeDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb186-20"><a href="SuggestedAnswers.html#cb186-20" tabindex="-1"></a>                      <span class="at">outcomeTable =</span> <span class="st">&quot;cohort&quot;</span>,</span>
+<span id="cb186-21"><a href="SuggestedAnswers.html#cb186-21" tabindex="-1"></a>                      <span class="at">outcomeIds =</span> <span class="dv">3</span>)</span>
+<span id="cb186-22"><a href="SuggestedAnswers.html#cb186-22" tabindex="-1"></a></span>
+<span id="cb186-23"><a href="SuggestedAnswers.html#cb186-23" tabindex="-1"></a><span class="fu">summary</span>(plpData)</span></code></pre></div>
 <pre><code>## plpData オブジェクトのまとめ
 ## 
 ## At riskであるコホートコンセプト ID：-1
@@ -1719,38 +1719,38 @@ div.csl-indent {
 <div id="演習-refexrexerciseplp2" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp2">13.2</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>関心の対象であるアウトカムの研究対象集団を（この場合は抽出したデータに対して唯一のアウトカム）を作成します。ここでは、NSAIDを使用し始める前にそのアウトカムが出現した対象を除外し、364日のリスク期間があることを必要条件とします。</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="SuggestedAnswers.html#cb186-1" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(<span class="at">plpData =</span> plpData,</span>
-<span id="cb186-2"><a href="SuggestedAnswers.html#cb186-2" tabindex="-1"></a>                                    <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
-<span id="cb186-3"><a href="SuggestedAnswers.html#cb186-3" tabindex="-1"></a>                                    <span class="at">washoutPeriod =</span> <span class="dv">364</span>,</span>
-<span id="cb186-4"><a href="SuggestedAnswers.html#cb186-4" tabindex="-1"></a>                                    <span class="at">firstExposureOnly =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb186-5"><a href="SuggestedAnswers.html#cb186-5" tabindex="-1"></a>                                    <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb186-6"><a href="SuggestedAnswers.html#cb186-6" tabindex="-1"></a>                                    <span class="at">priorOutcomeLookback =</span> <span class="dv">9999</span>,</span>
-<span id="cb186-7"><a href="SuggestedAnswers.html#cb186-7" tabindex="-1"></a>                                    <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
-<span id="cb186-8"><a href="SuggestedAnswers.html#cb186-8" tabindex="-1"></a>                                    <span class="at">riskWindowEnd =</span> <span class="dv">365</span>,</span>
-<span id="cb186-9"><a href="SuggestedAnswers.html#cb186-9" tabindex="-1"></a>                                    <span class="at">addExposureDaysToStart =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb186-10"><a href="SuggestedAnswers.html#cb186-10" tabindex="-1"></a>                                    <span class="at">addExposureDaysToEnd =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb186-11"><a href="SuggestedAnswers.html#cb186-11" tabindex="-1"></a>                                    <span class="at">minTimeAtRisk =</span> <span class="dv">364</span>,</span>
-<span id="cb186-12"><a href="SuggestedAnswers.html#cb186-12" tabindex="-1"></a>                                    <span class="at">requireTimeAtRisk =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb186-13"><a href="SuggestedAnswers.html#cb186-13" tabindex="-1"></a>                                    <span class="at">includeAllOutcomes =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb186-14"><a href="SuggestedAnswers.html#cb186-14" tabindex="-1"></a><span class="fu">nrow</span>(population)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="SuggestedAnswers.html#cb188-1" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">createStudyPopulation</span>(<span class="at">plpData =</span> plpData,</span>
+<span id="cb188-2"><a href="SuggestedAnswers.html#cb188-2" tabindex="-1"></a>                                    <span class="at">outcomeId =</span> <span class="dv">3</span>,</span>
+<span id="cb188-3"><a href="SuggestedAnswers.html#cb188-3" tabindex="-1"></a>                                    <span class="at">washoutPeriod =</span> <span class="dv">364</span>,</span>
+<span id="cb188-4"><a href="SuggestedAnswers.html#cb188-4" tabindex="-1"></a>                                    <span class="at">firstExposureOnly =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb188-5"><a href="SuggestedAnswers.html#cb188-5" tabindex="-1"></a>                                    <span class="at">removeSubjectsWithPriorOutcome =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb188-6"><a href="SuggestedAnswers.html#cb188-6" tabindex="-1"></a>                                    <span class="at">priorOutcomeLookback =</span> <span class="dv">9999</span>,</span>
+<span id="cb188-7"><a href="SuggestedAnswers.html#cb188-7" tabindex="-1"></a>                                    <span class="at">riskWindowStart =</span> <span class="dv">1</span>,</span>
+<span id="cb188-8"><a href="SuggestedAnswers.html#cb188-8" tabindex="-1"></a>                                    <span class="at">riskWindowEnd =</span> <span class="dv">365</span>,</span>
+<span id="cb188-9"><a href="SuggestedAnswers.html#cb188-9" tabindex="-1"></a>                                    <span class="at">addExposureDaysToStart =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb188-10"><a href="SuggestedAnswers.html#cb188-10" tabindex="-1"></a>                                    <span class="at">addExposureDaysToEnd =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb188-11"><a href="SuggestedAnswers.html#cb188-11" tabindex="-1"></a>                                    <span class="at">minTimeAtRisk =</span> <span class="dv">364</span>,</span>
+<span id="cb188-12"><a href="SuggestedAnswers.html#cb188-12" tabindex="-1"></a>                                    <span class="at">requireTimeAtRisk =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb188-13"><a href="SuggestedAnswers.html#cb188-13" tabindex="-1"></a>                                    <span class="at">includeAllOutcomes =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb188-14"><a href="SuggestedAnswers.html#cb188-14" tabindex="-1"></a><span class="fu">nrow</span>(population)</span></code></pre></div>
 <pre><code>## [1] 2578</code></pre>
 <p>この場合、アウトカムがすでに出現した対象を除外することと364日以上のリスク期間を要求することにより、数名が失われました。</p>
 </div>
 <div id="演習-refexrexerciseplp3" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="PatientLevelPrediction.html#exr:exercisePlp3">13.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseplp3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>LASSOモデルを実行するために、まずモデル設定オブジェクトを作成し、その後<code>runPlp</code>関数を呼び出します。この場合、人単位で分割し、データの75％をトレーニングデータとして使用し、25％をデータで評価します。：</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="SuggestedAnswers.html#cb188-1" tabindex="-1"></a>lassoModel <span class="ot">&lt;-</span> <span class="fu">setLassoLogisticRegression</span>(<span class="at">seed =</span> <span class="dv">0</span>)</span>
-<span id="cb188-2"><a href="SuggestedAnswers.html#cb188-2" tabindex="-1"></a></span>
-<span id="cb188-3"><a href="SuggestedAnswers.html#cb188-3" tabindex="-1"></a>lassoResults <span class="ot">&lt;-</span> <span class="fu">runPlp</span>(<span class="at">population =</span> population,</span>
-<span id="cb188-4"><a href="SuggestedAnswers.html#cb188-4" tabindex="-1"></a>                       <span class="at">plpData =</span> plpData,</span>
-<span id="cb188-5"><a href="SuggestedAnswers.html#cb188-5" tabindex="-1"></a>                       <span class="at">modelSettings =</span> lassoModel,</span>
-<span id="cb188-6"><a href="SuggestedAnswers.html#cb188-6" tabindex="-1"></a>                       <span class="at">testSplit =</span> <span class="st">&#39;person&#39;</span>,</span>
-<span id="cb188-7"><a href="SuggestedAnswers.html#cb188-7" tabindex="-1"></a>                       <span class="at">testFraction =</span> <span class="fl">0.25</span>,</span>
-<span id="cb188-8"><a href="SuggestedAnswers.html#cb188-8" tabindex="-1"></a>                       <span class="at">nfold =</span> <span class="dv">2</span>,</span>
-<span id="cb188-9"><a href="SuggestedAnswers.html#cb188-9" tabindex="-1"></a>                       <span class="at">splitSeed =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="SuggestedAnswers.html#cb190-1" tabindex="-1"></a>lassoModel <span class="ot">&lt;-</span> <span class="fu">setLassoLogisticRegression</span>(<span class="at">seed =</span> <span class="dv">0</span>)</span>
+<span id="cb190-2"><a href="SuggestedAnswers.html#cb190-2" tabindex="-1"></a></span>
+<span id="cb190-3"><a href="SuggestedAnswers.html#cb190-3" tabindex="-1"></a>lassoResults <span class="ot">&lt;-</span> <span class="fu">runPlp</span>(<span class="at">population =</span> population,</span>
+<span id="cb190-4"><a href="SuggestedAnswers.html#cb190-4" tabindex="-1"></a>                       <span class="at">plpData =</span> plpData,</span>
+<span id="cb190-5"><a href="SuggestedAnswers.html#cb190-5" tabindex="-1"></a>                       <span class="at">modelSettings =</span> lassoModel,</span>
+<span id="cb190-6"><a href="SuggestedAnswers.html#cb190-6" tabindex="-1"></a>                       <span class="at">testSplit =</span> <span class="st">&#39;person&#39;</span>,</span>
+<span id="cb190-7"><a href="SuggestedAnswers.html#cb190-7" tabindex="-1"></a>                       <span class="at">testFraction =</span> <span class="fl">0.25</span>,</span>
+<span id="cb190-8"><a href="SuggestedAnswers.html#cb190-8" tabindex="-1"></a>                       <span class="at">nfold =</span> <span class="dv">2</span>,</span>
+<span id="cb190-9"><a href="SuggestedAnswers.html#cb190-9" tabindex="-1"></a>                       <span class="at">splitSeed =</span> <span class="dv">0</span>)</span></code></pre></div>
 <p>この例では、LASSOのクロスバリデーションと訓練用・テスト用データ分割の両方に対して乱数によるシード値を設定し、複数回の実行で結果が同じになるようにしていることに注意してください。</p>
 <p>Shinyアプリを使用して結果を表示することができます：</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="SuggestedAnswers.html#cb189-1" tabindex="-1"></a><span class="fu">viewPlp</span>(lassoResults)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="SuggestedAnswers.html#cb191-1" tabindex="-1"></a><span class="fu">viewPlp</span>(lassoResults)</span></code></pre></div>
 <p>これにより、図 <a href="SuggestedAnswers.html#fig:plpShiny">E.18</a>に示されるようにアプリが起動されます。ここで、テスト用データセットのAUCが0.645であり、ランダムな推測よりも優れているものの、臨床における実装には十分ではないかもしれないことがわかります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:plpShiny"></span>
 <img src="images/SuggestedAnswers/plpShiny.png" alt="Shinyアプリによる患者レベルの予測の表示" width="100%" />
@@ -1765,28 +1765,28 @@ div.csl-indent {
 <div id="演習-refexrexerciserunachilles" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="DataQuality.html#exr:exerciseRunAchilles">15.1</a><a href="SuggestedAnswers.html#演習-refexrexerciserunachilles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ACHILLESを実行するには:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="SuggestedAnswers.html#cb190-1" tabindex="-1"></a><span class="fu">library</span>(ACHILLES)</span>
-<span id="cb190-2"><a href="SuggestedAnswers.html#cb190-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">achilles</span>(connectionDetails,</span>
-<span id="cb190-3"><a href="SuggestedAnswers.html#cb190-3" tabindex="-1"></a>                   <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb190-4"><a href="SuggestedAnswers.html#cb190-4" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb190-5"><a href="SuggestedAnswers.html#cb190-5" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
-<span id="cb190-6"><a href="SuggestedAnswers.html#cb190-6" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> <span class="st">&quot;5.3.0&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="SuggestedAnswers.html#cb192-1" tabindex="-1"></a><span class="fu">library</span>(ACHILLES)</span>
+<span id="cb192-2"><a href="SuggestedAnswers.html#cb192-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">achilles</span>(connectionDetails,</span>
+<span id="cb192-3"><a href="SuggestedAnswers.html#cb192-3" tabindex="-1"></a>                   <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb192-4"><a href="SuggestedAnswers.html#cb192-4" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb192-5"><a href="SuggestedAnswers.html#cb192-5" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
+<span id="cb192-6"><a href="SuggestedAnswers.html#cb192-6" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> <span class="st">&quot;5.3.0&quot;</span>)</span></code></pre></div>
 </div>
 <div id="演習-refexrexerciserundqd" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="DataQuality.html#exr:exerciseRunDQD">15.2</a><a href="SuggestedAnswers.html#演習-refexrexerciserundqd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>データ品質ダッシュボード(Data Quality Dashbard, DQD)を実行するには:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="SuggestedAnswers.html#cb191-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(</span>
-<span id="cb191-2"><a href="SuggestedAnswers.html#cb191-2" tabindex="-1"></a>  connectionDetails,</span>
-<span id="cb191-3"><a href="SuggestedAnswers.html#cb191-3" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb191-4"><a href="SuggestedAnswers.html#cb191-4" tabindex="-1"></a>  <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
-<span id="cb191-5"><a href="SuggestedAnswers.html#cb191-5" tabindex="-1"></a>  <span class="at">cdmSourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
-<span id="cb191-6"><a href="SuggestedAnswers.html#cb191-6" tabindex="-1"></a>  <span class="at">outputFolder =</span> <span class="st">&quot;C:/dataQualityExample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="SuggestedAnswers.html#cb193-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(</span>
+<span id="cb193-2"><a href="SuggestedAnswers.html#cb193-2" tabindex="-1"></a>  connectionDetails,</span>
+<span id="cb193-3"><a href="SuggestedAnswers.html#cb193-3" tabindex="-1"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb193-4"><a href="SuggestedAnswers.html#cb193-4" tabindex="-1"></a>  <span class="at">resultsDatabaseSchema =</span> <span class="st">&quot;main&quot;</span>,</span>
+<span id="cb193-5"><a href="SuggestedAnswers.html#cb193-5" tabindex="-1"></a>  <span class="at">cdmSourceName =</span> <span class="st">&quot;Eunomia&quot;</span>,</span>
+<span id="cb193-6"><a href="SuggestedAnswers.html#cb193-6" tabindex="-1"></a>  <span class="at">outputFolder =</span> <span class="st">&quot;C:/dataQualityExample&quot;</span>)</span></code></pre></div>
 </div>
 <div id="演習-refexrexerciseviewdqd" class="section level4 unnumbered hasAnchor">
 <h4>演習 <a href="DataQuality.html#exr:exerciseViewDQD">15.3</a><a href="SuggestedAnswers.html#演習-refexrexerciseviewdqd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>データ品質チェックのリストを見るには:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="SuggestedAnswers.html#cb192-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">viewDqDashboard</span>(</span>
-<span id="cb192-2"><a href="SuggestedAnswers.html#cb192-2" tabindex="-1"></a>  <span class="st">&quot;C:/dataQualityExample/Eunomia/results_Eunomia.json&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="SuggestedAnswers.html#cb194-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">viewDqDashboard</span>(</span>
+<span id="cb194-2"><a href="SuggestedAnswers.html#cb194-2" tabindex="-1"></a>  <span class="st">&quot;C:/dataQualityExample/Eunomia/results_Eunomia.json&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

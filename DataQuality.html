@@ -900,17 +900,17 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <p></p>
 <p>高度なデータ品質のチェックに加え、個別レベルでのデータチェックも実施すべきです。データがCDMに変換されるETL（抽出-変換-ロード）プロセスは、非常に複雑であることがよくあり、その複雑さゆえに、気づかれないままミスが発生する危険性があります。さらに、時間の経過とともにソースデータモデルが変更されたり、CDMが更新されたりすることもあり、ETLプロセスを修正する必要が生じます。ETL のように複雑なプロセスに変更を加えると予期せぬ結果を招く可能性があり、ETL のすべての側面を再考し、再評価する必要が生じます。</p>
 <p>ETL が期待通りに動作し、その状態を維持できるようにするためには、一連のユニットテストを作成することが強く推奨されます。ユニットテストとは、自動的に単一の側面をチェックする小さなコードの断片です。<a href="https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html#ExtractTransformLoad">第6章</a>で説明したRabbit-in-a-Hatツールを使用すると、このようなユニットテストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下にユニットテストの例を示します。</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="DataQuality.html#cb137-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Framework.R&quot;</span>)</span>
-<span id="cb137-2"><a href="DataQuality.html#cb137-2" tabindex="-1"></a><span class="fu">declareTest</span>(<span class="dv">101</span>, <span class="st">&quot;Person gender mappings&quot;</span>)</span>
-<span id="cb137-3"><a href="DataQuality.html#cb137-3" tabindex="-1"></a><span class="fu">add_enrollment</span>(<span class="at">member_id =</span> <span class="st">&quot;M000000102&quot;</span>, <span class="at">gender_of_member =</span> <span class="st">&quot;male&quot;</span>)</span>
-<span id="cb137-4"><a href="DataQuality.html#cb137-4" tabindex="-1"></a><span class="fu">add_enrollment</span>(<span class="at">member_id =</span> <span class="st">&quot;M000000103&quot;</span>, <span class="at">gender_of_member =</span> <span class="st">&quot;female&quot;</span>)</span>
-<span id="cb137-5"><a href="DataQuality.html#cb137-5" tabindex="-1"></a><span class="fu">expect_person</span>(<span class="at">PERSON_ID =</span> <span class="dv">102</span>, <span class="at">GENDER_CONCEPT_ID =</span> <span class="dv">8507</span></span>
-<span id="cb137-6"><a href="DataQuality.html#cb137-6" tabindex="-1"></a><span class="fu">expect_person</span>(<span class="at">PERSON_ID =</span> <span class="dv">103</span>, <span class="at">GENDER_CONCEPT_ID =</span> <span class="dv">8532</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="DataQuality.html#cb139-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Framework.R&quot;</span>)</span>
+<span id="cb139-2"><a href="DataQuality.html#cb139-2" tabindex="-1"></a><span class="fu">declareTest</span>(<span class="dv">101</span>, <span class="st">&quot;Person gender mappings&quot;</span>)</span>
+<span id="cb139-3"><a href="DataQuality.html#cb139-3" tabindex="-1"></a><span class="fu">add_enrollment</span>(<span class="at">member_id =</span> <span class="st">&quot;M000000102&quot;</span>, <span class="at">gender_of_member =</span> <span class="st">&quot;male&quot;</span>)</span>
+<span id="cb139-4"><a href="DataQuality.html#cb139-4" tabindex="-1"></a><span class="fu">add_enrollment</span>(<span class="at">member_id =</span> <span class="st">&quot;M000000103&quot;</span>, <span class="at">gender_of_member =</span> <span class="st">&quot;female&quot;</span>)</span>
+<span id="cb139-5"><a href="DataQuality.html#cb139-5" tabindex="-1"></a><span class="fu">expect_person</span>(<span class="at">PERSON_ID =</span> <span class="dv">102</span>, <span class="at">GENDER_CONCEPT_ID =</span> <span class="dv">8507</span></span>
+<span id="cb139-6"><a href="DataQuality.html#cb139-6" tabindex="-1"></a><span class="fu">expect_person</span>(<span class="at">PERSON_ID =</span> <span class="dv">103</span>, <span class="at">GENDER_CONCEPT_ID =</span> <span class="dv">8532</span>)</span></code></pre></div>
 <p>この例では、Rabbit-in-a-Hatによって生成されたフレームワークがソースとして読み込まれ、コードの残りの部分で使用される関数が読み込まれます。次に、人物の性別マッピングのテストを開始することを宣言します。ソース・スキーマにはENROLLMENTテーブルがあり、Rabbit-in-a-Hatによって作成されたadd_enrollment関数を使用して、MEMBER_IDおよびGENDER_OF_MEMBERフィールドに異なる値を持つ2つのエントリを作成します。最後に、ETL 実行後には、さまざまな期待値を持つ 2 つのエントリが PERSON テーブルに存在しているはずであるという期待値を指定します。</p>
 <p>ENROLLMENT テーブルには他にも多くのフィールドがありますが、このテストのコンテキストでは、それらのフィールドの値についてはあまり気にする必要はありません。ただし、それらの値（生年月日など）を空のままにしておくと、ETL がレコードを破棄したりエラーを発生させたりする可能性があります。この問題を克服し、テストコードを読みやすく保つために、<code>add_enrollment</code>関数は、ユーザーによって明示的に指定されていないフィールド値にデフォルト値（White Rabbit スキャンレポートで観測された最も一般的な値）を割り当てます。</p>
 <p>同様のユニットテストをETLの他のすべてのロジックに対して作成することもでき、通常は数百のテストが作成されます。テストの定義が完了したら、フレームワークを使用して2つのSQLステートメントセットを生成します。1つは偽のソースデータを作成し、もう1つはETL化されたデータに対するテストを作成します。</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="DataQuality.html#cb138-1" tabindex="-1"></a>insertSql <span class="ot">&lt;-</span> <span class="fu">generateInsertSql</span>(<span class="at">databaseSchema =</span> <span class="st">&quot;source_schema&quot;</span>)</span>
-<span id="cb138-2"><a href="DataQuality.html#cb138-2" tabindex="-1"></a>testSql <span class="ot">&lt;-</span> <span class="fu">generateTestSql</span>(<span class="at">databaseSchema =</span> <span class="st">&quot;cdm_test_schema&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="DataQuality.html#cb140-1" tabindex="-1"></a>insertSql <span class="ot">&lt;-</span> <span class="fu">generateInsertSql</span>(<span class="at">databaseSchema =</span> <span class="st">&quot;source_schema&quot;</span>)</span>
+<span id="cb140-2"><a href="DataQuality.html#cb140-2" tabindex="-1"></a>testSql <span class="ot">&lt;-</span> <span class="fu">generateTestSql</span>(<span class="at">databaseSchema =</span> <span class="st">&quot;cdm_test_schema&quot;</span>)</span></code></pre></div>
 <p>全体のプロセスは図 <a href="DataQuality.html#fig:testFramework">15.1</a> に示されています。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:testFramework"></span>
 <img src="images/DataQuality/testFramework.png" alt="Rabbit-in-a-Hat テストフレームワークを使用した ETL (Extract-Transform-Load) プロセスの単体テスト" width="90%" />
@@ -974,26 +974,26 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <h2><span class="header-section-number">15.4</span> 実践におけるACHILLES<a href="DataQuality.html#achillesInPractice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ここでは、CDM形式のデータベースに対してACHILLESを実行する方法を説明します。</p>
 <p>まず、Rにサーバーへの接続方法を指示する必要があります。ACHILLESは、<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>パッケージを使用しており、このパッケージは<code>createConnectionDetails</code>と呼ばれる関数を提供しています。<code>createConnectionDetails</code>と入力すると、さまざまなデータベース管理システム（DBMS）に必要な特定の設定を行うことができます。例えば、以下のコードを使用してPostgreSQLデータベースに接続することができます。</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="DataQuality.html#cb139-1" tabindex="-1"></a><span class="fu">library</span>(Achilles)</span>
-<span id="cb139-2"><a href="DataQuality.html#cb139-2" tabindex="-1"></a>connDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(<span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
-<span id="cb139-3"><a href="DataQuality.html#cb139-3" tabindex="-1"></a>                                       <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
-<span id="cb139-4"><a href="DataQuality.html#cb139-4" tabindex="-1"></a>                                       <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
-<span id="cb139-5"><a href="DataQuality.html#cb139-5" tabindex="-1"></a>                                       <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
-<span id="cb139-6"><a href="DataQuality.html#cb139-6" tabindex="-1"></a></span>
-<span id="cb139-7"><a href="DataQuality.html#cb139-7" tabindex="-1"></a>cdmDbSchema <span class="ot">&lt;-</span> <span class="st">&quot;my_cdm_data&quot;</span></span>
-<span id="cb139-8"><a href="DataQuality.html#cb139-8" tabindex="-1"></a>cdmVersion <span class="ot">&lt;-</span> <span class="st">&quot;5.3.0&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="DataQuality.html#cb141-1" tabindex="-1"></a><span class="fu">library</span>(Achilles)</span>
+<span id="cb141-2"><a href="DataQuality.html#cb141-2" tabindex="-1"></a>connDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(<span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
+<span id="cb141-3"><a href="DataQuality.html#cb141-3" tabindex="-1"></a>                                       <span class="at">server =</span> <span class="st">&quot;localhost/ohdsi&quot;</span>,</span>
+<span id="cb141-4"><a href="DataQuality.html#cb141-4" tabindex="-1"></a>                                       <span class="at">user =</span> <span class="st">&quot;joe&quot;</span>,</span>
+<span id="cb141-5"><a href="DataQuality.html#cb141-5" tabindex="-1"></a>                                       <span class="at">password =</span> <span class="st">&quot;supersecret&quot;</span>)</span>
+<span id="cb141-6"><a href="DataQuality.html#cb141-6" tabindex="-1"></a></span>
+<span id="cb141-7"><a href="DataQuality.html#cb141-7" tabindex="-1"></a>cdmDbSchema <span class="ot">&lt;-</span> <span class="st">&quot;my_cdm_data&quot;</span></span>
+<span id="cb141-8"><a href="DataQuality.html#cb141-8" tabindex="-1"></a>cdmVersion <span class="ot">&lt;-</span> <span class="st">&quot;5.3.0&quot;</span></span></code></pre></div>
 <p>最後の2行では、<code>cdmDbSchema</code>変数とCDMのバージョンを定義しています。 これらは、CDM形式のデータがどこに存在し、どのバージョンのCDMが使用されているかをRに伝えるために使用します。Microsoft SQL Serverでは、データベーススキーマではデータベースとスキーマの両方を指定する必要があることに留意ください。例えば、<code>cdmDbSchema &lt;- 「my_cdm_data.dbo」</code>となります。</p>
 <p>次に、ACHILLESを実行します：</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="DataQuality.html#cb140-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">achilles</span>(connectionDetails,</span>
-<span id="cb140-2"><a href="DataQuality.html#cb140-2" tabindex="-1"></a>                   <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb140-3"><a href="DataQuality.html#cb140-3" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb140-4"><a href="DataQuality.html#cb140-4" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;My database&quot;</span>,</span>
-<span id="cb140-5"><a href="DataQuality.html#cb140-5" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> cdmVersion)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="DataQuality.html#cb142-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">achilles</span>(connectionDetails,</span>
+<span id="cb142-2"><a href="DataQuality.html#cb142-2" tabindex="-1"></a>                   <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb142-3"><a href="DataQuality.html#cb142-3" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb142-4"><a href="DataQuality.html#cb142-4" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;My database&quot;</span>,</span>
+<span id="cb142-5"><a href="DataQuality.html#cb142-5" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> cdmVersion)</span></code></pre></div>
 <p>この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベースの特性を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="DataQuality.html#cb141-1" tabindex="-1"></a><span class="fu">exportToJson</span>(connectionDetails,</span>
-<span id="cb141-2"><a href="DataQuality.html#cb141-2" tabindex="-1"></a>             <span class="at">cdmDatabaseSchema =</span> cdmDatabaseSchema,</span>
-<span id="cb141-3"><a href="DataQuality.html#cb141-3" tabindex="-1"></a>             <span class="at">resultsDatabaseSchema =</span> cdmDatabaseSchema,</span>
-<span id="cb141-4"><a href="DataQuality.html#cb141-4" tabindex="-1"></a>             <span class="at">outputPath =</span> <span class="st">&quot;achillesOut&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="DataQuality.html#cb143-1" tabindex="-1"></a><span class="fu">exportToJson</span>(connectionDetails,</span>
+<span id="cb143-2"><a href="DataQuality.html#cb143-2" tabindex="-1"></a>             <span class="at">cdmDatabaseSchema =</span> cdmDatabaseSchema,</span>
+<span id="cb143-3"><a href="DataQuality.html#cb143-3" tabindex="-1"></a>             <span class="at">resultsDatabaseSchema =</span> cdmDatabaseSchema,</span>
+<span id="cb143-4"><a href="DataQuality.html#cb143-4" tabindex="-1"></a>             <span class="at">outputPath =</span> <span class="st">&quot;achillesOut&quot;</span>)</span></code></pre></div>
 <p>JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWebウェブアプリケーションと併用して結果を調査することができます。例えば、図<a href="https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#fig:achillesDataDensity">15.4</a>はACHILLESデータ密度プロットを示しています。このプロットは、データの大部分が2005年から始まっていることを示しています。しかし、1961年頃のレコードもいくつか存在しているように見えますが、これはおそらくデータのエラーです。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:achillesDataDensity"></span>
 <img src="images/DataQuality/achillesDataDensity.png" alt="The data density plot in the ACHILLES web viewer." width="100%" />
@@ -1014,15 +1014,15 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <p>ここでは、CDM 形式のデータベースに対してデータ品質ダッシュボードを実行する方法を説明します。 これを行うには、セクション<a href="https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#achillesInPractice">15.4</a>で説明されているCDM接続に対して、一連のチェックを実行します。 現時点では、DQDはCDM v5.3.1のみをサポートしているため、接続する前にデータベースが正しいバージョンであることを確認してください。 ACHILLESの場合と同様に、Rにデータの検索先を指示するために、変数</p>
 <p><code>cdmDbSchema</code></p>
 <p>を作成する必要があります。</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="DataQuality.html#cb142-1" tabindex="-1"></a>cdmDbSchema <span class="ot">&lt;-</span> <span class="st">&quot;my_cdm_data.dbo&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="DataQuality.html#cb144-1" tabindex="-1"></a>cdmDbSchema <span class="ot">&lt;-</span> <span class="st">&quot;my_cdm_data.dbo&quot;</span></span></code></pre></div>
 <p>次に、Dashboardを実行します…</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="DataQuality.html#cb143-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb143-2"><a href="DataQuality.html#cb143-2" tabindex="-1"></a>                                      <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb143-3"><a href="DataQuality.html#cb143-3" tabindex="-1"></a>                                      <span class="at">resultsDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb143-4"><a href="DataQuality.html#cb143-4" tabindex="-1"></a>                                      <span class="at">cdmSourceName =</span> <span class="st">&quot;My database&quot;</span>,</span>
-<span id="cb143-5"><a href="DataQuality.html#cb143-5" tabindex="-1"></a>                                      <span class="at">outputFolder =</span> <span class="st">&quot;My output&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="DataQuality.html#cb145-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb145-2"><a href="DataQuality.html#cb145-2" tabindex="-1"></a>                                      <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb145-3"><a href="DataQuality.html#cb145-3" tabindex="-1"></a>                                      <span class="at">resultsDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb145-4"><a href="DataQuality.html#cb145-4" tabindex="-1"></a>                                      <span class="at">cdmSourceName =</span> <span class="st">&quot;My database&quot;</span>,</span>
+<span id="cb145-5"><a href="DataQuality.html#cb145-5" tabindex="-1"></a>                                      <span class="at">outputFolder =</span> <span class="st">&quot;My output&quot;</span>)</span></code></pre></div>
 <p>上記の関数は、指定されたスキーマ上で利用可能なすべてのデータ品質チェックを実行します。その後、resultsDatabaseSchemaにテーブルを書き込みます。ここでは、CDMと同じスキーマに設定しています。このテーブルには、CDMテーブル、CDMフィールド、チェック名、チェックの説明、Kahnのカテゴリーおよびサブカテゴリー、違反行の数、閾値レベル、チェックの合否など、各チェック実行に関するすべての情報が含まれます。この関数は、テーブルに加えて、outputFolderとして指定された場所にJSONファイルも書き込みます。このJSONファイルを使用して、結果を検査するためのウェブビューアーを起動することができます。</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="DataQuality.html#cb144-1" tabindex="-1"></a><span class="fu">viewDqDashboard</span>(jsonPath)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="DataQuality.html#cb146-1" tabindex="-1"></a><span class="fu">viewDqDashboard</span>(jsonPath)</span></code></pre></div>
 <p>変数<code>jsonPath</code>は、上記の<code>executeDqChecks</code>関数を呼び出す際に指定した<code>outputFolder</code>にある、ダッシュボードの結果を含むJSONファイルへのパスである必要があります。</p>
 <p>最初にダッシュボードを開くと、図<a href="https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#fig:dqdOverview">15.6</a>に示すような概要テーブルが表示されます。このテーブルには、コンテキスト別に分類された各Kahnカテゴリで実行されたチェックの合計数、それぞれの合格数と合格率、および全体の合格率が表示されます。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dqdOverview"></span>
@@ -1042,14 +1042,14 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <div id="特定の研究チェックの実践" class="section level2 hasAnchor" number="15.6">
 <h2><span class="header-section-number">15.6</span> 特定の研究チェックの実践<a href="DataQuality.html#特定の研究チェックの実践" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>次に、付録<a href="https://ohdsi.github.io/TheBookOfOhdsi/CohortDefinitions.html#Angioedema">B.4</a>で提供されている血管性浮腫コホート定義に特化したいくつかのチェックを実行します。接続の詳細はセクション<a href="https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#achillesInPractice">15.4</a>で説明されているように設定済みであり、コホート定義のJSONとSQLはそれぞれ「cohort.json」と「cohort.sql」というファイルに保存済みであると仮定します。JSONとSQLは、ATLASコホート定義機能のエクスポートタブから取得できます。</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="DataQuality.html#cb145-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
-<span id="cb145-2"><a href="DataQuality.html#cb145-2" tabindex="-1"></a>json <span class="ot">&lt;-</span> <span class="fu">readChar</span>(<span class="st">&quot;cohort.json&quot;</span>, <span class="fu">file.info</span>(<span class="st">&quot;cohort.json&quot;</span>)<span class="sc">$</span>size)</span>
-<span id="cb145-3"><a href="DataQuality.html#cb145-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="fu">readChar</span>(<span class="st">&quot;cohort.sql&quot;</span>, <span class="fu">file.info</span>(<span class="st">&quot;cohort.sql&quot;</span>)<span class="sc">$</span>size)</span>
-<span id="cb145-4"><a href="DataQuality.html#cb145-4" tabindex="-1"></a><span class="fu">checkCohortSourceCodes</span>(connectionDetails,</span>
-<span id="cb145-5"><a href="DataQuality.html#cb145-5" tabindex="-1"></a>                       <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb145-6"><a href="DataQuality.html#cb145-6" tabindex="-1"></a>                       <span class="at">cohortJson =</span> json,</span>
-<span id="cb145-7"><a href="DataQuality.html#cb145-7" tabindex="-1"></a>                       <span class="at">cohortSql =</span> sql,</span>
-<span id="cb145-8"><a href="DataQuality.html#cb145-8" tabindex="-1"></a>                       <span class="at">outputFile =</span> <span class="st">&quot;output.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="DataQuality.html#cb147-1" tabindex="-1"></a><span class="fu">library</span>(MethodEvaluation)</span>
+<span id="cb147-2"><a href="DataQuality.html#cb147-2" tabindex="-1"></a>json <span class="ot">&lt;-</span> <span class="fu">readChar</span>(<span class="st">&quot;cohort.json&quot;</span>, <span class="fu">file.info</span>(<span class="st">&quot;cohort.json&quot;</span>)<span class="sc">$</span>size)</span>
+<span id="cb147-3"><a href="DataQuality.html#cb147-3" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="fu">readChar</span>(<span class="st">&quot;cohort.sql&quot;</span>, <span class="fu">file.info</span>(<span class="st">&quot;cohort.sql&quot;</span>)<span class="sc">$</span>size)</span>
+<span id="cb147-4"><a href="DataQuality.html#cb147-4" tabindex="-1"></a><span class="fu">checkCohortSourceCodes</span>(connectionDetails,</span>
+<span id="cb147-5"><a href="DataQuality.html#cb147-5" tabindex="-1"></a>                       <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb147-6"><a href="DataQuality.html#cb147-6" tabindex="-1"></a>                       <span class="at">cohortJson =</span> json,</span>
+<span id="cb147-7"><a href="DataQuality.html#cb147-7" tabindex="-1"></a>                       <span class="at">cohortSql =</span> sql,</span>
+<span id="cb147-8"><a href="DataQuality.html#cb147-8" tabindex="-1"></a>                       <span class="at">outputFile =</span> <span class="st">&quot;output.html&quot;</span>)</span></code></pre></div>
 <p>出力ファイルをウェブブラウザで開くことができます（図<a href="DataQuality.html#fig:sourceCodesAngioedema">15.8</a>）。ここでは、血管性浮腫のコホート定義には”入院またはER訪問”と”血管性浮腫”という二つのコンセプトセットがあります。この例のデータベースでは、訪問は”ER”および”IP”というデータベース固有のソースコードによって見つかり、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって見つかります。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sourceCodesAngioedema"></span>
 <img src="images/DataQuality/sourceCodesAngioedema.png" alt="血管性浮腫のコホート定義で使用されるソースコード" width="100%" />
@@ -1058,14 +1058,14 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 </p>
 </div>
 <p>次に、標準コンセプトコードにマッピングされていない孤立したソースコードを検索できます。ここでは、標準コンセプト「Angioedema」を検索し、名前の一部として”Angioedema”または提供する同義語を含むコードやコンセプトを探します。</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="DataQuality.html#cb146-1" tabindex="-1"></a>orphans <span class="ot">&lt;-</span> <span class="fu">findOrphanSourceCodes</span>(connectionDetails,</span>
-<span id="cb146-2"><a href="DataQuality.html#cb146-2" tabindex="-1"></a>                                 <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
-<span id="cb146-3"><a href="DataQuality.html#cb146-3" tabindex="-1"></a>                                 <span class="at">conceptName =</span> <span class="st">&quot;Angioedema&quot;</span>,</span>
-<span id="cb146-4"><a href="DataQuality.html#cb146-4" tabindex="-1"></a>                                 <span class="at">conceptSynonyms =</span> <span class="fu">c</span>(<span class="st">&quot;Angioneurotic edema&quot;</span>,</span>
-<span id="cb146-5"><a href="DataQuality.html#cb146-5" tabindex="-1"></a>                                                     <span class="st">&quot;Giant hives&quot;</span>,</span>
-<span id="cb146-6"><a href="DataQuality.html#cb146-6" tabindex="-1"></a>                                                     <span class="st">&quot;Giant urticaria&quot;</span>,</span>
-<span id="cb146-7"><a href="DataQuality.html#cb146-7" tabindex="-1"></a>                                                     <span class="st">&quot;Periodic edema&quot;</span>))</span>
-<span id="cb146-8"><a href="DataQuality.html#cb146-8" tabindex="-1"></a><span class="fu">View</span>(orphans)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="DataQuality.html#cb148-1" tabindex="-1"></a>orphans <span class="ot">&lt;-</span> <span class="fu">findOrphanSourceCodes</span>(connectionDetails,</span>
+<span id="cb148-2"><a href="DataQuality.html#cb148-2" tabindex="-1"></a>                                 <span class="at">cdmDatabaseSchema =</span> cdmDbSchema,</span>
+<span id="cb148-3"><a href="DataQuality.html#cb148-3" tabindex="-1"></a>                                 <span class="at">conceptName =</span> <span class="st">&quot;Angioedema&quot;</span>,</span>
+<span id="cb148-4"><a href="DataQuality.html#cb148-4" tabindex="-1"></a>                                 <span class="at">conceptSynonyms =</span> <span class="fu">c</span>(<span class="st">&quot;Angioneurotic edema&quot;</span>,</span>
+<span id="cb148-5"><a href="DataQuality.html#cb148-5" tabindex="-1"></a>                                                     <span class="st">&quot;Giant hives&quot;</span>,</span>
+<span id="cb148-6"><a href="DataQuality.html#cb148-6" tabindex="-1"></a>                                                     <span class="st">&quot;Giant urticaria&quot;</span>,</span>
+<span id="cb148-7"><a href="DataQuality.html#cb148-7" tabindex="-1"></a>                                                     <span class="st">&quot;Periodic edema&quot;</span>))</span>
+<span id="cb148-8"><a href="DataQuality.html#cb148-8" tabindex="-1"></a><span class="fu">View</span>(orphans)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="25%" />
@@ -1140,12 +1140,12 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <div id="前提条件-9" class="section level4 unnumbered hasAnchor">
 <h4>前提条件<a href="DataQuality.html#前提条件-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>これらの演習では、セクション<a href="https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html#installR">8.4.5</a>で説明されているように、R、R-Studio、およびJavaがインストール済みであると想定します。また、<a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>、<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>、<a href="https://github.com/OHDSI/Achilles">ACHILLES</a>、および<a href="https://ohdsi.github.io/Eunomia/">Eunomia</a>パッケージも必要です。これらは、以下のコマンドでインストールできます：</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="DataQuality.html#cb147-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span>
-<span id="cb147-2"><a href="DataQuality.html#cb147-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Achilles&quot;</span>)</span>
-<span id="cb147-3"><a href="DataQuality.html#cb147-3" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/DataQualityDashboard&quot;</span>)</span>
-<span id="cb147-4"><a href="DataQuality.html#cb147-4" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="DataQuality.html#cb149-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span>
+<span id="cb149-2"><a href="DataQuality.html#cb149-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Achilles&quot;</span>)</span>
+<span id="cb149-3"><a href="DataQuality.html#cb149-3" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/DataQualityDashboard&quot;</span>)</span>
+<span id="cb149-4"><a href="DataQuality.html#cb149-4" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</span></code></pre></div>
 <p>Eunomiaパッケージは、ローカルのRセッション内で実行されるCDMのシミュレーションデータセットを提供します。接続情報は以下のコマンドで取得できます：</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="DataQuality.html#cb148-1" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> Eunomia<span class="sc">::</span><span class="fu">getEunomiaConnectionDetails</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="DataQuality.html#cb150-1" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> Eunomia<span class="sc">::</span><span class="fu">getEunomiaConnectionDetails</span>()</span></code></pre></div>
 <p>CDMデータベーススキーマは「main」です。</p>
 <div class="exercise">
 <p><span id="exr:exerciseRunAchilles" class="exercise"><strong>演習 15.1  </strong></span>Eunomiaデータベースに対してACHILLESを実行してください。</p>
