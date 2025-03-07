@@ -1,12 +1,12 @@
 # --翻訳作業中--　SQLとR {#SqlAndR}
 
-*章の著者: Martijn Schuemie & Peter Rijnbeek*
+*著者: Martijn Schuemie & Peter Rijnbeek*
 
 
 
-共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、またはMicrosoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods libraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースをクエリすることによって機能しますが、適切なアクセス権を持っていれば、私たちも直接データベースにクエリを実行することができます。これを行う主な理由は、現在のツールではサポートされていない分析を実行するためです。しかし、直接のクエリはミスを犯すリスクが高まり、OHDSIツールはしばしば適切なデータ分析へのガイドとしてデザインされているため、直接クエリにはそのようなガイドが提供されません。
+共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、Microsoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースにクエリを出すことで動作しますが、適切なアクセス権があれば、私たちも自身も直接データベースにクエリを出すことができます。その主な理由は、現在のツールではサポートされていない分析を行うためです。ただし、OHDSI ツールは多くの場合、ユーザーがデータを適切に分析できるよう、ガイドするように設計されているため、データベースを直接クエリすると、間違いを犯すリスクも高くなります。直接のクエリでは、そのようなガイドは提供されていません。
 
-リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。SQLの基本コマンドは確かに標準化されており、すべてのソフトウェアプラットフォームで同じですが、各プラットフォームには独自の表現があり、微妙な変更があります。例えば、SQL ServerでPERSONテーブルの上位10行を取得するには、次のように入力します： \index{SQL} \index{structured query language|see {SQL}}
+リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します。： \index{SQL} \index{structured query language|see {SQL}}
 
 
 ``` sql
@@ -20,32 +20,32 @@ SELECT TOP 10 * FROM person;
 SELECT * FROM person LIMIT 10;
 ```
 
-OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは[SqlRender](https://ohdsi.github.io/SqlRender/)パッケージを開発しました。これは、ある標準表現から後述するサポートされる表現のいずれかに翻訳できるRパッケージです。この標準表現 - **OHDSI SQL** - は主にSQL Server SQL表現のサブセットです。今章の例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
+OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは[SqlRender](https://ohdsi.github.io/SqlRender/)パッケージを開発しました。これは、ある標準の表現から後述するサポート対象の表現に翻訳できるRパッケージです。この標準表現である - **OHDSI SQL** - は主にSQL Server SQL表現のサブセットです。本章で例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
 
-各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できる1つのRパッケージである[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを開発しました。DatabaseConnectorもこの章の後半で説明します。 \index{DatabaseConnector}
+各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できるRパッケージ、[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)パッケージを開発しました。DatabaseConnectorも本章の後半で説明します。 \index{DatabaseConnector}
 
-したがって、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、1つのサイトで開発されたクエリが他のサイトでも修正なしで使用できるようになります。さらに、R自体がデータベースから抽出されたデータをさらに分析するための機能（統計分析の実行や（インタラクティブな）プロットの生成）を即座に提供します。 \index{R}
+そのため、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、あるサイトで開発されたクエリが他のサイトでも修正することなく使用できるようになります。R自体も、データベースから抽出されたデータをさらに分析する機能を提供しており、統計分析の実行や（インタラクティブな）プロットの生成などが可能です。 \index{R}
 
-この章では、読者がSQLの基本的な理解を持っていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法をレビューします。これらのパッケージを使用しない場合は、これらのセクションをスキップできます。セクション \@ref(QueryTheCdm) では、CDMをクエリするためのSQL（この場合OHDSI SQL）使用方法を説明します。次のセクションでは、CDMをクエリする際にOHDSI標準化されたボキャブラリを使用する方法を強調します。CDMに対する一般的なクエリのコレクションであるQueryLibraryを紹介し、公開されています。最後に、発生率を推定する例の研究を示し、この研究をSqlRenderとDatabaseConnectorを使用して実装します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+本章では、読者がSQLの基本的な理解をしていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法を確認します。これらのパッケージを使用しない場合は、このセクションをスキップいただいて構いません。セクション\@ref(QueryTheCdm) では、CDMにクエリを出すためのSQL（この場合OHDSI SQL）を使用する方法を説明します。次のセクションでは、CDMにクエリする際にOHDSI標準化ボキャブラリを使用する方法を説明します。CDMに対する一般的に使用されるクエリのコレクションであり、一般に公開されているQueryLibraryに焦点を当てます。本章の最後では、発生率を推定する研究例を取り上げ、SqlRenderとDatabaseConnectorを使用してこの研究を実施します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
 
 ## SqlRender {#SqlRender}
 
-[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージは CRAN（Comprehensive R Archive Network）で利用可能であり、以下の方法でインストールできます：
+[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージは CRAN（Comprehensive R Archive Network）で入手可能であり、以下のコマンドでインストールできます：
 
 
 ``` r
 install.packages("SqlRender")
 ```
 
-SqlRenderは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、SQLite、Oracle）を含む幅広い技術プラットフォーム、並列データウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、およびビッグデータプラットフォーム（Impala経由のHadoop、Google BigQuery）をサポートしています。このRパッケージには、パッケージマニュアルと機能の全体を探るためのビネットが付属しています。ここでは、主な機能のいくつかを説明します。
+SqlRenderは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、SQLite、Oracle）や並列データウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）に加え、ビッグデータプラットフォーム（Hadoop から Impala、Google BigQuery）など、幅広い技術プラットフォームをサポートしています。Rパッケージには、パッケージマニュアルと、全機能を紹介するビネットが付属しています。ここでは、主な機能の一部を紹介します。
 
 ### SQLのパラメータ設定
 
-パッケージの機能の一つは、SQLのパラメータ設定をサポートすることです。しばしば、いくつかのパラメータに基づいて小さなバリエーションのSQLを生成する必要があります。SqlRenderは、SQLコード内にパラメータ設定を可能にするシンプルなマークアップ文法を提供します。パラメータ値に基づいてSQLをレンダリングするには、`render()`関数を使用します。 \index{SqlRender!parameterization}
+パッケージの機能のひとつは、SQLのパラメータ化をサポートすることです。 しばしば、いくつかのパラメータに基づいて、SQLの小さなバリエーションを生成する必要があります。SqlRenderは、SQLコード内にシンプルなマークアップ構文を提供し、パラメータ化を可能にします。パラメータ値に基づくSQLのレンダリングは、`render()`関数を使用して行います。\index{SqlRender!parameterization}
 
 #### パラメータ値の置換 {.unnumbered}
 
-`@` 文字を使用して、レンダリング時に実際のパラメータ値と交換する必要があるパラメータ名を示します。以下の例では、SQL内で `a` という変数が言及されています。`render` 関数の呼び出しでは、このパラメータの値が定義されています：
+`@` 文字を使用して、レンダリング時に実際のパラメータ値と置換する必要があるパラメータ名を示します。以下の例では、SQL内で `a` という変数がSQLで言及されています。`render` 関数の呼び出しでは、このパラメータの値が定義されています：
 
 
 ``` r
@@ -57,7 +57,7 @@ render(sql, a = 123)
 ## [1] "SELECT * FROM concept WHERE concept_id = 123;"
 ```
 
-ほとんどのデータベース管理システムが提供するパラメータ設定とは異なり、値だけでなくテーブルやフィールド名も簡単にパラメータ化できます：
+ほとんどのデータベース管理システムが提供するパラメータ化とは異なり、テーブル名やフィールド名を値と同様に簡単にパラメータ化できることに注目ください。：
 
 
 ``` r
@@ -69,7 +69,7 @@ render(sql, x = "observation", a = 123)
 ## [1] "SELECT * FROM observation WHERE person_id = 123;"
 ```
 
-パラメータ値は、数値、文字列、2つの値（真または偽）のみを持つ変数コンマ区切りのリストに変換されるベクトルを使用できます。：
+パラメータ値は、数値、文字列、ブーリアン変数、ベクトル（カンマ区切りのリストに変換される）とすることができます。：
 
 
 ``` r
@@ -83,7 +83,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {.unnumbered}
 
-時々、あるパラメータの値に基づいてコードのブロックをオンまたはオフにする必要があります。これは `{Condition} ? {if true} : {if false}` 構文を使用して行われます。*condition* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが表示されます（存在する場合）。
+時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、`{Condition} ? {if true} : {if false}` 構文を使用して行います。*condition* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが（存在する場合）表示されます。
 
 
 ``` r
@@ -137,7 +137,7 @@ render(sql, x = 2)
 
 ### 他のSQL表現への置換
 
-[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージのもう一つの機能は、OHDSI SQLから他のSQL表現へ翻訳することです。例えば：
+[SqlRender](https://ohdsi.github.io/SqlRender/) パッケージのもう一つの機能は、OHDSI SQLから他のSQL表現へ変換することです。例えば：
 
 
 ``` r
@@ -154,14 +154,14 @@ translate(sql, targetDialect = "postgresql")
 `targetDialect` パラメータには次の値が設定可能です："oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", "sql server"。 \index{SqlRender!translation}
 
 \BeginKnitrBlock{rmdimportant}
-すべてのSQL関数や構造を正確に翻訳するには限界があります。パッケージに実装されている翻訳ルールが限られているためでもあり、一部のSQL機能がすべての表現に同等のものを持たないためです。これは、OHDSI SQLが独自の新しいSQL表現として開発された主な理由です。それでも、可能な限り、車輪の再発明を避けるためにSQL Serverの構文を維持しました。
+SQL関数や構文を適切に変換できる範囲には限界があります。その理由は、パッケージには限られた数の変換ルールしか実装されていないことと、一部のSQL機能にはすべての方言に相当するものがないことが挙げられます。これが、OHDSI SQLが独自の新しいSQL方言として開発された主な理由です。しかし、可能な限り、車輪の再発明を避けるためにSQL Serverの構文に従うようにしています。
 \EndKnitrBlock{rmdimportant}
 
-最善を尽くしても、すべてのサポートプラットフォームでエラーなしに実行できるOHDSI SQLを書くにはかなりの注意が必要です。以下にその検討事項を詳述します。
+最大限の努力を尽くしても、サポートされているすべてのプラットフォーム上でエラーなく実行されるOHDSI SQLを記載するには、考慮すべき点がいくつかあります。以下では、これらの考慮事項について詳しく説明します。
 
 #### Translateがサポートする関数と構造 {.unnumbered}
 
-これらのSQL Server関数はテストされ、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
+これらのSQL Server関数はテスト済であり、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
 | 関数              | 関数        | 関数       |
 |:------------------|:------------|:-----------|
@@ -184,11 +184,11 @@ translate(sql, targetDialect = "postgresql")
 | DAY               | PI          |            |
 | EOMONTH           | POWER       |            |
 
-: (#tab:sqlFunctions) "translate (翻訳)によりサポートされる機能
+: (#tab:sqlFunctions) "translate (翻訳)によりサポートされる関数と構造
 
 \* Oracleでは特別な権限が必要です。SQLiteでは同等のものがありません。
 
-同様に、多くのSQL構文構造がサポートされています。ここには、正確に翻訳されることが確認されている非網羅的なリストを示します：
+同様に、多くのSQL構文構造がサポートされています。以下は、正確に翻訳されることが確認されている非網羅的なリストです：
 
 ``` sql
 -- Simple selects:
@@ -248,11 +248,11 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### 文字列の連結 {.unnumbered}
 
-文字列連結は、SQL Serverが他の表現よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であることを推測しようとします。上記の例では、明示的な文字列（シングルクォートで囲まれたスペース）があるため、翻訳は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知らず、プラス記号を正しく残しません。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。したがって、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、`CONCAT()` 関数を使用するのがベストです。
+文字列の連結は、SQL Serverが他の言語よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であるかどうかを推測しようとします。上記の例では、明示的な文字列（シングルクォーテーションで囲まれたスペース）があるため、変換は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知る手がかりがなく、プラス記号を正しく残さないでしょう。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。 そのため、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、`CONCAT()` 関数を使用するのが最善の方法です。
 
 #### テーブルエイリアスとASキーワード {.unnumbered}
 
-多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題ありません。例えば、これらのSQL文はSQL Server、PostgreSQL、Redshiftなどのプラットフォームで問題ありません：
+多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します：
 
 ``` sql
 -- Using AS keyword
@@ -272,14 +272,14 @@ INNER JOIN (
 ON table_1.person_id = table_2.person_id;
 ```
 
-しかし、Oracleでは `AS` キーワードを使用するとエラーが発生します。上記の例では、最初のクエリが失敗します。そのため、テーブルのエイリアスを付ける際には `AS` キーワードを使用しないことを推奨します。（注：SqlRenderがこれを処理することはできません。Oracleが`AS` の使用を許可しているテーブルエイリアスを区別するのが難しいためです。）
+しかし、Oracleでは `AS` キーワードを使用するとエラーが発生します。上記の例では、最初のクエリは失敗します。そのため、テーブルにエイリアスを付ける際には `AS` キーワードを使用しないことを推奨します。（注：SqlRenderではOracleが`AS` の使用を許可していないテーブルエイリアスとOracleが`AS`の使用を要求しているフィールドエイリアスを区別できないため、この問題に対応するのは難しいです。）
 
-#### 一時テーブル {.unnumbered}
+#### テンポテーブル {.unnumbered}
 
-一時テーブルは中間結果を保存するのに非常に便利で、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、一時テーブルは非常に良い特性を持っています：現在のユーザーのみに表示され、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleでは一時テーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに表示されることです。このため、OracleではSqlRenderが以下の方法で一時テーブルをエミュレートしようとします。
+テンポテーブルは中間結果を保存するのに非常に有用であり、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、テンポラリテーブルには非常に優れた特性があります：現在のユーザーのみに参照でき、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleではテンポラリテーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに参照されるという点です。このため、OracleではSqlRenderが以下の方法でテンポラリテーブルをエミュレートしようとします。
 
 1.  異なるユーザーからのテーブルが競合しないように、テーブル名にランダムな文字列を追加します。
-2.  一時テーブルが作成されるスキーマをユーザーが指定できるようにします。
+2.  テンポラリテーブルが作成されるスキーマをユーザーが指定できるようにします。
 
 例えば：
 
@@ -295,20 +295,20 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.giqa36bhchildren ;"
+## [1] "SELECT * FROM temp_schema.nxarohinchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
 
 ユーザーは `temp_schema` に書き込み権限を持っている必要があります。
 
-また、Oracleではテーブル名の長さが30文字に制限されているため、**一時テーブル名は最大22文字以内である必要があります**。セッションIDを追加すると名前が長くなりすぎるためです。
+また、Oracleではテーブル名の長さが30文字に制限されているため、**テンポラリテーブル名は最大22文字以内である必要があります**。セッションIDを追加すると名前が長くなりすぎるためです。
 
-さらに、Oracleでは一時テーブルは自動的に削除されないため、使用が終わったときにはすべての一時テーブルを明示的に `TRUNCATE` および `DROP` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
+さらに、Oracleではテンポラリテーブルは自動的に削除されないため、使用後に明示的にすべてのテンポラリテーブルを `TRUNCATE` および `DROP` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
 
-#### 暗黙的なキャスト {.unnumbered}
+#### 暗黙の型変換 {.unnumbered}
 
-SQL Serverが他の表現よりも特異である数少ない点の1つは、暗黙のキャストを許可することです。例えば、このコードはSQL Serverで動作します：
+SQL Serverが他の言語よりも特異である数少ない点の1つは、暗黙の型変換が許可されていることです。例えば、次のコードはSQL Serverで動作します：
 
 ``` sql
 CREATE TABLE #temp (txt VARCHAR);
@@ -319,9 +319,7 @@ SELECT '1';
 SELECT * FROM #temp WHERE txt = 1;
 ```
 
-`txt` はVARCHARフィールドであり、私たちはそれを整数と比較していますが、SQL Serverは自動的に適切なタイプにキャストして比較を許可します。これに対して、PostgreSQLなどの他の表現は、VARCHARとINTを比較しようとするとエラーをスローします。
-
-したがって、常にキャストを明示的に行う必要があります。上記の例では、最後の文は次のいずれかに置き換える必要があります：
+`txt` がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、キャストは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：
 
 ``` sql
 SELECT * FROM #temp WHERE txt = CAST(1 AS VARCHAR);
@@ -335,13 +333,13 @@ SELECT * FROM #temp WHERE CAST(txt AS INT) = 1;
 
 #### 文字列比較における大文字・小文字の区別 {.unnumbered}
 
-SQL Serverなどの一部のDBMSプラットフォームは常に大文字と小文字を区別せずに文字列比較を行いますが、PostgreSQLなどの他のプラットフォームは常に大文字と小文字を区別します。したがって、常に大文字・小文字の区別を前提に比較を行い、大文字・小文字の区別が不明な場合は明示的に大文字・小文字の区別をしないようにすることをお勧めします。例えば、次のように：
+SQL Serverなどの一部のDBMSプラットフォームは常に大文字と小文字を区別せずに文字列比較を行いますが、PostgreSQLなどの他のプラットフォームは常に大文字と小文字を区別します。そのため、常に大文字・小文字を区別する比較を行うことを前提とし、大文字・小文字の区別が不明な場合は明示的に大文字・小文字の区別をしないようにすることを推奨します。例えば、次のように：
 
 ``` sql
 SELECT * FROM concept WHERE concept_class_id = 'Clinical Finding'
 ```
 
-代わりに次のように記述することが推奨されます：
+代わりに以下のように記述することが推奨されます：
 
 ``` sql
 SELECT * FROM concept WHERE LOWER(concept_class_id) = 'clinical finding'
@@ -349,9 +347,7 @@ SELECT * FROM concept WHERE LOWER(concept_class_id) = 'clinical finding'
 
 #### スキーマとデータベース {.unnumbered}
 
-SQL Serverでは、テーブルはスキーマにあり、スキーマはデータベースに存在します。例えば、`cdm_data.dbo.person` は `cdm_data` データベース内の `dbo` スキーマ内の `person` テーブルを指します。他の表現でも同様の階層が存在しますが、使用方法が非常に異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（しばしば `dbo` と呼ばれる）が存在し、ユーザーは異なるデータベースのデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一のセッション内で異なるデータベースのデータを使用することはできませんが、通常他のデータベースム範多くのスキーマがあります。 PostgreSQLでは、SQL Serverのデータベースに相当するのはスキーマであると言えます。
-
-したがって、SQL Serverのデータベースとスキーマを単一のパラメータに連結することをお勧めします。このパラメータを `@databaseSchema` と呼ぶことが一般的です。例えば、パラメータ化されたSQLでは次のようになります：
+SQL Serverでは、テーブルはスキーマ内にあり、スキーマはデータベース内にあります。例えば、`cdm_data.dbo.person` は `cdm_data` データベース内の `dbo` スキーマ内の `person` テーブルを指します。他の言語でも同様の階層が存在しますが、使用方法が大きく異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（`dbo` と呼ばれることが多い）が存在し、ユーザーは異なるデータベース内のデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一セッションでデータベースをまたいだデータの使用はできませんが、データベース内に多くのスキーマが存在することがよくあります。PostgreSQLでは、SQL Serverのデータベースに相当するものがスキーマであると言えます。 そのため、SQL Serverのデータベースとスキーマを1つのパラメータに結合することを推奨します。通常、これを `@databaseSchema` と呼びます。例えば、パラメータ化されたSQLでは次のようになります：
 
 ``` sql
 SELECT * FROM @databaseSchema.person
@@ -359,13 +355,13 @@ SELECT * FROM @databaseSchema.person
 
 SQL Serverでは、値にデータベース名とスキーマ名の両方を含めることができます：`databaseSchema = "cdm_data.dbo"`。他のプラットフォームでは、同じコードを使用し、パラメータ値としてスキーマのみを指定します：`databaseSchema = "cdm_data"`。
 
-この方法が失敗する唯一の状況は `USE` コマンドです。`USE cdm_data.dbo;` はエラーをスローします。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、`USE` コマンドの使用を避けることをお勧めします。
+この方法が失敗する唯一の状況は `USE` コマンドを使用した場合です。`USE cdm_data.dbo;` エラーが発生します。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、`USE` コマンドの使用を避けることを推奨します。
 
 #### パラメータ化されたSQLのデバッグ {.unnumbered}
 
 パラメータ化されたSQLのデバッグは少し複雑になることがあります。レンダリングされたSQLのみがデータベースサーバーでテストできますが、コードの変更はパラメータ化された（レンダリング前の）SQLで行う必要があります。 \index{SqlRender!debugging}
 
-ソースSQLをインタラクティブに編集し、レンダリングおよび翻訳されたSQLを生成するためのShinyアプリが SqlRender パッケージに含まれています。このアプリは次の方法で起動できます：
+ソースのSQLをインタラクティブに編集し、レンダリングおよび翻訳されたSQLを生成するためのShinyアプリが SqlRender パッケージに含まれています。このアプリは次の方法で起動できます：
 
 
 ``` r
@@ -396,11 +392,11 @@ launchSqlRenderDeveloper()
 install.packages("DatabaseConnector")
 ```
 
-DatabaseConnectorは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、SQLite、およびOracle）、並列データウェアハウス（Microsoft APS、IBM Netezza、およびAmazon）、ならびにビッグデータプラットフォーム（Hadoopを介したImpala、およびGoogle BigQuery）など、広範な技術プラットフォームをサポートしています。このパッケージにはすでにほとんどのドライバが含まれていますが、ライセンス上の理由からBigQuery、Netezza、およびImpalaのドライバは含まれておらず、ユーザーが入手する必要があります。これらのドライバのダウンロード方法については、`?jdbcDrivers`を参照してください。ダウンロード後、`connect`、`dbConnect`、`createConnectionDetails`関数の`pathToDriver`引数を使用できます。
+DatabaseConnectorは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、SQLite、およびOracle）、並列データウェアハウス（Microsoft APS、IBM Netezza、Amazon）、ならびにビッグデータプラットフォーム（Hadoopを介したImpala、およびGoogle BigQuery）など、広範な技術プラットフォームをサポートしています。このパッケージにはすでにほとんどのドライバが含まれていますが、ライセンス上の理由からBigQuery、Netezza、Impalaのドライバは含まれておらず、ユーザーが入手する必要があります。これらのドライバのダウンロード方法については、`?jdbcDrivers`を参照ください。ダウンロード後、`connect`、`dbConnect`、`createConnectionDetails`関数の`pathToDriver`引数を使用できます。
 
 ### 接続の作成
 
-データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、およびパスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます: \index{DatabaseConnector!creating a connection}
+データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、パスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます: \index{DatabaseConnector!creating a connection}
 
 
 ``` r
@@ -416,14 +412,14 @@ conn <- connect(dbms = "postgresql",
 ## Connecting using PostgreSQL driver
 ```
 
-各プラットフォームに必要な詳細については、`?connect`を参照してください。接続後は忘れずに接続を閉じてください：
+各プラットフォームに必要な詳細情報については、`?connect`を参照ください。接続を閉じたことを必ず確認ください：
 
 
 ``` r
 disconnect(conn)
 ```
 
-サーバー名を提供する代わりに、JDBC接続文字列を提供することも可能です：
+サーバー名を指定する代わりに、JDBC接続文字列を提供することも可能です。さらに便利な場合は、こちらを使用することもできます。：
 
 
 ``` r
@@ -440,7 +436,7 @@ conn <- connect(dbms = "postgresql",
 ## Connecting using PostgreSQL driver
 ```
 
-場合によっては、接続の詳細を先に指定し、接続を後回しにすることが便利なこともあります。例えば、接続が関数内で確立される場合、その詳細を引数として渡す必要があります。この目的のために、`createConnectionDetails`関数を使用できます：
+場合によっては、接続の詳細を先に指定し、接続を後にしたい場合もあるでしょう。例えば、接続が関数内で確立される場合、詳細を引数として渡す必要がある場合に有用です。この目的には、`createConnectionDetails`関数を使用できます：
 
 
 ``` r
@@ -459,9 +455,9 @@ conn <- connect(details)
 
 ### クエリの実行
 
-データベースにクエリを実行するための主な関数は、`querySql`と`executeSql`です。`querySql`はデータがデータベースから返されることを期待しており、一度に1つのSQLステートメントのみを処理できます。対照的に、`executeSql`はデータが返されることを期待せず、複数のSQLステートメントを1つのSQL文字列で受け付けます。 \index{DatabaseConnector!querying}
+データベースにクエリを実行するための主な関数は、`querySql`と`executeSql`です。`querySql`はデータがデータベースから返されることを想定しており、一度に1つのSQL文のみを処理できます。一方、`executeSql`はデータが返されることを想定せず、複数のSQL文を1つのSQL文字列で受け入れます。 \index{DatabaseConnector!querying}
 
-いくつかの例：
+いくつかの例を挙げます：
 
 
 ``` r
@@ -481,11 +477,11 @@ querySql(conn, "SELECT TOP 3 * FROM person")
 executeSql(conn, "TRUNCATE TABLE foo; DROP TABLE foo;")
 ```
 
-これらの関数は広範なエラーレポートを提供します：サーバーによってエラーが発生した場合、エラーメッセージと問題のあるSQL部分がテキストファイルに書き込まれてデバッグがしやすくなります。また、`executeSql`関数はデフォルトで進行状況バーを表示し、実行されたSQLステートメントの割合を示します。もしそれらの属性が不要な場合は、`lowLevelQuerySql`および`lowLevelExecuteSql`関数を使用できます。
+どちらの関数も広範なエラーレポートを提供します：サーバーによってエラーが発生した場合、エラーメッセージと問題のあるSQL文がテキストファイルに書き込まれ、デバッグが容易になります。また、`executeSql`関数はデフォルトで進行状況バーを表示し、実行されたSQL文の割合を示します。それらの属性が不要な場合は、`lowLevelQuerySql`と`lowLevelExecuteSql`関数がパッケージに用意されています。
 
 ### ffdfオブジェクトを使用したクエリの実行
 
-データベースからフェッチされるデータが大きすぎてメモリに収まらない場合があります。セクション \@ref(BigDataSupport) で述べたように、そのような場合は`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
+データベースから取得するデータがメモリに収まりきらないほど大きい場合もあります。セクション\@ref(BigDataSupport) で述べたように、そのような場合には`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
 
 
 ``` r
@@ -494,9 +490,9 @@ x <- querySql.ffdf(conn, "SELECT * FROM person")
 
 xは現在ffdfオブジェクトです。
 
-### 同じSQLを使用して異なるプラットフォームにクエリを実行する
+### 同じSQLを用いて異なるプラットフォームにクエリを実行する
 
-SqlRenderパッケージの`render`および`translate`関数を最初に呼び出す便利な関数があります：`renderTranslateExecuteSql`、`renderTranslateQuerySql`、`renderTranslateQuerySql.ffdf`。例えば：
+SqlRenderパッケージの`render`と`translate`関数を最初に呼び出す便利な関数があります：`renderTranslateExecuteSql`、`renderTranslateQuerySql`、`renderTranslateQuerySql.ffdf`。例えば：
 
 
 ``` r
@@ -505,11 +501,11 @@ x <- renderTranslateQuerySql(conn,
                              schema = "cdm_synpuf")
 ```
 
-SQL Server専用の「TOP 10」構文は、PostgreSQLでは「LIMIT 10」などに変換され、SQLパラメーター`@schema`は提供された値「cdm_synpuf」に置き換えられます。
+SQL Server固有の「TOP 10」構文は、PostgreSQLでは「LIMIT 10」などに変換され、SQLパラメーター`@schema`は提供された値「cdm_synpuf」に置き換えられます。
 
 ### テーブルの挿入
 
-データをデータベースに挿入するには`executeSql`関数を使用してSQLステートメントを送信することも可能ですが、最適化により`insertTable`関数を使用する方がより便利で迅速です：
+データをデータベースに挿入するには`executeSql`関数を使用してSQLステートメントを送信することも可能ですが、最適化により`insertTable`関数を使用する方がより便利で高速です：
 
 
 ``` r
@@ -523,7 +519,7 @@ insertTable(conn, "mtcars", mtcars, createTable = TRUE)
 
 以下の例では、OHDSI SQLを使用してCDMに準拠したデータベースにクエリを実行します。これらのクエリでは、CDMのデータベーススキーマを示すために`@cdm`を使用します。
 
-まず最初に、データベースに何人の人がいるかをクエリしてみましょう：
+まず、データベースに何人の人がいるかをクエリで取得してみましょう：
 
 ``` sql
 SELECT COUNT(*) AS person_count FROM @cdm.person;
@@ -533,7 +529,7 @@ SELECT COUNT(*) AS person_count FROM @cdm.person;
 |-------------:|
 |     26299001 |
 
-あるいは、観察期間の平均に関心があるかもしれません：
+あるいは、観察期間の平均的な長なさに興味があるのかもしれません：
 
 ``` sql
 SELECT AVG(DATEDIFF(DAY,
@@ -546,7 +542,7 @@ FROM @cdm.observation_period;
 |----------:|
 |  1.980803 |
 
-テーブルを結合して追加の統計を生成することができます。結合は通常、テーブル内の特定のフィールドに同じ値があることを要求することによって、複数のテーブルからフィールドを組み合わせます。例えば、ここでは、PERSONテーブルを、両方のテーブルのPERSON_IDフィールドでOBSERVATION_PERIODテーブルに結合します。つまり、この結合の結果は、新しいテーブル状のセットであり、両テーブルのすべてのフィールドを持ちますが、すべての行において両テーブルのPERSON_IDフィールドは同じ値でなければなりません。このようにして、OBSERVATION_PERIODテーブルのOBSERVATION_PERIOD_END_DATEフィールドとPERSONテーブルのyear_of_birthフィールドを使用して、観察終了時の最大年齢を計算することができます：
+テーブルを結合して追加の統計を生成することができます。結合は通常、テーブル内の特定のフィールドに同じ値があることを要求することによって、複数のテーブルのフィールドを結合します。例えば、ここでは、両方のテーブルのPERSON_IDフィールドで、PERSONテーブルとOBSERVATION_PERIODテーブルを結合しています。つまり、結合の結果は、2つのテーブルのすべてのフィールドを持つ新しいテーブルのようなセットですが、すべての行において、2つのテーブルのPERSON_IDフィールドは同じ値でなければなりません。例えば、OBSERVATION_PERIODテーブルのOBSERVATION_PERIOD_END_DATEフィールドと、PERSONテーブルのyear_of_birthフィールドを組み合わせて使用することで、観察終了時の最大年齢を計算することができます。：
 
 ``` sql
 SELECT MAX(YEAR(observation_period_end_date) -
@@ -560,7 +556,7 @@ INNER JOIN @cdm.observation_period
 |--------:|
 |      90 |
 
-観察開始時の年齢分布を決定するためには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、一般的なテーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルのように参照することができます。agesの行数を数えて"n"を生成し、各四分位数に対して、order_nrがnの小数より小さい最小年齢を見つけます。例えば、中央値を見つけるためには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて"n"を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
 ``` sql
 WITH ages
@@ -604,7 +600,7 @@ CROSS JOIN (
 |--------:|--------:|-----------:|--------:|--------:|
 |       0 |       6 |         17 |      34 |      90 |
 
-より複雑な計算は、SQLの代わりにRを使用して行うこともできます。例えば、同じ結果を得るためにこのRコードを使用することができます：
+より複雑な計算は、SQLの代わりにRを使用して行うこともできます。例えば、同じ結果を得るため、次のRコードを使用することができます：
 
 
 ``` r
@@ -623,9 +619,9 @@ quantile(age[, 1], c(0, 0.25, 0.5, 0.75, 1))
 ##    0    6   17   34   90
 ```
 
-ここでは、サーバー上で年齢を計算し、すべての年齢をダウンロードし、その後年齢分布を計算します。しかし、これはデータベースサーバーから数百万行のデータをダウンロードする必要があるため、あまりに効率的ではありません。計算がSQLで行われるべきかRで行われるべきかは、ケースバイケースで判断する必要があります。
+ここでは、サーバー上で年齢を計算し、すべての年齢をダウンロードし、年齢分布を計算します。しかし、これにはデータベースサーバーから数百万行ものデータをダウンロードする必要があり、効率的ではありません。計算をSQLで行うかRで行うかは、ケースバイケースで判断する必要があります。
 
-クエリは、CDM内のソース値を使用することができます。例えば、最も頻繁に使用されるコンディションのソースコードのトップ10を取得するには、次のようにします：
+クエリでは、CDM内のソース値を使用することができます。例えば、最も頻度の高いコンディションのソースコードのトップ10を取得するには、以下を用います：
 
 ``` sql
 SELECT TOP 10 condition_source_value,
@@ -648,11 +644,11 @@ ORDER BY -COUNT(*);
 |                    I10 |   19453451 |
 |                   3180 |   18973883 |
 
-ここでは、CONDITION_OCCURRENCEテーブル内のCONDITION_SOURCE_VALUEフィールドの値でレコードをグループ化し、各グループのレコード数をカウントしました。CONDITION_SOURCE_VALUEとそのカウントを取得し、カウントの逆順で並べ替えています。
+ここでは、CONDITION_OCCURRENCEテーブル内のCONDITION_SOURCE_VALUEフィールドの値でレコードをグループ化し、各グループのレコード数をカウントしました。CONDITION_SOURCE_VALUEとそのカウントを取得し、カウントで逆順で並べ替えています。
 
 ## クエリ実行時にボキャブラリを使用する
 
-多くの操作は、ボキャブラリを使用することで有用になります。ボキャブラリテーブルはCDMの一部であり、SQLクエリを使用して利用できます。ここでは、ボキャブラリに対するクエリをCDMに対するクエリと組み合わせる方法を示します。CDMの多くのフィールドにはコンセプトIDが含まれていますが、これらはCONCEPTテーブルを使用して解決できます。例えば、データベース内の人数を性別で階層化してカウントしたい場合、GENDER_CONCEPT_IDフィールドをコンセプト名に解決することが便利です：
+多くの操作では、ボキャブラリが有用です。ボキャブラリテーブルはCDMの一部であり、SQLクエリを使用して利用できます。ここでは、ボキャブラリに対するクエリをCDMに対するクエリと組み合わせる方法を示します。CDMの多くのフィールドにはコンセプトIDが含まれていますが、これらはCONCEPTテーブルを使用して解決できます。例えば、データベース内の人数を性別で階層化してカウントしたい場合、GENDER_CONCEPT_IDフィールドをコンセプト名に解決すると便利です：
 
 ``` sql
 SELECT COUNT(*) AS subject_count,
@@ -668,7 +664,7 @@ GROUP BY concept_name;
 |      14927548 |       FEMALE |
 |      11371453 |         MALE |
 
-ボキャブラリの非常に強力な機能の一つは、その階層構造です。非常に一般的なクエリは、特定のコンセプトとその下位層に含まれる全てのコンセプトを探すものです。例えば、イププロフェンを含む処方件数を数えるとします：
+ボキャブラリの非常に強力な機能の一つは、その階層構造です。よくあるクエリは、特定のコンセプトと *そのすべての子孫*を探すものです。例えば、イププロフェンという成分を含む処方件数を数えるとします：
 
 ``` sql
 SELECT COUNT(*) AS prescription_count
@@ -690,7 +686,7 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-2]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-3]。
+QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-2]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-3]。
 
 [^sqlandr-2]: <http://data.ohdsi.org/QueryLibrary>
 
@@ -705,33 +701,33 @@ QueryLibraryは、CDM用の一般的なSQLクエリのライブラリです。�
 \caption{クエリライブラリ：CDMに対するSQLクエリのライブラリ。}(\#fig:queryLibrary)
 \end{figure}
 
-このライブラリの目的は、新しいユーザーがCDMのクエリ方法を学ぶ手助けをすることです。ライブラリ内のクエリは、OHDSIコミュニティによってレビューされ、承認されています。クエリライブラリは主にトレーニング目的で使用されますが、経験豊富なユーザーにとっても貴重なリソースです。
+このライブラリの目的は、新しいユーザーがCDMのクエリ方法を学習するのを支援することです。ライブラリ内のクエリは、OHDSIコミュニティによって審査され、承認されています。クエリライブラリは主にトレーニング目的で使用されますが、経験豊富なユーザーにとっても貴重なリソースとなります。
 
-QueryLibraryは、SqlRenderを使用して、選択したSQLダイアレクトでクエリを出力します。ユーザーはCDMのデータベーススキーマ、ボキャブラリデータベーススキーマ（別々のものがある場合）、およびOracleの一時スキーマ（必要な場合）を指定することもでき、これらの設定でクエリが自動的にレンダリングされます。
+QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリを実行します。ユーザーはCDMのデータベーススキーマ、ボキャブラリデータベーススキーマ（別々のものがある場合）、Oracleテンポラリスキーマ（必要な場合）を指定することもでき、これらの設定でクエリが自動的にレンダリングされます。
 
 ## 簡単な研究のデザイン
 
 ### 問題の定義
 
-血管浮腫は、ACE阻害剤（ACEi）のよく知られた副作用です。@slater_1988 によると、ACEi治療開始後1週間で血管浮腫の発生率は週あたり3,000人中1例と推定されています。ここでは、この発見を再現し、年齢と性別によって層別化します。簡単のため、1つのACEi（リシノプリル）に焦点を当てます。したがって、次の質問に答えます：
+血管性浮腫は、ACE阻害薬（ACEi）のよく知られた副作用です。@slater_1988 によると、ACEi治療開始後1週間の血管性浮腫の発症率は3,000人中1例/週と推定されています。ここでは、この結果を再現し、年齢と性別によって層別化します。単純化するため、ACEiの一つである（リシノプリル）に焦点を当てます。したがって、次の問いに答えます：
 
-> リシノプリル治療開始後の最初の1週間での血管浮腫の発生率は、年齢と性別で層別化されていますか？
+> リシノプリル投与開始後の最初の1週間での血管性浮腫の発生率は、年齢と性別で層別化するとどの程度でしょうか？
 
 ### 曝露
 
-曝露をリシノプリルへの最初の曝露として定義します。最初とは、以前にリシノプリルに曝露されたことがないことを意味します。最初の曝露の前に365日間の連続した観察期間が必要です。
+曝露をリシノプリルへの初回の曝露として定義します。初回とは、以前にリシノプリルへの曝露がないことを意味します。初回の曝露の前に365日間の連続した観察期間が必要となります。
 
 ### アウトカム
 
-血管浮腫の診断コードが入院または救急（ER）訪問時に出現した場合を血管浮腫の発生と定義します。
+血管性浮腫は、入院中または救急外来（ER）受診中に血管性浮腫の診断コードが記録された場合と定義します。
 
 ### リスク期間
 
-治療開始後の最初の1週間の発生率を計算します。患者が1週間全部にわたって曝露されているかどうかは問いません。
+治療開始後の最初の1週間の発症率を計算します。患者が1週間にわたって継続的に曝露されたかどうかは問いません。
 
 ## SQLとRを使用した研究の実施
 
-OHDSIツールの規約に縛られることはありませんが、同じ原則に従うと便利です。この場合、OHDSIツールが動作するのと同様に、コホートテーブルを作成するためにSQLを使用します。COHORTテーブルはCDMに定義されており、我々も使用する事前定義されたフィールドセットがあります。まず、書き込み権限のあるデータベーススキーマにCOHORTテーブルを作成する必要がありますが、これはCDM形式でデータを保持しているスキーマとは異なるスキーマである可能性が高いです。
+OHDSIツールの慣例に縛られることはありませんが、同じ原則に従うことは有益です。この場合、OHDSIツールが動作するのと同様に、SQLを用いてコホートテーブルを作成します。COHORTテーブルはCDMに定義されており、使用する事前定義されたフィールドセットもあります。まず、書き込み権限のあるデータベーススキーマにCOHORTテーブルを作成する必要がありますが、これはCDM形式でデータを保持しているスキーマとは異なるスキーマである可能性が高いです。
 
 
 ``` r
@@ -757,7 +753,7 @@ renderTranslateExecuteSql(conn, sql,
                           cohort_table = cohortTable)
 ```
 
-ここでは、データベーススキーマおよびテーブル名をパラメータ化しているため、異なる環境に簡単に適応できます。結果として、データベースサーバー上に空のテーブルが作成されます。
+ここでは、データベーススキーマとテーブル名をパラメータ化しています。異なる環境に簡単に適応させることができます。その結果、データベースサーバー上に空のテーブルが作成されます。
 
 ### 曝露コホート
 
@@ -808,7 +804,7 @@ renderTranslateExecuteSql(conn, sql,
                           cdm_db_schema = cdmDbSchema)
 ```
 
-ここでは、CDMの標準テーブルであるDRUG_ERAテーブルを使用します。このテーブルはDRUG_EXPOSUREテーブルから自動的に派生されます。DRUG_ERAテーブルには連続する成分レベルの曝露期間が含まれるため、リシノプリルを検索すると、自動的にリシノプリルを含む薬物のすべての曝露を特定します。各人の最初の薬剤曝露を選択し、OBSERVATION_PERIODテーブルと結合します。各人が複数の観察期間を持つことができるため、薬剤曝露を含む期間にのみ結合されるよう注意が必要です。一方で、OBSERVATION_PERIOD_START_DATEとCOHORT_START_DATEの間に少なくとも365日の間隔を要求します。
+ここでは、CDMの標準テーブルであるDRUG_ERAテーブルを使用します。このテーブルはDRUG_EXPOSUREテーブルから自動的に派生するものです。DRUG_ERAテーブルには成分レベルでの継続的な曝露期間が含まれるため、リシノプリルを検索すると、自動的にリシノプリルを含む薬剤への曝露がすべて特定されます。次に、OBSERVATION_PERIOD テーブルに結合し、1人当たりの最初の薬物曝露を取り出します。1人の患者が複数の観察期間を持つ可能性があるため、薬物曝露を含む期間のみに結合する必要があります。また、OBSERVATION_PERIOD_START_DATE と COHORT_START_DATE の間には、少なくとも 365 日の間隔が必要となります。
 
 ### アウトカムコホート
 
@@ -850,11 +846,11 @@ renderTranslateExecuteSql(conn, sql,
                           cdm_db_schema = cdmDbSchema)
 ```
 
-ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管浮腫またはその下位層に含まれるすべての発生を見つけます。同じ日に複数の診断がある場合、それは同じ現象である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
+ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管性浮腫またはその下位層に含まれるすべての発生を見つけます。同じ日に複数の診断がある場合、それは同じ発生である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
 
 ### 発症率の計算
 
-コホートが整ったので、年齢と性別に分けて発症率を計算できます：
+コホートが設定されたので、年齢と性別で層別化された発症率を計算できます：
 
 
 ``` r
@@ -918,15 +914,15 @@ results <- renderTranslateQuerySql(conn, sql,
                                    snakeCaseToCamelCase = TRUE)
 ```
 
-まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間を切り詰めることに注意してください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク時間の合計およびリスク期間中に発生する血管浮腫の数を数えるために使用します。
+まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク期間が切り捨てられることに留意ください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク期間の合計およびリスク期間中に発生する血管性浮腫のイベント数を数えるために使用します。
 
-SQLではフィールド名にスネークケースを使用するため（SQLは大文字小文字を区別しないため）、Rではキャメルケースを使用します（Rは大文字小文字を区別するため）。`results`データフレームの列名はキャメルケースになります。
+snakeCaseToCamelCase = TRUE を用いるのは、SQLではフィールド名にsnake_case を使用する傾向がある（SQLは大文字と小文字を区別しないため）のに対し、RではcamelCaseを使用する傾向がある（Rは大文字・小文字を区別するため）からです。`results`データフレームの列名はcamelCaseになります。
 
 ggplot2パッケージを使用すると、結果を簡単にプロットできます：
 
 
 ``` r
-# 発症率（IR）を計算
+# 発症率（IR）を算出
 results$ir <- 1000 * results$events / results$days / 7
 
 # 年齢スケールを修正
@@ -936,7 +932,7 @@ library(ggplot2)
 ggplot(results, aes(x = age, y = ir, group = gender, color = gender)) +
   geom_line() +
   xlab("年齢") +
-  ylab("発症率（1,000患者週間当たり）")
+  ylab("発症率（1,000患者/週）")
 ```
 
 
@@ -944,7 +940,7 @@ ggplot(results, aes(x = age, y = ir, group = gender, color = gender)) +
 
 ### クリーンアップ
 
-作成したテーブルをクリーンアップし、接続を閉じることを忘れないでください：
+作成したテーブルをクリーンアップし、忘れずに接続を閉じます：
 
 
 ``` r
@@ -961,20 +957,20 @@ disconnect(conn)
 
 ### 互換性
 
-OHDSI SQLとDatabaseConnectorおよびSqlRenderを組み合わせて使用するため、ここで紹介したコードはOHDSIがサポートする任意のデータベースプラットフォームで実行できます。
+OHDSI SQLとDatabaseConnectorとSqlRenderを組み合わせて使用するため、ここで紹介したコードはOHDSIがサポートする任意のデータベースプラットフォームで実行できます。
 
-デモンストレーションの目的で、手作業で作成したSQLを使用してコホートを作成することを選びましたが、ATLASでコホート定義を構築し、ATLASが生成したSQLを使用してコホートを実インスタンス化する方が便利です。ATLASもOHDSI SQLを生成し、SqlRenderおよびDatabaseConnectorと一緒に簡単に使用できます。
+デモンストレーション用に、手作業でSQLを使用してコホートを作成することにしましたが、ATLASでコホート定義を構築し、ATLASで生成されたSQLを使用してコホートをインスタンス化する方が便利です。ATLASもOHDSI SQLを生成するため、SqlRenderとDatabaseConnectorと簡単に併用することができます。
 
 ## まとめ
 
 \BeginKnitrBlock{rmdsummary}
-- **SQL**（Structured Query Language）は、共通データモデル（CDM）に準拠したデータベースを含む、データベースを照会するための標準言語です。
+- **SQL**（Structured Query Language）は、共通データモデル（CDM）に準拠したデータベースを含む、データベースに照会するための標準言語です。
 
 - 異なるデータベースプラットフォームは異なるSQL表現を持っており、照会するためには異なるツールが必要です。
 
-- **SqlRender**および**DatabaseConnector**Rパッケージは、CDM内のデータを照会するための統一された方法を提供し、同じ分析コードを異なる環境で変更なしで実行できるようにします。
+- **SqlRender**と**DatabaseConnector**Rパッケージは、CDM内のデータを照会するための統一された方法を提供し、同じ分析コードを修正することなく異なる環境で実行できるようにします。
 
-- RとSQLを組み合わせて使用することで、OHDSIツールではサポートされていないカスタム分析を実装できます。
+- RとSQLを併用することで、OHDSIツールではサポートされていないカスタム分析を実装できます。
 
 - **QueryLibrary**は、CDM用の再利用可能なSQLクエリのコレクションを提供します。
 
@@ -1002,18 +998,18 @@ connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 CDM データベースのスキーマは「main」です。
 
 ::: {.exercise #exercisePeopleCount}
-SQL および R を使用して、データベース内に何人いるかを計算しなさい。
+SQL と R を使用して、データベース内に何人いるかを計算します。
 
 :::
 
 ::: {.exercise #exerciseCelecoxibUsers}
-SQL および R を使用して、少なくとも 1 回のセレコキシブの処方を受けたことがある人の数を計算しなさい。
+SQL と R を使用して、セレコキシブの処方を少なくとも１回受けたことがある人の人数を計算します。
 
 :::
 
 ::: {.exercise #exerciseGiBleedsDuringCelecoxib}
-SQL および R を使用して、セレコキシブの服用中に胃腸出血の診断が出たケースの数を計算しなさい。(ヒント: 胃腸出血のコンセプト ID は [192671](http://athena.ohdsi.org/search-terms/terms/192671) です)
+SQL と R を使用して、セレコキシブの服用中に消化管出血と診断された人の人数を計算します。(ヒント: 消化管出血のコンセプト ID は [192671](http://athena.ohdsi.org/search-terms/terms/192671) です)
 
 :::
 
-提案された解答は付録 \@ref(SqlAndRanswers) にあります。
+推奨される解答は付録 \@ref(SqlAndRanswers) を参照ください。
