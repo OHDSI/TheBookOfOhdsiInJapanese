@@ -1,4 +1,4 @@
-# (PART)　エビデンスの質 {.unnumbered}
+# (PART) エビデンスの質 {.unnumbered}
 
 # エビデンスの質 {#EvidenceQuality}
 
