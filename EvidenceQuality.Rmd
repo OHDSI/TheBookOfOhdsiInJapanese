@@ -38,14 +38,14 @@ knitr::include_graphics("images/EvidenceQuality/reliableevidenceattributes.png")
 
 次の章では、表 \@ref(tab:evidenceQuality) にリストされているエビデンスの質の4つのコンポーネントを探ります。
 
-表: (#tab:evidenceQuality) エビデンスの質の4つのコンポーネント。
-
 | エビデンスの質のコンポーネント | 測定するもの |
 |----|----|
 | [データの質](DataQuality.html) | データが合意された構造と規約に準拠した形で、完全にキャプチャされ信憑性のある値を持つかどうか？ |
 | [臨床的妥当性](ClinicalValidity.html) | 実施された分析が臨床的な意図とどの程度一致しているか？ |
 | [ソフトウェアの妥当性](SoftwareValidity.html) | データの変換および分析プロセスが意図した通りに機能するかどうか？ |
 | [方法の妥当性](MethodValidity.html) | データの強みと弱点を考慮した上で、その方法論が研究の問いに適しているか？ |
+
+: (#tab:evidenceQuality) エビデンスの質の4つのコンポーネント
 
 ## エビデンスの質の伝達
 
