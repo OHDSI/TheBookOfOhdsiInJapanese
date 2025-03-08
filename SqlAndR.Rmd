@@ -1,4 +1,4 @@
-# --翻訳作業中--　SQLとR {#SqlAndR}
+# SQLとR {#SqlAndR}
 
 *著者: Martijn Schuemie & Peter Rijnbeek*
 
