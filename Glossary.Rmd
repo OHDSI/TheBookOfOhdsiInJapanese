@@ -1,6 +1,6 @@
 # (APPENDIX) 付録 {.unnumbered}
 
-# --翻訳作業中-- 用語集 {#Glossary}
+# 用語集 {#Glossary}
 
 ACHILLES
 
