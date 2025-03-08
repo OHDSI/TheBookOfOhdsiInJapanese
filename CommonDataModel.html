@@ -227,7 +227,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.5" data-path="OpenScience.html"><a href="OpenScience.html#再利用性"><i class="fa fa-check"></i><b>3.7.5</b> 再利用性</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>II –翻訳作業中–　共通データモデル</b></span></li>
+<li class="part"><span><b>II 共通データモデル</b></span></li>
 <li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 共通データモデル</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#デザインの原則"><i class="fa fa-check"></i><b>4.1</b> デザインの原則</a></li>
@@ -843,8 +843,7 @@ div.csl-indent {
 <div id="データテーブルの一般的な規約" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> データテーブルの一般的な規約<a href="CommonDataModel.html#データテーブルの一般的な規約" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CDMはプラットフォームに依存しません。データ型はANSI SQLデータ型（VARCHAR、INTEGER、FLOAT、DATE、DATETIME、CLOB）を用いて一般的に定義されます。VARCHARには最小必要文字列長のみが指定され、具体的なCDMのインスタンス内で拡張できます。CDMは日付および日時の形式を規定しません。CDMに対する標準クエリは、ローカルインスタンスや日付/日時の設定によって異なる場合があります。</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<em>注意</em>: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 <a href="OhdsiAnalyticsTools.html#OhdsiAnalyticsTools">8</a>章をご覧ください。</p>
+<p><em>注意</em>: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 <a href="OhdsiAnalyticsTools.html#OhdsiAnalyticsTools">8</a>章をご覧ください。</p>
 </div>
 <div id="domains" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> ドメインの一般的な規約<a href="CommonDataModel.html#domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1027,7 +1026,7 @@ div.csl-indent {
 図 4.3: 肺結核のSNOMEDコード
 </p>
 </div>
-<p>標準コンセプトとソースコンセプトとの関係の例を表 <a href="#tab:conditionOccurrence">4.7</a>に示します。</p>
+<p>標準コンセプトとソースコンセプトとの関係の例を表 <a href="CommonDataModel.html#tab:conditionOccurrence">4.7</a>に示します。</p>
 </div>
 </div>
 <div id="cdm標準化テーブル" class="section level2 hasAnchor" number="4.3">
@@ -1393,6 +1392,7 @@ div.csl-indent {
 </blockquote>
 <p>月経痛（月経困難症）のSNOMEDコードは266599000です。表4.7は、それがCONDITION_OCCURRENCEテーブルでどのように表現されるかを示しています。</p>
 <table>
+<caption><span id="tab:conditionOccurrence">表 4.7: </span> CONDITION_OCCURRENCEテーブル</caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -1411,25 +1411,83 @@ div.csl-indent {
 <td align="left">964</td>
 <td align="left">これは通常、自動生成された値で、各レコードに一意の識別子を生成します。</td>
 </tr>
+<tr class="even">
+<td align="left">PERSON_ID</td>
+<td align="left">1</td>
+<td align="left">これは、PERSONテーブルのLauraのレコードへの外部キーであり、PERSONとCONDITION_OCCURRENCEをリンクしています。</td>
+</tr>
+<tr class="odd">
+<td align="left">CONDITION_ CONCEPT_ID</td>
+<td align="left">194696</td>
+<td align="left">SNOMEDコード266599000を表す外部キーは<a href="http://athena.ohdsi.org/search-terms/terms/194696">194696</a>です。</td>
+</tr>
+<tr class="even">
+<td align="left">CONDITION_START_ DATE</td>
+<td align="left">2010-01-06</td>
+<td align="left">コンディションが記録された日付です。</td>
+</tr>
+<tr class="odd">
+<td align="left">CONDITION_START_ DATETIME</td>
+<td align="left">2010-01-06 00:00:00</td>
+<td align="left">コンディションが記録された日時です。時刻は不明なので、深夜が使用されます。</td>
+</tr>
+<tr class="even">
+<td align="left">CONDITION_END_ DATE</td>
+<td align="left">NULL</td>
+<td align="left">コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。</td>
+</tr>
+<tr class="odd">
+<td align="left">CONDITION_END_ DATETIME</td>
+<td align="left">NULL</td>
+<td align="left">既知の場合、コンディションが終了したと見なされる日時です。</td>
+</tr>
+<tr class="even">
+<td align="left">CONDITION_TYPE_ CONCEPT_ID</td>
+<td align="left">32020</td>
+<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。</td>
+</tr>
+<tr class="odd">
+<td align="left">CONDITION_STATUS_CONCEPT_ID</td>
+<td align="left">NULL</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">STOP_REASON</td>
+<td align="left">NULL</td>
+<td align="left">既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。</td>
+</tr>
+<tr class="even">
+<td align="left">PROVIDER_ID</td>
+<td align="left">NULL</td>
+<td align="left">コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。</td>
+</tr>
+<tr class="odd">
+<td align="left">VISIT_OCCURRENCE_ ID</td>
+<td align="left">509</td>
+<td align="left">コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。</td>
+</tr>
+<tr class="even">
+<td align="left">CONDITION_SOURCE_ VALUE</td>
+<td align="left">266599000</td>
+<td align="left">これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表す概念はCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。</td>
+</tr>
+<tr class="odd">
+<td align="left">CONDITION_SOURCE_ CONCEPT_ID</td>
+<td align="left">194696</td>
+<td align="left">ソースからのコンディションの値が OHDSI で認識されるボキャブラリを使用してコード化されている場合、その値を表すコンセプトID がここに入ります。月経困難症の例では、ソース値はSNOMED コードなので、そのコードを表すコンセプトは 194696 です。この場合、CONDITION_CONCEPT_ID フィールドと同じ値になります。</td>
+</tr>
+<tr class="even">
+<td align="left">CONDITION_STATUS_ SOURCE_VALUE</td>
+<td align="left">0</td>
+<td align="left">もしソースからのコンディション・ステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。</td>
+</tr>
 </tbody>
 </table>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| PERSON_ID | 1 | これは、PERSONテーブルのLauraのレコードへの外部キーであり、PERSONとCONDITION_OCCURRENCEをリンクしています。 |
-| CONDITION_ CONCEPT_ID | 194696 | SNOMEDコード266599000を表す外部キーは<a href="http://athena.ohdsi.org/search-terms/terms/194696">194696</a>です。 |
-| CONDITION_START_ DATE | 2010-01-06 | コンディションが記録された日付です。 |
-| CONDITION_START_ DATETIME | 2010-01-06 00:00:00 | コンディションが記録された日時です。時刻は不明なので、深夜が使用されます。 |
-| CONDITION_END_ DATE | NULL | コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 |
-| CONDITION_END_ DATETIME | NULL | 既知の場合、コンディションが終了したと見なされる日時です。 |
-| CONDITION_TYPE_ CONCEPT_ID | 32020 | この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。 |
-| CONDITION_STATUS_CONCEPT_ID | NULL |
-| これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。 |
-| STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
-| PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
-| VISIT_OCCURRENCE_ ID | 509 | コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。 |
-| CONDITION_SOURCE_ VALUE | 266599000 | これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表す概念はCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。 |
-| CONDITION_SOURCE_ CONCEPT_ID | 194696 | ソースからのコンディションの値が OHDSI で認識されるボキャブラリを使用してコード化されている場合、その値を表すコンセプトID がここに入ります。月経困難症の例では、ソース値はSNOMED コードなので、そのコードを表すコンセプトは 194696 です。この場合、CONDITION_CONCEPT_ID フィールドと同じ値になります。 |
-| CONDITION_STATUS_ SOURCE_VALUE | 0 | もしソースからのコンディション・ステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。 |</p>
-<p>: (#tab:conditionOccurrence) CONDITION_OCCURRENCEテーブル</p>
 </div>
 </div>
 <div id="drugExposure" class="section level3 hasAnchor" number="4.3.6">

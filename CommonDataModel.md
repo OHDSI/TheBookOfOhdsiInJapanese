@@ -1,4 +1,4 @@
-# (PART) --翻訳作業中--　共通データモデル {.unnumbered}
+# (PART) 共通データモデル {.unnumbered}
 
 # 共通データモデル {#CommonDataModel}
 
@@ -56,7 +56,6 @@ CDMは「人中心」のモデルと見なされており、すべての臨床�
 
 CDMはプラットフォームに依存しません。データ型はANSI SQLデータ型（VARCHAR、INTEGER、FLOAT、DATE、DATETIME、CLOB）を用いて一般的に定義されます。VARCHARには最小必要文字列長のみが指定され、具体的なCDMのインスタンス内で拡張できます。CDMは日付および日時の形式を規定しません。CDMに対する標準クエリは、ローカルインスタンスや日付/日時の設定によって異なる場合があります。
 
-<<<<<<< HEAD
 *注意*: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 \@ref(OhdsiAnalyticsTools)章をご覧ください。
 
 ### ドメインの一般的な規約 {#domains}
@@ -124,7 +123,6 @@ CONCEPTテーブルのレコードには、各コンセプトの詳細情報（�
 
 \caption{肺結核のICD9CMコード}(\#fig:pulmTubICD9)
 \end{figure}
-
 
 文脈がなければ、コード011は、UB04ボキャブラリでは「病院入院患者（メディケアパートAを含む）」、DRGボキャブラリでは「神経系新生物（合併症、併発症なし）」と解釈される可能性があります。 このような場合に、ソースと標準の両方のコンセプトIDが役立ちます。ICD9CMの011を表すCONCEPT_IDの値は[44828631](http://athena.ohdsi.org/search-terms/terms/44828631)です。これにより、UBO4とDRGとICD9CMが区別されます。ICD9CM TB のソースコンセプト は、図 \@ref(fig:pulmTubMap) に示されているように、「非標準から標準へのマップ（OMOP）」という関係を通じて、SNOMED ボキャブラリーから Standard Concept [253954](http://athena.ohdsi.org/search-terms/terms/253954)にマップされます。この同じマッピング関係は、Read、ICD10、CIEL、MeSH コードなどにも存在するため、SNOMED 標準コンセプトを参照するあらゆる検索は、サポートされているすべてのソースコードを含みます。
 
@@ -268,7 +266,6 @@ CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって
 | 列名 | 値 | 説明 |
 |:---|:---|:---|
 | CONDITION\_ OCCURRENCE_ID | 964 | これは通常、自動生成された値で、各レコードに一意の識別子を生成します。 |
-<<<<<<< HEAD
 | PERSON_ID | 1 | これは、PERSONテーブルのLauraのレコードへの外部キーであり、PERSONとCONDITION_OCCURRENCEをリンクしています。 |
 | CONDITION\_ CONCEPT_ID | 194696 | SNOMEDコード266599000を表す外部キーは[194696](http://athena.ohdsi.org/search-terms/terms/194696)です。 |
 | CONDITION_START\_ DATE | 2010-01-06 | コンディションが記録された日付です。 |
@@ -276,8 +273,8 @@ CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって
 | CONDITION_END\_ DATE | NULL | コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 |
 | CONDITION_END\_ DATETIME | NULL | 既知の場合、コンディションが終了したと見なされる日時です。 |
 | CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 [32020](http://athena.ohdsi.org/search-terms/terms/32020)「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。 |
-| CONDITION_STATUS_CONCEPT_ID | NULL |
-| これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |
+| CONDITION_STATUS_CONCEPT_ID | NULL |  |
+| これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |  |  |
 | STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
 | PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
 | VISIT_OCCURRENCE\_ ID | 509 | コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。 |
