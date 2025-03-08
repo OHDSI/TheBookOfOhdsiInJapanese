@@ -3760,7 +3760,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.ieb8hebpchildren ;"
+## [1] "SELECT * FROM temp_schema.lrtpgy3uchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -7181,18 +7181,18 @@ CDMデータベースのスキーマは「main」です。また、これらの�
 
 過去10年間で、臨床予測モデルを説明する出版物の数が大幅に増加しました。現在使用されているほとんどのモデルは、小さなデータセットを使用して推定されており、患者特性の限られたセットのみを考慮しています。この低いサンプルサイズ、従って低い統計的検出力は、データアナリストに強いモデリング仮定を行わせます。限られた患者特性の選択は、手元にある専門知識に強く導かれています。これは、患者が膨大なデジタルトレイルを生成する現代医学の現実とは対照的です。現在、ヘルスケアは電子健康記録（EHR）に保存された膨大な患者特有の情報を生成しています。これには、診断、投薬、検査アウトカムの形での構造化データ、および臨床記述に含まれる非構造化データが含まれます。患者の完全なEHRから得られる大量のデータを活用することで、どれだけの予測精度が向上するかは未知です。 \index{予測モデル}
 
-大規模データセットの解析に対する機械学習の進歩により、この種類のデータに対する患者レベルの予測の適用に対する関心が高まっています。しかし、患者レベルの予測に関する多くの発表された取り組みがモデル開発ガイドラインに従っておらず、広範な外部検証を行わない、またはモデルの詳細が不十分であるため、独立した研究者がモデルを再現し外部検証を行うことが難しくなっています。これにより、モデルの予測性能を公正に評価することが難しくなり、モデルが臨床実践で適切に使用される可能性が低くなります。標準を向上させるために、いくつかの論文が予測モデルの開発および報告のベストプラクティスに関するガイドラインを詳述しています。例えば、個々の予後または診断のための多変数予測モデルの透明な報告（TRIPOD）ステートメント\footnote{\url{https://www.equator-network.org/reporting-guidelines/tripod-statement/}}は、予測モデルの開発と検証を報告するための明確な推奨事項を提供し、透明性に関連するいくつかの懸念に対処しています。 \index{機械学習} \index{TRIPOD}
+大規模データセットの解析に対する機械学習の進歩により、この種類のデータに対する患者レベルの予測の適用に対する関心が高まっています。しかし、患者レベルの予測に関する多くの発表された取り組みがモデル開発ガイドラインに従っておらず、広範な外部検証を行わない、またはモデルの詳細が不十分であるため、独立した研究者がモデルを再現し外部検証を行うことが難しくなっています。これにより、モデルの予測性能を公正に評価することが難しくなり、モデルが臨床実践で適切に使用される可能性が低くなります。標準を向上させるために、いくつかの論文が予測モデルの開発および報告のベストプラクティスに関するガイドラインを詳述しています。例えば、個々の予後または診断のための多変数予測モデルの透明な報告（TRIPOD）ステートメント \footnote{\url{https://www.equator-network.org/reporting-guidelines/tripod-statement/}} は、予測モデルの開発と検証を報告するための明確な推奨事項を提供し、透明性に関連するいくつかの懸念に対処しています。 \index{機械学習} \index{TRIPOD}
 
 OHDSIのおかげで、大規模、患者特異的予測モデリングが現実のものとなり、共通データモデル（CDM）が前例のない規模での均一で透明な分析を可能にしました。CDMに標準化された拡大するデータベースネットワークは、さまざまなヘルスケア環境でのモデルの外部検証をグローバルに可能にします。私たちは、これがケアの質の向上が最も必要とされる大規模な患者コミュニティに直ちに貢献できる機会を提供すると信じています。このようなモデルは、真に個別化された医療を支援し、患者の治療アウトカムの劇的な向上を目指します。
 
-この章では、OHDSIの標準化された患者レベル予測のフレームワーク \citep{reps2018}を説明し、開発と検証のための確立されたベストプラクティスを実装する \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} R パッケージについて説明します。まず、患者レベルの予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究アウトカムの普及のためのShinyアプリケーションの使用について説明します。
+この章では、OHDSIの標準化された患者レベル予測のフレームワーク \citep{reps2018} を説明し、開発と検証のための確立されたベストプラクティスを実装する \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} R パッケージについて説明します。まず、患者レベルの予測の開発と評価のための必要な理論を提供し、実装された機械学習アルゴリズムの概要を高レベルで説明します。次に、予測課題の例を示し、その定義とATLASやカスタムRコードを使用した実装のステップバイステップガイダンスを提供します。最後に、研究アウトカムの普及のためのShinyアプリケーションの使用について説明します。
 
 \section{予測課題}\label{ux4e88ux6e2cux8ab2ux984c}
 
 図 \ref{fig:figure1} は私たちが取り組む予測課題を示しています。リスク集団の中で、定義された時点（t = 0）でどの患者がリスク期間中にあるアウトカムを経験するかを予測することを目指します。予測は、その時点までの観察期間中の患者の情報のみを使用して行います。
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/Figure1} \caption{予測課題。}\label{fig:figure1}
+\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/Figure1} \caption{予測課題}\label{fig:figure1}
 \end{figure}
 
 表 \ref{tab:plpDesign} に示すように、予測課題を定義するには、ターゲットコホートによってt=0を定義し、アウトカムコホートによって予測したいアウトカムを定義し、リスク期間を定義する必要があります。標準的な予測質問は次のように定義されます： \index{ターゲットコホート} \index{アウトカムコホート} \index{リスク期間}
@@ -7203,11 +7203,18 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 さらに、開発したいモデルの設計選択肢を検討し、内部および外部検証を行うための観察データセットを決定する必要があります。
 
-表: \label{tab:plpDesign} 予測設計における主要な設計選択肢。
-
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{\label{tab:plpDesign} 予測設計における主要な設計選択肢}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+選択肢
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+説明
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 選択肢
@@ -7284,7 +7291,7 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 予測モデルを作成する際には、監督学習として知られるプロセスを使用します。これは、機械学習の一形態で、目標変数と結び付いたラベル付きデータから、共変量とアウトカムステータスの関係を推測する方法です\index{supervised learning(監督学習)}。したがって、CDMからターゲットコホートに属する個人の共変量を抽出する方法、およびそのアウトカムステータスを取得する方法が必要です。
 
-\textbf{共変量}（``予測因子''、``特徴''、または''独立変数''とも呼ばれる）は、患者の特性を説明します\index{共変量}。共変量には、年齢、性別、特定のコンディションの存在、患者記録内の曝露コードなどが含まれます。共変量は一般的に、\href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}パッケージを使用して構築され、詳細はChapter \ref{Characterization}で説明しています。予測のためには、個人がターゲットコホートに入る日付（本書ではこれを基準日と呼びます）の前および当日のデータのみ使用できます。\index{基準日}
+\textbf{共変量}（``予測因子''、``特徴''、または''独立変数''とも呼ばれる）は、患者の特性を説明します\index{共変量}。共変量には、年齢、性別、特定のコンディションの存在、患者記録内の曝露コードなどが含まれます。共変量は一般的に、\href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}パッケージを使用して構築され、詳細は第 \ref{Characterization} 章で説明しています。予測のためには、個人がターゲットコホートに入る日付（本書ではこれを基準日と呼びます）の前および当日のデータのみ使用できます。\index{基準日}
 
 また、リスク期間中の全ての患者の\textbf{アウトカムステータス}（``ラベル''または''クラス''とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。\index{アウトカムステータス} \index{ラベル} \index{クラス}
 
@@ -7292,9 +7299,12 @@ OHDSIのおかげで、大規模、患者特異的予測モデリングが現実
 
 表 \ref{tab:plpExampleCohorts} は、2つのコホートが含まれたCOHORTテーブルの例を示しています。コホート定義IDが1のコホートはターゲットコホート（例：「最近心房細動と診断された人々」）です。コホート定義IDが2は、アウトカムコホートを定義します（例：「脳卒中」）。
 
-表： \label{tab:plpExampleCohorts} 例示的なCOHORTテーブル。簡潔のためにCOHORT\_END\_DATEは省略しています。
-
 \begin{longtable}[]{@{}ccc@{}}
+\caption{\label{tab:plpExampleCohorts} 例示的なCOHORTテーブル。簡潔のためにCOHORT\_END\_DATEは省略しています。}\tabularnewline
+\toprule\noalign{}
+COHORT\_DEFINITION\_ID & SUBJECT\_ID & COHORT\_START\_DATE \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 COHORT\_DEFINITION\_ID & SUBJECT\_ID & COHORT\_START\_DATE \\
 \midrule\noalign{}
@@ -7308,9 +7318,12 @@ COHORT\_DEFINITION\_ID & SUBJECT\_ID & COHORT\_START\_DATE \\
 
 表 \ref{tab:plpExampleConditions} は、例示的なCONDITION\_OCCURRENCEテーブルを示しています。Concept ID \href{http://athena.ohdsi.org/search-terms/terms/320128}{320128} は「本態性高血圧」に該当します。
 
-表：\label{tab:plpExampleConditions} 例示的なCONDITION\_OCCURRENCEテーブル。簡潔のため、3つの列のみ表示しています。
-
 \begin{longtable}[]{@{}ccc@{}}
+\caption{\label{tab:plpExampleConditions} 例示的なCONDITION\_OCCURRENCEテーブル。簡潔のため、3つの列のみ表示しています。}\tabularnewline
+\toprule\noalign{}
+PERSON\_ID & CONDITION\_CONCEPT\_ID & CONDITION\_START\_DATE \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 PERSON\_ID & CONDITION\_CONCEPT\_ID & CONDITION\_START\_DATE \\
 \midrule\noalign{}
@@ -7339,21 +7352,21 @@ PERSON\_ID & CONDITION\_CONCEPT\_ID & CONDITION\_START\_DATE \\
 
 }
 
-\caption{Decision boundary.}\label{fig:decisionBoundary}
+\caption{決定境界}\label{fig:decisionBoundary}
 \end{figure}
 
 図 \ref{fig:decisionBoundary} では、三つの異なる決定境界を見ることができます。境界は新しいデータポイントのアウトカム状態を推測するために使用されます。新しいデータポイントが陰影部分に落ちると、モデルは「アウトカムがある」と予測し、そうでない場合は「アウトカムなし」と予測します。理想的には、決定境界は2つのクラスを完全に分離するべきです。しかし、あまりにも複雑なモデルはデータに「過適合」するリスクがあります。これは、未見のデータに対するモデルの一般化可能性を悪化させる可能性があります。例えば、データにノイズが含まれている場合（誤ってラベル付けされたデータポイントや誤った位置に配置されたデータポイントなど）、そのノイズにモデルを適合させたくないでしょう。したがって、トレーニングデータで完全に区別しないが、「真の」複雑さを捉える決定境界を定義することを好むかもしれません。正則化のような技術は、モデルのパフォーマンスを最大限にしながら複雑さを最小限に抑えることを目指しています。
 
 各指導付き学習アルゴリズムは決定境界を学習する異なる方法を持っており、どのアルゴリズムがデータに最も適しているかを簡単に判断することはできません。No Free Lunch定理が述べているように、1つのアルゴリズムがすべての予測問題に対して常に他よりも優れているわけではありません。\index{no free lunch} したがって、患者レベルの予測モデルを開発する際には、複数の指導付き学習アルゴリズムをさまざまなハイパーパラメータ設定で試すことをお勧めします。
 
-\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージで利用可能なアルゴリズムは以下の通りです：
+この後に示すアルゴリズムは以下から取得可能です： \href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージ
 
 \subsection{正則化ロジスティック回帰}\label{ux6b63ux5247ux5316ux30edux30b8ux30b9ux30c6ux30a3ux30c3ux30afux56deux5e30}
 
 LASSO（最小絶対収縮および選択オペレーター）ロジスティック回帰は、変数の線形結合を学習し、最終的にロジスティック関数がその線形結合を0から1の値にマッピングする、一般化線形モデルの家族に属します。LASSO正則化は、モデルをトレーニングする際に目的関数に基づくモデルの複雑さに基づくコストを追加します。このコストは係数の線形結合の絶対値の合計です。このモデルは、このコストを最小限に抑えることで自動的に特徴選択を行います。大規模な正則化ロジスティック回帰を行うために \href{https://ohdsi.github.io/Cyclops/}{Cyclops} （ロジスティック、ポアソン、サバイバル分析のためのサイクリック座標降下法）パッケージを使用しています。 \index{LASSO} \index{logistic regression} \index{regularization} \index{Cyclops}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:lassoParameters} 正則化ロジスティック回帰のハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:lassoParameters} 正則化ロジスティック回帰のハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 パラメータ & 説明 & 典型的な値 \\
 \midrule\noalign{}
@@ -7367,14 +7380,14 @@ LASSO（最小絶対収縮および選択オペレーター）ロジスティッ
 初期分散 & 事前分布の初期分散 & 0.1 \\
 \end{longtable}
 
-分散は交差検証でのサンプル外の尤度を最大化して最適化されるため、初期分散はアウトカムとして得られるモデルの性能にはほとんど影響しません。ただし、最適値からあまりに離れた初期分散を選択すると、適合時間が長くなる可能性があります。\index{variance} \index{hyper-parameter} \index{cross-validation}
+分散はクロスバリデーションでのサンプル外の尤度を最大化して最適化されるため、初期分散はアウトカムとして得られるモデルの性能にはほとんど影響しません。ただし、最適値からあまりに離れた初期分散を選択すると、適合時間が長くなる可能性があります。\index{variance} \index{hyper-parameter} \index{cross-validation}
 
 \subsection{勾配ブースティングマシン}\label{ux52feux914dux30d6ux30fcux30b9ux30c6ux30a3ux30f3ux30b0ux30deux30b7ux30f3}
 
 勾配ブースティングマシンはブースティングアンサンブル技術であり、我々の枠組みでは複数の決定木を組み合わせます。ブースティングは、繰り返し決定木を追加し、前の決定木で誤分類されたデータポイントにより多くの重みをコスト関数に追加して次の木をトレーニングします。高効率の勾配ブースティングフレームワークを実装した、CRANで利用可能なxgboost Rパッケージを使用しています。 \index{gradient boosting} \index{xgboost}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:gbmParameters} 勾配ブースティングマシンのハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:gbmParameters} 勾配ブースティングマシンのハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 パラメータ & 説明 & 典型的な値 \\
 \midrule\noalign{}
@@ -7397,7 +7410,7 @@ ntrees & 木の数 & 100,1000 \\
 ランダムフォレストは複数の決定木を組み合わせるバギングアンサンブル技術です。バギングの背後にあるアイデアは、弱い分類器を使用してそれらを強い分類器に組み合わせることで過適合の可能性を減らすことです。ランダムフォレストは、各木において変数のサブセットを使用し、木間でサブセットを異ならせることでこれを実現します。Pythonのsklearnのランダムフォレスト実装を使用しています。 \index{random forest} \index{python} \index{sklearn}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:randomForestParameters} ランダムフォレストのハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:randomForestParameters} ランダムフォレストのハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 パラメータ & 説明 & 典型的な値 \\
 \midrule\noalign{}
@@ -7415,10 +7428,10 @@ ntrees & 木の数 & 500 \\
 
 \subsection{K-近傍法}\label{k-ux8fd1ux508dux6cd5}
 
-K-nearest neighbors (KNN) は、ある距離測定を使用して新しい未ラベルデータポイントに最も近いラベル付きデータポイントK個を見つけるアルゴリズムです。新しいデータポイントの予測は、K個の近傍ラベル付きデータポイントの中で最も多く見られるクラスになります。KNNの制限として、モデルが新しいデータに対して予測を行うためにラベル付きデータを必要とし、そのデータはデータサイト間で共有しにくい場合が多いことがあります。我々のパッケージには、OHDSIで開発された大規模なKNN分類器である\href{https://github.com/OHDSI/BigKnn}{BigKnn}パッケージが含まれています。 \index{k-nearest neighbors} \index{bigknn}
+K-nearest neighbors (KNN) は、ある距離測定を使用して新しい未ラベルデータポイントに最も近いラベル付きデータポイントK個を見つけるアルゴリズムです。新しいデータポイントの予測は、K個の近傍ラベル付きデータポイントの中で最も多く見られるクラスになります。KNNの制限として、モデルが新しいデータに対して予測を行うためにラベル付きデータを必要とし、そのデータはデータサイト間で共有しにくい場合が多いことがあります。我々のパッケージには、OHDSIで開発された大規模なKNN分類器である \href{https://github.com/OHDSI/BigKnn}{BigKnn} パッケージが含まれています。 \index{k-nearest neighbors} \index{bigknn}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:knnParameters} K-近傍法のハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:knnParameters} K-近傍法のハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 パラメータ & 説明 & 典型的な値 \\
 \midrule\noalign{}
@@ -7444,7 +7457,7 @@ AdaBoostはブースティングアンサンブル技術です。ブースティ
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{\label{tab:adaBoostParameters} AdaBoostのハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:adaBoostParameters} AdaBoostのハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 パラメータ
@@ -7479,7 +7492,7 @@ learningRate & 学習率が各分類器の貢献をlearning\_rateによって抑
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\caption{\label{tab:decisionTreeParameters} 決定木のハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:decisionTreeParameters} 決定木のハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 パラメータ
@@ -7514,7 +7527,7 @@ minSamplesSplit & 各分割の最小サンプル数 & 2 \\
 多層パーセプトロンは、複数の層のノードを含むニューラルネットワークであり、入力を重み付けするために非線形関数を用います。最初の層は入力層、最後の層は出力層、その間に隠れ層があります。ニューラルネットワークは一般に逆伝播を使ってトレーニングされ、トレーニング入力がネットワークを前方に伝播して出力を生成し、出力とアウトカム状態の間の誤差が計算され、その誤差がネットワークを逆伝播して線形関数の重みを更新します。 \index{neural network} \index{perceptron} \index{back-propagation}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:mpParameters} 多層パーセプトロンのハイパーパラメータ。}\tabularnewline
+\caption{\label{tab:mpParameters} 多層パーセプトロンのハイパーパラメータ}\tabularnewline
 \toprule\noalign{}
 パラメータ & 説明 & 典型的な値 \\
 \midrule\noalign{}
@@ -7572,7 +7585,7 @@ size & 隠れノードの数 & 4 \\
     地理的位置に基づいた分割（空間的検証）。\index{検証!時間的検証} \index{検証!空間的検証}
   \end{itemize}
 \item
-  \textbf{交差検証}：データが限られている場合に有用です。データを等しいサイズに分割し、\(n\)にプレ設定されたセットに分割します（例：\(n=10\)）。各セットに対して、そのセットのデータを除いた全てのデータでモデルを訓練し、ホールドアウトセットの予測を生成します。この方法で、すべてのデータが一度はモデル構築アルゴリズムを評価するために使用されます。患者レベルの予測フレームワークでは、交差検証を使用して最適なハイパーパラメータを選択します。 \index{交差検証}
+  \textbf{クロスバリデーション}：データが限られている場合に有用です。データを等しいサイズに分割し、\(n\)にプレ設定されたセットに分割します（例：\(n=10\)）。各セットに対して、そのセットのデータを除いた全てのデータでモデルを訓練し、ホールドアウトセットの予測を生成します。この方法で、すべてのデータが一度はモデル構築アルゴリズムを評価するために使用されます。患者レベルの予測フレームワークでは、クロスバリデーションを使用して最適なハイパーパラメータを選択します。 \index{交差検証}
 \end{itemize}
 
 外部検証は、モデルが開発された設定外の別のデータベースに対するモデルの性能を評価することを目的としています。このモデルの移植性の尺度は重要です。なぜなら、モデルを訓練したデータベースだけでなく、他のデータベースでもモデルを適用したいからです。異なるデータベースは、異なる患者集団、異なる医療システム、および異なるデータキャプチャプロセスを表す可能性があります。大規模なデータベースセットでの予測モデルの外部検証は、モデルの受け入れと臨床実務への実装に向けて重要なステップだと考えています。
@@ -7590,7 +7603,7 @@ size & 隠れノードの数 & 4 \\
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
   >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
-\caption{\label{tab:tabletheorytab} 予測確率に対する閾値の利用例。}\tabularnewline
+\caption{\label{tab:tabletheorytab} 予測確率に対する閾値の利用例}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 患者ID
@@ -7675,7 +7688,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 \subsection{問題の定義}\label{ux554fux984cux306eux5b9aux7fa9-2}
 
-アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です \citep{byrd_2006}。 この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです　\citep{norman_2013}。 さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります　\citep{norman_2013, thompson_1993}。 アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません　\citep{byrd_2006}。 ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します　\citep{circardi_2004}。 しかし、一部の症例は治療開始から数年後に発生することもあります　\citep{mara_1996}。 リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
+アンギオエデマはACE阻害薬のよく知られた副作用であり、ACE阻害薬のラベルに記載されているアンギオエデマの発生率は0.1％から0.7％の範囲です \citep{byrd_2006}。 この副作用を監視することは重要です。なぜなら、アンギオエデマは稀であるものの、生命を脅かす可能性があり、呼吸停止や死亡に至ることがあるからです \citep{norman_2013}。 さらに、アンギオエデマが最初に認識されないと、その原因を特定するまでに広範で費用のかかる検査が行われる可能性があります　\citep{norman_2013, thompson_1993}。 アフリカ系アメリカ人患者におけるリスクの増加以外に、ACE阻害薬関連のアンギオエデマの発症に対する既知の素因はありません \citep{byrd_2006}。 ほとんどの反応は初めての治療の最初の週または月以内に、しばしば最初の投与から数時間以内に発生します \citep{circardi_2004}。 しかし、一部の症例は治療開始から数年後に発生することもあります \citep{mara_1996}。 リスクのある人を特定する特定の診断テストは利用できません。もしリスクのある人を特定できれば、医師は例えばACE阻害薬を別の降圧薬に切り替えるなどの対応が可能です。 \index{アンギオエデマ} \index{ACE阻害薬}
 
 患者レベル予測フレームワークを観察医療データに適用して、次の患者レベルの予測問題に取り組みます：
 
@@ -7712,13 +7725,20 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 \subsection{研究概要}\label{ux7814ux7a76ux6982ux8981}
 
-これで、表 \ref{tab:plpSummary}に示されるように、研究を完全に定義しました。
-
-表: \label{tab:plpSummary} 私たちの研究の主な設計選択。
+これで、表 \ref{tab:plpSummary} に示されるように、研究を完全に定義しました。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\caption{\label{tab:plpSummary} 私たちの研究の主な設計選択}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+選択
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+値
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 選択
@@ -7745,7 +7765,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 ここでは、分析の対象となる母集団コホート群とアウトカムコホートを選択します。予測モデルは、対象となる母集団コホートとアウトカムコホートの全組み合わせに対して開発されます。例えば、2つの対象集団と2つのアウトカムを指定すると、4つの予測問題が指定されたことになります。
 
-対象となる母集団集団コホートを選択するには、事前にATLASで定義しておく必要があります。コホートのインスタンス化については、Chapter \ref{Cohorts}で説明しています。この例で使用する対象（Appendix \ref{AceInhibitors}）およびアウトカム（Appendix \ref{Angioedema}）コホートの完全な定義は付録に掲載しています。対象集団をコホートに追加するには、「Add Target Cohort」ボタンをクリックします。アウトカムコホートの追加も同様に、「Add Outcome Cohort」ボタンをクリックすることで行います。完了すると、ダイアログが図 \ref{fig:problemSettings}のようになります。
+対象となる母集団集団コホートを選択するには、事前にATLASで定義しておく必要があります。コホートのインスタンス化については、第 \ref{Cohorts} 章で説明しています。この例で使用する対象（付録 \ref{AceInhibitors}）およびアウトカム（付録 \ref{Angioedema}）コホートの完全な定義は付録に掲載しています。対象集団をコホートに追加するには、「Add Target Cohort」ボタンをクリックします。アウトカムコホートの追加も同様に、「Add Outcome Cohort」ボタンをクリックすることで行います。完了すると、ダイアログが図 \ref{fig:problemSettings} のようになります。
 
 \begin{figure}
 
@@ -7753,7 +7773,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 }
 
-\caption{予測問題設定.}\label{fig:problemSettings}
+\caption{予測問題設定}\label{fig:problemSettings}
 \end{figure}
 
 \subsection{分析設定}\label{ux5206ux6790ux8a2dux5b9a}
@@ -7765,7 +7785,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 モデル開発のために1つ以上の教師あり学習アルゴリズムを選ぶことができます。教師あり学習アルゴリズムを追加するには、「Add Model Settings」ボタンをクリックします。現在ATLASインターフェースでサポートされているすべてのモデルを含むドロップダウンが表示されます。ドロップダウンメニューの名前をクリックすることで、研究に含めたい教師あり学習モデルを選択できます。これでその特定のモデルのビューが表示され、ハイパーパラメータ値を選択できるようになります。複数の値が提供されると、クロスバリデーションを使用して最適な組み合わせを選択するために、すべての可能な値の組み合わせを網羅的に検索します。
 
-我々の例では、勾配ブースティングマシンを選択し、図 \ref{fig:gbmSettings}に示すようにハイパーパラメータを設定します。
+我々の例では、勾配ブースティングマシンを選択し、図 \ref{fig:gbmSettings} に示すようにハイパーパラメータを設定します。
 
 \begin{figure}
 
@@ -7791,7 +7811,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 }
 
-\caption{共変量の包括と除外設定.}\label{fig:covariateSettings1}
+\caption{共変量の包括と除外設定}\label{fig:covariateSettings1}
 \end{figure}
 
 次のセクションでは、時間に依存しない変数の選択ができます：
@@ -7821,7 +7841,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
   インデックス年と月： {[}予測には推奨されません{]} 各コホート開始日の年と月の組み合わせを表すバイナリ変数。1は患者のコホート開始日の年と月であることを表し、0はそれ以外を表します。
 \end{itemize}
 
-これが完了すると、このセクションは図 \ref{fig:covariateSettings2}のようになるはずです。
+これが完了すると、このセクションは図 \ref{fig:covariateSettings2} のようになるはずです。
 
 \begin{figure}
 
@@ -7829,7 +7849,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 }
 
-\caption{共変量の選択.}\label{fig:covariateSettings2}
+\caption{共変量の選択}\label{fig:covariateSettings2}
 \end{figure}
 
 標準共変量は共変量の柔軟な3つの時間間隔を可能にします：
@@ -7837,13 +7857,13 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 \begin{itemize}
 \tightlist
 \item
-  終了日: コホート開始日からの終了日{[}デフォルトは0日{]}
+  終了日までの日数: コホート開始日からの終了日まで{[}デフォルトは0{]}
 \item
-  長期 {[}デフォルト-365日からコホート開始前まで{]}
+  長期 {[}デフォルトはコホート開始前365日から終了日まで{]}
 \item
-  中期 {[}デフォルト-180日からコホート開始前まで{]}
+  中期 {[}デフォルトはコホート開始前180日から終了日まで{]}
 \item
-  短期 {[}デフォルト-30日からコホート開始前まで{]}
+  短期 {[}デフォルトはコホート開始前30日から終了日まで{]}
 \end{itemize}
 
 これが完了すると、このセクションは図 \ref{fig:covariateSettings3} のようになるはずです。
@@ -7854,7 +7874,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 }
 
-\caption{時間に依存する共変量.}\label{fig:covariateSettings3}
+\caption{時間に依存する共変量}\label{fig:covariateSettings3}
 \end{figure}
 
 次のオプションは、期間テーブルから抽出される共変量です：
@@ -7872,7 +7892,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 オーバーラップ設定には、薬剤または症状がコホート開始日以前に開始し、終了がコホート開始日以後に続くものが含まれます。\textbf{期間の開始}オプションは時間間隔内に開始したものに限定します。
 
-これが完了すると、このセクションは図 \ref{fig:covariateSettings4}のようになるはずです。
+これが完了すると、このセクションは図 \ref{fig:covariateSettings4} のようになるはずです。
 
 \begin{figure}
 
@@ -7912,7 +7932,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 ``distinct count (重複を除いたカウント)''オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。
 
-これらが終了すると、このセクションは下図 \ref{fig:covariateSettings5} の用になっているはずです。
+これらが終了すると、このセクションは下図 \ref{fig:covariateSettings5} の様になっているはずです。
 
 \begin{figure}
 
@@ -7940,8 +7960,6 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 対象集団の設定は、追加の適格基準をターゲット集団に適用できる場所であり、また、リスク時間もここで定義されます。 研究に対象集団の設定を追加するには、``Add Population Settings (対象集団の追加)'' ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。
 
 最初のオプションセットでは、リスク時間を指定することができます。これは、関心の対象であるアウトカムが出現するかどうかを観察する時間間隔です。リスク時間中に患者にアウトカムが出現した場合は ``Has outcome (アウトカムあり)'' に分類し、そうでない場合は ``Has outcome (アウトカムなし)'' に分類します。``\textbf{Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホートの開始または終了日を基準とした、リスク時間ウインドウの開始を定義します。)} は、リスク時間ウインドウの開始を定義します。同様に、''\textbf{Define the time-at-risk window end: (ターゲットコホートの開始または終了日を基準とした、リスク時間ウインドウの終了を定義します。)} は、リスク時間ウインドウの終了を定義します。
-
-``\textbf{Minimum lookback period applied to target cohort}'' specifies the minimum baseline period, the minimum number of days prior to the cohort start date that a patient is continuously observed. The default is 365 days. Expanding the minimum look-back will give a more complete picture of a patient (as they must have been observed for longer) but will filter patients who do not have the minimum number of days prior observation.
 
 ``\textbf{Minimum lookback period applied to target cohort (ターゲットコホートに適用される最小のルックバック期間)}'' は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小ベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。
 
@@ -7975,7 +7993,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 \caption{分析の設定}\label{fig:analysisSettings}
 \end{figure}
 
-\subsection{実行の設定s}\label{ux5b9fux884cux306eux8a2dux5b9as}
+\subsection{実行の設定}\label{ux5b9fux884cux306eux8a2dux5b9a}
 
 オプションは3つあります：
 
@@ -8011,7 +8029,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 \item
   ``\textbf{The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)}''： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。
 \item
-  「\textbf{The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)}」： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用する乱数のシードを選択します。
+  ``\textbf{The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)}''： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用する乱数のシードを選択します。
 \end{itemize}
 
 この例では、図 \ref{fig:trainingSettings} のように選択します。
@@ -8059,7 +8077,7 @@ R Studioでプロジェクトを開いたら、READMEファイルを開き、指
 
 \subsection{コホートのインスタンス化}\label{ux30b3ux30dbux30fcux30c8ux306eux30a4ux30f3ux30b9ux30bfux30f3ux30b9ux5316-2}
 
-まず、ターゲットコホートとアウトカムコホートをインスタンス化する必要があります。コホートのインスタンス化については、Chapter \ref{Cohorts}で説明しています。Appendixにはターゲットコホート(Appendix \ref{AceInhibitors})とアウトカムコホート(Appendix \ref{Angioedema})の完全な定義があります。この例では、ACE阻害薬コホートのIDが1、血管浮腫コホートのIDが2であると仮定します。
+まず、ターゲットコホートとアウトカムコホートをインスタンス化する必要があります。コホートのインスタンス化については、第 \ref{Cohorts} 章で説明しています。付録にはターゲットコホート(付録 \ref{AceInhibitors})とアウトカムコホート(付録 \ref{Angioedema})の完全な定義があります。この例では、ACE阻害薬コホートのIDが1、血管浮腫コホートのIDが2であると仮定します。
 
 \subsection{データ抽出}\label{ux30c7ux30fcux30bfux62bdux51fa-3}
 
@@ -8242,7 +8260,7 @@ R Studioでプロジェクトを開いたら、READMEファイルを開き、指
 
 \subsection{内部バリデーション}\label{ux5185ux90e8ux30d0ux30eaux30c7ux30fcux30b7ux30e7ux30f3}
 
-研究を実行すると、\texttt{runPlp}関数はトレーニング済みモデルとトレイン/テストセットに対するモデルの評価を返します。アウトカムをインタラクティブに表示するには、\texttt{viewPlp(runPlp\ =\ gbmResults)}を実行します。これによりShinyアプリケーションが開き、フレームワークによって作成されたすべてのパフォーマンス指標を含むインタラクティブなプロットを表示できます（Shinyアプリケーションのセクション内のFigure \ref{fig:shinySummary}参照）。
+研究を実行すると、\texttt{runPlp}関数はトレーニング済みモデルとトレイン/テストセットに対するモデルの評価を返します。アウトカムをインタラクティブに表示するには、\texttt{viewPlp(runPlp\ =\ gbmResults)}を実行します。これによりShinyアプリケーションが開き、フレームワークによって作成されたすべてのパフォーマンス指標を含むインタラクティブなプロットを表示できます（Shinyアプリケーションのセクション内の図 \ref{fig:shinySummary}参照）。
 
 評価プロットをフォルダーに生成して保存するには、次のコードを実行します：
 
@@ -8252,7 +8270,7 @@ R Studioでプロジェクトを開いたら、READMEファイルを開き、指
 \end{Highlighting}
 \end{Shaded}
 
-プロットの詳細については、Section \ref{performance}を参照してください。
+プロットの詳細については、セクション \ref{performance}を参照してください。
 
 \subsection{外部バリデーション}\label{ux5916ux90e8ux30d0ux30eaux30c7ux30fcux30b7ux30e7ux30f3}
 
@@ -8360,10 +8378,10 @@ R Studioでプロジェクトを開いたら、READMEファイルを開き、指
 \end{Highlighting}
 \end{Shaded}
 
-Shinyアプリケーションはテストセットとトレインセットのパフォーマンス指標の要約から始まります（図 \ref{fig:shinySummary}参照）。アウトカムは、トレインセットのAUCは0.78であり、これがテストセットでは0.74に低下したことを示しています。テストセットのAUCがより正確な測定値です。全体として、モデルはACE阻害剤の新規ユーザーの中でアウトカムを発生させる人を識別する能力があるようですが、トレインセットのパフォーマンスがテストセットより高いため、わずかに過適合しています。ROCプロットは図 \ref{fig:shinyROC}に示されています。
+Shinyアプリケーションはテストセットとトレインセットのパフォーマンス指標の要約から始まります（図 \ref{fig:shinySummary} 参照）。アウトカムは、トレインセットのAUCは0.78であり、これがテストセットでは0.74に低下したことを示しています。テストセットのAUCがより正確な測定値です。全体として、モデルはACE阻害剤の新規ユーザーの中でアウトカムを発生させる人を識別する能力があるようですが、トレインセットのパフォーマンスがテストセットより高いため、わずかに過適合しています。ROCプロットは図 \ref{fig:shinyROC}に示されています。
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/shinysummary} \caption{Shinyアプリケーションにおける評価統計の要約。}\label{fig:shinySummary}
+\includegraphics[width=1\linewidth]{images/PatientLevelPrediction/shinysummary} \caption{Shinyアプリケーションにおける評価統計の要約}\label{fig:shinySummary}
 \end{figure}
 
 \begin{figure}
@@ -8372,10 +8390,10 @@ Shinyアプリケーションはテストセットとトレインセットのパ
 
 }
 
-\caption{ROCプロット。}\label{fig:shinyROC}
+\caption{ROCプロット}\label{fig:shinyROC}
 \end{figure}
 
-図 \ref{fig:shinyCal}に示されているキャリブレーションプロットは、一般的に観察されたリスクが予測されたリスクと一致していることを示しており、点が対角線の周りにあります。しかし、図 \ref{fig:shinyDemo}に示されている人口統計学的キャリブレーションプロットは、40歳未満の若年患者についてモデルが十分に校正されていないことを示しています。青い線（予測リスク）は赤い線（観察されたリスク）とは異なります。これは、ターゲット人口から40歳未満を除外する必要があることを示しているかもしれません（若年患者の観察リスクはほとんどゼロです）。
+図 \ref{fig:shinyCal} に示されているキャリブレーションプロットは、一般的に観察されたリスクが予測されたリスクと一致していることを示しており、点が対角線の周りにあります。しかし、図 \ref{fig:shinyDemo} に示されている人口統計学的キャリブレーションプロットは、40歳未満の若年患者についてモデルが十分に校正されていないことを示しています。青い線（予測リスク）は赤い線（観察されたリスク）とは異なります。これは、ターゲット人口から40歳未満を除外する必要があることを示しているかもしれません（若年患者の観察リスクはほとんどゼロです）。
 
 \begin{figure}
 
@@ -8446,7 +8464,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 }
 
-\caption{モデルを開発する際に使用した設定を表示する。}\label{fig:shinyModel}
+\caption{モデルを開発する際に使用した設定を表示する}\label{fig:shinyModel}
 \end{figure}
 
 同様に、他のタブでモデルを生成するために使用された人口および共変量の設定を調べることもできます。
@@ -8462,12 +8480,12 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 }
 
-\caption{特定のしきい値におけるパフォーマンス測定の要約。}\label{fig:shinyPerformanceSum}
+\caption{特定のしきい値におけるパフォーマンス測定の要約}\label{fig:shinyPerformanceSum}
 \end{figure}
 
-この要約ビューは標準形式で選択された予測問題を表示し、しきい値セレクタと正の予測値（PPV）、負の予測値（NPV）、感度および特異度（セクション \ref{performance}参照）などの重要なしきい値ベースの指標を含むダッシュボードを表示します。図 \ref{fig:shinyPerformanceSum}では、しきい値が0.00482で感度は83.4％（翌年のアウトカムを持つ患者の83.4％がリスク0.00482以上）、PPVは1.2％（リスク0.00482以上の患者の1.2％が翌年にアウトカムを持つ）であることが示されている。1年以内のアウトカム発生率が0.741％であることを考えると、リスクが0.00482以上の患者を特定することで、集団平均リスクの約2倍のリスクを持つサブグループを見つけることができます。スライダーを使用してしきい値を調整し、他の値でのパフォーマンスを表示できます。
+この要約ビューは標準形式で選択された予測問題を表示し、しきい値セレクタと正の予測値（PPV）、負の予測値（NPV）、感度および特異度（セクション \ref{performance} 参照）などの重要なしきい値ベースの指標を含むダッシュボードを表示します。図 \ref{fig:shinyPerformanceSum} では、しきい値が0.00482で感度は83.4％（翌年のアウトカムを持つ患者の83.4％がリスク0.00482以上）、PPVは1.2％（リスク0.00482以上の患者の1.2％が翌年にアウトカムを持つ）であることが示されている。1年以内のアウトカム発生率が0.741％であることを考えると、リスクが0.00482以上の患者を特定することで、集団平均リスクの約2倍のリスクを持つサブグループを見つけることができます。スライダーを使用してしきい値を調整し、他の値でのパフォーマンスを表示できます。
 
-モデル全体の判別を確認するには、「Discrimination」タブをクリックしてROCプロット、精度-再現プロット、および分布プロットを表示します。プロットの線は選択されたしきい値ポイントに対応しています。図 \ref{fig:shinyPerformanceDisc}はROCおよび精度-再現プロットを示しています。ROCプロットは、モデルが翌年にアウトカムが発生する人と発生しない人を区別できることを示しています。しかし、アウトカム発生率が低いため、精度-再現プロットを見るとパフォーマンスはそれほど印象的でないように見えます。
+モデル全体の判別を確認するには、「Discrimination」タブをクリックしてROCプロット、精度-再現プロット、および分布プロットを表示します。プロットの線は選択されたしきい値ポイントに対応しています。図 \ref{fig:shinyPerformanceDisc} はROCおよび精度-再現プロットを示しています。ROCプロットは、モデルが翌年にアウトカムが発生する人と発生しない人を区別できることを示しています。しかし、アウトカム発生率が低いため、精度-再現プロットを見るとパフォーマンスはそれほど印象的でないように見えます。
 
 \begin{figure}
 
@@ -8475,10 +8493,10 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 }
 
-\caption{ROCおよび精度-再現プロットを使用してモデルの判別能力全体を評価する。}\label{fig:shinyPerformanceDisc}
+\caption{ROCおよび精度-再現プロットを使用してモデルの判別能力全体を評価する}\label{fig:shinyPerformanceDisc}
 \end{figure}
 
-図 \ref{fig:shinyPerformanceDist}は予測リスクおよび選好スコア分布を示しています。
+図 \ref{fig:shinyPerformanceDist} は予測リスクおよび選好スコア分布を示しています。
 
 \begin{figure}
 
@@ -8489,7 +8507,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 \caption{アウトカム有およびアoutingの患者に対する予測リスク分布。重なりが多いほど、判別が悪化します。}\label{fig:shinyPerformanceDist}
 \end{figure}
 
-最後に、「Calibration」タブをクリックしてモデルのキャリブレーションを確認することもできます。これにより、図 \ref{fig:shinyPerformanceCal}に示されるキャリブレーションプロットおよび人口統計学的キャリブレーションが表示されます。
+最後に、「Calibration」タブをクリックしてモデルのキャリブレーションを確認することもできます。これにより、図 \ref{fig:shinyPerformanceCal} に示されるキャリブレーションプロットおよび人口統計学的キャリブレーションが表示されます。
 
 \begin{figure}
 
@@ -8505,7 +8523,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 \subsubsection*{モデルの表示}\label{ux30e2ux30c7ux30ebux306eux8868ux793a}
 \addcontentsline{toc}{subsubsection}{モデルの表示}
 
-最終モデルを検査するには、左側のメニューから\includegraphics{images/PatientLevelPrediction/modelButton.png}オプションを選択します。これにより、図 \ref{fig:shinyModelPlots}に示すモデル内の各変数のプロットと図 \ref{fig:shinyModelTable}に示すすべての候補共変量を要約するテーブルが表示されます。変数プロットはバイナリ変数と連続変数に分かれています。X軸はアウトカムがない患者の中での有病率/平均値、Y軸はアウトカムがある患者の中での有病率/平均値です。従って、変数の点が対角線の上にある場合、その変数はアウトカムがある患者の方が一般的であり、点が対角線の下にある場合、その変数はアウトカムがない患者の方が一般的です。
+最終モデルを検査するには、左側のメニューから\includegraphics{images/PatientLevelPrediction/modelButton.png}オプションを選択します。これにより、図 \ref{fig:shinyModelPlots} に示すモデル内の各変数のプロットと図 \ref{fig:shinyModelTable} に示すすべての候補共変量を要約するテーブルが表示されます。変数プロットはバイナリ変数と連続変数に分かれています。X軸はアウトカムがない患者の中での有病率/平均値、Y軸はアウトカムがある患者の中での有病率/平均値です。従って、変数の点が対角線の上にある場合、その変数はアウトカムがある患者の方が一般的であり、点が対角線の下にある場合、その変数はアウトカムがない患者の方が一般的です。
 
 \begin{figure}
 
@@ -8524,11 +8542,11 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 
 }
 
-\caption{モデル詳細テーブル。}\label{fig:shinyModelTable}
+\caption{モデル詳細テーブル}\label{fig:shinyModelTable}
 \end{figure}
 
 \begin{rmdimportant}
-予測モデルは因果モデルではなく、予測変数を原因と誤解しないようにしてください。図 \ref{fig:shinyModelTable}のいずれかの変数を変更することでアウトカムのリスクが影響を受ける保証はありません。
+予測モデルは因果モデルではなく、予測変数を原因と誤解しないようにしてください。図 \ref{fig:shinyModelTable} のいずれかの変数を変更することでアウトカムのリスクが影響を受ける保証はありません。
 \end{rmdimportant}
 
 \section{患者レベル予測機能の追加}\label{ux60a3ux8005ux30ecux30d9ux30ebux4e88ux6e2cux6a5fux80fdux306eux8ffdux52a0}
@@ -8565,7 +8583,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 \item
   モデル開発に最適な機械学習アルゴリズムの選択は経験的な問題であり、具体的な問題とデータに依存します。
 \item
-  PatientLevelPredictionパッケージは、OMOP-CDMに保存されたデータを使用した予測モデルの開発と検証のためのベストプラクティスを実装しています。
+  PatientLevelPredictionパッケージは、OMOP CDMに保存されたデータを使用した予測モデルの開発と検証のためのベストプラクティスを実装しています。
 \item
   モデルとその性能指標の発信はインタラクティブなダッシュボードを通じて行います。
 \item
@@ -8578,7 +8596,7 @@ ATLASで生成されたスタディパッケージは、異なる予測問題に
 \subsubsection*{前提条件}\label{ux524dux63d0ux6761ux4ef6-8}
 \addcontentsline{toc}{subsubsection}{前提条件}
 
-これらの演習では、セクション \ref{installR}で説明されているように、R、R-Studio、およびJavaがインストールされていることを前提としています。また、\href{https://ohdsi.github.io/SqlRender/}{SqlRender}、\href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}、\href{https://ohdsi.github.io/Eunomia/}{Eunomia}および\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}パッケージも必要です。これらは以下のコマンドでインストールできます：
+これらの演習では、セクション \ref{installR} で説明されているように、R、R-Studio、およびJavaがインストールされていることを前提としています。また、\href{https://ohdsi.github.io/SqlRender/}{SqlRender}、\href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}、\href{https://ohdsi.github.io/Eunomia/}{Eunomia}および\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction}パッケージも必要です。これらは以下のコマンドでインストールできます：
 
 \begin{Shaded}
 \begin{Highlighting}[]
