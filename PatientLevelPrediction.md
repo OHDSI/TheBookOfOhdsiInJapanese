@@ -430,7 +430,7 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 -   中期 [デフォルト-180日からコホート開始前まで]
 -   短期 [デフォルト-30日からコホート開始前まで]
 
-これが完了すると、このセクションは図 \@ref(fig:covariateSettings3)のようになるはずです。
+これが完了すると、このセクションは図 \@ref(fig:covariateSettings3) のようになるはずです。
 
 \begin{figure}
 
@@ -520,15 +520,17 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 "**Minimum lookback period applied to target cohort**" specifies the minimum baseline period, the minimum number of days prior to the cohort start date that a patient is continuously observed. The default is 365 days. Expanding the minimum look-back will give a more complete picture of a patient (as they must have been observed for longer) but will filter patients who do not have the minimum number of days prior observation.
 
-If "**Should subjects without time at risk be removed?**" is set to yes, then a value for "**Minimum time at risk:**" is also required. This allows removing people who are lost to follow-up (i.e. that have left the database during the time-at-risk period). For example, if the time-at-risk period was 1 day from cohort start until 365 days from cohort start, then the full time-at-risk interval is 364 days (365-1). If we only want to include patients who are observed the whole interval, then we set the minimum time at risk to be 364. If we are happy as long as people are in the time-at-risk for the first 100 days, then we select minimum time at risk to be 100. In this case as the time-at-risk start is 1 day from the cohort start, a patient will be included if they remain in the database for at least 101 days from the cohort start date. If we set "Should subjects without time at risk be removed?" to 'No', then this will keep all patients, even those who drop out from the database during the time-at-risk.
+"**Minimum lookback period applied to target cohort (ターゲットコホートに適用される最小のルックバック期間)**" は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小ベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。
 
-The option "**Include people with outcomes who are not observed for the whole at risk period?**" is related to the previous option. If set to "yes", then people who experience the outcome during the time-at-risk are always kept, even if they are not observed for the specified minimum amount of time.
+"**Should subjects without time at risk be removed? (リスク時間がない対象は除外すべきですか。)"** が "Yes (はい)" に設定されている場合、"**Minimum time at risk: (最低リスク時間：)"** の値も必要となります。これにより、追跡不能となった人（すなわち、リスク時間中にデータベースから脱落した人）を除外することができます。例えば、リスク時間がコホート開始後1日からコホート開始後365日までであった場合、リスク時間は364日間（365-1）となります。もし、その全期間にわたって観察された患者のみを含めたいのであれば、最小リスク時間を364に設定します。最初の100日間リスク時間に該当していればよいのであれば、最小リスク期間を100に設定します。この場合、リスク時間開始はコホート開始から1日後なので、コホート開始日から少なくとも101日間データベースに存在する患者が対象となります。"Should subjects without time at risk be removed? (リスク時間がない対象は削除すべきですか。）" を "No (いいえ)" に設定すると、リスク期間中にデータベースから脱落した患者も含め、すべての患者が対象となります。
 
-The option "**Should only the first exposure per subject be included?**" is only useful if our target cohort contains patients multiple times with different cohort start dates. In this situation, picking "yes" will result in only keeping the earliest target cohort date per patient in the analysis. Otherwise a patient can be in the dataset multiple times.
+"**Include people with outcomes who are not observed for the whole at risk period? (全リスク時間で観察されていないアウトカムを持つ人々を含めますか。)** というオプションは、前のオプションに関連しています。 "Yes (はい)" に設定すると、指定された最低リスク時間で観察されていない場合でも、リスク時間中にアウトカムを経験した人は常にコホートに保持されます。
 
-Setting "**Remove patients who have observed the outcome prior to cohort entry?**" to "yes" will remove patients who have the outcome prior to the time-at-risk start date, so the model is for patients who have never experienced the outcome before. If "no" is selected, then patients could have had the outcome prior. Often, having the outcome prior is very predictive of having the outcome during the time-at-risk.
+"**Should only the first exposure per subject be included? (対象ごとに最初の曝露のみを含めるべきですか)**" というオプションは、ターゲットコホートに異なるコホート開始日で複数回含まれる患者がいる場合にのみ有用です。この状況で "Yes (はい)" を選択すると、分析では患者ごとに最も早いターゲットコホートの日付のみが保持されます。そうでない場合、患者はデータセットに複数回含まれる可能性があります。
 
-Once done, the population settings dialog should look like Figure \@ref(fig:populationSettings).
+"**Remove patients who have observed the outcome prior to cohort entry? (コホート組入れの前にアウトカムが観察された患者を除外しますか)**" を "Yes (はい)" に設定すると、リスク時間開始日より前にアウトカムを経験した患者を除外するため、そのモデルは以前にアウトカムを経験したことがない患者を対象とします。もし "No (いいえ)" が選択されると、患者は以前にアウトカムを持つ可能性があります。患者が以前にアウトカムを経験したことが、リスク時間中にアウトカムが出現することを非常に高い確率で予測することが多いです。
+
+完了すると、対象集団設定のダイアログは図 \@ref(fig:populationSettings) のようになります。
 
 \begin{figure}
 
@@ -536,10 +538,10 @@ Once done, the population settings dialog should look like Figure \@ref(fig:popu
 
 }
 
-\caption{Population settings.}(\#fig:populationSettings)
+\caption{対象集団設定}(\#fig:populationSettings)
 \end{figure}
 
-Now that we are finished with the Analysis Settings, the entire dialog should look like Figure \@ref(fig:analysisSettings).
+これで分析の設定が終わり、ダイアログ全体が図 \@ref(fig:analysisSettings) になります。
 
 \begin{figure}
 
@@ -547,18 +549,20 @@ Now that we are finished with the Analysis Settings, the entire dialog should lo
 
 }
 
-\caption{Analysis settings.}(\#fig:analysisSettings)
+\caption{分析の設定}(\#fig:analysisSettings)
 \end{figure}
 
-### Execution Settings
+### 実行の設定s
 
-There are three options:
+オプションは3つあります：
 
--   "**Perform sampling**": here we choose whether to perform sampling (default = "no"). If set to "yes", another option will appear: "**How many patients to use for a subset?**", where the sample size can be specified. Sampling can be an efficient means to determine if a model for a large population (e.g. 10 million patients) will be predictive by creating and testing the model with a sample of patients. For example, if the AUC is close to 0.5 in the sample, we might abandon the model.
--   "**Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed:**": here we choose the minimum covariate occurrence (default = 0.001). A minimum threshold value for covariate occurrence is necessary to remove rare events that are not representative of the overall population.
--   "**Normalize covariate**": here we choose whether to normalize covariates (default = "yes"). Normalization of the covariates is usually necessary for successful implementation of a LASSO model.
+-   **Perform sampling (サンプリングの実行)** ： ここでサンプリングを実行するかどうかを選択します（デフォルトは "no (いいえ)"）。"yes (はい)" に設定すると、別のオプションが表示されます： "**How many patients to use for a subset? (サブセットに何人の患者を含めますか。)**" で、サンプルの大きさを指定できます。サンプリングは、患者のサンプルでモデルを作成してテストすることにより、大規模な集団（例えば、1,000万人の患者）に対するモデルが予測可能かどうかを決定する効率的な手段となります。例えば、サンプルでAUCが0.5に近い場合、そのモデルを放棄するかもしれません。
 
-For our example we make the choices shown in Figure \@ref(fig:executionSettings).
+-   "**Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed: (最小共変量出現率： もし共変量がこの値より小さい割合でターゲット集団に出現する場合、その共変量は除外されます:)**": ここでは共変量の出現率の最小値を選択します（デフォルトは0.001）。共変量出現の最小閾値は、全体集団を代表しないまれなイベントを除外するために必要です。
+
+-   "**Normalize covariate (共変量を正規化する)**"： ここで共変量を正規化するかどうかを選択します（デフォルトは "yes (はい)"）。共変量の正規化は、通常、LASSOモデルをうまく実行するために必要です。
+
+この例では、図 \@ref(fig:executionSettings) のように選択します。
 
 \begin{figure}
 
@@ -566,19 +570,22 @@ For our example we make the choices shown in Figure \@ref(fig:executionSettings)
 
 }
 
-\caption{Execution settings.}(\#fig:executionSettings)
+\caption{実行の設定}(\#fig:executionSettings)
 \end{figure}
 
-### Training Settings
+### トレーニングの設定
 
-There are four options:
+4つのオプションがあります：
 
--   "**Specify how to split the test/train set:**" Select whether to differentiate the train/test data by person (stratified by outcome) or by time (older data to train the model, later data to evaluate the model).
--   "**Percentage of the data to be used as the test set (0-100%)**": Select the percentage of data to be used as test data (default = 25%).
--   "**The number of folds used in the cross validation**": Select the number of folds for cross-validation used to select the optimal hyper-parameter (default = 3).
--   "**The seed used to split the test/train set when using a person type testSplit (optional):**": Select the random seed used to split the train/test set when using a person type test split.
+-   "**Specify how to split the test/train set (テストセットとトレーニングセットをどのように分けるかを指定します。)**"： トレーニング/テストデータを人別（アウトカムで層別化）または時間別（古いデータをトレーニングに、新しいデータは評価に）に分割するかを選択します。
 
-For our example we make the choices shown in Figure \@ref(fig:trainingSettings).
+-   "**Percentage of the data to be used as the test set (0-100%) (テストセットとして使用するデータの割合(0-100%))**"： テストデータとして使用するデータの割合を選択します（デフォルトは25%）。
+
+-   "**The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)**"： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。
+
+-   「**The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)**」： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用する乱数のシードを選択します。
+
+この例では、図 \@ref(fig:trainingSettings) のように選択します。
 
 \begin{figure}
 
@@ -586,22 +593,22 @@ For our example we make the choices shown in Figure \@ref(fig:trainingSettings).
 
 }
 
-\caption{Training settings.}(\#fig:trainingSettings)
+\caption{トレーニングの設定}(\#fig:trainingSettings)
 \end{figure}
 
-### Importing and Exporting a Study
+### 研究のインポートとエクスポート
 
-To export a study, click on the "Export" tab under "Utilities." ATLAS will produce JSON that can be directly copied and pasted into a file that contains all of the data, such as the study name, cohort definitions, models selected, covariates, settings, needed to run the study.
+研究をエクスポートするには、"Utilities (ユーティリティ)" の下にある "Export (エクスポート)" タブをクリックします。ATLASは、研究の名称、コホート定義、選択したモデル、共変量、設定など、研究実行に必要なすべてのデータを含むファイルに直接コピー＆ペーストできるJSONを作成します。
 
-To import a study, click on the "Import" tab under "Utilities." Paste the contents of a patient-level prediction study JSON into this window, then click on the Import button below the other tab buttons. Note that this will overwrite all previous settings for that study, so this is typically done using a new, empty study design.
+研究をインポートするには、"Utilities (ユーティリティ)" の下にある "Import (インポート)" タブをクリックします。患者レベルの予測研究のJSONの内容をこのウィンドウに貼り付け、他のタブボタンの下にある "Import (インポート)" ボタンをクリックします。これにより、その研究の以前の設定がすべて上書きされることに注意してください。
 
-### Downloading the Study Package
+### 研究パッケージのダウンロード
 
-Click on the "Review & Download" tab under "Utilities." In the "Download Study Package" section, enter a descriptive name for the R package, noting that any illegal characters in R will automatically be removed from the file name by ATLAS. Click on ![](images/PatientLevelPrediction/download.png) to download the R package to a local folder.
+"Utilities (ユーティリティ)" の下にある "Review & Download (レビューとダウンロード)"」レビューとダウンロード " タブをクリックします。"Download Study Package (研究パッケージをダウンロード)" セクションで、Rパッケージのわかりやすい名前を入力します。Rで使えない文字は、ATLASによって自動的にファイル名から削除されることに注意してください。![](images/PatientLevelPrediction/download.png) をクリックして、Rパッケージをローカルフォルダにダウンロードします。
 
-### Running the Study
+### 研究の実行
 
-To run the R package requires having R, RStudio, and Java installed as described in Section \@ref(installR). Also required is the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) package, which can be installed in R using:
+セクション \@ref(installR) の説明のように、Rパッケージを実行するには、R、RStudio、Javaがインストールされている必要があります。また、Rで下記のようにインストールできる [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) パッケージも必要です：
 
 
 ``` r
@@ -610,11 +617,11 @@ drat::addRepo("OHDSI")
 install.packages("PatientLevelPrediction")
 ```
 
-Some of the machine learning algorithms require additional software to be installed. For a full description of how to install the [PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) package, see the ["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html).
+機械学習アルゴリズムの中には、追加ソフトウェアのインストールが必要なものがあります。[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/) パッケージのインストール方法の詳細については、["Patient-Level Prediction Installation Guide" vignette](https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html)を参照してください。
 
-To use the study R package we recommend using R Studio. If you are running R Studio locally, unzip the file generated by ATLAS, and double click the .Rproj file to open it in R Studio. If you are running R Studio on an R studio server, click ![](images/PopulationLevelEstimation/upload.png) to upload and unzip the file, then click on the .Rproj file to open the project.
+study Rパッケージを使用するには、R Studioの使用をお勧めします。R Studioをローカルで実行している場合は、ATLASで生成されたファイルを解凍し、.RprojファイルをダブルクリックしてR Studioで開きます。RスタジオをRスタジオサーバーで実行している場合は、![](images/PopulationLevelEstimation/upload.png)をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。
 
-Once you have opened the project in R Studio, you can open the README file, and follow the instructions. Make sure to change all file paths to existing paths on your system.
+R Studioでプロジェクトを開いたら、READMEファイルを開き、指示に従ってください。すべてのファイルのパスを、システム上の既存のパスに変更してください。
 
 ## Rでの研究実施
 
