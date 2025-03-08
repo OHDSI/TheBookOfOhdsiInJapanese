@@ -1,6 +1,6 @@
-# --翻訳作業中--　抽出、変換、ロード {#ExtractTransformLoad}
+# 抽出、変換、ロード {#ExtractTransformLoad}
 
-*章の著者: Clair Blacketer & Erica Voss*
+*著者: Clair Blacketer & Erica Voss*
 
 ## はじめに
 
