@@ -821,11 +821,11 @@ div.csl-indent {
 <div id="accessVocabularies" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> 標準化ボキャブラリへのアクセス<a href="StandardizedVocabularies.html#accessVocabularies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>標準化ボキャブラリを得るために、自分でPallasを実行する必要はありません。代わりに、ATHENA<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>から最新バージョンをダウンロードし、ローカルデータベースにロードできます。ATHENAでは、ボキャブラリのファセット検索も可能です。 </p>
-<p>OMOP CDMのボキャブラリをすべて選んで、標準化されたボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（第 <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 部参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
+<p>OMOP CDMのボキャブラリをすべて選んで、標準化されたボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
 </div>
 <div id="ボキャブラリの元-採用するか構築するか" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> ボキャブラリの元: 採用するか構築するか<a href="StandardizedVocabularies.html#ボキャブラリの元-採用するか構築するか" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OHDSIは一般に、既存のボキャブラリを採用することを優先します。なぜなら、１）多くのボキャブラリがコミュニティ内で観察データに使用されているため、２）ボキャブラリの構築とメンテナンスは複雑で、成熟するためには多くの利害関係者の長期にわたる協力が必要だからです。このため、特定の組織がボキャブラリを提供しており、ボキャブラリは生成、廃止、統合、分割のライフサイクルの対象となります（第 <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 部参照）。現在、OHDSIはタイプコンセプト（例：コンディションタイプコンセプト）などの内部管理ボキャブラリのみを作成しています。唯一の例外は、米国以外でのみ使用される医薬品を対象とするRxNorm Extensionボキャブラリです（第<a href="StandardizedVocabularies.html#rxNormExtension">5.6.9</a> 部参照）。</p>
+<p>OHDSIは一般に、既存のボキャブラリを採用することを優先します。なぜなら、１）多くのボキャブラリがコミュニティ内で観察データに使用されているため、２）ボキャブラリの構築とメンテナンスは複雑で、成熟するためには多くの利害関係者の長期にわたる協力が必要だからです。このため、特定の組織がボキャブラリを提供しており、ボキャブラリは生成、廃止、統合、分割のライフサイクルの対象となります（セクション <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 参照）。現在、OHDSIはタイプコンセプト（例：コンディションタイプコンセプト）などの内部管理ボキャブラリのみを作成しています。唯一の例外は、米国以外でのみ使用される医薬品を対象とするRxNorm Extensionボキャブラリです（セクション <a href="StandardizedVocabularies.html#rxNormExtension">5.6.9</a> 参照）。</p>
 </div>
 </div>
 <div id="コンセプト" class="section level2 hasAnchor" number="5.2">
@@ -848,14 +848,14 @@ div.csl-indent {
 </div>
 <div id="conceptDomains" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> ドメイン<a href="StandardizedVocabularies.html#conceptDomains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（第<a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a>部参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
+<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:domains"></span>
 <img src="images/StandardizedVocabularies/domains.png" alt="処置ボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。" width="70%" />
 <p class="caption">
 図 5.3: 処置ボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。
 </p>
 </div>
-<p>ドメインのヒューリスティックは、ドメインの定義に従います。これらの定義はCDMのテーブルとフィールド定義から派生しています（第 <a href="CommonDataModel.html#CommonDataModel">4</a>部参照）。ヒューリスティックは完全ではなく、グレーゾーンも存在します（第 <a href="StandardizedVocabularies.html#specialSituations">5.6</a> 部「特別な状況」参照）。ドメインが誤って割り当てられているコンセプトがある場合、<a href="https://forums.ohdsi.org">フォーラム</a>または<a href="https://github.com/OHDSI/CommonDataModel/issues">CDM問題</a>の投稿を通じて報告し、プロセスの改善に貢献してください。</p>
+<p>ドメインのヒューリスティックは、ドメインの定義に従います。これらの定義はCDMのテーブルとフィールド定義から派生しています（セクション <a href="CommonDataModel.html#CommonDataModel">4</a> 参照）。ヒューリスティックは完全ではなく、グレーゾーンも存在します（セクション <a href="StandardizedVocabularies.html#specialSituations">5.6</a> 「特別な状況」参照）。ドメインが誤って割り当てられているコンセプトがある場合、<a href="https://forums.ohdsi.org">フォーラム</a>または<a href="https://github.com/OHDSI/CommonDataModel/issues">CDM問題</a>の投稿を通じて報告し、プロセスの改善に貢献してください。</p>
 </div>
 <div id="ボキャブラリ" class="section level3 hasAnchor" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> ボキャブラリ<a href="StandardizedVocabularies.html#ボキャブラリ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -907,14 +907,14 @@ div.csl-indent {
 </div>
 <div id="分類コンセプト" class="section level3 hasAnchor" number="5.2.8">
 <h3><span class="header-section-number">5.2.8</span> 分類コンセプト<a href="StandardizedVocabularies.html#分類コンセプト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>これらのコンセプトは標準ではなく、したがってデータを表現するためには使用されませんが、標準コンセプトと階層的に関連しており、そのため階層クエリを実行するために使用できます。たとえば、MedDRAコード10037908のすべての子孫をクエリする場合（MedDRAライセンスを取得していないユーザーには表示されません。アクセス制限については第 <a href="StandardizedVocabularies.html#accessVocabularies">5.1.2</a> 部参照）では、標準のSNOMEDコンセプト「心房細動」を取得します（CONCEPT_ANCESTORテーブルを使用した階層クエリについては第 <a href="StandardizedVocabularies.html#conceptAncestor">5.4</a>部を参照） - 図 <a href="StandardizedVocabularies.html#fig:hierarchy">5.4</a> を参照。 </p>
+<p>これらのコンセプトは標準ではなく、したがってデータを表現するためには使用されませんが、標準コンセプトと階層的に関連しており、そのため階層クエリを実行するために使用できます。たとえば、MedDRAコード10037908のすべての子孫をクエリする場合（MedDRAライセンスを取得していないユーザーには表示されません。アクセス制限についてはセクション <a href="StandardizedVocabularies.html#accessVocabularies">5.1.2</a> 参照）では、標準のSNOMEDコンセプト「心房細動」を取得します（CONCEPT_ANCESTORテーブルを使用した階層クエリについてはセクション <a href="StandardizedVocabularies.html#conceptAncestor">5.4</a> を参照） - 図 <a href="StandardizedVocabularies.html#fig:hierarchy">5.4</a> を参照。 </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hierarchy"></span>
 <img src="images/StandardizedVocabularies/hierarchy.png" alt="コンディションドメインにおける標準、非標準ソースおよび分類コンセプトとその階層関係。SNOMEDはほとんどの標準コンディションコンセプトに使用されており（いくつかの腫瘍関連コンセプトはICDO3から派生）、MedDRAコンセプトは階層分類コンセプトに使用されており、他のすべてのボキャブラリは非標準またはソースコンセプトを含み、階層には含まれません。" width="100%" />
 <p class="caption">
 図 5.4: コンディションドメインにおける標準、非標準ソースおよび分類コンセプトとその階層関係。SNOMEDはほとんどの標準コンディションコンセプトに使用されており（いくつかの腫瘍関連コンセプトはICDO3から派生）、MedDRAコンセプトは階層分類コンセプトに使用されており、他のすべてのボキャブラリは非標準またはソースコンセプトを含み、階層には含まれません。
 </p>
 </div>
-<p>標準、非標準、分類のコンセプトの選択は、通常各ドメインごとにボキャブラリレベルで行われます。これはコンセプトの質、組込みの階層、ボキャブラリが宣言された目的に基づいています。また、すべてのボキャブラリのコンセプトが標準コンセプトとして使用されているわけではありません。各ドメインごとに別々に指定されており、各コンセプトはアクティブである必要があります（第 <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 部参照）し、異なるボキャブラリから同じ意味を持つ複数のコンセプトが競合する場合には、優先順位が設定される場合もあります。 つまり、「標準ボキャブラリ」というものは存在しません。 例については表 <a href="StandardizedVocabularies.html#tab:vocabList">5.2</a> を参照ください。</p>
+<p>標準、非標準、分類のコンセプトの選択は、通常各ドメインごとにボキャブラリレベルで行われます。これはコンセプトの質、組込みの階層、ボキャブラリが宣言された目的に基づいています。また、すべてのボキャブラリのコンセプトが標準コンセプトとして使用されているわけではありません。各ドメインごとに別々に指定されており、各コンセプトはアクティブである必要があります（セクション <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 参照）し、異なるボキャブラリから同じ意味を持つ複数のコンセプトが競合する場合には、優先順位が設定される場合もあります。 つまり、「標準ボキャブラリ」というものは存在しません。 例については表 <a href="StandardizedVocabularies.html#tab:vocabList">5.2</a> を参照ください。</p>
 <table>
 <caption><span id="tab:vocabList">表 5.2: </span> 標準/非標準/分類コンセプトの割り当てに利用するボキャブラリのリスト</caption>
 <colgroup>
@@ -1073,7 +1073,7 @@ div.csl-indent {
 </ul></li>
 <li><strong>非推奨のコンセプトで後継なし</strong>
 <ul>
-<li>説明: 非アクティブであり、標準として使用することはできない（第<a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a>部参照）。</li>
+<li>説明: 非アクティブであり、標準として使用することはできない（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）。</li>
 <li>VALID_START_DATE: コンセプトの生成日。不明の場合はボキャブラリへの取り込み日。不明の場合は1970-1-1。</li>
 <li>VALID_END_DATE: 過去の廃止日。不明の場合はボキャブラリ内のコンセプトが欠落あるいは非アクティブに設定されたボキャブラリ更新日。</li>
 <li>INVALID_REASON: “D”</li>
