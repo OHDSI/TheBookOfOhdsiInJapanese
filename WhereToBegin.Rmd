@@ -1,6 +1,6 @@
-# --翻訳作業中--　どこから始めようか {#WhereToBegin}
+# どこから始めようか {#WhereToBegin}
 
-*章の著者：Hamed Abedtash & Kristin Kostka*
+*著者：Hamed Abedtash & Kristin Kostka*
 
 > 「千里の道も一歩から」 - 老子
 
