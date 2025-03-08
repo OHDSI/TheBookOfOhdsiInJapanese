@@ -2,9 +2,9 @@
 
 # (PART) OHDSI コミュニティ {.unnumbered}
 
-# --翻訳作業中--　OHDSI コミュニティ {#OhdsiCommunity}
+# OHDSI コミュニティ {#OhdsiCommunity}
 
-*章の著者：Patrick Ryan & George Hripcsak*
+*著者：Patrick Ryan & George Hripcsak*
 
 > 集まることは始まりであり、共にいることは進歩であり、共に働くことが成功である。 *ヘンリー・フォード*
 
