@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章 17 –翻訳作業中–　ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書</title>
+  <title>章 17 ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章 17 –翻訳作業中–　ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書" />
+  <meta property="og:title" content="章 17 ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsiInJapanese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章 17 –翻訳作業中–　ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書" />
+  <meta name="twitter:title" content="章 17 ソフトウェアの妥当性 | –翻訳作業中–　OHDSI指南書" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
@@ -635,7 +635,7 @@ div.csl-indent {
 <li class="chapter" data-level="16.5" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#GeneralizabilityOfEvidence"><i class="fa fa-check"></i><b>16.5</b> エビデンスの一般化可能性</a></li>
 <li class="chapter" data-level="16.6" data-path="ClinicalValidity.html"><a href="ClinicalValidity.html#まとめ-13"><i class="fa fa-check"></i><b>16.6</b> まとめ</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> –翻訳作業中–　ソフトウェアの妥当性</a>
+<li class="chapter" data-level="17" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html"><i class="fa fa-check"></i><b>17</b> ソフトウェアの妥当性</a>
 <ul>
 <li class="chapter" data-level="17.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#研究コードの妥当性"><i class="fa fa-check"></i><b>17.1</b> 研究コードの妥当性</a>
 <ul>
@@ -793,13 +793,13 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="SoftwareValidity" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">章 17</span> –翻訳作業中–　ソフトウェアの妥当性<a href="SoftwareValidity.html#SoftwareValidity" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><em>章の著者: Martijn Schuemie</em></p>
+<h1><span class="header-section-number">章 17</span> ソフトウェアの妥当性<a href="SoftwareValidity.html#SoftwareValidity" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>著者: Martijn Schuemie</em></p>
 <p>ソフトウェアの妥当性に関する中心的な問題は</p>
 <blockquote>
 <p>ソフトウェアが期待通りに動作しているか？</p>
 </blockquote>
-<p>ソフトウェアの妥当性は、エビデンスの質にとって不可欠な要素です。つまり、私たちの分析ソフトウェアが期待通りに機能してこそ、信頼性の高いエビデンスを生成できるのです。第<a href="https://ohdsi.github.io/TheBookOfOhdsi/SoftwareValidity.html#automation">17.1.1</a>部で説明されているように、すべての研究をソフトウェア開発の演習と見なすことが不可欠であり、共通データモデル（CDM）のデータから推定値や表形式の数値などの結果に至るまでの分析全体を実行する自動スクリプトを作成します。このスクリプト、およびこのスクリプトで使用されるソフトウェアはすべて検証されなければなりません。第<a href="https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html#analysisImplementation">8.1</a>部で説明されているように、分析全体をカスタムコードとして記述することも、<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>で利用可能な機能を用いることもできます。Methods Libraryを使用する利点は、その妥当性を確保するためにすでに多大な注意が払われているため、分析全体の妥当性を確立する負担が軽減されることです。</p>
+<p>ソフトウェアの妥当性は、エビデンスの質にとって不可欠な要素です。つまり、私たちの分析ソフトウェアが期待通りに機能してこそ、信頼性の高いエビデンスを生成できるのです。セクション <a href="SoftwareValidity.html#automation">17.1.1</a> で説明されているように、すべての研究をソフトウェア開発の演習と見なすことが不可欠であり、共通データモデル（CDM）のデータから推定値や表形式の数値などの結果に至るまでの分析全体を実行する自動スクリプトを作成します。このスクリプト、およびこのスクリプトで使用されるソフトウェアはすべて検証されなければなりません。セクション <a href="OhdsiAnalyticsTools.html#analysisImplementation">8.1</a> で説明されているように、分析全体をカスタムコードとして記述することも、<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>で利用可能な機能を用いることもできます。Methods Libraryを使用する利点は、その妥当性を確保するためにすでに多大な注意が払われているため、分析全体の妥当性を確立する負担が軽減されることです。</p>
 <p>この章では、まず有効な分析コードの記述に関するベストプラクティスについて説明します。次に、ソフトウェア開発プロセスとテストを通じて、Methods Libraryがどのように検証されているかについて説明していきます。</p>
 <div id="研究コードの妥当性" class="section level2 hasAnchor" number="17.1">
 <h2><span class="header-section-number">17.1</span> 研究コードの妥当性<a href="SoftwareValidity.html#研究コードの妥当性" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -809,7 +809,7 @@ div.csl-indent {
 </div>
 <div id="プログラミングのベストプラクティス" class="section level3 hasAnchor" number="17.1.2">
 <h3><span class="header-section-number">17.1.2</span> プログラミングのベストプラクティス<a href="SoftwareValidity.html#プログラミングのベストプラクティス" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>観察分析は、最終結果を得るまでに多くのステップを必要とするため、非常に複雑になる可能性があります。この複雑性により、分析コードの維持が難しくなり、エラーが発生する可能性が高まるだけでなく、エラーに気づきにくくなる可能性もあります。幸いにも、コンピュータプログラマーは長年にわたり、複雑な問題に対処できるコードを書くためのベストプラクティスを開発してきました。そのコードは、読みやすく、再利用、適応、検証が容易になっています（Martin <a href="https://ohdsi.github.io/TheBookOfOhdsi/SoftwareValidity.html#ref-Martin_2008">2008年</a>）。これらのベストプラクティスについて詳しく説明すると、多くの書籍が書けるほどですので、ここでは以下の4つの重要な原則に焦点を当てます。</p>
+<p>観察分析は、最終結果を得るまでに多くのステップを必要とするため、非常に複雑になる可能性があります。この複雑性により、分析コードの維持が難しくなり、エラーが発生する可能性が高まるだけでなく、エラーに気づきにくくなる可能性もあります。幸いにも、コンピュータプログラマーは長年にわたり、複雑な問題に対処できるコードを書くためのベストプラクティスを開発してきました。そのコードは、読みやすく、再利用、適応、検証が容易になっています <span class="citation">(<a href="#ref-Martin_2008">Martin 2008</a>)</span> 。これらのベストプラクティスについて詳しく説明すると、多くの書籍が書けるほどですので、ここでは以下の4つの重要な原則に焦点を当てます。</p>
 <ul>
 <li><p><strong>抽象化</strong>： すべてを実行する巨大なスクリプトを1つ書くのではなく、コードの行と行の間の依存関係がどこからどこへでも及ぶ（例えば、10行目に設定された値が1,000行目で使用される）いわゆる「スパゲッティ・コード」を避けるために、コードを「関数」と呼ばれる単位で整理することができます。関数は明確な目的を持つべきであり、例えば「ランダムなサンプルを抽出する」といったものです。関数を作成すれば、その関数が何を行うのかの詳細を考えることなく、より大きなスクリプトでその関数を使用することができます。</p></li>
 <li><p><strong>カプセル化</strong>：抽象化を機能させるには、関数の依存関係を最小限に抑え、明確に定義する必要があります。例のサンプリング関数は、いくつかの引数（例えばデータセットとサンプルサイズ）と1つの出力（例えばサンプル）を持つべきです。関数の動作に影響を与えるものは他に何もあってはなりません。いわゆる「グローバル変数」、つまり関数外で設定される変数は、関数の引数ではありませんが、関数内で使用されるため、避けるべきです。</p></li>
@@ -834,7 +834,7 @@ div.csl-indent {
 </div>
 <div id="methods-librarのソフトウェア開発プロセス" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Methods Librarのソフトウェア開発プロセス<a href="SoftwareValidity.html#methods-librarのソフトウェア開発プロセス" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>OHDSI Methods Library はOHDSIコミュニティによって開発されています。Libraryへの変更提案は、GitHubのissue tracker（例えば、CohortMethod issue tracker<sup><a href="https://ohdsi.github.io/TheBookOfOhdsi/SoftwareValidity.html#fn59">59</a></sup>）とOHDSIフォーラムの2つの場所で議論されます<sup><a href="https://ohdsi.github.io/TheBookOfOhdsi/SoftwareValidity.html#fn60">60</a></sup> 。いずれも一般公開されています。コミュニティのメンバーは誰でもライブラリにソフトウェアコードを寄与することができますが、リリースされたソフトウェアのバージョンに組み込まれる変更の最終承認は、OHDSI 集団レベルの推定ワークグループのリーダー（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI 患者レベルの予測ワークグループのリーダー（Peter Rijnbeek博士とJenna Reps博士）のみが行います。</p>
+<p>OHDSI Methods Library はOHDSIコミュニティによって開発されています。Libraryへの変更提案は、GitHubのissue tracker（例えば、CohortMethod issue tracker<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a>）とOHDSIフォーラムの2つの場所で議論されます<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a>。いずれも一般公開されています。コミュニティのメンバーは誰でもライブラリにソフトウェアコードを寄与することができますが、リリースされたソフトウェアのバージョンに組み込まれる変更の最終承認は、OHDSI 集団レベルの推定ワークグループのリーダー（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI 患者レベルの予測ワークグループのリーダー（Peter Rijnbeek博士とJenna Reps博士）のみが行います。</p>
 <p>ユーザーはGitHubのリポジトリにあるマスターブランチから直接、または「drat」と呼ばれるシステムを通じて、RにMethods Libraryをインストールすることができます。Methods Libraryのパッケージの多くはRのComprehensive R Archive Network (CRAN)を通じて入手でき、この数は今後さらに増える見込みです。</p>
 <p>OHDSIでは、Methods Libraryのパフォーマンスの正確性、信頼性、一貫性を最大限に高めるため、適切なソフトウェア開発やテスト方法を採用しています。重要なのは、Methods LibraryがApache License V2の条件に基づいてリリースされているため、Methods Libraryの基盤となるすべてのソースコード（R、C++、SQL、Javaのいずれであっても）は、OHDSIコミュニティのすべてのメンバーに、また一般公開されています。したがって、Methods Libraryに具現化されたすべての機能は、その正確性、信頼性、一貫性に関して、継続的な評価と改善の対象となります。</p>
 <div id="ソースコード管理" class="section level3 hasAnchor" number="17.2.1">
@@ -849,7 +849,7 @@ div.csl-indent {
 </div>
 <div id="ドキュメンテーション" class="section level3 hasAnchor" number="17.2.2">
 <h3><span class="header-section-number">17.2.2</span> ドキュメンテーション<a href="SoftwareValidity.html#ドキュメンテーション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Methods Library内のすべてのパッケージは、Rの内部ドキュメントフレームワークを通じて文書化されています。各パッケージには、そのパッケージで利用可能なすべての関数が記載されたパッケージマニュアルがあります。関数のドキュメントと関数の実装を一致させるため、<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">Roxygen2</a>ソフトウェアを使用して、関数のドキュメントとソースコードを1つのファイルにまとめています。パッケージマニュアルは、Rのコマンドラインインターフェースからオンデマンドで利用でき、パッケージリポジトリではPDFとして、またウェブページとしても利用できます。さらに、多くのパッケージには、そのパッケージの特定の使用事例を強調するビネットも用意されています。すべてのドキュメントは、Methods Libraryウェブサイトで閲覧できます <a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a>。</p>
+<p>Methods Library内のすべてのパッケージは、Rの内部ドキュメントフレームワークを通じて文書化されています。各パッケージには、そのパッケージで利用可能なすべての関数が記載されたパッケージマニュアルがあります。関数のドキュメントと関数の実装を一致させるため、<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">Roxygen2</a>ソフトウェアを使用して、関数のドキュメントとソースコードを1つのファイルにまとめています。パッケージマニュアルは、Rのコマンドラインインターフェースからオンデマンドで利用でき、パッケージリポジトリではPDFとして、またウェブページとしても利用できます。さらに、多くのパッケージには、そのパッケージの特定の使用事例を強調するビネットも用意されています。すべてのドキュメントは、Methods Libraryウェブサイトで閲覧できます <a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a>。</p>
 <p>Methods Libraryのソースコードはすべてエンドユーザーが利用できます。コミュニティからのフィードバックは、GitHubの課題追跡システムとOHDSIフォーラムを使用して促進されます。</p>
 </div>
 <div id="現行および過去のアーカイブバージョンの利用可能性" class="section level3 hasAnchor" number="17.2.3">
@@ -866,7 +866,7 @@ div.csl-indent {
 </div>
 <div id="物理的および論理的セキュリティ" class="section level3 hasAnchor" number="17.2.6">
 <h3><span class="header-section-number">17.2.6</span> 物理的および論理的セキュリティ<a href="SoftwareValidity.html#物理的および論理的セキュリティ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OHDSI Methods LibraryはGitHub<sup><a href="https://ohdsi.github.io/TheBookOfOhdsi/SoftwareValidity.html#fn62">62</a></sup>システムでホストされています。GitHubのセキュリティ対策については、<a href="https://github.com/security" class="uri">https://github.com/security</a>を参照してください。OHDSIコミュニティのすべてのメンバーがMethods Libraryに変更を加えるには、ユーザー名とパスワードが必要です。また、マスターブランチに変更を加えられるのは、集団レベルの推定ワークグループと患者レベルの予測ワークグループのリーダーのみです。ユーザーアカウントは、標準的なセキュリティポリシーや機能要件に基づいてアクセスが制限されています。</p>
+<p>OHDSI Methods LibraryはGitHub<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a>システムでホストされています。GitHubのセキュリティ対策については、<a href="https://github.com/security" class="uri">https://github.com/security</a>を参照してください。OHDSIコミュニティのすべてのメンバーがMethods Libraryに変更を加えるには、ユーザー名とパスワードが必要です。また、マスターブランチに変更を加えられるのは、集団レベルの推定ワークグループと患者レベルの予測ワークグループのリーダーのみです。ユーザーアカウントは、標準的なセキュリティポリシーや機能要件に基づいてアクセスが制限されています。</p>
 </div>
 <div id="災害復旧" class="section level3 hasAnchor" number="17.2.7">
 <h3><span class="header-section-number">17.2.7</span> 災害復旧<a href="SoftwareValidity.html#災害復旧" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -883,7 +883,7 @@ div.csl-indent {
 </div>
 <div id="シミュレーション" class="section level3 hasAnchor" number="17.3.2">
 <h3><span class="header-section-number">17.3.2</span> シミュレーション<a href="SoftwareValidity.html#シミュレーション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>より複雑な機能については、入力に対して期待される出力がどのようなものであるべきかが常に明らかであるとは限りません。このような場合、特定の統計モデルを基に入力を生成し、機能がこの既知のモデルに沿った結果を生成するかどうかを検証するために、シミュレーションが使用されることがあります。例えば、<a href="https://ohdsi.github.io/SelfControlledCaseSeries/">自己対照ケースシリーズ</a>パッケージでは、シミュレーションデータにおける一時的な傾向を検出し、適切にモデル化できることを検証するために、シミュレーションが用いられます。</p>
+<p>より複雑な機能については、入力に対して期待される出力がどのようなものであるべきかが常に明らかであるとは限りません。このような場合、特定の統計モデルを基に入力を生成し、機能がこの既知のモデルに沿った結果を生成するかどうかを検証するために、シミュレーションが使用されることがあります。例えば、<a href="https://ohdsi.github.io/SelfControlledCaseSeries/">SelfControlledCaseSeries</a>パッケージでは、シミュレーションデータにおける一時的な傾向を検出し、適切にモデル化できることを検証するために、シミュレーションが用いられます。</p>
 </div>
 </div>
 <div id="まとめ-14" class="section level2 hasAnchor" number="17.4">
@@ -901,10 +901,19 @@ div.csl-indent {
 
 </div>
 </div>
+<h3>参考文献<a href="参考文献.html#参考文献" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-Martin_2008" class="csl-entry">
+Martin, Robert C. 2008. <em>Clean Code: A Handbook of Agile Software Craftsmanship</em>. 1st ed. Upper Saddle River, NJ, USA: Prentice Hall PTR.
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="58">
-<li id="fn58"><p><a href="https://ohdsi.github.io/MethodsLibrary/" class="uri">https://ohdsi.github.io/MethodsLibrary/</a><a href="SoftwareValidity.html#fnref58" class="footnote-back">↩︎</a></p></li>
+<li id="fn58"><p><a href="https://github.com/OHDSI/CohortMethod/issues" class="uri">https://github.com/OHDSI/CohortMethod/issues</a><a href="SoftwareValidity.html#fnref58" class="footnote-back">↩︎</a></p></li>
+<li id="fn59"><p><a href="http://forums.ohdsi.org/" class="uri">http://forums.ohdsi.org/</a><a href="SoftwareValidity.html#fnref59" class="footnote-back">↩︎</a></p></li>
+<li id="fn60"><p><a href="https://ohdsi.github.io/MethodsLibrary/" class="uri">https://ohdsi.github.io/MethodsLibrary/</a><a href="SoftwareValidity.html#fnref60" class="footnote-back">↩︎</a></p></li>
+<li id="fn61"><p><a href="https://github.com/" class="uri">https://github.com/</a><a href="SoftwareValidity.html#fnref61" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
