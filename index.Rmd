@@ -12,10 +12,6 @@ geometry:
 - top=0.8in
 - bottom=0.8in
 mainfont: Times New Roman
-header-includes:
-  - \usepackage{xltxtra}
-  - \usepackage{zxjatype}
-  - \usepackage[ipa]{zxjafont}
 bibliography:
 - book.bib
 - packages.bib
