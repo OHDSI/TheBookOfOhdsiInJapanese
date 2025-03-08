@@ -3760,7 +3760,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.eu69lpxnchildren ;"
+## [1] "SELECT * FROM temp_schema.wkslf9umchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -8750,9 +8750,9 @@ NSAIDの新規ユーザーコホートのCOHORT\_DEFINITION\_IDは4です。GI�
 \end{itemize}
 \end{rmdsummary}
 
-\chapter{--翻訳作業中--　データ品質}\label{DataQuality}
+\chapter{データ品質}\label{DataQuality}
 
-\emph{章の著者: マルタイン・シュミー、ヴォイテック・ヒューザー、クレア・ブラックター}
+\emph{著者: Martijn Schuemie, Vojtech Huser \& Clair Blacketer}
 
 医療観察研究に用いられるデータのほとんどは、研究目的で収集されたものではない。例えば、電子カルテ（EHR）は患者のケアをサポートするために必要な情報を捕捉することを目的としており、保険請求データは保険者への費用配分を割り当てるために収集されています。このようなデータを臨床研究に用いることが適切であるかどうかについては、多くの疑問が呈されています。\citet{vanDerLei_1991} は「データは収集された目的のみに使用されるべきである」とさえ述べています。懸念されるのは、私たちがやりたい研究のために収集されたデータではないため、そのデータの質が十分である保証がないということです。データの品質が低い（入力がゴミ）場合、そのデータを使用した研究結果の質も低い（出力もゴミ）に違いないでしょう。したがって、観察医療研究の重要な側面はデータの質を評価することであり、次の質問に答えることを目指しています。
 
@@ -8774,7 +8774,7 @@ DQは直接観察することができませんが、それを評価する方法
 
 \section{データ品質問題の原因}\label{ux30c7ux30fcux30bfux54c1ux8ceaux554fux984cux306eux539fux56e0}
 
-第\href{https://ohdsi.github.io/TheBookOfOhdsi/EvidenceQuality.html\#EvidenceQuality}{14章}で述べたように、医師が自身の考えを記録する段階からデータの品質に対する脅威は数多く存在します。\citet{dasu_2003} は、データのライフサイクルにおいて次のステップを区別し、各ステップにDQを統合することを推奨しています。これをDQ連続体と呼んでいます。
+第 \ref{EvidenceQuality} 章で述べたように、医師が自身の考えを記録する段階からデータの品質に対する脅威は数多く存在します。\citet{dasu_2003} は、データのライフサイクルにおいて次のステップを区別し、各ステップにDQを統合することを推奨しています。これをDQ連続体と呼んでいます。
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -8791,9 +8791,9 @@ DQは直接観察することができませんが、それを評価する方法
 
 私たちが使用するデータはすでに収集され統合されていることが多いため、ステップ1を改善するためにできることはほとんどありません。この章の後半で詳しく述べるように、このステップによって生成されるDQをチェックする方法があります。
 
-同様に、私たちは特定の形式でデータを頻繁に受け取っているため、ステップ2の一部についてはほとんど影響力を持ちません。しかし、OHDSIでは、すべての観測データを共通データモデル（CDM）に変換しており、このプロセスについては私たちが管理権限を持っています。この特定のステップがDQを低下させる可能性があるという懸念が示されたこともあります。しかし、私たちがこのプロセスを管理しているため、後述のセクション\ref{etlUnitTests} で説明するように、DQを維持するための厳格な保護策を構築することができます。いくつかの調査\citep{defalco_2013, makadia_2014, matcho_2014, voss_2015, voss_2015b, hripcsak_2018} によれば、正しく実行されれば、CDMへの変換時にほとんどエラーは発生しないことが示されています。実際、大規模なコミュニティで共有される詳細に文書化されたデータモデルがあれば、曖昧さのない明確な方法でデータの保存が容易になります。
+同様に、私たちは特定の形式でデータを頻繁に受け取っているため、ステップ2の一部についてはほとんど影響力を持ちません。しかし、OHDSIでは、すべての観測データを共通データモデル（CDM）に変換しており、このプロセスについては私たちが管理権限を持っています。この特定のステップがDQを低下させる可能性があるという懸念が示されたこともあります。しかし、私たちがこのプロセスを管理しているため、後述のセクション \ref{etlUnitTests} で説明するように、DQを維持するための厳格な保護策を構築することができます。いくつかの調査 \citep{defalco_2013, makadia_2014, matcho_2014, voss_2015, voss_2015b, hripcsak_2018} によれば、正しく実行されれば、CDMへの変換時にほとんどエラーは発生しないことが示されています。実際、大規模なコミュニティで共有される詳細に文書化されたデータモデルがあれば、曖昧さのない明確な方法でデータの保存が容易になります。
 
-ステップ3（データ分析）もまた、私たちの管理下にあります。OHDSIでは、このステップにおける品質問題についてDQという用語は使用せず、\emph{臨床妥当性}、\emph{ソフトウェア妥当性}、\emph{方法妥当性}という用語を使用しています。これらの用語については、それぞれ第 \ref{ClinicalValidity}章、\ref{SoftwareValidity}章、\ref{MethodValidity} 章で詳しく議論しています。
+ステップ3（データ分析）もまた、私たちの管理下にあります。OHDSIでは、このステップにおける品質問題についてDQという用語は使用せず、\emph{臨床妥当性}、\emph{ソフトウェア妥当性}、\emph{方法妥当性}という用語を使用しています。これらの用語については、それぞれ第 \ref{ClinicalValidity}、\ref{SoftwareValidity}、\ref{MethodValidity} 章で詳しく議論しています。
 
 \section{一般的なデータ品質}\label{ux4e00ux822cux7684ux306aux30c7ux30fcux30bfux54c1ux8cea}
 
@@ -8851,14 +8851,14 @@ DQは直接観察することができませんが、それを評価する方法
 
 ACHILLESは、170以上のデータ特性解析を事前に計算します。各解析には解析IDと解析の簡単な説明があり、その例として「715: DRUG\_CONCEPT\_IDによるDAYS\_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの解析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
 
-コミュニティが作成したもう一つのツールで、DQ を評価するものに、\href{https://github.com/OHDSI/DataQualityDashboard}{Data Quality Dashboard (DQD)} があります。ACHILLES が特性分析を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#tab:dqdExamples}{15.1}は、いくつかのチェックの例を示しています。
+コミュニティが作成したもう一つのツールで、DQ を評価するものに、\href{https://github.com/OHDSI/DataQualityDashboard}{Data Quality Dashboard (DQD)} があります。ACHILLES が特性分析を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 \ref{tab:dqdExamples} は、いくつかのチェックの例を示しています。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
-\caption{\label{tab:dqdExamples} データ品質ダッシュボードの例データ品質ルール。}\tabularnewline
+\caption{\label{tab:dqdExamples} データ品質ダッシュボードのデータ品質ルールの例}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 違反行の割合
@@ -8904,7 +8904,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 
 高度なデータ品質のチェックに加え、個別レベルでのデータチェックも実施すべきです。データがCDMに変換されるETL（抽出-変換-ロード）プロセスは、非常に複雑であることがよくあり、その複雑さゆえに、気づかれないままミスが発生する危険性があります。さらに、時間の経過とともにソースデータモデルが変更されたり、CDMが更新されたりすることもあり、ETLプロセスを修正する必要が生じます。ETL のように複雑なプロセスに変更を加えると予期せぬ結果を招く可能性があり、ETL のすべての側面を再考し、再評価する必要が生じます。
 
-ETL が期待通りに動作し、その状態を維持できるようにするためには、一連のユニットテストを作成することが強く推奨されます。ユニットテストとは、自動的に単一の側面をチェックする小さなコードの断片です。\href{https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html\#ExtractTransformLoad}{第6章}で説明したRabbit-in-a-Hatツールを使用すると、このようなユニットテストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下にユニットテストの例を示します。
+ETL が期待通りに動作し、その状態を維持できるようにするためには、一連のユニットテストを作成することが強く推奨されます。ユニットテストとは、自動的に単一の側面をチェックする小さなコードの断片です。第 \ref{ExtractTransformLoad} 章で説明したRabbit-in-a-Hatツールを使用すると、このようなユニットテストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下にユニットテストの例を示します。
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8941,10 +8941,10 @@ ENROLLMENT テーブルには他にも多くのフィールドがありますが
 \caption{Rabbit-in-a-Hat テストフレームワークを使用した ETL (Extract-Transform-Load) プロセスの単体テスト}\label{fig:testFramework}
 \end{figure}
 
-テスト用のSQLは、表\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#tab:exampleTestResults}{15.2}のようなテーブルを返します。このテーブルでは、先に定義した2つのテストに合格したことがわかります。
+テスト用のSQLは、表 \ref{tab:exampleTestResults} のようなテーブルを返します。このテーブルでは、先に定義した2つのテストに合格したことがわかります。
 
 \begin{longtable}[]{@{}clc@{}}
-\caption{\label{tab:exampleTestResults} ETL 単体テスト結果の例。}\tabularnewline
+\caption{\label{tab:exampleTestResults} ETL 単体テスト結果の例}\tabularnewline
 \toprule\noalign{}
 ID & 説明 & 状態 \\
 \midrule\noalign{}
@@ -8971,13 +8971,13 @@ ID & 説明 & 状態 \\
 
 標準的な評価は、ACHILLESで研究に最も関連するコンセプトを検討することであり、例えば、コホート研究の定義で指定されたものなどがあります。コードが観察される割合が時間とともに突然変化する場合は、DQの問題が示唆される場合があります。いくつかの例は、この章で後ほど説明します。
 
-別の評価方法としては、研究用に開発されたコホート定義を使用して生成されたコホートの有病率や経時的な有病率の変化を再検討し、それらが外部臨床知識に基づく予測と一致しているかどうかを確認することが挙げられます。例えば、新薬への曝露は市場に投入される前には存在しないはずであり、投入後は時間の経過とともに増加する可能性が高いです。同様に、アウトカムの有病率は、その集団における疾患の有病率として知られている内容と一致しているはずです。研究がデータベースのネットワーク全体で実施された場合、データベース間でコホートの有病率を比較することができます。あるデータベースではコホートの有病率が非常に高いが、別のデータベースでは欠落している場合、DQの問題がある可能性があります。このような評価は、第\href{https://ohdsi.github.io/TheBookOfOhdsi/ClinicalValidity.html\#ClinicalValidity}{16章}で説明されているように、\emph{臨床的妥当性}のコンセプトと重複していることに留意ください。一部のデータベースで予期せぬ有病率が見られるのは、DQの問題ではなく、コホートの定義が、対象とする疾患状態を正確に捉えていないため、あるいは、異なる患者集団を捉えているデータベース間で、これらの疾患状態が当然異なるためである可能性があります。
+別の評価方法としては、研究用に開発されたコホート定義を使用して生成されたコホートの有病率や経時的な有病率の変化を再検討し、それらが外部臨床知識に基づく予測と一致しているかどうかを確認することが挙げられます。例えば、新薬への曝露は市場に投入される前には存在しないはずであり、投入後は時間の経過とともに増加する可能性が高いです。同様に、アウトカムの有病率は、その集団における疾患の有病率として知られている内容と一致しているはずです。研究がデータベースのネットワーク全体で実施された場合、データベース間でコホートの有病率を比較することができます。あるデータベースではコホートの有病率が非常に高いが、別のデータベースでは欠落している場合、DQの問題がある可能性があります。このような評価は、第 \ref{ClinicalValidity} 章で説明されているように、\emph{臨床的妥当性}のコンセプトと重複していることに留意ください。一部のデータベースで予期せぬ有病率が見られるのは、DQの問題ではなく、コホートの定義が、対象とする疾患状態を正確に捉えていないため、あるいは、異なる患者集団を捉えているデータベース間で、これらの疾患状態が当然異なるためである可能性があります。
 
 \subsection{マッピングのチェック}\label{ux30deux30c3ux30d4ux30f3ux30b0ux306eux30c1ux30a7ux30c3ux30af}
 
-私たちの管理下で明確に該当するエラーの可能性として、ソースコードから標準コンセプトへのマッピングが挙げられます。 ボキャブラリのマッピングは入念に作成されており、コミュニティのメンバーによって指摘されたマッピングのエラーは、ボキャブラリの課題追跡システム\textsuperscript{\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fn57}{57}}に報告され、今後のリリースで修正されます。しかし、すべてのマッピングを手作業で完全にチェックすることは不可能であり、エラーが残っている可能性は依然としてあります。そのため、調査を行う際には、その調査に最も関連性の高いコンセプトのマッピングを確認することをお勧めします。幸い、これは非常に簡単に実行できます。なぜなら、CDMでは標準コンセプトだけでなくソースコードも保存されているからです。研究で使用されたコンセプトにマッピングされたソースコードだけでなく、そうでないソースコードも確認することができます。
+私たちの管理下で明確に該当するエラーの可能性として、ソースコードから標準コンセプトへのマッピングが挙げられます。 ボキャブラリのマッピングは入念に作成されており、コミュニティのメンバーによって指摘されたマッピングのエラーは、ボキャブラリの課題追跡システム \footnote{\url{https://github.com/OHDSI/Vocabulary-v5.0/issues}} に報告され、今後のリリースで修正されます。しかし、すべてのマッピングを手作業で完全にチェックすることは不可能であり、エラーが残っている可能性は依然としてあります。そのため、調査を行う際には、その調査に最も関連性の高いコンセプトのマッピングを確認することをお勧めします。幸い、これは非常に簡単に実行できます。なぜなら、CDMでは標準コンセプトだけでなくソースコードも保存されているからです。研究で使用されたコンセプトにマッピングされたソースコードだけでなく、そうでないソースコードも確認することができます。
 
-対応づけられたソースコードをレビューする方法のひとつに、Rパッケージ\href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation}の\texttt{checkCohortSourceCodes}関数を使用する方法があります。この関数は、ATLASによって作成されたコホート定義を入力として使用し、コホート定義で使用されている各コンセプトセットについて、そのセット内のコンセプトに対応づけられたソースコードがどれであるかをチェックします。また、特定のソースコードに関連する時間的な問題を特定するのに役立つよう、これらのコードの経時的な有病率も計算します。図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:sourceCodes}{15.2}の出力例は、「うつ病性障害」と呼ばれるコンセプトセットの一部内訳を示しています。 対象のデータベースにおけるこのコンセプトセットで最も頻度の高いコンセプトは、コンセプト\href{http://athena.ohdsi.org/search-terms/terms/440383}{440383}（「うつ病性障害」）です。 このデータベースでは、ICD-9コード3.11、ICD-10コードF32.8、F32.89の3つのソースコードがこのコンセプトにマッピングされていることが分かります。左側では、このコンセプト全体がまず徐々に増加し、その後急激に減少していることが分かります。個々のコードを調べると、この減少は、減少の時期にICD-9コードが使用されなくなったことによるものであることが分かります。これはICD-10コードが使用され始めた時期と一致していますが、ICD-10コードの合計の有病率はICD-9コードの有病率よりもはるかに低くなっています。この特定の例は、ICD-10コードのF32.9（「大うつ病性障害、単一エピソード、特定不能」）もまた、このコンセプトにマッピングされるべきであったという事実によるものです。この問題は、その後、ボキャブラリで解決されました。
+対応づけられたソースコードをレビューする方法のひとつに、Rパッケージ\href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation}の\texttt{checkCohortSourceCodes}関数を使用する方法があります。この関数は、ATLASによって作成されたコホート定義を入力として使用し、コホート定義で使用されている各コンセプトセットについて、そのセット内のコンセプトに対応づけられたソースコードがどれであるかをチェックします。また、特定のソースコードに関連する時間的な問題を特定するのに役立つよう、これらのコードの経時的な有病率も計算します。図 \ref{fig:sourceCodes} の出力例は、「うつ病性障害」と呼ばれるコンセプトセットの一部内訳を示しています。 対象のデータベースにおけるこのコンセプトセットで最も頻度の高いコンセプトは、コンセプト\href{http://athena.ohdsi.org/search-terms/terms/440383}{440383}（「うつ病性障害」）です。 このデータベースでは、ICD-9コード3.11、ICD-10コードF32.8、F32.89の3つのソースコードがこのコンセプトにマッピングされていることが分かります。左側では、このコンセプト全体がまず徐々に増加し、その後急激に減少していることが分かります。個々のコードを調べると、この減少は、減少の時期にICD-9コードが使用されなくなったことによるものであることが分かります。これはICD-10コードが使用され始めた時期と一致していますが、ICD-10コードの合計の有病率はICD-9コードの有病率よりもはるかに低くなっています。この特定の例は、ICD-10コードのF32.9（「大うつ病性障害、単一エピソード、特定不能」）もまた、このコンセプトにマッピングされるべきであったという事実によるものです。この問題は、その後、ボキャブラリで解決されました。
 
 \begin{figure}
 
@@ -8988,7 +8988,7 @@ ID & 説明 & 状態 \\
 \caption{checkCohortSourceCodes関数のサンプル出力}\label{fig:sourceCodes}
 \end{figure}
 
-前述の例では、マッピングされていないソースコードが偶然発見されたことを示していますが、一般的に、存在するマッピングの確認よりも、欠落しているマッピングの特定の方が困難です。どのソースコードがマッピングされるべきだが、されていないのかを知る必要があります。この評価を半自動的に行う方法としては、\href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation} Rパッケージの\texttt{findOrphanSourceCodes}関数を使用する方法があります。この関数を使用すると、簡単なテキスト検索でボキャブラリの中からソースコードを検索し、それらのソースコードが特定のコンセプトまたはそのコンセプトの子孫のいずれかにマッピングされているかどうかを確認することができます。 結果として得られたソースコードのセットは、次に、手元のCDMデータベースに表示されているものだけに制限されます。 例えば、研究では「壊疽性疾患」（\href{http://athena.ohdsi.org/search-terms/terms/439928}{439928}）という概念と、その子孫すべてを使用して、壊疽のすべての出現箇所を特定しました。この検索結果が、実際に壊疽を示すすべてのソースコードを含んでいるかどうかを評価するために、いくつかの用語（例えば「壊疽」）を使用して、ソースコードを特定するためにコンセプトとSOURCE\_TO\_CONCEPT\_MAPテーブルの説明を検索しました。次に、自動検索を使用して、データに表示される各壊疽ソースコードが、実際に直接または間接的（祖先経由）にコンセプト「壊疽性疾患」にマッピングされているかどうかを評価しました。この評価の結果は図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:missingMapping}{15.3}に示されています。ICD-10のJ85.0（「肺壊疽および壊死」）は、\href{http://athena.ohdsi.org/search-terms/terms/4324261}{4324261}（「肺壊死」）というコンセプトにのみマッピングされており、これは「壊疽性障害」の子孫ではありません。
+前述の例では、マッピングされていないソースコードが偶然発見されたことを示していますが、一般的に、存在するマッピングの確認よりも、欠落しているマッピングの特定の方が困難です。どのソースコードがマッピングされるべきだが、されていないのかを知る必要があります。この評価を半自動的に行う方法としては、\href{https://ohdsi.github.io/MethodEvaluation/}{MethodEvaluation} Rパッケージの\texttt{findOrphanSourceCodes}関数を使用する方法があります。この関数を使用すると、簡単なテキスト検索でボキャブラリの中からソースコードを検索し、それらのソースコードが特定のコンセプトまたはそのコンセプトの子孫のいずれかにマッピングされているかどうかを確認することができます。 結果として得られたソースコードのセットは、次に、手元のCDMデータベースに表示されているものだけに制限されます。 例えば、研究では「壊疽性疾患」（\href{http://athena.ohdsi.org/search-terms/terms/439928}{439928}）という概念と、その子孫すべてを使用して、壊疽のすべての出現箇所を特定しました。この検索結果が、実際に壊疽を示すすべてのソースコードを含んでいるかどうかを評価するために、いくつかの用語（例えば「壊疽」）を使用して、ソースコードを特定するためにコンセプトとSOURCE\_TO\_CONCEPT\_MAPテーブルの説明を検索しました。次に、自動検索を使用して、データに表示される各壊疽ソースコードが、実際に直接または間接的（祖先経由）にコンセプト「壊疽性疾患」にマッピングされているかどうかを評価しました。この評価の結果は図 \ref{fig:missingMapping} に示されています。ICD-10のJ85.0（「肺壊疽および壊死」）は、\href{http://athena.ohdsi.org/search-terms/terms/4324261}{4324261}（「肺壊死」）というコンセプトにのみマッピングされており、これは「壊疽性障害」の子孫ではありません。
 
 \begin{figure}
 
@@ -9043,7 +9043,7 @@ ID & 説明 & 状態 \\
 \end{Highlighting}
 \end{Shaded}
 
-JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWebウェブアプリケーションと併用して結果を調査することができます。例えば、図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:achillesDataDensity}{15.4}はACHILLESデータ密度プロットを示しています。このプロットは、データの大部分が2005年から始まっていることを示しています。しかし、1961年頃のレコードもいくつか存在しているように見えますが、これはおそらくデータのエラーです。
+JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWebウェブアプリケーションと併用して結果を調査することができます。例えば、図 \ref{fig:achillesDataDensity} はACHILLESデータ密度プロットを示しています。このプロットは、データの大部分が2005年から始まっていることを示しています。しかし、1961年頃のレコードもいくつか存在しているように見えますが、これはおそらくデータのエラーです。
 
 \begin{figure}
 
@@ -9051,10 +9051,10 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 
 }
 
-\caption{The data density plot in the ACHILLES web viewer.}\label{fig:achillesDataDensity}
+\caption{ACHILLESウエブビューワーでのデータ密度プロット}\label{fig:achillesDataDensity}
 \end{figure}
 
-別の例を図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:achillesCodeChange}{15.5}に示します。これは、糖尿病の診断コードの有病率に急激な変化が生じていることを示しています。この変化は、この特定の国における償還規則の変更と時期が一致しており、より多くの診断につながっていますが、おそらく基礎となる集団における真の有病率の増加ではないでしょう。
+別の例を図 \ref{fig:achillesCodeChange} に示します。これは、糖尿病の診断コードの有病率に急激な変化が生じていることを示しています。この変化は、この特定の国における償還規則の変更と時期が一致しており、より多くの診断につながっていますが、おそらく基礎となる集団における真の有病率の増加ではないでしょう。
 
 \begin{figure}
 
@@ -9062,12 +9062,12 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 
 }
 
-\caption{Monthly rate of diabetes coded in the ACHILLES web viewer.}\label{fig:achillesCodeChange}
+\caption{ACHILLESウエブビューワーでの月次糖尿病の診断コードの有病率}\label{fig:achillesCodeChange}
 \end{figure}
 
 \section{Data Quality Dashboardの実践}\label{dqdInPractice}
 
-ここでは、CDM 形式のデータベースに対してデータ品質ダッシュボードを実行する方法を説明します。 これを行うには、セクション\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#achillesInPractice}{15.4}で説明されているCDM接続に対して、一連のチェックを実行します。 現時点では、DQDはCDM v5.3.1のみをサポートしているため、接続する前にデータベースが正しいバージョンであることを確認してください。 ACHILLESの場合と同様に、Rにデータの検索先を指示するために、変数
+ここでは、CDM 形式のデータベースに対してデータ品質ダッシュボードを実行する方法を説明します。 これを行うには、セクション \ref{achillesInPractice} で説明されているCDM接続に対して、一連のチェックを実行します。 現時点では、DQDはCDM v5.3.1のみをサポートしているため、接続する前にデータベースが正しいバージョンであることを確認してください。 ACHILLESの場合と同様に、Rにデータの検索先を指示するために、変数
 
 \texttt{cdmDbSchema}
 
@@ -9101,7 +9101,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 
 変数\texttt{jsonPath}は、上記の\texttt{executeDqChecks}関数を呼び出す際に指定した\texttt{outputFolder}にある、ダッシュボードの結果を含むJSONファイルへのパスである必要があります。
 
-最初にダッシュボードを開くと、図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:dqdOverview}{15.6}に示すような概要テーブルが表示されます。このテーブルには、コンテキスト別に分類された各Kahnカテゴリで実行されたチェックの合計数、それぞれの合格数と合格率、および全体の合格率が表示されます。
+最初にダッシュボードを開くと、図 \ref{fig:dqdOverview} に示すような概要テーブルが表示されます。このテーブルには、コンテキスト別に分類された各Kahnカテゴリで実行されたチェックの合計数、それぞれの合格数と合格率、および全体の合格率が表示されます。
 
 \begin{figure}
 
@@ -9112,7 +9112,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 \caption{Data Quality Dashboardにおけるデータ品質チェックの概要}\label{fig:dqdOverview}
 \end{figure}
 
-左側のメニューで\emph{Results（結果）}をクリックすると、実行された各チェックのドリルダウン結果が表示されます（図\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#fig:dqdResults}{15.7}）。この例では、個々のCDMテーブルの完全性、すなわち、指定されたテーブルに少なくとも1つのレコードを持つCDM内の人数とパーセンテージを決定するために実行されたチェックを示す表が表示されます。この場合、ダッシュボードは5つのテーブルがすべて空であるとカウントし、失敗と見なします。アイコンをクリックすると、リストされた結果を生成するためにデータに対して実行された正確なクエリを表示するウィンドウが開きます。これにより、ダッシュボードでエラーとみなされた行を簡単に特定できます。
+左側のメニューで\emph{Results（結果）}をクリックすると、実行された各チェックのドリルダウン結果が表示されます（図 \ref{fig:dqdResults}）。この例では、個々のCDMテーブルの完全性、すなわち、指定されたテーブルに少なくとも1つのレコードを持つCDM内の人数とパーセンテージを決定するために実行されたチェックを示す表が表示されます。この場合、ダッシュボードは5つのテーブルがすべて空であるとカウントし、失敗と見なします。アイコンをクリックすると、リストされた結果を生成するためにデータに対して実行された正確なクエリを表示するウィンドウが開きます。これにより、ダッシュボードでエラーとみなされた行を簡単に特定できます。
 
 \begin{figure}
 
@@ -9125,7 +9125,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 
 \section{特定の研究チェックの実践}\label{ux7279ux5b9aux306eux7814ux7a76ux30c1ux30a7ux30c3ux30afux306eux5b9fux8df5}
 
-次に、付録\href{https://ohdsi.github.io/TheBookOfOhdsi/CohortDefinitions.html\#Angioedema}{B.4}で提供されている血管性浮腫コホート定義に特化したいくつかのチェックを実行します。接続の詳細はセクション\href{https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html\#achillesInPractice}{15.4}で説明されているように設定済みであり、コホート定義のJSONとSQLはそれぞれ「cohort.json」と「cohort.sql」というファイルに保存済みであると仮定します。JSONとSQLは、ATLASコホート定義機能のエクスポートタブから取得できます。
+次に、付録 \ref{Angioedema} で提供されている血管性浮腫コホート定義に特化したいくつかのチェックを実行します。接続の詳細はセクション \ref{achillesInPractice} で説明されているように設定済みであり、コホート定義のJSONとSQLはそれぞれ「cohort.json」と「cohort.sql」というファイルに保存済みであると仮定します。JSONとSQLは、ATLASコホート定義機能のエクスポートタブから取得できます。
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9140,7 +9140,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 \end{Highlighting}
 \end{Shaded}
 
-出力ファイルをウェブブラウザで開くことができます（図\ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には''入院またはER訪問''と''血管性浮腫''という二つのコンセプトセットがあります。この例のデータベースでは、訪問は''ER''および''IP''というデータベース固有のソースコードによって見つかり、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって見つかります。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
+出力ファイルをウェブブラウザで開くことができます（図 \ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には''入院またはER訪問''と''血管性浮腫''という二つのコンセプトセットがあります。この例のデータベースでは、訪問は''ER''および''IP''というデータベース固有のソースコードによって見つかり、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって見つかります。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
 
 \begin{figure}
 
@@ -9212,12 +9212,12 @@ T78.3XXS & Angioneurotic edema, sequela & ICD10CM & 508 \\
 \end{itemize}
 \end{rmdsummary}
 
-\section{実習}\label{ux5b9fux7fd2}
+\section{演習}\label{ux6f14ux7fd2-9}
 
 \subsubsection*{前提条件}\label{ux524dux63d0ux6761ux4ef6-9}
 \addcontentsline{toc}{subsubsection}{前提条件}
 
-これらの演習では、セクション\href{https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html\#installR}{8.4.5}で説明されているように、R、R-Studio、およびJavaがインストール済みであると想定します。また、\href{https://ohdsi.github.io/SqlRender/}{SqlRender}、\href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}、\href{https://github.com/OHDSI/Achilles}{ACHILLES}、および\href{https://ohdsi.github.io/Eunomia/}{Eunomia}パッケージも必要です。これらは、以下のコマンドでインストールできます：
+これらの演習では、セクション \ref{installR}で説明されているように、R、R-Studio、およびJavaがインストール済みであると想定します。また、\href{https://ohdsi.github.io/SqlRender/}{SqlRender}、\href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}、\href{https://github.com/OHDSI/Achilles}{ACHILLES}、および\href{https://ohdsi.github.io/Eunomia/}{Eunomia}パッケージも必要です。これらは、以下のコマンドでインストールできます：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9250,7 +9250,7 @@ CDMデータベーススキーマは「main」です。
 \protect\hypertarget{exr:exerciseViewDQD}{}\label{exr:exerciseViewDQD}DQDのチェックリストを抽出してください。
 \end{exercise}
 
-提案された回答は付録\ref{DataQualityanswers}にあります。
+回答例は付録 \ref{DataQualityanswers}にあります。
 
 \chapter{--翻訳作業中--　臨床的妥当性}\label{ClinicalValidity}
 
