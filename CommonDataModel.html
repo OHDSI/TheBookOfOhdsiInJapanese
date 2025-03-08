@@ -847,8 +847,7 @@ div.csl-indent {
 </div>
 <div id="domains" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> ドメインの一般的な規約<a href="CommonDataModel.html#domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（第 <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a>部参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータの処置テーブルに処置コードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
-<p>表: (#tab:domains) 各ドメインに属する標準コンセプトの数。</p>
+<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータの処置テーブルに処置コードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
 <table>
 <caption><span id="tab:domains">表 4.1: </span> 各ドメインに属する標準コンセプトの数</caption>
 <colgroup>
