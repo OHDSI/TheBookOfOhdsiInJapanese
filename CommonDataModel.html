@@ -1449,39 +1449,34 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left"></td>
+<td align="left">これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
 </tr>
 <tr class="even">
-<td align="left">これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left">STOP_REASON</td>
 <td align="left">NULL</td>
 <td align="left">既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
 <td align="left">コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">VISIT_OCCURRENCE_ ID</td>
 <td align="left">509</td>
 <td align="left">コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CONDITION_SOURCE_ VALUE</td>
 <td align="left">266599000</td>
 <td align="left">これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表す概念はCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CONDITION_SOURCE_ CONCEPT_ID</td>
 <td align="left">194696</td>
 <td align="left">ソースからのコンディションの値が OHDSI で認識されるボキャブラリを使用してコード化されている場合、その値を表すコンセプトID がここに入ります。月経困難症の例では、ソース値はSNOMED コードなので、そのコードを表すコンセプトは 194696 です。この場合、CONDITION_CONCEPT_ID フィールドと同じ値になります。</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CONDITION_STATUS_ SOURCE_VALUE</td>
 <td align="left">0</td>
 <td align="left">もしソースからのコンディション・ステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。</td>

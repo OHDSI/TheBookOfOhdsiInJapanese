@@ -1281,8 +1281,7 @@ CONDITION\_START\_ DATETIME & 2010-01-06 00:00:00 & コンディションが記�
 CONDITION\_END\_ DATE & NULL & コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 \\
 CONDITION\_END\_ DATETIME & NULL & 既知の場合、コンディションが終了したと見なされる日時です。 \\
 CONDITION\_TYPE\_ CONCEPT\_ID & 32020 & この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 \href{http://athena.ohdsi.org/search-terms/terms/32020}{32020}「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。 \\
-CONDITION\_STATUS\_CONCEPT\_ID & NULL & \\
-これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4203942}{4203942} が使用されました。 & & \\
+CONDITION\_STATUS\_CONCEPT\_ID & NULL & これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4203942}{4203942} が使用されました。 \\
 STOP\_REASON & NULL & 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 \\
 PROVIDER\_ID & NULL & コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider\_idでなければなりません。 \\
 VISIT\_OCCURRENCE\_ ID & 509 & コンディションが診断されたビジット（VISIT\_OCCURRENCEテーブルのVISIT\_OCCURRENCE\_IDに対する外部キー）。 \\
@@ -3766,7 +3765,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.phl15cycchildren ;"
+## [1] "SELECT * FROM temp_schema.h9i9195tchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}

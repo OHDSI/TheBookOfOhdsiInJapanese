@@ -273,8 +273,7 @@ CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって
 | CONDITION_END\_ DATE | NULL | コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 |
 | CONDITION_END\_ DATETIME | NULL | 既知の場合、コンディションが終了したと見なされる日時です。 |
 | CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 [32020](http://athena.ohdsi.org/search-terms/terms/32020)「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。 |
-| CONDITION_STATUS_CONCEPT_ID | NULL |  |
-| これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |  |  |
+| CONDITION_STATUS_CONCEPT_ID | NULL | これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |
 | STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
 | PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
 | VISIT_OCCURRENCE\_ ID | 509 | コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。 |
