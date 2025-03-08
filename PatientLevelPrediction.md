@@ -468,51 +468,29 @@ CDM形式の観察データから抽出できる標準共変量のセットを�
 
 -   コンディション： 選択されたコンディションコンセプトIDと時間間隔ごとに共変量を構築し、CONDITION_OCCURRENCテーブルのコホート開始日前の指定された時間間隔に、患者がそのコンセプトIDを記録している場合、共変量の値は1、そうでない場合は0。
 
--   主たる入院コンディション（Condition Primary Inpatient）： condition_occurrenceテーブルで入院患者の主たる診断として観察されたコンディションごとのバイナリ共変量。
+-   主たる入院コンディション（Condition Primary Inpatient）： condition_occurrenceテーブルで入院患者の主たる診断として、CONDITION_OCCURRENCテーブル中に観察されたコンディションごとのバイナリ共変量。
 
--   薬剤： 選択された薬剤コンセプトIDと時間間隔ごとに共変量を構築し、DRUG_ERAテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
+-   薬剤： 選択された薬剤コンセプトIDと時間間隔ごとに共変量を構築し、DRUG_EXPOSUREテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
 
--   処置（プロシージャー）：選択されたプロシージャーコンセプトIDと時間間隔ごとに共変量を構築し、PROCEDURE_ERAテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
+-   処置（プロシージャー）：選択された処置コンセプトIDと時間間隔ごとに共変量を構築し、PROCEDURE_OCCURRENCEテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
 
--   測定値：選択された各測定概念 ID と時間間隔について共変量を構築し、測定テーブルで患者がコホート開始日前の 指定された時間間隔に記録された概念 ID を持つ場合、共変量値は 1、そうでない場合 0。
+-   測定（メジャーメント）：選択された測定コンセプトIDと時間間隔ごとに共変量を構築し、MEASUREMENTテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
 
--   測定値の値： 測定値：値と時間間隔が選択された各測定概念 ID の共変量を構築し、患者が測定表のコホート開始日前の指定された時間間隔に記録された概念 ID を持つ場合、共変量値は測定値となり、そうでない場合は 0。
+-   測定値： 測定値が伴う選択された測定コンセプトIDと時間間隔ごとに共変量を構築し、MEASUREMENTテーブルのコホート開始日前の指定された時間間隔に、患者がコンセプトIDを記録している場合、共変量の値は 1 、そうでない場合は 0。
 
--   測定範囲グループ： 測定範囲グループ：測定値が正常範囲以下、範囲内、または正常範囲以上であるかを示すバイナリ共 変量。
+-   測定値範囲グループ： 測定値が正常範囲以下、範囲内、または正常範囲以上であるかを示すバイナリ共変量。
 
--   オブザベーション： 観察：選択された各観察概念 ID および時間間隔について共変量を構築し、観察テーブルのコホート 開始日前の指定された時間間隔に記録された概念 ID を持つ患者の場合、共変量値は 1、そうでない場合は 0。
+-   観察（オブザベーション）：選択された観察コンセプトIDと時間間隔ごとに共変量を構築し、OBSERVATIONテーブルのコホート開始日前の指定された時間間隔に、患者がそのコンセプトIDを記録している場合、共変量の値は1、そうでない場合は0。
 
--   デバイス：選択された各デバイスについて共変量を構築します： デバイス：選択された各デバイスのコンセプト ID と時間間隔について共変量を構築し、デバイス テーブルのコホート開始日前の指定された時間間隔に記録されたコンセプト ID を持つ患者であれば共 変量値は 1、そうでなければ 0。
+-   デバイス：選択されたデバイスコンセプトIDと時間間隔ごとに共変量を構築し、DEVICEテーブルのコホート開始日前の指定された時間間隔に、患者がそのコンセプトIDを記録している場合、共変量の値は1、そうでない場合は0。
 
--   訪問回数： 来院回数：選択した来院回数と時間間隔ごとに共変量を構築し、その時間間隔に記録された来院回数を共 変量値としてカウントします。
+-   ビジット回数：選択されたビジット回数と時間間隔ごとに共変量を構築し、その時間間隔に記録されたビジット回数を共 変量値としてカウントします。
 
--   来院概念カウント： 訪問概念数：選択された各訪問，領域，時間間隔について共変量を構築し，共変量値として，訪 問の種類と時間間隔の間に記録された領域ごとの記録数をカウント．
+-   ビジットコンセプト数： 選択された各ビジット、ドメイン、および時間間隔ごとに共変量を構築し、その時間間隔に記録されたレコード数を、各ドメインのビジットタイプと時間間隔ごとに共変量値としてカウントします。
 
--   Condition: Construct covariates for each condition concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the condition occurrence table, the covariate value is 1, otherwise 0.
+"distinct count (重複を除いたカウント)"オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。
 
--   Condition Primary Inpatient: One binary covariate per condition observed as a primary diagnosis in an inpatient setting in the condition_occurrence table.
-
--   Drug: Construct covariates for each drug concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the drug exposure table, the covariate value is 1, otherwise 0.
-
--   Procedure: Construct covariates for each procedure concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the procedure occurrence table, the covariate value is 1, otherwise 0.
-
--   Measurement: Construct covariates for each measurement concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is 1, otherwise 0.
-
--   Measurement Value: Construct covariates for each measurement concept ID with a value and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the measurement table, the covariate value is the measurement value, otherwise 0.
-
--   Measurement range group: Binary covariates indicating whether measurements are below, within, or above normal range.
-
--   Observation: Construct covariates for each observation concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the observation table, the covariate value is 1, otherwise 0.
-
--   Device: Construct covariates for each device concept ID and time interval selected and if a patient has the concept ID recorded during the specified time interval prior to the cohort start date in the device table, the covariate value is 1, otherwise 0.
-
--   Visit Count: Construct covariates for each visit and time interval selected and count the number of visits recorded during the time interval as the covariate value.
-
--   Visit Concept Count: Construct covariates for each visit, domain and time interval selected and count the number of records per domain recorded during the visit type and time interval as the covariate value.
-
-The distinct count option counts the number of distinct concept IDs per domain and time interval.
-
-Once done, this section should look like Figure \@ref(fig:covariateSettings5).
+これらが終了すると、このセクションは下図 \@ref(fig:covariateSettings5) の用になっているはずです。
 
 \begin{figure}
 
@@ -520,10 +498,10 @@ Once done, this section should look like Figure \@ref(fig:covariateSettings5).
 
 }
 
-\caption{Time bound covariates.}(\#fig:covariateSettings5)
+\caption{時間制約共変量}(\#fig:covariateSettings5)
 \end{figure}
 
-The final option is whether to include commonly used risk scores as covariates. Once done, the risk score settings should look like Figure \@ref(fig:covariateSettings6).
+最後のオプションは、一般的に使われるリスクスコアを共変量として含めるかどうかです。設定が完了すると、リスクスコアの設定は図 \@ref(fig:covariateSettings6) のようになります。
 
 \begin{figure}
 
@@ -531,14 +509,14 @@ The final option is whether to include commonly used risk scores as covariates. 
 
 }
 
-\caption{Risk score covariate settings.}(\#fig:covariateSettings6)
+\caption{リスクスコア共変量設定}(\#fig:covariateSettings6)
 \end{figure}
 
-#### Population Settings {.unnumbered}
+#### 研究対象集団設定 {.unnumbered}
 
-The population settings is where addition inclusion criteria can be applied to the target population and is also where the time-at-risk is defined. To add a population setting into the study, click on the "Add Population Settings" button. This will open up the population setting view.
+対象集団の設定は、追加の適格基準をターゲット集団に適用できる場所であり、また、リスク時間もここで定義されます。 研究に対象集団の設定を追加するには、"Add Population Settings (対象集団の追加)" ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。
 
-The first set of options enable the user to specify the time-at-risk period. This is the time interval where we look to see whether the outcome of interest occurs. If a patient has the outcome during the time-at-risk period then we will classify them as "Has outcome", otherwise they are classified as "No outcome". "**Define the time-at-risk window start, relative to target cohort entry:**" defines the start of the time-at-risk, relative to the target cohort start or end date. Similarly, "**Define the time-at-risk window end:**" defines the end of the time-at-risk.
+最初のオプションセットでは、リスク時間を指定することができます。これは、関心の対象であるアウトカムが出現するかどうかを観察する時間間隔です。リスク時間中に患者にアウトカムが出現した場合は "Has outcome (アウトカムあり)" に分類し、そうでない場合は "Has outcome (アウトカムなし)" に分類します。"**Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホートの開始または終了日を基準とした、リスク時間ウインドウの開始を定義します。)** は、リスク時間ウインドウの開始を定義します。同様に、"**Define the time-at-risk window end: (ターゲットコホートの開始または終了日を基準とした、リスク時間ウインドウの終了を定義します。)** は、リスク時間ウインドウの終了を定義します。
 
 "**Minimum lookback period applied to target cohort**" specifies the minimum baseline period, the minimum number of days prior to the cohort start date that a patient is continuously observed. The default is 365 days. Expanding the minimum look-back will give a more complete picture of a patient (as they must have been observed for longer) but will filter patients who do not have the minimum number of days prior observation.
 
