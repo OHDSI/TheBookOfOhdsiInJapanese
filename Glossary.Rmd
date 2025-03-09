@@ -94,7 +94,7 @@ ATLAS
 
 :   共通データモデルのテーブルにおける標準化フィールドに対して使用が許容される一連のコンセプト一式の定義。例えば、「コンディション（Condition）」ドメインは患者の状態を説明するコンセプトを含み、これらのコンセプトはCONDITION_OCCURRENCEおよびCONDITION_ERAテーブルのcondition_concept_idフィールドにのみ格納できる。
 
-電子健康記録（Electronic Health Record, EHR）
+電子的健康記録（Electronic Health Record, EHR）
 
 :   医療の過程で生成され、電子システムに記録されるデータ。
 
