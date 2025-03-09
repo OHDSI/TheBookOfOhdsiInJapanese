@@ -30,7 +30,7 @@
 | ETHNICITY_SOURCE\_ VALUE | NULL |  |
 | ETHNICITY_SOURCE\_ CONCEPT_ID | 0 |  |
 
-: (#tab:johnPerson) PERSONテーブル。
+: (#tab:johnPerson) PERSONテーブル
 
 #### 演習 \@ref(exr:exerciseJohnOp) {.unnumbered}
 
@@ -44,7 +44,7 @@
 | OBSERVATION_PERIOD\_ END_DATE | 2019-07-01 | データ抽出日以降のデータが存在することは期待されない。 |
 | PERIOD_TYPE\_ CONCEPT_ID | 44814722 | [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。 |
 
-: (#tab:johnOp) OBSERVATION_PERIODテーブル。
+: (#tab:johnOp) OBSERVATION_PERIODテーブル
 
 #### 演習 \@ref(exr:exerciseJohnDrug) {.unnumbered}
 
@@ -75,7 +75,7 @@
 | DRUG_SOURCE\_ CONCEPT_ID | 583945 | [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬剤のソースコードの値を表す (NDCコード「76168009520」)。 |
 | ROUTE_SOURCE\_ VALUE | NULL |  |
 
-: (#tab:johnDrug) DRUG_EXPOSUREテーブル。
+: (#tab:johnDrug) DRUG_EXPOSUREテーブル
 
 #### 演習 \@ref(exr:exerciseGiBleedRecords) {.unnumbered}
 
@@ -213,7 +213,7 @@ D)  全員が品質管理に関与します。
 
 #### 演習 \@ref(exr:exerciseUseCases1) {.unnumbered}
 
-1.  特性の評価
+1.  特性評価
 
 2.  患者レベルの予測
 
@@ -438,13 +438,13 @@ DROP TABLE #diagnoses;"
 renderTranslateExecuteSql(connection, sql)
 ```
 
-## 特性の評価 {#Characterizationanswers}
+## 特性評価 {#Characterizationanswers}
 
 #### 演習 \@ref(exr:exerciseCharacterization1) {.unnumbered}
 
 ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリックし、興味のあるデータソースを選択します。図 \@ref(fig:dataSourcesAtlas)のように、薬剤曝露レポートを選択し、「Table (表)」タブを選択して「celecoxib (セレコキシブ)」を検索することができます。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の曝露を含むことがわかります。これらの薬剤をクリックすると、例えばその薬剤の年齢や性別の分布など、より詳細なビューを得ることができます。
 
-```{r dataSourcesAtlas, fig.cap='データソースの特性の評価',echo=FALSE, out.width='100%', fig.align='center'}
+```{r dataSourcesAtlas, fig.cap='データソースの特性評価',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 ```
 
@@ -462,7 +462,7 @@ knitr::include_graphics("images/SuggestedAnswers/conceptSearchAtlas.png")
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCohortDefinition.png")
 ```
 
-コホートを定義したので、その特性を評価できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
+コホートを定義したので、その特性評価ができます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特徴量分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
 
 ```{r celecoxibCharacterization, fig.cap='特性評価設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterization.png")
