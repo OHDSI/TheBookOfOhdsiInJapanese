@@ -54,7 +54,7 @@ White Rabbitは区切りテキストファイルとさまざまなデータベ�
 
 #### データベース内のテーブルをスキャン {.unnumbered}
 
-データベースに接続後、含まれるテーブルをスキャンできます。スキャンによりETLのデザインに役立つ情報を含むレポートが生成されます。図\@ref(fig:WhiteRabbitAddTables)に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックして選択したソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動的に選択する「Add all in DB」ボタンをクリックできます。
+データベースに接続後、含まれるテーブルをスキャンできます。スキャンによりETLのデザインに役立つ情報を含むレポートが生成されます。図 \@ref(fig:WhiteRabbitAddTables)に示されたスキャンタブを使用して、「Add」（Ctrl + マウスクリック）をクリックして選択したソースデータベース内の個々のテーブルを選択するか、データベース内のすべてのテーブルを自動的に選択する「Add all in DB」ボタンをクリックできます。
 
 ```{r WhiteRabbitAddTables, fig.cap='White Rabbit スキャンタブ', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
@@ -70,7 +70,7 @@ knitr::include_graphics("images/ExtractTransformLoad/WhiteRabbitAddTables.png")
 
 #### スキャンレポートの解釈 {.unnumbered}
 
-スキャンが完了すると、選択したフォルダにスキャンしたテーブルごとにタブが設けられたExcelファイルが作成されます。 また、概要タブも用意されています。 概要タブには、スキャンしたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータタイプ、フィールドの最大長、テーブルの行数、スキャンした行数、各フィールドが空欄であることが判明した頻度が記載されています。図\@ref(fig:ScanOverviewTab).は、概要タブの例を示しています。
+スキャンが完了すると、選択したフォルダにスキャンしたテーブルごとにタブが設けられたExcelファイルが作成されます。 また、概要タブも用意されています。 概要タブには、スキャンしたすべてのテーブル、各テーブルの各フィールド、各フィールドのデータタイプ、フィールドの最大長、テーブルの行数、スキャンした行数、各フィールドが空欄であることが判明した頻度が記載されています。図 \@ref(fig:ScanOverviewTab) は、概要タブの例を示しています。
 
 ```{r ScanOverviewTab, fig.cap="スキャンレポートのサンプル概要タブ", echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/ExtractTransformLoad/ScanOverviewTab.png")
