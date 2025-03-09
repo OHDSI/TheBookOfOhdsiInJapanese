@@ -215,7 +215,7 @@ D)  全員が品質管理に関与します。
 
 #### 演習 \@ref(exr:exerciseUseCases1) {.unnumbered}
 
-1.  特性の評価
+1.  特性評価
 
 2.  患者レベルの予測
 
@@ -482,7 +482,7 @@ DROP TABLE #diagnoses;"
 renderTranslateExecuteSql(connection, sql)
 ```
 
-## 特性の評価 {#Characterizationanswers}
+## 特性評価 {#Characterizationanswers}
 
 #### 演習 \@ref(exr:exerciseCharacterization1) {.unnumbered}
 
@@ -494,7 +494,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{データソースの特性の評価}(\#fig:dataSourcesAtlas)
+\caption{データソースの特性評価}(\#fig:dataSourcesAtlas)
 \end{figure}
 
 #### 演習 \@ref(exr:exerciseCharacterization2) {.unnumbered}
@@ -521,7 +521,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{セレコキシブ新規ユーザーの単純なコホート定義}(\#fig:celecoxibCohortDefinition)
 \end{figure}
 
-コホートを定義したので、その特性を評価できます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
+コホートを定義したので、その特性評価ができます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特徴量分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
 
 \begin{figure}
 

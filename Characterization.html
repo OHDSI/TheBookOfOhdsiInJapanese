@@ -765,7 +765,7 @@ div.csl-indent {
 <li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> データ分析のユースケース</a></li>
 <li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQLとR</a></li>
 <li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> コホートの定義</a></li>
-<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> 特性の評価</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> 特性評価</a></li>
 <li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> 集団レベルの推定</a></li>
 <li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> 患者レベルの予測</a></li>
 <li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> データ品質</a></li>
@@ -797,16 +797,16 @@ div.csl-indent {
 <p><em>著者: Anthony Sena &amp; Daniel Prieto-Alhambra</em></p>
 <p>観察医療データベースは、さまざまな特徴に基づいて人口の変動を理解するための貴重なリソースを提供します。記述統計を用いて集団の特性を把握することは、健康および疾患の決定要因に関する仮説を生成するための重要な第一歩です。本章では特性評価の方法について説明します：</p>
 <ul>
-<li><strong>データベースレベルの特性の評価</strong>：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。</li>
-<li><strong>コホート特性の評価</strong>：集団をその累積的な医療履歴に基づいて記述する。</li>
+<li><strong>データベースの特性評価</strong>：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。</li>
+<li><strong>コホート特性評価</strong>：集団をその累積的な医療履歴に基づいて記述する。</li>
 <li><strong>治療経路</strong>：特定の期間に受けた介入の順序を記述する。</li>
 <li><strong>発生率</strong>：リスク時間中の集団におけるアウトカムの発生率を測定する。</li>
 </ul>
-<p>データベースレベルの特性の評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、第 <a href="Cohorts.html#Cohorts">10</a>章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を<strong>ベースライン時間</strong>と定義し、インデックス日以降のすべての時間を<strong>ポストインデックス時間</strong>と呼びます。</p>
-<p>特性の評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性の評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。 </p>
+<p>データベースの特性評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、第 <a href="Cohorts.html#Cohorts">10</a>章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を<strong>ベースライン時間</strong>と定義し、インデックス日以降のすべての時間を<strong>ポストインデックス時間</strong>と呼びます。</p>
+<p>特性評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。 </p>
 <div id="データベースレベルの特性評価" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> データベースレベルの特性評価<a href="Characterization.html#データベースレベルの特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>関心集団についての特性の評価の質問に答える前に、使用するデータベースの特性をまず理解する必要があります。データベースレベルの特性評価は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：</p>
+<p>関心集団についての特性評価の質問に答える前に、使用するデータベースの特性をまず理解する必要があります。データベースレベルの特性評価は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：</p>
 <ul>
 <li>このデータベースには全体で何人が含まれていますか？</li>
 <li>各人の年齢分布はどうなっていますか？</li>
@@ -818,7 +818,7 @@ div.csl-indent {
 <div id="コホート特性評価" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> コホート特性評価<a href="Characterization.html#コホート特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>コホート特性評価は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬剤およびデバイスの曝露、処置およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。</p>
-<p>コホート特性の評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性の評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています <span class="citation">(<a href="#ref-VONELM2008344">Elm et al. 2008</a>)</span>。 </p>
+<p>コホート特性評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています <span class="citation">(<a href="#ref-VONELM2008344">Elm et al. 2008</a>)</span>。 </p>
 </div>
 <div id="治療経路" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> 治療経路<a href="Characterization.html#治療経路" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -890,7 +890,7 @@ div.csl-indent {
 <p>ここでは、ATLASを使用して複数のコホートの大規模な特性評価を行う方法を示します。左側のバーにある<img src="images/Characterization/atlasCharacterizationMenuItem.png" />をクリックし、新しい特性評価を作成します。分析に名前を付け、<img src="images/PopulationLevelEstimation/save.png" />ボタンを使用して保存します。</p>
 <div id="デザイン" class="section level3 hasAnchor" number="11.7.1">
 <h3><span class="header-section-number">11.7.1</span> デザイン<a href="Characterization.html#デザイン" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>特性の評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（付録 <a href="CohortDefinitions.html#HTN3yrFO">B.7</a>）。</p>
+<p>特性評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（付録 <a href="CohortDefinitions.html#HTN3yrFO">B.7</a>）。</p>
 <div id="コホート定義" class="section level4 unnumbered hasAnchor">
 <h4>コホート定義<a href="Characterization.html#コホート定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationCohortSelection"></span>
@@ -899,11 +899,11 @@ div.csl-indent {
 図 11.6: 特性設計タブ - コホート定義の選択
 </p>
 </div>
-<p>コホートは既にATLASで作成されていると仮定しています（第 <a href="Cohorts.html#Cohorts">10</a> 章を参照）。<img src="images/Characterization/atlasImportButton.png" />をクリックし、図 <a href="Characterization.html#fig:atlasCharacterizationCohortSelection">11.6</a> に示すようにコホートを選択します。次に、これらのコホートを特性の評価するために使用する特性を定義します。</p>
+<p>コホートは既にATLASで作成されていると仮定しています（第 <a href="Cohorts.html#Cohorts">10</a> 章を参照）。<img src="images/Characterization/atlasImportButton.png" />をクリックし、図 <a href="Characterization.html#fig:atlasCharacterizationCohortSelection">11.6</a> に示すようにコホートを選択します。次に、これらのコホートを特性評価するために使用する特性を定義します。</p>
 </div>
 <div id="特性選択" class="section level4 unnumbered hasAnchor">
 <h4>特性選択<a href="Characterization.html#特性選択" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>ATLASにはOMOP CDMにモデル化された臨床ドメイン全体で特性の評価を行うための約100のプリセット特性評価が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性の評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
+<p>ATLASにはOMOP CDMにモデル化された臨床ドメイン全体で特性評価を行うための約100のプリセット特性評価が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
 <p><img src="images/Characterization/atlasImportButton.png" />をクリックして、特性を選択します。以下は、これらのコホートを特性評価するために使用する特性のリストです：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationFeatureSelection"></span>
 <img src="images/Characterization/atlasCharacterizationFeatureSelection.png" alt="特性設計タブ - 特性選択" width="100%" />

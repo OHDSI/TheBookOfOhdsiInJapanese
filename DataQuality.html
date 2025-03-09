@@ -765,7 +765,7 @@ div.csl-indent {
 <li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> データ分析のユースケース</a></li>
 <li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQLとR</a></li>
 <li class="chapter" data-level="E.6" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cohortsanswers"><i class="fa fa-check"></i><b>E.6</b> コホートの定義</a></li>
-<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> 特性の評価</a></li>
+<li class="chapter" data-level="E.7" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Characterizationanswers"><i class="fa fa-check"></i><b>E.7</b> 特性評価</a></li>
 <li class="chapter" data-level="E.8" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Pleanswers"><i class="fa fa-check"></i><b>E.8</b> 集団レベルの推定</a></li>
 <li class="chapter" data-level="E.9" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Plpanswers"><i class="fa fa-check"></i><b>E.9</b> 患者レベルの予測</a></li>
 <li class="chapter" data-level="E.10" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#DataQualityanswers"><i class="fa fa-check"></i><b>E.10</b> データ品質</a></li>
@@ -847,9 +847,9 @@ div.csl-indent {
 <div id="データ品質チェック" class="section level3 hasAnchor" number="15.2.1">
 <h3><span class="header-section-number">15.2.1</span> データ品質チェック<a href="DataQuality.html#データ品質チェック" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p> </p>
-<p>カーンは、データが所定の要件に適合しているかどうかをテストする<em>データ品質チェック</em>（<em>データ品質ルール</em>と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、<a href="https://github.com/OHDSI/Achilles">ACHILLES</a>（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります <span class="citation">(<a href="#ref-huser_methods_2018">Huser et al. 2018</a>)</span>。ACHILLESは、CDMに準拠したデータベースの特徴付けと可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます <span class="citation">(<a href="#ref-huser_multisite_2016">Huser et al. 2016</a>)</span> 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。</p>
-<p>ACHILLESは、170以上のデータ特性解析を事前に計算します。各解析には解析IDと解析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの解析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。</p>
-<p>コミュニティが作成したもう一つのツールで、DQ を評価するものに、<a href="https://github.com/OHDSI/DataQualityDashboard">Data Quality Dashboard (DQD)</a> があります。ACHILLES が特性分析を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 <a href="DataQuality.html#tab:dqdExamples">15.1</a> は、いくつかのチェックの例を示しています。</p>
+<p>カーンは、データが所定の要件に適合しているかどうかをテストする<em>データ品質チェック</em>（<em>データ品質ルール</em>と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、<a href="https://github.com/OHDSI/Achilles">ACHILLES</a>（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります <span class="citation">(<a href="#ref-huser_methods_2018">Huser et al. 2018</a>)</span>。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます <span class="citation">(<a href="#ref-huser_multisite_2016">Huser et al. 2016</a>)</span> 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。</p>
+<p>ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。</p>
+<p>コミュニティが作成したもう一つのツールで、DQ を評価するものに、<a href="https://github.com/OHDSI/DataQualityDashboard">Data Quality Dashboard (DQD)</a> があります。ACHILLES が特性評価を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 <a href="DataQuality.html#tab:dqdExamples">15.1</a> は、いくつかのチェックの例を示しています。</p>
 <table>
 <caption><span id="tab:dqdExamples">表 15.1: </span> データ品質ダッシュボードのデータ品質ルールの例</caption>
 <colgroup>
@@ -999,7 +999,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <span id="cb143-3"><a href="DataQuality.html#cb143-3" tabindex="-1"></a>                   <span class="at">resultsDatabaseSchema =</span> cdmDbSchema,</span>
 <span id="cb143-4"><a href="DataQuality.html#cb143-4" tabindex="-1"></a>                   <span class="at">sourceName =</span> <span class="st">&quot;My database&quot;</span>,</span>
 <span id="cb143-5"><a href="DataQuality.html#cb143-5" tabindex="-1"></a>                   <span class="at">cdmVersion =</span> cdmVersion)</span></code></pre></div>
-<p>この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベースの特性を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。</p>
+<p>この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベース特性評価を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="DataQuality.html#cb144-1" tabindex="-1"></a><span class="fu">exportToJson</span>(connectionDetails,</span>
 <span id="cb144-2"><a href="DataQuality.html#cb144-2" tabindex="-1"></a>             <span class="at">cdmDatabaseSchema =</span> cdmDatabaseSchema,</span>
 <span id="cb144-3"><a href="DataQuality.html#cb144-3" tabindex="-1"></a>             <span class="at">resultsDatabaseSchema =</span> cdmDatabaseSchema,</span>

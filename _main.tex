@@ -315,7 +315,7 @@
 \section*{この本の目標}\label{ux3053ux306eux672cux306eux76eeux6a19}
 \addcontentsline{toc}{section}{この本の目標}
 
-この本は、OHDSIの中心的な知識リポジトリとなることを目的としており、OHDSIコミュニティ、OHDSI データ標準、およびOHDSIツールについて説明します。本書は、OHDSIの初心者とベテランの両方を対象としており、必要な理論とそれに続く手順を提供する実用的な内容を目指しています。本書を読んだ後には、OHDSIが何であり、どのようにしてその旅に参加できるかを理解できます。共通データモデルおよび標準ボキャブラリとは何か、また、それらが観察医療データベースを標準化のためにどのように使用されるかを学びます。これらのデータの主なユースケースである特性の評価、集団レベルの推定、および患者レベルの予測について学びます。これらの3つすべての活動をサポートするOHDSIのオープンソースツールとその使用方法についても読みます。データ品質、臨床的妥当性、ソフトウェアの適切性、および方法の適切性に関する章は、創生されたエビデンスの質をどのように確立するかを説明します。最後に、分散された研究ネットワークでこれらの研究を実行するためのOHDSIツールの使用方法を学びます。
+この本は、OHDSIの中心的な知識リポジトリとなることを目的としており、OHDSIコミュニティ、OHDSI データ標準、およびOHDSIツールについて説明します。本書は、OHDSIの初心者とベテランの両方を対象としており、必要な理論とそれに続く手順を提供する実用的な内容を目指しています。本書を読んだ後には、OHDSIが何であり、どのようにしてその旅に参加できるかを理解できます。共通データモデルおよび標準ボキャブラリとは何か、また、それらが観察医療データベースを標準化のためにどのように使用されるかを学びます。これらのデータの主なユースケースである特性評価、集団レベルの推定、および患者レベルの予測について学びます。これらの3つすべての活動をサポートするOHDSIのオープンソースツールとその使用方法についても読みます。データ品質、臨床的妥当性、ソフトウェアの適切性、および方法の適切性に関する章は、創生されたエビデンスの質をどのように確立するかを説明します。最後に、分散された研究ネットワークでこれらの研究を実行するためのOHDSIツールの使用方法を学びます。
 
 \section*{本書の構成}\label{ux672cux66f8ux306eux69cbux6210}
 \addcontentsline{toc}{section}{本書の構成}
@@ -3763,7 +3763,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.ikpnsc0zchildren ;"
+## [1] "SELECT * FROM temp_schema.isecg5uvchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -5362,22 +5362,22 @@ SQLおよびRを使用して、既存のCOHORTテーブルにて急性心筋梗�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{データベースレベルの特性の評価}：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。
+  \textbf{データベースの特性評価}：データベース全体のデータプロファイルを理解するための上位レベルの要約統計を提供する。
 \item
-  \textbf{コホート特性の評価}：集団をその累積的な医療履歴に基づいて記述する。
+  \textbf{コホート特性評価}：集団をその累積的な医療履歴に基づいて記述する。
 \item
   \textbf{治療経路}：特定の期間に受けた介入の順序を記述する。
 \item
   \textbf{発生率}：リスク時間中の集団におけるアウトカムの発生率を測定する。
 \end{itemize}
 
-データベースレベルの特性の評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、第 \ref{Cohorts}章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を\textbf{ベースライン時間}と定義し、インデックス日以降のすべての時間を\textbf{ポストインデックス時間}と呼びます。
+データベースの特性評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この関心集団は、第 \ref{Cohorts}章で説明されているコホートとして定義されます。コホートは関心集団内の各人のインデックス日を定義します。インデックス日をアンカーとして、インデックス日の前の時間を\textbf{ベースライン時間}と定義し、インデックス日以降のすべての時間を\textbf{ポストインデックス時間}と呼びます。
 
-特性の評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性の評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
+特性評価のユースケースには、疾病の自然経過、治療の利用状況、品質向上が含まれます。本章では特性評価の方法を説明します。高血圧患者の集団を用いて、ATLASとRを使用してこれらの特性評価タスクを実行する方法を示します。\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
 
 \section{データベースレベルの特性評価}\label{ux30c7ux30fcux30bfux30d9ux30fcux30b9ux30ecux30d9ux30ebux306eux7279ux6027ux8a55ux4fa1}
 
-関心集団についての特性の評価の質問に答える前に、使用するデータベースの特性をまず理解する必要があります。データベースレベルの特性評価は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：
+関心集団についての特性評価の質問に答える前に、使用するデータベースの特性をまず理解する必要があります。データベースレベルの特性評価は、データベース全体をその時間的傾向および分布に関して記述することを目指します。この定量的評価は通常、以下のような質問を含みます：
 
 \begin{itemize}
 \tightlist
@@ -5397,7 +5397,7 @@ SQLおよびRを使用して、既存のCOHORTテーブルにて急性心筋梗�
 
 コホート特性評価は、コホート内の人々のベースラインおよびポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべての状態、薬剤およびデバイスの曝露、処置およびその他の臨床観察の記述統計を通じて特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口学的特性を要約します。このアプローチは関心集団の完全な要約を提供します。重要なことに、これはデータの変動に目を向けながら、欠損値を特定する可能性を考慮したコホートの完全な探索を可能にします。
 
-コホート特性の評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性の評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています \citep{VONELM2008344}。\index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
+コホート特性評価の方法は、特定の治療を受けている人々における適応および禁忌の有病率を推定するための個人レベルの薬剤使用研究（DUS）に使用できます。このコホート特性評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています \citep{VONELM2008344}。\index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
 
 \section{治療経路}\label{ux6cbbux7642ux7d4cux8def}
 
@@ -5500,7 +5500,7 @@ SQLおよびRを使用して、既存のCOHORTテーブルにて急性心筋梗�
 
 \subsection{デザイン}\label{ux30c7ux30b6ux30a4ux30f3}
 
-特性の評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 \ref{HTN1yrFO}）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（付録 \ref{HTN3yrFO}）。
+特性評価には、少なくとも1つのコホートと少なくとも1つの特性が必要です。この例では、2つのコホートを使用します。最初のコホートでは、その前の1年間に少なくとも1つの高血圧診断を受けた人々をインデックス日と定義します。また、このコホートに属する人々が治療開始後少なくとも1年間観察期間を持つことが必要です（付録 \ref{HTN1yrFO}）。2つ目のコホートは、最初のコホートと同様ですが、1年間の代わりに少なくとも3年間の観察期間を必要とします（付録 \ref{HTN3yrFO}）。
 
 \subsubsection*{コホート定義}\label{ux30b3ux30dbux30fcux30c8ux5b9aux7fa9}
 \addcontentsline{toc}{subsubsection}{コホート定義}
@@ -5514,12 +5514,12 @@ SQLおよびRを使用して、既存のCOHORTテーブルにて急性心筋梗�
 \caption{特性設計タブ - コホート定義の選択}\label{fig:atlasCharacterizationCohortSelection}
 \end{figure}
 
-コホートは既にATLASで作成されていると仮定しています（第 \ref{Cohorts} 章を参照）。\includegraphics{images/Characterization/atlasImportButton.png}をクリックし、図 \ref{fig:atlasCharacterizationCohortSelection} に示すようにコホートを選択します。次に、これらのコホートを特性の評価するために使用する特性を定義します。
+コホートは既にATLASで作成されていると仮定しています（第 \ref{Cohorts} 章を参照）。\includegraphics{images/Characterization/atlasImportButton.png}をクリックし、図 \ref{fig:atlasCharacterizationCohortSelection} に示すようにコホートを選択します。次に、これらのコホートを特性評価するために使用する特性を定義します。
 
 \subsubsection*{特性選択}\label{ux7279ux6027ux9078ux629e}
 \addcontentsline{toc}{subsubsection}{特性選択}
 
-ATLASにはOMOP CDMにモデル化された臨床ドメイン全体で特性の評価を行うための約100のプリセット特性評価が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性の評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{feature analyses}
+ATLASにはOMOP CDMにモデル化された臨床ドメイン全体で特性評価を行うための約100のプリセット特性評価が付属しており、各ターゲットコホートに対して臨床観察の集約および要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するための潜在的に数千の特性を提供します。ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{feature analyses}
 
 \includegraphics{images/Characterization/atlasImportButton.png}をクリックして、特性を選択します。以下は、これらのコホートを特性評価するために使用する特性のリストです：
 
@@ -8849,11 +8849,11 @@ DQは直接観察することができませんが、それを評価する方法
 
 \index{ACHILLES} \index{データ品質!チェック}
 
-カーンは、データが所定の要件に適合しているかどうかをテストする\emph{データ品質チェック}（\emph{データ品質ルール}と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、\href{https://github.com/OHDSI/Achilles}{ACHILLES}（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります \citep{huser_methods_2018}。ACHILLESは、CDMに準拠したデータベースの特徴付けと可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます \citep{huser_multisite_2016} 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
+カーンは、データが所定の要件に適合しているかどうかをテストする\emph{データ品質チェック}（\emph{データ品質ルール}と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、\href{https://github.com/OHDSI/Achilles}{ACHILLES}（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります \citep{huser_methods_2018}。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます \citep{huser_multisite_2016} 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
 
-ACHILLESは、170以上のデータ特性解析を事前に計算します。各解析には解析IDと解析の簡単な説明があり、その例として「715: DRUG\_CONCEPT\_IDによるDAYS\_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの解析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
+ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715: DRUG\_CONCEPT\_IDによるDAYS\_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
 
-コミュニティが作成したもう一つのツールで、DQ を評価するものに、\href{https://github.com/OHDSI/DataQualityDashboard}{Data Quality Dashboard (DQD)} があります。ACHILLES が特性分析を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 \ref{tab:dqdExamples} は、いくつかのチェックの例を示しています。
+コミュニティが作成したもう一つのツールで、DQ を評価するものに、\href{https://github.com/OHDSI/DataQualityDashboard}{Data Quality Dashboard (DQD)} があります。ACHILLES が特性評価を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 \ref{tab:dqdExamples} は、いくつかのチェックの例を示しています。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -9034,7 +9034,7 @@ ID & 説明 & 状態 \\
 \end{Highlighting}
 \end{Shaded}
 
-この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベースの特性を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。
+この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベース特性評価を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10337,7 +10337,7 @@ ROC曲線下面積（AUC） & 0.96 \\
 
 \subsection{事前に規定した研究デザイン}\label{ux4e8bux524dux306bux898fux5b9aux3057ux305fux7814ux7a76ux30c7ux30b6ux30a4ux30f3}
 
-観察研究のデザインとパラメータの事前規定は、望ましい結果を得るために無意識または意識的にアプローチを進化させて、さらなるバイアスをもたらすことを避けるために極めて重要です。この傾向は、p-ハッキングと呼ばれることもあります。EHRや保険請求データなどのデータは、時に研究者に無限の可能性を感じさせ、調査の方向性を迷走させることがあります。そのため、データの二次利用では、一次利用よりも研究の詳細を事前に完全に規定しない誘惑が強くなります。したがって、既存のデータが容易に入手できるように見える場合でも、科学的な調査の厳格な構造を維持することが重要となります。事前規定の原則は、最終的に臨床実践や規制上の決定に影響を与える可能性があるため、厳格な結果や再現可能な結果を確保する上で、PLE や PLP において特に重要です。探索的な理由のみで実施される特性研究の場合でも、詳細に規定された計画を策定することが望ましいです。そうでなければ、進化する研究デザインや分析プロセスを文書化、説明、再現することが困難になります。
+観察研究のデザインとパラメータの事前規定は、望ましい結果を得るために無意識または意識的にアプローチを進化させて、さらなるバイアスをもたらすことを避けるために極めて重要です。この傾向は、p-ハッキングと呼ばれることもあります。EHRや保険請求データなどのデータは、時に研究者に無限の可能性を感じさせ、調査の方向性を迷走させることがあります。そのため、データの二次利用では、一次利用よりも研究の詳細を事前に完全に規定しない誘惑が強くなります。したがって、既存のデータが容易に入手できるように見える場合でも、科学的な調査の厳格な構造を維持することが重要となります。事前規定の原則は、最終的に臨床実践や規制上の決定に影響を与える可能性があるため、厳格な結果や再現可能な結果を確保する上で、PLE や PLP において特に重要です。探索的な理由のみで実施される特性評価研究の場合でも、詳細に規定された計画を策定することが望ましいです。そうでなければ、進化する研究デザインや分析プロセスを文書化、説明、再現することが困難になります。
 
 \subsection{プロトコル}\label{ux30d7ux30edux30c8ux30b3ux30eb}
 
@@ -10498,11 +10498,11 @@ OHDSI研究ネットワークは、医療における観測データ研究の進
 \begin{itemize}
 \tightlist
 \item
-  \textbf{無料ツールへのアクセス:} OHDSIは、データの特性化や標準化された分析（臨床コンセプトのブラウジング、コホートの定義および特性、集団レベルの推定や患者レベルの予測研究の実行など）のための無料のオープンソースツールを公開しています。
+  \textbf{無料ツールへのアクセス:} OHDSIは、データの特性評価や標準化された分析（臨床コンセプトのブラウジング、コホートの定義および特性評価、集団レベルの推定や患者レベルの予測研究の実行など）のための無料のオープンソースツールを公開しています。
 \item
   \textbf{一流の研究コミュニティへの参加:} ネットワーク研究の作成と公開、さまざまな分野のリーダーや利害関係者グループとの共同作業。
 \item
-  \textbf{医療のベンチマークの機会:} ネットワーク研究により、データパートナー全体で臨床特性や品質改善のベンチマークが可能になります。
+  \textbf{医療のベンチマークの機会:} ネットワーク研究により、データパートナー全体で臨床特性評価や品質改善のベンチマークが可能になります。
 \end{itemize}
 \end{rmdimportant}
 
@@ -10714,7 +10714,7 @@ ARACHNEは、ネットワーク研究の実施プロセスを合理化し自動�
 集団レベルの効果推定のためのレトロスペクティブ研究デザインの一種。症例対照研究には、ターゲットとなるアウトカムを有する「症例」と有しない「対照」をマッチングさせる。過去に遡って、症例と対照における曝露のオッズを比較する。
 \item[因果効果（Causal effect）]
 集団レベルの推定が関心を寄せるもの。「因果効果」を、ターゲットとする集団における「個人レベル因果効果」の平均とする定義もある。個人レベル因果効果は、個人が曝露された場合のアウトカムと、されなかった場合（またはAに曝露された場合とBに曝露された場合）のアウトカムとの対比である。
-\item[特性の評価（Characterization）]
+\item[特性評価（Characterization）]
 コホートまたは全データベースの記述的研究。詳細は第 \ref{Characterization} 章参照。
 \item[保険請求データ（Claims data）]
 医療保険会社への請求目的で作成されたデータ。
@@ -12433,7 +12433,7 @@ VISIT\_SOURCE\_VALUE & inpatient \\
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  特性の評価
+  特性評価
 \item
   患者レベルの予測
 \item
@@ -12716,7 +12716,7 @@ NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下�
 \end{Highlighting}
 \end{Shaded}
 
-\section{特性の評価}\label{Characterizationanswers}
+\section{特性評価}\label{Characterizationanswers}
 
 \subsubsection*{演習 \ref{exr:exerciseCharacterization1}}\label{ux6f14ux7fd2-refexrexercisecharacterization1}
 \addcontentsline{toc}{subsubsection}{演習 \ref{exr:exerciseCharacterization1}}
@@ -12729,7 +12729,7 @@ ATLASで\includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}�
 
 }
 
-\caption{データソースの特性の評価}\label{fig:dataSourcesAtlas}
+\caption{データソースの特性評価}\label{fig:dataSourcesAtlas}
 \end{figure}
 
 \subsubsection*{演習 \ref{exr:exerciseCharacterization2}}\label{ux6f14ux7fd2-refexrexercisecharacterization2}
@@ -12757,7 +12757,7 @@ ATLASで\includegraphics{images/Characterization/atlasDataSourcesMenuItem.png}�
 \caption{セレコキシブ新規ユーザーの単純なコホート定義}\label{fig:celecoxibCohortDefinition}
 \end{figure}
 
-コホートを定義したので、その特性を評価できます。\includegraphics{images/Characterization/atlasCharacterizationMenuItem.png}をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特性分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性の評価の定義は図 \ref{fig:celecoxibCharacterization} のようになっているはずです。 \includegraphics{images/Cohorts/save.png}をクリックして特性評価の設定を保存してください。
+コホートを定義したので、その特性評価ができます。\includegraphics{images/Characterization/atlasCharacterizationMenuItem.png}をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特徴量分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性評価の定義は図 \ref{fig:celecoxibCharacterization} のようになっているはずです。 \includegraphics{images/Cohorts/save.png}をクリックして特性評価の設定を保存してください。
 
 \begin{figure}
 
