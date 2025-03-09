@@ -11,7 +11,7 @@ geometry:
 - outer=0.65in
 - top=0.8in
 - bottom=0.8in
-mainfont: ipaexg.ttf
+mainfont: Times New Roman
 bibliography:
 - book.bib
 - packages.bib
