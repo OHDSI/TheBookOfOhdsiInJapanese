@@ -30,7 +30,7 @@
 | ETHNICITY_SOURCE\_ VALUE | NULL |  |
 | ETHNICITY_SOURCE\_ CONCEPT_ID | 0 |  |
 
-: (#tab:johnPerson) PERSONテーブル。
+: (#tab:johnPerson) PERSONテーブル
 
 #### 演習 \@ref(exr:exerciseJohnOp) {.unnumbered}
 
@@ -44,7 +44,7 @@
 | OBSERVATION_PERIOD\_ END_DATE | 2019-07-01 | データ抽出日以降のデータが存在することは期待されない。 |
 | PERIOD_TYPE\_ CONCEPT_ID | 44814722 | [44814724](http://athena.ohdsi.org/search-terms/terms/44814722) は「保険加入期間」を示す。 |
 
-: (#tab:johnOp) OBSERVATION_PERIODテーブル。
+: (#tab:johnOp) OBSERVATION_PERIODテーブル
 
 #### 演習 \@ref(exr:exerciseJohnDrug) {.unnumbered}
 
@@ -75,7 +75,7 @@
 | DRUG_SOURCE\_ CONCEPT_ID | 583945 | [583945](http://athena.ohdsi.org/search-terms/terms/750264) は薬剤のソースコードの値を表す (NDCコード「76168009520」)。 |
 | ROUTE_SOURCE\_ VALUE | NULL |  |
 
-: (#tab:johnDrug) DRUG_EXPOSUREテーブル。
+: (#tab:johnDrug) DRUG_EXPOSUREテーブル
 
 #### 演習 \@ref(exr:exerciseGiBleedRecords) {.unnumbered}
 
