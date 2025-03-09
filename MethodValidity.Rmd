@@ -297,7 +297,7 @@ plotCalibrationEffect(logRrNegatives = ncEstimates$logRr,
                       showCis = TRUE)
 ```
 
-```{r pValueCal, fig.cap='P値のキャリブレーション：破線以下の推定値は従来のp < 0.05。網掛け部分の推定値はキャリブレーションされたp < 0.05。網掛け部分の端の狭い帯は95%\\信用区間。点はネガティブコントロール。ダイアモンド型は関心のあるアウトカムを示します。',echo=FALSE, out.width='70%', fig.align='center'}
+```{r pValueCal, fig.cap='P値のキャリブレーション：破線以下の推定値は従来のp < 0.05。網掛け部分の推定値はキャリブレーションされたp < 0.05。網掛け部分の端の狭い帯は95\\%信用区間。点はネガティブコントロール。ダイアモンド型は関心のあるアウトカムを示します。',echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/pValueCal.png")
 ```
 
