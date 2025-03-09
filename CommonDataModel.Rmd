@@ -62,23 +62,23 @@ CDMはプラットフォームに依存しません。データ型はANSI SQLデ
 
 異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション \@ref(conceptDomains) 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータの処置テーブルに処置コードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表\@ref(tab:domains)に示されています。
 
-| コンセプト数 | ドメインID         | コンセプト数 | ドメインID          |
-|:-------------|:-------------------|:-------------|:--------------------|
-| 1731378      | Drug               | 183          | Route               |
-| 477597       | Device             | 180          | Currency            |
-| 257000       | Procedure          | 158          | Payer               |
-| 163807       | Condition          | 123          | Visit               |
-| 145898       | Observation        | 51           | Cost                |
-| 89645        | Measurement        | 50           | Race                |
-| 33759        | Spec Anatomic Site | 13           | Plan Stop Reason    |
-| 17302        | Meas Value         | 11           | Plan                |
-| 1799         | Specimen           | 6            | Episode             |
-| 1215         | Provider Specialty | 6            | Sponsor             |
-| 1046         | Unit               | 5            | Meas Value Operator |
-| 944          | Metadata           | 3            | Spec Disease Status |
-| 538          | Revenue Code       | 2            | Gender              |
-| 336          | Type Concept       | 2            | Ethnicity           |
-| 194          | Relationship       | 1            | Observation Type    |
+| コンセプト数 | ドメインID | コンセプト数 | ドメインID |
+|:---|:---|:---|:---|
+| 1731378 | 薬剤 (Drug) | 183 | 経路 (Route) |
+| 477597 | デバイス (Device) | 180 | 通貨 (Currency) |
+| 257000 | 処置（プロシージャー）(Procedure) | 158 | 支払者 (Payer) |
+| 163807 | コンディション (Condition) | 123 | ビジット（受診期間）(Visit) |
+| 145898 | オブザベーション（観察）(Observation) | 51 | 費用 (Cost) |
+| 89645 | メジャーメント（測定）(Measurement) | 50 | 人種 (Race) |
+| 33759 | 特定の解剖学的部位 (Spec Anatomic Site) | 13 | プランの中断理由 (Plan Stop Reason) |
+| 17302 | 測定値 (Meas Value) | 11 | プラン (Plan) |
+| 1799 | 試料 (Specimen) | 6 | エピソード (Episode) |
+| 1215 | 医療従事者専門 (Provider Specialty) | 6 | スポンサー (Sponsor) |
+| 1046 | 単位 (Unit) | 5 | 測定値符号 (Meas Value Operator) |
+| 944 | メタデータ (Metadata) | 3 | 特定の疾患ステータス (Spec Disease Status) |
+| 538 | 収益コード (Revenue Code) | 2 | 性別 (Gender) |
+| 336 | タイプコンセプト (Type Concept) | 2 | 民族性 (Ethnicity) |
+| 194 | 関係性 (Relationship) | 1 | オブザベーションタイプ (Observation Type) |
 
 : (#tab:domains) 各ドメインに属する標準コンセプトの数
 

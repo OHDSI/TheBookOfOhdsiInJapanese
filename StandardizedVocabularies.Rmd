@@ -117,7 +117,7 @@ knitr::include_graphics("images/StandardizedVocabularies/hierarchy.png")
 |:---|:---|:---|:---|
 | コンディション | SNOMED, ICDO3 | SNOMED Veterinary | MedDRA |
 | 処置 | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR | 現時点ではなし |
-| 測定 | SNOMED, LOINC | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | 現時点ではなし |
+| メジャーメント（測定） | SNOMED, LOINC | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | 現時点ではなし |
 | 薬剤 | RxNorm, RxNorm Extension, CVX | HCPCS, CPT4, HemOnc, NAACCR | ATC |
 | デバイス | SNOMED | 他のボキャブラリ、現在は標準化されていない | 現時点ではなし |
 | 観察 | SNOMED | 他のボキャブラリ | 現時点ではなし |
@@ -132,7 +132,7 @@ knitr::include_graphics("images/StandardizedVocabularies/hierarchy.png")
 | コンセプトID | コンセプトコード | コンセプト名 | ドメインID | ボキャブラリID | コンセプトクラス |
 |:---|:---|:---|:---|:---|:---|
 | 35803438 | 1001 | 顆粒球コロニー刺激因子 | 薬剤 | HemOnc | コンポーネントクラス |
-| 35942070 | 1001 | AJCC TNM Clin T | 測定 | NAACCR | NAACCR変数 |
+| 35942070 | 1001 | AJCC TNM Clin T | メジャーメント | NAACCR | NAACCR変数 |
 | 1036059 | 1001 | アンチピリン | 薬剤 | RxNorm | 成分 |
 | 38003544 | 1001 | レジデンシャル治療 - 精神科 | 収益コード | 収益コード | 収益コード |
 | 43228317 | 1001 | アセプロメタジンマレイン酸塩 | 薬剤 | BDPM | 成分 |
@@ -193,14 +193,14 @@ CONCEPT_RELATIONSHIPテーブルのレコードには、ライフサイクルフ
 
 「Maps to value」関係は、エンティティ-属性-値（EAV）モデルに従ってOMOP CDMテーブルの値を分割することを目的としています。これは次の状況で発生します：
 
--   検査値と結果値からなる測定値
+-   検査と結果の値からなるメジャーメント
 -   本人または家族の病歴
 -   物質に対するアレルギー
 -   予防接種の必要性
 
 このような状況では、ソースコンセプトは属性（テストまたは履歴）と値（テスト結果または疾患）の組み合わせです。「Maps to」関係はこのソースを属性コンセプトにマッピングし、「Maps to value」は値コンセプトにマッピングします。例については図 \@ref(fig:conceptValue)を参照ください。
 
-```{r conceptValue, fig.cap='ソースコンセプトと標準コンセプト間の一対多のマッピング。事前に組み合わせられたコンセプトは2つのコンセプトに分割され、一つは属性（ここでは臨床所見の履歴）で、もう一つは値（消化性潰瘍）です。「Maps to」関係は測定または観察のドメインのコンセプトにマッピングされますが、「Maps to value」コンセプトにはドメインの制限はありません。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r conceptValue, fig.cap='ソースコンセプトと標準コンセプト間の一対多のマッピング。事前に組み合わせられたコンセプトは2つのコンセプトに分割され、一つは属性（ここでは臨床所見の履歴）で、もう一つは値（消化性潰瘍）です。「Maps to」関係はメジャーメントまたは観察のドメインのコンセプトにマッピングされますが、「Maps to value」コンセプトにはドメインの制限はありません。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/StandardizedVocabularies/conceptValue.png")
 ```
 
@@ -251,7 +251,7 @@ knitr::include_graphics("images/StandardizedVocabularies/conceptAncestor.png")
 
 祖先の度合い、つまり祖先と子孫の間のステップ数は、MIN_LEVELS_OF_SEPARATIONおよびMAX_LEVELS_OF_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS_HIERARCHICALフラグによって決まります。
 
-現辞典では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。処置、測定値、および観察のドメインは部分的にしかカバーされておらず、構築中です。祖先関係は、原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類のすべての薬品を参照できるため、「薬」のドメインでは特に有用です。
+現時点では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。処置、メジャーメント、および観察のドメインは部分的にしかカバーされておらず、構築中です。祖先関係は、原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類のすべての薬品を参照できるため、「薬」のドメインでは特に有用です。
 
 ## 内部参照テーブル
 
