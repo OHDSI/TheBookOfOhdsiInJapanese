@@ -795,7 +795,7 @@ div.csl-indent {
 <div id="CommonDataModel" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">章 4</span> 共通データモデル<a href="CommonDataModel.html#CommonDataModel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Clair Blacketer</em></p>
-<p>観察データは、患者が医療を受ける際に起こる出来事を示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのは調査データや登録データの形で）、２） 医療の提供をサポートするため（いわゆるEHR - 電子健康記録）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の二つは二次利用データとして使用され、すべての目的が独自のフォーマットやエンコーディングを持っています。 </p>
+<p>観察データは、患者が医療を受ける際に起こる出来事を示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのは調査データや登録データの形で）、２） 医療の提供をサポートするため（いわゆるEHR - 電子的健康記録）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の二つは二次利用データとして使用され、すべての目的が独自のフォーマットやエンコーディングを持っています。 </p>
 <p>なぜ観察医療データに共通データモデルが必要なのでしょうか？</p>
 <p>それぞれの主要なニーズに応じて、観察データベースが臨床イベントをすべて均等に捉えることはできません。そのため、潜在的な捕捉バイアスの影響を理解するには、多くの異なるデータソースから研究結果を導き出し、比較・対照する必要があります。さらに、統計的に有効な結論を導くには、多数の観察対象の患者が必要です。これが、複数のデータソースを同時に評価・分析する必要性を説明するものです。そのためには、データを共通のデータ標準に統合する必要があります。さらに、患者データの高度な保護も必要です。従来のように分析目的でデータを抽出するには、厳格なデータ利用契約と複雑なアクセス制御が必要です。共通のデータ標準により抽出ステップを省略し、標準化された分析をネイティブ環境のデータ上で実行できるようにすることで、このニーズを軽減することができます。分析はデータにアクセスするのではなく、データが分析にアクセスするのです。</p>
 <p>この標準を提供するのが共通データモデル（CDM）です。標準化された内容（第<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章参照）と組み合わせたCDMは、研究方法が体系的に適用され、意味のある比較可能な再現性のある結果を生成することを保証します。この章では、データモデル自体の概要、デザイン、規約、一部のテーブルについて概説します。</p>
@@ -1169,7 +1169,7 @@ div.csl-indent {
 </div>
 <div id="observationPeriod" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> OBSERVATION_PERIODテーブル<a href="CommonDataModel.html#observationPeriod" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、処置、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。電子健康記録（EHR）の場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療提供者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
+<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、処置、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。EHRの場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療提供者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
 <div id="laurenの観察期間はどのように定義されているのですか" class="section level4 unnumbered hasAnchor">
 <h4>Laurenの観察期間はどのように定義されているのですか？<a href="CommonDataModel.html#laurenの観察期間はどのように定義されているのですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Laurenの情報が表 <a href="CommonDataModel.html#tab:encounters">4.4</a>に示されているように電子健康記録システムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：</p>
@@ -1326,7 +1326,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">VISIT_TYPE_ CONCEPT_ID</td>
 <td align="left">32034</td>
-<td align="left">ビジットレコードの出所を示します。保険請求、病院請求、EHR記録など。これらのエンカウンターがEHRレコードに似ている例として、<a href="http://athena.ohdsi.org/search-terms/terms/32035">32035</a>（「EHRエンカウンターレコードから派生したビジット」）のコンセプトIDが使用されています。</td>
+<td align="left">ビジットレコードの出所を示します。保険請求、病院請求、EHRなど。これらのエンカウンターがEHRに似ている例として、<a href="http://athena.ohdsi.org/search-terms/terms/32035">32035</a>（「EHRエンカウンターレコードから派生したビジット」）のコンセプトIDが使用されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
@@ -1443,7 +1443,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">CONDITION_TYPE_ CONCEPT_ID</td>
 <td align="left">32020</td>
-<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHR記録などから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。</td>
+<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。</td>
 </tr>
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
@@ -1672,7 +1672,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">PROCEDURE_TYPE_ CONCEPT_ID</td>
 <td align="left">38000275</td>
-<td align="left">このカラムは処置記録の由来に関する情報を提供することを目的としています。すなわち、保険請求、EHRオーダーなどによるものかどうかです。この例では、処置記録がEHR記録によるのものであるため、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/38000275">38000275</a> (「EHR order list entry」)が使用されています。</td>
+<td align="left">このカラムは処置記録の由来に関する情報を提供することを目的としています。すなわち、保険請求、EHRオーダーなどによるものかどうかです。この例では、処置記録がEHRによるのものであるため、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/38000275">38000275</a> (「EHR order list entry」)が使用されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">MODIFIER_CONCEPT_ ID</td>
