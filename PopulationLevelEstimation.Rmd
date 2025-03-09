@@ -19,11 +19,11 @@
 
 \index{cohort method}
 
-```{r cohortMethod, fig.cap='新規ユーザーコホートデザイン。ターゲット治療を開始した被験者は比較対照治療を開始した被験者と比較されます。2つの治療グループ間の違いを調整するために、傾向スコアによる層化、マッチング、または重み付け、あるいはベースライン特性をアウトカムモデルに追加するなど、いくつかの調整戦略が使用されます。傾向スコアモデルまたはアウトカムモデルに含まれる特性は治療開始前に取得されます。',echo=FALSE, out.width='90%', fig.align='center'}
+```{r cohortMethod, fig.cap='新規ユーザーコホートデザイン。ターゲット治療を開始した対象は比較対照治療を開始した対象と比較されます。2つの治療グループ間の違いを調整するために、傾向スコアによる層化、マッチング、または重み付け、あるいはベースライン特性をアウトカムモデルに追加するなど、いくつかの調整戦略が使用されます。傾向スコアモデルまたはアウトカムモデルに含まれる特性は治療開始前に取得されます。',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/PopulationLevelEstimation/cohortMethod.png")
 ```
 
-コホートメソッドはランダム化臨床試験を模倣することを試みます [@hernan_2016]。 ある治療（ターゲット）を開始した被験者は別の治療（比較対照）を開始した被験者と比較され、治療開始後の特定の期間、例えば治療を継続する期間にわたって追跡されます。コホート研究において我々が答えたい質問は、表 \@ref(tab:cmChoices) にハイライトされた5つの選択を行うことで具体化されます。 \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
+コホートメソッドはランダム化臨床試験を模倣することを試みます [@hernan_2016]。 ある治療（ターゲット）を開始した対象は別の治療（比較対照）を開始した対象と比較され、治療開始後の特定の期間、例えば治療を継続する期間にわたって追跡されます。コホート研究において私たちが答えたい質問は、表 \@ref(tab:cmChoices) にハイライトされた5つの選択を行うことで具体化されます。 \index{target cohort!cohort method} \index{comparator cohort} \index{outcome cohort!cohort method}
 
 | 選択 | 説明 |
 |:---|:---|
