@@ -62,7 +62,7 @@ DQは直接観察することができませんが、それを評価する方法
 
 \index{ACHILLES} \index{データ品質!チェック}
 
-カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります。(Huser et al. [2018](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#ref-huser_methods_2018)) ACHILLESは、CDMに準拠したデータベースの特徴付けと可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます (Huser et al. [2016](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#ref-huser_multisite_2016)) 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
+カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります [@huser_methods_2018]。ACHILLESは、CDMに準拠したデータベースの特徴付けと可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます [@huser_multisite_2016] 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
 
 ACHILLESは、170以上のデータ特性解析を事前に計算します。各解析には解析IDと解析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの解析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
 
