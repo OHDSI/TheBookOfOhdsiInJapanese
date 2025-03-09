@@ -1,5 +1,5 @@
 ---
-title: " --翻訳作業中--　OHDSI指南書"
+title: " --翻訳作業中--　OHDSIの本"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "`r Sys.Date()`"
 classoption: 11pt
@@ -11,7 +11,7 @@ geometry:
 - outer=0.65in
 - top=0.8in
 - bottom=0.8in
-mainfont: Times New Roman
+mainfont: ipaexg.ttf
 bibliography:
 - book.bib
 - packages.bib
