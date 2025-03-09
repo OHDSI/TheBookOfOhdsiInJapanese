@@ -62,11 +62,11 @@ DQは直接観察することができませんが、それを評価する方法
 
 \index{ACHILLES} \index{データ品質!チェック}
 
-カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります [@huser_methods_2018]。ACHILLESは、CDMに準拠したデータベースの特徴付けと可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます [@huser_multisite_2016] 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
+カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたDQツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります [@huser_methods_2018]。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます [@huser_multisite_2016] 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。
 
-ACHILLESは、170以上のデータ特性解析を事前に計算します。各解析には解析IDと解析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの解析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
+ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
 
-コミュニティが作成したもう一つのツールで、DQ を評価するものに、[Data Quality Dashboard (DQD)](https://github.com/OHDSI/DataQualityDashboard) があります。ACHILLES が特性分析を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 \@ref(tab:dqdExamples) は、いくつかのチェックの例を示しています。
+コミュニティが作成したもう一つのツールで、DQ を評価するものに、[Data Quality Dashboard (DQD)](https://github.com/OHDSI/DataQualityDashboard) があります。ACHILLES が特性評価を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 \@ref(tab:dqdExamples) は、いくつかのチェックの例を示しています。
 
 | 違反行の割合 | チェックの説明 | 閾値 | 状態 |
 |:---|:---|:---|:---|
@@ -188,7 +188,7 @@ result <- achilles(connectionDetails,
                    cdmVersion = cdmVersion)
 ```
 
-この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベースの特性を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。
+この関数は、resultsDatabaseSchema内に複数のテーブルを作成します。ここでは、CDMデータと同じデータベーススキーマに設定しています。 ACHILLESデータベース特性評価を表示することができます。これは、ATLASをACHILLES結果データベースにポイントするか、ACHILLES結果をJSONファイルのセットにエクスポートすることで実行できます。
 
 ```{r eval=FALSE}
 exportToJson(connectionDetails,
