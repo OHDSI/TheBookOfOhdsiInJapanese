@@ -16,7 +16,7 @@ bibliography:
 - book.bib
 - packages.bib
 description: The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。
-documentclass: bxjsbook
+documentclass: book
 favicon: images/favicon.ico
 github-repo: OHDSI/TheBookOfOhdsiInJapanese
 link-citations: yes
