@@ -106,7 +106,7 @@ ATLAS
 
 :   個々の患者の医療に関する意思決定において実証的および科学的エビデンスを使用すること。
 
-ETL（Extract-Transform-Load）
+ETL（抽出-変換-読込）（Extract-Transform-Load）
 
 :   データをある形式から別の形式に変換するプロセス（例：ソース形式から共通データモデルへの変換）。詳細は第\@ref(ExtractTransformLoad)章参照。
 

@@ -301,7 +301,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#まとめ-3"><i class="fa fa-check"></i><b>5.7</b> まとめ</a></li>
 <li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#演習-1"><i class="fa fa-check"></i><b>5.8</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 抽出、変換、ロード</a>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> ETL（抽出-変換-読込）</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#はじめに"><i class="fa fa-check"></i><b>6.1</b> はじめに</a></li>
 <li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ-1-etlのデザイン"><i class="fa fa-check"></i><b>6.2</b> ステップ 1: ETLのデザイン</a>
@@ -605,7 +605,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#一般的なデータ品質"><i class="fa fa-check"></i><b>15.2</b> 一般的なデータ品質</a>
 <ul>
 <li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質チェック"><i class="fa fa-check"></i><b>15.2.1</b> データ品質チェック</a></li>
-<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL 単体テスト</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL（抽出-変換-読込）単体テスト</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#研究特有のチェック"><i class="fa fa-check"></i><b>15.3</b> 研究特有のチェック</a>
 <ul>
@@ -906,9 +906,9 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 </div>
 </div>
 <div id="etlUnitTests" class="section level3 hasAnchor" number="15.2.2">
-<h3><span class="header-section-number">15.2.2</span> ETL 単体テスト<a href="DataQuality.html#etlUnitTests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">15.2.2</span> ETL（抽出-変換-読込）単体テスト<a href="DataQuality.html#etlUnitTests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p></p>
-<p>高度なデータ品質のチェックに加え、個別レベルでのデータチェックも実施すべきです。データがCDMに変換されるETL（抽出-変換-ロード）プロセスは、非常に複雑であることがよくあり、その複雑さゆえに、気づかれないままミスが発生する危険性があります。さらに、時間の経過とともにソースデータモデルが変更されたり、CDMが更新されたりすることもあり、ETLプロセスを修正する必要が生じます。ETL のように複雑なプロセスに変更を加えると予期せぬ結果を招く可能性があり、ETL のすべての側面を再考し、再評価する必要が生じます。</p>
+<p>高度なデータ品質のチェックに加え、個別レベルでのデータチェックも実施すべきです。データがCDMに変換されるETLプロセスは、非常に複雑であることがよくあり、その複雑さゆえに、気づかれないままミスが発生する危険性があります。さらに、時間の経過とともにソースデータモデルが変更されたり、CDMが更新されたりすることもあり、ETLプロセスを修正する必要が生じます。ETL のように複雑なプロセスに変更を加えると予期せぬ結果を招く可能性があり、ETL のすべての側面を再考し、再評価する必要が生じます。</p>
 <p>ETL が期待通りに動作し、その状態を維持できるようにするためには、一連のユニットテストを作成することが強く推奨されます。ユニットテストとは、自動的に単一の側面をチェックする小さなコードの断片です。第 <a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a> 章で説明したRabbit-in-a-Hatツールを使用すると、このようなユニットテストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下にユニットテストの例を示します。</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="DataQuality.html#cb140-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Framework.R&quot;</span>)</span>
 <span id="cb140-2"><a href="DataQuality.html#cb140-2" tabindex="-1"></a><span class="fu">declareTest</span>(<span class="dv">101</span>, <span class="st">&quot;Person gender mappings&quot;</span>)</span>

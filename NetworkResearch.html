@@ -301,7 +301,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#まとめ-3"><i class="fa fa-check"></i><b>5.7</b> まとめ</a></li>
 <li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#演習-1"><i class="fa fa-check"></i><b>5.8</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 抽出、変換、ロード</a>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> ETL（抽出-変換-読込）</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#はじめに"><i class="fa fa-check"></i><b>6.1</b> はじめに</a></li>
 <li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ-1-etlのデザイン"><i class="fa fa-check"></i><b>6.2</b> ステップ 1: ETLのデザイン</a>
@@ -605,7 +605,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#一般的なデータ品質"><i class="fa fa-check"></i><b>15.2</b> 一般的なデータ品質</a>
 <ul>
 <li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質チェック"><i class="fa fa-check"></i><b>15.2.1</b> データ品質チェック</a></li>
-<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL 単体テスト</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL（抽出-変換-読込）単体テスト</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#研究特有のチェック"><i class="fa fa-check"></i><b>15.3</b> 研究特有のチェック</a>
 <ul>
@@ -858,7 +858,7 @@ div.csl-indent {
 </ul>
 
 <div class="rmdimportant">
-<p>**データ品質とネットワーク調査：第6章で説明したように、品質管理はETLプロセスの基本かつ反復的な要素です。これはネットワーク調査プロセスとは別に定期的に行う必要があります。ネットワーク調査の場合、調査責任者は参加サイトのデータ品質レポートの確認を依頼したり、カスタムSQLクエリを設計して、データソースに潜在する変動要因を把握することがあります。OHDSIで実施されているデータ品質の取り組みの詳細については、第15章を参照ください。</p>
+<p>**データ品質とネットワーク調査：第 <a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a> 章で説明したように、品質管理はETL（抽出-変換-読込）プロセスの基本かつ反復的な要素です。これはネットワーク調査プロセスとは別に定期的に行う必要があります。ネットワーク調査の場合、調査責任者は参加サイトのデータ品質レポートの確認を依頼したり、カスタムSQLクエリを設計して、データソースに潜在する変動要因を把握することがあります。OHDSIで実施されているデータ品質の取り組みの詳細については、第15章を参照ください。</p>
 </div>
 <p>各機関には、研究パッケージを実行するローカルのデータアナリストが配置されます。この担当者は、研究パッケージのアウトプットをレビューし、機密情報が送信されていないことを確認する必要があります。CDM内のデータはすべて匿名化されていますが、念のため確認します。集団レベルの効果推定（PLE）や患者レベルの予測（PLP）などの構築済みのOHDSIメソッドを使用する場合、特定の分析に必要な最小セル数の設定が可能です。データアナリストは、これらの閾値を確認し、それが現地のガバナンス方針に従っていることを確認する必要があります。</p>
 <p>データアナリストは、研究結果を共有する際には、結果の送信方法や結果の外部公開に関する承認プロセスの順守など、現地のガバナンス方針のすべてに従う必要があります。<strong>OHDSIネットワーク研究では、患者レベルのデータは共有されません。</strong>言い換えれば、異なる施設から得られた患者レベルのデータが中央環境に集約されることはありません。研究パッケージは、集約結果（例：要約統計、点推定値、診断プロットなど）として設計された結果ファイルを作成しますが、患者レベルの情報を共有することはありません。多くの組織では、参加する研究チームのメンバー間でデータ共有契約を締結する必要はありません。しかし、関係する機関やデータソースによっては、特定の研究チームメンバー間でより正式なデータ共有契約を締結する必要がある場合もあります。ネットワーク研究への参加に関心のあるデータ所有者の方は、OHDSIコミュニティ研究に参加するために満たすべき要件について、現地の管理チームに相談することをお勧めします。</p>

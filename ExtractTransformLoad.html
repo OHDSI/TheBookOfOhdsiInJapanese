@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章 6 抽出、変換、ロード | –翻訳作業中–　OHDSIの本</title>
+  <title>章 6 ETL（抽出-変換-読込） | –翻訳作業中–　OHDSIの本</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章 6 抽出、変換、ロード | –翻訳作業中–　OHDSIの本" />
+  <meta property="og:title" content="章 6 ETL（抽出-変換-読込） | –翻訳作業中–　OHDSIの本" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsiInJapanese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章 6 抽出、変換、ロード | –翻訳作業中–　OHDSIの本" />
+  <meta name="twitter:title" content="章 6 ETL（抽出-変換-読込） | –翻訳作業中–　OHDSIの本" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
@@ -301,7 +301,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#まとめ-3"><i class="fa fa-check"></i><b>5.7</b> まとめ</a></li>
 <li class="chapter" data-level="5.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#演習-1"><i class="fa fa-check"></i><b>5.8</b> 演習</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> 抽出、変換、ロード</a>
+<li class="chapter" data-level="6" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html"><i class="fa fa-check"></i><b>6</b> ETL（抽出-変換-読込）</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#はじめに"><i class="fa fa-check"></i><b>6.1</b> はじめに</a></li>
 <li class="chapter" data-level="6.2" data-path="ExtractTransformLoad.html"><a href="ExtractTransformLoad.html#ステップ-1-etlのデザイン"><i class="fa fa-check"></i><b>6.2</b> ステップ 1: ETLのデザイン</a>
@@ -605,7 +605,7 @@ div.csl-indent {
 <li class="chapter" data-level="15.2" data-path="DataQuality.html"><a href="DataQuality.html#一般的なデータ品質"><i class="fa fa-check"></i><b>15.2</b> 一般的なデータ品質</a>
 <ul>
 <li class="chapter" data-level="15.2.1" data-path="DataQuality.html"><a href="DataQuality.html#データ品質チェック"><i class="fa fa-check"></i><b>15.2.1</b> データ品質チェック</a></li>
-<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL 単体テスト</a></li>
+<li class="chapter" data-level="15.2.2" data-path="DataQuality.html"><a href="DataQuality.html#etlUnitTests"><i class="fa fa-check"></i><b>15.2.2</b> ETL（抽出-変換-読込）単体テスト</a></li>
 </ul></li>
 <li class="chapter" data-level="15.3" data-path="DataQuality.html"><a href="DataQuality.html#研究特有のチェック"><i class="fa fa-check"></i><b>15.3</b> 研究特有のチェック</a>
 <ul>
@@ -793,11 +793,11 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="ExtractTransformLoad" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">章 6</span> 抽出、変換、ロード<a href="ExtractTransformLoad.html#ExtractTransformLoad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">章 6</span> ETL（抽出-変換-読込）<a href="ExtractTransformLoad.html#ExtractTransformLoad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Clair Blacketer &amp; Erica Voss</em></p>
 <div id="はじめに" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> はじめに<a href="ExtractTransformLoad.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ネイティブ/生データからOMOP共通データモデル（CDM）を作成するには、抽出、変換、ロード（ETL）プロセスを作成する必要があります。このプロセスでは、データをCDMに再構築し、標準化ボキャブラリにマッピングを追加する必要があります。通常、このプロセスは、例えばSQLスクリプトのような自動化されたスクリプトのセットとして実装されます。このETLプロセスは繰り返し実行できることが重要です。これにより、ソースデータが更新されるたびに再実行することができます。 </p>
+<p>ネイティブ/生データからOMOP共通データモデル（CDM）を作成するには、ETL（抽出-変換-読込）プロセスを作成する必要があります。このプロセスでは、データをCDMに再構築し、標準化ボキャブラリにマッピングを追加する必要があります。通常、このプロセスは、例えばSQLスクリプトのような自動化されたスクリプトのセットとして実装されます。このETLプロセスは繰り返し実行できることが重要です。これにより、ソースデータが更新されるたびに再実行することができます。 </p>
 <p>ETLの作成は通常、大規模な取り組みとなります。長年にわたり、私たちは以下の4つの主要なステップからなるベストプラクティスを開発してきました：</p>
 <ol style="list-style-type: decimal">
 <li>データの専門家とCDMの専門家が共同でETLをデザインする。</li>
