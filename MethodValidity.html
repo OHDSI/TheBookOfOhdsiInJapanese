@@ -290,7 +290,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
 <li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディングシステムとOMOP条件</a></li>
-<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#処置コードシステム"><i class="fa fa-check"></i><b>5.6.4</b> 処置コードシステム</a></li>
+<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
 <li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療提供者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療提供者と専門分野</a></li>
@@ -846,7 +846,7 @@ div.csl-indent {
 <p></p>
 <p>真の相対リスクが1より小さい場合、または1より大きい場合の方法の動作を理解するには、帰無仮説が真実ではないと考えられるポジティブコントロールを使用する必要があります。残念ながら、観察研究における実際のポジティブコントロールには、3つの理由から問題が生じがちです。第一に、ほとんどの研究状況では、例えば2つの治療効果を比較する場合など、その特定の状況に該当するポジティブコントロールが不足しています。第二に、ポジティブコントロールが利用可能であったとしても、効果の大きさが正確にわからないことがあり、また、多くの場合、測定対象の母集団に依存します。第三に、治療が特定の結果を引き起こすことが広く知られている場合、例えば望ましくない結果のリスクを軽減するための措置が取られるなど、その治療を処方する医師の行動に影響を与え、その結果、評価手段としてのポジティブコントロールが役に立たなくなることがあります <span class="citation">(<a href="#ref-noren_2014">Noren et al. 2014</a>)</span>。</p>
 <p>そのため、OHDSIでは合成したポジティブコントロール <span class="citation">(<a href="#ref-schuemie_2018">Schuemie, Hripcsak, et al. 2018</a>)</span> を使用しています。これは、曝露のリスクにさらされる期間中に、アウトカムを追加でシミュレーション発生をさせることで、ネガティブコントロールを修正して作成します。例えば、ACE阻害薬への曝露中に、ネガティブコントロールのアウトカム「陥入爪」がn回発生したと仮定します。曝露中にさらにn回のシミュレーション発生を追加すると、リスクは2倍になります。これはネガティブコントロールであるため、対照群と比較した相対リスクは1ですが、追加の発生後は2になります。</p>
-<p>重要な問題として、交絡因子の保存が挙げられます。ネガティブコントロールでは強い交絡が示されるかもしれませんが、ランダムに追加のアウトカムを発生させれば、これらから得られる結果は交絡されません。したがって、ポジティブコントロールの交絡に対処する能力の評価については楽観的になることができます。交絡を維持するには、新しい結果が元の結果と同様に、ベースラインの被験者固有の共変量と類似した関連性を示すようにする必要があります。これを達成するために、各アウトカムについて、曝露前に得られた共変量を用いて曝露中のアウトカムに関する生存率を予測するモデルをトレーニングします。これらの共変量には、人口統計学的データ、すべての記録された診断、薬物曝露、測定値、医療処置が含まれます。正則化ハイパーパラメータを選択するために10分割の交差検証を用いるL1正則化ポアソン回帰 <span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> により、予測モデルを適合させます。次に、曝露中のシミュレーション結果を予測率を用いてサンプリングし、真の効果の大きさを望ましい大きさにまで増大させます。その結果、ポジティブコントロールには、実際の結果とシミュレーション結果の両方が含まれます。</p>
+<p>重要な問題として、交絡因子の保存が挙げられます。ネガティブコントロールでは強い交絡が示されるかもしれませんが、ランダムに追加のアウトカムを発生させれば、これらから得られる結果は交絡されません。したがって、ポジティブコントロールの交絡に対処する能力の評価については楽観的になることができます。交絡を維持するには、新しい結果が元の結果と同様に、ベースラインの被験者固有の共変量と類似した関連性を示すようにする必要があります。これを達成するために、各アウトカムについて、曝露前に得られた共変量を用いて曝露中のアウトカムに関する生存率を予測するモデルをトレーニングします。これらの共変量には、人口統計学的データ、すべての記録された診断、薬物曝露、測定値、医療プロシージャー（処置）が含まれます。正則化ハイパーパラメータを選択するために10分割の交差検証を用いるL1正則化ポアソン回帰 <span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> により、予測モデルを適合させます。次に、曝露中のシミュレーション結果を予測率を用いてサンプリングし、真の効果の大きさを望ましい大きさにまで増大させます。その結果、ポジティブコントロールには、実際の結果とシミュレーション結果の両方が含まれます。</p>
 <p>図 <a href="MethodValidity.html#fig:posControlSynth">18.2</a> は、このプロセスを示しています。この手順では、いくつかの重要なバイアスの原因をシミュレーションしますが、すべてを捕捉するわけではありません。例えば、測定誤差の影響の一部は存在しません。合成されたポジティブコントロールは、一定の陽性適中率と感度を意味しますが、現実には必ずしもそうではない場合があります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:posControlSynth"></span>
 <img src="images/MethodValidity/posControlSynth.png" alt="ネガティブコントロールからのポジティブコントロールの合成" width="90%" />
@@ -854,7 +854,7 @@ div.csl-indent {
 図 18.2: ネガティブコントロールからのポジティブコントロールの合成
 </p>
 </div>
-<p>各コントロールについて、単一の真の「効果の大きさ」を参照していますが、異なる手法では治療効果の異なる統計値を推定します。因果効果がないと考えるネガティブコントロールでは、相対リスク、ハザード比、オッズ比、罹患率比（条件付き、制限付き）、平均治療効果（ATT）や全体平均治療効果（ATE）など、すべての統計値は1ととなります。ポジティブコントロールを作成するプロセスでは、限界効果が達成される時点まで、この比率が一定に保たれる患者を条件としたモデルを使用し、時間経過や患者間の一定の発生率比で結果を統合します。したがって、真の効果量は、処置群における限界発生率比として保持されることが保証されます。合成に使用されるモデルが正しいという前提の下では、これは条件付き効果量および ATE にも当てはまります。結果はすべてまれであるため、オッズ比は相対リスクとほぼ同じになります。</p>
+<p>各コントロールについて、単一の真の「効果の大きさ」を参照していますが、異なる手法では治療効果の異なる統計値を推定します。因果効果がないと考えるネガティブコントロールでは、相対リスク、ハザード比、オッズ比、罹患率比（条件付き、制限付き）、平均治療効果（ATT）や全体平均治療効果（ATE）など、すべての統計値は1ととなります。ポジティブコントロールを作成するプロセスでは、限界効果が達成される時点まで、この比率が一定に保たれる患者を条件としたモデルを使用し、時間経過や患者間の一定の発生率比で結果を統合します。したがって、真の効果量は、治療群における限界発生率比として保持されることが保証されます。合成に使用されるモデルが正しいという前提の下では、これは条件付き効果量および ATE にも当てはまります。結果はすべてまれであるため、オッズ比は相対リスクとほぼ同じになります。</p>
 </div>
 <div id="metrics" class="section level3 hasAnchor" number="18.2.3">
 <h3><span class="header-section-number">18.2.3</span> 実証的評価<a href="MethodValidity.html#metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
