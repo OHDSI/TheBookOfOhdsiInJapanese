@@ -478,17 +478,17 @@ knitr::include_graphics("images/SuggestedAnswers/celecoxibCharacterizationResult
 
 ![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed (消化管出血)」）を付け、「Concept Sets　(コンセプトセット)」タブに移動します。「New Concept Set (新しいコンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「GI bleed (消化管出血)」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「Gastrointestinal hemorrhage (消化管出血)」を検索し、一番上のコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
 
-```{r giBleedSearch, fig.cap='「Gastrointestinal hemorrhage (消化管出血)」の標準コンセプトの選択',echo=FALSE, out.width='100%', fig.align='center'}
+```{r giBleedSearch, fig.cap='"Gastrointestinal hemorrhage (消化管出血)" の標準コンセプトの選択',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedSearch.png")
 ```
 
-図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
+図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある "Descemdamts (下位層)" をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
 
-```{r giBleedDescendants, fig.cap='「Gastrointestinal hemorrhage (消化管出血)」のすべての下位層を追加',echo=FALSE, out.width='100%', fig.align='center'}
+```{r giBleedDescendants, fig.cap='"Gastrointestinal hemorrhage (消化管出血)" のすべての下位層を追加',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedDescendants.png")
 ```
 
-「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 ```{r giBleedCohortDefinition, fig.cap='単純な消化管出血コホート定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedCohortDefinition.png")
