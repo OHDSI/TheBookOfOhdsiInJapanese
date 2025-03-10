@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章 9 SQLとR | –翻訳作業中–　OHDSIの本</title>
+  <title>第 9 章 SQLとR | –翻訳作業中–　OHDSIの本</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章 9 SQLとR | –翻訳作業中–　OHDSIの本" />
+  <meta property="og:title" content="第 9 章 SQLとR | –翻訳作業中–　OHDSIの本" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsiInJapanese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章 9 SQLとR | –翻訳作業中–　OHDSIの本" />
+  <meta name="twitter:title" content="第 9 章 SQLとR | –翻訳作業中–　OHDSIの本" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
@@ -793,7 +793,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="SqlAndR" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">章 9</span> SQLとR<a href="SqlAndR.html#SqlAndR" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">第 9 章</span> SQLとR<a href="SqlAndR.html#SqlAndR" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Martijn Schuemie &amp; Peter Rijnbeek</em></p>
 <p>共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、Microsoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースにクエリを出すことで動作しますが、適切なアクセス権があれば、私たちも自身も直接データベースにクエリを出すことができます。その主な理由は、現在のツールではサポートされていない分析を行うためです。ただし、OHDSI ツールは多くの場合、ユーザーがデータを適切に分析できるよう、ガイドするように設計されているため、データベースを直接クエリすると、間違いを犯すリスクも高くなります。直接のクエリでは、そのようなガイドは提供されていません。</p>
 <p>リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します。： </p>
@@ -1058,7 +1058,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.uf53gx0dchildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.hipx2q1mchildren ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>

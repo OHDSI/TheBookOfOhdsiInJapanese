@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>章 10 コホートの定義 | –翻訳作業中–　OHDSIの本</title>
+  <title>第 10 章 コホートの定義 | –翻訳作業中–　OHDSIの本</title>
   <meta name="description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="章 10 コホートの定義 | –翻訳作業中–　OHDSIの本" />
+  <meta property="og:title" content="第 10 章 コホートの定義 | –翻訳作業中–　OHDSIの本" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
   <meta property="og:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="github-repo" content="OHDSI/TheBookOfOhdsiInJapanese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="章 10 コホートの定義 | –翻訳作業中–　OHDSIの本" />
+  <meta name="twitter:title" content="第 10 章 コホートの定義 | –翻訳作業中–　OHDSIの本" />
   
   <meta name="twitter:description" content="The Observational Health Data Sciences and Informatics (OHDSI) についての本。OHDSIのコミュニティ、オープンスタンダードとオープンソースソフトウェアについて詳述しています。" />
   <meta name="twitter:image" content="https://ohdsi.github.io/TheBookOfOhdsiInJapanese/images/Cover/Cover.png" />
@@ -793,7 +793,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="Cohorts" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">章 10</span> コホートの定義<a href="Cohorts.html#Cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">第 10 章</span> コホートの定義<a href="Cohorts.html#Cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Kristin Kostka</em></p>
 <p>観察型健康データ（<em>リアルワールドデータ</em>とも呼ばれる）は、患者の健康状態や医療の提供に関連するデータで、さまざまな情報源から日常的に収集されたデータです。そのため、OHDSIデータスチュワード（OHDSIの共同研究者のうち、各サイトのデータをCDMで維持している人）は、電子健康記録（EHR）、医療保険請求データ、製品や疾患のレジストリ、在宅環境下を含む患者が生成したデータ、モバイル機器など健康状態に関する情報を提供できるその他の情報源など、複数の情報源からデータを取得することがあります。これらのデータは研究目的で収集されたものではないため、対象としたい臨床データ要素を明確に捉えられていない可能性があります。</p>
 <p>例えば、医療保険請求データベースは、ある症状（例：血管性浮腫）に対して提供されたすべての医療を捕捉し、関連費用が適切に払い戻されることを目的として設計されており、実際の症状に関する情報はこの目的の一部としてのみ捕捉されます。このような観察データを研究目的で使用したい場合、<em>データに記録されているもの</em>を使用して<em>本当に興味のあること</em>を推測するロジックを作成する必要があります。つまり、臨床イベントがどのように発現するかを定義してコホートを作成する必要があるのです。たとえば、保険請求データベースで血管性浮腫イベントを特定したい場合、過去の血管性浮腫の発生に対する経過観察を単に説明する請求とは区別するために、血管性浮腫の診断コードが救急外来の設定で記録されていることを必要とするロジックを定義することが考えられます。同様の考慮事項は、EHRに記録された日常診療中に収集されたデータにも適用される可能性があります。データが二次的な目的で使用されるため、各データベースが本来何を目的として設計されたかを認識する必要があります。研究をデザインするたびに、さまざまな医療環境においてコホートがどのように存在するのか、細かな点を十分に考慮する必要があります。</p>
