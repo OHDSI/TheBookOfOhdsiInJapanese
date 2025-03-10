@@ -23,7 +23,7 @@
 <meta name="author" content="Observational Health Data Sciences and Informatics (OHDSI)" />
 
 
-<meta name="date" content="2025-03-09" />
+<meta name="date" content="2025-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
-<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療提供者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療提供者と専門分野</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療従事者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療従事者と専門分野</a></li>
 <li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.6.8</b> 特別な要件を持つ治療領域</a></li>
 <li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> 薬剤ドメインにおける標準コンセプト</a></li>
 <li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#nullのバリエーション"><i class="fa fa-check"></i><b>5.6.10</b> NULLのバリエーション</a></li>
@@ -801,7 +801,7 @@ div.csl-indent {
 <p>OHDSIのビジョンは、「観察研究によって健康と疾病に関する包括的な理解が得られる世界」です。レトロスペクティブデザインは、既存のデータを使用する研究の手段を提供しますが、第 <a href="EvidenceQuality.html#EvidenceQuality">14</a> 章で説明したように、妥当性のさまざまな側面に対する脅威に満ちている可能性があります。臨床的妥当性をデータ品質や統計的手法から切り離すことは容易ではありませんが、ここでは臨床的妥当性の観点から3つの側面に焦点を当てます。すなわち、医療データベースの特徴、コホートの検証、エビデンスの一般化可能性です。集団レベルの推定の例に戻りましょう（第 <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a> 章）。「ACE阻害薬は、サイアザイド系またはサイアザイド系利尿薬と比較して血管浮腫を引き起こすか？」という質問に答えようと試みました。その例では、ACE阻害薬はサイアザイド系またはサイアザイド系利尿薬よりも血管浮腫を引き起こすことを示唆しました。本章では、「実施された分析はどの程度臨床的意図に一致しているか？」という質問に答えることに専念します。</p>
 <div id="CharacteristicsOfDatabase" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> 医療データベースの特性<a href="ClinicalValidity.html#CharacteristicsOfDatabase" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>私たちが発見したのは、ACE阻害薬の<strong>処方</strong>と血管浮腫の関係であり、ACE阻害薬の<strong>使用</strong>と血管浮腫の関係ではない可能性があることです。データの質については、すでに前章（第 <a href="DataQuality.html#DataQuality">15</a> 章）で議論しました。Common Data Model（CDM）に変換されたデータベースの質は、元のデータベースを超えることはできません。ここでは、ほとんどの医療用データベースの特性について取り上げます。OHDSIで使用される多くのデータベースは、保険請求または電子的健康記録（EHR）から派生しています。保険請求とEHRではデータ取得プロセスが異なり、いずれも研究を主な目的としていません。保険請求レコードのデータ要素は、医療提供者から患者に提供されたサービスが、責任当事者による支払い合意を可能にするのに十分な正当性があることを示す、臨床医と保険者間の償還、財務取引を目的として取得されます。EHRのデータ要素は、臨床ケアと管理業務をサポートするために収集され、通常は、特定の医療システム内の医療提供者が、現在のサービスを文書化し、その医療システム内での今後のフォローアップケアに必要な背景情報を提供するために必要だと考える情報のみが反映されます。 それらのデータは患者の完全な病歴を表しているとは限らず、また、複数の医療システムにまたがるデータを統合しているとは限りません。</p>
+<p>私たちが発見したのは、ACE阻害薬の<strong>処方</strong>と血管浮腫の関係であり、ACE阻害薬の<strong>使用</strong>と血管浮腫の関係ではない可能性があることです。データの質については、すでに前章（第 <a href="DataQuality.html#DataQuality">15</a> 章）で議論しました。Common Data Model（CDM）に変換されたデータベースの質は、元のデータベースを超えることはできません。ここでは、ほとんどの医療用データベースの特性について取り上げます。OHDSIで使用される多くのデータベースは、保険請求または電子的健康記録（EHR）から派生しています。保険請求とEHRではデータ取得プロセスが異なり、いずれも研究を主な目的としていません。保険請求レコードのデータ要素は、医療従事者から患者に提供されたサービスが、責任当事者による支払い合意を可能にするのに十分な正当性があることを示す、臨床医と保険者間の償還、財務取引を目的として取得されます。EHRのデータ要素は、臨床ケアと管理業務をサポートするために収集され、通常は、特定の医療システム内の医療従事者が、現在のサービスを文書化し、その医療システム内での今後のフォローアップケアに必要な背景情報を提供するために必要だと考える情報のみが反映されます。 それらのデータは患者の完全な病歴を表しているとは限らず、また、複数の医療システムにまたがるデータを統合しているとは限りません。</p>
 <p>観察データから信頼性の高いエビデンスを生成するには、患者が治療を求めた瞬間から、その治療を反映するデータが分析に使用される瞬間までのデータの経過を研究者が理解することが有用です。例えば、「薬物曝露」は、臨床医による処方箋、薬局の調剤記録、病院での処置管理、または患者による服薬歴の自己申告など、さまざまな観察データから推測することができます。データのソースは、どの患者が薬を使用したか、あるいは使用しなかったか、またいつ、どのくらいの期間使用したかについて、私たちが導き出す推論の信頼性に影響を与える可能性があります。データの収集プロセスでは、無料サンプルや市販薬が記録されない場合など、曝露が過小評価される可能性もあります。また、処方箋が患者によって服用されない場合や、処方された薬が患者によって忠実に消費されない場合など、曝露が過大評価される可能性もあります。曝露と結果の確認における潜在的な偏りを理解し、さらに理想的には、これらの測定エラーを定量化して調整することで、入手可能なデータから導き出されるエビデンスの妥当性に対する信頼性を向上させることができます。</p>
 </div>
 <div id="CohortValidation" class="section level2 hasAnchor" number="16.2">

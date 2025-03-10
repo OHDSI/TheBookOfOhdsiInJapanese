@@ -23,7 +23,7 @@
 <meta name="author" content="Observational Health Data Sciences and Informatics (OHDSI)" />
 
 
-<meta name="date" content="2025-03-09" />
+<meta name="date" content="2025-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
-<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療提供者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療提供者と専門分野</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療従事者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療従事者と専門分野</a></li>
 <li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.6.8</b> 特別な要件を持つ治療領域</a></li>
 <li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> 薬剤ドメインにおける標準コンセプト</a></li>
 <li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#nullのバリエーション"><i class="fa fa-check"></i><b>5.6.10</b> NULLのバリエーション</a></li>
@@ -817,7 +817,7 @@ div.csl-indent {
 </ul>
 <p>この目標を達成するために、CDMの開発は以下のデザイン要素に従います：</p>
 <ul>
-<li><strong>目的適合性</strong>: CDMは、医療提供者または保険者の運用ニーズを満たす目的ではなく、分析のために最適な形でデータを提供することを目指しています。 </li>
+<li><strong>目的適合性</strong>: CDMは、医療従事者または保険者の運用ニーズを満たす目的ではなく、分析のために最適な形でデータを提供することを目指しています。 </li>
 <li><strong>データ保護</strong>: 名前や正確な誕生日など、患者の身元や保護を危うくする可能性のあるすべてのデータは限定されています。乳児の研究のために正確な誕生日が必要な場合など、研究でより詳細な情報が明示的に必要な場合は例外となることがあります。 </li>
 <li><strong>ドメインの設計</strong>: ドメインは、各レコードに最低限、個人の識別情報と日付が記録される、個人中心のリレーショナルデータモデルでモデル化されています。ここでいうリレーショナルデータモデルとは、主キーと外部キーでリンクされたテーブルの集合としてデータが表現されるものを指します。</li>
 <li><strong>ドメインの根拠</strong>: ドメインは、分析のユースケースがある場合（たとえばコンディション）で、そのドメインが他のものには適用されない特定の属性を持つ場合に、エンティティ-リレーションシップモデルで特定され、個別に定義されます。他のデータはすべて、エンティティ-属性-値構造の観察テーブルに保持できます。 </li>
@@ -1121,7 +1121,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left"></td>
-<td align="left">彼女のプライマリケア提供者は不明です。</td>
+<td align="left">彼女のプライマリケア医療従事者は不明です。</td>
 </tr>
 <tr class="even">
 <td align="left">CARE_SITE</td>
@@ -1169,7 +1169,7 @@ div.csl-indent {
 </div>
 <div id="observationPeriod" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> OBSERVATION_PERIODテーブル<a href="CommonDataModel.html#observationPeriod" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。EHRの場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療提供者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
+<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。EHRの場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
 <div id="laurenの観察期間はどのように定義されているのですか" class="section level4 unnumbered hasAnchor">
 <h4>Laurenの観察期間はどのように定義されているのですか？<a href="CommonDataModel.html#laurenの観察期間はどのように定義されているのですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Laurenの情報が表 <a href="CommonDataModel.html#tab:encounters">4.4</a>に示されているように電子健康記録システムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：</p>
@@ -1331,7 +1331,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
-<td align="left">エンカウンターレコードに提供者が関連付けられている場合、その提供者のIDがこのフィールドに格納されます。これが提供者テーブルのPROVIDER_IDフィールドの内容であるはずです。</td>
+<td align="left">エンカウンターレコードに医療従事者が関連付けられている場合、その医療従事者のIDがこのフィールドに格納されます。これが医療従事者テーブルのPROVIDER_IDフィールドの内容であるはずです。</td>
 </tr>
 <tr class="even">
 <td align="left">CARE_SITE_ID</td>
@@ -1376,7 +1376,7 @@ div.csl-indent {
 </tbody>
 </table>
 <ul>
-<li>患者は、入院患者の場合によくあるように、1回の来院中に複数の医療提供者とやりとりすることがあります。これらのやりとりは、VISIT_DETAILテーブルに記録することができます。この章では深く掘り下げませんが、VISIT_DETAILテーブルの詳細については、<a href="https://github.com/OHDSI/CommonDataModel/wiki/VISIT_DETAIL">CDM wiki</a>を参照ください。</li>
+<li>患者は、入院患者の場合によくあるように、1回の来院中に複数の医療従事者とやりとりすることがあります。これらのやりとりは、VISIT_DETAILテーブルに記録することができます。この章では深く掘り下げませんが、VISIT_DETAILテーブルの詳細については、<a href="https://github.com/OHDSI/CommonDataModel/wiki/VISIT_DETAIL">CDM wiki</a>を参照ください。</li>
 </ul>
 </div>
 </div>
@@ -1458,7 +1458,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
-<td align="left">コンディションレコードに診断を付けた医療提供者がリストされている場合、その医療提供者の ID がこのフィールドに入ります。これは、そのビジットの医療提供者を表すPROVIDERテーブルのprovider_idでなければなりません。</td>
+<td align="left">コンディションレコードに診断を付けた医療従事者がリストされている場合、その医療従事者の ID がこのフィールドに入ります。これは、そのビジットの医療従事者を表すPROVIDERテーブルのprovider_idでなければなりません。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_OCCURRENCE_ ID</td>
@@ -1621,7 +1621,7 @@ div.csl-indent {
 </div>
 <div id="procedureOccurrence" class="section level3 hasAnchor" number="4.3.7">
 <h3><span class="header-section-number">4.3.7</span> PROCEDURE_OCCURRENCE<a href="CommonDataModel.html#procedureOccurrence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PROCEDURE_OCCURRENCEテーブルには、医療提供者が診断または治療目的で患者に命じた、または実施した活動やプロセスの記録が含まれます。プロシージャーは様々なデータソースに様々な形で存在し、標準化のレベルも様々です。例えば、</p>
+<p>PROCEDURE_OCCURRENCEテーブルには、医療従事者が診断または治療目的で患者に命じた、または実施した活動やプロセスの記録が含まれます。プロシージャーは様々なデータソースに様々な形で存在し、標準化のレベルも様々です。例えば、</p>
 <ul>
 <li>医療保険請求データには、実施されたプロシージャーを含む、提供された医療サービスの請求の一部として提出されるプロシージャーコードが含まれます。</li>
 <li>オーダーとしてプロシージャーを取り込む電子カルテ。</li>

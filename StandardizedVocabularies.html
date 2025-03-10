@@ -23,7 +23,7 @@
 <meta name="author" content="Observational Health Data Sciences and Informatics (OHDSI)" />
 
 
-<meta name="date" content="2025-03-09" />
+<meta name="date" content="2025-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -293,7 +293,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
-<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療提供者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療提供者と専門分野</a></li>
+<li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療従事者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療従事者と専門分野</a></li>
 <li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.6.8</b> 特別な要件を持つ治療領域</a></li>
 <li class="chapter" data-level="5.6.9" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#rxNormExtension"><i class="fa fa-check"></i><b>5.6.9</b> 薬剤ドメインにおける標準コンセプト</a></li>
 <li class="chapter" data-level="5.6.10" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#nullのバリエーション"><i class="fa fa-check"></i><b>5.6.10</b> NULLのバリエーション</a></li>
@@ -1156,7 +1156,7 @@ div.csl-indent {
 </div>
 <div id="同一ボキャブラリーのコンセプト間の関係" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> 同一ボキャブラリーのコンセプト間の関係<a href="StandardizedVocabularies.html#同一ボキャブラリーのコンセプト間の関係" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>内部ボキャブラリ間の関係は通常、ボキャブラリ医療提供者によって提供されます。OHDSI Wikiの個々のボキャブラリの個々のボキャブラリー文書に完全な説明が記載されています<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。</p>
+<p>内部ボキャブラリ間の関係は通常、ボキャブラリの提供者によって提示されます。OHDSI Wikiの個々のボキャブラリの個々のボキャブラリー文書に完全な説明が記載されています<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。</p>
 <p>これらの多くは、臨床イベント間の関係を定義しており、情報検索に使用することができます。例えば、尿道の障害は、「Finding site of（部位の検索）」関係に従うことで検索することができます（表 <a href="StandardizedVocabularies.html#tab:findingSite">5.5</a> を参照）。</p>
 <table>
 <caption><span id="tab:findingSite">表 5.5: </span> 尿道の「Finding site of」関係で、すべてこの解剖学的構造に位置する状態を示しています。</caption>
@@ -1232,9 +1232,9 @@ div.csl-indent {
 <h3><span class="header-section-number">5.6.6</span> ビジットとサービス<a href="StandardizedVocabularies.html#ビジットとサービス" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ビジットのコンセプトは、医療受診の性質を定義します。多くのソースシステムでは、これらはサービス提供場所として呼ばれており、病院などの組織や物理的構造を示します。他のソースシステムでは、サービスと呼ばれます。これらの用語の定義も国によって異なり、その定義を入手するのは困難です。医療施設は、数少ない訪問の1つに特化していることが多い（XYZ病院）ですが、それでもそれらによって定義されるべきではありません（XYZ病院でも、患者は病院外のビジットをすることがある）。</p>
 </div>
-<div id="医療提供者と専門分野" class="section level3 hasAnchor" number="5.6.7">
-<h3><span class="header-section-number">5.6.7</span> 医療提供者と専門分野<a href="StandardizedVocabularies.html#医療提供者と専門分野" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>医療提供者は、医療提供者ドメインで定義されます。これには、医師や看護師などの医療専門家だけでなく、検眼医や靴職人などの医療以外の専門家も含まれます。専門分野は、医療提供者「医師」の子孫です。医療施設は専門分野を持つことはできませんが、主要スタッフの専門分野で定義されることはよくあります（「外科」など）。</p>
+<div id="医療従事者と専門分野" class="section level3 hasAnchor" number="5.6.7">
+<h3><span class="header-section-number">5.6.7</span> 医療従事者と専門分野<a href="StandardizedVocabularies.html#医療従事者と専門分野" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>医療従事者は、医療従事者ドメインで定義されます。これには、医師や看護師などの医療専門家だけでなく、検眼医や靴職人などの医療以外の専門家も含まれます。専門分野は、医療従事者「医師」の子孫です。医療施設は専門分野を持つことはできませんが、主要スタッフの専門分野で定義されることはよくあります（「外科」など）。</p>
 </div>
 <div id="特別な要件を持つ治療領域" class="section level3 hasAnchor" number="5.6.8">
 <h3><span class="header-section-number">5.6.8</span> 特別な要件を持つ治療領域<a href="StandardizedVocabularies.html#特別な要件を持つ治療領域" class="anchor-section" aria-label="Anchor link to header"></a></h3>
