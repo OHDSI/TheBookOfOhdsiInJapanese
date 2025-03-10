@@ -337,9 +337,9 @@ cat("  DIAGNOSE_COUNT
 -   年齢は16歳以上
 -   曝露前に少なくとも365日間の連続した観察期間があること
 
-完了したときには、コホート・エントリー・イベントのセクションは図 \@ref(fig:cohortsAtlasInitialEvents)のようになります。
+完了したときには、コホート組入れイベントのセクションは図 \@ref(fig:cohortsAtlasInitialEvents)のようになります。
 
-```{r cohortsAtlasInitialEvents, fig.cap='ジクロフェナクの新規ユーザーのコホート・エントリー・イベント設定',echo=FALSE, out.width='100%', fig.align='center'}
+```{r cohortsAtlasInitialEvents, fig.cap='ジクロフェナクの新規ユーザーのコホート組入れ・エントリー・イベント設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInitialEvents.png")
 ```
 
