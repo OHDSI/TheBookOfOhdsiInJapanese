@@ -17,7 +17,7 @@ language:
     solution: "解答. "
   ui:
     edit: "エディション"
-    chapter_name: "章 "
+    chapter_name: ["第 ", " 章"]
 delete_merged_file: true
 new_session: yes
 
