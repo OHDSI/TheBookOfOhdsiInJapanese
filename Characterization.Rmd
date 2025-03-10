@@ -118,15 +118,15 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationCohortSele
 
 #### 特徴量の選択 {.unnumbered}
 
-ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特性評価が備わっており、各対象コホートに対して臨床観察結果の集約と要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特性を提供します。ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{feature analyses}
+ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特徴量分析が備わっています。これらのそれぞれの事前に規定された特徴量分析は、各ターゲットコホートに対して臨床観察を集約および要約する機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特徴量を提供します。この元で、ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{feature analyses}
 
-![](images/Characterization/atlasImportButton.png)をクリックして、特性を選択します。以下は、これらのコホートを特性評価するために使用する特性のリストです：
+![](images/Characterization/atlasImportButton.png)をクリックして、特性評価をするための特徴量を選択します。以下は、これらのコホートを特性評価するために使用する特徴量のリストです：
 
-```{r atlasCharacterizationFeatureSelection, fig.cap='特性設計タブ - 特性選択',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasCharacterizationFeatureSelection, fig.cap='特性設計タブ - 特徴量の選択',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationFeatureSelection.png")
 ```
 
-上の図は、選択された機能のリストと、各機能が各コホートについて何を特徴付けるかを説明する説明を示しています。 "Demographics (人口動態的特性)"で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特性は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメイン機能には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：
+上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 "Demographics (人口動態的特性)"で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：
 
 -   **Any time prior（任意の期間）**: コホート開始前のすべての利用可能な期間で、その人の観察期間に該当するものを使用。
 -   **Long term（長期）**: コホート開始日を含む最大365日前まで。
@@ -164,7 +164,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationExecutions
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSummary.png")
 ```
 
-結果は、デザインで選択した各コホートについて、さまざまな特徴を一覧表示します。図 \@ref(fig:atlasCharacterizationResultsSummary) では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
+結果は、デザインで選択した各コホートについて、さまざまな特徴量を一覧表示します。図 \@ref(fig:atlasCharacterizationResultsSummary) では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。
 
 検索ボックスを使用してアウトカムをフィルタリングし、「不整脈」の既往を持つ人の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示することができます（図 \@ref(fig:atlasCharacterizationResultsExplore) 参照）。
 
@@ -180,7 +180,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExp
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContra.png")
 ```
 
-再度、"explore (探索する)"機能を使用して、高血圧症集団における浮腫の特性を調べ、血管浮腫の有病率を確認します：
+再度、特徴量を "explore (探索する)" を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：
 
 ```{r atlasCharacterizationResultsContraExplore, fig.cap='特性アウトカム - 禁忌条件の詳細を探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsContraExplore.png")
@@ -194,17 +194,17 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsCon
 
 ドメイン共変量は、コホート開始前の時間枠にコードの記録が存在したかどうかを示す二元指標を用いて計算されますが、一部の変数はコホート開始時の年齢のように連続変数として提供されます。上の例では、人数、平均年齢、中央値、標準偏差などで表現された、2つのコホートの年齢を示しています。
 
-### カスタム特性の定義
+### カスタム特徴量の定義
 
-プリセットの機能に加えて、ATLASはユーザー定義のカスタム機能を用いることもできます。これを行うには、左側のメニューの**Characterization**をクリックし、**Feature Analysis**タブをクリックして、**New Feature Analysis**ボタンをクリックします。カスタム特性に名前を付け、![](images/PopulationLevelEstimation/save.png)ボタンを使用して保存します。\index{ATLAS!characterization features}
+プリセットの特徴量に加えて、ATLASはユーザー定義のカスタム特徴量を用いることもできます。これを行うには、左側のメニューの　**Characterization (特性評価)**をクリックし、**Feature Analysis (特徴量分析)**タブをクリックして、**New Feature Analysis (新規の特徴量分析)**ボタンをクリックします。カスタム特性に名前を付け、![](images/PopulationLevelEstimation/save.png)ボタンを使用して保存します。\index{ATLAS!characterization features}
 
-この例では、ACE阻害剤の服用歴が各コホート開始後にある、コホート内の人数を特定するカスタム機能を定義します：
+この例では、ACE阻害剤の服用歴が各コホート開始後にある、コホート内の人数を特定するカスタム特徴量を定義します：
 
-```{r atlasCharacterizationCustomFeature, fig.cap='ATLASでのカスタム特性定義',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasCharacterizationCustomFeature, fig.cap='ATLASでのカスタム特徴量定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationCustomFeature.png")
 ```
 
-上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義し保存したら、前のセクションで作成した特徴量の評価にこの基準を適用できます。特徴量の評価のデザインを開き、Feature Analysisセクションに移動します。![](images/Characterization/atlasImportButton.png)ボタンをクリックし、メニューから新しいカスタム機能を選択します。これで、特性評価デザインのリストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタム機能による特徴量の分析を実行することができます：
+上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義し保存したら、前のセクションで作成した特徴量の評価にこの基準を適用できます。特徴量の評価のデザインを開き、Feature Analysis (特徴量分析) セクションに移動します。![](images/Characterization/atlasImportButton.png)ボタンをクリックし、メニューから新しいカスタム特徴量を選択します。これで、特性評価デザインのリストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタム特徴量による特性評価を実行することができます：
 
 ```{r atlasCharacterizationCustomFeatureResults, fig.cap='カスタム機能の結果表示',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationCustomFeatureResults.png")
@@ -212,13 +212,13 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationCustomFeat
 
 ## Rでのコホートの特性評価
 
-Rを使用してコホートをの特性を評価することもできます。このセクションでは、OHDSI RパッケージであるFeatureExtractionを使用して、高血圧症コホートのベースライン特性（共変量）を生成する方法について説明します。FeatureExtractionは、3つの方法で共変量を構築する機能を提供します。 \index{FeatureExtraction}
+Rを使用してコホートをの特性を評価することもできます。このセクションでは、OHDSI RパッケージであるFeatureExtractionを使用して、高血圧症コホートのベースライン特徴量を生成する方法について説明します。FeatureExtractionは、3つの方法で共変量を構築する機能を提供します。 \index{FeatureExtraction}
 
 -   デフォルトの共変量セットを選択する
 -   事前に指定された分析セットから選択する
 -   カスタム分析セットを作成する
 
-FeatureExtractionは、個人レベルの特徴と集約された特徴の2つの異なる方法で共変量を作成します。個人レベルの特徴は機械学習アプリケーションで有用です。本セクションでは、対象とするコホートを説明するベースライン共変量を生成するのに有用な集計された特徴の使用に焦点を当てます。さらに、事前に指定された分析とカスタム分析という2つの方法で共変量を構築する方法に焦点を当て、デフォルトのセットを使用する方法は読者への課題として残します。
+FeatureExtractionは、個人レベルの特徴量と集約特徴の2つの異なる方法で共変量を作成します。個人レベルの特徴量は機械学習アプリケーションで有用です。本セクションでは、対象とするコホートを説明するベースライン共変量を生成するのに有用な集約統計量の使用に焦点を当てます。さらに、事前に指定された分析とカスタム分析という2つの方法で共変量を構築する方法に焦点を当て、デフォルトのセットを使用する方法は読者への課題として残します。
 
 ### コホートのインスタンス化
 
@@ -290,10 +290,10 @@ settings <- createCovariateSettings(useConditionEraLongTerm = TRUE,
 ```
 
 ```{block2, type='rmdimportant'}
-上記すべての例について、「aggregated = TRUE」の使用は、FeatureExtractionに要約統計を提供することを指示します。このフラグを除外すると、コホート内の各人の共変量が計算されます。
+上記すべての例について、「aggregated = TRUE」の使用は、FeatureExtractionに要約統計量を提供することを指示します。このフラグを除外すると、コホート内の各人の共変量が計算されます。
 ```
 
-### 集計された共変量の作成
+### 集約共変量の作成
 
 次のコードブロックは、コホートの集計統計を生成します：
 
