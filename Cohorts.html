@@ -795,7 +795,7 @@ div.csl-indent {
 <div id="Cohorts" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">第 10 章</span> コホートの定義<a href="Cohorts.html#Cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Kristin Kostka</em></p>
-<p>観察型健康データ（<em>リアルワールドデータ</em>とも呼ばれる）は、患者の健康状態や医療の提供に関連するデータで、さまざまな情報源から日常的に収集されたデータです。そのため、OHDSIデータスチュワード（OHDSIの共同研究者のうち、各サイトのデータをCDMで維持している人）は、電子健康記録（EHR）、医療保険請求データ、製品や疾患のレジストリ、在宅環境下を含む患者が生成したデータ、モバイル機器など健康状態に関する情報を提供できるその他の情報源など、複数の情報源からデータを取得することがあります。これらのデータは研究目的で収集されたものではないため、対象としたい臨床データ要素を明確に捉えられていない可能性があります。</p>
+<p>観察型健康データ（<em>リアルワールドデータ</em>とも呼ばれる）は、患者の健康状態や医療の提供に関連するデータで、さまざまな情報源から日常的に収集されたデータです。そのため、OHDSIデータスチュワード（OHDSIの共同研究者のうち、各サイトのデータをCDMで維持している人）は、電子的健康記録（EHR）、医療保険請求データ、製品や疾患のレジストリ、在宅環境下を含む患者が生成したデータ、モバイル機器など健康状態に関する情報を提供できるその他の情報源など、複数の情報源からデータを取得することがあります。これらのデータは研究目的で収集されたものではないため、対象としたい臨床データ要素を明確に捉えられていない可能性があります。</p>
 <p>例えば、医療保険請求データベースは、ある症状（例：血管性浮腫）に対して提供されたすべての医療を捕捉し、関連費用が適切に払い戻されることを目的として設計されており、実際の症状に関する情報はこの目的の一部としてのみ捕捉されます。このような観察データを研究目的で使用したい場合、<em>データに記録されているもの</em>を使用して<em>本当に興味のあること</em>を推測するロジックを作成する必要があります。つまり、臨床イベントがどのように発現するかを定義してコホートを作成する必要があるのです。たとえば、保険請求データベースで血管性浮腫イベントを特定したい場合、過去の血管性浮腫の発生に対する経過観察を単に説明する請求とは区別するために、血管性浮腫の診断コードが救急外来の設定で記録されていることを必要とするロジックを定義することが考えられます。同様の考慮事項は、EHRに記録された日常診療中に収集されたデータにも適用される可能性があります。データが二次的な目的で使用されるため、各データベースが本来何を目的として設計されたかを認識する必要があります。研究をデザインするたびに、さまざまな医療環境においてコホートがどのように存在するのか、細かな点を十分に考慮する必要があります。</p>
 <p>本章では、コホート定義の作成と共有とは何か、コホートを開発する方法、ATLASまたはSQLを使用して独自のコホートを構築する方法を説明します。</p>
 <div id="コホートとは" class="section level2 hasAnchor" number="10.1">
@@ -941,14 +941,14 @@ div.csl-indent {
 <p>名前を入力後、<img src="images/Cohorts/save.png" />をクリックしてコホートを保存します。</p>
 <div id="初期イベント基準" class="section level3 hasAnchor" number="10.7.1">
 <h3><span class="header-section-number">10.7.1</span> 初期イベント基準<a href="Cohorts.html#初期イベント基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>では、初期コホートイベントの定義に進みます。「Add initial event」をクリックします。どのドメインに基づいて基準を設定するかを選ばなければなりません。「どのドメインが初期コホートイベントかどうかをどのように知るのか？」という疑問を抱くかも知れません。これを解決しましょう。</p>
+<p>では、初期コホートイベントの定義に進みます。“Add initial event (初期イベントを追加)” をクリックします。どのドメインに基づいて基準を設定するかを選ばなければなりません。「どのドメインが初期コホートイベントかどうかをどのように知るのか？」という疑問を抱くかも知れません。これを解決しましょう。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASinitialevent"></span>
 <img src="images/Cohorts/ATLAS-initialevent.png" alt="初期イベントの追加" width="100%" />
 <p class="caption">
 図 10.5: 初期イベントの追加
 </p>
 </div>
-<p>図<a href="Cohorts.html#fig:ATLASinitialevent">10.5</a>に示されているように、ATLASは各基準の説明を提供しています。もしCONDITION_OCCURRENCEに基づいた基準を構築している場合、特定の診断を持つ患者を探しているということになります。DRUG_EXPOSUREに基づいた基準を構築している場合、特定の薬剤または薬剤クラスを持つ患者を探しているということになります。高血圧に対する第一選択治療としてACE阻害薬単剤療法を開始する患者を見つけるため、DRUG_EXPOSURE基準を選択します。「しかし、高血圧としての診断も重要では？」と思うかも知れません。その通りです。高血圧は構築する別の基準です。しかし、コホートの開始日はACE阻害薬治療の開始によって定義されるため、それが初期イベントです。高血圧の診断は、<em>追加の適格基準</em>と呼ばれるものです。この基準を構築した後で再度この問題に戻ります。「Add Drug Exposure」をクリックします。</p>
+<p>図<a href="Cohorts.html#fig:ATLASinitialevent">10.5</a>に示されているように、ATLASは各基準の説明を提供しています。もしCONDITION_OCCURRENCEに基づいた基準を構築している場合、特定の診断を持つ患者を探しているということになります。DRUG_EXPOSUREに基づいた基準を構築している場合、特定の薬剤または薬剤クラスを持つ患者を探しているということになります。高血圧に対する第一選択治療としてACE阻害薬単剤療法を開始する患者を見つけるため、DRUG_EXPOSURE基準を選択します。「しかし、高血圧としての診断も重要では？」と思うかも知れません。その通りです。高血圧は構築する別の基準です。しかし、コホートの開始日はACE阻害薬治療の開始によって定義されるため、それが初期イベントです。高血圧の診断は、<em>追加の適格基準</em>と呼ばれるものです。この基準を構築した後で再度この問題に戻ります。“Add Drug Exposure (薬剤曝露を追加)” をクリックします。</p>
 <p>画面は選択した基準を表示するように更新されますが、まだ終了ではありません。図<a href="Cohorts.html#fig:ATLASdrugexposure">10.6</a>を参照すると、ATLASはどの薬剤を探しているのか、認識していっません。ATLASにACE阻害薬に関連するコンセプトセットを伝える必要があります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASdrugexposure"></span>
 <img src="images/Cohorts/ATLAS-drugexposure.png" alt="薬剤曝露の定義" width="100%" />
@@ -962,7 +962,7 @@ div.csl-indent {
 <p>コンセプトセットを定義するためには、<img src="images/Cohorts/downarrow.png" />をクリックして、ACE阻害薬を定義するためのコンセプトセットを取得するダイアログボックスを開きます。</p>
 <div id="シナリオ1-コンセプトセットを構築していない場合" class="section level4 unnumbered hasAnchor">
 <h4>シナリオ1: コンセプトセットを構築していない場合<a href="Cohorts.html#シナリオ1-コンセプトセットを構築していない場合" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>基準に適用するコンセプトセットをまだ作成していない場合は、先にそれを行う必要があります。コホート定義内で「Concept set」タブに移動し、「New Concept Set」をクリックしてコンセプトセットを作成することができます。「Unnamed Concept Set」から任意の名前に変更する必要があります。そこから、<img src="images/Cohorts/search-2.png" />モジュールを使用してACE阻害薬を表す臨床コンセプトを検索できます（図<a href="Cohorts.html#fig:aceinhibitors">10.7</a>を参照）。</p>
+<p>基準に適用するコンセプトセットをまだ作成していない場合は、先にそれを行う必要があります。コホート定義内で “Concept set (コンセプトセット)” タブに移動し、“New Concept Set (新規コンセプトセット)” をクリックしてコンセプトセットを作成することができます。“Unnamed Concept Set (命名されていないコンセプトセット)” から任意の名前に変更する必要があります。そこから、<img src="images/Cohorts/search-2.png" />モジュールを使用してACE阻害薬を表す臨床コンセプトを検索できます（図<a href="Cohorts.html#fig:aceinhibitors">10.7</a>を参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:aceinhibitors"></span>
 <img src="images/Cohorts/aceinhibitors.png" alt="語彙の検索 - ACE阻害薬" width="100%" />
 <p class="caption">
@@ -970,7 +970,7 @@ div.csl-indent {
 </p>
 </div>
 <p>使用したいボキャブラリを見つけたら、<img src="images/Cohorts/shoppingcart.png" />をクリックし、そのコンセプトを選択します。図<a href="Cohorts.html#fig:aceinhibitors">10.7</a>の左矢印を使用してコホート定義に戻ります対象とする臨床コンセプトを検索するためのボキャブラリのナビゲーション奉納は、第<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章（標準化ボキャブラリ）を参照ください。</p>
-<p>図<a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a>はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。「Included concepts」をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、「Included Source Codes」をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。</p>
+<p>図<a href="Cohorts.html#fig:aceConceptSetExpression">10.8</a>はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。”Included concepts (包含されるコンセプト)” をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、“Included Source Codes (包含されるソースコード)” をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:aceConceptSetExpression"></span>
 <img src="images/Cohorts/aceConceptSetExpression.png" alt="ACE阻害薬を含むコンセプトセット" width="100%" />
 <p class="caption">
@@ -980,7 +980,7 @@ div.csl-indent {
 </div>
 <div id="シナリオ2-すでにコンセプトセットを構築している場合" class="section level4 unnumbered hasAnchor">
 <h4>シナリオ2: すでにコンセプトセットを構築している場合<a href="Cohorts.html#シナリオ2-すでにコンセプトセットを構築している場合" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>すでにコンセプトセットを作成してATLASに保存している場合、「Import Concept Set」をクリックします。ダイアログボックスが開き、ATLASのコンセプトセットリポジトリからコンセプトを検索するように促されます（図<a href="Cohorts.html#fig:ATLASfindyourconcept">10.9</a>を参照）。図の例ではユーザーはATLASに保存されているコンセプトセットを取得しています。右側の検索に「ace inhibitors」と入力し、コンセプトセットのリストがマッチングする名前のコンセプトのみに絞り込まれます。そこからユーザーはコンセプトセットの行をクリックして選択します。（注: コンセプトセットを選択するとダイアログボックスは消えます。）選択したコンセプトセットの名前が「Any Drug」ボックスが選択したコンセプトセットに更新されると、この操作が成功したことがわかります。</p>
+<p>すでにコンセプトセットを作成してATLASに保存している場合、“Import Concept Set (コンセプトセットをインポート)” をクリックします。ダイアログボックスが開き、ATLASのコンセプトセットリポジトリからコンセプトを検索するように促されます（図<a href="Cohorts.html#fig:ATLASfindyourconcept">10.9</a>を参照）。図の例ではユーザーはATLASに保存されているコンセプトセットを取得しています。右側の検索に “ace inhibitors” と入力し、コンセプトセットのリストがマッチングする名前のコンセプトのみに絞り込まれます。そこからユーザーはコンセプトセットの行をクリックして選択します。（注: コンセプトセットを選択するとダイアログボックスは消えます。）“Any Drug” ボックスが選択したコンセプトセットの名前に更新されると、この操作が成功したことがわかります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASfindyourconcept"></span>
 <img src="images/Cohorts/ATLAS-findingyourconcept.png" alt="ATLASリポジトリからのコンセプトセットのインポート" width="100%" />
 <p class="caption">
@@ -991,7 +991,7 @@ div.csl-indent {
 </div>
 <div id="初期イベントの追加基準" class="section level3 hasAnchor" number="10.7.3">
 <h3><span class="header-section-number">10.7.3</span> 初期イベントの追加基準<a href="Cohorts.html#初期イベントの追加基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>コンセプトセットを添付したら、作業終了ではありません。問いでは、新規ユーザーまたはACE阻害薬に初めて曝露したユーザーを探しています。これは、患者の記録におけるACE阻害薬の最初の曝露に相当します。これを指定するには、「+Add attribute」をクリックします。次に「Add first exposure criteria」を選択します。作成する基準の他の属性を指定できることに注意ください。発症時の年齢、発症日、性別、または薬剤に関連するその他の属性を指定できます。選択可能な基準は、各ドメインで異なります。 選択したら、ウィンドウは自動的に閉じます。この追加属性は最初の基準と同じボックスに表示されます（図<a href="Cohorts.html#fig:initialEventAce">10.10</a>を参照）。</p>
+<p>コンセプトセットを添付したら、作業終了ではありません。問いでは、新規ユーザーまたはACE阻害薬に初めて曝露したユーザーを探しています。これは、患者の記録におけるACE阻害薬の最初の曝露に相当します。これを指定するには、“+Add attribute (属性を追加)” をクリックします。次に “Add first exposure criteria (最初の曝露の基準を追加)” を選択します。作成する基準の他の属性を指定できることに注意ください。発症時の年齢、発症日、性別、または薬剤に関連するその他の属性を指定できます。選択可能な基準は、各ドメインで異なります。 選択したら、ウィンドウは自動的に閉じます。この追加属性は最初の基準と同じボックスに表示されます（図<a href="Cohorts.html#fig:initialEventAce">10.10</a>を参照）。</p>
 
 <div class="rmdimportant">
 <p>現在のATLASのデザインは一部の人を混乱させるかもしれません。見た目の通り、<img src="images/Cohorts/redX.png" />は「No」を意味するものではありません。これは、基準を削除できる機能です。もし<img src="images/Cohorts/redX.png" />をクリックすると、この基準は削除されます。したがって、基準を有効に保つには<img src="images/Cohorts/redX.png" />を残しておく必要があります。</p>
@@ -1014,16 +1014,16 @@ div.csl-indent {
 </div>
 <div id="適格基準" class="section level3 hasAnchor" number="10.7.4">
 <h3><span class="header-section-number">10.7.4</span> 適格基準<a href="Cohorts.html#適格基準" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>コホートエントリイベントを指定すると、追加の適格イベントを「Restrict initial events」または「New inclusion criteria」のいずれかに追加することができます。これら二つのオプション間の基本的な違いは、ATLASが提供する中間情報の内容です。「Restrict initial events」に追加基準を加えると、ATLASでカウントを生成するときに、これらすべての基準を満たす人の数だけが返されます。「New inclusion criteria」に基準を追加すると、追加の包括基準を適用することによって失う患者数を示す脱落チャートが表示されます。各ルールがコホート定義の全体的な成功に与える影響を理解するために、適格基準セクションを最大限に活用することを強く推奨します。特定の適格基準がコホートに入る人の数を大幅に制限する可能性があることに気が付くかもしれません。この段階では、コホートをより大きくするために、この基準を緩和する選択をするかもしれません。最終的には、このコホートを組み立てる専門家の合意に従います。</p>
-<p>コホートのメンバーシップに関するロジックをさらに追加するために「New inclusion criteria」をクリックします。このセクションの機能は、前述のコホート基準の構築方法と同じです。最初の追加基準は次のとおりです：<em>ACE阻害薬の最初の開始日から365日後から0日以内に少なくとも1回の高血圧症が発生した患者のみ</em>。新しい適格基準を追加するには「New inclusion criteria」をクリックします。基準に名前を付け、必要に応じて探している内容についての簡単な説明を付け加えることができます。これは定義している基準を覚えるためのもので、コホートの整合性に影響を与えるものではありません。</p>
-<p>新しい条件に注釈を付けたら、「+Add criteria to group」ボタンをクリックして、このルールの実際の基準を構築します。このボタンは「Add Initial Event」と同様に機能します。ただし、初期イベントを指定するわけではありません。複数の基準を追加できるため、「add criteria to group」と指定されています。たとえば、疾患を見つけるための方法が複数ある場合（例：CONDITION_OCCURRENCEのロジック、この条件の代理としてのDRUG_EXPOSUREのロジック、この条件の代理としてのMEASUREMENTのロジック）があります。これらは別々のドメインであり、異なる基準を必要としますが、この状態を求める1つの条件にまとめることができます。この場合、高血圧症の診断を見つけたいので、「Add condition occurrence」を追加します。このレコードにコンセプトセットを添付することで、最初のイベントと同様の手順を踏みます。また、イベントがインデックス日（最初のACE阻害薬の使用）の365日前から0日後までの間に開始したことを指定します。ここで、図 <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fig:ATLASIC1) と照らし合わせてロジックを確認ください。</p>
+<p>コホート組入れイベントを指定すると、追加の適格イベントを “Restrict initial events (初期イベントの制限)” または “New inclusion criteria (新規の適格基準)” のいずれかに追加することができます。これら二つのオプション間の基本的な違いは、ATLASが提供する中間情報の内容です。“Restrict initial events” を選択して”Cohort Entry Event (コホート組入れイベント)” ボックスに追加基準を加えると、ATLASでカウントを生成するときに、これらすべての基準を満たす人の数だけが返されます。“New inclusion criteria” に基準を追加すると、追加の適格基準を適用することによって失う患者数を示す脱落チャートが表示されます。各ルールがコホート定義の全体的な成功に与える影響を理解するために、“Inclusion Criteria (適格基準)” セクションを最大限に活用することを強く推奨します。特定の適格基準がコホートに入る人の数を大幅に制限する可能性があることに気が付くかもしれません。この段階では、コホートをより大きくするために、この基準を緩和する選択をするかもしれません。最終的には、このコホートを組み立てる専門家の合意に従います。</p>
+<p>コホートのメンバーシップに関するロジックをさらに追加するために “New inclusion criteria” をクリックします。このセクションの機能は、前述のコホート基準の構築方法と同じです。最初の追加基準は次のとおりです：<em>ACE阻害薬の最初の開始日から365日後から0日以内に少なくとも1回の高血圧症が発生した患者のみ</em>。新しい適格基準を追加するには “New inclusion criteria” をクリックします。基準に名前を付け、必要に応じて探している内容についての簡単な説明を付け加えることができます。これは定義している基準を覚えるためのもので、コホートの整合性に影響を与えるものではありません。</p>
+<p>新しい条件に注釈を付けたら、“+Add criteria to group (グループへ基準を追加)” ボタンをクリックして、このルールの実際の基準を構築します。このボタンは “Add Initial Event” と同様に機能します。ただし、初期イベントを指定するわけではありません。複数の基準を追加できるため、“add criteria to group” と指定されています。たとえば、疾患を見つけるための方法が複数ある場合（例：CONDITION_OCCURRENCEのロジック、この条件の代理としてのDRUG_EXPOSUREのロジック、この条件の代理としてのMEASUREMENTのロジック）があります。これらは別々のドメインであり、異なる基準を必要としますが、この状態を求める1つの条件にまとめることができます。この場合、高血圧症の診断を見つけたいので、“Add condition occurrence (コンディションの出現を追加)” を追加します。このレコードにコンセプトセットを添付することで、最初のイベントと同様の手順を踏みます。また、イベントがインデックス日（最初のACE阻害薬の使用）の365日前から0日後までの間に開始したことを指定します。ここで、図 <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fig:ATLASIC1) と照らし合わせてロジックを確認ください。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASIC1"></span>
 <img src="images/Cohorts/ATLAS-IC1.png" alt="追加の選択基準 1" width="100%" />
 <p class="caption">
 図 10.12: 追加の選択基準 1
 </p>
 </div>
-<p>次に、患者を検索するための別の条件を追加します：<em>インデックス開始日の前日から当日までの全期間において、高血圧治療薬の使用歴がまったくない（ACE阻害薬の使用開始以前に高血圧治療薬を使用していない）</em>。このプロセスは、以前と同様に”New inclusion criteria (新規の選択基準)“ボタンをクリックし、この条件に注釈を追加し、”+Add criteria to group (グループに条件を追加)“をクリックして開始します。これは DRUG_EXPOSURE なので、”Add Drug Exposure (薬剤曝露を追加)“をクリックし、高血圧治療薬のコンセプトセットを添付し、インデックス日から遡るすべての日とインデックス日0日（または図で示されているように「1日前」も同様）を指定します。選択した発生回数が <em>正確に 0</em> であることを確認ください。 ここで、図 <a href="Cohorts.html#fig:ATLASIC2">10.13</a> で、ロジックを確認します。</p>
+<p>次に、患者を検索するための別の条件を追加します：<em>インデックス開始日の前日から当日までの全期間において、高血圧治療薬の使用歴がまったくない（ACE阻害薬の使用開始以前に高血圧治療薬を使用していない）</em>。このプロセスは、以前と同様に　“New inclusion criteria (新規の選択基準)” ボタンをクリックし、この条件に注釈を追加し、“+Add criteria to group (グループに条件を追加)” をクリックして開始します。これは DRUG_EXPOSURE なので、“Add Drug Exposure (薬剤曝露を追加)” をクリックし、高血圧治療薬のコンセプトセットを添付し、インデックス日から遡るすべての日とインデックス日0日（または図で示されているように「1日前」も同様）を指定します。選択した発生回数が <em>正確に 0</em> であることを確認ください。 ここで、図 <a href="Cohorts.html#fig:ATLASIC2">10.13</a> で、ロジックを確認します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ATLASIC2"></span>
 <img src="images/Cohorts/ATLAS-IC2.png" alt="追加の選択基準 2" width="100%" />
 <p class="caption">
@@ -1144,7 +1144,7 @@ div.csl-indent {
 <span id="cb76-14"><a href="Cohorts.html#cb76-14" tabindex="-1"></a>                          sql,</span>
 <span id="cb76-15"><a href="Cohorts.html#cb76-15" tabindex="-1"></a>                          <span class="at">cdm_db_schema =</span> cdmDbSchema,</span>
 <span id="cb76-16"><a href="Cohorts.html#cb76-16" tabindex="-1"></a>                          <span class="at">hypertension =</span> hypertension)</span></code></pre></div>
-<p>過去に複数の高血圧診断がある場合でも、重複するコホートエントリーを作成しないように<code>SELECT DISTINCT</code>を使用していることに注意ください。</p>
+<p>過去に複数の高血圧診断がある場合でも、重複するコホート組入れを作成しないように<code>SELECT DISTINCT</code>を使用していることに注意ください。</p>
 </div>
 <div id="治療の無前使用が必要" class="section level3 hasAnchor" number="10.8.6">
 <h3><span class="header-section-number">10.8.6</span> 治療の無前使用が必要<a href="Cohorts.html#治療の無前使用が必要" class="anchor-section" aria-label="Anchor link to header"></a></h3>

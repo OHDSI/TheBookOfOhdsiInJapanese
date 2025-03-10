@@ -343,7 +343,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 -   年齢は16歳以上
 -   曝露前に少なくとも365日間の連続した観察期間があること
 
-完了したときには、コホート・エントリー・イベントのセクションは図 \@ref(fig:cohortsAtlasInitialEvents)のようになります。
+完了したときには、コホート組入れイベントのセクションは図 \@ref(fig:cohortsAtlasInitialEvents)のようになります。
 
 \begin{figure}
 
@@ -351,7 +351,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 }
 
-\caption{ジクロフェナクの新規ユーザーのコホート・エントリー・イベント設定}(\#fig:cohortsAtlasInitialEvents)
+\caption{ジクロフェナクの新規ユーザーのコホート組入れ・エントリー・イベント設定}(\#fig:cohortsAtlasInitialEvents)
 \end{figure}
 
 ジクロフェナクのコンセプトセットは図 \@ref(fig:cohortsAtlasConceptSet1)のように、成分「Diclofenac」とそのすべての下位層を含むので、ジクロフェナクを含むすべての薬剤を含むことになります。
