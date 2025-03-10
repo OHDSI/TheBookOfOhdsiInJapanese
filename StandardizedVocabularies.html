@@ -760,7 +760,7 @@ div.csl-indent {
 <li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> 回答例</a>
 <ul>
 <li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> 共通データモデル</a></li>
-<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> 標準化されたボキャブラリ</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> 標準化ボキャブラリ</a></li>
 <li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> ETL (Extract-Transform-Load)</a></li>
 <li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> データ分析のユースケース</a></li>
 <li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQLとR</a></li>
@@ -796,7 +796,7 @@ div.csl-indent {
 <h1><span class="header-section-number">章 5</span> 標準化ボキャブラリ<a href="StandardizedVocabularies.html#StandardizedVocabularies" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p></p>
 <p><em>著者: Christian Reich &amp; Anna Ostropolets</em></p>
-<p>OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれることが多く、データの内容を定義することで、手法、定義、結果の標準化を可能にし、真のリモート（ファイアウォール内）ネットワーク研究と分析への道を開きます。通常、コーディングスキームを使用した構造化データであるか、自由形式のテキストであるかに関わらず、観察医療データのコンテンツを見つけ、解釈することは、臨床イベントを記述する無数の異なる方法に直面する研究者へと引き継がれます。OHDSIでは、標準化されたフォーマットだけでなく、厳格な標準コンテンツへの調和も必要とされています。 本章では、まず標準化された用語集の主な原則、その構成要素、関連する規則、慣例、および典型的な状況について説明します。これらはすべて、この基盤となるリソースを理解し活用するために必要なものです。また、継続的に改善していくためにコミュニティのサポートが必要な箇所についても指摘します。</p>
+<p>OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれることが多く、データの内容を定義することで、手法、定義、結果の標準化を可能にし、真のリモート（ファイアウォール内）ネットワーク研究と分析への道を開きます。通常、コーディングスキームを使用した構造化データであるか、自由形式のテキストであるかに関わらず、観察医療データのコンテンツを見つけ、解釈することは、臨床イベントを記述する無数の異なる方法に直面する研究者へと引き継がれます。OHDSIでは、標準化されたフォーマットだけでなく、厳格な標準コンテンツへの調和も必要とされています。 本章では、まず標準化ボキャブラリの主な原則、その構成要素、関連する規則、慣例、および典型的な状況について説明します。これらはすべて、この基盤となるリソースを理解し活用するために必要なものです。また、継続的に改善していくためにコミュニティのサポートが必要な箇所についても指摘します。</p>
 <div id="なぜボキャブラリが必要でなぜ標準化が必要なのか" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> なぜボキャブラリが必要で、なぜ標準化が必要なのか<a href="StandardizedVocabularies.html#なぜボキャブラリが必要でなぜ標準化が必要なのか" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書（「Bill of Mortality」）に遡ります（図 <a href="StandardizedVocabularies.html#fig:bill">5.1</a> 参照）。</p>
@@ -821,7 +821,7 @@ div.csl-indent {
 <div id="accessVocabularies" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> 標準化ボキャブラリへのアクセス<a href="StandardizedVocabularies.html#accessVocabularies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>標準化ボキャブラリを得るために、自分でPallasを実行する必要はありません。代わりに、ATHENA<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>から最新バージョンをダウンロードし、ローカルデータベースにロードできます。ATHENAでは、ボキャブラリのファセット検索も可能です。 </p>
-<p>OMOP CDMのボキャブラリをすべて選んで、標準化されたボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
+<p>OMOP CDMのボキャブラリをすべて選んで、標準化ボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
 </div>
 <div id="ボキャブラリの元-採用するか構築するか" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> ボキャブラリの元: 採用するか構築するか<a href="StandardizedVocabularies.html#ボキャブラリの元-採用するか構築するか" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -903,7 +903,7 @@ div.csl-indent {
 </div>
 <div id="非標準コンセプト" class="section level3 hasAnchor" number="5.2.7">
 <h3><span class="header-section-number">5.2.7</span> 非標準コンセプト<a href="StandardizedVocabularies.html#非標準コンセプト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>非標準コンセプトは臨床イベントを表現するためには使用されませんが、標準化されたボキャブラリの一部であり、ソースデータに頻繁に見られます。そのため、それらは「ソースコンセプト」とも呼ばれます。ソースコンセプトを標準コンセプトに変換するプロセスは「マッピング」と呼ばれます（セクション <a href="StandardizedVocabularies.html#conceptMapping">5.3.1</a>参照）。非標準コンセプトにはSTANDARD_CONCEPTフィールドに値がありません（NULL）。</p>
+<p>非標準コンセプトは臨床イベントを表現するためには使用されませんが、標準化ボキャブラリの一部であり、ソースデータに頻繁に見られます。そのため、それらは「ソースコンセプト」とも呼ばれます。ソースコンセプトを標準コンセプトに変換するプロセスは「マッピング」と呼ばれます（セクション <a href="StandardizedVocabularies.html#conceptMapping">5.3.1</a>参照）。非標準コンセプトにはSTANDARD_CONCEPTフィールドに値がありません（NULL）。</p>
 </div>
 <div id="分類コンセプト" class="section level3 hasAnchor" number="5.2.8">
 <h3><span class="header-section-number">5.2.8</span> 分類コンセプト<a href="StandardizedVocabularies.html#分類コンセプト" class="anchor-section" aria-label="Anchor link to header"></a></h3>

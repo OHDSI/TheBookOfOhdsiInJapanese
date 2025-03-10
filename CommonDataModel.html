@@ -760,7 +760,7 @@ div.csl-indent {
 <li class="chapter" data-level="E" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html"><i class="fa fa-check"></i><b>E</b> 回答例</a>
 <ul>
 <li class="chapter" data-level="E.1" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Cdmanswers"><i class="fa fa-check"></i><b>E.1</b> 共通データモデル</a></li>
-<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> 標準化されたボキャブラリ</a></li>
+<li class="chapter" data-level="E.2" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Vocabanswers"><i class="fa fa-check"></i><b>E.2</b> 標準化ボキャブラリ</a></li>
 <li class="chapter" data-level="E.3" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#Etlanswers"><i class="fa fa-check"></i><b>E.3</b> ETL (Extract-Transform-Load)</a></li>
 <li class="chapter" data-level="E.4" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#UseCasesanswers"><i class="fa fa-check"></i><b>E.4</b> データ分析のユースケース</a></li>
 <li class="chapter" data-level="E.5" data-path="SuggestedAnswers.html"><a href="SuggestedAnswers.html#SqlAndRanswers"><i class="fa fa-check"></i><b>E.5</b> SQLとR</a></li>
@@ -821,9 +821,9 @@ div.csl-indent {
 <li><strong>データ保護</strong>: 名前や正確な誕生日など、患者の身元や保護を危うくする可能性のあるすべてのデータは限定されています。乳児の研究のために正確な誕生日が必要な場合など、研究でより詳細な情報が明示的に必要な場合は例外となることがあります。 </li>
 <li><strong>ドメインの設計</strong>: ドメインは、各レコードに最低限、個人の識別情報と日付が記録される、個人中心のリレーショナルデータモデルでモデル化されています。ここでいうリレーショナルデータモデルとは、主キーと外部キーでリンクされたテーブルの集合としてデータが表現されるものを指します。</li>
 <li><strong>ドメインの根拠</strong>: ドメインは、分析のユースケースがある場合（たとえばコンディション）で、そのドメインが他のものには適用されない特定の属性を持つ場合に、エンティティ-リレーションシップモデルで特定され、個別に定義されます。他のデータはすべて、エンティティ-属性-値構造の観察テーブルに保持できます。 </li>
-<li><strong>標準化されたボキャブラリ</strong>: それらの記録の内容を標準化するために、CDMは、標準的な医療コンセプトのすべてに対応する、必要かつ適切な標準化されたボキャブラリに依存しています。。</li>
+<li><strong>標準化ボキャブラリ</strong>: それらの記録の内容を標準化するために、CDMは、標準的な医療コンセプトのすべてに対応する、必要かつ適切な標準化ボキャブラリに依存しています。。</li>
 <li><strong>既存のボキャブラリの再利用</strong>: 可能な場合、国立医学図書館、退役軍人省、疾病予防管理センターなどの国立または業界の標準化やボキャブラリ定義を行う組織やイニシアティブはこれらのコンセプトを活用しています。</li>
-<li><strong>ソースコードの保持</strong>: すべてのコードが標準化されたボキャブラリにマッピングされている場合でも、モデルは元のソースコードも保持して、情報が失われないようにしています。 </li>
+<li><strong>ソースコードの保持</strong>: すべてのコードが標準化ボキャブラリにマッピングされている場合でも、モデルは元のソースコードも保持して、情報が失われないようにしています。 </li>
 <li><strong>技術の中立性</strong>: CDMは特定のテクノロジーを必要としません。Oracle、SQL Serverなどのあらゆるリレーショナルデータベース、またはSAS分析データセットとして実現できます。 </li>
 <li><strong>スケーラビリティ</strong>: CDMは、データベースに含まれる何億人もの人々や何十億件もの臨床観察データなど、さまざまな規模のデータソースに対応できるよう、データ処理と計算分析用に最適化されています。 </li>
 <li><strong>後方互換性</strong>: これまでのCDMからの変更はすべてgithubリポジトリ<a href="https://github.com/OHDSI/CommonDataModel">(https://github.com/OHDSI/CommonDataModel)</a>で明確に示されています。CDMの旧バージョンは現在のバージョンから簡単に作成でき、以前に存在していた情報が失われることはありません。 </li>
@@ -847,7 +847,7 @@ div.csl-indent {
 </div>
 <div id="domains" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> ドメインの一般的な規約<a href="CommonDataModel.html#domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化されたボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータのプロシージャーテーブルにプロシージャーコードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
+<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化ボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータのプロシージャーテーブルにプロシージャーコードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
 <table>
 <caption><span id="tab:domains">表 4.1: </span> 各ドメインに属する標準コンセプトの数</caption>
 <colgroup>
@@ -961,7 +961,7 @@ div.csl-indent {
 <div id="コンテンツのコンセプトによる表現" class="section level3 hasAnchor" number="4.2.5">
 <h3><span class="header-section-number">4.2.5</span> コンテンツのコンセプトによる表現<a href="CommonDataModel.html#コンテンツのコンセプトによる表現" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CDMデータテーブル内の各レコードのコンテンツは完全に正規化され、コンセプトを通じて表現されます。コンセプトはCONCEPTテーブルへの外部キーであるCONCEPT_ID値とともにイベントテーブルに格納され、CONCEPTテーブルは一般的な参照テーブルとして機能します。CDMインスタンスはすべて、コンセプトの参照として同じCONCEPTテーブルを使用します。これにより、CDMとともにOHDSI研究ネットワークの基盤となる相互運用性の主要なメカニズムが提供されます。標準コンセプトが存在しない場合や特定できない場合、CONCEPT_IDの値は0に設定されます。これは、存在しないコンセプト、不明またはマッピング不可能な値を表します。</p>
-<p>CONCEPTテーブルのレコードには、各コンセプトの詳細情報（名前、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの祖先など、コンセプトに関連するその他の情報は、標準化されたボキャブラリのテーブルに含まれています（第 <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章を参照）。</p>
+<p>CONCEPTテーブルのレコードには、各コンセプトの詳細情報（名前、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの祖先など、コンセプトに関連するその他の情報は、標準化ボキャブラリのテーブルに含まれています（第 <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章を参照）。</p>
 </div>
 <div id="フィールドの一般的な命名規約" class="section level3 hasAnchor" number="4.2.6">
 <h3><span class="header-section-number">4.2.6</span> フィールドの一般的な命名規約<a href="CommonDataModel.html#フィールドの一般的な命名規約" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -993,7 +993,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">[Event]_TYPE_CONCEPT_ID</td>
-<td align="left">ソース情報の出所を示す標準化されたボキャブラリ内で標準化されたコンセプト参照テーブルのレコードへの外部キーです。フィールド名とは異なり、これはイベントの種類やコンセプトの種類でもなく、このレコードを作成した取得メカニズムを宣言するものであることに留意ください。例として、DRUG_TYPE_CONCEPT_IDは、薬剤レコードが薬局での調剤イベント（「薬局での調剤」）から派生したものか、処方アプリケーション（「処方箋発行」）から派生したものかを区別します。</td>
+<td align="left">ソース情報の出所を示す標準化ボキャブラリ内で標準化されたコンセプト参照テーブルのレコードへの外部キーです。フィールド名とは異なり、これはイベントの種類やコンセプトの種類でもなく、このレコードを作成した取得メカニズムを宣言するものであることに留意ください。例として、DRUG_TYPE_CONCEPT_IDは、薬剤レコードが薬局での調剤イベント（「薬局での調剤」）から派生したものか、処方アプリケーション（「処方箋発行」）から派生したものかを区別します。</td>
 </tr>
 <tr class="odd">
 <td align="left">[Event]_SOURCE_VALUE</td>
@@ -1009,7 +1009,7 @@ div.csl-indent {
 <li><strong>ソース値</strong>は、ソースデータにおけるイベントレコードのオリジナル表現です。これらは、ICD9CM、NDC、Readなどのように、広く使用されているがパブリックドメインであることが多いコーディングシステムからのコード、CPT4、GPI、MedDRAなどの独自のコーディングシステム、あるいは女性をF、男性をMのようにソースデータのみで使用される管理された用語集であることがあります。また、標準化も管理もされていない短い自由テキストのフレーズであることもあります。ソース値は、データテーブルの[Event]_SOURCE_VALUEフィールドに格納されます。</li>
 <li><strong>コンセプト</strong>は、CDM特有のエンティティであり、臨床事実の意味を標準化します。ほとんどのコンセプトは、医療分野における既存の公開または独自仕様のコーディングシステムに基づきますが、中には新規に作成されたものもあります（CONCEPT_CODEが「OMOP」で始まる）。コンセプトには、すべてのドメインにわたって一意のIDが割り当てられています。</li>
 <li><strong>ソースコンセプト</strong>は、ソースで使用されるコードを表すコンセプトです。ソースコンセプトは、既存の公開または独自のコード体系に対してのみ使用され、OMOPで生成されたコンセプトには使用されません。ソースコンセプトはデータテーブル内の[Event]_SOURCE_CONCEPT_IDフィールドに格納されます。</li>
-<li><strong>標準コンセプト</strong>は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化されたボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]_CONCEPT_IDフィールドで参照できます。</li>
+<li><strong>標準コンセプト</strong>は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]_CONCEPT_IDフィールドで参照できます。</li>
 </ul>
 <p>ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には<strong>強く推奨</strong>されます。一方、標準コンセプトの使用は<strong>必須</strong>です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 <a href="CommonDataModel.html#fig:pulmTubICD9">4.2</a> で示されているように、コンディション「肺結核」（TB）のICD9CMコードは011です。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pulmTubICD9"></span>
@@ -1730,7 +1730,7 @@ div.csl-indent {
 <ul>
 <li><p>CDMは広範囲の観察研究活動をサポートするように設計されています。</p></li>
 <li><p>CDMは人中心のモデルです。</p></li>
-<li><p>CDMはデータの構造を標準化するだけでなく、標準化されたボキャブラリを通じてコンテンツの表現も標準化します。</p></li>
+<li><p>CDMはデータの構造を標準化するだけでなく、標準化ボキャブラリを通じてコンテンツの表現も標準化します。</p></li>
 <li><p>完全な追跡可能性を確保するために、ソースコードはCDMで管理されています。</p></li>
 </ul>
 </div>
