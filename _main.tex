@@ -18,7 +18,6 @@
 \usepackage{lmodern}
 \ifPDFTeX\else
   % xetex/luatex font selection
-  \setmainfont[]{ipaexg.ttf}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -37,6 +36,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[paperheight=10in,paperwidth=7in,margin=1in,inner=1in,outer=0.65in,top=0.8in,bottom=0.8in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -112,6 +112,8 @@
 \usepackage{makeidx}
 \makeindex
 \usepackage[nottoc]{tocbibind}
+\usepackage{xeCJK}
+\setCJKmainfont{IPAexGothic}
 
 \makeatletter
 \def\thm@space@setup{%
@@ -3762,7 +3764,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.kuu9iu23children ;"
+## [1] "SELECT * FROM temp_schema.ntnkfswzchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
