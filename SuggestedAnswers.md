@@ -409,7 +409,7 @@ NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下�
 \caption{広範な悪性腫瘍のコンセプトセット}(\#fig:cohortsAtlasConceptSet3)
 \end{figure}
 
-最後に、図 \@ref(fig:cohortsAtlasExit)のように。曝露中断をコホート・エグジット基準として定義します（30日間のギャップを許容します）。
+最後に、図 \@ref(fig:cohortsAtlasExit)のように。曝露中断をコホート離脱基準として定義します（30日間のギャップを許容します）。
 
 \begin{figure}
 
@@ -417,7 +417,7 @@ NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下�
 
 }
 
-\caption{コホート・イグジット日の設定}(\#fig:cohortsAtlasExit)
+\caption{コホート離脱日の設定}(\#fig:cohortsAtlasExit)
 \end{figure}
 
 #### 演習 \@ref(exr:exerciseCohortsSql) {.unnumbered}
@@ -510,7 +510,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択}(\#fig:conceptSearchAtlas)
 \end{figure}
 
-図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート・イグジット、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
+図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート離脱、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -567,7 +567,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{"Gastrointestinal hemorrhage (消化管出血)" のすべての下位層を追加}(\#fig:giBleedDescendants)
 \end{figure}
 
-"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
