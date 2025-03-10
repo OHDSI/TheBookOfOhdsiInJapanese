@@ -449,14 +449,14 @@ div.csl-indent {
 <li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>11.7.1</b> デザイン</a></li>
 <li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>11.7.2</b> 実行</a></li>
 <li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#結果"><i class="fa fa-check"></i><b>11.7.3</b> 結果</a></li>
-<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特性の定義</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特徴量の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特徴量の定義</a></li>
 </ul></li>
 <li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特性評価"><i class="fa fa-check"></i><b>11.8</b> Rでのコホートの特性評価</a>
 <ul>
 <li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>11.8.1</b> コホートのインスタンス化</a></li>
 <li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>11.8.2</b> データ抽出</a></li>
 <li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#事前に指定された分析の使用"><i class="fa fa-check"></i><b>11.8.3</b> 事前に指定された分析の使用</a></li>
-<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集計された共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集計された共変量の作成</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集約共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集約共変量の作成</a></li>
 <li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#出力形式"><i class="fa fa-check"></i><b>11.8.5</b> 出力形式</a></li>
 <li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#カスタム共変量"><i class="fa fa-check"></i><b>11.8.6</b> カスタム共変量</a></li>
 </ul></li>
@@ -584,9 +584,9 @@ div.csl-indent {
 <li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル性能"><i class="fa fa-check"></i><b>13.8.1</b> モデル性能</a></li>
 <li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>13.8.2</b> モデルの比較</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベル予測機能の追加"><i class="fa fa-check"></i><b>13.9</b> 患者レベル予測機能の追加</a>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベルの予測に関する追加の機能"><i class="fa fa-check"></i><b>13.9</b> 患者レベルの予測に関する追加の機能</a>
 <ul>
-<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナル論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> ジャーナル論文の生成</a></li>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#学術誌論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> 学術誌論文の生成</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>13.10</b> まとめ</a></li>
 <li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-8"><i class="fa fa-check"></i><b>13.11</b> 演習</a></li>
@@ -903,15 +903,15 @@ div.csl-indent {
 </div>
 <div id="特徴量の選択" class="section level4 unnumbered hasAnchor">
 <h4>特徴量の選択<a href="Characterization.html#特徴量の選択" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特性評価が備わっており、各対象コホートに対して臨床観察結果の集約と要約機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特性を提供します。ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
-<p><img src="images/Characterization/atlasImportButton.png" />をクリックして、特性を選択します。以下は、これらのコホートを特性評価するために使用する特性のリストです：</p>
+<p>ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特徴量分析が備わっています。これらのそれぞれの事前に規定された特徴量分析は、各ターゲットコホートに対して臨床観察を集約および要約する機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特徴量を提供します。この元で、ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。</p>
+<p><img src="images/Characterization/atlasImportButton.png" />をクリックして、特性評価をするための特徴量を選択します。以下は、これらのコホートを特性評価するために使用する特徴量のリストです：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationFeatureSelection"></span>
-<img src="images/Characterization/atlasCharacterizationFeatureSelection.png" alt="特性設計タブ - 特性選択" width="100%" />
+<img src="images/Characterization/atlasCharacterizationFeatureSelection.png" alt="特性設計タブ - 特徴量の選択" width="100%" />
 <p class="caption">
-図 11.7: 特性設計タブ - 特性選択
+図 11.7: 特性設計タブ - 特徴量の選択
 </p>
 </div>
-<p>上の図は、選択された機能のリストと、各機能が各コホートについて何を特徴付けるかを説明する説明を示しています。 “Demographics (人口動態的特性)”で始まる特性は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特性は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメイン機能には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：</p>
+<p>上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 “Demographics (人口動態的特性)”で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：</p>
 <ul>
 <li><strong>Any time prior（任意の期間）</strong>: コホート開始前のすべての利用可能な期間で、その人の観察期間に該当するものを使用。</li>
 <li><strong>Long term（長期）</strong>: コホート開始日を含む最大365日前まで。</li>
@@ -954,7 +954,7 @@ div.csl-indent {
 図 11.10: 特性アウトカム - 過去1年間の疾患発生
 </p>
 </div>
-<p>結果は、デザインで選択した各コホートについて、さまざまな特徴を一覧表示します。図 <a href="Characterization.html#fig:atlasCharacterizationResultsSummary">11.10</a> では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。</p>
+<p>結果は、デザインで選択した各コホートについて、さまざまな特徴量を一覧表示します。図 <a href="Characterization.html#fig:atlasCharacterizationResultsSummary">11.10</a> では、コホート開始日の前の365日間に存在するすべての条件の概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループごとのカウントと割合が表示されています。</p>
 <p>検索ボックスを使用してアウトカムをフィルタリングし、「不整脈」の既往を持つ人の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示することができます（図 <a href="Characterization.html#fig:atlasCharacterizationResultsExplore">11.11</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsExplore"></span>
 <img src="images/Characterization/atlasCharacterizationResultsExplore.png" alt="特性アウトカム - 単一コンセプトの探索" width="100%" />
@@ -970,7 +970,7 @@ div.csl-indent {
 図 11.12: 特性評価の結果 - 禁忌条件の探索
 </p>
 </div>
-<p>再度、“explore (探索する)”機能を使用して、高血圧症集団における浮腫の特性を調べ、血管浮腫の有病率を確認します：</p>
+<p>再度、特徴量を “explore (探索する)” を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContraExplore"></span>
 <img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="特性アウトカム - 禁忌条件の詳細を探索" width="100%" />
 <p class="caption">
@@ -986,17 +986,17 @@ div.csl-indent {
 </div>
 <p>ドメイン共変量は、コホート開始前の時間枠にコードの記録が存在したかどうかを示す二元指標を用いて計算されますが、一部の変数はコホート開始時の年齢のように連続変数として提供されます。上の例では、人数、平均年齢、中央値、標準偏差などで表現された、2つのコホートの年齢を示しています。</p>
 </div>
-<div id="カスタム特性の定義" class="section level3 hasAnchor" number="11.7.4">
-<h3><span class="header-section-number">11.7.4</span> カスタム特性の定義<a href="Characterization.html#カスタム特性の定義" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>プリセットの機能に加えて、ATLASはユーザー定義のカスタム機能を用いることもできます。これを行うには、左側のメニューの<strong>Characterization</strong>をクリックし、<strong>Feature Analysis</strong>タブをクリックして、<strong>New Feature Analysis</strong>ボタンをクリックします。カスタム特性に名前を付け、<img src="images/PopulationLevelEstimation/save.png" />ボタンを使用して保存します。</p>
-<p>この例では、ACE阻害剤の服用歴が各コホート開始後にある、コホート内の人数を特定するカスタム機能を定義します：</p>
+<div id="カスタム特徴量の定義" class="section level3 hasAnchor" number="11.7.4">
+<h3><span class="header-section-number">11.7.4</span> カスタム特徴量の定義<a href="Characterization.html#カスタム特徴量の定義" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>プリセットの特徴量に加えて、ATLASはユーザー定義のカスタム特徴量を用いることもできます。これを行うには、左側のメニューの　<strong>Characterization (特性評価)</strong>をクリックし、<strong>Feature Analysis (特徴量分析)</strong>タブをクリックして、<strong>New Feature Analysis (新規の特徴量分析)</strong>ボタンをクリックします。カスタム特性に名前を付け、<img src="images/PopulationLevelEstimation/save.png" />ボタンを使用して保存します。</p>
+<p>この例では、ACE阻害剤の服用歴が各コホート開始後にある、コホート内の人数を特定するカスタム特徴量を定義します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationCustomFeature"></span>
-<img src="images/Characterization/atlasCharacterizationCustomFeature.png" alt="ATLASでのカスタム特性定義" width="100%" />
+<img src="images/Characterization/atlasCharacterizationCustomFeature.png" alt="ATLASでのカスタム特徴量定義" width="100%" />
 <p class="caption">
-図 11.15: ATLASでのカスタム特性定義
+図 11.15: ATLASでのカスタム特徴量定義
 </p>
 </div>
-<p>上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義し保存したら、前のセクションで作成した特徴量の評価にこの基準を適用できます。特徴量の評価のデザインを開き、Feature Analysisセクションに移動します。<img src="images/Characterization/atlasImportButton.png" />ボタンをクリックし、メニューから新しいカスタム機能を選択します。これで、特性評価デザインのリストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタム機能による特徴量の分析を実行することができます：</p>
+<p>上で定義した基準は、コホート開始日に適用されることを前提としています。基準を定義し保存したら、前のセクションで作成した特徴量の評価にこの基準を適用できます。特徴量の評価のデザインを開き、Feature Analysis (特徴量分析) セクションに移動します。<img src="images/Characterization/atlasImportButton.png" />ボタンをクリックし、メニューから新しいカスタム特徴量を選択します。これで、特性評価デザインのリストに表示されます。前述のように、このデザインをデータベースに対して実行して、このカスタム特徴量による特性評価を実行することができます：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationCustomFeatureResults"></span>
 <img src="images/Characterization/atlasCharacterizationCustomFeatureResults.png" alt="カスタム機能の結果表示" width="100%" />
 <p class="caption">
@@ -1007,13 +1007,13 @@ div.csl-indent {
 </div>
 <div id="rでのコホートの特性評価" class="section level2 hasAnchor" number="11.8">
 <h2><span class="header-section-number">11.8</span> Rでのコホートの特性評価<a href="Characterization.html#rでのコホートの特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Rを使用してコホートをの特性を評価することもできます。このセクションでは、OHDSI RパッケージであるFeatureExtractionを使用して、高血圧症コホートのベースライン特性（共変量）を生成する方法について説明します。FeatureExtractionは、3つの方法で共変量を構築する機能を提供します。 </p>
+<p>Rを使用してコホートをの特性を評価することもできます。このセクションでは、OHDSI RパッケージであるFeatureExtractionを使用して、高血圧症コホートのベースライン特徴量を生成する方法について説明します。FeatureExtractionは、3つの方法で共変量を構築する機能を提供します。 </p>
 <ul>
 <li>デフォルトの共変量セットを選択する</li>
 <li>事前に指定された分析セットから選択する</li>
 <li>カスタム分析セットを作成する</li>
 </ul>
-<p>FeatureExtractionは、個人レベルの特徴と集約された特徴の2つの異なる方法で共変量を作成します。個人レベルの特徴は機械学習アプリケーションで有用です。本セクションでは、対象とするコホートを説明するベースライン共変量を生成するのに有用な集計された特徴の使用に焦点を当てます。さらに、事前に指定された分析とカスタム分析という2つの方法で共変量を構築する方法に焦点を当て、デフォルトのセットを使用する方法は読者への課題として残します。</p>
+<p>FeatureExtractionは、個人レベルの特徴量と集約特徴の2つの異なる方法で共変量を作成します。個人レベルの特徴量は機械学習アプリケーションで有用です。本セクションでは、対象とするコホートを説明するベースライン共変量を生成するのに有用な集約統計量の使用に焦点を当てます。さらに、事前に指定された分析とカスタム分析という2つの方法で共変量を構築する方法に焦点を当て、デフォルトのセットを使用する方法は読者への課題として残します。</p>
 <div id="コホートのインスタンス化" class="section level3 hasAnchor" number="11.8.1">
 <h3><span class="header-section-number">11.8.1</span> コホートのインスタンス化<a href="Characterization.html#コホートのインスタンス化" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>最初に、特性を評価するためにコホートをインスタンス化する必要があります。コホートのインスタンス化は、第 <a href="Cohorts.html#Cohorts">10</a> 章で説明されています。この例では、高血圧症に対して一次治療を開始し、1年間のフォローアップを行う人を使用します（付録 <a href="CohortDefinitions.html#HTN1yrFO">B.6</a>）。付録 <a href="CohortDefinitions.html#CohortDefinitions">B</a>の他のコホートの特性評価は、読者への練習問題として残しておきます。ここでは、コホートが<code>scratch.my_cohorts</code>というテーブルでインスタンス化され、コホート定義IDが1であると仮定します。</p>
@@ -1068,11 +1068,11 @@ div.csl-indent {
 <span id="cb88-10"><a href="Characterization.html#cb88-10" tabindex="-1"></a>                                    <span class="at">aggregated =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 
 <div class="rmdimportant">
-上記すべての例について、「aggregated = TRUE」の使用は、FeatureExtractionに要約統計を提供することを指示します。このフラグを除外すると、コホート内の各人の共変量が計算されます。
+上記すべての例について、「aggregated = TRUE」の使用は、FeatureExtractionに要約統計量を提供することを指示します。このフラグを除外すると、コホート内の各人の共変量が計算されます。
 </div>
 </div>
-<div id="集計された共変量の作成" class="section level3 hasAnchor" number="11.8.4">
-<h3><span class="header-section-number">11.8.4</span> 集計された共変量の作成<a href="Characterization.html#集計された共変量の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="集約共変量の作成" class="section level3 hasAnchor" number="11.8.4">
+<h3><span class="header-section-number">11.8.4</span> 集約共変量の作成<a href="Characterization.html#集約共変量の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>次のコードブロックは、コホートの集計統計を生成します：</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="Characterization.html#cb89-1" tabindex="-1"></a>covariateSettings <span class="ot">&lt;-</span> <span class="fu">createDefaultCovariateSettings</span>()</span>
 <span id="cb89-2"><a href="Characterization.html#cb89-2" tabindex="-1"></a></span>

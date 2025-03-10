@@ -449,14 +449,14 @@ div.csl-indent {
 <li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>11.7.1</b> デザイン</a></li>
 <li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>11.7.2</b> 実行</a></li>
 <li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#結果"><i class="fa fa-check"></i><b>11.7.3</b> 結果</a></li>
-<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特性の定義</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特徴量の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特徴量の定義</a></li>
 </ul></li>
 <li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特性評価"><i class="fa fa-check"></i><b>11.8</b> Rでのコホートの特性評価</a>
 <ul>
 <li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>11.8.1</b> コホートのインスタンス化</a></li>
 <li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>11.8.2</b> データ抽出</a></li>
 <li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#事前に指定された分析の使用"><i class="fa fa-check"></i><b>11.8.3</b> 事前に指定された分析の使用</a></li>
-<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集計された共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集計された共変量の作成</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集約共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集約共変量の作成</a></li>
 <li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#出力形式"><i class="fa fa-check"></i><b>11.8.5</b> 出力形式</a></li>
 <li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#カスタム共変量"><i class="fa fa-check"></i><b>11.8.6</b> カスタム共変量</a></li>
 </ul></li>
@@ -584,9 +584,9 @@ div.csl-indent {
 <li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル性能"><i class="fa fa-check"></i><b>13.8.1</b> モデル性能</a></li>
 <li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>13.8.2</b> モデルの比較</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベル予測機能の追加"><i class="fa fa-check"></i><b>13.9</b> 患者レベル予測機能の追加</a>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベルの予測に関する追加の機能"><i class="fa fa-check"></i><b>13.9</b> 患者レベルの予測に関する追加の機能</a>
 <ul>
-<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナル論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> ジャーナル論文の生成</a></li>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#学術誌論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> 学術誌論文の生成</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>13.10</b> まとめ</a></li>
 <li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-8"><i class="fa fa-check"></i><b>13.11</b> 演習</a></li>
@@ -876,7 +876,7 @@ div.csl-indent {
 <ol style="list-style-type: decimal">
 <li><p>極めて特異的な（「<strong>xSpec</strong>」）コホートを作成する：診断予測モデルのトレーニング時にノイズの多い陽性ラベルとして使用される、対象となる結果を持つ可能性が極めて高い人物のセットを決定する。</p></li>
 <li><p>極めて感度の高い（「<strong>xSens</strong>」）コホートを作成する：結果が得られる可能性のある人をすべて含むべき集団を決定します。このコホートは、その逆数（結果が得られないと確信できる人の集合）を特定するために使用され、診断予測モデルのトレーニング時にノイズを含むネガティブラベルとして使用されます。</p></li>
-<li><p>xSpecとxSensコホートを使用して予測モデルを適合：第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> で説明したように、幅広い患者の特徴を予測因子として使用してモデルを適合し、その人物がxSpecコホート（結果が出ると考えられる人々）に属するのか、あるいはxSensコホート（結果が出ないと考える人々）の逆数に属するのかを予測することを目指します。</p></li>
+<li><p>xSpecとxSensコホートを使用して予測モデルを適合：第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> で説明したように、幅広い患者の特徴量を予測因子として使用してモデルを適合し、その人物がxSpecコホート（結果が出ると考えられる人々）に属するのか、あるいはxSensコホート（結果が出ないと考える人々）の逆数に属するのかを予測することを目指します。</p></li>
 <li><p>コホート定義の性能を評価するために使用される、除外された人々のセットに対して、結果の確率を推定するために適合されたモデルを適用します：モデルからの予測因子セットを個人のデータに適用して、その個人が表現型に属する確率を予測します。これらの予測を<strong>確率的なゴールドスタンダード</strong>として使用します。</p></li>
 <li><p>コホート定義の性能特性を評価します：予測確率をコホート定義の二値分類と比較します（混同行列のテスト条件）。テスト条件と真の条件の推定値を使用して、混同行列を完全に作成し、感度、特異度、予測値など、性能特性の全体的なセットを推定する。</p></li>
 </ol>
@@ -910,7 +910,7 @@ div.csl-indent {
 <h4>ステップ 3: 予測モデルの適合<a href="ClinicalValidity.html#ステップ-3-予測モデルの適合" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>関数<code>createPhenoModel</code>は、評価コホートにおいて対象の健康アウトカムとなる確率を評価するための診断予測モデルを開発します。この関数を使用するには、ステップ1と2で開発したxSpecコホートとxSensコホートを利用します。xSpecコホートは、関数の<code>xSpecCohort</code>パラメータとして入力します。xSens コホートは、モデリングプロセスで使用されるターゲットコホートから除外すべきであることを示すために、<code>exclCohort</code>パラメータとして関数に入力します。この除外方法を使用すると、健康アウトカムの可能性が低い人物を特定することができます。このグループを「ノイズネガティブ」な人々、すなわち、健康アウトカムがネガティブである可能性が高いが、健康結果がポジティブである人も若干含まれる可能性があるグループと考えることができます。また、xSensコホートを関数の<code>prevCohort</code>パラメータとして使用することもできます。このパラメータは、母集団における健康結果のおおよその有病率を決定するプロセスで使用されます。通常、データベースから抽出した多数のランダムサンプルから、データベースにおける結果の有病率とほぼ同等の割合で、対象とするアウトカムを持つ人を含む人々の集団が生成されるはずです。ここで説明した方法を用いると、人々のランダムサンプルはもはや存在せず、結果を持つ人々と結果を持たない人々の割合をリセットして予測モデルを再キャリブレーションする必要があります。</p>
 <p>xSpec コホートを定義するために使用されたすべてのコンセプトは、モデリングプロセスから除外する必要があります。これを実行するには、<code>excludedConcepts</code>パラメータをxSpec定義で使用されたコンセプトのリストに設定します。例えば、MIの場合、心筋梗塞のコンセプトと、そのすべての下位層のコンセプトを使用して、ATLASでコンセプトセットを作成します。この例では、excludedConceptsパラメータを4329847（心筋梗塞の概念ID）に設定し、さらにaddDescendantsToExcludeパラメータもTRUEに設定して、除外されたコンセプトの下位層も除外されるようにします。</p>
-<p>モデリングプロセスに含まれる人物の特徴を指定するために使用できるパラメータがいくつかあります。モデリングプロセスに含まれる人物の年齢を指定するには、<code>lowerAgeLimit</code>をモデルで希望する年齢の下限に、<code>upperAgeLimit</code>を上限に設定します。計画中の研究のコーホート定義を特定の年齢グループに対して作成する場合は、この設定を行うとよいでしょう。例えば、研究で使用するコホート定義が小児の1型糖尿病である場合、診断予測モデルの開発に使用する年齢を、例えば5歳から17歳に限定したいと考えるかもしれません。そうすることで、テスト対象のコホート定義によって選択された人々により密接に関連する可能性が高い特徴を持つモデルが作成されます。また、<code>性別</code>パラメータを男性または女性のコンセプト ID に設定することで、モデルに含める性別を指定することもできます。デフォルトでは、パラメータは男性と女性の両方を含めるように設定されています。この機能は、前立腺がんなどの性別特有の健康アウトカムに役立つ場合があります。<code>startDate</code>および<code>endDate</code>パラメータをそれぞれ日付範囲の下限および上限に設定することで、その人物のレコードにおける最初のビジットに基づいて、人物の包含期間を設定することができます。最後に、<code>mainPopnCohort</code>パラメータを使用して、対象および結果コホート内のすべての人物が選択される大規模な母集団コホートを指定することができます。ほとんどの場合、このパラメータは0に設定され、対象およびアウトカムコホート内の人物の選択に制限がないことを示します。ただし、このパラメータがより優れたモデルの構築に役立つ場合もあります。例えば、健康アウトカムの発生率が極めて低い場合、おそらく0.01%以下の場合です。 次の例を参照してください:</p>
+<p>モデリングプロセスに含まれる人物の特徴を指定するために使用できるパラメータがいくつかあります。モデリングプロセスに含まれる人物の年齢を指定するには、<code>lowerAgeLimit</code>をモデルで希望する年齢の下限に、<code>upperAgeLimit</code>を上限に設定します。計画中の研究のコーホート定義を特定の年齢グループに対して作成する場合は、この設定を行うとよいでしょう。例えば、研究で使用するコホート定義が小児の1型糖尿病である場合、診断予測モデルの開発に使用する年齢を、例えば5歳から17歳に限定したいと考えるかもしれません。そうすることで、テスト対象のコホート定義によって選択された人々により密接に関連する可能性が高い特徴量を持つモデルが作成されます。また、<code>性別</code>パラメータを男性または女性のコンセプト ID に設定することで、モデルに含める性別を指定することもできます。デフォルトでは、パラメータは男性と女性の両方を含めるように設定されています。この機能は、前立腺がんなどの性別特有の健康アウトカムに役立つ場合があります。<code>startDate</code>および<code>endDate</code>パラメータをそれぞれ日付範囲の下限および上限に設定することで、その人物のレコードにおける最初のビジットに基づいて、人物の包含期間を設定することができます。最後に、<code>mainPopnCohort</code>パラメータを使用して、対象および結果コホート内のすべての人物が選択される大規模な母集団コホートを指定することができます。ほとんどの場合、このパラメータは0に設定され、対象およびアウトカムコホート内の人物の選択に制限がないことを示します。ただし、このパラメータがより優れたモデルの構築に役立つ場合もあります。例えば、健康アウトカムの発生率が極めて低い場合、おそらく0.01%以下の場合です。 次の例を参照してください:</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="ClinicalValidity.html#cb152-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;c:/temp&quot;</span>)</span>
 <span id="cb152-2"><a href="ClinicalValidity.html#cb152-2" tabindex="-1"></a><span class="fu">library</span>(PheValuator)</span>
 <span id="cb152-3"><a href="ClinicalValidity.html#cb152-3" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> <span class="fu">createConnectionDetails</span>(</span>

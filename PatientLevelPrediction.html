@@ -449,14 +449,14 @@ div.csl-indent {
 <li class="chapter" data-level="11.7.1" data-path="Characterization.html"><a href="Characterization.html#デザイン"><i class="fa fa-check"></i><b>11.7.1</b> デザイン</a></li>
 <li class="chapter" data-level="11.7.2" data-path="Characterization.html"><a href="Characterization.html#実行"><i class="fa fa-check"></i><b>11.7.2</b> 実行</a></li>
 <li class="chapter" data-level="11.7.3" data-path="Characterization.html"><a href="Characterization.html#結果"><i class="fa fa-check"></i><b>11.7.3</b> 結果</a></li>
-<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特性の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特性の定義</a></li>
+<li class="chapter" data-level="11.7.4" data-path="Characterization.html"><a href="Characterization.html#カスタム特徴量の定義"><i class="fa fa-check"></i><b>11.7.4</b> カスタム特徴量の定義</a></li>
 </ul></li>
 <li class="chapter" data-level="11.8" data-path="Characterization.html"><a href="Characterization.html#rでのコホートの特性評価"><i class="fa fa-check"></i><b>11.8</b> Rでのコホートの特性評価</a>
 <ul>
 <li class="chapter" data-level="11.8.1" data-path="Characterization.html"><a href="Characterization.html#コホートのインスタンス化"><i class="fa fa-check"></i><b>11.8.1</b> コホートのインスタンス化</a></li>
 <li class="chapter" data-level="11.8.2" data-path="Characterization.html"><a href="Characterization.html#データ抽出"><i class="fa fa-check"></i><b>11.8.2</b> データ抽出</a></li>
 <li class="chapter" data-level="11.8.3" data-path="Characterization.html"><a href="Characterization.html#事前に指定された分析の使用"><i class="fa fa-check"></i><b>11.8.3</b> 事前に指定された分析の使用</a></li>
-<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集計された共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集計された共変量の作成</a></li>
+<li class="chapter" data-level="11.8.4" data-path="Characterization.html"><a href="Characterization.html#集約共変量の作成"><i class="fa fa-check"></i><b>11.8.4</b> 集約共変量の作成</a></li>
 <li class="chapter" data-level="11.8.5" data-path="Characterization.html"><a href="Characterization.html#出力形式"><i class="fa fa-check"></i><b>11.8.5</b> 出力形式</a></li>
 <li class="chapter" data-level="11.8.6" data-path="Characterization.html"><a href="Characterization.html#カスタム共変量"><i class="fa fa-check"></i><b>11.8.6</b> カスタム共変量</a></li>
 </ul></li>
@@ -584,9 +584,9 @@ div.csl-indent {
 <li class="chapter" data-level="13.8.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデル性能"><i class="fa fa-check"></i><b>13.8.1</b> モデル性能</a></li>
 <li class="chapter" data-level="13.8.2" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#モデルの比較"><i class="fa fa-check"></i><b>13.8.2</b> モデルの比較</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベル予測機能の追加"><i class="fa fa-check"></i><b>13.9</b> 患者レベル予測機能の追加</a>
+<li class="chapter" data-level="13.9" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#患者レベルの予測に関する追加の機能"><i class="fa fa-check"></i><b>13.9</b> 患者レベルの予測に関する追加の機能</a>
 <ul>
-<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#ジャーナル論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> ジャーナル論文の生成</a></li>
+<li class="chapter" data-level="13.9.1" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#学術誌論文の生成"><i class="fa fa-check"></i><b>13.9.1</b> 学術誌論文の生成</a></li>
 </ul></li>
 <li class="chapter" data-level="13.10" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#まとめ-10"><i class="fa fa-check"></i><b>13.10</b> まとめ</a></li>
 <li class="chapter" data-level="13.11" data-path="PatientLevelPrediction.html"><a href="PatientLevelPrediction.html#演習-8"><i class="fa fa-check"></i><b>13.11</b> 演習</a></li>
@@ -877,7 +877,7 @@ div.csl-indent {
 <div id="データ抽出-2" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> データ抽出<a href="PatientLevelPrediction.html#データ抽出-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>予測モデルを作成する際には、機械学習の一種であると呼ばれるプロセスを使用します。これは、ラベル付けされたサンプルセットに基づいて、共変量とアウトカムの状態の間の関係を推測するものです。したがって、対象コホートに属する人について、CDMから共変量を抽出する方法が必要であり、またアウトカムのラベルを取得する必要があります。</p>
-<p><strong>共変量</strong>（“予測因子”、“特徴”、“独立変数”とも呼ばれる）は、患者の特徴を説明します。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、<a href="https://ohdsi.github.io/FeatureExtraction/">FeatureExtraction</a>パッケージを使用して構築され、詳細は第 <a href="Characterization.html#Characterization">11</a> 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。</p>
+<p><strong>共変量</strong>（“予測因子”、“特徴量”、“独立変数”とも呼ばれる）は、患者の特徴を説明します。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、<a href="https://ohdsi.github.io/FeatureExtraction/">FeatureExtraction</a>パッケージを使用して構築され、詳細は第 <a href="Characterization.html#Characterization">11</a> 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。</p>
 <p>また、リスク期間中の全ての患者の<strong>アウトカムステータス</strong>（“ラベル”または”クラス”とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。 </p>
 <div id="データ抽出の例" class="section level3 hasAnchor" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> データ抽出の例<a href="PatientLevelPrediction.html#データ抽出の例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -954,7 +954,7 @@ div.csl-indent {
 <p>この後に示すアルゴリズムは以下から取得可能です： <a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a> パッケージ</p>
 <div id="正則化ロジスティック回帰" class="section level3 hasAnchor" number="13.3.1">
 <h3><span class="header-section-number">13.3.1</span> 正則化ロジスティック回帰<a href="PatientLevelPrediction.html#正則化ロジスティック回帰" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>LASSO（最小絶対値収縮選択オペレーター）ロジスティック回帰は一般化線形モデルに属し、変数の線形結合が学習され、最終的にロジスティック関数がその線形結合を0から1の間の値に写像します。 LASSO正則化では、モデルをトレーニングする際に、目的関数にモデルの複雑さに基づくコストが追加されます。 このコストは係数の線形結合の絶対値の合計です。 モデルは、このコストを最小化することで自動的に特徴選択を行います。大規模な正則化ロジスティック回帰を行うために、 <a href="https://ohdsi.github.io/Cyclops/">Cyclops</a> （ロジスティック、ポアソン、生存時間分析のための循環座標降下法）パッケージを使用しています。 </p>
+<p>LASSO（最小絶対値収縮選択オペレーター）ロジスティック回帰は一般化線形モデルに属し、変数の線形結合が学習され、最終的にロジスティック関数がその線形結合を0から1の間の値に写像します。 LASSO正則化では、モデルをトレーニングする際に、目的関数にモデルの複雑さに基づくコストが追加されます。 このコストは係数の線形結合の絶対値の合計です。 モデルは、このコストを最小化することで自動的に特徴量の選択を行います。大規模な正則化ロジスティック回帰を行うために、 <a href="https://ohdsi.github.io/Cyclops/">Cyclops</a> （ロジスティック、ポアソン、生存時間分析のための循環座標降下法）パッケージを使用しています。 </p>
 <table>
 <caption><span id="tab:lassoParameters">表 13.4: </span> 正則化ロジスティック回帰のハイパーパラメータ</caption>
 <thead>
@@ -1035,8 +1035,8 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">mtries</td>
-<td align="left">各ツリーの変数数</td>
-<td align="left">-1 = 総変数数の平方根,5,20</td>
+<td align="left">各ツリーの特徴量数</td>
+<td align="left">-1 = 総特徴量数の平方根,5,20</td>
 </tr>
 <tr class="odd">
 <td align="left">ntrees</td>
@@ -1069,7 +1069,7 @@ div.csl-indent {
 </div>
 <div id="ナイーブベイズ" class="section level3 hasAnchor" number="13.3.5">
 <h3><span class="header-section-number">13.3.5</span> ナイーブベイズ<a href="PatientLevelPrediction.html#ナイーブベイズ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ナイーブベイズアルゴリズムは、クラス変数の値を考慮した際の特徴の各ペア間の条件付き独立性という単純な仮定を適用したベイズの定理です。 データがクラスに属する可能性とクラスの事前分布に基づいて事後分布が取得されます。 ナイーブベイズにはハイパーパラメータがありません。 </p>
+<p>ナイーブベイズアルゴリズムは、クラス変数の値を考慮した際の特徴量の各ペア間の条件付き独立性という単純な仮定を適用したベイズの定理です。 データがクラスに属する可能性とクラスの事前分布に基づいて事後分布が取得されます。 ナイーブベイズにはハイパーパラメータがありません。 </p>
 </div>
 <div id="adaboost" class="section level3 hasAnchor" number="13.3.6">
 <h3><span class="header-section-number">13.3.6</span> AdaBoost<a href="PatientLevelPrediction.html#adaboost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1347,7 +1347,7 @@ div.csl-indent {
 <h3><span class="header-section-number">13.5.2</span> 研究集団の定義<a href="PatientLevelPrediction.html#研究集団の定義-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>モデルを開発する最終的な研究対象集団は、対象コホートのサブセットとなることがよくあります。例えば、アウトカムに依存する基準を適用する場合や、対象コホートのサブグループで感度分析を行いたい場合などです。この場合、以下の問いに答えなければなりません。：</p>
 <ul>
-<li><p><em>対象コホートの開始前にどの程度の観察期間が必要ですか？</em> この選択は、トレーニングデータで利用可能な患者の時間にも依存しますが、将来的にモデルを適用したいデータソースで利用可能な時間にも依存します。 最小の観察期間が長ければ長いほど、各人の特徴抽出に使用できるベースライン期間を得られますが、分析対象となる患者数は少なくなります。さらに、短いまたは長い観察期間を選択する臨床的な理由がある場合もあります。今回の例では、365日間をルックバック期間（ウォッシュアウト期間）として使用します。</p></li>
+<li><p><em>対象コホートの開始前にどの程度の観察期間が必要ですか？</em> この選択は、トレーニングデータで利用可能な患者の時間にも依存しますが、将来的にモデルを適用したいデータソースで利用可能な時間にも依存します。 最小の観察期間が長ければ長いほど、各人の特徴量抽出に使用できるベースライン期間を得られますが、分析対象となる患者数は少なくなります。さらに、短いまたは長い観察期間を選択する臨床的な理由がある場合もあります。今回の例では、365日間をルックバック期間（ウォッシュアウト期間）として使用します。</p></li>
 <li><p><em>患者が対象コホートに複数回組み入れられますか？</em> 対象コホートの定義では、例えば、異なる病気のエピソードや医療製品への曝露期間が異なる場合など、異なる期間に複数回、その集団に適格となる可能性があります。コホート定義は、患者が一度だけ参加できるように制限を適用するとは限りませんが、特定の患者レベルの予測問題の文脈では、最初の適格エピソードにコホートを限定したい場合もあります。 例では、ACE阻害薬の初回使用を基準としているため、患者は一度だけ対象コホートに参加できます。</p></li>
 <li><p><em>以前にアウトカムを経験した人をコホートに含めることができますか？</em> 対象コホートに適格となる前にアウトカムを経験した人をコホートに含めるかどうかを決める必要があります。特定の患者レベルの予測問題によっては、初回のアウトカムの発生を予測したい場合があるため、以前にアウトカムを経験した患者はリスクがないため、ターゲットコホートから除外する必要があります。他の状況では、前回エピソードの予測を希望しているため、以前のアウトカムが将来のアウトカムの予測要因になる可能性もあります。私たちの予測例では、以前に血管性浮腫を持つ人を含めないことにします。</p></li>
 <li><p><em>対象コホート開始日に対してアウトカムを予測する期間をどう定義しますか？</em> この質問に答えるために、2つの決定を下す必要があります。まず、リスク期間の開始日を対象コホートの開始日またはそれ以降に設定するかどうかの議論があります。開始日を遅らせる理由には、記録が遅れて入力された結果を避けたい場合や、結果を予防する介入が理論上実施可能であった期間を空けておきたい場合などが考えられます。次に、リスク期間の終了日を設定して、対象コホートの開始日または終了日からの相対的な日数オフセットをある程度指定することで、リスク期間を定義する必要があります。今回の問題では、対象コホートの開始日の1日後から365日後までの期間をリスク期間として予測します。</p></li>
@@ -1906,11 +1906,11 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="患者レベル予測機能の追加" class="section level2 hasAnchor" number="13.9">
-<h2><span class="header-section-number">13.9</span> 患者レベル予測機能の追加<a href="PatientLevelPrediction.html#患者レベル予測機能の追加" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="ジャーナル論文の生成" class="section level3 hasAnchor" number="13.9.1">
-<h3><span class="header-section-number">13.9.1</span> ジャーナル論文の生成<a href="PatientLevelPrediction.html#ジャーナル論文の生成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む「Table 1」を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：</p>
+<div id="患者レベルの予測に関する追加の機能" class="section level2 hasAnchor" number="13.9">
+<h2><span class="header-section-number">13.9</span> 患者レベルの予測に関する追加の機能<a href="PatientLevelPrediction.html#患者レベルの予測に関する追加の機能" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="学術誌論文の生成" class="section level3 hasAnchor" number="13.9.1">
+<h3><span class="header-section-number">13.9.1</span> 学術誌論文の生成<a href="PatientLevelPrediction.html#学術誌論文の生成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む “Table 1” を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="PatientLevelPrediction.html#cb136-1" tabindex="-1"></a> <span class="fu">createPlpJournalDocument</span>(<span class="at">plpResult =</span> <span class="sc">&lt;</span>your plp results<span class="sc">&gt;</span>,</span>
 <span id="cb136-2"><a href="PatientLevelPrediction.html#cb136-2" tabindex="-1"></a>             <span class="at">plpValidation =</span> <span class="sc">&lt;</span>your validation results<span class="sc">&gt;</span>,</span>
 <span id="cb136-3"><a href="PatientLevelPrediction.html#cb136-3" tabindex="-1"></a>             <span class="at">plpData =</span> <span class="sc">&lt;</span>your plp data<span class="sc">&gt;</span>,</span>
