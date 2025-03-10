@@ -150,7 +150,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1                    61        61                    1968-01-21 ...
 ```
 
-## 標準化されたボキャブラリ {#Vocabanswers}
+## 標準化ボキャブラリ {#Vocabanswers}
 
 #### 演習 \@ref(exr:exerciseVocab1) {.unnumbered}
 
@@ -553,10 +553,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{「Gastrointestinal hemorrhage (消化管出血)」の標準コンセプトの選択}(\#fig:giBleedSearch)
+\caption{"Gastrointestinal hemorrhage (消化管出血)" の標準コンセプトの選択}(\#fig:giBleedSearch)
 \end{figure}
 
-図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
+図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある "Descemdamts (下位層)" をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
 
 \begin{figure}
 
@@ -564,10 +564,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{「Gastrointestinal hemorrhage (消化管出血)」のすべての下位層を追加}(\#fig:giBleedDescendants)
+\caption{"Gastrointestinal hemorrhage (消化管出血)" のすべての下位層を追加}(\#fig:giBleedDescendants)
 \end{figure}
 
-「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
