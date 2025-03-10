@@ -7,6 +7,7 @@
 \makeindex
 \usepackage[nottoc]{tocbibind}
 \usepackage{xeCJK}
+\setmainfont{IPAexGothic}
 \setCJKmainfont{IPAexGothic}
 
 \makeatletter
@@ -88,14 +89,14 @@
 \titleformat{\part}% reformat chapter headings
    [display]% like section, with number on same line
    {\center\huge\bfseries\sffamily}% formatting applied to whole
-   {Part \thepart}% Chapter number
+   {第 \thepart 部}% Chapter number
    {1.0em}% space between # and title
    {\Huge}% formatting applied just to title
 
 \titleformat{\chapter}% reformat chapter headings
    [display]% like section, with number on same line
    {\huge\bfseries\sffamily}% formatting applied to whole
-   {Chapter \thechapter}% Chapter number
+   {章 \thechapter}% Chapter number
    {1.0em}% space between # and title
    {\Huge}% formatting applied just to title
 
