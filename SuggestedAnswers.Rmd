@@ -148,7 +148,7 @@ cat("  OBSERVATION_PERIOD_ID PERSON_ID OBSERVATION_PERIOD_START_DATE ...
 ")
 ```
 
-## 標準化されたボキャブラリ {#Vocabanswers}
+## 標準化ボキャブラリ {#Vocabanswers}
 
 #### 演習 \@ref(exr:exerciseVocab1) {.unnumbered}
 
