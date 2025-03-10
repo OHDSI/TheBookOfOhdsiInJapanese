@@ -3,14 +3,7 @@ title: " --翻訳作業中--　OHDSIの本"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
 date: "2025-03-10"
 classoption: 11pt
-geometry:
-- paperheight=10in
-- paperwidth=7in
-- margin=1in
-- inner=1in
-- outer=0.65in
-- top=0.8in
-- bottom=0.8in
+geometry: no
 mainfont: ipaexg.ttf
 bibliography:
 - book.bib
