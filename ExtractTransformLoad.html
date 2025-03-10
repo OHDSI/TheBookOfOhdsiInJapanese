@@ -902,7 +902,7 @@ div.csl-indent {
 </div>
 <div id="etlの一般的なフロー" class="section level4 unnumbered hasAnchor">
 <h4>ETLの一般的なフロー<a href="ExtractTransformLoad.html#etlの一般的なフロー" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>CDMは人を中心としたモデルであるため、PERSONテーブルのマッピングを最初に始めることが常に良い方法です。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照するため、最初にPERSONテーブルのロジックを構築しておくと、後で作業が容易になります。PERSONテーブルの次に、OBSERVATION_PERIODテーブルを変換するのが良い方法です。CDMデータベースの各人には少なくとも1つのOBSERVATION_PERIODがあり、通常、ほとんどのイベントはこの期間内に発生します。PERSONテーブルとOBSERVATION_PERIODテーブルが完了したら、次にPROVIDER、CARE_SITE、LOCATIONなどのディメンショナルテーブルが通常は続きます。臨床テーブルの前に作成すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはETL全体で最も複雑なロジックであることが多くまた、患者の旅の過程で発生するほとんどのイベントは来院時に発生するため、最も重要なものの1つです。これらのテーブルが完了したら、どのCDMテーブルをどのような順序でマッピングするかは実施者の選択にゆだねられます。</p>
+<p>CDMは人を中心としたモデルであるため、PERSONテーブルのマッピングを最初に始めることが常に良い方法です。すべての臨床イベントテーブル（CONDITION_OCCURRENCE、DRUG_EXPOSURE、PROCEDURE_OCCURRENCEなど）は、person_idを介してPERSONテーブルを参照するため、最初にPERSONテーブルのロジックを構築しておくと、後で作業が容易になります。PERSONテーブルの次に、OBSERVATION_PERIODテーブルを変換するのが良い方法です。CDMデータベースの各人には少なくとも1つのOBSERVATION_PERIODがあり、通常、ほとんどのイベントはこの期間内に発生します。PERSONテーブルとOBSERVATION_PERIODテーブルが完了したら、次にPROVIDER、CARE_SITE、LOCATIONなどのディメンショナルテーブルが通常は続きます。臨床テーブルの前に作成すべき最後のテーブルロジックはVISIT_OCCURRENCEです。これはETL全体で最も複雑なロジックであることが多くまた、患者の旅の過程で発生するほとんどのイベントはビジット時に発生するため、最も重要なものの1つです。これらのテーブルが完了したら、どのCDMテーブルをどのような順序でマッピングするかは実施者の選択にゆだねられます。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:etlFlow"></span>
 <img src="images/ExtractTransformLoad/flowOfEtl.png" alt="ETLの一般的なフローと、最初にマッピングするテーブル" width="100%" />
 <p class="caption">
@@ -1204,7 +1204,7 @@ div.csl-indent {
 </ul></li>
 <li>ソースデータとターゲットデータの全体的なカウントを比較します。
 <ul>
-<li>特定の問題にどのように対処するかによって、カウントに期待される多少の差異が生じるかもしれません。たとえば、一部のコラボレーターは、NULL 性別を持つ人々を削除することを選択しています。なぜなら、そのような人々は分析には含まれないからです。また、CDM における来院は、ネイティブデータにおける来院またはビジットとは異なる方法で構築されている場合もあります。したがって、ソースデータと CDM データの全体的なカウントを比較する際には、これらの相違を考慮し、予想しておくことが重要です。</li>
+<li>特定の問題にどのように対処するかによって、カウントに期待される多少の差異が生じるかもしれません。たとえば、一部のコラボレーターは、NULL 性別を持つ人々を削除することを選択しています。なぜなら、そのような人々は分析には含まれないからです。また、CDM におけるビジットは、ネイティブデータにおけるビジットや受診とは異なる方法で構築されている場合もあります。したがって、ソースデータと CDM データの全体的なカウントを比較する際には、これらの相違を考慮し、予想しておくことが重要です。</li>
 </ul></li>
 <li>ソースデータで既済の研究をCDMバージョンで再現します。
 <ul>
@@ -1329,13 +1329,13 @@ div.csl-indent {
 </div>
 <div class="exercise">
 <p><span id="exr:exerciseEtl3" class="exercise"><strong>演習 6.3  </strong></span>VISIT_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれたロジック例です：
-PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある場合、請求の行を統合します。統合された入院患者の請求は1つの入院患者のビジットと見なされ、設定されます：</p>
+PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PERSON_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある場合、請求の行を統合します。統合された入院の請求は1つの入院ビジットと見なされ、設定されます：</p>
 <ul>
 <li>MIN(START)をVISIT_START_DATEとして設定</li>
 <li>MAX(END)をVISIT_END_DATEとして設定</li>
 <li>“IP”をPLACE_OF_SERVICE_SOURCE_VALUEとして設定</li>
 </ul>
-<p>ソースデータに図 <a href="ExtractTransformLoad.html#fig:exerciseSourceData">6.10</a> に示されるようなビジットセットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？</p>
+<p>ソースデータに図 <a href="ExtractTransformLoad.html#fig:exerciseSourceData">6.10</a> に示されるようなビジットのセットがある場合、CDMで生成されるVISIT_OCCURRENCEレコードはどのようになると予想しますか？</p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:exerciseSourceData"></span>
 <img src="images/ExtractTransformLoad/exerciseSourceData.png" alt="例のソースデータ。" width="100%" />

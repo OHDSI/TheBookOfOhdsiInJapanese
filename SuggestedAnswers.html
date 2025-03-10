@@ -1461,7 +1461,7 @@ div.csl-indent {
 <span id="cb175-16"><a href="SuggestedAnswers.html#cb175-16" tabindex="-1"></a><span class="st">);&quot;</span></span>
 <span id="cb175-17"><a href="SuggestedAnswers.html#cb175-17" tabindex="-1"></a></span>
 <span id="cb175-18"><a href="SuggestedAnswers.html#cb175-18" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
-<p>次に、入院または救急室受診時に出現したもののみを選択し、特定のCOHORT_DEFINITION_ID（ここでは「1」を選択しました）を使用します:</p>
+<p>次に、入院または救急室ビジット時に出現したもののみを選択し、特定のCOHORT_DEFINITION_ID（ここでは「1」を選択しました）を使用します:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="SuggestedAnswers.html#cb176-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;INSERT INTO @cdm.cohort (</span></span>
 <span id="cb176-2"><a href="SuggestedAnswers.html#cb176-2" tabindex="-1"></a><span class="st">  subject_id,</span></span>
 <span id="cb176-3"><a href="SuggestedAnswers.html#cb176-3" tabindex="-1"></a><span class="st">  cohort_start_date,</span></span>
@@ -1478,7 +1478,7 @@ div.csl-indent {
 <span id="cb176-14"><a href="SuggestedAnswers.html#cb176-14" tabindex="-1"></a><span class="st">WHERE visit_concept_id IN (9201, 9203, 262); -- 入院または救急室ビジット;&quot;</span></span>
 <span id="cb176-15"><a href="SuggestedAnswers.html#cb176-15" tabindex="-1"></a></span>
 <span id="cb176-16"><a href="SuggestedAnswers.html#cb176-16" tabindex="-1"></a><span class="fu">renderTranslateExecuteSql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
-<p>コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT_OCCURRENCE_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室受診に関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。</p>
+<p>コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT_OCCURRENCE_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室ビジットに関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。</p>
 <p>また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、関心を持つのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。</p>
 <p>一時テーブルが不要になったらクリーンアップすることをお勧めします:</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="SuggestedAnswers.html#cb177-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;TRUNCATE TABLE #diagnoses;</span></span>

@@ -837,7 +837,7 @@ div.csl-indent {
 図 5.2: OMOP CDMにおける標準化ボキャブラリコンセプトの標準的な表現。提示されている例は心房細動のSNOMEDコードに対するCONCEPTテーブルのレコードです。
 </p>
 </div>
-<p>このシステムは<strong>包括的</strong>であることを意味し、患者の医療体験に関連するすべてのイベント（例：コンディション、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット、医療施設など）をカバーするのに十分なコンセプトが存在します。</p>
+<p>このシステムは<strong>包括的</strong>であることを意味し、患者の医療体験に関連するすべてのイベント（例：コンディション、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット（受診期間）、医療施設など）をカバーするのに十分なコンセプトが存在します。</p>
 <div id="コンセプトid" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> コンセプトID<a href="StandardizedVocabularies.html#コンセプトid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>各コンセプトにはプライマリキーとして使用されるコンセプトIDが割り当てられます。この無意味な整数IDは、CDMのイベントテーブルにデータを記録する際に使用され、元のボキャブラリコードではありません。 </p>
@@ -848,7 +848,7 @@ div.csl-indent {
 </div>
 <div id="conceptDomains" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> ドメイン<a href="StandardizedVocabularies.html#conceptDomains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
+<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、“Condition (コンディション)”、“Drug (薬剤)”、“Procedure (処置（プロシージャー）)”、“Visit (ビジット)”、“Device (デバイス)”、“Specimen (試料)” などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:domains"></span>
 <img src="images/StandardizedVocabularies/domains.png" alt="プロシージャーボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。" width="70%" />
 <p class="caption">
@@ -891,7 +891,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">なし</td>
-<td align="left">APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、訪問</td>
+<td align="left">APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、ビジット</td>
 </tr>
 </tbody>
 </table>

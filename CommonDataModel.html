@@ -981,7 +981,7 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td align="left">[Event]_ID</td>
-<td align="left">各レコードの固有の識別子で、イベントテーブル間の関係を確立する外部キーとして機能します。例えば、PERSON_IDは各個人を一意に識別します。VISIT_OCCURRENCE_IDは受診期間を一意に識別します。</td>
+<td align="left">各レコードの固有の識別子で、イベントテーブル間の関係を確立する外部キーとして機能します。例えば、PERSON_IDは各個人を一意に識別します。VISIT_OCCURRENCE_IDはビジットを一意に識別します。</td>
 </tr>
 <tr class="even">
 <td align="left">[Event]_CONCEPT_ID</td>
@@ -1169,15 +1169,15 @@ div.csl-indent {
 </div>
 <div id="observationPeriod" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> OBSERVATION_PERIODテーブル<a href="CommonDataModel.html#observationPeriod" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。EHRの場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
+<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。電子的健康記録 (EHR) の場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者を受診したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
 <div id="laurenの観察期間はどのように定義されているのですか" class="section level4 unnumbered hasAnchor">
 <h4>Laurenの観察期間はどのように定義されているのですか？<a href="CommonDataModel.html#laurenの観察期間はどのように定義されているのですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Laurenの情報が表 <a href="CommonDataModel.html#tab:encounters">4.4</a>に示されているように電子健康記録システムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：</p>
+<p>表 <a href="CommonDataModel.html#tab:encounters">4.4</a>に示されるLaurenの情報がEHRに記録されているとしましょう。彼女の観察期間の元となる彼女の受診 (Encounter) は：</p>
 <table>
-<caption><span id="tab:encounters">表 4.4: </span> Laurenのヘルスケアエンカウンター</caption>
+<caption><span id="tab:encounters">表 4.4: </span> Laurenのヘルスケア受診</caption>
 <thead>
 <tr class="header">
-<th align="left">エンカウンターID</th>
+<th align="left">受診ID</th>
 <th align="left">開始日</th>
 <th align="left">終了日</th>
 <th align="left">タイプ</th>
@@ -1222,7 +1222,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p>エンカウンターレコードに基づいて彼女のOBSERVATION_PERIODテーブルは次のようになるかもしれません：</p>
+<p>受診レコードに基づいて彼女のOBSERVATION_PERIODテーブルは次のようになるかもしれません：</p>
 <table>
 <caption><span id="tab:observationPeriod">表 4.5: </span> OBSERVATION_PERIODテーブル</caption>
 <colgroup>
@@ -1251,17 +1251,17 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">OBSERVATION_PERIOD_ START_DATE</td>
 <td align="left">2010-01-06</td>
-<td align="left">これは記録上、彼女の最初のエンカウンターの開始日です。</td>
+<td align="left">これは記録上、彼女の最初の受診の開始日です。</td>
 </tr>
 <tr class="even">
 <td align="left">OBSERVATION_PERIOD_ END_DATE</td>
 <td align="left">2013-01-24</td>
-<td align="left">これは記録上、彼女の最後のエンカウンターの終了日です。</td>
+<td align="left">これは記録上、彼女の最後の受診の終了日です。</td>
 </tr>
 <tr class="odd">
 <td align="left">PERIOD_TYPE_ CONCEPT_ID</td>
 <td align="left">44814725</td>
-<td align="left">「Obs Period Type」コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、「ヘルスケアエンカウンターをカバーする期間」を表します。</td>
+<td align="left">“Obs Period Type (観察期間タイプ)” コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、「ヘルスケア受診をカバーする期間」を表します。</td>
 </tr>
 </tbody>
 </table>
@@ -1269,10 +1269,10 @@ div.csl-indent {
 </div>
 <div id="visitOccurrence" class="section level3 hasAnchor" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> VISIT_OCCURRENCE<a href="CommonDataModel.html#visitOccurrence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>VISIT_OCCURRENCEテーブルには、患者が医療システムを利用した際の情報が格納されています。OHDSIでは、これらの情報を「訪問」と呼び、個別のイベントとして扱います。訪問には12のトップカテゴリーがあり、医療が提供されるさまざまな状況を描写する広範な階層構造があります。最も多く記録されている受診は、入院、外来、救急外来、医療機関以外の施設へのビジットです。</p>
-<div id="laurenのエンカウンターが受診期間としてどのように表現されるか" class="section level4 unnumbered hasAnchor">
-<h4>Laurenのエンカウンターが受診期間としてどのように表現されるか？<a href="CommonDataModel.html#laurenのエンカウンターが受診期間としてどのように表現されるか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>例として、ビジットのエンカウンターをVISIT_OCCURRENCEテーブルで表現しましょう。</p>
+<p>VISIT_OCCURRENCEテーブルには、患者が医療システムを利用した際の情報が格納されています。OHDSIでは、これらの情報を「ビジット」と呼び、個別のイベントとして扱います。ビジットには12のトップカテゴリーがあり、医療が提供されるさまざまな状況を描写する広範な階層構造があります。最も多く記録されているビジットは、入院、外来、救急外来、医療機関以外の施設へのビジットです。</p>
+<div id="laurenの受診がビジットとしてどのように表現されるか" class="section level4 unnumbered hasAnchor">
+<h4>Laurenの受診がビジットとしてどのように表現されるか？<a href="CommonDataModel.html#laurenの受診がビジットとしてどのように表現されるか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>例として、入院受診をVISIT_OCCURRENCEテーブルで表現しましょう。</p>
 <table>
 <caption><span id="tab:visitOccurrence">表 4.6: </span> VISIT_OCCURRENCEテーブル。</caption>
 <colgroup>
@@ -1311,7 +1311,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">VISIT_START_ DATETIME</td>
 <td align="left">2013-01-17 00:00:00</td>
-<td align="left">ビジットの日付と時間です。時間が不明なため、深夜が使用されます。</td>
+<td align="left">ビジットの日付と時間です。時間が不明なため、0時が使用されます。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_END_DATE</td>
@@ -1321,7 +1321,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">VISIT_END_DATETIME</td>
 <td align="left">2013-01-24 00:00:00</td>
-<td align="left">ビジットの終了日と時間です。時間が不明なため、真夜中が使用されます。</td>
+<td align="left">ビジットの終了日と時間です。時間が不明なため、0時が使用されます。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_TYPE_ CONCEPT_ID</td>
@@ -1341,12 +1341,12 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">VISIT_SOURCE_ VALUE</td>
 <td align="left">入院</td>
-<td align="left">ビジット値はソースでどのように表示されるかに基づいてここに格納されます。Laurenのデータにはそれがありません。</td>
+<td align="left">ソースデータでどのように表示されるかに基づいてここに格納されます。Laurenのデータにはそれがありません。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_SOURCE_ CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">ビジット値は、ソースがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトID値がここに表示されます。Laurenのデータにはこの値はありません。</td>
+<td align="left">ソースデータがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトIDがここに表示されます。Laurenのデータにはこの値はありません。</td>
 </tr>
 <tr class="odd">
 <td align="left">ADMITTED_FROM_ CONCEPT_ID</td>
@@ -1383,8 +1383,8 @@ div.csl-indent {
 <div id="conditionOccurrence" class="section level3 hasAnchor" number="4.3.5">
 <h3><span class="header-section-number">4.3.5</span> CONDITION_OCCURRENCE<a href="CommonDataModel.html#conditionOccurrence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって観察された、または患者によって報告された、コンディションの診断、徴候、または症状です。</p>
-<div id="laurenの状態は何ですか" class="section level4 unnumbered hasAnchor">
-<h4>Laurenの状態は何ですか？<a href="CommonDataModel.html#laurenの状態は何ですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="laurenのコンディションは何ですか" class="section level4 unnumbered hasAnchor">
+<h4>Laurenのコンディションは何ですか？<a href="CommonDataModel.html#laurenのコンディションは何ですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>彼女の記録を再確認すると、次のように述べられています。：</p>
 <blockquote>
 <p>約3年前、それまでにも痛かった生理痛がますますひどくなっていることに気づきました。直腸のすぐ近くに鋭い突き刺すような痛みを感じ、尾骨と骨盤下部のあたりが圧痛と腫れを伴っていることに気づきました。生理痛がひどくなり、月に1～2日は仕事を休むほどでした。鎮痛剤で痛みを和らげられることもありましたが、あまり効果はありませんでした。</p>
@@ -1428,7 +1428,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_START_ DATETIME</td>
 <td align="left">2010-01-06 00:00:00</td>
-<td align="left">コンディションが記録された日時です。時刻は不明なので、深夜が使用されます。</td>
+<td align="left">コンディションが記録された日時です。時刻は不明なので、0時が使用されます。</td>
 </tr>
 <tr class="even">
 <td align="left">CONDITION_END_ DATE</td>
@@ -1443,7 +1443,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">CONDITION_TYPE_ CONCEPT_ID</td>
 <td align="left">32020</td>
-<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。</td>
+<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、“Condition Type (コンディションタイプ)” のボキャブラリに属するべきです。</td>
 </tr>
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
@@ -1489,7 +1489,7 @@ div.csl-indent {
 <p>DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的使用または実際の導入に関する記録を取得します。薬剤には、処方薬、市販薬、ワクチン、高分子生物学的製剤が含まれます。薬剤への曝露は、オーダーに関連する臨床イベント、記載された処方箋、薬局での調剤、処置薬としての投与、およびその他の患者報告情報から推測されます。</p>
 <div id="laurenの薬物への曝露はどのように表現されますか" class="section level4 unnumbered hasAnchor">
 <h4>Laurenの薬物への曝露はどのように表現されますか？<a href="CommonDataModel.html#laurenの薬物への曝露はどのように表現されますか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>月経困難症の痛みを改善するために、Laurenは2010年01月06日の来院時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG_EXPOSUREテーブルでは以下のようになります：</p>
+<p>月経困難症の痛みを改善するために、Laurenは2010年01月06日のビジット時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG_EXPOSUREテーブルでは以下のようになります：</p>
 <table>
 <caption><span id="tab:drugExposure">表 4.8: </span> DRUG_EXPOSUREテーブル</caption>
 <colgroup>
@@ -1518,7 +1518,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_CONCEPT_ID</td>
 <td align="left">1127433</td>
-<td align="left">医薬品のコンセプト。アセトアミノフェンの NDC コードは RxNorm コード 313782 に対応し、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/1127433">1127433</a>を表します。</td>
+<td align="left">薬剤のコンセプト。アセトアミノフェンの NDC コードは RxNorm コード 313782 に対応し、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/1127433">1127433</a>を表します。</td>
 </tr>
 <tr class="even">
 <td align="left">DRUG_EXPOSURE_ START_DATE</td>
@@ -1583,7 +1583,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">LOT_NUMBER</td>
 <td align="left">NULL</td>
-<td align="left">製造業者から医薬品の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。</td>
+<td align="left">製造業者から薬剤の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。</td>
 </tr>
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
@@ -1598,12 +1598,12 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">VISIT_DETAIL_ID</td>
 <td align="left">NULL</td>
-<td align="left">A foreign key to the VISIT_DETAIL table during which the Drug was prescribed.</td>
+<td align="left">薬剤が処方された VISIT_DETAIL テーブルへの外部キー。</td>
 </tr>
 <tr class="even">
 <td align="left">DRUG_SOURCE_ VALUE</td>
 <td align="left">69842087651</td>
-<td align="left">ソース・データに表示される医薬品のソースコードです。Laurenの場合、NDCコードがここに格納されています。</td>
+<td align="left">ソース・データに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">DRUG_SOURCE_ CONCEPT_ID</td>
@@ -1721,7 +1721,7 @@ div.csl-indent {
 </div>
 <div id="追加情報" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> 追加情報<a href="CommonDataModel.html#追加情報" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>本章では、CDMに用意されている表の一部のみを取り上げ、データの表現方法の例として紹介しています。 より詳しい情報については、ウィキサイト<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>をご覧ください。</p>
+<p>本章では、CDMに用意されている表の一部のみを取り上げ、データの表現方法の例として紹介しています。 より詳しい情報については、Wiki <a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>をご覧ください。</p>
 </div>
 <div id="まとめ-2" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> まとめ<a href="CommonDataModel.html#まとめ-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>

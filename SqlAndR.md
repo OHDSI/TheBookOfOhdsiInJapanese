@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.kqhmrz1jchildren ;"
+## [1] "SELECT * FROM temp_schema.fofckm93children ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -719,7 +719,7 @@ QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリ�
 
 ### アウトカム
 
-血管性浮腫は、入院中または救急外来（ER）受診中に血管性浮腫の診断コードが記録された場合と定義します。
+血管性浮腫は、入院中または救急室ビジット中に血管性浮腫の診断コードが記録された場合と定義します。
 
 ### リスク期間
 

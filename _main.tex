@@ -973,7 +973,7 @@ CONCEPTテーブルのレコードには、各コンセプトの詳細情報（�
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-{[}Event{]}\_ID & 各レコードの固有の識別子で、イベントテーブル間の関係を確立する外部キーとして機能します。例えば、PERSON\_IDは各個人を一意に識別します。VISIT\_OCCURRENCE\_IDは受診期間を一意に識別します。 \\
+{[}Event{]}\_ID & 各レコードの固有の識別子で、イベントテーブル間の関係を確立する外部キーとして機能します。例えば、PERSON\_IDは各個人を一意に識別します。VISIT\_OCCURRENCE\_IDはビジットを一意に識別します。 \\
 {[}Event{]}\_CONCEPT\_ID & CONCEPT参照テーブルの標準コンセプトレコードへの外部キーです。これはイベントの主要な表現として機能し、標準化された分析の主要な基礎となります。たとえば、CONDITION\_CONCEPT\_ID = \href{http://athena.ohdsi.org/search-terms/terms/31967}{31967}にはSNOMEDコンセプトの「吐き気」の参照値が含まれています。 \\
 {[}Event{]}\_SOURCE\_CONCEPT\_ID & CONCEPT参照テーブルのレコードへの外部キーです。このコンセプトは、以下のソース値に相当し、標準コンセプトの場合、それは{[}Event{]}\_CONCEPT\_IDと同一になります。例えば、CONDITION\_SOURCE\_CONCEPT\_ID = \href{http://athena.ohdsi.org/search-terms/terms/45431665}{45431665}は「吐き気」というコンセプトを、Read用語で示し、同様のCONDITION\_CONCEPT\_IDは標準のSNOMED-CTコンセプト\href{http://athena.ohdsi.org/search-terms/terms/31967}{31967}です。標準分析アプリケーションの場合、ソースコンセプトの使用は推奨されません。なぜなら、標準コンセプトだけがイベントの意味的内容を明確に示し、ソースコンセプトは相互運用可能ではないためです。 \\
 {[}Event{]}\_TYPE\_CONCEPT\_ID & ソース情報の出所を示す標準化ボキャブラリ内で標準化されたコンセプト参照テーブルのレコードへの外部キーです。フィールド名とは異なり、これはイベントの種類やコンセプトの種類でもなく、このレコードを作成した取得メカニズムを宣言するものであることに留意ください。例として、DRUG\_TYPE\_CONCEPT\_IDは、薬剤レコードが薬局での調剤イベント（「薬局での調剤」）から派生したものか、処方アプリケーション（「処方箋発行」）から派生したものかを区別します。 \\
@@ -1104,21 +1104,21 @@ ETHNICITY\_SOURCE\_ CONCEPT\_ID & 0 & 同様にGENDER\_SOURCE\_CONCEPT\_IDの原
 
 \subsection{OBSERVATION\_PERIODテーブル}\label{observationPeriod}
 
-OBSERVATION\_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。EHRの場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者が訪問したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。
+OBSERVATION\_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。電子的健康記録 (EHR) の場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者を受診したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。
 
 \subsubsection*{Laurenの観察期間はどのように定義されているのですか？}\label{laurenux306eux89b3ux5bdfux671fux9593ux306fux3069ux306eux3088ux3046ux306bux5b9aux7fa9ux3055ux308cux3066ux3044ux308bux306eux3067ux3059ux304b}
 \addcontentsline{toc}{subsubsection}{Laurenの観察期間はどのように定義されているのですか？}
 
-Laurenの情報が表 \ref{tab:encounters}に示されているように電子健康記録システムに記録されているとしましょう。彼女の観察期間の元となる彼女の受診は：
+表 \ref{tab:encounters}に示されるLaurenの情報がEHRに記録されているとしましょう。彼女の観察期間の元となる彼女の受診 (Encounter) は：
 
 \begin{longtable}[]{@{}llll@{}}
-\caption{\label{tab:encounters} Laurenのヘルスケアエンカウンター}\tabularnewline
+\caption{\label{tab:encounters} Laurenのヘルスケア受診}\tabularnewline
 \toprule\noalign{}
-エンカウンターID & 開始日 & 終了日 & タイプ \\
+受診ID & 開始日 & 終了日 & タイプ \\
 \midrule\noalign{}
 \endfirsthead
 \toprule\noalign{}
-エンカウンターID & 開始日 & 終了日 & タイプ \\
+受診ID & 開始日 & 終了日 & タイプ \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -1131,7 +1131,7 @@ Laurenの情報が表 \ref{tab:encounters}に示されているように電子�
 102 & 2013-01-17 & 2013-01-24 & 入院患者 \\
 \end{longtable}
 
-エンカウンターレコードに基づいて彼女のOBSERVATION\_PERIODテーブルは次のようになるかもしれません：
+受診レコードに基づいて彼女のOBSERVATION\_PERIODテーブルは次のようになるかもしれません：
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -1162,19 +1162,19 @@ Laurenの情報が表 \ref{tab:encounters}に示されているように電子�
 \endlastfoot
 OBSERVATION\_ PERIOD\_ID & 1 & これは通常、自動生成された値で、テーブル内の各レコードに一意の識別子を生成します。 \\
 PERSON\_ID & 1 & これはPERSONテーブルでLauraのレコードへの外部キーであり、PERSONをOBSERVATION\_PERIODテーブルにリンクします。 \\
-OBSERVATION\_PERIOD\_ START\_DATE & 2010-01-06 & これは記録上、彼女の最初のエンカウンターの開始日です。 \\
-OBSERVATION\_PERIOD\_ END\_DATE & 2013-01-24 & これは記録上、彼女の最後のエンカウンターの終了日です。 \\
-PERIOD\_TYPE\_ CONCEPT\_ID & 44814725 & 「Obs Period Type」コンセプトクラスを持つボキャブラリにおける最良のオプションは\href{http://athena.ohdsi.org/search-terms/terms/44814724}{44814724}で、「ヘルスケアエンカウンターをカバーする期間」を表します。 \\
+OBSERVATION\_PERIOD\_ START\_DATE & 2010-01-06 & これは記録上、彼女の最初の受診の開始日です。 \\
+OBSERVATION\_PERIOD\_ END\_DATE & 2013-01-24 & これは記録上、彼女の最後の受診の終了日です。 \\
+PERIOD\_TYPE\_ CONCEPT\_ID & 44814725 & ``Obs Period Type (観察期間タイプ)'' コンセプトクラスを持つボキャブラリにおける最良のオプションは\href{http://athena.ohdsi.org/search-terms/terms/44814724}{44814724}で、「ヘルスケア受診をカバーする期間」を表します。 \\
 \end{longtable}
 
 \subsection{VISIT\_OCCURRENCE}\label{visitOccurrence}
 
-VISIT\_OCCURRENCEテーブルには、患者が医療システムを利用した際の情報が格納されています。OHDSIでは、これらの情報を「訪問」と呼び、個別のイベントとして扱います。訪問には12のトップカテゴリーがあり、医療が提供されるさまざまな状況を描写する広範な階層構造があります。最も多く記録されている受診は、入院、外来、救急外来、医療機関以外の施設へのビジットです。
+VISIT\_OCCURRENCEテーブルには、患者が医療システムを利用した際の情報が格納されています。OHDSIでは、これらの情報を「ビジット」と呼び、個別のイベントとして扱います。ビジットには12のトップカテゴリーがあり、医療が提供されるさまざまな状況を描写する広範な階層構造があります。最も多く記録されているビジットは、入院、外来、救急外来、医療機関以外の施設へのビジットです。
 
-\subsubsection*{Laurenのエンカウンターが受診期間としてどのように表現されるか？}\label{laurenux306eux30a8ux30f3ux30abux30a6ux30f3ux30bfux30fcux304cux53d7ux8a3aux671fux9593ux3068ux3057ux3066ux3069ux306eux3088ux3046ux306bux8868ux73feux3055ux308cux308bux304b}
-\addcontentsline{toc}{subsubsection}{Laurenのエンカウンターが受診期間としてどのように表現されるか？}
+\subsubsection*{Laurenの受診がビジットとしてどのように表現されるか？}\label{laurenux306eux53d7ux8a3aux304cux30d3ux30b8ux30c3ux30c8ux3068ux3057ux3066ux3069ux306eux3088ux3046ux306bux8868ux73feux3055ux308cux308bux304b}
+\addcontentsline{toc}{subsubsection}{Laurenの受診がビジットとしてどのように表現されるか？}
 
-例として、ビジットのエンカウンターをVISIT\_OCCURRENCEテーブルで表現しましょう。
+例として、入院受診をVISIT\_OCCURRENCEテーブルで表現しましょう。
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -1207,14 +1207,14 @@ VISIT\_OCCURRENCE\_ID & 514 & これは通常、自動生成された値で、�
 PERSON\_ID & 1 & これはPERSONテーブルでLaurenのレコードにリンクする外部キーです。 \\
 VISIT\_CONCEPT\_ID & 9201 & 入院ビジットを参照するキーは\href{http://athena.ohdsi.org/search-terms/terms/9201}{9201}です。 \\
 VISIT\_START\_DATE & 2013-01-17 & ビジットの開始日です。 \\
-VISIT\_START\_ DATETIME & 2013-01-17 00:00:00 & ビジットの日付と時間です。時間が不明なため、深夜が使用されます。 \\
+VISIT\_START\_ DATETIME & 2013-01-17 00:00:00 & ビジットの日付と時間です。時間が不明なため、0時が使用されます。 \\
 VISIT\_END\_DATE & 2013-01-24 & ビジットの終了日です。これは1日のビジットである場合、終了日は開始日と一致します。 \\
-VISIT\_END\_DATETIME & 2013-01-24 00:00:00 & ビジットの終了日と時間です。時間が不明なため、真夜中が使用されます。 \\
+VISIT\_END\_DATETIME & 2013-01-24 00:00:00 & ビジットの終了日と時間です。時間が不明なため、0時が使用されます。 \\
 VISIT\_TYPE\_ CONCEPT\_ID & 32034 & ビジットレコードの出所を示します。保険請求、病院請求、EHRなど。これらのエンカウンターがEHRに似ている例として、\href{http://athena.ohdsi.org/search-terms/terms/32035}{32035}（「EHRエンカウンターレコードから派生したビジット」）のコンセプトIDが使用されています。 \\
 PROVIDER\_ID & NULL & エンカウンターレコードに医療従事者が関連付けられている場合、その医療従事者のIDがこのフィールドに格納されます。これが医療従事者テーブルのPROVIDER\_IDフィールドの内容であるはずです。 \\
 CARE\_SITE\_ID & NULL & エンカウンターレコードに関連するケアサイトがある場合、そのケアサイトのIDがこのフィールドに入ります。これがCARE\_SITEテーブルのCARE\_SITE\_IDであるはずです。 \\
-VISIT\_SOURCE\_ VALUE & 入院 & ビジット値はソースでどのように表示されるかに基づいてここに格納されます。Laurenのデータにはそれがありません。 \\
-VISIT\_SOURCE\_ CONCEPT\_ID & NULL & ビジット値は、ソースがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトID値がここに表示されます。Laurenのデータにはこの値はありません。 \\
+VISIT\_SOURCE\_ VALUE & 入院 & ソースデータでどのように表示されるかに基づいてここに格納されます。Laurenのデータにはそれがありません。 \\
+VISIT\_SOURCE\_ CONCEPT\_ID & NULL & ソースデータがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトIDがここに表示されます。Laurenのデータにはこの値はありません。 \\
 ADMITTED\_FROM\_ CONCEPT\_ID & NULL & 既知の場合、患者が入院した場所を表すコンセプトが表示されます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者が自宅から病院に入院した場合には、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/8536}{8536}「自宅」が含まれます。 \\
 ADMITTED\_FROM\_ SOURCE\_CONCEPT\_ID & NULL & 患者が入院した元の場所を表すソース値が表示されます。上記の例では「自宅」です。 \\
 DISCHARGE\_TO\_ CONCEPT\_ID & NULL & 既知の場合、患者が退院した先の場所を表すコンセプトが含まれます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者が介護付き生活施設に退院した場合、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/8615}{8615}「介護付き生活施設」となります。 \\
@@ -1232,8 +1232,8 @@ PRECEDING\_VIS & NULL & 現在のビジットの直前のビジットを示し�
 
 CONDITION\_OCCURRENCEテーブルのレコードは、医療従事者によって観察された、または患者によって報告された、コンディションの診断、徴候、または症状です。
 
-\subsubsection*{Laurenの状態は何ですか？}\label{laurenux306eux72b6ux614bux306fux4f55ux3067ux3059ux304b}
-\addcontentsline{toc}{subsubsection}{Laurenの状態は何ですか？}
+\subsubsection*{Laurenのコンディションは何ですか？}\label{laurenux306eux30b3ux30f3ux30c7ux30a3ux30b7ux30e7ux30f3ux306fux4f55ux3067ux3059ux304b}
+\addcontentsline{toc}{subsubsection}{Laurenのコンディションは何ですか？}
 
 彼女の記録を再確認すると、次のように述べられています。：
 
@@ -1274,10 +1274,10 @@ CONDITION\_ OCCURRENCE\_ID & 964 & これは通常、自動生成された値で
 PERSON\_ID & 1 & これは、PERSONテーブルのLauraのレコードへの外部キーであり、PERSONとCONDITION\_OCCURRENCEをリンクしています。 \\
 CONDITION\_ CONCEPT\_ID & 194696 & SNOMEDコード266599000を表す外部キーは\href{http://athena.ohdsi.org/search-terms/terms/194696}{194696}です。 \\
 CONDITION\_START\_ DATE & 2010-01-06 & コンディションが記録された日付です。 \\
-CONDITION\_START\_ DATETIME & 2010-01-06 00:00:00 & コンディションが記録された日時です。時刻は不明なので、深夜が使用されます。 \\
+CONDITION\_START\_ DATETIME & 2010-01-06 00:00:00 & コンディションが記録された日時です。時刻は不明なので、0時が使用されます。 \\
 CONDITION\_END\_ DATE & NULL & コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 \\
 CONDITION\_END\_ DATETIME & NULL & 既知の場合、コンディションが終了したと見なされる日時です。 \\
-CONDITION\_TYPE\_ CONCEPT\_ID & 32020 & この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 \href{http://athena.ohdsi.org/search-terms/terms/32020}{32020}「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「病状タイプ」のボキャブラリに属するべきです。 \\
+CONDITION\_TYPE\_ CONCEPT\_ID & 32020 & この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 \href{http://athena.ohdsi.org/search-terms/terms/32020}{32020}「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、``Condition Type (コンディションタイプ)'' のボキャブラリに属するべきです。 \\
 CONDITION\_STATUS\_CONCEPT\_ID & NULL & これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4203942}{4203942} が使用されました。 \\
 STOP\_REASON & NULL & 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 \\
 PROVIDER\_ID & NULL & コンディションレコードに診断を付けた医療従事者がリストされている場合、その医療従事者の ID がこのフィールドに入ります。これは、そのビジットの医療従事者を表すPROVIDERテーブルのprovider\_idでなければなりません。 \\
@@ -1294,7 +1294,7 @@ DRUG\_EXPOSUREテーブルは、患者の体内への薬剤の意図的使用ま
 \subsubsection*{Laurenの薬物への曝露はどのように表現されますか？}\label{laurenux306eux85acux7269ux3078ux306eux66ddux9732ux306fux3069ux306eux3088ux3046ux306bux8868ux73feux3055ux308cux307eux3059ux304b}
 \addcontentsline{toc}{subsubsection}{Laurenの薬物への曝露はどのように表現されますか？}
 
-月経困難症の痛みを改善するために、Laurenは2010年01月06日の来院時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG\_EXPOSUREテーブルでは以下のようになります：
+月経困難症の痛みを改善するために、Laurenは2010年01月06日のビジット時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG\_EXPOSUREテーブルでは以下のようになります：
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
@@ -1325,7 +1325,7 @@ DRUG\_EXPOSUREテーブルは、患者の体内への薬剤の意図的使用ま
 \endlastfoot
 DRUG\_EXPOSURE\_ID & 1001 & 通常、各レコードの一意な識別子を作成するために自動生成される値です。 \\
 PERSON\_ID & 1 & PERSONテーブルのLaurenのレコードに対する外部キーで、PERSONとDRUG\_EXPOSUREをリンクしています。 \\
-DRUG\_CONCEPT\_ID & 1127433 & 医薬品のコンセプト。アセトアミノフェンの NDC コードは RxNorm コード 313782 に対応し、コンセプト \href{http://athena.ohdsi.org/search-terms/terms/1127433}{1127433}を表します。 \\
+DRUG\_CONCEPT\_ID & 1127433 & 薬剤のコンセプト。アセトアミノフェンの NDC コードは RxNorm コード 313782 に対応し、コンセプト \href{http://athena.ohdsi.org/search-terms/terms/1127433}{1127433}を表します。 \\
 DRUG\_EXPOSURE\_ START\_DATE & 2010-01-06 & 薬剤曝露の開始日。 \\
 DRUG\_EXPOSURE\_ START\_DATETIME & 2010-01-06 00:00:00 & 薬剤曝露の開始日時。時間が不明なため0時を使用。 \\
 DRUG\_EXPOSURE\_ END\_DATE & 2010-02-05 & 薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬物に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。 \\
@@ -1338,11 +1338,11 @@ QUANTITY & 60 & 最初の処方箋または調剤記録に記録された薬剤�
 DAYS\_SUPPLY & 30 & 処方された薬の処方日数。 \\
 SIG & NULL & 元の処方箋または調剤記録に記録されている（米国の薬剤処方システムでは容器に印刷されている）薬剤処方箋の指示（「signetur」）。signetur は CDM ではまだ標準化されておらず、逐語的に提供されます。 \\
 ROUTE\_CONCEPT\_ID & 4132161 & このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4132161}{4132161} (``Oral（経口）'') が使用されています. \\
-LOT\_NUMBER & NULL & 製造業者から医薬品の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。 \\
+LOT\_NUMBER & NULL & 製造業者から薬剤の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。 \\
 PROVIDER\_ID & NULL & 薬剤レコードに処方プロバイダがリストされている場合、そのプロバイダのIDがこのフィールドに入ります。その場合、このフィールドにはPROVIDERテーブルのPROVIDER\_IDが入ります。 \\
 VISIT\_OCCURRENCE\_ ID & 509 & 薬剤が処方された VISIT\_OCCURRENCE テーブルへの外部キー。 \\
-VISIT\_DETAIL\_ID & NULL & A foreign key to the VISIT\_DETAIL table during which the Drug was prescribed. \\
-DRUG\_SOURCE\_ VALUE & 69842087651 & ソース・データに表示される医薬品のソースコードです。Laurenの場合、NDCコードがここに格納されています。 \\
+VISIT\_DETAIL\_ID & NULL & 薬剤が処方された VISIT\_DETAIL テーブルへの外部キー。 \\
+DRUG\_SOURCE\_ VALUE & 69842087651 & ソース・データに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。 \\
 DRUG\_SOURCE\_ CONCEPT\_ID & 750264 & 薬剤のソースデータでの値を表すコンセプトです。コンセプト \href{http://athena.ohdsi.org/search-terms/terms/750264}{750264} NDCコードで''Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）``を表します。 \\
 ROUTE\_SOURCE\_ VALUE & NULL & 情報源に詳述されている投与経路に関する逐語的な情報。 \\
 \end{longtable}
@@ -1409,7 +1409,7 @@ MODIFIER\_SOURCE\_ VALUE & NULL & ソース・データに表示される修飾�
 
 \section{追加情報}\label{ux8ffdux52a0ux60c5ux5831}
 
-本章では、CDMに用意されている表の一部のみを取り上げ、データの表現方法の例として紹介しています。 より詳しい情報については、ウィキサイト\footnote{\url{https://github.com/OHDSI/CommonDataModel/wiki}}をご覧ください。
+本章では、CDMに用意されている表の一部のみを取り上げ、データの表現方法の例として紹介しています。 より詳しい情報については、Wiki \footnote{\url{https://github.com/OHDSI/CommonDataModel/wiki}}をご覧ください。
 
 \section{まとめ}\label{ux307eux3068ux3081-2}
 
@@ -1555,7 +1555,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
 \caption{OMOP CDMにおける標準化ボキャブラリコンセプトの標準的な表現。提示されている例は心房細動のSNOMEDコードに対するCONCEPTテーブルのレコードです。}\label{fig:concept}
 \end{figure}
 
-このシステムは\textbf{包括的}であることを意味し、患者の医療体験に関連するすべてのイベント（例：コンディション、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット、医療施設など）をカバーするのに十分なコンセプトが存在します。
+このシステムは\textbf{包括的}であることを意味し、患者の医療体験に関連するすべてのイベント（例：コンディション、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット（受診期間）、医療施設など）をカバーするのに十分なコンセプトが存在します。
 
 \subsection{コンセプトID}\label{ux30b3ux30f3ux30bbux30d7ux30c8id}
 
@@ -1567,7 +1567,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
 
 \subsection{ドメイン}\label{conceptDomains}
 
-各コンセプトにはDOMAIN\_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT\_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition」、「Drug」、「Procedure」、「Visit」、「Device」、「Specimen」などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション \ref{standardConcepts} 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、\href{https://github.com/ohDSI/vocabulary-v5.0}{Pallas}に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 \ref{fig:domains} 参照）。\index{domain!concept}
+各コンセプトにはDOMAIN\_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT\_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、``Condition (コンディション)''、``Drug (薬剤)''、``Procedure (処置（プロシージャー）)''、``Visit (ビジット)''、``Device (デバイス)''、``Specimen (試料)'' などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション \ref{standardConcepts} 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、\href{https://github.com/ohDSI/vocabulary-v5.0}{Pallas}に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 \ref{fig:domains} 参照）。\index{domain!concept}
 
 \begin{figure}
 
@@ -1613,7 +1613,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
 水平 & すべての薬剤ボキャブラリ、ATC、CDT、Episode、HCPCS、HemOnc、ICDs、MedDRA、OSM、国勢調査 \\
 垂直 & CIEL、HES専門、ICDO3、MeSH、NAACCR、NDFRT、OPCS4、PCORNET、Plan、PPI、Provider、SNOMED、SPL、UCUM \\
 混在 & CPT4、ISBT、LOINC \\
-なし & APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、訪問 \\
+なし & APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、ビジット \\
 \end{longtable}
 
 水平コンセプトクラスにより、特定の階層レベルを決定することができます。たとえば、医薬品ボキャブラリのRxNormにおけるコンセプトクラス「Ingredient」は階層の最上位レベルを定義します。垂直モデルでは、コンセプトクラスのメンバーは最上位から最下位までの任意の階層レベルにすることができます。
@@ -2191,7 +2191,7 @@ White RabbitスキャンレポートをRabbit-In-a-Hatで開くと、ソース�
 \subsubsection*{ETLの一般的なフロー}\label{etlux306eux4e00ux822cux7684ux306aux30d5ux30edux30fc}
 \addcontentsline{toc}{subsubsection}{ETLの一般的なフロー}
 
-CDMは人を中心としたモデルであるため、PERSONテーブルのマッピングを最初に始めることが常に良い方法です。すべての臨床イベントテーブル（CONDITION\_OCCURRENCE、DRUG\_EXPOSURE、PROCEDURE\_OCCURRENCEなど）は、person\_idを介してPERSONテーブルを参照するため、最初にPERSONテーブルのロジックを構築しておくと、後で作業が容易になります。PERSONテーブルの次に、OBSERVATION\_PERIODテーブルを変換するのが良い方法です。CDMデータベースの各人には少なくとも1つのOBSERVATION\_PERIODがあり、通常、ほとんどのイベントはこの期間内に発生します。PERSONテーブルとOBSERVATION\_PERIODテーブルが完了したら、次にPROVIDER、CARE\_SITE、LOCATIONなどのディメンショナルテーブルが通常は続きます。臨床テーブルの前に作成すべき最後のテーブルロジックはVISIT\_OCCURRENCEです。これはETL全体で最も複雑なロジックであることが多くまた、患者の旅の過程で発生するほとんどのイベントは来院時に発生するため、最も重要なものの1つです。これらのテーブルが完了したら、どのCDMテーブルをどのような順序でマッピングするかは実施者の選択にゆだねられます。
+CDMは人を中心としたモデルであるため、PERSONテーブルのマッピングを最初に始めることが常に良い方法です。すべての臨床イベントテーブル（CONDITION\_OCCURRENCE、DRUG\_EXPOSURE、PROCEDURE\_OCCURRENCEなど）は、person\_idを介してPERSONテーブルを参照するため、最初にPERSONテーブルのロジックを構築しておくと、後で作業が容易になります。PERSONテーブルの次に、OBSERVATION\_PERIODテーブルを変換するのが良い方法です。CDMデータベースの各人には少なくとも1つのOBSERVATION\_PERIODがあり、通常、ほとんどのイベントはこの期間内に発生します。PERSONテーブルとOBSERVATION\_PERIODテーブルが完了したら、次にPROVIDER、CARE\_SITE、LOCATIONなどのディメンショナルテーブルが通常は続きます。臨床テーブルの前に作成すべき最後のテーブルロジックはVISIT\_OCCURRENCEです。これはETL全体で最も複雑なロジックであることが多くまた、患者の旅の過程で発生するほとんどのイベントはビジット時に発生するため、最も重要なものの1つです。これらのテーブルが完了したら、どのCDMテーブルをどのような順序でマッピングするかは実施者の選択にゆだねられます。
 
 \begin{figure}
 
@@ -2550,7 +2550,7 @@ ETLの例をいくつか挙げます（複雑さの順に記載）：\index{ETL!
   \begin{itemize}
   \tightlist
   \item
-    特定の問題にどのように対処するかによって、カウントに期待される多少の差異が生じるかもしれません。たとえば、一部のコラボレーターは、NULL 性別を持つ人々を削除することを選択しています。なぜなら、そのような人々は分析には含まれないからです。また、CDM における来院は、ネイティブデータにおける来院またはビジットとは異なる方法で構築されている場合もあります。したがって、ソースデータと CDM データの全体的なカウントを比較する際には、これらの相違を考慮し、予想しておくことが重要です。
+    特定の問題にどのように対処するかによって、カウントに期待される多少の差異が生じるかもしれません。たとえば、一部のコラボレーターは、NULL 性別を持つ人々を削除することを選択しています。なぜなら、そのような人々は分析には含まれないからです。また、CDM におけるビジットは、ネイティブデータにおけるビジットや受診とは異なる方法で構築されている場合もあります。したがって、ソースデータと CDM データの全体的なカウントを比較する際には、これらの相違を考慮し、予想しておくことが重要です。
   \end{itemize}
 \item
   ソースデータで既済の研究をCDMバージョンで再現します。
@@ -2689,7 +2689,7 @@ ETHNICITY\_SOURCE\_VALUE & 提供されていない \\
 
 \begin{exercise}
 \protect\hypertarget{exr:exerciseEtl3}{}\label{exr:exerciseEtl3}VISIT\_OCCURRENCEレコードを生成してみましょう。以下はSyntheaのために書かれたロジック例です：
-PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PERSON\_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある場合、請求の行を統合します。統合された入院患者の請求は1つの入院患者のビジットと見なされ、設定されます：
+PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PERSON\_IDごとに、前の行のENDと次の行のSTARTの間に1日以内の時間がある場合、請求の行を統合します。統合された入院の請求は1つの入院ビジットと見なされ、設定されます：
 
 \begin{itemize}
 \tightlist
@@ -2701,7 +2701,7 @@ PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PE
   ``IP''をPLACE\_OF\_SERVICE\_SOURCE\_VALUEとして設定
 \end{itemize}
 
-ソースデータに図 \ref{fig:exerciseSourceData} に示されるようなビジットセットがある場合、CDMで生成されるVISIT\_OCCURRENCEレコードはどのようになると予想しますか？
+ソースデータに図 \ref{fig:exerciseSourceData} に示されるようなビジットのセットがある場合、CDMで生成されるVISIT\_OCCURRENCEレコードはどのようになると予想しますか？
 \end{exercise}
 
 \begin{figure}
@@ -3762,7 +3762,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.kqhmrz1jchildren ;"
+## [1] "SELECT * FROM temp_schema.fofckm93children ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -4261,7 +4261,7 @@ QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリ�
 
 \subsection{アウトカム}\label{ux30a2ux30a6ux30c8ux30abux30e0}
 
-血管性浮腫は、入院中または救急外来（ER）受診中に血管性浮腫の診断コードが記録された場合と定義します。
+血管性浮腫は、入院中または救急室ビジット中に血管性浮腫の診断コードが記録された場合と定義します。
 
 \subsection{リスク期間}\label{ux30eaux30b9ux30afux671fux9593}
 
@@ -9134,7 +9134,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 \end{Highlighting}
 \end{Shaded}
 
-出力ファイルをウェブブラウザで開くことができます（図 \ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には''入院またはER訪問''と''血管性浮腫''という二つのコンセプトセットがあります。この例のデータベースでは、訪問は''ER''および''IP''というデータベース固有のソースコードによって見つかり、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって見つかります。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
+出力ファイルをウェブブラウザで開くことができます（図 \ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には''Inpatient or ER (入院または救急室ビジット)``と''Angioedema (血管性浮腫)``という二つのコンセプトセットがあります。この例のデータベースでは、ビジットは''ER''および''IP''というデータベース固有のソースコードによって同定され、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって同定されました。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
 
 \begin{figure}
 
@@ -9406,7 +9406,7 @@ PheValuator を使用して心筋梗塞のコホート定義をテストする�
 \subsubsection*{ステップ 1: xSpec コホートの定義}\label{ux30b9ux30c6ux30c3ux30d7-1-xspec-ux30b3ux30dbux30fcux30c8ux306eux5b9aux7fa9}
 \addcontentsline{toc}{subsubsection}{ステップ 1: xSpec コホートの定義}
 
-MIの可能性が高いものを特定します。心筋梗塞またはその子孫のコンセプトを持つ条件発生レコードで、5日以内の入院患者訪問から1回以上のMI発生が記録され、365日以内の患者レコードで4回以上のMI発生が記録されているものが必要とされました。図 \ref{fig:xSpec} は、ATLASにおけるMIのこのコホート定義を示しています。
+MIの可能性が高いものを特定します。心筋梗塞またはその子孫のコンセプトを持つ条件発生レコードで、5日以内の入院ビジットから1回以上のMI発生が記録され、365日以内の患者レコードで4回以上のMI発生が記録されているものが必要とされました。図 \ref{fig:xSpec} は、ATLASにおけるMIのこのコホート定義を示しています。
 
 \begin{figure}
 
@@ -9438,7 +9438,7 @@ MIの可能性が高いものを特定します。心筋梗塞またはその子
 
 xSpec コホートを定義するために使用されたすべてのコンセプトは、モデリングプロセスから除外する必要があります。これを実行するには、\texttt{excludedConcepts}パラメータをxSpec定義で使用されたコンセプトのリストに設定します。例えば、MIの場合、心筋梗塞のコンセプトと、そのすべての子孫のコンセプトを使用して、ATLASでコンセプトセットを作成します。この例では、excludedConceptsパラメータを4329847（心筋梗塞の概念ID）に設定し、さらにaddDescendantsToExcludeパラメータもTRUEに設定して、除外されたコンセプトの子孫も除外されるようにします。
 
-モデリングプロセスに含まれる人物の特徴を指定するために使用できるパラメータがいくつかあります。モデリングプロセスに含まれる人物の年齢を指定するには、\texttt{lowerAgeLimit}をモデルで希望する年齢の下限に、\texttt{upperAgeLimit}を上限に設定します。計画中の研究のコーホート定義を特定の年齢グループに対して作成する場合は、この設定を行うとよいでしょう。例えば、研究で使用するコホート定義が小児の1型糖尿病である場合、診断予測モデルの開発に使用する年齢を、例えば5歳から17歳に限定したいと考えるかもしれません。そうすることで、テスト対象のコホート定義によって選択された人々により密接に関連する可能性が高い特徴を持つモデルが作成されます。また、\texttt{性別}パラメータを男性または女性のコンセプト ID に設定することで、モデルに含める性別を指定することもできます。デフォルトでは、パラメータは男性と女性の両方を含めるように設定されています。この機能は、前立腺がんなどの性別特有の健康アウトカムに役立つ場合があります。\texttt{startDate}および\texttt{endDate}パラメータをそれぞれ日付範囲の下限および上限に設定することで、その人物のレコードにおける最初の訪問に基づいて、人物の包含期間を設定することができます。最後に、\texttt{mainPopnCohort}パラメータを使用して、対象および結果コホート内のすべての人物が選択される大規模な母集団コホートを指定することができます。ほとんどの場合、このパラメータは0に設定され、対象およびアウトカムコホート内の人物の選択に制限がないことを示します。ただし、このパラメータがより優れたモデルの構築に役立つ場合もあります。例えば、健康アウトカムの発生率が極めて低い場合、おそらく0.01\%以下の場合です。 次の例を参照してください:
+モデリングプロセスに含まれる人物の特徴を指定するために使用できるパラメータがいくつかあります。モデリングプロセスに含まれる人物の年齢を指定するには、\texttt{lowerAgeLimit}をモデルで希望する年齢の下限に、\texttt{upperAgeLimit}を上限に設定します。計画中の研究のコーホート定義を特定の年齢グループに対して作成する場合は、この設定を行うとよいでしょう。例えば、研究で使用するコホート定義が小児の1型糖尿病である場合、診断予測モデルの開発に使用する年齢を、例えば5歳から17歳に限定したいと考えるかもしれません。そうすることで、テスト対象のコホート定義によって選択された人々により密接に関連する可能性が高い特徴を持つモデルが作成されます。また、\texttt{性別}パラメータを男性または女性のコンセプト ID に設定することで、モデルに含める性別を指定することもできます。デフォルトでは、パラメータは男性と女性の両方を含めるように設定されています。この機能は、前立腺がんなどの性別特有の健康アウトカムに役立つ場合があります。\texttt{startDate}および\texttt{endDate}パラメータをそれぞれ日付範囲の下限および上限に設定することで、その人物のレコードにおける最初のビジットに基づいて、人物の包含期間を設定することができます。最後に、\texttt{mainPopnCohort}パラメータを使用して、対象および結果コホート内のすべての人物が選択される大規模な母集団コホートを指定することができます。ほとんどの場合、このパラメータは0に設定され、対象およびアウトカムコホート内の人物の選択に制限がないことを示します。ただし、このパラメータがより優れたモデルの構築に役立つ場合もあります。例えば、健康アウトカムの発生率が極めて低い場合、おそらく0.01\%以下の場合です。 次の例を参照してください:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9473,7 +9473,7 @@ xSpec コホートを定義するために使用されたすべてのコンセ�
 \end{Highlighting}
 \end{Shaded}
 
-この例では、「my\_results」データベースで定義されたコホートを使用し、コホートテーブルの場所（cohortDatabaseSchema、cohortDatabaseTable - 「my\_results.cohort」）と、モデルに条件、薬物曝露などを知らせる場所（cdmDatabaseSchema - 「my\_cdm\_data」）を指定しました。モデルに含まれる対象者は、CDMにおける初回来院日が2010年1月1日から2017年12月31日の間の人々です。また、xSpecコホートを作成するために使用されたコンセプトID 312327、314666、およびそれらの子孫は、除外しています。これらの初回来院時の年齢は18歳から90歳の間です。上記のパラメータを使用した場合、このステップで出力される予測モデルの名前は次のようになります。「c:/temp/lr\_results\_5XMI\_train\_myCDM\_ePPV0.75\_20181206V1.rds」
+この例では、「my\_results」データベースで定義されたコホートを使用し、コホートテーブルの場所（cohortDatabaseSchema、cohortDatabaseTable - 「my\_results.cohort」）と、モデルに条件、薬物曝露などを知らせる場所（cdmDatabaseSchema - 「my\_cdm\_data」）を指定しました。モデルに含まれる対象者は、CDMにおける初回ビジット日が2010年1月1日から2017年12月31日の間の人です。また、xSpecコホートを作成するために使用されたコンセプトID 312327、314666、およびそれらの子孫は、除外しています。これらの初回ビジット時の年齢は18歳から90歳の間です。上記のパラメータを使用した場合、このステップで出力される予測モデルの名前は次のようになります。「c:/temp/lr\_results\_5XMI\_train\_myCDM\_ePPV0.75\_20181206V1.rds」
 
 \subsubsection*{ステップ 4: 評価コホートの作成}\label{ux30b9ux30c6ux30c3ux30d7-4-ux8a55ux4fa1ux30b3ux30dbux30fcux30c8ux306eux4f5cux6210}
 \addcontentsline{toc}{subsubsection}{ステップ 4: 評価コホートの作成}
@@ -11084,7 +11084,7 @@ RパッケージSqlRenderを使用して様々な他のSQLダイアレクト（�
 \begin{itemize}
 \tightlist
 \item
-  インデックス日から遡るすべての日から0日後の間に始まり、ビジット終了日がインデックス開始日0日後からインデックス開始日後の全ての日の間に終了すると一致する\emph{入院または救急室受診} (表 \ref{tab:inpatientOrErAmi})のビジット出現が少なくとも1件。
+  インデックス日から遡るすべての日から0日後の間に始まり、ビジット終了日がインデックス開始日0日後からインデックス開始日後の全ての日の間に終了すると一致する\emph{入院または救急室ビジット} (表 \ref{tab:inpatientOrErAmi})のビジット出現が少なくとも1件。
 \end{itemize}
 
 インデックスイベントのコホート次のように限定します：その個人における全てのイベント。
@@ -12670,7 +12670,7 @@ NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下�
 \end{Highlighting}
 \end{Shaded}
 
-次に、入院または救急室受診時に出現したもののみを選択し、特定のCOHORT\_DEFINITION\_ID（ここでは「1」を選択しました）を使用します:
+次に、入院または救急室ビジット時に出現したもののみを選択し、特定のCOHORT\_DEFINITION\_ID（ここでは「1」を選択しました）を使用します:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12693,7 +12693,7 @@ NSAIDsのコンセプトセットは、NSAIDsクラスとそのすべての下�
 \end{Highlighting}
 \end{Shaded}
 
-コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT\_OCCURRENCE\_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室受診に関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。
+コンディションの日がビジット開始日と終了日の間になることを要求する代わりに、コンディションとビジットをVISIT\_OCCURRENCE\_IDに基づいて結合するアプローチも考えられることに注意してください。この方法は、コンディションが入院または救急室ビジットに関連して記録されたことを保証するので、より正確かもしれません。しかし、多くの観察データベースは、ビジットと診断を関連させて記録しないため、ここでは代わりに日付を使用することを選びました。これにより、感度が高くなりますが、特異度は低くなる可能性があります。
 
 また、ここではコホート終了日は考慮していないことに注意してください。通常、コホートがアウトカムを定義するために使用される場合、関心を持つのはコホートの開始日だけであり、（不明確な）コホート終了日を作成する必要はありません。
 
