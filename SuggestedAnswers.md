@@ -150,7 +150,7 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 ## 1                    61        61                    1968-01-21 ...
 ```
 
-## 標準化ボキャブラリ {#Vocabanswers}
+## 標準化されたボキャブラリ {#Vocabanswers}
 
 #### 演習 \@ref(exr:exerciseVocab1) {.unnumbered}
 
