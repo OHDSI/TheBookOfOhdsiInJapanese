@@ -373,9 +373,9 @@ knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasInclusion2.png")
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasConceptSet3.png")
 ```
 
-最後に、図 \@ref(fig:cohortsAtlasExit)のように。曝露中断をコホート・エグジット基準として定義します（30日間のギャップを許容します）。
+最後に、図 \@ref(fig:cohortsAtlasExit)のように。曝露中断をコホート離脱基準として定義します（30日間のギャップを許容します）。
 
-```{r cohortsAtlasExit, fig.cap='コホート・イグジット日の設定',echo=FALSE, out.width='100%', fig.align='center'}
+```{r cohortsAtlasExit, fig.cap='コホート離脱日の設定',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/cohortsAtlasExit.png")
 ```
 
@@ -456,7 +456,7 @@ knitr::include_graphics("images/SuggestedAnswers/dataSourcesAtlas.png")
 knitr::include_graphics("images/SuggestedAnswers/conceptSearchAtlas.png")
 ```
 
-図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート・イグジット、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
+図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート離脱、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 ```{r celecoxibCohortDefinition, fig.cap='セレコキシブ新規ユーザーの単純なコホート定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/celecoxibCohortDefinition.png")
@@ -488,7 +488,7 @@ knitr::include_graphics("images/SuggestedAnswers/giBleedSearch.png")
 knitr::include_graphics("images/SuggestedAnswers/giBleedDescendants.png")
 ```
 
-"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート・イグジット、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 ```{r giBleedCohortDefinition, fig.cap='単純な消化管出血コホート定義',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SuggestedAnswers/giBleedCohortDefinition.png")
