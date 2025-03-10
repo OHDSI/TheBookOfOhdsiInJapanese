@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
-<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: Study-a-Thon</a></li>
 <li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
 <li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
 <li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
@@ -289,7 +289,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
-<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディングシステムとOMOP条件</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディング体系とOMOPコンディション</a></li>
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
@@ -837,7 +837,7 @@ div.csl-indent {
 図 5.2: OMOP CDMにおける標準化ボキャブラリコンセプトの標準的な表現。提示されている例は心房細動のSNOMEDコードに対するCONCEPTテーブルのレコードです。
 </p>
 </div>
-<p>このシステムは<strong>包括的</strong>であることを意味し、患者の医療体験に関連するすべてのイベント（例：コンディション、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット（受診期間）、医療施設など）をカバーするのに十分なコンセプトが存在します。</p>
+<p>このシステムは<strong>包括的</strong>であることを意味し、患者の医療体験に関連するすべてのイベント（例：状態・疾患（コンディション）、プロシージャー、薬剤曝露など）や医療システムの一部の管理情報（例：ビジット（受診期間）、医療施設など）をカバーするのに十分なコンセプトが存在します。</p>
 <div id="コンセプトid" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> コンセプトID<a href="StandardizedVocabularies.html#コンセプトid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>各コンセプトにはプライマリキーとして使用されるコンセプトIDが割り当てられます。この無意味な整数IDは、CDMのイベントテーブルにデータを記録する際に使用され、元のボキャブラリコードではありません。 </p>
@@ -1127,8 +1127,8 @@ div.csl-indent {
 </tbody>
 </table>
 <p>これらのマッピング関係の目的は、同等のコンセプト間の相互参照を可能にし、臨床イベントがOMOP CDMでどのように表現されるかを統一することです。これは標準化ボキャブラリの主要な成果です。</p>
-<p>「同等のコンセプト」とは、同じ意味を持ち、さらに重要なことには、階層下位のコンセプトが同じ意味領域をカバーすることを意味します。同等のコンセプトが利用できず、コンセプトが標準でない場合、それはより広いコンセプトにマッピング（いわゆる「上方向マッピング」）されます。たとえば、ICD10CM W61.51「ガチョウに噛まれる」は、標準のコンディションコンセプトとして使用されるSNOMEDボキャブラリには同等のものがありません。代わりに、それはSNOMED 217716004「鳥に突かれる」にマッピングされ、コンテキストとしての鳥がガチョウであるという情報が失われます。上方向マッピングは、情報の損失が標準的な研究用途には無関係であるとみなされる場合にのみ使用されます。</p>
-<p>一部のマッピングでは、ソースコンセプトが複数の標準コンセプトにリンクされます。たとえば、ICD9CM 070.43「肝性昏睡を伴うE型肝炎」は、SNOMED 235867002「急性E型肝炎」とSNOMED 72836002「肝性昏睡」の両方にマッピングされます。これは、元のソースコンセプトが肝炎と昏睡という2つの状態のあらかじめ組み合わせられたものであるためです。SNOMEDにはその組み合わせがなく、その結果、ICD9CMレコードではマッピングされた標準コンセプトそれぞれに対して2つのレコードが作成されます。</p>
+<p>「同等のコンセプト」とは、同じ意味を持ち、さらに重要なことには、階層下位のコンセプトが同じ意味領域をカバーすることを意味します。同等のコンセプトが利用できず、コンセプトが標準でない場合、それはより広いコンセプトにマッピング（いわゆる「上方向マッピング」）されます。たとえば、ICD10CM W61.51「ガチョウに噛まれる」は、標準コンディションコンセプトとして使用されるSNOMEDボキャブラリには同等のものがありません。代わりに、それはSNOMED 217716004「鳥に突かれる」にマッピングされ、コンテキストとしての鳥がガチョウであるという情報が失われます。上方向マッピングは、情報の損失が標準的な研究用途には無関係であるとみなされる場合にのみ使用されます。</p>
+<p>一部のマッピングでは、ソースコンセプトが複数の標準コンセプトにリンクされます。たとえば、ICD9CM 070.43「肝性昏睡を伴うE型肝炎」は、SNOMED 235867002「急性E型肝炎」とSNOMED 72836002「肝性昏睡」の両方にマッピングされます。これは、元のソースコンセプトが肝炎と昏睡という2つのコンディションがあらかじめ組み合わせられたものであるためです。SNOMEDにはその組み合わせがなく、その結果、ICD9CMレコードではマッピングされた標準コンセプトそれぞれに対して2つのレコードが作成されます。</p>
 <p>「Maps to value」関係は、エンティティ-属性-値（EAV）モデルに従ってOMOP CDMテーブルの値を分割することを目的としています。これは次の状況で発生します：</p>
 <ul>
 <li>検査と結果の値からなるメジャーメント</li>
@@ -1159,7 +1159,7 @@ div.csl-indent {
 <p>内部ボキャブラリ間の関係は通常、ボキャブラリの提供者によって提示されます。OHDSI Wikiの個々のボキャブラリの個々のボキャブラリー文書に完全な説明が記載されています<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。</p>
 <p>これらの多くは、臨床イベント間の関係を定義しており、情報検索に使用することができます。例えば、尿道の障害は、「Finding site of（部位の検索）」関係に従うことで検索することができます（表 <a href="StandardizedVocabularies.html#tab:findingSite">5.5</a> を参照）。</p>
 <table>
-<caption><span id="tab:findingSite">表 5.5: </span> 尿道の「Finding site of」関係で、すべてこの解剖学的構造に位置する状態を示しています。</caption>
+<caption><span id="tab:findingSite">表 5.5: </span> 尿道の「Finding site of」関係で、すべてこの解剖学的構造に位置するコンディションを示しています。</caption>
 <thead>
 <tr class="header">
 <th align="left">CONCEPT_ID_1</th>
@@ -1194,9 +1194,9 @@ div.csl-indent {
 <p>CONCEPT_ANCESTORテーブルは、階層関係を通じてつながっているすべてのコンセプトを網羅するCONCEPT_RELATIONSHIPテーブルから自動的に構築されます。これらは “Is a” - “Subsumes” のペア（図 <a href="StandardizedVocabularies.html#fig:conceptAncestor">5.6</a> 参照）であり、ボキャブラリ間の階層を結びつけるその他の関係です。関係が階層構築に参加するかは、関係IDごとにRELATIONSHIP参照テーブルのDEFINES_ANCESTRYフラグによって定義されます。</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:conceptAncestor"></span>
-<img src="images/StandardizedVocabularies/conceptAncestor.png" alt="「心房細動」という条件の階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 " width="100%" />
+<img src="images/StandardizedVocabularies/conceptAncestor.png" alt="「心房細動」というコンディションの階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 " width="100%" />
 <p class="caption">
-図 5.6: 「心房細動」という条件の階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 
+図 5.6: 「心房細動」というコンディションの階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 
 </p>
 </div>
 <p>上位層の度合い、つまり上位層と下位層の間の階層数は、MIN_LEVELS_OF_SEPARATIONおよびMAX_LEVELS_OF_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS_HIERARCHICALフラグによって決まります。</p>
@@ -1216,8 +1216,8 @@ div.csl-indent {
 <h3><span class="header-section-number">5.6.2</span> 人種と民族<a href="StandardizedVocabularies.html#人種と民族" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>これらは米国政府の定義に従います。民族はヒスパニック系または非ヒスパニック系の区別であり、人種は問いません。人種は一般的な上位5つの人種に分けられ、民族は階層的な下位層として含まれます。“Mixed races (混血)” は含まれていません。</p>
 </div>
-<div id="診断コーディングシステムとomop条件" class="section level3 hasAnchor" number="5.6.3">
-<h3><span class="header-section-number">5.6.3</span> 診断コーディングシステムとOMOP条件<a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="診断コーディング体系とomopコンディション" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> 診断コーディング体系とOMOPコンディション<a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ICD-9やICD-10などの一般に使用されているコーディング体系は、適切な診断評価に基づいて、ある程度明確な診断を定義しています。 コンディションドメインは、このセマンティックスペースと完全に一致するものではありませんが、部分的に重複しています。 例えば、コンディションには診断が下される前に記録される徴候や症状も含まれます。また、ICDコードには他のドメイン（例えば、プロシージャー）に属するコンセプトも含まれます。</p>
 </div>
 <div id="プロシージャーコードシステム" class="section level3 hasAnchor" number="5.6.4">

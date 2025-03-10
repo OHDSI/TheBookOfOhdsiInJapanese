@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
-<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: Study-a-Thon</a></li>
 <li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
 <li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
 <li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
@@ -289,7 +289,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
-<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディングシステムとOMOP条件</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディング体系とOMOPコンディション</a></li>
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
@@ -829,7 +829,7 @@ div.csl-indent {
 </div>
 <div id="if-then-else" class="section level4 unnumbered hasAnchor">
 <h4>If-Then-Else<a href="SqlAndR.html#if-then-else" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、<code>{Condition} ? {if true} : {if false}</code> 構文を使用して行います。<em>condition</em> が true または 1 の場合、<em>if true</em> ブロックが使用され、それ以外の場合は <em>if false</em> ブロックが（存在する場合）表示されます。</p>
+<p>時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、<code>{Condition} ? {if true} : {if false}</code> 構文を使用して行います。<em>条件</em> が true または 1 の場合、<em>if true</em> ブロックが使用され、それ以外の場合は <em>if false</em> ブロックが（存在する場合）表示されます。</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="SqlAndR.html#cb17-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;SELECT * FROM cohort {@x} ? {WHERE subject_id = 1}&quot;</span></span>
 <span id="cb17-2"><a href="SqlAndR.html#cb17-2" tabindex="-1"></a><span class="fu">render</span>(sql, <span class="at">x =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;SELECT * FROM cohort &quot;</code></pre>
@@ -1058,7 +1058,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.poai27kechildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.l03onqtlchildren ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>

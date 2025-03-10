@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
-<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: Study-a-Thon</a></li>
 <li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
 <li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
 <li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
@@ -289,7 +289,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
-<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディングシステムとOMOP条件</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディング体系とOMOPコンディション</a></li>
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
@@ -816,12 +816,12 @@ div.csl-indent {
 <h3><span class="header-section-number">16.2.1</span> コホート評価指標<a href="ClinicalValidity.html#コホート評価指標" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>対象コホートの定義が確定すると、その妥当性を評価することができます。妥当性を評価する一般的なアプローチは、定義されたコホートの一部またはすべてを基準となる「ゴールドスタンダード」と比較し、その結果を混同行列（2×2分割表）で表現することです。混同行列は、ゴールドスタンダードの分類とコホート定義内の適格性に基づいて対象を層別化します。図 <a href="ClinicalValidity.html#fig:matrix">16.1</a> は、混同行列の要素を示しています。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:matrix"></span>
-<img src="images/ClinicalValidity/matrix.png" alt="コンフュージョンマトリックス" width="75%" />
+<img src="images/ClinicalValidity/matrix.png" alt="混同行列" width="75%" />
 <p class="caption">
-図 16.1: コンフュージョンマトリックス
+図 16.1: 混同行列
 </p>
 </div>
-<p>コホート定義による真の結果と偽の結果は、その定義をある集団に適用することで決定されます。定義に含まれる人は、その健康状態を陽性と見なされ、「真」とラベル付けされます。コホート定義に含まれない人々は、健康状態が陰性と見なされ、「偽」とラベル付けされます。コホート定義で考慮される個人の健康状態の絶対的な真実は非常に判断が難しいですが、参照用ゴールドスタンダードを確立する方法は複数あり、そのうちの2つは本書の後半で説明します。使用する手法に関わらず、これらの人々に対するラベル付けは、コホート定義で説明したものと同じです。 表現型指定の二値表示におけるエラーに加えて、健康状態のタイミングも不正確である可能性があります。例えば、コホート定義が表現型に属する人々を正しくラベル付けしている場合でも、その定義が、健康状態ではない人が健康状態にある人となった日時を不正確に指定している可能性があります。このエラーは、効果測定値として生存分析結果（例えば、ハザード比）を用いる研究にバイアスを加えることになります。 次のステップは、ゴールドスタンダードとコホート定義の一致度を評価することです。ゴールドスタンダード法とコホート定義の両方で「真」と判定された人を「真陽性」と呼びます。ゴールドスタンダード法で「偽」と判定され、コホート定義で「真」と判定された人を「偽陽性」と呼びます。つまり、コホート定義では、これらの人は疾患を有していないにもかかわらず、疾患を有していると誤分類されています。ゴールドスタンダード法とコホート定義の両方で「偽」と判定された人は「真の陰性」と呼ばれます。ゴールドスタンダード法で「真」と判定され、コホート定義で「偽」と判定された人は「偽の陰性」と呼ばれ、すなわち、コホート定義がこれらの人を、実際にはその人が表現型に属しているにもかかわらず、その条件に該当しないと誤って分類したことになります。混同行列の4つのセルのカウント値を用いれば、ある集団における表現型の状態を分類する際のコホート定義の精度を定量化することができます。コホート定義の性能を測定するための標準的なパフォーマンス指標があります。</p>
+<p>コホート定義による真の結果と偽の結果は、その定義をある集団に適用することで決定されます。定義に含まれる人は、その健康状態を陽性と見なされ、「真」とラベル付けされます。コホート定義に含まれない人々は、健康状態が陰性と見なされ、「偽」とラベル付けされます。コホート定義で考慮される個人の健康状態の絶対的な真実は非常に判断が難しいですが、参照用ゴールドスタンダードを確立する方法は複数あり、そのうちの2つは本書の後半で説明します。使用する手法に関わらず、これらの人々に対するラベル付けは、コホート定義で説明したものと同じです。 表現型指定の二値表示におけるエラーに加えて、健康状態のタイミングも不正確である可能性があります。例えば、コホート定義が表現型に属する人々を正しくラベル付けしている場合でも、その定義が、健康状態ではない人が健康状態にある人となった日時を不正確に指定している可能性があります。このエラーは、効果測定値として生存分析結果（例えば、ハザード比）を用いる研究にバイアスを加えることになります。 次のステップは、ゴールドスタンダードとコホート定義の一致度を評価することです。ゴールドスタンダード法とコホート定義の両方で「真」と判定された人を「真陽性」と呼びます。ゴールドスタンダード法で「偽」と判定され、コホート定義で「真」と判定された人を「偽陽性」と呼びます。つまり、コホート定義では、これらの人は疾患を有していないにもかかわらず、疾患を有していると誤分類されています。ゴールドスタンダード法とコホート定義の両方で「偽」と判定された人は「真の陰性」と呼ばれます。ゴールドスタンダード法で「真」と判定され、コホート定義で「偽」と判定された人は「偽の陰性」と呼ばれ、すなわち、コホート定義がこれらの人を、実際にはその人が表現型に属しているにもかかわらず、その状態に該当しないと誤って分類したことになります。混同行列の4つのセルのカウント値を用いれば、ある集団における表現型の状態を分類する際のコホート定義の精度を定量化することができます。コホート定義の性能を測定するための標準的な性能指標があります。</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>コホート定義の感度</strong> - 集団内の表現型に真に属する人のうち、コホート定義に基づいて健康アウトカムを持つと正しく特定された人の割合はどの程度か？これは以下の式で求められます。</p>
 <p>感度 = 真陽性 / (真陽性 + 偽陰性)</p></li>
@@ -878,10 +878,10 @@ div.csl-indent {
 <li><p>極めて感度の高い（「<strong>xSens</strong>」）コホートを作成する：結果が得られる可能性のある人をすべて含むべき集団を決定します。このコホートは、その逆数（結果が得られないと確信できる人の集合）を特定するために使用され、診断予測モデルのトレーニング時にノイズを含むネガティブラベルとして使用されます。</p></li>
 <li><p>xSpecとxSensコホートを使用して予測モデルを適合：第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> で説明したように、幅広い患者の特徴量を予測因子として使用してモデルを適合し、その人物がxSpecコホート（結果が出ると考えられる人々）に属するのか、あるいはxSensコホート（結果が出ないと考える人々）の逆数に属するのかを予測することを目指します。</p></li>
 <li><p>コホート定義の性能を評価するために使用される、除外された人々のセットに対して、結果の確率を推定するために適合されたモデルを適用します：モデルからの予測因子セットを個人のデータに適用して、その個人が表現型に属する確率を予測します。これらの予測を<strong>確率的なゴールドスタンダード</strong>として使用します。</p></li>
-<li><p>コホート定義の性能特性を評価します：予測確率をコホート定義の二値分類と比較します（混同行列のテスト条件）。テスト条件と真の条件の推定値を使用して、混同行列を完全に作成し、感度、特異度、予測値など、性能特性の全体的なセットを推定する。</p></li>
+<li><p>コホート定義の性能特性を評価します：予測確率をコホート定義の二値分類と比較します（混同行列のテストコンディション）。テストコンディションと真のコンディションの推定値を使用して、混同行列を完全に作成し、感度、特異度、予測値など、性能特性の全体的なセットを推定する。</p></li>
 </ol>
 <p>このアプローチを使用する際の主な限界は、健康アウトカムのある人の確率の推定がデータベース内のデータに制限されることです。データベースによっては、臨床医のメモなどの重要な情報が利用できない場合があります。</p>
-<p>診断予測モデリングでは、疾患を持つ人と持たない人を識別するモデルを作成します。患者レベルの予測（第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> 章）で説明されているように、予測モデルは<em>対象コホート</em>と<em>結果コホート</em>を使用して開発されます。対象コホートには、健康アウトカムを持つ人と持たない人が含まれます。結果コホートは、対象コホートの中で健康アウトカムを持つ人を特定します。PheValuator プロセスでは、予測モデルのアウトカムコホートを決定するために、非常に特異的なコホート定義である「xSpec」コホートを使用します。xSpec コホートは、定義を使用して、対象疾患の罹患確率が極めて高い人を見つけ出します。xSpec コホートは、対象の健康アウトカムについて複数の条件発生記録を持つ人々として定義されることがあります。例えば、心房細動の場合、心房細動の診断コードが10件以上ある人を対象とします。急性心筋梗塞のような急性疾患の場合は、心筋梗塞の発生を5件とし、入院による発生が少なくとも2件あることを条件に含めることができます。予測モデルの対象コホートは、対象とする健康アウトカムの発生可能性が低い人々とxSpecコホートの人々を合わせたものから構築されます。対象となる健康アウトカムの可能性が低い人を決定するために、データベース全体からサンプルを抽出し、通常はxSpecコホートを定義する際に使用されるコンセプトを含むレコードを持つ人物を除外することで、表現型に属する可能性を示唆する何らかの証拠を持つ人を除外します。この方法には限界があり、xSpecコホートの人物は、その疾患を持つ他の人々とは異なる特性を持っている可能性があります。また、これらの人物は、初期診断後の観察期間が平均的な患者よりも長かった可能性もあります。LASSOロジスティック回帰を使用して、確率的なゴールドスタンダードを生成するための予測モデルを作成します <span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> 。このアルゴリズムは簡潔なモデルを生成し、通常、データセット全体に存在する可能性がある共線性の共変量の多くを削除します。PheValuatorソフトウェアの現行バージョンでは、アウトカムの状態（はい/いいえ）は、その人に関するすべてのデータ（すべての観察期間）に基づいて評価され、コホート開始日の正確性は評価されません。</p>
+<p>診断予測モデリングでは、疾患を持つ人と持たない人を識別するモデルを作成します。患者レベルの予測（第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> 章）で説明されているように、予測モデルは<em>対象コホート</em>と<em>結果コホート</em>を使用して開発されます。対象コホートには、健康アウトカムを持つ人と持たない人が含まれます。結果コホートは、対象コホートの中で健康アウトカムを持つ人を特定します。PheValuator プロセスでは、予測モデルのアウトカムコホートを決定するために、非常に特異的なコホート定義である「xSpec」コホートを使用します。xSpec コホートは、定義を使用して、対象疾患の罹患確率が極めて高い人を見つけ出します。xSpec コホートは、対象の健康アウトカムについて複数のコンディション発生記録を持つ人々として定義されることがあります。例えば、心房細動の場合、心房細動の診断コードが10件以上ある人を対象とします。急性心筋梗塞のような急性疾患の場合は、心筋梗塞の発生を5件とし、入院による発生が少なくとも2件あることを要件に含めることができます。予測モデルの対象コホートは、対象とする健康アウトカムの発生可能性が低い人々とxSpecコホートの人々を合わせたものから構築されます。対象となる健康アウトカムの可能性が低い人を決定するために、データベース全体からサンプルを抽出し、通常はxSpecコホートを定義する際に使用されるコンセプトを含むレコードを持つ人物を除外することで、表現型に属する可能性を示唆する何らかの証拠を持つ人を除外します。この方法には限界があり、xSpecコホートの人物は、その疾患を持つ他の人々とは異なる特性を持っている可能性があります。また、これらの人物は、初期診断後の観察期間が平均的な患者よりも長かった可能性もあります。LASSOロジスティック回帰を使用して、確率的なゴールドスタンダードを生成するための予測モデルを作成します <span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> 。このアルゴリズムは簡潔なモデルを生成し、通常、データセット全体に存在する可能性がある共線性の共変量の多くを削除します。PheValuatorソフトウェアの現行バージョンでは、アウトカムの状態（はい/いいえ）は、その人に関するすべてのデータ（すべての観察期間）に基づいて評価され、コホート開始日の正確性は評価されません。</p>
 <div id="phevaluatorによる検証例" class="section level3 hasAnchor" number="16.4.1">
 <h3><span class="header-section-number">16.4.1</span> PheValuatorによる検証例<a href="ClinicalValidity.html#phevaluatorによる検証例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>PheValuator を使用して、急性心筋梗塞を患ったことがある人を特定する必要がある研究で使用されるコホート定義の完全なパフォーマンス特性を評価することがあります。</p>
@@ -939,7 +939,7 @@ div.csl-indent {
 <span id="cb152-26"><a href="ClinicalValidity.html#cb152-26" tabindex="-1"></a>  <span class="at">gender =</span> <span class="fu">c</span>(<span class="dv">8507</span>, <span class="dv">8532</span>),</span>
 <span id="cb152-27"><a href="ClinicalValidity.html#cb152-27" tabindex="-1"></a>  <span class="at">startDate =</span> <span class="st">&quot;20100101&quot;</span>,</span>
 <span id="cb152-28"><a href="ClinicalValidity.html#cb152-28" tabindex="-1"></a>  <span class="at">endDate =</span> <span class="st">&quot;20171231&quot;</span>)</span></code></pre></div>
-<p>この例では、「my_results」データベースで定義されたコホートを使用し、コホートテーブルの場所（cohortDatabaseSchema、cohortDatabaseTable - 「my_results.cohort」）と、モデルに条件、薬物曝露などを知らせる場所（cdmDatabaseSchema - 「my_cdm_data」）を指定しました。モデルに含まれる対象者は、CDMにおける初回ビジット日が2010年1月1日から2017年12月31日の間の人です。また、xSpecコホートを作成するために使用されたコンセプトID 312327、314666、およびそれらの下位層は、除外しています。これらの初回ビジット時の年齢は18歳から90歳の間です。上記のパラメータを使用した場合、このステップで出力される予測モデルの名前は次のようになります。「c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds」</p>
+<p>この例では、「my_results」データベースで定義されたコホートを使用し、コホートテーブルの場所（cohortDatabaseSchema、cohortDatabaseTable - 「my_results.cohort」）と、モデルにコンディション、薬物曝露などを知らせる場所（cdmDatabaseSchema - 「my_cdm_data」）を指定しました。モデルに含まれる対象者は、CDMにおける初回ビジット日が2010年1月1日から2017年12月31日の間の人です。また、xSpecコホートを作成するために使用されたコンセプトID 312327、314666、およびそれらの下位層は、除外しています。これらの初回ビジット時の年齢は18歳から90歳の間です。上記のパラメータを使用した場合、このステップで出力される予測モデルの名前は次のようになります。「c:/temp/lr_results_5XMI_train_myCDM_ePPV0.75_20181206V1.rds」</p>
 </div>
 <div id="ステップ-4-評価コホートの作成" class="section level4 unnumbered hasAnchor">
 <h4>ステップ 4: 評価コホートの作成<a href="ClinicalValidity.html#ステップ-4-評価コホートの作成" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1016,7 +1016,7 @@ div.csl-indent {
 <span id="cb154-21"><a href="ClinicalValidity.html#cb154-21" tabindex="-1"></a>  <span class="at">cdmShortName =</span> <span class="st">&quot;myCDM&quot;</span>)</span></code></pre></div>
 <p>この例では、予測閾値の幅広い範囲（cutPoints）が提供されており、期待値（「EV」）も含まれています。パラメータ設定を前提として、このステップからの出力は、期待値計算を用いた場合と同様に、各予測閾値におけるパフォーマンス特性（感度、特異度など）を提供します。評価には、前のステップで作成された評価コホートの予測情報が使用されます。このステップで作成されたデータフレームは、検証用にCSVファイルに保存することができます。 このプロセスを使用すると、表 <a href="ClinicalValidity.html#tab:phevalStats">16.1</a> は、5つのデータセットにおけるMIの4つのコホート定義の性能特性を示します。Cutrona氏らによって評価されたものと同様のコホート定義「&gt;=1 X HOI, In-Patient」では、平均PPVは67%（範囲：59%～74%）であることが分かりました。</p>
 <table>
-<caption><span id="tab:phevalStats">表 16.1: </span> pheValuator を使用して複数のデータセット上で心筋梗塞を診断するための診断条件コードを用いた4つのコホート定義の性能特性 Sens – 感度 ; PPV – 陽性適中率 ; Spec – 特異度; NPV – 陰性適中率; Dx Code – コホートの診断コード。</caption>
+<caption><span id="tab:phevalStats">表 16.1: </span> pheValuator を使用して複数のデータセット上で心筋梗塞を診断するための診断コンディションコードを用いた4つのコホート定義の性能特性 Sens – 感度 ; PPV – 陽性適中率 ; Spec – 特異度; NPV – 陰性適中率; Dx Code – コホートの診断コード。</caption>
 <colgroup>
 <col width="47%" />
 <col width="14%" />

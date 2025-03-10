@@ -83,7 +83,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {.unnumbered}
 
-時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、`{Condition} ? {if true} : {if false}` 構文を使用して行います。*condition* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが（存在する場合）表示されます。
+時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、`{Condition} ? {if true} : {if false}` 構文を使用して行います。*条件* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが（存在する場合）表示されます。
 
 
 ``` r
@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.h5xk09snchildren ;"
+## [1] "SELECT * FROM temp_schema.jcbbvz2achildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```

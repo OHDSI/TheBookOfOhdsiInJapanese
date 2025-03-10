@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="OpenScience.html"><a href="OpenScience.html"><i class="fa fa-check"></i><b>3</b> オープンサイエンス</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンス"><i class="fa fa-check"></i><b>3.1</b> オープンサイエンス</a></li>
-<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-the-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: the Study-a-Thon</a></li>
+<li class="chapter" data-level="3.2" data-path="OpenScience.html"><a href="OpenScience.html#オープンサイエンスの実践-study-a-thon"><i class="fa fa-check"></i><b>3.2</b> オープンサイエンスの実践: Study-a-Thon</a></li>
 <li class="chapter" data-level="3.3" data-path="OpenScience.html"><a href="OpenScience.html#オープンスタンダード"><i class="fa fa-check"></i><b>3.3</b> オープンスタンダード</a></li>
 <li class="chapter" data-level="3.4" data-path="OpenScience.html"><a href="OpenScience.html#オープンソース"><i class="fa fa-check"></i><b>3.4</b> オープンソース</a></li>
 <li class="chapter" data-level="3.5" data-path="OpenScience.html"><a href="OpenScience.html#オープンデータ"><i class="fa fa-check"></i><b>3.5</b> オープンデータ</a></li>
@@ -289,7 +289,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
-<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディングシステムとomop条件"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディングシステムとOMOP条件</a></li>
+<li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディング体系とOMOPコンディション</a></li>
 <li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
 <li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
@@ -810,7 +810,7 @@ div.csl-indent {
 <h2><span class="header-section-number">4.1</span> デザインの原則<a href="CommonDataModel.html#デザインの原則" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>CDMは、以下の目的のために最適化されています。 </p>
 <ul>
-<li>特定の医療介入（薬物曝露、処置（プロシージャー）、医療政策の変更など）やアウトカム（コンディション、プロシージャー、他の薬物曝露など）を持つ患者集団を特定する。</li>
+<li>特定の医療介入（薬物曝露、処置（プロシージャー）、医療政策の変更など）やアウトカム（状態・疾患（コンディション）、プロシージャー、他の薬物曝露など）を持つ患者集団を特定する。</li>
 <li>人口統計情報、疾患の自然経過、医療提供、利用と費用、併存疾患、治療や治療の順序などさまざまなパラメータに関して患者集団の特性を評価する。</li>
 <li>個々の患者でアウトカムが発生する可能性を予測する―― 第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> 章参照。</li>
 <li>これらの介入が集団に及ぼす影響を推定する ―― 第 <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a> 章参照。</li>
@@ -847,7 +847,7 @@ div.csl-indent {
 </div>
 <div id="domains" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> ドメインの一般的な規約<a href="CommonDataModel.html#domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化ボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディション・ドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータのプロシージャーテーブルにプロシージャーコードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
+<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化ボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディションドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータのプロシージャーテーブルにプロシージャーコードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
 <table>
 <caption><span id="tab:domains">表 4.1: </span> 各ドメインに属する標準コンセプトの数</caption>
 <colgroup>
@@ -1011,7 +1011,7 @@ div.csl-indent {
 <li><strong>ソースコンセプト</strong>は、ソースで使用されるコードを表すコンセプトです。ソースコンセプトは、既存の公開または独自のコード体系に対してのみ使用され、OMOPで生成されたコンセプトには使用されません。ソースコンセプトはデータテーブル内の[Event]_SOURCE_CONCEPT_IDフィールドに格納されます。</li>
 <li><strong>標準コンセプト</strong>は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]_CONCEPT_IDフィールドで参照できます。</li>
 </ul>
-<p>ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には<strong>強く推奨</strong>されます。一方、標準コンセプトの使用は<strong>必須</strong>です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 <a href="CommonDataModel.html#fig:pulmTubICD9">4.2</a> で示されているように、コンディション「肺結核」（TB）のICD9CMコードは011です。</p>
+<p>ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には<strong>強く推奨</strong>されます。一方、標準コンセプトの使用は<strong>必須</strong>です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 <a href="CommonDataModel.html#fig:pulmTubICD9">4.2</a> で示されているように、コンディション “Pulmonary Tuberculosis (肺結核)” (TB) のICD9CMコードは011です。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pulmTubICD9"></span>
 <img src="images/CommonDataModel/pulmTubICD9.png" alt="肺結核のICD9CMコード" width="75%" />
 <p class="caption">
@@ -1448,7 +1448,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">これが分かると、状況と理由がわかります。例えば、入院時の診断が条件である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
+<td align="left">これが分かると、状況と理由がわかります。例えば、コンディションが入院時の診断である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
 </tr>
 <tr class="even">
 <td align="left">STOP_REASON</td>
@@ -1478,7 +1478,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_STATUS_ SOURCE_VALUE</td>
 <td align="left">0</td>
-<td align="left">もしソースからのコンディション・ステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。</td>
+<td align="left">もしソースからのコンディションステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。</td>
 </tr>
 </tbody>
 </table>
@@ -1765,13 +1765,13 @@ div.csl-indent {
 <span id="cb3-5"><a href="CommonDataModel.html#cb3-5" tabindex="-1"></a><span class="st">LIMIT 1;&quot;</span></span>
 <span id="cb3-6"><a href="CommonDataModel.html#cb3-6" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <div class="exercise">
-<p><span id="exr:exerciseGiBleedRecords" class="exercise"><strong>演習 4.4  </strong></span>SQLとRを使用して、「消化管出血」（コンセプトID<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>）のすべてのレコードを取得してください。</p>
+<p><span id="exr:exerciseGiBleedRecords" class="exercise"><strong>演習 4.4  </strong></span>SQLとRを使用して、コンディション “Gastrointestinal hemorrhage (消化管出血)”（コンセプトID<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>）のすべてのレコードを取得してください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して「消化管出血」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは「K92.2」です。</p>
+<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して、コンディション “Gastrointestinal hemorrhage (消化管出血)” のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは “K92.2” です。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exercisePerson61Records" class="exercise"><strong>演習 4.6  </strong></span>SQLとRを使用して、PERSON_ID 61の人物の観察期間を取得してください。</p>
+<p><span id="exr:exercisePerson61Records" class="exercise"><strong>演習 4.6  </strong></span>SQLとRを使用して、PERSON_ID 61に該当する人の観察期間を取得してください。</p>
 </div>
 <p>提案される答えは付録 <a href="SuggestedAnswers.html#Cdmanswers">E.1</a>にあります。</p>
 
