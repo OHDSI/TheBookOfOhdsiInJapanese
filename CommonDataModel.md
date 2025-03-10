@@ -275,7 +275,7 @@ CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって
 | STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
 | PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療従事者がリストされている場合、その医療従事者の ID がこのフィールドに入ります。これは、そのビジットの医療従事者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
 | VISIT_OCCURRENCE\_ ID | 509 | コンディションが診断されたビジット（VISIT_OCCURRENCEテーブルのVISIT_OCCURRENCE_IDに対する外部キー）。 |
-| CONDITION_SOURCE\_ VALUE | 266599000 | これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表す概念はCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。 |
+| CONDITION_SOURCE\_ VALUE | 266599000 | これはコンディションを表す元のソース値です。Laurenの月経困難症の場合、そのコンディションのSNOMEDコードはここに格納され、そのコードを表すコンセプトはCONDITION_SOURCE_CONCEPT_IDに格納され、そこからマッピングされた標準コンセプトはCONDITION_CONCEPT_IDフィールドに格納されます。 |
 | CONDITION_SOURCE\_ CONCEPT_ID | 194696 | ソースからのコンディションの値が OHDSI で認識されるボキャブラリを使用してコード化されている場合、その値を表すコンセプトID がここに入ります。月経困難症の例では、ソース値はSNOMED コードなので、そのコードを表すコンセプトは 194696 です。この場合、CONDITION_CONCEPT_ID フィールドと同じ値になります。 |
 | CONDITION_STATUS\_ SOURCE_VALUE | 0 | もしソースからのコンディションステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。 |
 
