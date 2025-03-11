@@ -1,7 +1,7 @@
 ---
 title: " --翻訳作業中--　OHDSIの本"
 author: "Observational Health Data Sciences and Informatics (OHDSI)"
-date: "2025-03-10"
+date: "2025-03-11"
 classoption: 11pt
 geometry:
  - paperheight=10in

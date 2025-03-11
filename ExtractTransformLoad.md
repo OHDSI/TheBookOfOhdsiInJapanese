@@ -483,4 +483,4 @@ PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PE
 \caption{例のソースデータ。}(\#fig:exerciseSourceData)
 \end{figure}
 
-提案された回答は付録 \@ref(Etlanswers) を参照ください。
+解答例は付録 \@ref(Etlanswers) を参照のこと。
