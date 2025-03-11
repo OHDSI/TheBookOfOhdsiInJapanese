@@ -348,4 +348,4 @@ DQDのチェックリストを抽出してください。
 
 ```
 
-回答例は付録 \@ref(DataQualityanswers)にあります。
+解答例は付録 \@ref(DataQualityanswers)を参照のこと。

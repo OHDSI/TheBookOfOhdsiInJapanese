@@ -433,4 +433,4 @@ PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PE
 knitr::include_graphics("images/ExtractTransformLoad/exerciseSourceData.png")
 ```
 
-提案された回答は付録 \@ref(Etlanswers) を参照ください。
+解答例は付録 \@ref(Etlanswers) を参照のこと。
