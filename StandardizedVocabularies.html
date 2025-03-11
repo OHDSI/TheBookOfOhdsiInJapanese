@@ -799,14 +799,14 @@ div.csl-indent {
 <p>OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれることが多く、データの内容を定義することで、手法、定義、結果の標準化を可能にし、真のリモート（ファイアウォール内）ネットワーク研究と分析への道を開きます。通常、コーディングスキームを使用した構造化データであるか、自由形式のテキストであるかに関わらず、観察医療データのコンテンツを見つけ、解釈することは、臨床イベントを記述する無数の異なる方法に直面する研究者へと引き継がれます。OHDSIでは、標準化されたフォーマットだけでなく、厳格な標準コンテンツへの調和も必要とされています。 本章では、まず標準化ボキャブラリの主な原則、その構成要素、関連する規則、慣例、および典型的な状況について説明します。これらはすべて、この基盤となるリソースを理解し活用するために必要なものです。また、継続的に改善していくためにコミュニティのサポートが必要な箇所についても指摘します。</p>
 <div id="なぜボキャブラリが必要でなぜ標準化が必要なのか" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> なぜボキャブラリが必要で、なぜ標準化が必要なのか<a href="StandardizedVocabularies.html#なぜボキャブラリが必要でなぜ標準化が必要なのか" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書 (“Bill of Mortality”) に遡ります（図 <a href="StandardizedVocabularies.html#fig:bill">5.1</a> 参照）。</p>
+<p>医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書 (「Bill of Mortality」) に遡ります（図 <a href="StandardizedVocabularies.html#fig:bill">5.1</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:bill"></span>
 <img src="images/StandardizedVocabularies/bill.jpg" alt="1660年のロンドン死亡報告書には、その時代に知られていた62の疾患の分類システムを使用して住民の死因が示されています。" width="100%" />
 <p class="caption">
 図 5.1: 1660年のロンドン死亡報告書には、その時代に知られていた62の疾患の分類システムを使用して住民の死因が示されています。
 </p>
 </div>
-<p>それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された “International Classification of Disease (ICD)” を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、薬品のマーケティングと販売を管理し、認証された薬剤の国家リポジトリを維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。</p>
+<p>それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された 「International Classification of Disease (ICD)」を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、薬品のマーケティングと販売を管理し、認証された薬剤の国家リポジトリを維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。</p>
 <p>その結果、各国、各地域、医療制度、医療機関は、それぞれ独自の分類法を持つ傾向にあり、それは使用される場所でのみ関連性がある可能性が高いものです。こうした無数のボキャブラリが、使用されるシステムの相互運用性を妨げています。標準化は、患者データの交換を可能にし、世界レベルでの医療データ分析を可能にし、パフォーマンス特性や品質評価を含む体系化された標準化された研究を可能にする鍵となります。この問題に対処するため、多国籍の組織が設立され、前述のWHOや、Standard Nomenclature of Medicine (SNOMED) や、Logical Observation Identifiers Names and Codes (LOINC) などの幅広い標準の作成を開始しました。米国では、Health IT Standards Committee (HITAC) が、SNOMED、LOINC、および薬剤用ボキャブラリであるRxNormを、さまざまな組織間で全国規模の医療情報交換を行う共通プラットフォームで使用するための標準として、National Coordinator for Health IT (ONC) に推奨しています。</p>
 <p>OHDSIは、観察研究のためのグローバルスタンダードであるOMOP CDMを開発しました。OMOP標準化ボキャブラリは、CDMの一部として、主に次の2つの目的で利用できます。</p>
 <ul>
@@ -848,7 +848,7 @@ div.csl-indent {
 </div>
 <div id="conceptDomains" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> ドメイン<a href="StandardizedVocabularies.html#conceptDomains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、“Condition (コンディション)”、“Drug (薬剤)”、“Procedure (処置（プロシージャー）)”、“Visit (ビジット)”、“Device (デバイス)”、“Specimen (試料)” などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
+<p>各コンセプトにはDOMAIN_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition (コンディション)」、「Drug (薬剤)」、「Procedure (処置（プロシージャー）)」、「Visit (ビジット)」、「Device (デバイス)」、「Specimen (試料)」 などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、<a href="https://github.com/ohDSI/vocabulary-v5.0">Pallas</a>に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 <a href="StandardizedVocabularies.html#fig:domains">5.3</a> 参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:domains"></span>
 <img src="images/StandardizedVocabularies/domains.png" alt="プロシージャーボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。" width="70%" />
 <p class="caption">
@@ -1076,21 +1076,21 @@ div.csl-indent {
 <li>説明: 非アクティブであり、標準として使用することはできない（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）。</li>
 <li>VALID_START_DATE: コンセプトの生成日。不明の場合はボキャブラリへの取り込み日。不明の場合は1970-1-1。</li>
 <li>VALID_END_DATE: 過去の廃止日。不明の場合はボキャブラリ内のコンセプトが欠落あるいは非アクティブに設定されたボキャブラリ更新日。</li>
-<li>INVALID_REASON: “D”</li>
+<li>INVALID_REASON: 「D」</li>
 </ul></li>
 <li><strong>後継コンセプトとともにアップグレードされたコンセプト</strong>
 <ul>
 <li>説明: コンセプトは非アクティブだが、後継コンセプトが定義されています。通常は、重複排除が行われたコンセプトです。</li>
 <li>VALID_START_DATE: コンセプトの生成日。不明の場合はボキャブラリへの取り込み日、もしくは1970-1-1。</li>
 <li>VALID_END_DATE: アップグレードが行われた過去の年月日。不明の場合は、アップグレードが含まれたボキャブラリのリフレッシュ日。</li>
-<li>INVALID_REASON: “U”</li>
+<li>INVALID_REASON: 「U」</li>
 </ul></li>
 <li><strong>別の新しいコンセプトで再利用されたコード</strong>
 <ul>
 <li>説明: 非推奨のコンセプトコードが、新しいコンセプトで再利用されました。</li>
 <li>VALID_START_DATE: コンセプトの生成日。不明の場合はボキャブラリへの取り込み日、もしくは1970年1月1日。</li>
 <li>VALID_END_DATE: 非推奨であることを示す過去の日、またはそれがわからない場合は、ボキャブラリのコンセプトがなくなった、または非アクティブに設定されたボキャブラリ更新の日。</li>
-<li>INVALID_REASON: “R”</li>
+<li>INVALID_REASON: 「R」</li>
 </ul></li>
 </ul>
 <p>一般に、コンセプトコードは再利用されません。しかし、特にHCPCS、NDC、DRGなど、このルールから外れるボキャブラリがいくつかあります。これらのボキャブラリでは、同じコンセプトコードが同じボキャブラリの複数のコンセプトに現れます。CONCEPT_ID の値は一意です。これらの再使用されるコンセプトコードは、INVALID_REASONフィールドに「R」が付され、VALID_START_DATEからVALID_END_DATEの期間は、同じコンセプトコードを持つコンセプトを区別するために使用されるべきです。</p>
@@ -1117,11 +1117,11 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">“Maps to”と”Mapped from”</td>
+<td align="left">「Maps to」と「Mapped from」</td>
 <td align="left">標準コンセプトはそれ自身にマッピングされ、非標準コンセプトは標準コンセプトにマッピングされます。ほとんどの非標準コンセプトとすべての標準コンセプトは、標準コンセプトとの間にこの関係があります。前者は*_SOURCE_CONCEPT_IDフィールド<em>に、後者は</em>_CONCEPT_IDフィールド*に格納されます。分類コンセプトはマッピングされません。</td>
 </tr>
 <tr class="even">
-<td align="left">“Maps to value”と”Value mapped from”</td>
+<td align="left">「Maps to value」と「Value mapped from」</td>
 <td align="left">MEASUREMENTとOBSERVATIONテーブルのVALUE_AS_CONCEPT_IDフィールドに配置する値を表すコンセプトへのマッピング。</td>
 </tr>
 </tbody>
@@ -1168,20 +1168,20 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">4000504 “Urethra part”</td>
-<td align="left">36713433 “部分的尿道重複”</td>
+<td align="left">4000504 「Urethra part」</td>
+<td align="left">36713433 「部分的尿道重複」</td>
 </tr>
 <tr class="even">
-<td align="left">4000504 “Urethra part”</td>
-<td align="left">433583 “下部尿道裂孔”</td>
+<td align="left">4000504 「Urethra part」</td>
+<td align="left">433583 「下部尿道裂孔」</td>
 </tr>
 <tr class="odd">
-<td align="left">4000504 “Urethra part”</td>
-<td align="left">443533 “男性下部尿道裂孔”</td>
+<td align="left">4000504 「Urethra part」</td>
+<td align="left">443533 「男性下部尿道裂孔」</td>
 </tr>
 <tr class="even">
-<td align="left">4000504 “Urethra part”</td>
-<td align="left">4005956 “女性下部尿道裂孔”</td>
+<td align="left">4000504 「Urethra part」</td>
+<td align="left">4005956 「女性下部尿道裂孔」</td>
 </tr>
 </tbody>
 </table>
@@ -1191,12 +1191,12 @@ div.csl-indent {
 <div id="conceptAncestor" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> 階層<a href="StandardizedVocabularies.html#conceptAncestor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ドメイン内では、標準および分類コンセプトは階層構造に整理され、CONCEPT_ANCESTORテーブルに格納されます。これにより、コンセプトとその下位層に含まれるコンセプトをすべてクエリして取得することが可能です。これらの下位層は上位層と同じ属性を持ちますが、追加の属性や、より詳細に定義された属性も持ちます。</p>
-<p>CONCEPT_ANCESTORテーブルは、階層関係を通じてつながっているすべてのコンセプトを網羅するCONCEPT_RELATIONSHIPテーブルから自動的に構築されます。これらは “Is a” - “Subsumes” のペア（図 <a href="StandardizedVocabularies.html#fig:conceptAncestor">5.6</a> 参照）であり、ボキャブラリ間の階層を結びつけるその他の関係です。関係が階層構築に参加するかは、関係IDごとにRELATIONSHIP参照テーブルのDEFINES_ANCESTRYフラグによって定義されます。</p>
+<p>CONCEPT_ANCESTORテーブルは、階層関係を通じてつながっているすべてのコンセプトを網羅するCONCEPT_RELATIONSHIPテーブルから自動的に構築されます。これらは 「Is a」 - 「Subsumes」のペア（図 <a href="StandardizedVocabularies.html#fig:conceptAncestor">5.6</a> 参照）であり、ボキャブラリ間の階層を結びつけるその他の関係です。関係が階層構築に参加するかは、関係IDごとにRELATIONSHIP参照テーブルのDEFINES_ANCESTRYフラグによって定義されます。</p>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:conceptAncestor"></span>
-<img src="images/StandardizedVocabularies/conceptAncestor.png" alt="「心房細動」というコンディションの階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 " width="100%" />
+<img src="images/StandardizedVocabularies/conceptAncestor.png" alt="「心房細動」というコンディションの階層。第1上位層関係は 「Is a (～の一つです)」 と「Subsumes (包含)」関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 " width="100%" />
 <p class="caption">
-図 5.6: 「心房細動」というコンディションの階層。第1上位層関係は “Is a (～の一つです)” と”Subsumes (包含)” 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 
+図 5.6: 「心房細動」というコンディションの階層。第1上位層関係は 「Is a (～の一つです)」 と「Subsumes (包含)」関係によって定義され、それより高次の関係はすべて推論され、CONCEPT_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 
 </p>
 </div>
 <p>上位層の度合い、つまり上位層と下位層の間の階層数は、MIN_LEVELS_OF_SEPARATIONおよびMAX_LEVELS_OF_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS_HIERARCHICALフラグによって決まります。</p>
@@ -1214,7 +1214,7 @@ div.csl-indent {
 </div>
 <div id="人種と民族" class="section level3 hasAnchor" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> 人種と民族<a href="StandardizedVocabularies.html#人種と民族" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>これらは米国政府の定義に従います。民族はヒスパニック系または非ヒスパニック系の区別であり、人種は問いません。人種は一般的な上位5つの人種に分けられ、民族は階層的な下位層として含まれます。“Mixed races (混血)” は含まれていません。</p>
+<p>これらは米国政府の定義に従います。民族はヒスパニック系または非ヒスパニック系の区別であり、人種は問いません。人種は一般的な上位5つの人種に分けられ、民族は階層的な下位層として含まれます。「Mixed races (混血)」は含まれていません。</p>
 </div>
 <div id="診断コーディング体系とomopコンディション" class="section level3 hasAnchor" number="5.6.3">
 <h3><span class="header-section-number">5.6.3</span> 診断コーディング体系とOMOPコンディション<a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1272,13 +1272,13 @@ div.csl-indent {
 <h4>前提条件<a href="StandardizedVocabularies.html#前提条件-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>最初の演習では、標準化ボキャブラリのコンセプトを検索する必要があります。これはATHENA<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>またはATLAS<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a>を通じて行うことができます。</p>
 <div class="exercise">
-<p><span id="exr:exerciseVocab1" class="exercise"><strong>演習 5.1  </strong></span>“消化管出血”の標準コンセプトIDは何ですか？</p>
+<p><span id="exr:exerciseVocab1" class="exercise"><strong>演習 5.1  </strong></span>「消化管出血」の標準コンセプトIDは何ですか？</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseVocab2" class="exercise"><strong>演習 5.2  </strong></span>“消化管出血”の標準コンセプトに対応するICD-10CMコードは何ですか？この標準コンセプトに対応するICD-9CMコードはどれですか？</p>
+<p><span id="exr:exerciseVocab2" class="exercise"><strong>演習 5.2  </strong></span>「消化管出血」の標準コンセプトに対応するICD-10CMコードは何ですか？この標準コンセプトに対応するICD-9CMコードはどれですか？</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseVocab3" class="exercise"><strong>演習 5.3  </strong></span>“消化管出血”の標準コンセプトに相当するMedDRAの優先用語は何ですか？</p>
+<p><span id="exr:exerciseVocab3" class="exercise"><strong>演習 5.3  </strong></span>「消化管出血」の標準コンセプトに相当するMedDRAの優先用語は何ですか？</p>
 </div>
 <p>解答例は付録 <a href="SuggestedAnswers.html#Vocabanswers">E.2</a>を参照のこと。</p>
 

@@ -902,7 +902,7 @@ div.csl-indent {
 </div>
 <p>自己対照コホート（SCC）デザイン <span class="citation">(<a href="#ref-ryan_2013">Ryan, Schuemie, and Madigan 2013</a>)</span> は曝露中のアウトカムの発生率を、曝露直前の期間におけるアウトカムの発生率と比較します。表 <a href="PopulationLevelEstimation.html#tab:sccChoices">12.2</a> に示す4つの選択肢が、自己対照コホートの問いを定義します。 </p>
 <table>
-<caption><span id="tab:sccChoices">表 12.2: </span>自己対照コホートデザインの主要なデザイン選択肢。</caption>
+<caption><span id="tab:sccChoices">表 12.2: </span>自己対照コホートデザインの主要なデザイン選択肢</caption>
 <colgroup>
 <col width="16%" />
 <col width="83%" />
@@ -1194,14 +1194,14 @@ div.csl-indent {
 <h4>研究対象集団<a href="PopulationLevelEstimation.html#研究対象集団" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>分析の対象となる対象者の集合である研究対象集団を指定するには、さまざまなオプションがあります。オプションの多くは、コホート定義ツールで対象および比較コホートを設計する際に利用可能なオプションと重複しています。Estimationのオプションを使用する理由の1つは再利用性です。ターゲット、比較、アウトカムコホートを完全に独立して定義し、後でそれらの間に依存関係を追加できます。例えば、治療開始前にアウトカムを持っていた人を除外したい場合、対象および比較コホートの定義でこれを行うことができますが、すべてのアウトカムごとに別のコホートを作成する必要があります。代わりに、分析設定で事前のアウトカムを持つ人々を除外することができ、これで興味のある2つのアウトカム（およびネガティブコントロールのアウトカム）に対して、対象および比較コホートを再利用できます。</p>
 <p><strong>研究開始日と終了日</strong>を使用して、特定の期間に分析を制限できます。研究終了日はリスクウィンドウを切り詰めることになり、研究終了日以降のアウトカムは考慮されません。研究開始日を選択する理由の1つは、研究対象の薬剤の1つが新しく、以前の期間には存在しなかったことが考えられます。自動で調整するには、「両方の曝露がデータ内に存在する期間に分析を制限しますか？」の質問に「はい」と回答します。研究の開始日と終了日を調整するもう一つの理由は、医療行為が時とともに変化した（例えば、薬の警告による）場合で、特定の方法で医療行為が行われた期間のみに興味がある場合です。</p>
-<p>オプション “<strong>Should only the first exposure per subject be included? (各対象者の初回の曝露のみを含まれるべきか)</strong>” を使用すると、患者ごとの最初の曝露に限定することができます。多くの場合、この例のようにコホート定義ですでに行われています。同様に、「<strong>The minimum required continuous observation time prior to index date for a person to be included in the cohort (コホートに含める対象者のインデックス日付以前の最小限必要な連続観察期間)</strong>」 というオプションは、コホート定義ですでに設定されていることが多いので、ここでは0のままにしておきます。インデックス日より前に観察時間がある(OBSERVATION_PERIODテーブルで定義されているように）ことは、傾向スコアを計算するのに十分な患者に関する情報があること、また患者が真の新規ユーザーであり、したがって以前に曝露されていないことを担保するためにもよく使われます。</p>
-<p>“<strong>Remove subjects that are in both target and comparator cohort? (対象コホートと比較群コホートの両方に含まれる対象を除外しますか)</strong>”は、“<strong>If a subject is in multiple cohorts, should be censored time-at-risk when the new time-at-risk starts to prevent overlap? (対象が複数のコホートに含まれる場合、新しいリスク評価期間が開始された際に、重複を避けるためにリスク評価期間を打ち切りますか)</strong>” というオプションと併せて、対象が対象コホートと比較コホートの両方に存在する場合にどのように取り扱うかを定義します。最初の設定には3つの選択肢があります：</p>
+<p>オプション「<strong>Should only the first exposure per subject be included? (各対象者の初回の曝露のみを含まれるべきか)</strong>」を使用すると、患者ごとの最初の曝露に限定することができます。多くの場合、この例のようにコホート定義ですでに行われています。同様に、「<strong>The minimum required continuous observation time prior to index date for a person to be included in the cohort (コホートに含める対象者のインデックス日付以前の最小限必要な連続観察期間)</strong>」 というオプションは、コホート定義ですでに設定されていることが多いので、ここでは0のままにしておきます。インデックス日より前に観察時間がある(OBSERVATION_PERIODテーブルで定義されているように）ことは、傾向スコアを計算するのに十分な患者に関する情報があること、また患者が真の新規ユーザーであり、したがって以前に曝露されていないことを担保するためにもよく使われます。</p>
+<p>「<strong>Remove subjects that are in both target and comparator cohort? (対象コホートと比較群コホートの両方に含まれる対象を除外しますか)</strong>」は、「<strong>If a subject is in multiple cohorts, should be censored time-at-risk when the new time-at-risk starts to prevent overlap? (対象が複数のコホートに含まれる場合、新しいリスク評価期間が開始された際に、重複を避けるためにリスク評価期間を打ち切りますか)</strong>」というオプションと併せて、対象が対象コホートと比較コホートの両方に存在する場合にどのように取り扱うかを定義します。最初の設定には3つの選択肢があります：</p>
 <ul>
-<li><p>“<strong>Keep All</strong> (すべて保持)” は、両方のコホートに対象を保持することを意味します。このオプションでは、対象者とアウトカムがダブルカウントされる可能性があります。</p></li>
-<li><p>“<strong>Keep First</strong> (最初を保持)” は、最初に発生したコホートに対象者を残すことを意味します。</p></li>
-<li><p>“<strong>Remove All</strong> (すべて除外)” は、すべてのコホートから対象者を除外することを意味します。</p></li>
+<li><p>「<strong>Keep All</strong> (すべて保持)」 は、両方のコホートに対象を保持することを意味します。このオプションでは、対象者とアウトカムがダブルカウントされる可能性があります。</p></li>
+<li><p>「<strong>Keep First</strong> (最初を保持)」 は、最初に発生したコホートに対象者を残すことを意味します。</p></li>
+<li><p>「<strong>Remove All</strong> (すべて除外)」 は、すべてのコホートから対象者を除外することを意味します。</p></li>
 </ul>
-<p>もし “Keep All” または “Keep First” のオプションが選択された場合、ある対象が両方のコホートにいる時間を打ち切りたいと思うかもしれません。これを図 <a href="PopulationLevelEstimation.html#fig:tar">12.10</a> に示します。デフォルトでは、リスク期間はコホートの開始日と終了日を基準に定義されます。この例では、リスク期間はコホート組入れの1日後に始まり、コホート終了までです。2つのコホートが重なる可能性があるリスク期間を打ち切らない場合、この重複したリスク期間に発生したアウトカムは、特に、すべてを保持することを選択した場合、（ここに示されているように）重複した時間に出現したアウトカムは2回カウントされるため、問題となります。打ち切りを選択した場合、最初のコホートのリスク期間は、2番目のコホートのリスク時間の開始時に終了します。</p>
+<p>もし「Keep All」または「Keep First」のオプションが選択された場合、ある対象が両方のコホートにいる時間を打ち切りたいと思うかもしれません。これを図 <a href="PopulationLevelEstimation.html#fig:tar">12.10</a> に示します。デフォルトでは、リスク期間はコホートの開始日と終了日を基準に定義されます。この例では、リスク期間はコホート組入れの1日後に始まり、コホート終了までです。2つのコホートが重なる可能性があるリスク期間を打ち切らない場合、この重複したリスク期間に発生したアウトカムは、特に、すべてを保持することを選択した場合、（ここに示されているように）重複した時間に出現したアウトカムは2回カウントされるため、問題となります。打ち切りを選択した場合、最初のコホートのリスク期間は、2番目のコホートのリスク時間の開始時に終了します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:tar"></span>
 <img src="images/PopulationLevelEstimation/tar.png" alt="リスク時間（Time-at-risk (TAR)）が薬剤曝露開始日から薬剤曝露終了時までと仮定した場合の2つのコホートに含まれる対象のリスク期間" width="90%" />
 <p class="caption">
@@ -1286,7 +1286,7 @@ div.csl-indent {
 <p>第 <a href="MethodValidity.html#MethodValidity">18</a> 章にあるように、ネガティブコントロールとポジティブコントロールを検討し、操作特性を評価し、経験的キャリブレーションを行う必要があります。</p>
 <div id="ネガティブコントロールのアウトカムコホートの定義" class="section level4 unnumbered hasAnchor">
 <h4>ネガティブコントロールのアウトカムコホートの定義<a href="PopulationLevelEstimation.html#ネガティブコントロールのアウトカムコホートの定義" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>セクション <a href="PopulationLevelEstimation.html#ComparisonSettings">12.7.1</a> では、ネガティブコントロールのアウトカムを表すコンセプトセットを選択しました。しかし、分析でアウトカムとして使用するために、コンセプトをコホートに変換するロジックが必要です。ATLASは3つの選択肢を持つ標準ロジックを提供します。最初の選択肢は、<strong>コンセプトのすべての出現</strong>を使用するか、<strong>最初の出現</strong>のみを使用するかです。2番目の選択肢は、<strong>下位層のコンセプトの出現を考慮するかどうか</strong>を決定します。例えば、下位層の “ingrown nail of foot (足の陥入爪)” の出現も、上位層の “ingrown nail (陥入爪)” の出現として数えることができます。3番目の選択肢は、コンセプトを探すときにどのドメインを考慮するかを指定します。</p>
+<p>セクション <a href="PopulationLevelEstimation.html#ComparisonSettings">12.7.1</a> では、ネガティブコントロールのアウトカムを表すコンセプトセットを選択しました。しかし、分析でアウトカムとして使用するために、コンセプトをコホートに変換するロジックが必要です。ATLASは3つの選択肢を持つ標準ロジックを提供します。最初の選択肢は、<strong>コンセプトのすべての出現</strong>を使用するか、<strong>最初の出現</strong>のみを使用するかです。2番目の選択肢は、<strong>下位層のコンセプトの出現を考慮するかどうか</strong>を決定します。例えば、下位層の「ingrown nail of foot (足の陥入爪)」の出現も、上位層の「ingrown nail (陥入爪)」の出現として数えることができます。3番目の選択肢は、コンセプトを探すときにどのドメインを考慮するかを指定します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ncSettings"></span>
 <img src="images/PopulationLevelEstimation/ncSettings.png" alt="ネガティブコントロールのアウトカムコホートの定義の設定" width="100%" />
 <p class="caption">
@@ -1308,9 +1308,9 @@ div.csl-indent {
 <div id="研究パッケージの実行" class="section level3 hasAnchor" number="12.7.4">
 <h3><span class="header-section-number">12.7.4</span> 研究パッケージの実行<a href="PopulationLevelEstimation.html#研究パッケージの実行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>これで研究の定義が完了したので、実行可能なRパッケージとしてエクスポートできます。このパッケージは、CDMにデータを持つ施設で研究を実行するために必要なすべての内容を含みます。これには、対象群、比較群、アウトカムのコホートをインスタンス化するために使用できるコホート定義、ネガティブコントロールのコンセプトセット、ネガティブコントロールのアウトカムコホートを作成するロジック、さらに分析を実行するRコードが含まれます。パッケージを生成する前に、必ず研究を保存し、<strong>Utilities (ユーティリティ)</strong> タブをクリックしてください。ここで、実行される一連の分析をレビューできます。前述したように、比較と分析設定のすべての組み合わせは、別々の分析になります。この例では、2つの解析を指定しています：AMIに対するACEi対THZ、血管性浮腫に対するACEi対THZ、両者とも傾向スコアマッチングを使用しています。</p>
-<p>パッケージの名前を指定し、“Download (ダウンロード)” をクリックしてzipファイルをダウンロードします。zipファイルにはRパッケージが含まれており、Rパッケージに通常必要なフォルダ構成になっています <span class="citation">(<a href="#ref-Wickham_2015">Wickham 2015</a>)</span>。このパッケージを使用するには、R Studio の使用をお勧めします。R Studio をローカルで実行している場合は、ファイルを解凍し、.Rproj ファイルをダブルクリックして R Studio で開きます。RスタジオをRスタジオサーバーで実行している場合は、<img src="images/PopulationLevelEstimation/upload.png" />をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。</p>
+<p>パッケージの名前を指定し、「Download (ダウンロード)」をクリックしてzipファイルをダウンロードします。zipファイルにはRパッケージが含まれており、Rパッケージに通常必要なフォルダ構成になっています <span class="citation">(<a href="#ref-Wickham_2015">Wickham 2015</a>)</span>。このパッケージを使用するには、R Studio の使用をお勧めします。R Studio をローカルで実行している場合は、ファイルを解凍し、.Rproj ファイルをダブルクリックして R Studio で開きます。RスタジオをRスタジオサーバーで実行している場合は、<img src="images/PopulationLevelEstimation/upload.png" />をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。</p>
 <p>R Studioでプロジェクトを開いたら、READMEファイルを開き、指示に従ってください。すべてのファイルのパスを、システム上の既存のパスに変更してください。</p>
-<p>研究の実行時に表示される一般的なエラーメッセージは、“High correlation between covariate(s) and treatment detected.”（共変量と治療の間に高い相関が検出されました。）” です。これは傾向モデルのフィッティングの際に、いくつかの共変量が曝露と高い相関があることが観察されたことを示します。エラーメッセージに記載されている共変量を確認し、適切に共変量セットから除外してください (セクション <a href="PopulationLevelEstimation.html#VariableSelection">12.1.2</a> 参照). </p>
+<p>研究の実行時に表示される一般的なエラーメッセージは、「High correlation between covariate(s) and treatment detected.”（共変量と治療の間に高い相関が検出されました。）」 です。これは傾向モデルのフィッティングの際に、いくつかの共変量が曝露と高い相関があることが観察されたことを示します。エラーメッセージに記載されている共変量を確認し、適切に共変量セットから除外してください (セクション <a href="PopulationLevelEstimation.html#VariableSelection">12.1.2</a> 参照). </p>
 </div>
 </div>
 <div id="pleR" class="section level2 hasAnchor" number="12.8">

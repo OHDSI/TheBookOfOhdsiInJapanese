@@ -877,8 +877,8 @@ div.csl-indent {
 <div id="データ抽出-2" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> データ抽出<a href="PatientLevelPrediction.html#データ抽出-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>予測モデルを作成する際には、機械学習の一種であると呼ばれるプロセスを使用します。これは、ラベル付けされたサンプルセットに基づいて、共変量とアウトカムの状態の間の関係を推測するものです。したがって、対象コホートに属する人について、CDMから共変量を抽出する方法が必要であり、またアウトカムのラベルを取得する必要があります。</p>
-<p><strong>共変量</strong>（“予測因子”、“特徴量”、“独立変数”とも呼ばれる）は、患者の特徴を説明します。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、<a href="https://ohdsi.github.io/FeatureExtraction/">FeatureExtraction</a>パッケージを使用して構築され、詳細は第 <a href="Characterization.html#Characterization">11</a> 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。</p>
-<p>また、リスク期間中の全ての患者の<strong>アウトカムステータス</strong>（“ラベル”または”クラス”とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。 </p>
+<p><strong>共変量</strong>（「予測因子」、「特徴量」、「独立変数」とも呼ばれる）は、患者の特徴を説明します。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、<a href="https://ohdsi.github.io/FeatureExtraction/">FeatureExtraction</a>パッケージを使用して構築され、詳細は第 <a href="Characterization.html#Characterization">11</a> 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。</p>
+<p>また、リスク期間中の全ての患者の<strong>アウトカムステータス</strong>（「ラベル」または「クラス」とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。 </p>
 <div id="データ抽出の例" class="section level3 hasAnchor" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> データ抽出の例<a href="PatientLevelPrediction.html#データ抽出の例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>表 <a href="PatientLevelPrediction.html#tab:plpExampleCohorts">13.2</a> は、2つのコホートが含まれたCOHORTテーブルの例を示しています。コホート定義IDが1のコホートは対象コホート（例：「最近、心房細動と診断された人」）です。コホート定義IDが2は、アウトカムコホートを定義します（例：「脳卒中」）。</p>
@@ -1122,7 +1122,7 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td align="left">classWeight</td>
-<td align="left">“Balance”または”None”</td>
+<td align="left">「Balance」または「None」</td>
 <td align="left">None</td>
 </tr>
 <tr class="even">
@@ -1180,7 +1180,7 @@ div.csl-indent {
 </div>
 <div id="その他のアルゴリズム" class="section level3 hasAnchor" number="13.3.10">
 <h3><span class="header-section-number">13.3.10</span> その他のアルゴリズム<a href="PatientLevelPrediction.html#その他のアルゴリズム" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>患者レベルの予測フレームワークには他のアルゴリズムを追加できますが、これは本章の範囲外です。詳細は、<a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a> パッケージの<a href="https://ohdsi.github.io/PatientLevelPrediction/articles/AddingCustomAlgorithms.html">“Adding Custom Patient-Level Prediction Algorithms”ビネット</a>を参照ください。</p>
+<p>患者レベルの予測フレームワークには他のアルゴリズムを追加できますが、これは本章の範囲外です。詳細は、<a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a> パッケージの<a href="https://ohdsi.github.io/PatientLevelPrediction/articles/AddingCustomAlgorithms.html">「Adding Custom Patient-Level Prediction Algorithms」ビネット</a>を参照ください。</p>
 </div>
 </div>
 <div id="予測モデルの評価" class="section level2 hasAnchor" number="13.4">
@@ -1432,7 +1432,7 @@ div.csl-indent {
 <h4>共変量設定<a href="PatientLevelPrediction.html#共変量設定" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>私たちは、CDM形式の観察データから抽出できる標準共変量のセットを定義しました。共変量設定ビューでは、どの標準共変量を含めるかを選択できます。異なるタイプの共変量設定を定義でき、各モデルは指定された共変量設定ごとに個別に作成されます。</p>
 <p>研究に共変量設定を追加するには、「Add Covariate Settings」をクリックします。これで共変量設定ビューが開きます。</p>
-<p>共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意のコンセプトに対して構築されますが、例えば対象コホート定義にリンクされている場合、特定のコンセプトを除外または含めることができます。特定のコンセプトのみを含めるには、ATLASでコンセプトセットを作成し、 “<strong>What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量として、どのようなコンセプトを含めたいですか？（すべてを含めたい場合は空白のままにしてください）)</strong>” の下で<img src="images/PopulationLevelEstimation/open.png" />をクリックしてコンセプトセットを選択します。コンセプトセット内のコンセプトに下位層のコンセプトを自動的に追加するには、 “<strong>Should descendant concepts be added to the list of included concepts? (含まれるコンセプトのリストに下位層コンセプトを追加すべきでしょうか？)</strong>” の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択されたコンセプトを除外する “<strong>What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量から除外したいコンセプトは何ですか？（すべてを含める場合は空白のままにしてください）)</strong>” の質問にも繰り返します。最後のオプション “<strong>A comma delimited list of covariate IDs that should be restricted to (制限すべき共変数IDのコンマ区切りリスト)</strong>” では、共変量ID（コンセプトIDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、適格基準設定と除外基準設定は図 <a href="PatientLevelPrediction.html#fig:covariateSettings1">13.6</a>のようになります。</p>
+<p>共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意のコンセプトに対して構築されますが、例えば対象コホート定義にリンクされている場合、特定のコンセプトを除外または含めることができます。特定のコンセプトのみを含めるには、ATLASでコンセプトセットを作成し、 「<strong>What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量として、どのようなコンセプトを含めたいですか？（すべてを含めたい場合は空白のままにしてください）)</strong>」 の下で<img src="images/PopulationLevelEstimation/open.png" />をクリックしてコンセプトセットを選択します。コンセプトセット内のコンセプトに下位層のコンセプトを自動的に追加するには、「<strong>Should descendant concepts be added to the list of included concepts? (含まれるコンセプトのリストに下位層コンセプトを追加すべきでしょうか？)</strong>」の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択されたコンセプトを除外する「<strong>What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量から除外したいコンセプトは何ですか？（すべてを含める場合は空白のままにしてください）)</strong>」の質問にも繰り返します。最後のオプション 「<strong>A comma delimited list of covariate IDs that should be restricted to (制限すべき共変数IDのコンマ区切りリスト)</strong>」では、共変量ID（コンセプトIDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、適格基準設定と除外基準設定は図 <a href="PatientLevelPrediction.html#fig:covariateSettings1">13.6</a>のようになります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:covariateSettings1"></span>
 <img src="images/PatientLevelPrediction/covariateSettings1.png" alt="共変量の包括と除外設定" width="100%" />
 <p class="caption">
@@ -1503,7 +1503,7 @@ div.csl-indent {
 <li><p>ビジット回数：選択されたビジット回数と時間間隔ごとに共変量を構築し、その時間間隔に記録されたビジット回数を共 変量値としてカウント。</p></li>
 <li><p>ビジットコンセプト数： 選択された各ビジット、ドメイン、時間間隔ごとに共変量を構築し、その時間間隔に記録されたレコード数を、各ドメインのビジットタイプと時間間隔ごとに共変量値としてカウント。</p></li>
 </ul>
-<p>“distinct count (重複を除いたカウント)”オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。</p>
+<p>「distinct count (重複を除いたカウント)」オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。</p>
 <p>これらが完了すると、このセクションは下図 <a href="PatientLevelPrediction.html#fig:covariateSettings5">13.10</a> のようになっているはずです。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:covariateSettings5"></span>
 <img src="images/PatientLevelPrediction/covariateSettings5.png" alt="時間制約共変量" width="100%" />
@@ -1521,13 +1521,13 @@ div.csl-indent {
 </div>
 <div id="研究対象集団の設定" class="section level4 unnumbered hasAnchor">
 <h4>研究対象集団の設定<a href="PatientLevelPrediction.html#研究対象集団の設定" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>対象集団の設定は、追加の適格基準を対象集団に適用できる場所であり、また、リスク期間もここで定義されます。 研究に対象集団の設定を追加するには、“Add Population Settings (対象集団の追加)” ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。</p>
-<p>最初のオプションセットでは、リスク期間を指定することができます。これは、対象とするアウトカムが起こるかどうかを観察する時間間隔です。リスク期間中に患者にアウトカムが起きた場合は “Has outcome (アウトカムあり)” に分類し、そうでない場合は “No outcome (アウトカムなし)” に分類します。“<strong>Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホート組入れを基準に、リスク時間ウインドウの開始を定義します。)</strong> は、ターゲットコホートの開始または終了日を基準としたリスク期間の開始を定義します。同様に、”<strong>Define the time-at-risk window end: (対象コホートの開始または終了日を基準とした、リスク期間の終了を定義します。)</strong> は、リスク期間の終了を定義します。</p>
-<p>“<strong>Minimum lookback period applied to target cohort (対象コホートに適用される最小のルックバック期間)</strong>” は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小のベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。</p>
-<p>“<strong>Should subjects without time at risk be removed? (リスク期間がない対象は除外すべきですか。)”</strong> が”Yes (はい)” に設定されている場合、“<strong>Minimum time at risk: (最低リスク時間：)”</strong> の値も必要となります。これにより、追跡不能となった人（すなわち、リスク期間中にデータベースから離脱した人）を除外することができます。例えば、リスク期間がコホート開始後1日からコホート開始後365日までであった場合、リスク期間は364日間（365-1）となります。もし、その全期間にわたって観察された患者のみを含めたいのであれば、最小リスク時間を364に設定します。最初の100日間リスク期間に該当していればよいのであれば、最小リスク期間を100に設定します。この場合、リスク期間の開始はコホート開始から1日後なので、コホート開始日から少なくとも101日間データベースに存在する患者が対象となります。”Should subjects without time at risk be removed? (リスク期間がない対象は削除すべきですか。）” を “No (いいえ)” に設定すると、リスク期間中にデータベースから離脱した患者も含め、すべての患者が対象となります。</p>
-<p>“<strong>Include people with outcomes who are not observed for the whole at risk period? (全リスク期間で観察されていないアウトカムを持つ人を含めますか。)</strong> というオプションは、前のオプションに関連しています。”Yes (はい)” に設定すると、指定された最低リスク期間で観察されていない場合でも、リスク期間中にアウトカムを経験した人は常にコホートに保持されます。</p>
-<p>“<strong>Should only the first exposure per subject be included? (対象ごとに最初の曝露のみを含めるべきですか)</strong>” というオプションは、対象コホートに異なるコホート開始日で複数回含まれる患者がいる場合にのみ有用です。この状況で “Yes (はい)” を選択すると、分析では患者ごとに最も早い対象コホートの日付のみが保持されます。そうでない場合、患者はデータセットに複数回含まれる可能性があります。</p>
-<p>“<strong>Remove patients who have observed the outcome prior to cohort entry? (コホート組入れの前にアウトカムが観察された患者を除外しますか)</strong>” を “Yes (はい)” に設定すると、リスク期間開始日より前にアウトカムを経験した患者を除外するため、そのモデルは以前にアウトカムを経験したことがない患者を対象とします。もし “No (いいえ)” が選択されると、患者は以前にアウトカムを持つ可能性があります。患者が以前にアウトカムを経験したことが、リスク期間中にアウトカムが起きることを非常に高い確率で予測することが多いです。</p>
+<p>対象集団の設定は、追加の適格基準を対象集団に適用できる場所であり、また、リスク期間もここで定義されます。 研究に対象集団の設定を追加するには、「Add Population Settings (対象集団の追加)」ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。</p>
+<p>最初のオプションセットでは、リスク期間を指定することができます。これは、対象とするアウトカムが起こるかどうかを観察する時間間隔です。リスク期間中に患者にアウトカムが起きた場合は「Has outcome (アウトカムあり)」に分類し、そうでない場合は「No outcome (アウトカムなし)」 に分類します。「<strong>Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホート組入れを基準に、リスク時間ウインドウの開始を定義します。)</strong>」 は、ターゲットコホートの開始または終了日を基準としたリスク期間の開始を定義します。同様に、「<strong>Define the time-at-risk window end: (対象コホートの開始または終了日を基準とした、リスク期間の終了を定義します。)</strong>」は、リスク期間の終了を定義します。</p>
+<p>「<strong>Minimum lookback period applied to target cohort (対象コホートに適用される最小のルックバック期間)</strong>」 は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小のベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。</p>
+<p>「<strong>Should subjects without time at risk be removed? (リスク期間がない対象は除外すべきですか。)</strong>」 が 「Yes (はい)」 に設定されている場合、「<strong>Minimum time at risk: (最低リスク時間：)</strong>」 の値も必要となります。これにより、追跡不能となった人（すなわち、リスク期間中にデータベースから離脱した人）を除外することができます。例えば、リスク期間がコホート開始後1日からコホート開始後365日までであった場合、リスク期間は364日間（365-1）となります。もし、その全期間にわたって観察された患者のみを含めたいのであれば、最小リスク時間を364に設定します。最初の100日間リスク期間に該当していればよいのであれば、最小リスク期間を100に設定します。この場合、リスク期間の開始はコホート開始から1日後なので、コホート開始日から少なくとも101日間データベースに存在する患者が対象となります。「Should subjects without time at risk be removed? (リスク期間がない対象は削除すべきですか。）」を「No (いいえ)」に設定すると、リスク期間中にデータベースから離脱した患者も含め、すべての患者が対象となります。</p>
+<p>「<strong>Include people with outcomes who are not observed for the whole at risk period? (全リスク期間で観察されていないアウトカムを持つ人を含めますか。)</strong>」 というオプションは、前のオプションに関連しています。「Yes (はい)」に設定すると、指定された最低リスク期間で観察されていない場合でも、リスク期間中にアウトカムを経験した人は常にコホートに保持されます。</p>
+<p>「<strong>Should only the first exposure per subject be included? (対象ごとに最初の曝露のみを含めるべきですか)</strong>」というオプションは、対象コホートに異なるコホート開始日で複数回含まれる患者がいる場合にのみ有用です。この状況で “Yes (はい)」を選択すると、分析では患者ごとに最も早い対象コホートの日付のみが保持されます。そうでない場合、患者はデータセットに複数回含まれる可能性があります。</p>
+<p>「<strong>Remove patients who have observed the outcome prior to cohort entry? (コホート組入れの前にアウトカムが観察された患者を除外しますか)</strong>」を「Yes (はい)」 に設定すると、リスク期間開始日より前にアウトカムを経験した患者を除外するため、そのモデルは以前にアウトカムを経験したことがない患者を対象とします。もし “No (いいえ)」が選択されると、患者は以前にアウトカムを持つ可能性があります。患者が以前にアウトカムを経験したことが、リスク期間中にアウトカムが起きることを非常に高い確率で予測することが多いです。</p>
 <p>完了すると、対象集団の設定のダイアログは図 <a href="PatientLevelPrediction.html#fig:populationSettings">13.12</a> のようになります。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:populationSettings"></span>
 <img src="images/PatientLevelPrediction/populationSettings.png" alt="対象集団の設定" width="100%" />
@@ -1548,9 +1548,9 @@ div.csl-indent {
 <h3><span class="header-section-number">13.6.3</span> 実行の設定<a href="PatientLevelPrediction.html#実行の設定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>オプションは3つあります：</p>
 <ul>
-<li><p><strong>Perform sampling (サンプリングの実行)</strong> ： ここでサンプリングを実行するかどうかを選択します（デフォルトは “no (いいえ)”）。“yes (はい)” を選択すると、別のオプションが表示されます： “<strong>How many patients to use for a subset? (サブセットに何人の患者を含めますか。)</strong>” で、サンプルの大きさを指定できます。サンプリングは、大規模な母集団（例えば1000万人の患者）のモデルが予測可能かどうかを判断する効率的な手段となり得ます。例えば、サンプルにおける AUC が 0.5 に近い場合、そのモデルは破棄されるかもしれません。</p></li>
-<li><p>“<strong>Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed: (最小共変量出現率： もし共変量がこの値より小さい割合で対象集団に出現する場合、その共変量は除外されます:)</strong>”: ここでは共変量の出現率の最小値を選択します（デフォルトは0.001）。共変量出現の最小閾値は、全体集団を代表しないまれなイベントを除外するために必要です。</p></li>
-<li><p>“<strong>Normalize covariate (共変量を正規化する)</strong>”： ここで共変量を正規化するかどうかを選択します（デフォルトは “yes (はい)”）。共変量の正規化は、通常、LASSOモデルをうまく実行するために必要です。</p></li>
+<li><p><strong>Perform sampling (サンプリングの実行)</strong> ： ここでサンプリングを実行するかどうかを選択します（デフォルトは 「no (いいえ)」）。「yes (はい)」 を選択すると、別のオプションが表示されます： 「<strong>How many patients to use for a subset? (サブセットに何人の患者を含めますか。)</strong>」で、サンプルの大きさを指定できます。サンプリングは、大規模な母集団（例えば1000万人の患者）のモデルが予測可能かどうかを判断する効率的な手段となり得ます。例えば、サンプルにおける AUC が 0.5 に近い場合、そのモデルは破棄されるかもしれません。</p></li>
+<li><p>「<strong>Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed: (最小共変量出現率： もし共変量がこの値より小さい割合で対象集団に出現する場合、その共変量は除外されます:)</strong>」: ここでは共変量の出現率の最小値を選択します（デフォルトは0.001）。共変量出現の最小閾値は、全体集団を代表しないまれなイベントを除外するために必要です。</p></li>
+<li><p>「<strong>Normalize covariate (共変量を正規化する)</strong>」： ここで共変量を正規化するかどうかを選択します（デフォルトは「yes (はい)」）。共変量の正規化は、通常、LASSOモデルをうまく実行するために必要です。</p></li>
 </ul>
 <p>この例では、図 <a href="PatientLevelPrediction.html#fig:executionSettings">13.14</a> のように選択します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:executionSettings"></span>
@@ -1564,10 +1564,10 @@ div.csl-indent {
 <h3><span class="header-section-number">13.6.4</span> トレーニングの設定<a href="PatientLevelPrediction.html#トレーニングの設定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>4つのオプションがあります：</p>
 <ul>
-<li><p>“<strong>Specify how to split the test/train set (テストセットとトレーニングセットをどのように分けるかを指定します。)</strong>”： トレーニング/テストデータを人別（アウトカムで層別化）または時間別（古いデータをトレーニングに、新しいデータは評価に）に分割するかを選択します。</p></li>
-<li><p>“<strong>Percentage of the data to be used as the test set (0-100%) (テストセットとして使用するデータの割合(0-100%))</strong>”： テストデータとして使用するデータの割合を選択します（デフォルトは25%）。</p></li>
-<li><p>“<strong>The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)</strong>”： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。</p></li>
-<li><p>“<strong>The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)</strong>”： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用するランダムシードを選択します。</p></li>
+<li><p>「<strong>Specify how to split the test/train set (テストセットとトレーニングセットをどのように分けるかを指定します。)</strong>」： トレーニング/テストデータを人別（アウトカムで層別化）または時間別（古いデータをトレーニングに、新しいデータは評価に）に分割するかを選択します。</p></li>
+<li><p>「<strong>Percentage of the data to be used as the test set (0-100%) (テストセットとして使用するデータの割合(0-100%))</strong>」： テストデータとして使用するデータの割合を選択します（デフォルトは25%）。</p></li>
+<li><p>「<strong>The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)</strong>」： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。</p></li>
+<li><p>「<strong>The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)</strong>」： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用するランダムシードを選択します。</p></li>
 </ul>
 <p>この例では、図 <a href="PatientLevelPrediction.html#fig:trainingSettings">13.15</a> のように選択します。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:trainingSettings"></span>
@@ -1579,12 +1579,12 @@ div.csl-indent {
 </div>
 <div id="研究のインポートとエクスポート" class="section level3 hasAnchor" number="13.6.5">
 <h3><span class="header-section-number">13.6.5</span> 研究のインポートとエクスポート<a href="PatientLevelPrediction.html#研究のインポートとエクスポート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>研究をエクスポートするには、“Utilities (ユーティリティ)” の下にある “Export (エクスポート)” タブをクリックします。ATLASは、研究の名称、コホート定義、選択したモデル、共変量、設定など、研究実行に必要なすべてのデータを含むファイルに直接コピー＆ペーストできるJSONを作成します。</p>
-<p>研究をインポートするには、“Utilities (ユーティリティ)” の下にある “Import (インポート)” タブをクリックします。患者レベルの予測研究のJSONの内容をこのウィンドウに貼り付け、他のタブボタンの下にある “Import (インポート)” ボタンをクリックします。これにより、その研究の以前の設定がすべて上書きされることに注意してください。通常は、新しい空の研究デザインを使用して実行します。</p>
+<p>研究をエクスポートするには、「Utilities (ユーティリティ)」の下にある 「Export (エクスポート)」タブをクリックします。ATLASは、研究の名称、コホート定義、選択したモデル、共変量、設定など、研究実行に必要なすべてのデータを含むファイルに直接コピー＆ペーストできるJSONを作成します。</p>
+<p>研究をインポートするには、「Utilities (ユーティリティ)」の下にある「Import (インポート)」タブをクリックします。患者レベルの予測研究のJSONの内容をこのウィンドウに貼り付け、他のタブボタンの下にある「Import (インポート)」ボタンをクリックします。これにより、その研究の以前の設定がすべて上書きされることに注意してください。通常は、新しい空の研究デザインを使用して実行します。</p>
 </div>
 <div id="研究パッケージのダウンロード" class="section level3 hasAnchor" number="13.6.6">
 <h3><span class="header-section-number">13.6.6</span> 研究パッケージのダウンロード<a href="PatientLevelPrediction.html#研究パッケージのダウンロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>“Utilities (ユーティリティ)” の下にある “Review &amp; Download (レビューとダウンロード)”」レビューとダウンロード ” タブをクリックします。“Download Study Package (研究パッケージをダウンロード)” セクションで、Rパッケージのわかりやすい名前を入力します。Rで使えない文字は、ATLASによって自動的にファイル名から削除されることに注意してください。<img src="images/PatientLevelPrediction/download.png" /> をクリックして、Rパッケージをローカルフォルダにダウンロードします。</p>
+<p>「Utilities (ユーティリティ)」 の下にある「Review &amp; Download (レビューとダウンロード)」タブをクリックします。「Download Study Package (研究パッケージをダウンロード)」セクションで、Rパッケージのわかりやすい名前を入力します。Rで使えない文字は、ATLASによって自動的にファイル名から削除されることに注意してください。<img src="images/PatientLevelPrediction/download.png" /> をクリックして、Rパッケージをローカルフォルダにダウンロードします。</p>
 </div>
 <div id="研究の実行" class="section level3 hasAnchor" number="13.6.7">
 <h3><span class="header-section-number">13.6.7</span> 研究の実行<a href="PatientLevelPrediction.html#研究の実行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1592,7 +1592,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="PatientLevelPrediction.html#cb116-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;drat&quot;</span>)</span>
 <span id="cb116-2"><a href="PatientLevelPrediction.html#cb116-2" tabindex="-1"></a>drat<span class="sc">::</span><span class="fu">addRepo</span>(<span class="st">&quot;OHDSI&quot;</span>)</span>
 <span id="cb116-3"><a href="PatientLevelPrediction.html#cb116-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;PatientLevelPrediction&quot;</span>)</span></code></pre></div>
-<p>機械学習アルゴリズムの中には、追加ソフトウェアのインストールが必要なものがあります。<a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a> パッケージのインストール方法の詳細については、<a href="https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html">“Patient-Level Prediction Installation Guide” vignette</a>を参照ください。</p>
+<p>機械学習アルゴリズムの中には、追加ソフトウェアのインストールが必要なものがあります。<a href="https://ohdsi.github.io/PatientLevelPrediction/">PatientLevelPrediction</a> パッケージのインストール方法の詳細については、<a href="https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html">「Patient-Level Prediction Installation Guide」vignette</a>を参照ください。</p>
 <p>study Rパッケージを使用するには、R Studioの使用をお勧めします。R Studioをローカルで実行している場合は、ATLASで生成されたファイルを解凍し、.RprojファイルをダブルクリックしてR Studioで開きます。RスタジオをRスタジオサーバーで実行している場合は、<img src="images/PopulationLevelEstimation/upload.png" />をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。</p>
 <p>R Studioでプロジェクトを開いたら、READMEファイルを開き、指示に従ってください。すべてのファイルのパスを、システム上の既存のパスに変更してください。</p>
 </div>
@@ -1910,7 +1910,7 @@ div.csl-indent {
 <h2><span class="header-section-number">13.9</span> 患者レベルの予測に関する追加の機能<a href="PatientLevelPrediction.html#患者レベルの予測に関する追加の機能" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="学術誌論文の生成" class="section level3 hasAnchor" number="13.9.1">
 <h3><span class="header-section-number">13.9.1</span> 学術誌論文の生成<a href="PatientLevelPrediction.html#学術誌論文の生成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む “Table 1” を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：</p>
+<p>自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む 「Table 1」を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="PatientLevelPrediction.html#cb136-1" tabindex="-1"></a> <span class="fu">createPlpJournalDocument</span>(<span class="at">plpResult =</span> <span class="sc">&lt;</span>your plp results<span class="sc">&gt;</span>,</span>
 <span id="cb136-2"><a href="PatientLevelPrediction.html#cb136-2" tabindex="-1"></a>             <span class="at">plpValidation =</span> <span class="sc">&lt;</span>your validation results<span class="sc">&gt;</span>,</span>
 <span id="cb136-3"><a href="PatientLevelPrediction.html#cb136-3" tabindex="-1"></a>             <span class="at">plpData =</span> <span class="sc">&lt;</span>your plp data<span class="sc">&gt;</span>,</span>

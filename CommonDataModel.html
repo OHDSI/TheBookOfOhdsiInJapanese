@@ -1011,7 +1011,7 @@ div.csl-indent {
 <li><strong>ソースコンセプト</strong>は、ソースで使用されるコードを表すコンセプトです。ソースコンセプトは、既存の公開または独自のコード体系に対してのみ使用され、OMOPで生成されたコンセプトには使用されません。ソースコンセプトはデータテーブル内の[Event]_SOURCE_CONCEPT_IDフィールドに格納されます。</li>
 <li><strong>標準コンセプト</strong>は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]_CONCEPT_IDフィールドで参照できます。</li>
 </ul>
-<p>ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には<strong>強く推奨</strong>されます。一方、標準コンセプトの使用は<strong>必須</strong>です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 <a href="CommonDataModel.html#fig:pulmTubICD9">4.2</a> で示されているように、コンディション “Pulmonary Tuberculosis (肺結核)” (TB) のICD9CMコードは011です。</p>
+<p>ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には<strong>強く推奨</strong>されます。一方、標準コンセプトの使用は<strong>必須</strong>です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 <a href="CommonDataModel.html#fig:pulmTubICD9">4.2</a> で示されているように、コンディション「Pulmonary Tuberculosis (肺結核)」（TB）のICD9CMコードは011です。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pulmTubICD9"></span>
 <img src="images/CommonDataModel/pulmTubICD9.png" alt="肺結核のICD9CMコード" width="75%" />
 <p class="caption">
@@ -1261,7 +1261,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PERIOD_TYPE_ CONCEPT_ID</td>
 <td align="left">44814725</td>
-<td align="left">“Obs Period Type (観察期間タイプ)” コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、「ヘルスケア受診をカバーする期間」を表します。</td>
+<td align="left">「Obs Period Type (観察期間タイプ)」 コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、「ヘルスケア受診をカバーする期間」を表します。</td>
 </tr>
 </tbody>
 </table>
@@ -1443,7 +1443,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">CONDITION_TYPE_ CONCEPT_ID</td>
 <td align="left">32020</td>
-<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、“Condition Type (コンディションタイプ)” のボキャブラリに属するべきです。</td>
+<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「Condition Type (コンディションタイプ)」のボキャブラリに属するべきです。</td>
 </tr>
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
@@ -1548,7 +1548,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_TYPE_ CONCEPT_ID</td>
 <td align="left">38000177</td>
-<td align="left">この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> (“Prescription written”) が使用されています。</td>
+<td align="left">この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> (「Prescription written　（書かれた処方箋）」) が使用されています。</td>
 </tr>
 <tr class="even">
 <td align="left">STOP_REASON</td>
@@ -1578,7 +1578,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">ROUTE_CONCEPT_ID</td>
 <td align="left">4132161</td>
-<td align="left">このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4132161">4132161</a> (“Oral（経口）”) が使用されています.</td>
+<td align="left">このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4132161">4132161</a> (「Oral（経口）」) が使用されています.</td>
 </tr>
 <tr class="even">
 <td align="left">LOT_NUMBER</td>
@@ -1608,7 +1608,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_SOURCE_ CONCEPT_ID</td>
 <td align="left">750264</td>
-<td align="left">薬剤のソースデータでの値を表すコンセプトです。コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/750264">750264</a> NDCコードで”Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）“を表します。</td>
+<td align="left">薬剤のソースデータでの値を表すコンセプトです。コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/750264">750264</a> NDCコードで「Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）」を表します。</td>
 </tr>
 <tr class="even">
 <td align="left">ROUTE_SOURCE_ VALUE</td>
@@ -1765,10 +1765,10 @@ div.csl-indent {
 <span id="cb3-5"><a href="CommonDataModel.html#cb3-5" tabindex="-1"></a><span class="st">LIMIT 1;&quot;</span></span>
 <span id="cb3-6"><a href="CommonDataModel.html#cb3-6" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">renderTranslateQuerySql</span>(connection, sql, <span class="at">cdm =</span> <span class="st">&quot;main&quot;</span>)</span></code></pre></div>
 <div class="exercise">
-<p><span id="exr:exerciseGiBleedRecords" class="exercise"><strong>演習 4.4  </strong></span>SQLとRを使用して、コンディション “Gastrointestinal hemorrhage (消化管出血)”（コンセプトID<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>）のすべてのレコードを取得してください。</p>
+<p><span id="exr:exerciseGiBleedRecords" class="exercise"><strong>演習 4.4  </strong></span>SQLとRを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)」（コンセプトID<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>）のすべてのレコードを取得してください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して、コンディション “Gastrointestinal hemorrhage (消化管出血)” のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは “K92.2” です。</p>
+<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)“」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは 「K92.2」です。</p>
 </div>
 <div class="exercise">
 <p><span id="exr:exercisePerson61Records" class="exercise"><strong>演習 4.6  </strong></span>SQLとRを使用して、PERSON_ID 61に該当する人の観察期間を取得してください。</p>

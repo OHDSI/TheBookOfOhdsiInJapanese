@@ -869,21 +869,21 @@ div.csl-indent {
 図 11.3: ATLASデータソース: コンディション出現のツリーマップ
 </p>
 </div>
-<p>特定の関心のあるコンデションを検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、人数、有病率、個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に “hypertension (高血圧)” を含む項目に基づいてリストをフィルタリングできます：</p>
+<p>特定の関心のあるコンデションを検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、人数、有病率、個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に 「hypertension (高血圧)」を含む項目に基づいてリストをフィルタリングできます：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasDataSourcesConditionFiltered"></span>
 <img src="images/Characterization/atlasDataSourcesConditionFiltered.png" alt="ATLASデータソース: コンセプト名に 「hypertension (高血圧)」が含まれるコンディション" width="100%" />
 <p class="caption">
 図 11.4: ATLASデータソース: コンセプト名に 「hypertension (高血圧)」が含まれるコンディション
 </p>
 </div>
-<p>特定のコンディションの詳細なドリルダウンレポートを表示するには、行をクリックします。ここでは、“essential hypertension (本態性高血圧)” を選択し、選択されたコンディションの経時的および性別ごとの傾向、月ごとの有病率、記録された病型、診断の初回発生時の年齢の分布を確認します：</p>
+<p>特定のコンディションの詳細なドリルダウンレポートを表示するには、行をクリックします。ここでは、「essential hypertension (本態性高血圧)」を選択し、選択されたコンディションの経時的および性別ごとの傾向、月ごとの有病率、記録された病型、診断の初回発生時の年齢の分布を確認します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasDataSourcesDrillDownReport"></span>
 <img src="images/Characterization/atlasDataSourcesDrillDownReport.png" alt="ATLASデータソース: 本態性高血圧ドリルダウンレポート" width="100%" />
 <p class="caption">
 図 11.5: ATLASデータソース: 本態性高血圧ドリルダウンレポート
 </p>
 </div>
-<p>高血圧症のコンセプトの有無と経時的な傾向についてデータベースの特性を確認した後、高血圧症患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するため、 “Drug Era (薬剤曝露期間)” レポートを使用します。データベースの特性を探索して関心のある項目を確認し、高血圧症患者を特性化するためのコホートの構築を進める準備を整えます。</p>
+<p>高血圧症のコンセプトの有無と経時的な傾向についてデータベースの特性を確認した後、高血圧症患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するため、 「Drug Era (薬剤曝露期間)」レポートを使用します。データベースの特性を探索して関心のある項目を確認し、高血圧症患者を特性化するためのコホートの構築を進める準備を整えます。</p>
 </div>
 <div id="atlasにおけるコホート特性分析" class="section level2 hasAnchor" number="11.7">
 <h2><span class="header-section-number">11.7</span> ATLASにおけるコホート特性分析<a href="Characterization.html#atlasにおけるコホート特性分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -911,7 +911,7 @@ div.csl-indent {
 図 11.7: 特性設計タブ - 特徴量の選択
 </p>
 </div>
-<p>上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 “Demographics (人口動態的特性)”で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：</p>
+<p>上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 「Demographics (人口動態的特性)」で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：</p>
 <ul>
 <li><strong>Any time prior（任意の期間）</strong>: コホート開始前のすべての利用可能な期間で、その人の観察期間に該当するものを使用。</li>
 <li><strong>Long term（長期）</strong>: コホート開始日を含む最大365日前まで。</li>
@@ -944,7 +944,7 @@ div.csl-indent {
 図 11.9: 特性評価設計の実行 - CDMソース選択
 </p>
 </div>
-<p>分析が完了したら、“All Executions (すべてを実行)” ボタンをクリックしてレポートを表示し、実行リストから “View Reports (レポートを見る)” を選択します。あるいは、“View latest result (最新の結果を見る)” をクリックして、最後に実行されたアウトカムを表示することもできます。</p>
+<p>分析が完了したら、「All Executions (すべてを実行)」ボタンをクリックしてレポートを表示し、実行リストから「View Reports (レポートを見る)」を選択します。あるいは、「View latest result (最新の結果を見る)」をクリックして、最後に実行されたアウトカムを表示することもできます。</p>
 </div>
 <div id="結果" class="section level3 hasAnchor" number="11.7.3">
 <h3><span class="header-section-number">11.7.3</span> 結果<a href="Characterization.html#結果" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -962,15 +962,15 @@ div.csl-indent {
 図 11.11: 特性アウトカム - 単一コンセプトの探索
 </p>
 </div>
-<p>コホートのすべてのコンディションコンセプトを特性評価したため、“explore (探索する)” オプションを使用して、選択されたコンセプト（この場合は不整脈）のすべての上位層と下位層に含まれるコンセプトを表示します。この探索により、高血圧症のある人に現れる可能性のある他の心疾患を探索するためのコンセプトの階層をナビゲートすることができます。要約表示と同様に、カウントとパーセンテージが表示されます。</p>
-<p>この特性結果を用いて、高血圧症治療に禁忌のあるコンディション（例：血管性浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は “edema (浮腫)” を検索します（図 <a href="Characterization.html#fig:atlasCharacterizationResultsContra">11.12</a> を参照）。</p>
+<p>コホートのすべてのコンディションコンセプトを特性評価したため、「explore (探索する)」オプションを使用して、選択されたコンセプト（この場合は不整脈）のすべての上位層と下位層に含まれるコンセプトを表示します。この探索により、高血圧症のある人に現れる可能性のある他の心疾患を探索するためのコンセプトの階層をナビゲートすることができます。要約表示と同様に、カウントとパーセンテージが表示されます。</p>
+<p>この特性結果を用いて、高血圧症治療に禁忌のあるコンディション（例：血管性浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema (浮腫)」を検索します（図 <a href="Characterization.html#fig:atlasCharacterizationResultsContra">11.12</a> を参照）。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContra"></span>
 <img src="images/Characterization/atlasCharacterizationResultsContra.png" alt="特性評価の結果 - 禁忌コンディションの探索" width="100%" />
 <p class="caption">
 図 11.12: 特性評価の結果 - 禁忌コンディションの探索
 </p>
 </div>
-<p>再度、特徴量を “explore (探索する)” を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：</p>
+<p>再度、特徴量を「explore (探索する)」を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:atlasCharacterizationResultsContraExplore"></span>
 <img src="images/Characterization/atlasCharacterizationResultsContraExplore.png" alt="特性アウトカム - 禁忌コンディションの詳細を探索" width="100%" />
 <p class="caption">
@@ -1248,7 +1248,7 @@ div.csl-indent {
 <p><span id="exr:exerciseCharacterization2" class="exercise"><strong>演習 11.2  </strong></span>セレコキシブの使用者の疾患の自然経過について、より深く理解したいと思います。 365日間のウォッシュアウト期間を使用して、セレコキシブの新規使用者の単純なコホートを作成し（作成方法の詳細については、 (第 <a href="Cohorts.html#Cohorts">10</a> 章 を参照してください）、ATLAS を使用して、併存疾患と薬剤曝露を示すこのコホートの特性を作成します。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseCharacterization3" class="exercise"><strong>演習 11.3  </strong></span>セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a> (“消化管出血”) またはその下位層に含まれるいずれかのコンセプトの発生として単純に定義される GI出血ベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。</p>
+<p><span id="exr:exerciseCharacterization3" class="exercise"><strong>演習 11.3  </strong></span>セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a> (「消化管出血」) またはその下位層に含まれるいずれかのコンセプトの発生として単純に定義される GI出血ベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。</p>
 </div>
 <p>推奨される解答は付録<a href="SuggestedAnswers.html#Characterizationanswers">E.7</a> を参照ください。</p>
 

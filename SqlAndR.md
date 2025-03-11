@@ -184,7 +184,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 | DAY               | PI          |            |
 | EOMONTH           | POWER       |            |
 
-: (#tab:sqlFunctions) "translate (翻訳)によりサポートされる関数と構造
+: (#tab:sqlFunctions) 「translate (翻訳)」によりサポートされる関数と構造
 
 \* Oracleでは特別な権限が必要です。SQLiteでは同等のものがありません。
 
@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.wn3lpioschildren ;"
+## [1] "SELECT * FROM temp_schema.isduanzpchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -556,7 +556,7 @@ INNER JOIN @cdm.observation_period
 |--------:|
 |      90 |
 
-観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて"n"を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
 ``` sql
 WITH ages

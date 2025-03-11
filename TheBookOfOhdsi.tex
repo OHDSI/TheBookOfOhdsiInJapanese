@@ -999,7 +999,7 @@ CONCEPTテーブルのレコードには、各コンセプトの詳細情報（�
   \textbf{標準コンセプト}は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの{[}Event{]}\_CONCEPT\_IDフィールドで参照できます。
 \end{itemize}
 
-ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には\textbf{強く推奨}されます。一方、標準コンセプトの使用は\textbf{必須}です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 \ref{fig:pulmTubICD9} で示されているように、コンディション ``Pulmonary Tuberculosis (肺結核)'' (TB) のICD9CMコードは011です。
+ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には\textbf{強く推奨}されます。一方、標準コンセプトの使用は\textbf{必須}です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 \ref{fig:pulmTubICD9} で示されているように、コンディション「Pulmonary Tuberculosis (肺結核)」（TB）のICD9CMコードは011です。
 
 \begin{figure}
 
@@ -1167,7 +1167,7 @@ OBSERVATION\_ PERIOD\_ID & 1 & これは通常、自動生成された値で、�
 PERSON\_ID & 1 & これはPERSONテーブルでLauraのレコードへの外部キーであり、PERSONをOBSERVATION\_PERIODテーブルにリンクします。 \\
 OBSERVATION\_PERIOD\_ START\_DATE & 2010-01-06 & これは記録上、彼女の最初の受診の開始日です。 \\
 OBSERVATION\_PERIOD\_ END\_DATE & 2013-01-24 & これは記録上、彼女の最後の受診の終了日です。 \\
-PERIOD\_TYPE\_ CONCEPT\_ID & 44814725 & ``Obs Period Type (観察期間タイプ)'' コンセプトクラスを持つボキャブラリにおける最良のオプションは\href{http://athena.ohdsi.org/search-terms/terms/44814724}{44814724}で、「ヘルスケア受診をカバーする期間」を表します。 \\
+PERIOD\_TYPE\_ CONCEPT\_ID & 44814725 & 「Obs Period Type (観察期間タイプ)」 コンセプトクラスを持つボキャブラリにおける最良のオプションは\href{http://athena.ohdsi.org/search-terms/terms/44814724}{44814724}で、「ヘルスケア受診をカバーする期間」を表します。 \\
 \end{longtable}
 
 \subsection{VISIT\_OCCURRENCE}\label{visitOccurrence}
@@ -1280,7 +1280,7 @@ CONDITION\_START\_ DATE & 2010-01-06 & コンディションが記録された�
 CONDITION\_START\_ DATETIME & 2010-01-06 00:00:00 & コンディションが記録された日時です。時刻は不明なので、0時が使用されます。 \\
 CONDITION\_END\_ DATE & NULL & コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 \\
 CONDITION\_END\_ DATETIME & NULL & 既知の場合、コンディションが終了したと見なされる日時です。 \\
-CONDITION\_TYPE\_ CONCEPT\_ID & 32020 & この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 \href{http://athena.ohdsi.org/search-terms/terms/32020}{32020}「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、``Condition Type (コンディションタイプ)'' のボキャブラリに属するべきです。 \\
+CONDITION\_TYPE\_ CONCEPT\_ID & 32020 & この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 \href{http://athena.ohdsi.org/search-terms/terms/32020}{32020}「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「Condition Type (コンディションタイプ)」のボキャブラリに属するべきです。 \\
 CONDITION\_STATUS\_CONCEPT\_ID & NULL & これが分かると、状況と理由がわかります。例えば、コンディションが入院時の診断である場合、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4203942}{4203942} が使用されました。 \\
 STOP\_REASON & NULL & 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 \\
 PROVIDER\_ID & NULL & コンディションレコードに診断を付けた医療従事者がリストされている場合、その医療従事者の ID がこのフィールドに入ります。これは、そのビジットの医療従事者を表すPROVIDERテーブルのprovider\_idでなければなりません。 \\
@@ -1334,19 +1334,19 @@ DRUG\_EXPOSURE\_ START\_DATETIME & 2010-01-06 00:00:00 & 薬剤曝露の開始�
 DRUG\_EXPOSURE\_ END\_DATE & 2010-02-05 & 薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬物に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。 \\
 DRUG\_EXPOSURE\_ END\_DATETIME & 2010-02-05 00:00:00 & 薬剤曝露の終了日時。DRUG\_EXPOSURE\_END\_DATEと同様のルールが適用されます。時刻が不明な場合は0時が使用されます。 \\
 VERBATIM\_END\_DATE & NULL & 情報源が実際の終了日を明確に記録している場合。推定される終了日は、患者によって全日数分が使用されたという仮定に基づいています。 \\
-DRUG\_TYPE\_ CONCEPT\_ID & 38000177 & この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト \href{http://athena.ohdsi.org/search-terms/terms/38000177}{38000177} (``Prescription written'') が使用されています。 \\
+DRUG\_TYPE\_ CONCEPT\_ID & 38000177 & この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト \href{http://athena.ohdsi.org/search-terms/terms/38000177}{38000177} (「Prescription written　（書かれた処方箋）」) が使用されています。 \\
 STOP\_REASON & NULL & 薬剤の投与が中止された理由。理由にはレジメンの完了、変更、削除などが含まれます。この情報はほとんど記録されません。 \\
 REFILLS & NULL & 多くの国で処方システムの一部となっている、初回処方後の自動再処方数。最初の処方はカウントされず、値は NULL から始まります。Lauren のアセトアミノフェンの場合、リフィルはなかったので、値は NULL です。 \\
 QUANTITY & 60 & 最初の処方箋または調剤記録に記録された薬剤の量。 \\
 DAYS\_SUPPLY & 30 & 処方された薬の処方日数。 \\
 SIG & NULL & 元の処方箋または調剤記録に記録されている（米国の薬剤処方システムでは容器に印刷されている）薬剤処方箋の指示（「signetur」）。signetur は CDM ではまだ標準化されておらず、逐語的に提供されます。 \\
-ROUTE\_CONCEPT\_ID & 4132161 & このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4132161}{4132161} (``Oral（経口）'') が使用されています. \\
+ROUTE\_CONCEPT\_ID & 4132161 & このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID \href{http://athena.ohdsi.org/search-terms/terms/4132161}{4132161} (「Oral（経口）」) が使用されています. \\
 LOT\_NUMBER & NULL & 製造業者から薬剤の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。 \\
 PROVIDER\_ID & NULL & 薬剤レコードに処方プロバイダがリストされている場合、そのプロバイダのIDがこのフィールドに入ります。その場合、このフィールドにはPROVIDERテーブルのPROVIDER\_IDが入ります。 \\
 VISIT\_OCCURRENCE\_ ID & 509 & 薬剤が処方された VISIT\_OCCURRENCE テーブルへの外部キー。 \\
 VISIT\_DETAIL\_ID & NULL & 薬剤が処方された VISIT\_DETAIL テーブルへの外部キー。 \\
 DRUG\_SOURCE\_ VALUE & 69842087651 & ソース・データに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。 \\
-DRUG\_SOURCE\_ CONCEPT\_ID & 750264 & 薬剤のソースデータでの値を表すコンセプトです。コンセプト \href{http://athena.ohdsi.org/search-terms/terms/750264}{750264} NDCコードで''Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）``を表します。 \\
+DRUG\_SOURCE\_ CONCEPT\_ID & 750264 & 薬剤のソースデータでの値を表すコンセプトです。コンセプト \href{http://athena.ohdsi.org/search-terms/terms/750264}{750264} NDCコードで「Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）」を表します。 \\
 ROUTE\_SOURCE\_ VALUE & NULL & 情報源に詳述されている投与経路に関する逐語的な情報。 \\
 \end{longtable}
 
@@ -1482,11 +1482,11 @@ CDMデータベーススキーマは「main」です。これはCONDITION\_OCCUR
 \end{Shaded}
 
 \begin{exercise}
-\protect\hypertarget{exr:exerciseGiBleedRecords}{}\label{exr:exerciseGiBleedRecords}SQLとRを使用して、コンディション ``Gastrointestinal hemorrhage (消化管出血)''（コンセプトID\href{http://athena.ohdsi.org/search-terms/terms/192671}{192671}）のすべてのレコードを取得してください。
+\protect\hypertarget{exr:exerciseGiBleedRecords}{}\label{exr:exerciseGiBleedRecords}SQLとRを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)」（コンセプトID\href{http://athena.ohdsi.org/search-terms/terms/192671}{192671}）のすべてのレコードを取得してください。
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:exercisePersonSource}{}\label{exr:exercisePersonSource}SQLとRを使用して、ソースコードを使用して、コンディション ``Gastrointestinal hemorrhage (消化管出血)'' のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは ``K92.2'' です。
+\protect\hypertarget{exr:exercisePersonSource}{}\label{exr:exercisePersonSource}SQLとRを使用して、ソースコードを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)``」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは 「K92.2」です。
 \end{exercise}
 
 \begin{exercise}
@@ -1505,7 +1505,7 @@ OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれ�
 
 \section{なぜボキャブラリが必要で、なぜ標準化が必要なのか}\label{ux306aux305cux30dcux30adux30e3ux30d6ux30e9ux30eaux304cux5fc5ux8981ux3067ux306aux305cux6a19ux6e96ux5316ux304cux5fc5ux8981ux306aux306eux304b}
 
-医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書 (``Bill of Mortality'') に遡ります（図 \ref{fig:bill} 参照）。\index{Bill of Mortality}
+医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書 (「Bill of Mortality」) に遡ります（図 \ref{fig:bill} 参照）。\index{Bill of Mortality}
 
 \begin{figure}
 
@@ -1516,7 +1516,7 @@ OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれ�
 \caption{1660年のロンドン死亡報告書には、その時代に知られていた62の疾患の分類システムを使用して住民の死因が示されています。}\label{fig:bill}
 \end{figure}
 
-それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された ``International Classification of Disease (ICD)'' を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、薬品のマーケティングと販売を管理し、認証された薬剤の国家リポジトリを維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。
+それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された 「International Classification of Disease (ICD)」を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、薬品のマーケティングと販売を管理し、認証された薬剤の国家リポジトリを維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。
 
 その結果、各国、各地域、医療制度、医療機関は、それぞれ独自の分類法を持つ傾向にあり、それは使用される場所でのみ関連性がある可能性が高いものです。こうした無数のボキャブラリが、使用されるシステムの相互運用性を妨げています。標準化は、患者データの交換を可能にし、世界レベルでの医療データ分析を可能にし、パフォーマンス特性や品質評価を含む体系化された標準化された研究を可能にする鍵となります。この問題に対処するため、多国籍の組織が設立され、前述のWHOや、Standard Nomenclature of Medicine (SNOMED) や、Logical Observation Identifiers Names and Codes (LOINC) などの幅広い標準の作成を開始しました。米国では、Health IT Standards Committee (HITAC) が、SNOMED、LOINC、および薬剤用ボキャブラリであるRxNormを、さまざまな組織間で全国規模の医療情報交換を行う共通プラットフォームで使用するための標準として、National Coordinator for Health IT (ONC) に推奨しています。
 
@@ -1570,7 +1570,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
 
 \subsection{ドメイン}\label{conceptDomains}
 
-各コンセプトにはDOMAIN\_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT\_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、``Condition (コンディション)''、``Drug (薬剤)''、``Procedure (処置（プロシージャー）)''、``Visit (ビジット)''、``Device (デバイス)''、``Specimen (試料)'' などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション \ref{standardConcepts} 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、\href{https://github.com/ohDSI/vocabulary-v5.0}{Pallas}に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 \ref{fig:domains} 参照）。\index{domain!concept}
+各コンセプトにはDOMAIN\_IDフィールドにドメインが割り当てられています。これは数値のCONCEPT\_IDとは対照的に、ドメイン用の小文字表記の大文字小文字区別を区別する一意の英数字IDです。例として、「Condition (コンディション)」、「Drug (薬剤)」、「Procedure (処置（プロシージャー）)」、「Visit (ビジット)」、「Device (デバイス)」、「Specimen (試料)」 などのドメイン識別子があります。曖昧なコンセプトや事前にコード化された（組み合わせ）コンセプトは複合ドメインに属することがありますが、標準コンセプト（セクション \ref{standardConcepts} 参照）は常に単一のドメインが割り当てられます。ドメインは、臨床イベントやイベント属性がどのCDMテーブルやフィールドに記録されるかを指示します。 ドメインの割り当ては、\href{https://github.com/ohDSI/vocabulary-v5.0}{Pallas}に示されているヒューリスティックな手法を使用してボキャブラリの取り込み中に実行されるOMOP固有の機能です。ソースボキャブラリは、さまざまな程度で混合ドメインのコードを組み合わせる傾向があります（図 \ref{fig:domains} 参照）。\index{domain!concept}
 
 \begin{figure}
 
@@ -1772,7 +1772,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
   \item
     VALID\_END\_DATE: 過去の廃止日。不明の場合はボキャブラリ内のコンセプトが欠落あるいは非アクティブに設定されたボキャブラリ更新日。
   \item
-    INVALID\_REASON: ``D''
+    INVALID\_REASON: 「D」
   \end{itemize}
 \item
   \textbf{後継コンセプトとともにアップグレードされたコンセプト}
@@ -1786,7 +1786,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
   \item
     VALID\_END\_DATE: アップグレードが行われた過去の年月日。不明の場合は、アップグレードが含まれたボキャブラリのリフレッシュ日。
   \item
-    INVALID\_REASON: ``U''
+    INVALID\_REASON: 「U」
   \end{itemize}
 \item
   \textbf{別の新しいコンセプトで再利用されたコード}
@@ -1800,7 +1800,7 @@ OMOP CDMの臨床イベントはすべてコンセプトとして表現されま
   \item
     VALID\_END\_DATE: 非推奨であることを示す過去の日、またはそれがわからない場合は、ボキャブラリのコンセプトがなくなった、または非アクティブに設定されたボキャブラリ更新の日。
   \item
-    INVALID\_REASON: ``R''
+    INVALID\_REASON: 「R」
   \end{itemize}
 \end{itemize}
 
@@ -1838,8 +1838,8 @@ CONCEPT\_RELATIONSHIPテーブルのレコードには、ライフサイクル�
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-``Maps to''と''Mapped from'' & 標準コンセプトはそれ自身にマッピングされ、非標準コンセプトは標準コンセプトにマッピングされます。ほとんどの非標準コンセプトとすべての標準コンセプトは、標準コンセプトとの間にこの関係があります。前者は*\_SOURCE\_CONCEPT\_IDフィールド\emph{に、後者は}\_CONCEPT\_IDフィールド*に格納されます。分類コンセプトはマッピングされません。 \\
-``Maps to value''と''Value mapped from'' & MEASUREMENTとOBSERVATIONテーブルのVALUE\_AS\_CONCEPT\_IDフィールドに配置する値を表すコンセプトへのマッピング。 \\
+「Maps to」と「Mapped from」 & 標準コンセプトはそれ自身にマッピングされ、非標準コンセプトは標準コンセプトにマッピングされます。ほとんどの非標準コンセプトとすべての標準コンセプトは、標準コンセプトとの間にこの関係があります。前者は*\_SOURCE\_CONCEPT\_IDフィールド\emph{に、後者は}\_CONCEPT\_IDフィールド*に格納されます。分類コンセプトはマッピングされません。 \\
+「Maps to value」と「Value mapped from」 & MEASUREMENTとOBSERVATIONテーブルのVALUE\_AS\_CONCEPT\_IDフィールドに配置する値を表すコンセプトへのマッピング。 \\
 \end{longtable}
 
 これらのマッピング関係の目的は、同等のコンセプト間の相互参照を可能にし、臨床イベントがOMOP CDMでどのように表現されるかを統一することです。これは標準化ボキャブラリの主要な成果です。
@@ -1903,10 +1903,10 @@ CONCEPT\_ID\_1 & CONCEPT\_ID\_2 \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-4000504 ``Urethra part'' & 36713433 ``部分的尿道重複'' \\
-4000504 ``Urethra part'' & 433583 ``下部尿道裂孔'' \\
-4000504 ``Urethra part'' & 443533 ``男性下部尿道裂孔'' \\
-4000504 ``Urethra part'' & 4005956 ``女性下部尿道裂孔'' \\
+4000504 「Urethra part」 & 36713433 「部分的尿道重複」 \\
+4000504 「Urethra part」 & 433583 「下部尿道裂孔」 \\
+4000504 「Urethra part」 & 443533 「男性下部尿道裂孔」 \\
+4000504 「Urethra part」 & 4005956 「女性下部尿道裂孔」 \\
 \end{longtable}
 
 これらの関係の質と網羅性は、元のボキャブラリーの質によって異なります。一般に、SNOMEDのような標準コンセプトを抽出するために使用されるボキャブラリは、より優れた管理がされているという理由で選択されるため、内部関係もより質の高いものとなる傾向があります。
@@ -1915,7 +1915,7 @@ CONCEPT\_ID\_1 & CONCEPT\_ID\_2 \\
 
 ドメイン内では、標準および分類コンセプトは階層構造に整理され、CONCEPT\_ANCESTORテーブルに格納されます。これにより、コンセプトとその下位層に含まれるコンセプトをすべてクエリして取得することが可能です。これらの下位層は上位層と同じ属性を持ちますが、追加の属性や、より詳細に定義された属性も持ちます。
 
-CONCEPT\_ANCESTORテーブルは、階層関係を通じてつながっているすべてのコンセプトを網羅するCONCEPT\_RELATIONSHIPテーブルから自動的に構築されます。これらは ``Is a'' - ``Subsumes'' のペア（図 \ref{fig:conceptAncestor} 参照）であり、ボキャブラリ間の階層を結びつけるその他の関係です。関係が階層構築に参加するかは、関係IDごとにRELATIONSHIP参照テーブルのDEFINES\_ANCESTRYフラグによって定義されます。
+CONCEPT\_ANCESTORテーブルは、階層関係を通じてつながっているすべてのコンセプトを網羅するCONCEPT\_RELATIONSHIPテーブルから自動的に構築されます。これらは 「Is a」 - 「Subsumes」のペア（図 \ref{fig:conceptAncestor} 参照）であり、ボキャブラリ間の階層を結びつけるその他の関係です。関係が階層構築に参加するかは、関係IDごとにRELATIONSHIP参照テーブルのDEFINES\_ANCESTRYフラグによって定義されます。
 
 
 
@@ -1925,7 +1925,7 @@ CONCEPT\_ANCESTORテーブルは、階層関係を通じてつながっている
 
 }
 
-\caption{「心房細動」というコンディションの階層。第1上位層関係は ``Is a (～の一つです)'' と''Subsumes (包含)'' 関係によって定義され、それより高次の関係はすべて推論され、CONCEPT\_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 \index{コンセプト!祖先}}\label{fig:conceptAncestor}
+\caption{「心房細動」というコンディションの階層。第1上位層関係は 「Is a (～の一つです)」 と「Subsumes (包含)」関係によって定義され、それより高次の関係はすべて推論され、CONCEPT\_ANCESTORテーブルに格納されます。各コンセプトは、それぞれ自身の下位層でもあり、その間の分離階層数は0です。 \index{コンセプト!祖先}}\label{fig:conceptAncestor}
 \end{figure}
 
 上位層の度合い、つまり上位層と下位層の間の階層数は、MIN\_LEVELS\_OF\_SEPARATIONおよびMAX\_LEVELS\_OF\_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS\_HIERARCHICALフラグによって決まります。
@@ -1944,7 +1944,7 @@ OMOP CDMと標準化ボキャブラリにおける性別は、出生時の生物
 
 \subsection{人種と民族}\label{ux4ebaux7a2eux3068ux6c11ux65cf}
 
-これらは米国政府の定義に従います。民族はヒスパニック系または非ヒスパニック系の区別であり、人種は問いません。人種は一般的な上位5つの人種に分けられ、民族は階層的な下位層として含まれます。``Mixed races (混血)'' は含まれていません。
+これらは米国政府の定義に従います。民族はヒスパニック系または非ヒスパニック系の区別であり、人種は問いません。人種は一般的な上位5つの人種に分けられ、民族は階層的な下位層として含まれます。「Mixed races (混血)」は含まれていません。
 
 \subsection{診断コーディング体系とOMOPコンディション}\label{ux8a3aux65adux30b3ux30fcux30c7ux30a3ux30f3ux30b0ux4f53ux7cfbux3068omopux30b3ux30f3ux30c7ux30a3ux30b7ux30e7ux30f3}
 
@@ -2012,15 +2012,15 @@ ICD-9やICD-10などの一般に使用されているコーディング体系は
 最初の演習では、標準化ボキャブラリのコンセプトを検索する必要があります。これはATHENA\footnote{\url{http://athena.ohdsi.org/}}またはATLAS\footnote{\url{http://atlas-demo.ohdsi.org}}を通じて行うことができます。
 
 \begin{exercise}
-\protect\hypertarget{exr:exerciseVocab1}{}\label{exr:exerciseVocab1}``消化管出血''の標準コンセプトIDは何ですか？
+\protect\hypertarget{exr:exerciseVocab1}{}\label{exr:exerciseVocab1}「消化管出血」の標準コンセプトIDは何ですか？
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:exerciseVocab2}{}\label{exr:exerciseVocab2}``消化管出血''の標準コンセプトに対応するICD-10CMコードは何ですか？この標準コンセプトに対応するICD-9CMコードはどれですか？
+\protect\hypertarget{exr:exerciseVocab2}{}\label{exr:exerciseVocab2}「消化管出血」の標準コンセプトに対応するICD-10CMコードは何ですか？この標準コンセプトに対応するICD-9CMコードはどれですか？
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:exerciseVocab3}{}\label{exr:exerciseVocab3}``消化管出血''の標準コンセプトに相当するMedDRAの優先用語は何ですか？
+\protect\hypertarget{exr:exerciseVocab3}{}\label{exr:exerciseVocab3}「消化管出血」の標準コンセプトに相当するMedDRAの優先用語は何ですか？
 \end{exercise}
 
 解答例は付録 \ref{Vocabanswers}を参照のこと。
@@ -2365,16 +2365,16 @@ Usagiはコードマッピングを手動で作成するプロセスを支援す
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Column mappingセクションで、``Auto concept ID column''から''ATC column''に切り替えます。
+  Column mappingセクションで、「Auto concept ID column」から「ATC column」に切り替えます。
 \item
-  Column mappingセクションで、ATCコードを含む列を''ATC column''として選択します。
+  Column mappingセクションで、ATCコードを含む列を「ATC column」として選択します。
 \item
   フィルターセクションで「ユーザーが選択したコンセプト/ATCコードによるフィルター」をオンにします。
 \end{enumerate}
 
-ATCコード以外の情報源を使用して制限することもできます。上図の例では、UMLSから派生した部分的なマッピングを使用してUsagiの検索を制限しています。この場合、``Auto concept ID column'' を使用する必要があります。
+ATCコード以外の情報源を使用して制限することもできます。上図の例では、UMLSから派生した部分的なマッピングを使用してUsagiの検索を制限しています。この場合、「Auto concept ID column」を使用する必要があります。
 
-すべての設定が完了したら、``Import'' ボタンをクリックしてファイルをインポートします。ファイルのインポートには、ソースコードをマッピングするためにボキャブラリの類似性アルゴリズムが実行されるため、数分かかります。
+すべての設定が完了したら、「Import」ボタンをクリックしてファイルをインポートします。ファイルのインポートには、ソースコードをマッピングするためにボキャブラリの類似性アルゴリズムが実行されるため、数分かかります。
 
 \subsubsection*{ソースコードからボキャブラリへのコンセプトマップの確認}\label{ux30bdux30fcux30b9ux30b3ux30fcux30c9ux304bux3089ux30dcux30adux30e3ux30d6ux30e9ux30eaux3078ux306eux30b3ux30f3ux30bbux30d7ux30c8ux30deux30c3ux30d7ux306eux78baux8a8d}
 \addcontentsline{toc}{subsubsection}{ソースコードからボキャブラリへのコンセプトマップの確認}
@@ -2393,9 +2393,9 @@ ATCコード以外の情報源を使用して制限することもできます�
 \subsubsection*{提案されたマッピングの承認}\label{ux63d0ux6848ux3055ux308cux305fux30deux30c3ux30d4ux30f3ux30b0ux306eux627fux8a8d}
 \addcontentsline{toc}{subsubsection}{提案されたマッピングの承認}
 
-「概要テーブル」には、ソース・コードとコンセプトの現在のマッピングが表示されます。ソース・コードをインポートした直後は、このマッピングには、ボキャブラリの類似性と任意の検索オプションに基づいて自動的に生成されたマッピング候補が含まれます。図 \ref{fig:usagiOverview} の例では、ユーザーがドメインをコンディションに限定しているため、オランダ語のコンディションコードの英語名がコンディションドメインの標準コンセプトにマッピングされています。Usagi は、ソースコードの説明とコンセプト名および同義語を比較して、最適な一致を見つけます。ユーザは ``Include source terms'' (ソース用語を含める) を選択していたため、Usagi は、特定のコンセプトにマッピングされるボキャブラリ内のすべてのソースコンセプトの名前と同義語も考慮しました。Usagi がマッピングできない場合は、CONCEPT\_ID = 0 にマッピングされます。
+「概要テーブル」には、ソース・コードとコンセプトの現在のマッピングが表示されます。ソース・コードをインポートした直後は、このマッピングには、ボキャブラリの類似性と任意の検索オプションに基づいて自動的に生成されたマッピング候補が含まれます。図 \ref{fig:usagiOverview} の例では、ユーザーがドメインをコンディションに限定しているため、オランダ語のコンディションコードの英語名がコンディションドメインの標準コンセプトにマッピングされています。Usagi は、ソースコードの説明とコンセプト名および同義語を比較して、最適な一致を見つけます。ユーザは 「Include source terms (ソース用語を含める)」を選択していたため、Usagi は、特定のコンセプトにマッピングされるボキャブラリ内のすべてのソースコンセプトの名前と同義語も考慮しました。Usagi がマッピングできない場合は、CONCEPT\_ID = 0 にマッピングされます。
 
-ソース・コードを関連する標準ボキャブラリにマッピングする際には、コーディング・システムの経験がある人が支援することをお勧めします。その担当者は、``Overview Table'' （概要テーブル） のコードごとに作業して、Usagi が提案したマッピングを受け入れるか、新しいマッピングを選択します。例えば、図 @(ref:fig:usagiOverview) では、オランダ語の ``Hoesten'' は英語の ``Cough'' (咳嗽）に翻訳されています。Usagiは ``Cough'' を使って、``4158493-C/O - cough''というボキャブラリコンセプトにマッピングしました。このマッチしたペアのマッチングスコアは0.58でした（マッチングスコアは通常0～1で、1は確実に一致することを意味します）。一致スコア0.58は、Usagiがオランダ語のコードをSNOMEDにどの程度うまくマッピングできたかについて、あまり確信がないことを意味します。このマッピングで問題ないと思われる場合は、画面右下の緑色の''Approve (承認)'' ボタンを押すことで、このマッピングを承認することができます。
+ソース・コードを関連する標準ボキャブラリにマッピングする際には、コーディング・システムの経験がある人が支援することをお勧めします。その担当者は、「Overview Table（概要テーブル）」のコードごとに作業して、Usagi が提案したマッピングを受け入れるか、新しいマッピングを選択します。例えば、図 @(ref:fig:usagiOverview) では、オランダ語の「Hoesten」は英語の「Cough」(咳嗽）に翻訳されています。Usagiは「Cough」を使って、「4158493-C/O - cough」というボキャブラリコンセプトにマッピングしました。このマッチしたペアのマッチングスコアは0.58でした（マッチングスコアは通常0～1で、1は確実に一致することを意味します）。一致スコア0.58は、Usagiがオランダ語のコードをSNOMEDにどの程度うまくマッピングできたかについて、あまり確信がないことを意味します。このマッピングで問題ないと思われる場合は、画面右下の緑色の「Approve (承認)」ボタンを押すことで、このマッピングを承認することができます。
 
 \subsubsection*{新しいマッピングの検索}\label{ux65b0ux3057ux3044ux30deux30c3ux30d4ux30f3ux30b0ux306eux691cux7d22}
 \addcontentsline{toc}{subsubsection}{新しいマッピングの検索}
@@ -2436,7 +2436,7 @@ Usagiがマップを提案した場合、ユーザはより良いマッピング
 \item
   コーディングスキームの経験がある人に参加してもらってください。
 \item
-  列名をクリックすると、「コンセプトテーブル」の列を並べ替えることができます。``Match Score (マッチングスコア)''で並べ替えると、Usagiが最も信頼するコードを最初に確認でき、かなりの数のコードを迅速に除外できる可能性があります。また、``Frequency (頻度)'' での並べ替えも重要です。頻度に利用されるコードとそうでないコードに重点的に取り組むことが重要です。
+  列名をクリックすると、「コンセプトテーブル」の列を並べ替えることができます。「Match Score (マッチングスコア)」で並べ替えると、Usagiが最も信頼するコードを最初に確認でき、かなりの数のコードを迅速に除外できる可能性があります。また、「Frequency (頻度)」での並べ替えも重要です。頻度に利用されるコードとそうでないコードに重点的に取り組むことが重要です。
 \item
   場合によっては、CONCEPT\_ID = 0にマッピングしても問題ありませんが、一部のコードは適切なマッピングが見つからず、また、一部のコードは適切なマッピングがないだけかもしれません。
 \item
@@ -2521,7 +2521,7 @@ ETLの例をいくつか挙げます（複雑さの順に記載）：\index{ETL!
   \end{itemize}
 \end{itemize}
 
-複数回の独立した試みの後、ユーザーフレンドリーな''究極の''ETLツールの開発を断念しました。このようなツールはETLの80\%にはうまく機能しますが、残りの20\%については、ソースデータベース固有の低レベルのコードを記述する必要があります。
+複数回の独立した試みの後、ユーザーフレンドリーな「究極の」ETLツールの開発を断念しました。このようなツールはETLの80\%にはうまく機能しますが、残りの20\%については、ソースデータベース固有の低レベルのコードを記述する必要があります。
 
 技術担当者が実装を開始する準備ができたら、ETLデザイン文書を彼らと共有するべきです。ドキュメントには開発を開始するための十分な情報が含まれているはずですが、開発プロセス中に開発者がETL設計者に質問できるようにしておくことが重要です。設計者にとっては明確な論理も、データやCDMに不慣れな実装者にはわかりにくいこともあります。実装フェーズはチーム全体の作業として維持するべきです。すべてのロジックが正しく実行されたという点で両グループが合意するまで、実装者と設計者がそれぞれCDMの作成とテストを行うプロセスを経ることが、適切な方法であると考えられます。
 
@@ -2701,7 +2701,7 @@ PATIENT、START、ENDのデータを昇順で並べ替えます。その後、PE
 \item
   MAX(END)をVISIT\_END\_DATEとして設定
 \item
-  ``IP''をPLACE\_OF\_SERVICE\_SOURCE\_VALUEとして設定
+  「IP」をPLACE\_OF\_SERVICE\_SOURCE\_VALUEとして設定
 \end{itemize}
 
 ソースデータに図 \ref{fig:exerciseSourceData} に示されるようなビジットのセットがある場合、CDMで生成されるVISIT\_OCCURRENCEレコードはどのようになると予想しますか？
@@ -3611,7 +3611,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 これらのSQL Server関数はテスト済であり、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
 
 \begin{longtable}[]{@{}lll@{}}
-\caption{\label{tab:sqlFunctions} ``translate (翻訳)によりサポートされる関数と構造}\tabularnewline
+\caption{\label{tab:sqlFunctions} 「translate (翻訳)」によりサポートされる関数と構造}\tabularnewline
 \toprule\noalign{}
 関数 & 関数 & 関数 \\
 \midrule\noalign{}
@@ -3765,7 +3765,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.wn3lpioschildren ;"
+## [1] "SELECT * FROM temp_schema.isduanzpchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
@@ -4071,7 +4071,7 @@ MAX\_AGE \\
 90 \\
 \end{longtable}
 
-観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION\_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder\_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（\texttt{WITH\ ...\ AS}を使用）、``ages''と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて''n''を生成し、各分位数に対して、order\_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$\texttt{order\_nr\ \textless{}\ .50\ *\ n}の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION\_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder\_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（\texttt{WITH\ ...\ AS}を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order\_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$\texttt{order\_nr\ \textless{}\ .50\ *\ n}の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4809,7 +4809,7 @@ ATLASは二つのコホートに全く同じ名前を付けることはできま
 
 使用したいボキャブラリを見つけたら、\includegraphics{images/Cohorts/shoppingcart.png}をクリックし、そのコンセプトを選択します。図\ref{fig:aceinhibitors}の左矢印を使用してコホート定義に戻ります対象とする臨床コンセプトを検索するためのボキャブラリのナビゲーション奉納は、第\ref{StandardizedVocabularies}章（標準化ボキャブラリ）を参照ください。
 
-図\ref{fig:aceConceptSetExpression}はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。''Included concepts (包含されるコンセプト)'' をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、``Included Source Codes (包含されるソースコード)'' をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。
+図\ref{fig:aceConceptSetExpression}はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。「Included concepts (包含されるコンセプト)」をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、「Included Source Codes (包含されるソースコード)」をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。
 
 \begin{figure}
 
@@ -5468,7 +5468,7 @@ CDMデータベーススキーマは「main」です。
 \caption{ATLASデータソース: コンディション出現のツリーマップ}\label{fig:atlasDataSourcesConditionTreemap}
 \end{figure}
 
-特定の関心のあるコンデションを検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、人数、有病率、個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に ``hypertension (高血圧)'' を含む項目に基づいてリストをフィルタリングできます：
+特定の関心のあるコンデションを検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、人数、有病率、個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に 「hypertension (高血圧)」を含む項目に基づいてリストをフィルタリングできます：
 
 \begin{figure}
 
@@ -5479,7 +5479,7 @@ CDMデータベーススキーマは「main」です。
 \caption{ATLASデータソース: コンセプト名に 「hypertension (高血圧)」が含まれるコンディション}\label{fig:atlasDataSourcesConditionFiltered}
 \end{figure}
 
-特定のコンディションの詳細なドリルダウンレポートを表示するには、行をクリックします。ここでは、``essential hypertension (本態性高血圧)'' を選択し、選択されたコンディションの経時的および性別ごとの傾向、月ごとの有病率、記録された病型、診断の初回発生時の年齢の分布を確認します：
+特定のコンディションの詳細なドリルダウンレポートを表示するには、行をクリックします。ここでは、「essential hypertension (本態性高血圧)」を選択し、選択されたコンディションの経時的および性別ごとの傾向、月ごとの有病率、記録された病型、診断の初回発生時の年齢の分布を確認します：
 
 \begin{figure}
 
@@ -5490,7 +5490,7 @@ CDMデータベーススキーマは「main」です。
 \caption{ATLASデータソース: 本態性高血圧ドリルダウンレポート}\label{fig:atlasDataSourcesDrillDownReport}
 \end{figure}
 
-高血圧症のコンセプトの有無と経時的な傾向についてデータベースの特性を確認した後、高血圧症患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するため、 ``Drug Era (薬剤曝露期間)'' レポートを使用します。データベースの特性を探索して関心のある項目を確認し、高血圧症患者を特性化するためのコホートの構築を進める準備を整えます。
+高血圧症のコンセプトの有無と経時的な傾向についてデータベースの特性を確認した後、高血圧症患者の治療に使用される薬剤を調査することもできます。これを行うには、同じ手順に従い、RxNormの成分に要約された薬剤の特性を確認するため、 「Drug Era (薬剤曝露期間)」レポートを使用します。データベースの特性を探索して関心のある項目を確認し、高血圧症患者を特性化するためのコホートの構築を進める準備を整えます。
 
 \section{ATLASにおけるコホート特性分析}\label{atlasux306bux304aux3051ux308bux30b3ux30dbux30fcux30c8ux7279ux6027ux5206ux6790}
 
@@ -5530,7 +5530,7 @@ ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評�
 \caption{特性設計タブ - 特徴量の選択}\label{fig:atlasCharacterizationFeatureSelection}
 \end{figure}
 
-上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 ``Demographics (人口動態的特性)''で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：
+上の図は、選択された特徴量のリストと、各特徴量が各コホートについて何を特性評価するかの説明を示しています。 「Demographics (人口動態的特性)」で始まる特徴量は、コホート開始日における各人の人口統計情報を計算します。ドメイン名（例：ビジット、処置、コンディション、薬剤など）で始まる特徴量は、そのドメインにおけるすべての記録された観測値を特徴づけます。各ドメインの特徴量には、コホート開始前の時間ウィンドウとして、以下の4つの選択肢があります：
 
 \begin{itemize}
 \tightlist
@@ -5577,7 +5577,7 @@ ATLASのサブグループ分析は階層とは異なります。階層は相互
 \caption{特性評価設計の実行 - CDMソース選択}\label{fig:atlasCharacterizationExecutions}
 \end{figure}
 
-分析が完了したら、``All Executions (すべてを実行)'' ボタンをクリックしてレポートを表示し、実行リストから ``View Reports (レポートを見る)'' を選択します。あるいは、``View latest result (最新の結果を見る)'' をクリックして、最後に実行されたアウトカムを表示することもできます。
+分析が完了したら、「All Executions (すべてを実行)」ボタンをクリックしてレポートを表示し、実行リストから「View Reports (レポートを見る)」を選択します。あるいは、「View latest result (最新の結果を見る)」をクリックして、最後に実行されたアウトカムを表示することもできます。
 
 \subsection{結果}\label{ux7d50ux679c}
 
@@ -5603,9 +5603,9 @@ ATLASのサブグループ分析は階層とは異なります。階層は相互
 \caption{特性アウトカム - 単一コンセプトの探索}\label{fig:atlasCharacterizationResultsExplore}
 \end{figure}
 
-コホートのすべてのコンディションコンセプトを特性評価したため、``explore (探索する)'' オプションを使用して、選択されたコンセプト（この場合は不整脈）のすべての上位層と下位層に含まれるコンセプトを表示します。この探索により、高血圧症のある人に現れる可能性のある他の心疾患を探索するためのコンセプトの階層をナビゲートすることができます。要約表示と同様に、カウントとパーセンテージが表示されます。
+コホートのすべてのコンディションコンセプトを特性評価したため、「explore (探索する)」オプションを使用して、選択されたコンセプト（この場合は不整脈）のすべての上位層と下位層に含まれるコンセプトを表示します。この探索により、高血圧症のある人に現れる可能性のある他の心疾患を探索するためのコンセプトの階層をナビゲートすることができます。要約表示と同様に、カウントとパーセンテージが表示されます。
 
-この特性結果を用いて、高血圧症治療に禁忌のあるコンディション（例：血管性浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は ``edema (浮腫)'' を検索します（図 \ref{fig:atlasCharacterizationResultsContra} を参照）。
+この特性結果を用いて、高血圧症治療に禁忌のあるコンディション（例：血管性浮腫）を見つけることもできます。これを行うには、上記と同じ手順を実行しますが、今回は「edema (浮腫)」を検索します（図 \ref{fig:atlasCharacterizationResultsContra} を参照）。
 
 \begin{figure}
 
@@ -5616,7 +5616,7 @@ ATLASのサブグループ分析は階層とは異なります。階層は相互
 \caption{特性評価の結果 - 禁忌コンディションの探索}\label{fig:atlasCharacterizationResultsContra}
 \end{figure}
 
-再度、特徴量を ``explore (探索する)'' を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：
+再度、特徴量を「explore (探索する)」を使用して、高血圧症集団における浮腫の特性を調べ、血管性浮腫の有病率を確認します：
 
 \begin{figure}
 
@@ -6022,7 +6022,7 @@ ACEi 集団の中で ARB 新規使用の発生率を確認するために、同�
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:exerciseCharacterization3}{}\label{exr:exerciseCharacterization3}セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。\href{http://athena.ohdsi.org/search-terms/terms/192671}{192671} (``消化管出血'') またはその下位層に含まれるいずれかのコンセプトの発生として単純に定義される GI出血ベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。
+\protect\hypertarget{exr:exerciseCharacterization3}{}\label{exr:exerciseCharacterization3}セレコキシブ処方開始後に消化管出血 (GI 出血) がどのくらいの頻度で発生するのかに興味があります。\href{http://athena.ohdsi.org/search-terms/terms/192671}{192671} (「消化管出血」) またはその下位層に含まれるいずれかのコンセプトの発生として単純に定義される GI出血ベントのコホートを作成します。前の演習で定義した曝露コホートを使用して、セレコキシブ開始後のこれらの GI 出血イベントの発生率を計算してください。
 \end{exercise}
 
 推奨される解答は付録\ref{Characterizationanswers} を参照ください。
@@ -6164,7 +6164,7 @@ ACEi 集団の中で ARB 新規使用の発生率を確認するために、同�
 
 \begin{table}
 \centering
-\caption{\label{tab:sccChoices}自己対照コホートデザインの主要なデザイン選択肢。}
+\caption{\label{tab:sccChoices}自己対照コホートデザインの主要なデザイン選択肢}
 \centering
 \begin{tabular}[t]{l>{\raggedright\arraybackslash}p{9cm}}
 \toprule
@@ -6427,20 +6427,20 @@ ACE阻害薬の新規使用者とサイアザイドおよびサイアザイド�
 
 \textbf{研究開始日と終了日}を使用して、特定の期間に分析を制限できます。研究終了日はリスクウィンドウを切り詰めることになり、研究終了日以降のアウトカムは考慮されません。研究開始日を選択する理由の1つは、研究対象の薬剤の1つが新しく、以前の期間には存在しなかったことが考えられます。自動で調整するには、「両方の曝露がデータ内に存在する期間に分析を制限しますか？」の質問に「はい」と回答します。研究の開始日と終了日を調整するもう一つの理由は、医療行為が時とともに変化した（例えば、薬の警告による）場合で、特定の方法で医療行為が行われた期間のみに興味がある場合です。
 
-オプション ``\textbf{Should only the first exposure per subject be included? (各対象者の初回の曝露のみを含まれるべきか)}'' を使用すると、患者ごとの最初の曝露に限定することができます。多くの場合、この例のようにコホート定義ですでに行われています。同様に、「\textbf{The minimum required continuous observation time prior to index date for a person to be included in the cohort (コホートに含める対象者のインデックス日付以前の最小限必要な連続観察期間)}」 というオプションは、コホート定義ですでに設定されていることが多いので、ここでは0のままにしておきます。インデックス日より前に観察時間がある(OBSERVATION\_PERIODテーブルで定義されているように）ことは、傾向スコアを計算するのに十分な患者に関する情報があること、また患者が真の新規ユーザーであり、したがって以前に曝露されていないことを担保するためにもよく使われます。
+オプション「\textbf{Should only the first exposure per subject be included? (各対象者の初回の曝露のみを含まれるべきか)}」を使用すると、患者ごとの最初の曝露に限定することができます。多くの場合、この例のようにコホート定義ですでに行われています。同様に、「\textbf{The minimum required continuous observation time prior to index date for a person to be included in the cohort (コホートに含める対象者のインデックス日付以前の最小限必要な連続観察期間)}」 というオプションは、コホート定義ですでに設定されていることが多いので、ここでは0のままにしておきます。インデックス日より前に観察時間がある(OBSERVATION\_PERIODテーブルで定義されているように）ことは、傾向スコアを計算するのに十分な患者に関する情報があること、また患者が真の新規ユーザーであり、したがって以前に曝露されていないことを担保するためにもよく使われます。
 
-``\textbf{Remove subjects that are in both target and comparator cohort? (対象コホートと比較群コホートの両方に含まれる対象を除外しますか)}''は、``\textbf{If a subject is in multiple cohorts, should be censored time-at-risk when the new time-at-risk starts to prevent overlap? (対象が複数のコホートに含まれる場合、新しいリスク評価期間が開始された際に、重複を避けるためにリスク評価期間を打ち切りますか)}'' というオプションと併せて、対象が対象コホートと比較コホートの両方に存在する場合にどのように取り扱うかを定義します。最初の設定には3つの選択肢があります：
+「\textbf{Remove subjects that are in both target and comparator cohort? (対象コホートと比較群コホートの両方に含まれる対象を除外しますか)}」は、「\textbf{If a subject is in multiple cohorts, should be censored time-at-risk when the new time-at-risk starts to prevent overlap? (対象が複数のコホートに含まれる場合、新しいリスク評価期間が開始された際に、重複を避けるためにリスク評価期間を打ち切りますか)}」というオプションと併せて、対象が対象コホートと比較コホートの両方に存在する場合にどのように取り扱うかを定義します。最初の設定には3つの選択肢があります：
 
 \begin{itemize}
 \item
-  ``\textbf{Keep All} (すべて保持)'' は、両方のコホートに対象を保持することを意味します。このオプションでは、対象者とアウトカムがダブルカウントされる可能性があります。
+  「\textbf{Keep All} (すべて保持)」 は、両方のコホートに対象を保持することを意味します。このオプションでは、対象者とアウトカムがダブルカウントされる可能性があります。
 \item
-  ``\textbf{Keep First} (最初を保持)'' は、最初に発生したコホートに対象者を残すことを意味します。
+  「\textbf{Keep First} (最初を保持)」 は、最初に発生したコホートに対象者を残すことを意味します。
 \item
-  ``\textbf{Remove All} (すべて除外)'' は、すべてのコホートから対象者を除外することを意味します。
+  「\textbf{Remove All} (すべて除外)」 は、すべてのコホートから対象者を除外することを意味します。
 \end{itemize}
 
-もし ``Keep All'' または ``Keep First'' のオプションが選択された場合、ある対象が両方のコホートにいる時間を打ち切りたいと思うかもしれません。これを図 \ref{fig:tar} に示します。デフォルトでは、リスク期間はコホートの開始日と終了日を基準に定義されます。この例では、リスク期間はコホート組入れの1日後に始まり、コホート終了までです。2つのコホートが重なる可能性があるリスク期間を打ち切らない場合、この重複したリスク期間に発生したアウトカムは、特に、すべてを保持することを選択した場合、（ここに示されているように）重複した時間に出現したアウトカムは2回カウントされるため、問題となります。打ち切りを選択した場合、最初のコホートのリスク期間は、2番目のコホートのリスク時間の開始時に終了します。
+もし「Keep All」または「Keep First」のオプションが選択された場合、ある対象が両方のコホートにいる時間を打ち切りたいと思うかもしれません。これを図 \ref{fig:tar} に示します。デフォルトでは、リスク期間はコホートの開始日と終了日を基準に定義されます。この例では、リスク期間はコホート組入れの1日後に始まり、コホート終了までです。2つのコホートが重なる可能性があるリスク期間を打ち切らない場合、この重複したリスク期間に発生したアウトカムは、特に、すべてを保持することを選択した場合、（ここに示されているように）重複した時間に出現したアウトカムは2回カウントされるため、問題となります。打ち切りを選択した場合、最初のコホートのリスク期間は、2番目のコホートのリスク時間の開始時に終了します。
 
 \begin{figure}
 
@@ -6568,7 +6568,7 @@ ACE阻害薬の新規使用者とサイアザイドおよびサイアザイド�
 \subsubsection*{ネガティブコントロールのアウトカムコホートの定義}\label{ux30cdux30acux30c6ux30a3ux30d6ux30b3ux30f3ux30c8ux30edux30fcux30ebux306eux30a2ux30a6ux30c8ux30abux30e0ux30b3ux30dbux30fcux30c8ux306eux5b9aux7fa9}
 \addcontentsline{toc}{subsubsection}{ネガティブコントロールのアウトカムコホートの定義}
 
-セクション \ref{ComparisonSettings} では、ネガティブコントロールのアウトカムを表すコンセプトセットを選択しました。しかし、分析でアウトカムとして使用するために、コンセプトをコホートに変換するロジックが必要です。ATLASは3つの選択肢を持つ標準ロジックを提供します。最初の選択肢は、\textbf{コンセプトのすべての出現}を使用するか、\textbf{最初の出現}のみを使用するかです。2番目の選択肢は、\textbf{下位層のコンセプトの出現を考慮するかどうか}を決定します。例えば、下位層の ``ingrown nail of foot (足の陥入爪)'' の出現も、上位層の ``ingrown nail (陥入爪)'' の出現として数えることができます。3番目の選択肢は、コンセプトを探すときにどのドメインを考慮するかを指定します。
+セクション \ref{ComparisonSettings} では、ネガティブコントロールのアウトカムを表すコンセプトセットを選択しました。しかし、分析でアウトカムとして使用するために、コンセプトをコホートに変換するロジックが必要です。ATLASは3つの選択肢を持つ標準ロジックを提供します。最初の選択肢は、\textbf{コンセプトのすべての出現}を使用するか、\textbf{最初の出現}のみを使用するかです。2番目の選択肢は、\textbf{下位層のコンセプトの出現を考慮するかどうか}を決定します。例えば、下位層の「ingrown nail of foot (足の陥入爪)」の出現も、上位層の「ingrown nail (陥入爪)」の出現として数えることができます。3番目の選択肢は、コンセプトを探すときにどのドメインを考慮するかを指定します。
 
 \begin{figure}
 
@@ -6597,11 +6597,11 @@ ACE阻害薬の新規使用者とサイアザイドおよびサイアザイド�
 
 これで研究の定義が完了したので、実行可能なRパッケージとしてエクスポートできます。このパッケージは、CDMにデータを持つ施設で研究を実行するために必要なすべての内容を含みます。これには、対象群、比較群、アウトカムのコホートをインスタンス化するために使用できるコホート定義、ネガティブコントロールのコンセプトセット、ネガティブコントロールのアウトカムコホートを作成するロジック、さらに分析を実行するRコードが含まれます。パッケージを生成する前に、必ず研究を保存し、\textbf{Utilities (ユーティリティ)} タブをクリックしてください。ここで、実行される一連の分析をレビューできます。前述したように、比較と分析設定のすべての組み合わせは、別々の分析になります。この例では、2つの解析を指定しています：AMIに対するACEi対THZ、血管性浮腫に対するACEi対THZ、両者とも傾向スコアマッチングを使用しています。
 
-パッケージの名前を指定し、``Download (ダウンロード)'' をクリックしてzipファイルをダウンロードします。zipファイルにはRパッケージが含まれており、Rパッケージに通常必要なフォルダ構成になっています \citep{Wickham_2015}。このパッケージを使用するには、R Studio の使用をお勧めします。R Studio をローカルで実行している場合は、ファイルを解凍し、.Rproj ファイルをダブルクリックして R Studio で開きます。RスタジオをRスタジオサーバーで実行している場合は、\includegraphics{images/PopulationLevelEstimation/upload.png}をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。
+パッケージの名前を指定し、「Download (ダウンロード)」をクリックしてzipファイルをダウンロードします。zipファイルにはRパッケージが含まれており、Rパッケージに通常必要なフォルダ構成になっています \citep{Wickham_2015}。このパッケージを使用するには、R Studio の使用をお勧めします。R Studio をローカルで実行している場合は、ファイルを解凍し、.Rproj ファイルをダブルクリックして R Studio で開きます。RスタジオをRスタジオサーバーで実行している場合は、\includegraphics{images/PopulationLevelEstimation/upload.png}をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。
 
 R Studioでプロジェクトを開いたら、READMEファイルを開き、指示に従ってください。すべてのファイルのパスを、システム上の既存のパスに変更してください。
 
-研究の実行時に表示される一般的なエラーメッセージは、``High correlation between covariate(s) and treatment detected.''（共変量と治療の間に高い相関が検出されました。）'' です。これは傾向モデルのフィッティングの際に、いくつかの共変量が曝露と高い相関があることが観察されたことを示します。エラーメッセージに記載されている共変量を確認し、適切に共変量セットから除外してください (セクション \ref{VariableSelection} 参照). \index{high correlation}
+研究の実行時に表示される一般的なエラーメッセージは、「High correlation between covariate(s) and treatment detected.''（共変量と治療の間に高い相関が検出されました。）」 です。これは傾向モデルのフィッティングの際に、いくつかの共変量が曝露と高い相関があることが観察されたことを示します。エラーメッセージに記載されている共変量を確認し、適切に共変量セットから除外してください (セクション \ref{VariableSelection} 参照). \index{high correlation}
 
 \section{Rを使用した研究の実施}\label{pleR}
 
@@ -7288,9 +7288,9 @@ OHDSI により、大規模かつ患者固有の予測モデリングが現実�
 
 予測モデルを作成する際には、機械学習の一種である\index{supervised learning(教師あり学習)}と呼ばれるプロセスを使用します。これは、ラベル付けされたサンプルセットに基づいて、共変量とアウトカムの状態の間の関係を推測するものです。したがって、対象コホートに属する人について、CDMから共変量を抽出する方法が必要であり、またアウトカムのラベルを取得する必要があります。
 
-\textbf{共変量}（``予測因子''、``特徴量''、``独立変数''とも呼ばれる）は、患者の特徴を説明します\index{共変量}。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、\href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}パッケージを使用して構築され、詳細は第 \ref{Characterization} 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。\index{基準日}
+\textbf{共変量}（「予測因子」、「特徴量」、「独立変数」とも呼ばれる）は、患者の特徴を説明します\index{共変量}。共変量には、年齢、性別、特定のコンディションの有無、患者記録内の曝露コードなどが含まれます。共変量は一般に、\href{https://ohdsi.github.io/FeatureExtraction/}{FeatureExtraction}パッケージを使用して構築され、詳細は第 \ref{Characterization} 章で説明しています。予測には、その人が対象コホートに入る日付（本書ではこれをインデックス日と呼びます）の前および当日のデータのみ使用できます。\index{基準日}
 
-また、リスク期間中の全ての患者の\textbf{アウトカムステータス}（``ラベル''または''クラス''とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。\index{アウトカムステータス} \index{ラベル} \index{クラス}
+また、リスク期間中の全ての患者の\textbf{アウトカムステータス}（「ラベル」または「クラス」とも呼ばれる）も取得する必要があります。リスク期間中にアウトカムが発生した場合、アウトカムステータスは「陽性」と定義されます。\index{アウトカムステータス} \index{ラベル} \index{クラス}
 
 \subsection{データ抽出の例}\label{ux30c7ux30fcux30bfux62bdux51faux306eux4f8b}
 
@@ -7512,7 +7512,7 @@ learningRate & learningRate learning\_rate によって各分類器の寄与を�
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-classWeight & ``Balance''または''None'' & None \\
+classWeight & 「Balance」または「None」 & None \\
 maxDepth & 木の最大深さ & 10 \\
 minImpuritySplit & ツリーの成長中に早期停止するための閾値。ノードの不純物が閾値を上回る場合は分割され、そうでない場合はリーフとなります & 10\^{}-7 \\
 minSamplesLeaf & 各リーフの最小サンプル数 & 10 \\
@@ -7545,7 +7545,7 @@ size & 隠れノードの数 & 4 \\
 
 \subsection{その他のアルゴリズム}\label{ux305dux306eux4ed6ux306eux30a2ux30ebux30b4ux30eaux30baux30e0}
 
-患者レベルの予測フレームワークには他のアルゴリズムを追加できますが、これは本章の範囲外です。詳細は、\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージの\href{https://ohdsi.github.io/PatientLevelPrediction/articles/AddingCustomAlgorithms.html}{``Adding Custom Patient-Level Prediction Algorithms''ビネット}を参照ください。
+患者レベルの予測フレームワークには他のアルゴリズムを追加できますが、これは本章の範囲外です。詳細は、\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージの\href{https://ohdsi.github.io/PatientLevelPrediction/articles/AddingCustomAlgorithms.html}{「Adding Custom Patient-Level Prediction Algorithms」ビネット}を参照ください。
 
 \section{予測モデルの評価}\label{ux4e88ux6e2cux30e2ux30c7ux30ebux306eux8a55ux4fa1}
 
@@ -7800,7 +7800,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 研究に共変量設定を追加するには、「Add Covariate Settings」をクリックします。これで共変量設定ビューが開きます。
 
-共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意のコンセプトに対して構築されますが、例えば対象コホート定義にリンクされている場合、特定のコンセプトを除外または含めることができます。特定のコンセプトのみを含めるには、ATLASでコンセプトセットを作成し、 ``\textbf{What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量として、どのようなコンセプトを含めたいですか？（すべてを含めたい場合は空白のままにしてください）)}'' の下で\includegraphics{images/PopulationLevelEstimation/open.png}をクリックしてコンセプトセットを選択します。コンセプトセット内のコンセプトに下位層のコンセプトを自動的に追加するには、 ``\textbf{Should descendant concepts be added to the list of included concepts? (含まれるコンセプトのリストに下位層コンセプトを追加すべきでしょうか？)}'' の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択されたコンセプトを除外する ``\textbf{What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量から除外したいコンセプトは何ですか？（すべてを含める場合は空白のままにしてください）)}'' の質問にも繰り返します。最後のオプション ``\textbf{A comma delimited list of covariate IDs that should be restricted to (制限すべき共変数IDのコンマ区切りリスト)}'' では、共変量ID（コンセプトIDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、適格基準設定と除外基準設定は図 \ref{fig:covariateSettings1}のようになります。
+共変量設定ビューの最初の部分は除外/包括オプションです。共変量は一般に任意のコンセプトに対して構築されますが、例えば対象コホート定義にリンクされている場合、特定のコンセプトを除外または含めることができます。特定のコンセプトのみを含めるには、ATLASでコンセプトセットを作成し、 「\textbf{What concepts do you want to include in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量として、どのようなコンセプトを含めたいですか？（すべてを含めたい場合は空白のままにしてください）)}」 の下で\includegraphics{images/PopulationLevelEstimation/open.png}をクリックしてコンセプトセットを選択します。コンセプトセット内のコンセプトに下位層のコンセプトを自動的に追加するには、「\textbf{Should descendant concepts be added to the list of included concepts? (含まれるコンセプトのリストに下位層コンセプトを追加すべきでしょうか？)}」の質問に「yes」と答えます。同じプロセスを、共変量に対応する選択されたコンセプトを除外する「\textbf{What concepts do you want to exclude in baseline covariates in the patient-level prediction model? (Leave blank if you want to include everything) (患者レベルの予測モデルにおけるベースライン共変量から除外したいコンセプトは何ですか？（すべてを含める場合は空白のままにしてください）)}」の質問にも繰り返します。最後のオプション 「\textbf{A comma delimited list of covariate IDs that should be restricted to (制限すべき共変数IDのコンマ区切りリスト)}」では、共変量ID（コンセプトIDではなく）をカンマ区切りで追加し、これらがモデルに含まれるようにすることができます。このオプションは上級ユーザ向けです。完了すると、適格基準設定と除外基準設定は図 \ref{fig:covariateSettings1}のようになります。
 
 \begin{figure}
 
@@ -7927,7 +7927,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
   ビジットコンセプト数： 選択された各ビジット、ドメイン、時間間隔ごとに共変量を構築し、その時間間隔に記録されたレコード数を、各ドメインのビジットタイプと時間間隔ごとに共変量値としてカウント。
 \end{itemize}
 
-``distinct count (重複を除いたカウント)''オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。
+「distinct count (重複を除いたカウント)」オプションは、ドメインと時間間隔ごとに、異なるコンセプトIDの数をカウントします。
 
 これらが完了すると、このセクションは下図 \ref{fig:covariateSettings5} のようになっているはずです。
 
@@ -7954,19 +7954,19 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 \subsubsection*{研究対象集団の設定}\label{ux7814ux7a76ux5bfeux8c61ux96c6ux56e3ux306eux8a2dux5b9a}
 \addcontentsline{toc}{subsubsection}{研究対象集団の設定}
 
-対象集団の設定は、追加の適格基準を対象集団に適用できる場所であり、また、リスク期間もここで定義されます。 研究に対象集団の設定を追加するには、``Add Population Settings (対象集団の追加)'' ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。
+対象集団の設定は、追加の適格基準を対象集団に適用できる場所であり、また、リスク期間もここで定義されます。 研究に対象集団の設定を追加するには、「Add Population Settings (対象集団の追加)」ボタンをクリックします。 これにより、対象集団の設定ビューが表示されます。
 
-最初のオプションセットでは、リスク期間を指定することができます。これは、対象とするアウトカムが起こるかどうかを観察する時間間隔です。リスク期間中に患者にアウトカムが起きた場合は ``Has outcome (アウトカムあり)'' に分類し、そうでない場合は ``No outcome (アウトカムなし)'' に分類します。``\textbf{Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホート組入れを基準に、リスク時間ウインドウの開始を定義します。)} は、ターゲットコホートの開始または終了日を基準としたリスク期間の開始を定義します。同様に、''\textbf{Define the time-at-risk window end: (対象コホートの開始または終了日を基準とした、リスク期間の終了を定義します。)} は、リスク期間の終了を定義します。
+最初のオプションセットでは、リスク期間を指定することができます。これは、対象とするアウトカムが起こるかどうかを観察する時間間隔です。リスク期間中に患者にアウトカムが起きた場合は「Has outcome (アウトカムあり)」に分類し、そうでない場合は「No outcome (アウトカムなし)」 に分類します。「\textbf{Define the time-at-risk window start, relative to target cohort entry: (ターゲットコホート組入れを基準に、リスク時間ウインドウの開始を定義します。)}」 は、ターゲットコホートの開始または終了日を基準としたリスク期間の開始を定義します。同様に、「\textbf{Define the time-at-risk window end: (対象コホートの開始または終了日を基準とした、リスク期間の終了を定義します。)}」は、リスク期間の終了を定義します。
 
-``\textbf{Minimum lookback period applied to target cohort (対象コホートに適用される最小のルックバック期間)}'' は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小のベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。
+「\textbf{Minimum lookback period applied to target cohort (対象コホートに適用される最小のルックバック期間)}」 は、患者がコホート開始日より前の継続的に観察された日数の最低値である、最小のベースライン期間を指定します。デフォルトは365日です。最小のルックバック期間を長くすると、患者の全体像がより明確になりますが（より長い期間観察されているはずであるため）、開始日前の観察が最低日数に満たない患者は除外されます。
 
-``\textbf{Should subjects without time at risk be removed? (リスク期間がない対象は除外すべきですか。)''} が''Yes (はい)'' に設定されている場合、``\textbf{Minimum time at risk: (最低リスク時間：)''} の値も必要となります。これにより、追跡不能となった人（すなわち、リスク期間中にデータベースから離脱した人）を除外することができます。例えば、リスク期間がコホート開始後1日からコホート開始後365日までであった場合、リスク期間は364日間（365-1）となります。もし、その全期間にわたって観察された患者のみを含めたいのであれば、最小リスク時間を364に設定します。最初の100日間リスク期間に該当していればよいのであれば、最小リスク期間を100に設定します。この場合、リスク期間の開始はコホート開始から1日後なので、コホート開始日から少なくとも101日間データベースに存在する患者が対象となります。''Should subjects without time at risk be removed? (リスク期間がない対象は削除すべきですか。）'' を ``No (いいえ)'' に設定すると、リスク期間中にデータベースから離脱した患者も含め、すべての患者が対象となります。
+「\textbf{Should subjects without time at risk be removed? (リスク期間がない対象は除外すべきですか。)}」 が 「Yes (はい)」 に設定されている場合、「\textbf{Minimum time at risk: (最低リスク時間：)}」 の値も必要となります。これにより、追跡不能となった人（すなわち、リスク期間中にデータベースから離脱した人）を除外することができます。例えば、リスク期間がコホート開始後1日からコホート開始後365日までであった場合、リスク期間は364日間（365-1）となります。もし、その全期間にわたって観察された患者のみを含めたいのであれば、最小リスク時間を364に設定します。最初の100日間リスク期間に該当していればよいのであれば、最小リスク期間を100に設定します。この場合、リスク期間の開始はコホート開始から1日後なので、コホート開始日から少なくとも101日間データベースに存在する患者が対象となります。「Should subjects without time at risk be removed? (リスク期間がない対象は削除すべきですか。）」を「No (いいえ)」に設定すると、リスク期間中にデータベースから離脱した患者も含め、すべての患者が対象となります。
 
-``\textbf{Include people with outcomes who are not observed for the whole at risk period? (全リスク期間で観察されていないアウトカムを持つ人を含めますか。)} というオプションは、前のオプションに関連しています。''Yes (はい)'' に設定すると、指定された最低リスク期間で観察されていない場合でも、リスク期間中にアウトカムを経験した人は常にコホートに保持されます。
+「\textbf{Include people with outcomes who are not observed for the whole at risk period? (全リスク期間で観察されていないアウトカムを持つ人を含めますか。)}」 というオプションは、前のオプションに関連しています。「Yes (はい)」に設定すると、指定された最低リスク期間で観察されていない場合でも、リスク期間中にアウトカムを経験した人は常にコホートに保持されます。
 
-``\textbf{Should only the first exposure per subject be included? (対象ごとに最初の曝露のみを含めるべきですか)}'' というオプションは、対象コホートに異なるコホート開始日で複数回含まれる患者がいる場合にのみ有用です。この状況で ``Yes (はい)'' を選択すると、分析では患者ごとに最も早い対象コホートの日付のみが保持されます。そうでない場合、患者はデータセットに複数回含まれる可能性があります。
+「\textbf{Should only the first exposure per subject be included? (対象ごとに最初の曝露のみを含めるべきですか)}」というオプションは、対象コホートに異なるコホート開始日で複数回含まれる患者がいる場合にのみ有用です。この状況で ``Yes (はい)」を選択すると、分析では患者ごとに最も早い対象コホートの日付のみが保持されます。そうでない場合、患者はデータセットに複数回含まれる可能性があります。
 
-``\textbf{Remove patients who have observed the outcome prior to cohort entry? (コホート組入れの前にアウトカムが観察された患者を除外しますか)}'' を ``Yes (はい)'' に設定すると、リスク期間開始日より前にアウトカムを経験した患者を除外するため、そのモデルは以前にアウトカムを経験したことがない患者を対象とします。もし ``No (いいえ)'' が選択されると、患者は以前にアウトカムを持つ可能性があります。患者が以前にアウトカムを経験したことが、リスク期間中にアウトカムが起きることを非常に高い確率で予測することが多いです。
+「\textbf{Remove patients who have observed the outcome prior to cohort entry? (コホート組入れの前にアウトカムが観察された患者を除外しますか)}」を「Yes (はい)」 に設定すると、リスク期間開始日より前にアウトカムを経験した患者を除外するため、そのモデルは以前にアウトカムを経験したことがない患者を対象とします。もし ``No (いいえ)」が選択されると、患者は以前にアウトカムを持つ可能性があります。患者が以前にアウトカムを経験したことが、リスク期間中にアウトカムが起きることを非常に高い確率で予測することが多いです。
 
 完了すると、対象集団の設定のダイアログは図 \ref{fig:populationSettings} のようになります。
 
@@ -7996,11 +7996,11 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 \begin{itemize}
 \item
-  \textbf{Perform sampling (サンプリングの実行)} ： ここでサンプリングを実行するかどうかを選択します（デフォルトは ``no (いいえ)''）。``yes (はい)'' を選択すると、別のオプションが表示されます： ``\textbf{How many patients to use for a subset? (サブセットに何人の患者を含めますか。)}'' で、サンプルの大きさを指定できます。サンプリングは、大規模な母集団（例えば1000万人の患者）のモデルが予測可能かどうかを判断する効率的な手段となり得ます。例えば、サンプルにおける AUC が 0.5 に近い場合、そのモデルは破棄されるかもしれません。
+  \textbf{Perform sampling (サンプリングの実行)} ： ここでサンプリングを実行するかどうかを選択します（デフォルトは 「no (いいえ)」）。「yes (はい)」 を選択すると、別のオプションが表示されます： 「\textbf{How many patients to use for a subset? (サブセットに何人の患者を含めますか。)}」で、サンプルの大きさを指定できます。サンプリングは、大規模な母集団（例えば1000万人の患者）のモデルが予測可能かどうかを判断する効率的な手段となり得ます。例えば、サンプルにおける AUC が 0.5 に近い場合、そのモデルは破棄されるかもしれません。
 \item
-  ``\textbf{Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed: (最小共変量出現率： もし共変量がこの値より小さい割合で対象集団に出現する場合、その共変量は除外されます:)}'': ここでは共変量の出現率の最小値を選択します（デフォルトは0.001）。共変量出現の最小閾値は、全体集団を代表しないまれなイベントを除外するために必要です。
+  「\textbf{Minimum covariate occurrence: If a covariate occurs in a fraction of the target population less than this value, it will be removed: (最小共変量出現率： もし共変量がこの値より小さい割合で対象集団に出現する場合、その共変量は除外されます:)}」: ここでは共変量の出現率の最小値を選択します（デフォルトは0.001）。共変量出現の最小閾値は、全体集団を代表しないまれなイベントを除外するために必要です。
 \item
-  ``\textbf{Normalize covariate (共変量を正規化する)}''： ここで共変量を正規化するかどうかを選択します（デフォルトは ``yes (はい)''）。共変量の正規化は、通常、LASSOモデルをうまく実行するために必要です。
+  「\textbf{Normalize covariate (共変量を正規化する)}」： ここで共変量を正規化するかどうかを選択します（デフォルトは「yes (はい)」）。共変量の正規化は、通常、LASSOモデルをうまく実行するために必要です。
 \end{itemize}
 
 この例では、図 \ref{fig:executionSettings} のように選択します。
@@ -8020,13 +8020,13 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 \begin{itemize}
 \item
-  ``\textbf{Specify how to split the test/train set (テストセットとトレーニングセットをどのように分けるかを指定します。)}''： トレーニング/テストデータを人別（アウトカムで層別化）または時間別（古いデータをトレーニングに、新しいデータは評価に）に分割するかを選択します。
+  「\textbf{Specify how to split the test/train set (テストセットとトレーニングセットをどのように分けるかを指定します。)}」： トレーニング/テストデータを人別（アウトカムで層別化）または時間別（古いデータをトレーニングに、新しいデータは評価に）に分割するかを選択します。
 \item
-  ``\textbf{Percentage of the data to be used as the test set (0-100\%) (テストセットとして使用するデータの割合(0-100\%))}''： テストデータとして使用するデータの割合を選択します（デフォルトは25\%）。
+  「\textbf{Percentage of the data to be used as the test set (0-100\%) (テストセットとして使用するデータの割合(0-100\%))}」： テストデータとして使用するデータの割合を選択します（デフォルトは25\%）。
 \item
-  ``\textbf{The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)}''： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。
+  「\textbf{The number of folds used in the cross validation (クロスバリデーションで使用するフォールド数)}」： 最適なハイパーパラメータを選択するために使用するクロスバリデーションのフォールド数を選択します（デフォルトは3）。
 \item
-  ``\textbf{The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)}''： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用するランダムシードを選択します。
+  「\textbf{The seed used to split the test/train set when using a person type testSplit (optional): (人単位で testSplit を使う場合の、テストセットとトレーニングセットを分割するためのシード (オプション)：)}」： 人単位でテストセットとトレーニングセットを分割する場合に、分割に使用するランダムシードを選択します。
 \end{itemize}
 
 この例では、図 \ref{fig:trainingSettings} のように選択します。
@@ -8042,13 +8042,13 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 
 \subsection{研究のインポートとエクスポート}\label{ux7814ux7a76ux306eux30a4ux30f3ux30ddux30fcux30c8ux3068ux30a8ux30afux30b9ux30ddux30fcux30c8}
 
-研究をエクスポートするには、``Utilities (ユーティリティ)'' の下にある ``Export (エクスポート)'' タブをクリックします。ATLASは、研究の名称、コホート定義、選択したモデル、共変量、設定など、研究実行に必要なすべてのデータを含むファイルに直接コピー＆ペーストできるJSONを作成します。
+研究をエクスポートするには、「Utilities (ユーティリティ)」の下にある 「Export (エクスポート)」タブをクリックします。ATLASは、研究の名称、コホート定義、選択したモデル、共変量、設定など、研究実行に必要なすべてのデータを含むファイルに直接コピー＆ペーストできるJSONを作成します。
 
-研究をインポートするには、``Utilities (ユーティリティ)'' の下にある ``Import (インポート)'' タブをクリックします。患者レベルの予測研究のJSONの内容をこのウィンドウに貼り付け、他のタブボタンの下にある ``Import (インポート)'' ボタンをクリックします。これにより、その研究の以前の設定がすべて上書きされることに注意してください。通常は、新しい空の研究デザインを使用して実行します。
+研究をインポートするには、「Utilities (ユーティリティ)」の下にある「Import (インポート)」タブをクリックします。患者レベルの予測研究のJSONの内容をこのウィンドウに貼り付け、他のタブボタンの下にある「Import (インポート)」ボタンをクリックします。これにより、その研究の以前の設定がすべて上書きされることに注意してください。通常は、新しい空の研究デザインを使用して実行します。
 
 \subsection{研究パッケージのダウンロード}\label{ux7814ux7a76ux30d1ux30c3ux30b1ux30fcux30b8ux306eux30c0ux30a6ux30f3ux30edux30fcux30c9}
 
-``Utilities (ユーティリティ)'' の下にある ``Review \& Download (レビューとダウンロード)''」レビューとダウンロード '' タブをクリックします。``Download Study Package (研究パッケージをダウンロード)'' セクションで、Rパッケージのわかりやすい名前を入力します。Rで使えない文字は、ATLASによって自動的にファイル名から削除されることに注意してください。\includegraphics{images/PatientLevelPrediction/download.png} をクリックして、Rパッケージをローカルフォルダにダウンロードします。
+「Utilities (ユーティリティ)」 の下にある「Review \& Download (レビューとダウンロード)」タブをクリックします。「Download Study Package (研究パッケージをダウンロード)」セクションで、Rパッケージのわかりやすい名前を入力します。Rで使えない文字は、ATLASによって自動的にファイル名から削除されることに注意してください。\includegraphics{images/PatientLevelPrediction/download.png} をクリックして、Rパッケージをローカルフォルダにダウンロードします。
 
 \subsection{研究の実行}\label{ux7814ux7a76ux306eux5b9fux884c}
 
@@ -8062,7 +8062,7 @@ AUCは、リスク期間中にアウトカムを経験する患者と経験し�
 \end{Highlighting}
 \end{Shaded}
 
-機械学習アルゴリズムの中には、追加ソフトウェアのインストールが必要なものがあります。\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージのインストール方法の詳細については、\href{https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html}{``Patient-Level Prediction Installation Guide'' vignette}を参照ください。
+機械学習アルゴリズムの中には、追加ソフトウェアのインストールが必要なものがあります。\href{https://ohdsi.github.io/PatientLevelPrediction/}{PatientLevelPrediction} パッケージのインストール方法の詳細については、\href{https://ohdsi.github.io/PatientLevelPrediction/articles/InstallationGuide.html}{「Patient-Level Prediction Installation Guide」vignette}を参照ください。
 
 study Rパッケージを使用するには、R Studioの使用をお勧めします。R Studioをローカルで実行している場合は、ATLASで生成されたファイルを解凍し、.RprojファイルをダブルクリックしてR Studioで開きます。RスタジオをRスタジオサーバーで実行している場合は、\includegraphics{images/PopulationLevelEstimation/upload.png}をクリックしてファイルをアップロードし、解凍した後、.Rprojファイルをクリックしてプロジェクトを開きます。
 
@@ -8550,7 +8550,7 @@ ATLASによって生成されたスタディパッケージでは、さまざま
 
 \subsection{学術誌論文の生成}\label{ux5b66ux8853ux8a8cux8ad6ux6587ux306eux751fux6210}
 
-自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む ``Table 1'' を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：
+自動的にワードドキュメントを生成する機能を追加しました。このドキュメントは学術誌の草稿として利用でき、多くの生成された研究の詳細とアウトカムを含みます。外部検証を行った場合、そのアウトカムも追加することができます。また、ターゲット集団の多くの共変量に関するデータを含む 「Table 1」を任意で追加することもできます。この機能を実行することで学術誌の草稿を作成できます：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9136,7 +9136,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 \end{Highlighting}
 \end{Shaded}
 
-出力ファイルをウェブブラウザで開くことができます（図 \ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には''Inpatient or ER (入院または救急室ビジット)``と''Angioedema (血管性浮腫)``という二つのコンセプトセットがあります。この例のデータベースでは、ビジットは''ER''および''IP''というデータベース固有のソースコードによって同定され、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって同定されました。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
+出力ファイルをウェブブラウザで開くことができます（図 \ref{fig:sourceCodesAngioedema}）。ここでは、血管性浮腫のコホート定義には「Inpatient or ER (入院または救急室ビジット)」と「Angioedema (血管性浮腫)」という二つのコンセプトセットがあります。この例のデータベースでは、ビジットは「ER」および「IP」というデータベース固有のソースコードによって同定され、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって同定されました。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。
 
 \begin{figure}
 
@@ -9147,7 +9147,7 @@ JSONファイルはachillesOutサブフォルダに書き込まれ、AchillesWeb
 \caption{血管性浮腫のコホート定義で使用されるソースコード}\label{fig:sourceCodesAngioedema}
 \end{figure}
 
-次に、標準コンセプトコードにマッピングされていない孤立したソースコードを検索できます。ここでは、標準コンセプト「Angioedema」を検索し、名前の一部として''Angioedema''または提供する同義語を含むコードやコンセプトを探します。
+次に、標準コンセプトコードにマッピングされていない孤立したソースコードを検索できます。ここでは、標準コンセプト「Angioedema」を検索し、名前の一部として「Angioedema」または提供する同義語を含むコードやコンセプトを探します。
 
 \begin{Shaded}
 \begin{Highlighting}[]

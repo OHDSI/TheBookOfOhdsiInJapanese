@@ -865,7 +865,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <h4>Translateがサポートする関数と構造<a href="SqlAndR.html#translateがサポートする関数と構造" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>これらのSQL Server関数はテスト済であり、各表現への正確な変換が確認されています：</p>
 <table>
-<caption><span id="tab:sqlFunctions">表 9.1: </span> “translate (翻訳)によりサポートされる関数と構造</caption>
+<caption><span id="tab:sqlFunctions">表 9.1: </span> 「translate (翻訳)」によりサポートされる関数と構造</caption>
 <thead>
 <tr class="header">
 <th align="left">関数</th>
@@ -1058,7 +1058,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.bf6k2yczchildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.ci8mu3f2children ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>
@@ -1228,7 +1228,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 </tr>
 </tbody>
 </table>
-<p>観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（<code>WITH ... AS</code>を使用）、“ages”と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて”n”を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには$<code>order_nr &lt; .50 * n</code>の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：</p>
+<p>観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（<code>WITH ... AS</code>を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには$<code>order_nr &lt; .50 * n</code>の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb58-1"><a href="SqlAndR.html#cb58-1" tabindex="-1"></a><span class="kw">WITH</span> ages</span>
 <span id="cb58-2"><a href="SqlAndR.html#cb58-2" tabindex="-1"></a><span class="kw">AS</span> (</span>
 <span id="cb58-3"><a href="SqlAndR.html#cb58-3" tabindex="-1"></a>    <span class="kw">SELECT</span> age,</span>
