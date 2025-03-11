@@ -111,7 +111,7 @@ CONCEPTテーブルのレコードには、各コンセプトの詳細情報（�
 -   **ソースコンセプト**は、ソースで使用されるコードを表すコンセプトです。ソースコンセプトは、既存の公開または独自のコード体系に対してのみ使用され、OMOPで生成されたコンセプトには使用されません。ソースコンセプトはデータテーブル内の[Event]\_SOURCE_CONCEPT_IDフィールドに格納されます。
 -   **標準コンセプト**は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]\_CONCEPT_IDフィールドで参照できます。
 
-ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には**強く推奨**されます。一方、標準コンセプトの使用は**必須**です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 \@ref(fig:pulmTubICD9) で示されているように、コンディション "Pulmonary Tuberculosis (肺結核)" (TB) のICD9CMコードは011です。
+ソース値は、便宜上、品質保証（QA）の目的でのみ提供されます。ソース値には、特定のデータソースの文脈のみで意味を持つ情報が含まれる場合があります。ソース値やソースコンセプトの使用は任意ですが、ソースデータがコード体系を使用している場合には**強く推奨**されます。一方、標準コンセプトの使用は**必須**です。この標準コンセプトの使用が必須である理由は、すべてのCDMインスタンスが同じ言語を話すことができるようにするためです。例えば、図 \@ref(fig:pulmTubICD9) で示されているように、コンディション「Pulmonary Tuberculosis (肺結核)」（TB）のICD9CMコードは011です。
 
 ```{r pulmTubICD9, fig.cap="肺結核のICD9CMコード",echo=FALSE, out.width="75%", fig.align="center"}
 knitr::include_graphics("images/CommonDataModel/pulmTubICD9.png")
@@ -209,7 +209,7 @@ OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待され�
 | PERSON_ID | 1 | これはPERSONテーブルでLauraのレコードへの外部キーであり、PERSONをOBSERVATION_PERIODテーブルにリンクします。 |
 | OBSERVATION_PERIOD\_ START_DATE | 2010-01-06 | これは記録上、彼女の最初の受診の開始日です。 |
 | OBSERVATION_PERIOD\_ END_DATE | 2013-01-24 | これは記録上、彼女の最後の受診の終了日です。 |
-| PERIOD_TYPE\_ CONCEPT_ID | 44814725 | "Obs Period Type (観察期間タイプ)" コンセプトクラスを持つボキャブラリにおける最良のオプションは[44814724](http://athena.ohdsi.org/search-terms/terms/44814724)で、「ヘルスケア受診をカバーする期間」を表します。 |
+| PERIOD_TYPE\_ CONCEPT_ID | 44814725 | 「Obs Period Type (観察期間タイプ)」 コンセプトクラスを持つボキャブラリにおける最良のオプションは[44814724](http://athena.ohdsi.org/search-terms/terms/44814724)で、「ヘルスケア受診をカバーする期間」を表します。 |
 
 : (#tab:observationPeriod) OBSERVATION_PERIODテーブル
 
@@ -266,7 +266,7 @@ CONDITION_OCCURRENCEテーブルのレコードは、医療従事者によって
 | CONDITION_START\_ DATETIME | 2010-01-06 00:00:00 | コンディションが記録された日時です。時刻は不明なので、0時が使用されます。 |
 | CONDITION_END\_ DATE | NULL | コンディションが終了したと見なされる日付ですが、これはほとんど記録されていません。 |
 | CONDITION_END\_ DATETIME | NULL | 既知の場合、コンディションが終了したと見なされる日時です。 |
-| CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 [32020](http://athena.ohdsi.org/search-terms/terms/32020)「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、"Condition Type (コンディションタイプ)" のボキャブラリに属するべきです。 |
+| CONDITION_TYPE\_ CONCEPT_ID | 32020 | この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 [32020](http://athena.ohdsi.org/search-terms/terms/32020)「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「Condition Type (コンディションタイプ)」のボキャブラリに属するべきです。 |
 | CONDITION_STATUS_CONCEPT_ID | NULL | これが分かると、状況と理由がわかります。例えば、コンディションが入院時の診断である場合、コンセプトID [4203942](http://athena.ohdsi.org/search-terms/terms/4203942) が使用されました。 |
 | STOP_REASON | NULL | 既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。 |
 | PROVIDER_ID | NULL | コンディションレコードに診断を付けた医療従事者がリストされている場合、その医療従事者の ID がこのフィールドに入ります。これは、そのビジットの医療従事者を表すPROVIDERテーブルのprovider_idでなければなりません。 |
@@ -295,19 +295,19 @@ DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的使用ま�
 | DRUG_EXPOSURE\_ END_DATE | 2010-02-05 | 薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬物に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。 |
 | DRUG_EXPOSURE\_ END_DATETIME | 2010-02-05 00:00:00 | 薬剤曝露の終了日時。DRUG_EXPOSURE_END_DATEと同様のルールが適用されます。時刻が不明な場合は0時が使用されます。 |
 | VERBATIM_END_DATE | NULL | 情報源が実際の終了日を明確に記録している場合。推定される終了日は、患者によって全日数分が使用されたという仮定に基づいています。 |
-| DRUG_TYPE\_ CONCEPT_ID | 38000177 | この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) ("Prescription written") が使用されています。 |
+| DRUG_TYPE\_ CONCEPT_ID | 38000177 | この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) (「Prescription written　（書かれた処方箋）」) が使用されています。 |
 | STOP_REASON | NULL | 薬剤の投与が中止された理由。理由にはレジメンの完了、変更、削除などが含まれます。この情報はほとんど記録されません。 |
 | REFILLS | NULL | 多くの国で処方システムの一部となっている、初回処方後の自動再処方数。最初の処方はカウントされず、値は NULL から始まります。Lauren のアセトアミノフェンの場合、リフィルはなかったので、値は NULL です。 |
 | QUANTITY | 60 | 最初の処方箋または調剤記録に記録された薬剤の量。 |
 | DAYS_SUPPLY | 30 | 処方された薬の処方日数。 |
 | SIG | NULL | 元の処方箋または調剤記録に記録されている（米国の薬剤処方システムでは容器に印刷されている）薬剤処方箋の指示（「signetur」）。signetur は CDM ではまだ標準化されておらず、逐語的に提供されます。 |
-| ROUTE_CONCEPT_ID | 4132161 | このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) ("Oral（経口）") が使用されています. |
+| ROUTE_CONCEPT_ID | 4132161 | このコンセプトは、患者が曝露された薬剤の投与経路を表すものです。Laurenはアセトアミノフェンを経口摂取したので、コンセプトID [4132161](http://athena.ohdsi.org/search-terms/terms/4132161) (「Oral（経口）」) が使用されています. |
 | LOT_NUMBER | NULL | 製造業者から薬剤の特定の数量またはロットに割り当てられた識別子。この情報はほとんど取得されません。 |
 | PROVIDER_ID | NULL | 薬剤レコードに処方プロバイダがリストされている場合、そのプロバイダのIDがこのフィールドに入ります。その場合、このフィールドにはPROVIDERテーブルのPROVIDER_IDが入ります。 |
 | VISIT_OCCURRENCE\_ ID | 509 | 薬剤が処方された VISIT_OCCURRENCE テーブルへの外部キー。 |
 | VISIT_DETAIL_ID | NULL | 薬剤が処方された VISIT_DETAIL テーブルへの外部キー。 |
 | DRUG_SOURCE\_ VALUE | 69842087651 | ソース・データに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。 |
-| DRUG_SOURCE\_ CONCEPT_ID | 750264 | 薬剤のソースデータでの値を表すコンセプトです。コンセプト [750264](http://athena.ohdsi.org/search-terms/terms/750264) NDCコードで"Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）"を表します。 |
+| DRUG_SOURCE\_ CONCEPT_ID | 750264 | 薬剤のソースデータでの値を表すコンセプトです。コンセプト [750264](http://athena.ohdsi.org/search-terms/terms/750264) NDCコードで「Acetaminophen 325 MG Oral Tablet（アセトアミノフェン 325 MG　経口錠）」を表します。 |
 | ROUTE_SOURCE\_ VALUE | NULL | 情報源に詳述されている投与経路に関する逐語的な情報。 |
 
 : (#tab:drugExposure) DRUG_EXPOSUREテーブル
@@ -413,12 +413,12 @@ result <- renderTranslateQuerySql(connection, sql, cdm = "main")
 ```
 
 ```{exercise, exerciseGiBleedRecords}
-SQLとRを使用して、コンディション "Gastrointestinal hemorrhage (消化管出血)"（コンセプトID[192671](http://athena.ohdsi.org/search-terms/terms/192671)）のすべてのレコードを取得してください。
+SQLとRを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)」（コンセプトID[192671](http://athena.ohdsi.org/search-terms/terms/192671)）のすべてのレコードを取得してください。
 
 ```
 
 ```{exercise, exercisePersonSource}
-SQLとRを使用して、ソースコードを使用して、コンディション "Gastrointestinal hemorrhage (消化管出血)" のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは "K92.2" です。
+SQLとRを使用して、ソースコードを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)"」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは 「K92.2」です。
 
 ```
 

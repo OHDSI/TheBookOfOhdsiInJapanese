@@ -177,7 +177,7 @@ knitr::include_graphics("images/Cohorts/aceinhibitors.png")
 
 使用したいボキャブラリを見つけたら、![](images/Cohorts/shoppingcart.png)をクリックし、そのコンセプトを選択します。図\@ref(fig:aceinhibitors)の左矢印を使用してコホート定義に戻ります対象とする臨床コンセプトを検索するためのボキャブラリのナビゲーション奉納は、第\@ref(StandardizedVocabularies)章（標準化ボキャブラリ）を参照ください。
 
-図\@ref(fig:aceConceptSetExpression)はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。”Included concepts (包含されるコンセプト)" をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、"Included Source Codes (包含されるソースコード)" をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。
+図\@ref(fig:aceConceptSetExpression)はコンセプトセット表現を示しています。対象とするすべてのACE阻害薬成分を選択し、その下位層すべてを含め、これらの成分を含むすべての薬剤を含めています。「Included concepts (包含されるコンセプト)」をクリックして、この表現に含まれている21,536のコンセプトすべてを確認することができ、「Included Source Codes (包含されるソースコード)」をクリックすると、様々なコーディングシステムに含まれるすべてのソースコードを探索することができます。
 
 ```{r aceConceptSetExpression, fig.cap='ACE阻害薬を含むコンセプトセット', echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Cohorts/aceConceptSetExpression.png")
