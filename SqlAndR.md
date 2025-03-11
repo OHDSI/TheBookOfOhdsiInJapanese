@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.vcxm1x51children ;"
+## [1] "SELECT * FROM temp_schema.wn3lpioschildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -830,7 +830,7 @@ FROM (
   FROM @cdm_db_schema.condition_occurrence
   INNER JOIN @cdm_db_schema.concept_ancestor
     ON condition_concept_id = descendant_concept_id
-  WHERE ancestor_concept_id = 432791 -- 血管浮腫
+  WHERE ancestor_concept_id = 432791 -- 血管性浮腫
 ) distinct_occurrence
 INNER JOIN @cdm_db_schema.visit_occurrence
   ON subject_id = person_id

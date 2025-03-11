@@ -1058,7 +1058,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.m0yn9urmchildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.bf6k2yczchildren ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>
@@ -1529,7 +1529,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb66-16"><a href="SqlAndR.html#cb66-16" tabindex="-1"></a><span class="st">  FROM @cdm_db_schema.condition_occurrence</span></span>
 <span id="cb66-17"><a href="SqlAndR.html#cb66-17" tabindex="-1"></a><span class="st">  INNER JOIN @cdm_db_schema.concept_ancestor</span></span>
 <span id="cb66-18"><a href="SqlAndR.html#cb66-18" tabindex="-1"></a><span class="st">    ON condition_concept_id = descendant_concept_id</span></span>
-<span id="cb66-19"><a href="SqlAndR.html#cb66-19" tabindex="-1"></a><span class="st">  WHERE ancestor_concept_id = 432791 -- 血管浮腫</span></span>
+<span id="cb66-19"><a href="SqlAndR.html#cb66-19" tabindex="-1"></a><span class="st">  WHERE ancestor_concept_id = 432791 -- 血管性浮腫</span></span>
 <span id="cb66-20"><a href="SqlAndR.html#cb66-20" tabindex="-1"></a><span class="st">) distinct_occurrence</span></span>
 <span id="cb66-21"><a href="SqlAndR.html#cb66-21" tabindex="-1"></a><span class="st">INNER JOIN @cdm_db_schema.visit_occurrence</span></span>
 <span id="cb66-22"><a href="SqlAndR.html#cb66-22" tabindex="-1"></a><span class="st">  ON subject_id = person_id</span></span>

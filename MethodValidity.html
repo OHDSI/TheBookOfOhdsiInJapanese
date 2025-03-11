@@ -1078,16 +1078,16 @@ div.csl-indent {
 <h3><span class="header-section-number">18.3.6</span> データベース間の異質性<a href="MethodValidity.html#データベース間の異質性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>1つのデータベース（この場合はIBM MarketScan Medicaid (MDCD)データベース）で分析を実施したのと同様に、共通データモデル（CDM）に準拠する他のデータベースでも同じ分析コードを実行することができます。図 <a href="MethodValidity.html#fig:forest">18.7</a> は、血管性浮腫の結果について、合計5つのデータベースにわたるフォレストプロットとメタ分析推定値（ランダム効果を仮定） <span class="citation">(<a href="#ref-dersimonian_1986">DerSimonian and Laird 1986</a>)</span> を示しています。この図は、<a href="https://ohdsi.github.io/EvidenceSynthesis/">EvidenceSynthesis</a>パッケージの<code>plotMetaAnalysisForest</code>関数を使用して生成されました。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forest"></span>
-<img src="images/MethodValidity/forest.png" alt="血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値" width="90%" />
+<img src="images/MethodValidity/forest.png" alt="血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値" width="90%" />
 <p class="caption">
-図 18.7: 血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値
+図 18.7: 血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値
 </p>
 </div>
 <p>すべての信頼区間が1より大きいため、何らかの影響があるという点では一致していることが示唆されますが、<span class="math inline">\(I^2\)</span> はデータベース間の異質性を示唆しています。しかし、図 <a href="MethodValidity.html#fig:forestCal">18.8</a> で示したようにキャリブレーション済みの信頼区間を使用して<span class="math inline">\(I^2\)</span> を計算すると、この異質性は、ネガティブコントロールとポジティブコントロールを通じて各データベースで測定されたバイアスによって説明できることが分かります。経験的なキャリブレーションは、このバイアスを適切に考慮しているようです。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:forestCal"></span>
-<img src="images/MethodValidity/forestCal.png" alt="キャリブレーションされた血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値" width="90%" />
+<img src="images/MethodValidity/forestCal.png" alt="キャリブレーションされた血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値" width="90%" />
 <p class="caption">
-図 18.8: キャリブレーションされた血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値
+図 18.8: キャリブレーションされた血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値
 </p>
 </div>
 </div>
