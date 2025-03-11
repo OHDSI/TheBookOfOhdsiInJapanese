@@ -109,7 +109,7 @@ $$
 
 }
 
-\caption{ATLASデータソース: コンセプト名に "hypertension (高血圧)" が含まれるコンディション}(\#fig:atlasDataSourcesConditionFiltered)
+\caption{ATLASデータソース: コンセプト名に 「hypertension (高血圧)」が含まれるコンディション}(\#fig:atlasDataSourcesConditionFiltered)
 \end{figure}
 
 特定のコンディションの詳細なドリルダウンレポートを表示するには、行をクリックします。ここでは、"essential hypertension (本態性高血圧)" を選択し、選択されたコンディションの経時的および性別ごとの傾向、月ごとの有病率、記録された病型、診断の初回発生時の年齢の分布を確認します：
