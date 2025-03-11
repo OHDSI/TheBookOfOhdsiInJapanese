@@ -339,13 +339,13 @@ cat("[1] [1] 1.483652e-06 7.052822e-01")
 
 1つのデータベース（この場合はIBM MarketScan Medicaid (MDCD)データベース）で分析を実施したのと同様に、共通データモデル（CDM）に準拠する他のデータベースでも同じ分析コードを実行することができます。図 \@ref(fig:forest) は、血管性浮腫の結果について、合計5つのデータベースにわたるフォレストプロットとメタ分析推定値（ランダム効果を仮定） [@dersimonian_1986] を示しています。この図は、[EvidenceSynthesis](https://ohdsi.github.io/EvidenceSynthesis/)パッケージの`plotMetaAnalysisForest`関数を使用して生成されました。
 
-```{r forest, fig.cap='血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値',echo=FALSE, out.width='90%', fig.align='center'}
+```{r forest, fig.cap='血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/forest.png")
 ```
 
 すべての信頼区間が1より大きいため、何らかの影響があるという点では一致していることが示唆されますが、$I^2$ はデータベース間の異質性を示唆しています。しかし、図 \@ref(fig:forestCal) で示したようにキャリブレーション済みの信頼区間を使用して$I^2$ を計算すると、この異質性は、ネガティブコントロールとポジティブコントロールを通じて各データベースで測定されたバイアスによって説明できることが分かります。経験的なキャリブレーションは、このバイアスを適切に考慮しているようです。
 
-```{r forestCal, fig.cap='キャリブレーションされた血管浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値',echo=FALSE, out.width='90%', fig.align='center'}
+```{r forestCal, fig.cap='キャリブレーションされた血管性浮腫のリスクについてACE阻害薬とサイアザイドおよびサイアザイド様利尿薬を比較した場合の、5つの異なるデータベースからの効果推定値と95％信頼区間（CI）、およびメタ解析による推定値',echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/MethodValidity/forestCal.png")
 ```
 
