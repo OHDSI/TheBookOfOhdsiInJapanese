@@ -88,7 +88,7 @@ knitr::include_graphics("images/Characterization/atlasDataSourcesConditionTreema
 
 特定の関心のあるコンデションを検索するには、テーブルタブをクリックして、データベース内のすべてのコンディションのリストを表示し、人数、有病率、個人ごとのレコード数を確認します。上部のフィルターボックスを使用して、コンセプト名に "hypertension (高血圧)" を含む項目に基づいてリストをフィルタリングできます：
 
-```{r atlasDataSourcesConditionFiltered, fig.cap='ATLASデータソース: コンセプト名に "hypertension (高血圧)" が含まれるコンディション',echo=FALSE, out.width='100%', fig.align='center'}
+```{r atlasDataSourcesConditionFiltered, fig.cap='ATLASデータソース: コンセプト名に 「hypertension (高血圧)」が含まれるコンディション',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasDataSourcesConditionFiltered.png")
 ```
 
