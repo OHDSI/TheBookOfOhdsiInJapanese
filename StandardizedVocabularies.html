@@ -796,7 +796,7 @@ div.csl-indent {
 <h1><span class="header-section-number">第 5 章</span> 標準化ボキャブラリ<a href="StandardizedVocabularies.html#StandardizedVocabularies" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p></p>
 <p><em>著者: Christian Reich &amp; Anna Ostropolets</em></p>
-<p>OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれることが多く、データの内容を定義することで、手法、定義、結果の標準化を可能にし、真のリモート（ファイアウォール内）ネットワーク研究と分析への道を開きます。通常、コーディングスキームを使用した構造化データであるか、自由形式のテキストであるかに関わらず、観察医療データのコンテンツを見つけ、解釈することは、臨床イベントを記述する無数の異なる方法に直面する研究者へと引き継がれます。OHDSIでは、標準化されたフォーマットだけでなく、厳格な標準コンテンツへの調和も必要とされています。 本章では、まず標準化ボキャブラリの主な原則、その構成要素、関連する規則、慣例、および典型的な状況について説明します。これらはすべて、この基盤となるリソースを理解し活用するために必要なものです。また、継続的に改善していくためにコミュニティのサポートが必要な箇所についても指摘します。</p>
+<p>OMOP標準化ボキャブラリは、単に「ボキャブラリ」と呼ばれることが多く、データの内容を定義することで、手法、定義、結果の標準化を可能にし、真のリモート（ファイアウォール内）ネットワーク研究と分析への道を開きます。通常、コーディング体系を使用した構造化データであるか、自由形式のテキストであるかに関わらず、観察医療データのコンテンツを見つけ、解釈することは、臨床イベントを記述する無数の異なる方法に直面する研究者へと引き継がれます。OHDSIでは、標準化されたフォーマットだけでなく、厳格な標準コンテンツへの調和も必要とされています。 本章では、まず標準化ボキャブラリの主な原則、その構成要素、関連する規則、慣例、および典型的な状況について説明します。これらはすべて、この基盤となるリソースを理解し活用するために必要なものです。また、継続的に改善していくためにコミュニティのサポートが必要な箇所についても指摘します。</p>
 <div id="なぜボキャブラリが必要でなぜ標準化が必要なのか" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> なぜボキャブラリが必要で、なぜ標準化が必要なのか<a href="StandardizedVocabularies.html#なぜボキャブラリが必要でなぜ標準化が必要なのか" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>医学ボキャブラリの歴史は、中世のロンドンでペストやその他の疾患の流行を管理するために作成された死亡報告書 (「Bill of Mortality」) に遡ります（図 <a href="StandardizedVocabularies.html#fig:bill">5.1</a> 参照）。</p>
@@ -806,7 +806,7 @@ div.csl-indent {
 図 5.1: 1660年のロンドン死亡報告書には、その時代に知られていた62の疾患の分類システムを使用して住民の死因が示されています。
 </p>
 </div>
-<p>それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された 「International Classification of Disease (ICD)」を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、薬品のマーケティングと販売を管理し、認証された薬剤の国家リポジトリを維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。</p>
+<p>それ以来、分類の規模と複雑性は大幅に拡大し、医療の他の側面、例えばプロシージャー（処置）やサービス、薬剤、医療デバイスなどにも広がりました。主な原則は変わっていません：つまり、患者データを収集、分類、分析するためにいくつかの医療コミュニティが合意した管理されたボキャブラリ、専門用語、階層やオントロジーです。これらの多くのボキャブラリは、公的あるいは政府機関によって長期的に管理されます。例えば、世界保健機関（WHO）は最近第11版（ICD11）が追加された 「International Classification of Disease (ICD)」を作成しています。各国の政府は、ICD10CM（米国）、ICD10GM（ドイツ）など、各国独自のバージョンを作成しています。政府はまた、医薬品のマーケティングと販売を管理し、認証された薬剤のリポジトリを国で維持しています。ボキャブラリは民間部門でも、商業製品として、あるいはEHRシステムや保険請求報告書作成などの社内利用のために使用されています。</p>
 <p>その結果、各国、各地域、医療制度、医療機関は、それぞれ独自の分類法を持つ傾向にあり、それは使用される場所でのみ関連性がある可能性が高いものです。こうした無数のボキャブラリが、使用されるシステムの相互運用性を妨げています。標準化は、患者データの交換を可能にし、世界レベルでの医療データ分析を可能にし、パフォーマンス特性や品質評価を含む体系化された標準化された研究を可能にする鍵となります。この問題に対処するため、多国籍の組織が設立され、前述のWHOや、Standard Nomenclature of Medicine (SNOMED) や、Logical Observation Identifiers Names and Codes (LOINC) などの幅広い標準の作成を開始しました。米国では、Health IT Standards Committee (HITAC) が、SNOMED、LOINC、および薬剤用ボキャブラリであるRxNormを、さまざまな組織間で全国規模の医療情報交換を行う共通プラットフォームで使用するための標準として、National Coordinator for Health IT (ONC) に推奨しています。</p>
 <p>OHDSIは、観察研究のためのグローバルスタンダードであるOMOP CDMを開発しました。OMOP標準化ボキャブラリは、CDMの一部として、主に次の2つの目的で利用できます。</p>
 <ul>
@@ -821,11 +821,11 @@ div.csl-indent {
 <div id="accessVocabularies" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> 標準化ボキャブラリへのアクセス<a href="StandardizedVocabularies.html#accessVocabularies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>標準化ボキャブラリを得るために、自分でPallasを実行する必要はありません。代わりに、ATHENA<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>から最新バージョンをダウンロードし、ローカルデータベースにロードできます。ATHENAでは、ボキャブラリのファセット検索も可能です。 </p>
-<p>OMOP CDMのボキャブラリをすべて選んで、標準化ボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）と非常に一般的な使用法は事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
+<p>OMOP CDMのボキャブラリをすべて選んで、標準化ボキャブラリテーブルのすべてを含むzipファイルをダウンロードします。標準コンセプトを持つボキャブラリ（セクション <a href="StandardizedVocabularies.html#standardConcepts">5.2.6</a> 参照）と非常によく使われるボキャブラリは事前に選択されています。提供元データで使用されているボキャブラリを追加します。著作権のあるボキャブラリには選択ボタンがありません。「ライセンス必要」ボタンをクリックしてそのようなボキャブラリをリストに組み込みます。ボキャブラリチームが連絡し、ライセンスを提示するか、適切な人々と連絡を取り合うためのサポートを提供します。</p>
 </div>
 <div id="ボキャブラリの元-採用するか構築するか" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> ボキャブラリの元: 採用するか構築するか<a href="StandardizedVocabularies.html#ボキャブラリの元-採用するか構築するか" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OHDSIは一般に、既存のボキャブラリを採用することを優先します。なぜなら、１）多くのボキャブラリがコミュニティ内で観察データに使用されているため、２）ボキャブラリの構築とメンテナンスは複雑で、成熟するためには多くの利害関係者の長期にわたる協力が必要だからです。このため、特定の組織がボキャブラリを提供しており、ボキャブラリは生成、廃止、統合、分割のライフサイクルの対象となります（セクション <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 参照）。現在、OHDSIはタイプコンセプト（例：コンディションタイプコンセプト）などの内部管理ボキャブラリのみを作成しています。唯一の例外は、米国以外でのみ使用される医薬品を対象とするRxNorm Extensionボキャブラリです（セクション <a href="StandardizedVocabularies.html#rxNormExtension">5.6.9</a> 参照）。</p>
+<p>OHDSIは一般に、既存のボキャブラリを採用することを優先します。なぜなら、１）多くのボキャブラリがコミュニティ内で観察データに使用されているため、２）ボキャブラリの構築とメンテナンスは複雑で、成熟するためには多くのステークホルダーの長期にわたる協力が必要だからです。このため、特定の組織がボキャブラリを提供しており、ボキャブラリは生成、廃止、統合、分割のライフサイクルの対象となります（セクション <a href="StandardizedVocabularies.html#conceptLifeCycle">5.2.10</a> 参照）。現在、OHDSIはタイプコンセプト（例：コンディションタイプコンセプト）などの内部管理ボキャブラリのみを作成しています。唯一の例外は、米国以外でのみ使用される医薬品を対象とするRxNorm Extensionボキャブラリです（セクション <a href="StandardizedVocabularies.html#rxNormExtension">5.6.9</a> 参照）。</p>
 </div>
 </div>
 <div id="コンセプト" class="section level2 hasAnchor" number="5.2">
@@ -855,7 +855,7 @@ div.csl-indent {
 図 5.3: プロシージャーボキャブラリCPT4およびHCPCSにおけるドメインの割り当て。直感的には、これらのボキャブラリは単一のドメインのコードとコンセプトを含むべきですが、実際には混在しています。
 </p>
 </div>
-<p>ドメインのヒューリスティックは、ドメインの定義に従います。これらの定義はCDMのテーブルとフィールド定義から派生しています（セクション <a href="CommonDataModel.html#CommonDataModel">4</a> 参照）。ヒューリスティックは完全ではなく、グレーゾーンも存在します（セクション <a href="StandardizedVocabularies.html#specialSituations">5.6</a> 「特別な状況」参照）。ドメインが誤って割り当てられているコンセプトがある場合、<a href="https://forums.ohdsi.org">フォーラム</a>または<a href="https://github.com/OHDSI/CommonDataModel/issues">CDM問題</a>の投稿を通じて報告し、プロセスの改善に貢献してください。</p>
+<p>ドメインのヒューリスティックは、ドメインの定義に従います。これらの定義はCDMのテーブルとフィールド定義から派生しています（第 @ref(CommonDataModel章) 参照）。ヒューリスティックは完全ではなく、グレーゾーンも存在します（セクション <a href="StandardizedVocabularies.html#specialSituations">5.6</a> 「特別な状況」参照）。ドメインが誤って割り当てられているコンセプトがある場合、<a href="https://forums.ohdsi.org">フォーラム</a>または<a href="https://github.com/OHDSI/CommonDataModel/issues">CDM問題</a>の投稿を通じて報告し、プロセスの改善に貢献してください。</p>
 </div>
 <div id="ボキャブラリ" class="section level3 hasAnchor" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> ボキャブラリ<a href="StandardizedVocabularies.html#ボキャブラリ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -891,15 +891,15 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">なし</td>
-<td align="left">APC、すべてのタイプコンセプト、民族性、OXMIS、種族、収益コード、スポンサー、供給者、UB04、ビジット</td>
+<td align="left">APC、すべてのタイプコンセプト、民族、OXMIS、種族、収益コード、スポンサー、供給者、UB04、ビジット</td>
 </tr>
 </tbody>
 </table>
-<p>水平コンセプトクラスにより、特定の階層レベルを決定することができます。たとえば、医薬品ボキャブラリのRxNormにおけるコンセプトクラス「Ingredient」は階層の最上位レベルを定義します。垂直モデルでは、コンセプトクラスのメンバーは最上位から最下位までの任意の階層レベルにすることができます。</p>
+<p>水平コンセプトクラスにより、特定の階層レベルを決定することができます。たとえば、医薬品ボキャブラリのRxNormにおけるコンセプトクラス「Ingredient (成分)」は階層の最上位レベルを定義します。垂直モデルでは、コンセプトクラスのメンバーは最上位から最下位までの任意の階層レベルにすることができます。</p>
 </div>
 <div id="standardConcepts" class="section level3 hasAnchor" number="5.2.6">
 <h3><span class="header-section-number">5.2.6</span> 標準コンセプト<a href="StandardizedVocabularies.html#standardConcepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>各臨床イベントを表す1つのコンセプトが標準として指定されます。例えば、MESHコードD001281、CIELコード148203、SNOMEDコード49436004、ICD9CMコード427.31、ReadコードG573000はすべて、コンディションドメインで「心房細動」を定義していますが、SNOMEDのコンセプトのみが標準であり、データ内のコンディションを表します。他のものは非標準またはソースコンセプトとして指定され、標準コンセプトにマッピングされています。標準コンセプトはSTANDARD_CONCEPTフィールドに「S」で示されます。そして、CDMフィールドの末尾が「_CONCEPT_ID」となっているデータ記録には、これらの標準コンセプトのみが使用されます。 </p>
+<p>各臨床イベントを表す1つのコンセプトが標準として指定されます。例えば、MESHコードD001281、CIELコード148203、SNOMEDコード49436004、ICD9CMコード427.31、ReadコードG573000はすべて、コンディションドメインで「Atrial fibrillation (心房細動)」を定義していますが、SNOMEDのコンセプトのみが標準であり、データ内のコンディションを表します。他のものは非標準またはソースコンセプトとして指定され、標準コンセプトにマッピングされています。標準コンセプトはSTANDARD_CONCEPTフィールドに「S」で示されます。そして、CDMフィールドの末尾が「_CONCEPT_ID」となっているデータ記録には、これらの標準コンセプトのみが使用されます。 </p>
 </div>
 <div id="非標準コンセプト" class="section level3 hasAnchor" number="5.2.7">
 <h3><span class="header-section-number">5.2.7</span> 非標準コンセプト<a href="StandardizedVocabularies.html#非標準コンセプト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1053,9 +1053,9 @@ div.csl-indent {
 <td align="left">45912144</td>
 <td align="left">1001</td>
 <td align="left">血清</td>
-<td align="left">標本</td>
+<td align="left">試料</td>
 <td align="left">CIEL</td>
-<td align="left">標本</td>
+<td align="left">試料</td>
 </tr>
 </tbody>
 </table>
@@ -1098,7 +1098,7 @@ div.csl-indent {
 </div>
 <div id="関係" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> 関係<a href="StandardizedVocabularies.html#関係" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>任意の2つのコンセプトは、そのドメインやボキャブラリーが同じであるかどうかに関係なく、定義された関係を持つことができます。関係の性質は、CONCEPT_RELATIONSHIPテーブルのRELATIONSHIP_IDフィールドにある、大文字小文字を区別する一意の英数字IDで示されます。関係は対称的であり、各関係には同等の関係が存在し、フィールドCONCEPT_ID_1とCONCEPT_ID_2の内容が入れ替わり、RELATIONSHIP_IDはその逆に変更されます。たとえば、「Maps to」関係には反対の関係「Mapped from」があります。</p>
+<p>任意の2つのコンセプトは、そのドメインやボキャブラリーが同じであるかどうかに関係なく、定義された関係を持つことができます。関係の性質は、CONCEPT_RELATIONSHIPテーブルのRELATIONSHIP_IDフィールドにある、大文字小文字を区別する一意の英数字IDで示されます。関係は対称的であり、各関係には同等の関係が存在し、フィールドCONCEPT_ID_1とCONCEPT_ID_2の内容が入れ替わり、RELATIONSHIP_IDはその逆に変更されます。たとえば、「Maps to (～へマッピング)」関係には反対の関係「Mapped from (～からマッピング)」があります。</p>
 <p>CONCEPT_RELATIONSHIPテーブルのレコードには、ライフサイクルフィールドRELATIONSHIP_START_DATE、RELATIONSHIP_END_DATE、INVALID_REASONも含まれています。ただし、ATHENAを通じて利用可能なのはINVALID_REASONがNULLのアクティブなレコードのみです。非アクティブな関係は内部処理のためにPallasシステムに保存されます。RELATIONSHIPテーブルは、全ての関係IDおよびその逆関係のリストを参照するためのものです。</p>
 <div id="conceptMapping" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> マッピング関係<a href="StandardizedVocabularies.html#conceptMapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1127,8 +1127,8 @@ div.csl-indent {
 </tbody>
 </table>
 <p>これらのマッピング関係の目的は、同等のコンセプト間の相互参照を可能にし、臨床イベントがOMOP CDMでどのように表現されるかを統一することです。これは標準化ボキャブラリの主要な成果です。</p>
-<p>「同等のコンセプト」とは、同じ意味を持ち、さらに重要なことには、階層下位のコンセプトが同じ意味領域をカバーすることを意味します。同等のコンセプトが利用できず、コンセプトが標準でない場合、それはより広いコンセプトにマッピング（いわゆる「上方向マッピング」）されます。たとえば、ICD10CM W61.51「ガチョウに噛まれる」は、標準コンディションコンセプトとして使用されるSNOMEDボキャブラリには同等のものがありません。代わりに、それはSNOMED 217716004「鳥に突かれる」にマッピングされ、コンテキストとしての鳥がガチョウであるという情報が失われます。上方向マッピングは、情報の損失が標準的な研究用途には無関係であるとみなされる場合にのみ使用されます。</p>
-<p>一部のマッピングでは、ソースコンセプトが複数の標準コンセプトにリンクされます。たとえば、ICD9CM 070.43「肝性昏睡を伴うE型肝炎」は、SNOMED 235867002「急性E型肝炎」とSNOMED 72836002「肝性昏睡」の両方にマッピングされます。これは、元のソースコンセプトが肝炎と昏睡という2つのコンディションがあらかじめ組み合わせられたものであるためです。SNOMEDにはその組み合わせがなく、その結果、ICD9CMレコードではマッピングされた標準コンセプトそれぞれに対して2つのレコードが作成されます。</p>
+<p>「同等のコンセプト」とは、同じ意味を持ち、さらに重要なことには、階層下位のコンセプトが同じ意味領域をカバーすることを意味します。同等のコンセプトが利用できず、コンセプトが標準でない場合、それはより広いコンセプトにマッピング（いわゆる「上方向マッピング」）されます。たとえば、ICD10CM W61.51「Bitten by goose (ガチョウに噛まれる)」は、標準コンディションコンセプトとして使用されるSNOMEDボキャブラリには同等のものがありません。代わりに、それはSNOMED 217716004「Peck by bird (鳥に突かれる)」にマッピングされ、コンテキストとしての鳥がガチョウであるという情報が失われます。上方向マッピングは、情報の損失が標準的な研究用途には無関係であるとみなされる場合にのみ使用されます。</p>
+<p>一部のマッピングでは、ソースコンセプトが複数の標準コンセプトにリンクされます。たとえば、ICD9CM 070.43「Hepatitis E with hepatic coma (肝性昏睡を伴うE型肝炎)」は、SNOMED 235867002「Acute hepatitis E (急性E型肝炎)」とSNOMED 72836002「Hepatic Coma (肝性昏睡)」の両方にマッピングされます。これは、元のソースコンセプトが肝炎と昏睡という2つのコンディションがあらかじめ組み合わせられたものであるためです。SNOMEDにはその組み合わせがなく、その結果、ICD9CMレコードではマッピングされた標準コンセプトそれぞれに対して2つのレコードが作成されます。</p>
 <p>「Maps to value」関係は、エンティティ-属性-値（EAV）モデルに従ってOMOP CDMテーブルの値を分割することを目的としています。これは次の状況で発生します：</p>
 <ul>
 <li>検査と結果の値からなるメジャーメント</li>
@@ -1144,15 +1144,15 @@ div.csl-indent {
 </p>
 </div>
 <p>コンセプトのマッピングは、無料で提供され、ネットワーク研究を行うコミュニティの取り組みを支援するOMOP標準化ボキャブラリのもう一つの中心的な機能です。マッピング関係は外部ソースから導出されるか、ボキャブラリチームによって手動で維持されます。つまり、それらは完璧ではないということです。誤ったマッピング関係や好ましくないマッピング関係を見つけた場合は、<a href="https://forums.ohdsi.org">フォーラム</a>や<a href="https://github.com/OHDSI/CommonDataModel/issues">CDMの問題</a>の投稿を通じて報告し、プロセスの改善に協力することが重要です。</p>
-<p>マッピング規則の詳細な説明は、OHDSI Wikiで見つけることができます<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>。</p>
+<p>マッピング規約の詳細な説明は、OHDSI Wikiで見つけることができます<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>。</p>
 </div>
 <div id="階層関係" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> 階層関係<a href="StandardizedVocabularies.html#階層関係" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>階層関係は、「Is a」-「Subsumes」関係によって定義されます。階層関係は、子コンセプトが親コンセプトのすべての属性に加えて、1つ以上の追加属性またはより厳密に定義された属性を持つように定義されます。たとえば、SNOMED 49436004「心房細動」は、SNOMED 17366009「心房性不整脈」と「Is a」関係で関連しています。両コンセプトは、不整脈の種類（一方では細動と定義されているが、他方では定義されていない）を除いて、同一の属性セットを持っています。コンセプトは複数の親または複数の子コンセプトを持つことができます。この例では、SNOMED 49436004「心房細動」はSNOMED 40593004「細動」に対しても「Is a」に該当します。</p>
+<p>階層関係は、「Is a (～の1つである）」-「Subsumes (包含するもの)」関係によって定義されます。階層関係は、子コンセプトが親コンセプトのすべての属性に加えて、1つ以上の追加属性またはより厳密に定義された属性を持つように定義されます。たとえば、SNOMED 49436004「心房細動」は、SNOMED 17366009「心房性不整脈」と「Is a」関係で関連しています。両コンセプトは、不整脈の種類（一方では細動と定義されているが、他方では定義されていない）を除いて、同一の属性セットを持っています。コンセプトは複数の親または複数の子コンセプトを持つことができます。この例では、SNOMED 49436004「心房細動」はSNOMED 40593004「細動」に対しても「Is a」に該当します。</p>
 </div>
 <div id="異なるボキャブラリーのコンセプト間の関係" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> 異なるボキャブラリーのコンセプト間の関係<a href="StandardizedVocabularies.html#異なるボキャブラリーのコンセプト間の関係" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>これらの関係は通常、「ボキャブラリ A - ボキャブラリ B は同等」というタイプであり、ボキャブラリのオリジナルソースから提供されるか、OHDSIボキャブラリチームによって作成されます。それらは近似的なマッピングとして機能することが多いですが、より厳密に管理されたマッピング関係よりも制度が低い場合があります。高品質の同等関係（例えば、「ソース - RxNorm と同等」）は常に「Maps to」関係によって複製されます。</p>
+<p>これらの関係は通常、「ボキャブラリ A - ボキャブラリ B は同等」というタイプであり、ボキャブラリのオリジナルソースから提供されるか、OHDSIボキャブラリチームによって作成されます。それらは近似的なマッピングとして機能することが多いですが、より厳密に管理されたマッピング関係よりも精度が低い場合があります。高品質の同等関係（例えば、「ソース - RxNorm と同等」）は常に「Maps to」関係によって複製されます。</p>
 </div>
 <div id="同一ボキャブラリーのコンセプト間の関係" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> 同一ボキャブラリーのコンセプト間の関係<a href="StandardizedVocabularies.html#同一ボキャブラリーのコンセプト間の関係" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1200,7 +1200,7 @@ div.csl-indent {
 </p>
 </div>
 <p>上位層の度合い、つまり上位層と下位層の間の階層数は、MIN_LEVELS_OF_SEPARATIONおよびMAX_LEVELS_OF_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS_HIERARCHICALフラグによって決まります。</p>
-<p>現時点では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。プロシージャー、メジャーメント、およびオブザベーションのドメインは部分的にしかカバーされておらず、構築中です。祖先関係は、原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類のすべての薬品を参照できるため、「薬」のドメインでは特に有用です。</p>
+<p>現時点では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。プロシージャー、メジャーメント、およびオブザベーションのドメインは部分的にしかカバーされておらず、構築中です。階層関係は、原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類のすべての薬品を参照できるため、「薬剤」のドメインでは特に有用です。</p>
 </div>
 <div id="内部参照テーブル" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> 内部参照テーブル<a href="StandardizedVocabularies.html#内部参照テーブル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
