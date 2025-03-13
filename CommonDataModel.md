@@ -172,7 +172,7 @@ Laurenは何年も子宮内膜症の症状に悩まされてきましたが、�
 | BIRTH_DATETIME | 1982-03-12 00:00:00 | 時間が不明の場合は0時が使用されます。 |
 | DEATH_DATETIME |  |  |
 | RACE_CONCEPT_ID | 8527 | 白人を示すコンセプトIDは[8527](http://athena.ohdsi.org/search-terms/terms/8527)です。英国の民族は[4093769](http://athena.ohdsi.org/search-terms/terms/4093769)です。どちらも正しいですが、後者は前者に包含されます。民族性は、ETHNICITY_CONCEPT_IDではなく、人種の一部としてここに格納されていることに留意ください。 |
-| ETHNICITY_CONCEPT\_ ID | 38003564 | これはヒスパニック系の人々を他の人々から区別するための米国特有の表記法です。この場合の「English（イギリス人）」という民族は、RACE_CONCEPT_ID に格納されます。米国以外では使用されません。[38003564](http://athena.ohdsi.org/search-terms/terms/38003564)は「Not hispanic　（非ヒスパニック）」を表します。 |
+| ETHNICITY_CONCEPT\_ ID | 38003564 | これはヒスパニック系の人々を他の人々から区別するための米国特有の表記法で、「English（イギリス人）」という民族は、RACE_CONCEPT_ID に格納されます。米国以外ではこの区別は使用されません。[38003564](http://athena.ohdsi.org/search-terms/terms/38003564)は「Not hispanic　（非ヒスパニック）」を表します。 |
 | LOCATION_ID |  | 彼女の住所は不明です。 |
 | PROVIDER_ID |  | 彼女のプライマリケア医療従事者は不明です。 |
 | CARE_SITE |  | 彼女の主な医療施設は不明です。 |
@@ -299,7 +299,7 @@ DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的または�
 | DRUG_EXPOSURE\_ END_DATE | 2010-02-05 | 薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬剤に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。 |
 | DRUG_EXPOSURE\_ END_DATETIME | 2010-02-05 00:00:00 | 薬剤曝露の終了日時。DRUG_EXPOSURE_END_DATEと同様のルールが適用されます。時刻が不明な場合は0時が使用されます。 |
 | VERBATIM_END_DATE | NULL | 情報源が実際の終了日を明確に記録している場合。推定される終了日は、患者によって全日数分が使用されたという仮定に基づいています。 |
-| DRUG_TYPE\_ CONCEPT_ID | 38000177 | この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) (「Prescription written　（処方箋発行）」) が使用されています。 |
+| DRUG_TYPE\_ CONCEPT_ID | 38000177 | この欄は、記録の由来に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト [38000177](http://athena.ohdsi.org/search-terms/terms/38000177) (「Prescription written　（処方箋発行）」) が使用されています。 |
 | STOP_REASON | NULL | 薬剤の投与が中止された理由。理由にはレジメンの終了、変更、削除などが含まれます。この情報はほとんど記録されません。 |
 | REFILLS | NULL | 多くの国で処方システムの一部となっている、初回処方後の自動リフィル数。最初の処方はカウントされず、値は NULL から始まります。Lauren のアセトアミノフェンの場合、リフィルはなかったので、値は NULL です。 |
 | QUANTITY | 60 | 最初の処方箋または調剤記録に記録された薬剤の量。 |

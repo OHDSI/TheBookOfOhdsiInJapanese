@@ -290,8 +290,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.1" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#性別"><i class="fa fa-check"></i><b>5.6.1</b> 性別</a></li>
 <li class="chapter" data-level="5.6.2" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#人種と民族"><i class="fa fa-check"></i><b>5.6.2</b> 人種と民族</a></li>
 <li class="chapter" data-level="5.6.3" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション"><i class="fa fa-check"></i><b>5.6.3</b> 診断コーディング体系とOMOPコンディション</a></li>
-<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコードシステム"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコードシステム</a></li>
-<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療機器"><i class="fa fa-check"></i><b>5.6.5</b> 医療機器</a></li>
+<li class="chapter" data-level="5.6.4" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#プロシージャーコーディング体系"><i class="fa fa-check"></i><b>5.6.4</b> プロシージャーコーディング体系</a></li>
+<li class="chapter" data-level="5.6.5" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#デバイス"><i class="fa fa-check"></i><b>5.6.5</b> デバイス</a></li>
 <li class="chapter" data-level="5.6.6" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#ビジットとサービス"><i class="fa fa-check"></i><b>5.6.6</b> ビジットとサービス</a></li>
 <li class="chapter" data-level="5.6.7" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#医療従事者と専門分野"><i class="fa fa-check"></i><b>5.6.7</b> 医療従事者と専門分野</a></li>
 <li class="chapter" data-level="5.6.8" data-path="StandardizedVocabularies.html"><a href="StandardizedVocabularies.html#特別な要件を持つ治療領域"><i class="fa fa-check"></i><b>5.6.8</b> 特別な要件を持つ治療領域</a></li>
@@ -1200,17 +1200,17 @@ div.csl-indent {
 </p>
 </div>
 <p>上位層の度合い、つまり上位層と下位層の間の階層数は、MIN_LEVELS_OF_SEPARATIONおよびMAX_LEVELS_OF_SEPARATIONフィールドに記録され、最短または最長の接続を定義します。すべての階層関係が分離レベルの計算に等しく寄与するわけではありません。この度合いにカウントされるステップは、各関係IDに対してRELATIONSHIP参照テーブルのIS_HIERARCHICALフラグによって決まります。</p>
-<p>現時点では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。プロシージャー、メジャーメント、およびオブザベーションのドメインは部分的にしかカバーされておらず、構築中です。階層関係は、原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類のすべての薬品を参照できるため、「薬剤」のドメインでは特に有用です。</p>
+<p>現時点では、高品質で包括的な階層は薬剤とコンディションの2つのドメインにのみ存在します。プロシージャー、メジャーメント、およびオブザベーションのドメインは部分的にしかカバーされておらず、構築中です。階層関係は、それによってその薬剤の原産国、ブランド名、その他の属性に関係なく、指定された成分や薬効分類を持つ薬剤が参照可能になることから、薬剤のドメインでは特に有用です。</p>
 </div>
 <div id="内部参照テーブル" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> 内部参照テーブル<a href="StandardizedVocabularies.html#内部参照テーブル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>DOMAIN_ID、VOCABULARY_ID、CONCEPT_CLASS_ID（すべてCONCEPTレコード内）およびCONCEPT_RELATIONSHIP_ID（CONCEPT_RELATIONSHIP内）は、すべて独自の語彙によって制御されています。これらは、4つの参照テーブル DOMAIN、VOCABULARY、CONCEPT_CLASS、RELATIONSHIP で定義されており、*_ID フィールドを主キーとして、より詳細な *_NAME フィールドと、CONCEPT テーブルへの参照を持つ *_CONCEPT_ID フィールドを含んでいます。CONCEPT テーブルには、参照テーブルのレコードそれぞれに対応するコンセプトが含まれています。これらの重複レコードの目的は、自動ナビゲーションエンジンを可能にする情報モデルをサポートすることです。 また、VOCABULARYテーブルには、オリジナルのボキャブラリソースとバージョンを参照するVOCABULARY_REFERENCEとVOCABULARY_VERSIONフィールドが含まれています。RELATIONSHIPテーブルには、追加のフィールドとしてDEFINES_ANCESTRY、IS_HIERARCHICAL、REVERSE_RELATIONSHIP_IDがあります。後者は、関係のペアのカウンター関係IDを定義します。</p>
+<p>DOMAIN_ID、VOCABULARY_ID、CONCEPT_CLASS_ID（すべてCONCEPTレコード内）およびCONCEPT_RELATIONSHIP_ID（CONCEPT_RELATIONSHIP内）は、すべて独自のボキャブラリによって制御されています。これらは、4つの参照テーブル DOMAIN、VOCABULARY、CONCEPT_CLASS、RELATIONSHIP で定義されており、*_ID フィールドを主キーとして、より詳細な *_NAME フィールドと、CONCEPT テーブルへの参照を持つ *_CONCEPT_ID フィールドを含んでいます。CONCEPT テーブルには、参照テーブルのレコードそれぞれに対応するコンセプトが含まれています。これらの重複レコードの目的は、自動ナビゲーションエンジンを可能にする情報モデルをサポートすることです。 また、VOCABULARYテーブルには、オリジナルのボキャブラリソースとバージョンを参照するVOCABULARY_REFERENCEとVOCABULARY_VERSIONフィールドが含まれています。RELATIONSHIPテーブルには、追加のフィールドとしてDEFINES_ANCESTRY、IS_HIERARCHICAL、REVERSE_RELATIONSHIP_IDがあります。後者は、関係のペアのカウンター関係IDを定義します。</p>
 </div>
 <div id="specialSituations" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> 特別な状況<a href="StandardizedVocabularies.html#specialSituations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="性別" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> 性別<a href="StandardizedVocabularies.html#性別" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OMOP CDMと標準化ボキャブラリにおける性別は、出生時の生物学的性別を意味します。代替の性別をどのように定義するのかという質問がよく寄せられます。 このようなケースは、OBSERVATION テーブルのレコードでカバーする必要があります。このテーブルには、本人が定義した性別が格納されます（データ資産にそのような情報が含まれている場合）。</p>
+<p>OMOP CDMと標準化ボキャブラリにおける性別は、出生時の生物学的性別を意味します。代替の性別をどのように定義するのかという質問がよく寄せられます。 このようなケースは、OBSERVATION テーブルのレコードでカバーする必要があります。このテーブルには、本人が定義した性別が格納されます（データにそのような情報が含まれている場合）。</p>
 </div>
 <div id="人種と民族" class="section level3 hasAnchor" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> 人種と民族<a href="StandardizedVocabularies.html#人種と民族" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1220,17 +1220,17 @@ div.csl-indent {
 <h3><span class="header-section-number">5.6.3</span> 診断コーディング体系とOMOPコンディション<a href="StandardizedVocabularies.html#診断コーディング体系とomopコンディション" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ICD-9やICD-10などの一般に使用されているコーディング体系は、適切な診断評価に基づいて、ある程度明確な診断を定義しています。 コンディションドメインは、このセマンティックスペースと完全に一致するものではありませんが、部分的に重複しています。 例えば、コンディションには診断が下される前に記録される徴候や症状も含まれます。また、ICDコードには他のドメイン（例えば、プロシージャー）に属するコンセプトも含まれます。</p>
 </div>
-<div id="プロシージャーコードシステム" class="section level3 hasAnchor" number="5.6.4">
-<h3><span class="header-section-number">5.6.4</span> プロシージャーコードシステム<a href="StandardizedVocabularies.html#プロシージャーコードシステム" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>同様に、HCPCSやCPT4のようなコーディングシステムは医療プロシージャーのリストであると考えられます。実際には、これらは医療サービスに対する支払い請求の根拠となるメニューのようなものです。これらのサービスの多くはプロシージャードメインに含まれますが、多くのコンセプトはこれに該当しません。</p>
+<div id="プロシージャーコーディング体系" class="section level3 hasAnchor" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> プロシージャーコーディング体系<a href="StandardizedVocabularies.html#プロシージャーコーディング体系" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>同様に、HCPCSやCPT4のようなコーディング体系は医療プロシージャーのリストであると考えられます。実際には、これらは医療サービスに対する支払い請求の根拠となるメニューのようなものです。これらのサービスの多くはプロシージャードメインに含まれますが、多くのコンセプトはこれに該当しません。</p>
 </div>
-<div id="医療機器" class="section level3 hasAnchor" number="5.6.5">
-<h3><span class="header-section-number">5.6.5</span> 医療機器<a href="StandardizedVocabularies.html#医療機器" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>医療機器のコンセプトには、標準コンセプトのソースとして使用できる標準化されたコーディングスキームがありません。多くのソースデータでは、医療機器はコード化されていないか、外部のコーディングスキームにも含まれていません。同じ理由により、現在利用可能な階層システムはありません。</p>
+<div id="デバイス" class="section level3 hasAnchor" number="5.6.5">
+<h3><span class="header-section-number">5.6.5</span> デバイス<a href="StandardizedVocabularies.html#デバイス" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>デバイスのコンセプトには、標準コンセプトのソースとして使用できる標準化されたコーディング体系がありません。多くのソースデータでは、デバイスはコード化されていないか、外部のコーディング体系にも含まれていません。同じ理由により、現在利用可能な階層システムはありません。</p>
 </div>
 <div id="ビジットとサービス" class="section level3 hasAnchor" number="5.6.6">
 <h3><span class="header-section-number">5.6.6</span> ビジットとサービス<a href="StandardizedVocabularies.html#ビジットとサービス" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ビジットのコンセプトは、医療受診の性質を定義します。多くのソースシステムでは、これらはサービス提供場所として呼ばれており、病院などの組織や物理的構造を示します。他のソースシステムでは、サービスと呼ばれます。これらの用語の定義も国によって異なり、その定義を入手するのは困難です。医療施設は、数少ない訪問の1つに特化していることが多い（XYZ病院）ですが、それでもそれらによって定義されるべきではありません（XYZ病院でも、患者は病院外のビジットをすることがある）。</p>
+<p>ビジットのコンセプトは、医療受診の性質を定義します。多くのソースシステムでは、これらはサービス提供場所として呼ばれており、病院などの組織や物理的構造を示します。他のソースシステムでは、サービスと呼ばれます。これらの用語の定義も国によって異なり、その定義を入手するのは困難です。医療施設は、数少ない訪問の1つに特化していることが多い（XYZ病院）ですが、それでもそれらによって定義されるべきではありません（XYZ病院でも、患者は病院外のビジットをすることがあります）。</p>
 </div>
 <div id="医療従事者と専門分野" class="section level3 hasAnchor" number="5.6.7">
 <h3><span class="header-section-number">5.6.7</span> 医療従事者と専門分野<a href="StandardizedVocabularies.html#医療従事者と専門分野" class="anchor-section" aria-label="Anchor link to header"></a></h3>
