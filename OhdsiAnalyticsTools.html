@@ -395,7 +395,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#曝露コホート"><i class="fa fa-check"></i><b>9.7.1</b> 曝露コホート</a></li>
 <li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#アウトカムコホート"><i class="fa fa-check"></i><b>9.7.2</b> アウトカムコホート</a></li>
-<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発症率の計算</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発生率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発生率の計算</a></li>
 <li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>9.7.4</b> クリーンアップ</a></li>
 <li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>9.7.5</b> 互換性</a></li>
 </ul></li>
@@ -428,7 +428,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>10.8.3</b> 初回使用の発見</a></li>
 <li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#日の事前観察が必要"><i class="fa fa-check"></i><b>10.8.4</b> 365日の事前観察が必要</a></li>
 <li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>10.8.5</b> 高血圧の前診断が必要</a></li>
-<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>10.8.6</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#過去に治療がないことが必要"><i class="fa fa-check"></i><b>10.8.6</b> 過去に治療がないことが必要</a></li>
 <li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#単剤療法"><i class="fa fa-check"></i><b>10.8.7</b> 単剤療法</a></li>
 <li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#コホート離脱"><i class="fa fa-check"></i><b>10.8.8</b> コホート離脱</a></li>
 <li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>10.8.9</b> クリーンアップ</a></li>
@@ -820,7 +820,7 @@ div.csl-indent {
 図 8.2: (臨床の)問いに対するエビデンスを生成するための戦略
 </p>
 </div>
-<p>最初の戦略では、各分析を個別の研究として扱います。分析はプロトコルで事前に規定し、コードとして実装し、データに対して実行し、その後、結果をまとめ解釈します。各質問ごとに、すべてのステップを繰り返す必要があります。このような分析の一例は、levetiracetamとphenytoinを比較した際の血管性浮腫のリスクに関するOHDSI研究です<span class="citation">(<a href="#ref-duke_2017">Duke et al. 2017</a>)</span>。 ここでは、まずプロトコルが作成され、OHDSI Methods Libraryを使用した分析コードが開発され、OHDSIネットワーク全体で実行され、結果がまとめられて学術誌に公表されました。</p>
+<p>最初の戦略では、各分析を個別の研究として扱います。分析はプロトコルで事前に規定し、コードとして実装し、データに対して実行し、その後、結果をまとめ解釈します。各課題（リサーチクエスチョン）ごとに、すべてのステップを繰り返す必要があります。このような分析の一例は、レベチラセタムとフェニトインを比較した際の血管性浮腫のリスクに関するOHDSI研究です<span class="citation">(<a href="#ref-duke_2017">Duke et al. 2017</a>)</span>。 ここでは、まずプロトコルが作成され、OHDSI Methods Libraryを使用した分析コードが開発され、OHDSIネットワーク全体で実行され、結果がまとめられて学術誌に公表されました。</p>
 <p>第二の戦略では、リアルタイムまたはほぼリアルタイムで特定のクラスの問いに答えられるアプリケーションを開発します。アプリケーションが開発されると、ユーザーはクエリをインタラクティブに定義し、それを送信して結果を表示できます。この戦略の一例は、ATLASのコホート定義および生成ツールです。このツールは、ユーザーが複雑さの異なるコホート定義を指定し、データベースに対してその定義を実行して、さまざまな適格基準と除外基準を満たす人数を確認することができます。</p>
 <p>第三の戦略では、同様に問いに焦点を当てますが、その問いのクラス内のすべてのエビデンスを網羅的に生成しようとします。ユーザーは、さまざまなインターフェースを通じて必要に応じてエビデンスを探索できます。一例は、うつ病治療の効果に関するOHDSI研究です<span class="citation">(<a href="#ref-schuemie_2018b">Schuemie, Ryan, et al. 2018</a>)</span>。 この研究では、すべてのうつ病治療が、4つの大規模な観察研究データベースで関心のあるアウトカムの大規模なセットに対して比較されました。17,718の実証的にキャリブレーションされたハザード比と広範な研究診断を含む結果の全セットは、インタラクティブなウェブアプリ <a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> で利用できます。</p>
 </div>
@@ -837,7 +837,7 @@ div.csl-indent {
 <dl>
 <dt>データソース </dt>
 <dd>
-<p>データソースは、ATLASプラットフォームに構成された各データソースの記述的で標準化されたレポートをレビューする機能を提供します。この機能は大規模分析戦略を用いており、、すべての記述は事前に計算されています。データソースについては、第<a href="Characterization.html#Characterization">11</a>章で説明します。</p>
+<p>データソースは、ATLASプラットフォームに構成された各データソースの記述的で標準化されたレポートをレビューする機能を提供します。この機能は大規模分析戦略を用いており、すべての記述は事前に計算されています。データソースについては、第<a href="Characterization.html#Characterization">11</a>章で説明します。</p>
 </dd>
 <dt>ボキャブラリ検索 </dt>
 <dd>
@@ -845,7 +845,7 @@ div.csl-indent {
 </dd>
 <dt>コンセプトセット </dt>
 <dd>
-<p>コンセプトセットは、標準化された分析全体で使用するコンセプトのセットを識別するために使用できる論理式のコレクションを作成する機能を提供します。コンセプトセットは単純なコードや値のリストよりも高度な機能を提供します。コンセプトセットは、標準化ボキャブラリからの複数のコンセプトと、関連するコンセプトの適格や除外を指定するための論理インジケータを組み合わせて構成されます。ボキャブラリの検索、コンセプトのセットの特定、そしてコンセプトセットを解決するために使用する論理の指定は、分析プランで使用されることが多い難解な医療用語を定義するための強力なメカニズムとなります。これらのコンセプトセットはATLAS内に保存され、その後の解析の一部としてコホート定義や解析仕様に使用できます。</p>
+<p>コンセプトセットは、標準化された分析全体で使用するコンセプトのセットを識別するために使用できる論理式のコレクションを作成する機能を提供します。コンセプトセットは単純なコードや値のリストよりも高度な機能を提供します。コンセプトセットは、標準化ボキャブラリからの複数のコンセプトと、関連するコンセプトの適格や除外を指定するための論理インジケータを組み合わせて構成されます。ボキャブラリの検索、コンセプトセットの特定、そしてコンセプトセットを決定するために使用する論理の指定は、分析プランで使用されることが多い難解な医療用語を定義するための強力なメカニズムとなります。これらのコンセプトセットはATLAS内に保存され、その後の分析の一部としてコホート定義や分析仕様に使用できます。</p>
 </dd>
 <dt>コホート定義 </dt>
 <dd>
@@ -873,7 +873,7 @@ div.csl-indent {
 </dd>
 <dt>患者レベルの予測 </dt>
 <dd>
-<p>予測昨日は機械学習アルゴリズムを適用して、患者レベルの予測分析を行い、特定のターゲット曝露内でアウトカムを予測する機能です。この機能もリアルタイムクエリ戦略を実装しており、コーディングが不要です。第<a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>章で説明されています。</p>
+<p>予測機能は機械学習アルゴリズムを適用して、患者レベルの予測分析を行い、特定のターゲット曝露内でアウトカムを予測することができます。この機能もリアルタイムクエリ戦略を実装しており、コーディングが不要です。第<a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>章で説明されています。</p>
 </dd>
 <dt>ジョブ </dt>
 <dd>
@@ -885,20 +885,20 @@ div.csl-indent {
 </dd>
 <dt>フィードバック </dt>
 <dd>
-<p>フィードバックリンクをクリックすると、ATLASの課題ログにアクセスし、新しい問題のログを記録したり、既存の問題を検索したりすることができます。新しい機能や拡張機能のアイデアがある場合は、開発コミュニティに伝える場所としても利用できます。</p>
+<p>フィードバックリンクをクリックすると、ATLASの課題ログにアクセスし、新しいイシューのログの記録や既存のイシューの検索ができます。新しい機能や拡張機能のアイデアがある場合は、開発コミュニティに伝える場所としても利用できます。</p>
 </dd>
 </dl>
 <div id="セキュリティ" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> セキュリティ<a href="OhdsiAnalyticsTools.html#セキュリティ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ATLASとWebAPIは、プラットフォーム全体で機能やデータソースへのアクセスを制御するための細かいセキュリティモデルを提供します。セキュリティシステムはApache Shiroライブラリを活用して構築されています。セキュリティシステムの詳細は、オンラインのWebAPIセキュリティwikiで確認できます <a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a>。 </p>
+<p>ATLASとWebAPIは、プラットフォーム全体で機能やデータソースへのアクセスを制御するための細かいセキュリティモデルを提供します。セキュリティシステムはApache Shiroライブラリを活用して構築されています。セキュリティシステムの詳細は、オンラインのWebAPIセキュリティWikiで確認できます <a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a>。 </p>
 </div>
 <div id="ドキュメント" class="section level3 hasAnchor" number="8.3.2">
 <h3><span class="header-section-number">8.3.2</span> ドキュメント<a href="OhdsiAnalyticsTools.html#ドキュメント" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ATLASのドキュメントは、ATLAS GitHubリポジトリのwikiでオンラインで確認できます <a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a>。 このwikiには、さまざまなアプリケーション機能に関する情報や、オンラインビデオチュートリアルへのリンクが含まれています。 </p>
+<p>ATLASのドキュメントは、ATLAS GitHubリポジトリのWikiでオンラインで確認できます <a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a>。 このWikiには、さまざまなアプリケーション機能に関する情報や、オンラインビデオチュートリアルへのリンクが含まれています。 </p>
 </div>
 <div id="インストール方法" class="section level3 hasAnchor" number="8.3.3">
 <h3><span class="header-section-number">8.3.3</span> インストール方法<a href="OhdsiAnalyticsTools.html#インストール方法" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。各コンポーネントのインストールガイドは、ATLAS GitHubリポジトリのセットアップガイド<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a>とWebAPI GitHubリポジトリのインストールガイド<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>でオンラインで参照できます。 </p>
+<p>ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。各コンポーネントのインストールガイドは、ATLAS GitHubリポジトリのセットアップガイド<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a>とWebAPI GitHubリポジトリのインストールガイド<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>をオンラインで参照できます。 </p>
 </div>
 </div>
 <div id="methods-library" class="section level2 hasAnchor" number="8.4">
@@ -910,20 +910,20 @@ div.csl-indent {
 図 8.4: OHDSI Methods Libraryのパッケージ
 </p>
 </div>
-<p>これらのパッケージは、CDM内のデータから始まり、推定値やそれを裏付ける統計、図表を生成する完全な観察研究を実施するためのR関数を提供しています。これらのパッケージはCDM内の観察データと直接やりとりし、第<a href="SqlAndR.html#SqlAndR">9</a>章で説明されているような完全にカスタマイズされた分析にクロスプラットフォームの互換性を提供するために用いることも、集団特性の評価（第<a href="Characterization.html#Characterization">11</a>章）、集団レベルの効果推定（第<a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>章）、患者レベルの予測（第<a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>章 ）のための高度な標準化分析を提供することもできます。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、そのメソッドによって生成される推定値やその後の経験的キャリブレーションなど、過去や現在の研究から学んだベストプラクティスをサポートしています。</p>
+<p>これらのパッケージは、CDM内のデータから始まり、推定値やそれを裏付ける統計、図表を生成する完全な観察研究を実施するためのR関数を提供しています。これらのパッケージはCDM内の観察データと直接やりとりし、第<a href="SqlAndR.html#SqlAndR">9</a>章で説明されているような完全にカスタマイズされた分析にクロスプラットフォームの互換性を提供するために用いることも、集団特性の評価（第<a href="Characterization.html#Characterization">11</a>章）、集団レベルの効果推定（第<a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a>章）、患者レベルの予測（第<a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a>章 ）のための高度な標準化分析を提供することもできます。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、そのメソッドによって生成される推定値やその後の実証的キャリブレーションなど、過去や現在の研究から学んだベストプラクティスをサポートしています。</p>
 <p>Methods libraryはすでに多くの公表された臨床研究 <span class="citation">(<a href="#ref-boland_2017">Boland et al. 2017</a>; <a href="#ref-duke_2017">Duke et al. 2017</a>; <a href="#ref-ramcharran_2017">Ramcharran et al. 2017</a>; <a href="#ref-weinstein_2017">Weinstein et al. 2017</a>; <a href="#ref-wang_2017">Wang et al. 2017</a>; <a href="#ref-ryan_2017">Ryan et al. 2017</a>, <a href="#ref-ryan_2018">2018</a>; <a href="#ref-vashisht_2018">Vashisht et al. 2018</a>; <a href="#ref-yuan_2018">Yuan et al. 2018</a>; <a href="#ref-johnston_2019">Johnston et al. 2019</a>)</span> で使用されており、方法論の研究にも利用されています <span class="citation">(<a href="#ref-schuemie_2014">Schuemie et al. 2014</a>, <a href="#ref-schuemie_2016">2016</a>; <a href="#ref-reps2018">Reps et al. 2018</a>; <a href="#ref-tian_2018">Tian, Schuemie, and Suchard 2018</a>; <a href="#ref-schuemie_2018">Schuemie, Hripcsak, et al. 2018</a>; <a href="#ref-schuemie_2018b">Schuemie, Ryan, et al. 2018</a>; <a href="#ref-reps_2019">Reps, Rijnbeek, and Ryan 2019</a>)</span>。Methods library内のメソッドの実装の妥当性については第 <a href="SoftwareValidity.html#SoftwareValidity">17</a> 章で説明されています。</p>
 <div id="大規模分析サポート" class="section level3 hasAnchor" number="8.4.1">
 <h3><span class="header-section-number">8.4.1</span> 大規模分析サポート<a href="OhdsiAnalyticsTools.html#大規模分析サポート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>すべてのパッケージで組み込まれている重要な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多数の曝露とアウトカムに対して効果量の推定を行うことを可能にし、さまざまな分析設定を使用して、必要な中間データセットや最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・コンパレータペアに対して複数のアウトカムで使用される傾向スコアモデルの適合など、再利用可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並列処理われます。</p>
-<p>この計算効率により、大規模な分析が可能になり、多くの質問に一度に回答することができます。また、コントロール仮説（ネガティブコントロールなど）を含めることで、当社の手法の運用特性を測定し、第<a href="MethodValidity.html#MethodValidity">18</a> で説明されているように、経験則に基づくキャリブレーションを行うことも不可欠です。 </p>
+<p>すべてのパッケージで組み込まれている重要な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多数の曝露とアウトカムに対して効果量の推定を行うことを可能にし、さまざまな分析設定を使用して、必要な中間データセットや最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・比較対照ペアに対して複数のアウトカムで使用される傾向スコアモデルの適合など、再利用可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並列処理されます。</p>
+<p>この計算効率により、大規模な分析が可能になり、多くの課題に一度に回答することができます。また、コントロール仮説（ネガティブコントロールなど）を含めることで、当社の手法の運用特性を測定し、第@ref(MethodValidity章) で説明されているように、実証的なキャリブレーションを行うことも不可欠です。 </p>
 </div>
 <div id="BigDataSupport" class="section level3 hasAnchor" number="8.4.2">
 <h3><span class="header-section-number">8.4.2</span> ビッグデータ対応<a href="OhdsiAnalyticsTools.html#BigDataSupport" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Methods libraryは、非常に大規模なデータベースに対しても大量のデータを含む計算を実行できるようにデザインされています。これは次の三つの方法で実現されます：</p>
+<p>Methods Libraryは、非常に大規模なデータベースに対しても大量のデータを含む計算を実行できるようにデザインされています。これは次の三つの方法で実現されます：</p>
 <ol style="list-style-type: decimal">
-<li>大部分のデータ操作はデータベースサーバー上で実行されます。分析は通常、データベース内の全データのごく一部しか必要としないため、Methods libraryはSqlRenderやDatabaseConnectorパッケージを介して関連データの前処理や抽出をする高度な操作をサーバー上で実行できるようにします。</li>
-<li>大量のローカルデータオブジェクトはメモリ効率の良い方法で保存されます。ローカルマシンにダウンロードされるデータについては、Methods libraryは<a href="https://cran.r-project.org/web/packages/ff">ff</a>パッケージを使用して大規模データオブジェクトを保存、処理します。これにより、メモリに収まらないほど大きなデータでも処理することが可能です。</li>
-<li>必要に応じて高性能コンピューティングが適用されます。例えば、<a href="https://ohdsi.github.io/Cyclops/">Cyclops</a>パッケージは、Methods library全体で使用される非常に効率的な回帰エンジンを実装しており、これにより通常は適合できない大規模な回帰（多くの変数、大量の観測値）を実行することができます。</li>
+<li>大部分のデータ操作はデータベースサーバー上で実行されます。分析は通常、データベース内の全データのごく一部しか必要としないため、Methods LibraryはSqlRenderやDatabaseConnectorパッケージを介して関連データの前処理や抽出をする高度な操作をサーバー上で実行できるようにします。</li>
+<li>大量のローカルデータオブジェクトはメモリ効率の良い方法で保存されます。ローカルマシンにダウンロードされるデータについては、Methods Libraryは<a href="https://cran.r-project.org/web/packages/ff">ff</a>パッケージを使用して大規模データオブジェクトを保存、処理します。これにより、メモリに収まらないほど大きなデータでも処理することが可能です。</li>
+<li>必要に応じて高性能コンピューティングが適用されます。例えば、<a href="https://ohdsi.github.io/Cyclops/">Cyclops</a>パッケージは、Methods Library全体で使用される非常に効率的な回帰エンジンを実装しており、これにより通常は適合できない大規模な回帰（多くの変数、大量の観測値）を実行することができます。</li>
 </ol>
 </div>
 <div id="ドキュメント-1" class="section level3 hasAnchor" number="8.4.3">
@@ -934,8 +934,8 @@ div.csl-indent {
 <div id="システム要件" class="section level3 hasAnchor" number="8.4.4">
 <h3><span class="header-section-number">8.4.4</span> システム要件<a href="OhdsiAnalyticsTools.html#システム要件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>システム要件を検討する際には、二つのコンピューティング環境が関連してきます：データベースサーバーと分析ワークステーションです。 </p>
-<p>データベースサーバーはCDM形式の観察医療データを保持する必要があります。Methods libraryは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、に加えビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）など、幅広いデータベース管理システムをサポートしています。</p>
-<p>分析ワークステーションは、Methods libraryがインストールされ実行される場所です。これがローカルマシン（例えば、ノートパソコン）か、RStudio Serverが実行されるリモートサーバーかに関わらず、Rがインストールされている必要があります。可能であればRStudioも一緒にインストールすることをお勧めします。また、Methods LibraryではJavaがインストールされている必要があります。分析ワークステーションはデータベースサーバーに接続できる必要があり、具体的には、両者の間にファイアウォールがある場合は、ワークステーションでデータベースサーバーのアクセスポートが開いている必要があります。一部の分析は計算集中的であるため、複数のプロセッサコアと十分なメモリを持つことが分析の高速化につながります。少なくとも4コアと16ギガバイトのメモリを推奨します。</p>
+<p>データベースサーバーはCDM形式の観察医療データを保持する必要があります。Methods Libraryは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、に加えビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）など、幅広いデータベース管理システムをサポートしています。</p>
+<p>分析ワークステーションは、Methods Libraryがインストールされ実行される場所です。これがローカルマシン（例えば、ノートパソコン）か、RStudio Serverが実行されるリモートサーバーかに関わらず、Rがインストールされている必要があります。可能であればRStudioも一緒にインストールすることをお勧めします。また、Methods LibraryではJavaがインストールされている必要があります。分析ワークステーションはデータベースサーバーに接続できる必要があり、具体的には、両者の間にファイアウォールがある場合は、ワークステーションでデータベースサーバーのアクセスポートが開いている必要があります。一部の分析は計算集中的であるため、複数のプロセッサコアと十分なメモリを持つことが分析の高速化につながります。少なくとも4コアと16ギガバイトのメモリを推奨します。</p>
 </div>
 <div id="installR" class="section level3 hasAnchor" number="8.4.5">
 <h3><span class="header-section-number">8.4.5</span> インストール方法<a href="OhdsiAnalyticsTools.html#installR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1038,7 +1038,7 @@ Windowsでは、RとJavaはどちらも32ビットと64ビットのアーキテ�
 <p>ATLASやMethods Libraryを含むOHDSIツールスタック全体を組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、スタック全体を一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それは、BroadseaおよびAmazon Web Services (AWS)です。 </p>
 <div id="broadsea" class="section level3 hasAnchor" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Broadsea<a href="OhdsiAnalyticsTools.html#broadsea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Broadsea<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>はDockerコンテナ技術<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a>を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods libraryやATLASを含む主なOHDSIツールが含まれています。 </p>
+<p>Broadsea<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>はDockerコンテナ技術<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a>を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主なOHDSIツールが含まれています。 </p>
 </div>
 <div id="amazon-aws" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Amazon AWS<a href="OhdsiAnalyticsTools.html#amazon-aws" class="anchor-section" aria-label="Anchor link to header"></a></h3>

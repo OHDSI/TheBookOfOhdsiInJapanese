@@ -395,7 +395,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#曝露コホート"><i class="fa fa-check"></i><b>9.7.1</b> 曝露コホート</a></li>
 <li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#アウトカムコホート"><i class="fa fa-check"></i><b>9.7.2</b> アウトカムコホート</a></li>
-<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発症率の計算</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発生率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発生率の計算</a></li>
 <li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>9.7.4</b> クリーンアップ</a></li>
 <li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>9.7.5</b> 互換性</a></li>
 </ul></li>
@@ -428,7 +428,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>10.8.3</b> 初回使用の発見</a></li>
 <li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#日の事前観察が必要"><i class="fa fa-check"></i><b>10.8.4</b> 365日の事前観察が必要</a></li>
 <li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>10.8.5</b> 高血圧の前診断が必要</a></li>
-<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>10.8.6</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#過去に治療がないことが必要"><i class="fa fa-check"></i><b>10.8.6</b> 過去に治療がないことが必要</a></li>
 <li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#単剤療法"><i class="fa fa-check"></i><b>10.8.7</b> 単剤療法</a></li>
 <li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#コホート離脱"><i class="fa fa-check"></i><b>10.8.8</b> コホート離脱</a></li>
 <li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>10.8.9</b> クリーンアップ</a></li>
@@ -1024,7 +1024,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 </div>
 <div id="文字列の連結" class="section level4 unnumbered hasAnchor">
 <h4>文字列の連結<a href="SqlAndR.html#文字列の連結" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>文字列の連結は、SQL Serverが他の言語よりも特異ではない領域の1つです。SQL Serverでは、<code>SELECT first_name + ' ' + last_name AS full_name FROM table</code> と書きますが、これは PostgreSQL と Oracle では <code>SELECT first_name || ' ' || last_name AS full_name FROM table</code> でなければなりません。SqlRenderは、連結される値が文字列であるかどうかを推測しようとします。上記の例では、明示的な文字列（シングルクォーテーションで囲まれたスペース）があるため、変換は正しく行われます。しかし、クエリが <code>SELECT first_name + last_name AS full_name FROM table</code> であった場合、SqlRenderは2つのフィールドが文字列であることを知る手がかりがなく、プラス記号を正しく残さないでしょう。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。 そのため、<code>SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table</code> も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、<code>CONCAT()</code> 関数を使用するのが最善の方法です。</p>
+<p>文字列の連結は、SQL Serverが他の言語よりも特異的ではない領域の1つです。SQL Serverでは、<code>SELECT first_name + ' ' + last_name AS full_name FROM table</code> と書きますが、これは PostgreSQL と Oracle では <code>SELECT first_name || ' ' || last_name AS full_name FROM table</code> でなければなりません。SqlRenderは、連結される値が文字列であるかどうかを推測しようとします。上記の例では、明示的な文字列（シングルクォーテーションで囲まれたスペース）があるため、変換は正しく行われます。しかし、クエリが <code>SELECT first_name + last_name AS full_name FROM table</code> であった場合、SqlRenderは2つのフィールドが文字列であることを知る手がかりがなく、プラス記号を正しく残さないでしょう。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。 そのため、<code>SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table</code> も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、<code>CONCAT()</code> 関数を使用するのが最善の方法です。</p>
 </div>
 <div id="テーブルエイリアスとasキーワード" class="section level4 unnumbered hasAnchor">
 <h4>テーブルエイリアスとASキーワード<a href="SqlAndR.html#テーブルエイリアスとasキーワード" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1046,9 +1046,9 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb30-15"><a href="SqlAndR.html#cb30-15" tabindex="-1"></a><span class="kw">ON</span> table_1.person_id <span class="op">=</span> table_2.person_id;</span></code></pre></div>
 <p>しかし、Oracleでは <code>AS</code> キーワードを使用するとエラーが発生します。上記の例では、最初のクエリは失敗します。そのため、テーブルにエイリアスを付ける際には <code>AS</code> キーワードを使用しないことを推奨します。（注：SqlRenderではOracleが<code>AS</code> の使用を許可していないテーブルエイリアスとOracleが<code>AS</code>の使用を要求しているフィールドエイリアスを区別できないため、この問題に対応するのは難しいです。）</p>
 </div>
-<div id="テンポテーブル" class="section level4 unnumbered hasAnchor">
-<h4>テンポテーブル<a href="SqlAndR.html#テンポテーブル" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>テンポテーブルは中間結果を保存するのに非常に有用であり、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、テンポラリテーブルには非常に優れた特性があります：現在のユーザーのみに参照でき、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleではテンポラリテーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに参照されるという点です。このため、OracleではSqlRenderが以下の方法でテンポラリテーブルをエミュレートしようとします。</p>
+<div id="テンポラリテーブルtemp-table" class="section level4 unnumbered hasAnchor">
+<h4>テンポラリテーブル（Temp Table）<a href="SqlAndR.html#テンポラリテーブルtemp-table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>テンポラリテーブルは中間結果を保存するのに非常に有用であり、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、テンポラリテーブルには非常に優れた特性があります：現在のユーザーのみに参照でき、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleではテンポラリテーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに参照されるという点です。このため、OracleではSqlRenderが以下の方法でテンポラリテーブルをエミュレートしようとします。</p>
 <ol style="list-style-type: decimal">
 <li>異なるユーザーからのテーブルが競合しないように、テーブル名にランダムな文字列を追加します。</li>
 <li>テンポラリテーブルが作成されるスキーマをユーザーが指定できるようにします。</li>
@@ -1058,15 +1058,15 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb31-2"><a href="SqlAndR.html#cb31-2" tabindex="-1"></a><span class="fu">translate</span>(sql, <span class="at">targetDialect =</span> <span class="st">&quot;oracle&quot;</span>, <span class="at">oracleTempSchema =</span> <span class="st">&quot;temp_schema&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: The &#39;oracleTempSchema&#39; argument is deprecated. Use &#39;tempEmulationSchema&#39; instead.
 ## This warning is displayed once every 8 hours.</code></pre>
-<pre><code>## [1] &quot;SELECT * FROM temp_schema.u9s0hvhkchildren ;&quot;
+<pre><code>## [1] &quot;SELECT * FROM temp_schema.vnthjpiqchildren ;&quot;
 ## attr(,&quot;sqlDialect&quot;)
 ## [1] &quot;oracle&quot;</code></pre>
 <p>ユーザーは <code>temp_schema</code> に書き込み権限を持っている必要があります。</p>
 <p>また、Oracleではテーブル名の長さが30文字に制限されているため、<strong>テンポラリテーブル名は最大22文字以内である必要があります</strong>。セッションIDを追加すると名前が長くなりすぎるためです。</p>
 <p>さらに、Oracleではテンポラリテーブルは自動的に削除されないため、使用後に明示的にすべてのテンポラリテーブルを <code>TRUNCATE</code> および <code>DROP</code> して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。</p>
 </div>
-<div id="暗黙の型変換" class="section level4 unnumbered hasAnchor">
-<h4>暗黙の型変換<a href="SqlAndR.html#暗黙の型変換" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="implicit-cast-暗黙のデータ型変換" class="section level4 unnumbered hasAnchor">
+<h4>Implicit Cast (暗黙のデータ型変換）<a href="SqlAndR.html#implicit-cast-暗黙のデータ型変換" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>SQL Serverが他の言語よりも特異である数少ない点の1つは、暗黙の型変換が許可されていることです。例えば、次のコードはSQL Serverで動作します：</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb34-1"><a href="SqlAndR.html#cb34-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> #temp (txt <span class="dt">VARCHAR</span>);</span>
 <span id="cb34-2"><a href="SqlAndR.html#cb34-2" tabindex="-1"></a></span>
@@ -1074,7 +1074,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb34-4"><a href="SqlAndR.html#cb34-4" tabindex="-1"></a><span class="kw">SELECT</span> <span class="st">&#39;1&#39;</span>;</span>
 <span id="cb34-5"><a href="SqlAndR.html#cb34-5" tabindex="-1"></a></span>
 <span id="cb34-6"><a href="SqlAndR.html#cb34-6" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> txt <span class="op">=</span> <span class="dv">1</span>;</span></code></pre></div>
-<p><code>txt</code> がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、キャストは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：</p>
+<p><code>txt</code> がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、castは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb35-1"><a href="SqlAndR.html#cb35-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> txt <span class="op">=</span> <span class="fu">CAST</span>(<span class="dv">1</span> <span class="kw">AS</span> <span class="dt">VARCHAR</span>);</span></code></pre></div>
 <p>または</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb36-1"><a href="SqlAndR.html#cb36-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> #temp <span class="kw">WHERE</span> <span class="fu">CAST</span>(txt <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">=</span> <span class="dv">1</span>;</span></code></pre></div>
@@ -1091,7 +1091,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <p>SQL Serverでは、テーブルはスキーマ内にあり、スキーマはデータベース内にあります。例えば、<code>cdm_data.dbo.person</code> は <code>cdm_data</code> データベース内の <code>dbo</code> スキーマ内の <code>person</code> テーブルを指します。他の言語でも同様の階層が存在しますが、使用方法が大きく異なります。SQL Serverでは、データベースごとに通常1つのスキーマ（<code>dbo</code> と呼ばれることが多い）が存在し、ユーザーは異なるデータベース内のデータを簡単に使用できます。他のプラットフォーム、例えばPostgreSQLでは、単一セッションでデータベースをまたいだデータの使用はできませんが、データベース内に多くのスキーマが存在することがよくあります。PostgreSQLでは、SQL Serverのデータベースに相当するものがスキーマであると言えます。 そのため、SQL Serverのデータベースとスキーマを1つのパラメータに結合することを推奨します。通常、これを <code>@databaseSchema</code> と呼びます。例えば、パラメータ化されたSQLでは次のようになります：</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb39-1"><a href="SqlAndR.html#cb39-1" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> @databaseSchema.person</span></code></pre></div>
 <p>SQL Serverでは、値にデータベース名とスキーマ名の両方を含めることができます：<code>databaseSchema = "cdm_data.dbo"</code>。他のプラットフォームでは、同じコードを使用し、パラメータ値としてスキーマのみを指定します：<code>databaseSchema = "cdm_data"</code>。</p>
-<p>この方法が失敗する唯一の状況は <code>USE</code> コマンドを使用した場合です。<code>USE cdm_data.dbo;</code> エラーが発生します。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、<code>USE</code> コマンドの使用を避けることを推奨します。</p>
+<p>この方法が失敗する唯一の状況は <code>USE</code> コマンドを使用した場合です。なぜなら、USE cdm_data.dboを実行するとエラーが発生するからです。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、<code>USE</code> コマンドの使用を避けることを推奨します。</p>
 </div>
 <div id="パラメータ化されたsqlのデバッグ" class="section level4 unnumbered hasAnchor">
 <h4>パラメータ化されたSQLのデバッグ<a href="SqlAndR.html#パラメータ化されたsqlのデバッグ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1125,7 +1125,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <pre><code>## Connecting using PostgreSQL driver</code></pre>
 <p>各プラットフォームに必要な詳細情報については、<code>?connect</code>を参照ください。接続を閉じたことを必ず確認ください：</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="SqlAndR.html#cb44-1" tabindex="-1"></a><span class="fu">disconnect</span>(conn)</span></code></pre></div>
-<p>サーバー名を指定する代わりに、JDBC接続文字列を提供することも可能です。さらに便利な場合は、こちらを使用することもできます。：</p>
+<p>サーバー名を指定する代わりに、JDBC接続文字列を提供することも可能です。さらに便利な場合は、こちらを使用することもできます：</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="SqlAndR.html#cb45-1" tabindex="-1"></a>connString <span class="ot">&lt;-</span> <span class="st">&quot;jdbc:postgresql://localhost:5432/postgres&quot;</span></span>
 <span id="cb45-2"><a href="SqlAndR.html#cb45-2" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">connect</span>(<span class="at">dbms =</span> <span class="st">&quot;postgresql&quot;</span>,</span>
 <span id="cb45-3"><a href="SqlAndR.html#cb45-3" tabindex="-1"></a>                <span class="at">connectionString =</span> connString,</span>
@@ -1228,7 +1228,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 </tr>
 </tbody>
 </table>
-<p>観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（<code>WITH ... AS</code>を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには$<code>order_nr &lt; .50 * n</code>の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：</p>
+<p>観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（common table expression; CTE）として定義し（<code>WITH ... AS</code>を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには$<code>order_nr &lt; .50 * n</code>の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb58-1"><a href="SqlAndR.html#cb58-1" tabindex="-1"></a><span class="kw">WITH</span> ages</span>
 <span id="cb58-2"><a href="SqlAndR.html#cb58-2" tabindex="-1"></a><span class="kw">AS</span> (</span>
 <span id="cb58-3"><a href="SqlAndR.html#cb58-3" tabindex="-1"></a>    <span class="kw">SELECT</span> age,</span>
@@ -1408,9 +1408,9 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <p></p>
 <p>QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラリです。これはオンラインアプリケーション<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a>として提供されており、図<a href="SqlAndR.html#fig:queryLibrary">9.2</a>に示すように、Rパッケージとしても利用できます<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a>。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:queryLibrary"></span>
-<img src="images/SqlAndR/queryLibrary.png" alt="クエリライブラリ：CDMに対するSQLクエリのライブラリ。" width="100%" />
+<img src="images/SqlAndR/queryLibrary.png" alt="クエリライブラリ：CDMに対するSQLクエリのライブラリ" width="100%" />
 <p class="caption">
-図 9.2: クエリライブラリ：CDMに対するSQLクエリのライブラリ。
+図 9.2: クエリライブラリ：CDMに対するSQLクエリのライブラリ
 </p>
 </div>
 <p>このライブラリの目的は、新しいユーザーがCDMのクエリ方法を学習するのを支援することです。ライブラリ内のクエリは、OHDSIコミュニティによって審査され、承認されています。クエリライブラリは主にトレーニング目的で使用されますが、経験豊富なユーザーにとっても貴重なリソースとなります。</p>
@@ -1420,7 +1420,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <h2><span class="header-section-number">9.6</span> 簡単な研究のデザイン<a href="SqlAndR.html#簡単な研究のデザイン" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="問題の定義" class="section level3 hasAnchor" number="9.6.1">
 <h3><span class="header-section-number">9.6.1</span> 問題の定義<a href="SqlAndR.html#問題の定義" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>血管性浮腫は、ACE阻害薬（ACEi）のよく知られた副作用です。<span class="citation">Slater et al. (<a href="#ref-slater_1988">1988</a>)</span> によると、ACEi治療開始後1週間の血管性浮腫の発症率は3,000人中1例/週と推定されています。ここでは、この結果を再現し、年齢と性別によって層別化します。単純化するため、ACEiの一つである（リシノプリル）に焦点を当てます。したがって、次の問いに答えます：</p>
+<p>血管性浮腫は、ACE阻害薬のよく知られた副作用です。<span class="citation">Slater et al. (<a href="#ref-slater_1988">1988</a>)</span> によると、ACE阻害薬治療開始後1週間の血管性浮腫の発症率は3,000人中1例/週と推定されています。ここでは、この結果を再現し、年齢と性別によって層別化します。単純化するため、ACE阻害薬の一つである（リシノプリル）に焦点を当てます。したがって、次の問いに答えます：</p>
 <blockquote>
 <p>リシノプリル投与開始後の最初の1週間での血管性浮腫の発生率は、年齢と性別で層別化するとどの程度でしょうか？</p>
 </blockquote>
@@ -1435,7 +1435,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 </div>
 <div id="リスク期間" class="section level3 hasAnchor" number="9.6.4">
 <h3><span class="header-section-number">9.6.4</span> リスク期間<a href="SqlAndR.html#リスク期間" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>治療開始後の最初の1週間の発症率を計算します。患者が1週間にわたって継続的に曝露されたかどうかは問いません。</p>
+<p>治療開始後の最初の1週間の発生率を計算します。患者が1週間にわたって継続的に曝露されたかどうかは問いません。</p>
 </div>
 </div>
 <div id="sqlとrを使用した研究の実施" class="section level2 hasAnchor" number="9.7">
@@ -1543,11 +1543,11 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb66-30"><a href="SqlAndR.html#cb66-30" tabindex="-1"></a>                          <span class="at">cohort_db_schema =</span> cohortDbSchema,</span>
 <span id="cb66-31"><a href="SqlAndR.html#cb66-31" tabindex="-1"></a>                          <span class="at">cohort_table =</span> cohortTable,</span>
 <span id="cb66-32"><a href="SqlAndR.html#cb66-32" tabindex="-1"></a>                          <span class="at">cdm_db_schema =</span> cdmDbSchema)</span></code></pre></div>
-<p>ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管性浮腫またはその下位層に含まれるすべての出現を見つけます。同じ日に複数の診断がある場合、それは同じ発生である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。</p>
+<p>ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管性浮腫またはその下位層に含まれるすべての出現を見つけます。同じ日に複数の診断がある場合、それは同じ発生である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院または救急室で行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。</p>
 </div>
-<div id="発症率の計算" class="section level3 hasAnchor" number="9.7.3">
-<h3><span class="header-section-number">9.7.3</span> 発症率の計算<a href="SqlAndR.html#発症率の計算" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>コホートが設定されたので、年齢と性別で層別化された発症率を計算できます：</p>
+<div id="発生率の計算" class="section level3 hasAnchor" number="9.7.3">
+<h3><span class="header-section-number">9.7.3</span> 発生率の計算<a href="SqlAndR.html#発生率の計算" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>コホートが設定されたので、年齢と性別で層別化された発生率を計算できます：</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="SqlAndR.html#cb67-1" tabindex="-1"></a>sql <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
 <span id="cb67-2"><a href="SqlAndR.html#cb67-2" tabindex="-1"></a><span class="st">WITH tar AS (</span></span>
 <span id="cb67-3"><a href="SqlAndR.html#cb67-3" tabindex="-1"></a><span class="st">  SELECT concept_name AS gender,</span></span>
@@ -1606,10 +1606,10 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb67-56"><a href="SqlAndR.html#cb67-56" tabindex="-1"></a>                                   <span class="at">cohort_table =</span> cohortTable,</span>
 <span id="cb67-57"><a href="SqlAndR.html#cb67-57" tabindex="-1"></a>                                   <span class="at">cdm_db_schema =</span> cdmDbSchema,</span>
 <span id="cb67-58"><a href="SqlAndR.html#cb67-58" tabindex="-1"></a>                                   <span class="at">snakeCaseToCamelCase =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク期間が切り捨てられることに留意ください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク期間の合計およびリスク期間中に発生する血管性浮腫のイベント数を数えるために使用します。</p>
+<p>まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間が切り捨てられることに留意ください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク時間の合計およびリスク時間中に発生する血管性浮腫のイベント数を数えるために使用します。</p>
 <p>snakeCaseToCamelCase = TRUE を用いるのは、SQLではフィールド名にsnake_case を使用する傾向がある（SQLは大文字と小文字を区別しないため）のに対し、RではcamelCaseを使用する傾向がある（Rは大文字・小文字を区別するため）からです。<code>results</code>データフレームの列名はcamelCaseになります。</p>
 <p>ggplot2パッケージを使用すると、結果を簡単にプロットできます：</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="SqlAndR.html#cb68-1" tabindex="-1"></a><span class="co"># 発症率（IR）を算出</span></span>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="SqlAndR.html#cb68-1" tabindex="-1"></a><span class="co"># 発生率（IR）を算出</span></span>
 <span id="cb68-2"><a href="SqlAndR.html#cb68-2" tabindex="-1"></a>results<span class="sc">$</span>ir <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="sc">*</span> results<span class="sc">$</span>events <span class="sc">/</span> results<span class="sc">$</span>days <span class="sc">/</span> <span class="dv">7</span></span>
 <span id="cb68-3"><a href="SqlAndR.html#cb68-3" tabindex="-1"></a></span>
 <span id="cb68-4"><a href="SqlAndR.html#cb68-4" tabindex="-1"></a><span class="co"># 年齢スケールを修正</span></span>
@@ -1619,7 +1619,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <span id="cb68-8"><a href="SqlAndR.html#cb68-8" tabindex="-1"></a><span class="fu">ggplot</span>(results, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> ir, <span class="at">group =</span> gender, <span class="at">color =</span> gender)) <span class="sc">+</span></span>
 <span id="cb68-9"><a href="SqlAndR.html#cb68-9" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb68-10"><a href="SqlAndR.html#cb68-10" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;年齢&quot;</span>) <span class="sc">+</span></span>
-<span id="cb68-11"><a href="SqlAndR.html#cb68-11" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;発症率（1,000患者/週）&quot;</span>)</span></code></pre></div>
+<span id="cb68-11"><a href="SqlAndR.html#cb68-11" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;発生率（1,000患者/週）&quot;</span>)</span></code></pre></div>
 <p><img src="images/SqlAndR/ir.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="クリーンアップ" class="section level3 hasAnchor" number="9.7.4">
@@ -1661,7 +1661,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 <p>これらの演習では、セクション <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a> に記載されているように、R、R-Studio、Java がインストールされていることを前提とします。また、<a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>、<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>、および <a href="https://ohdsi.github.io/Eunomia/">Eunomia</a> パッケージも必要です。以下の手順でインストールできます。</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="SqlAndR.html#cb70-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span>
 <span id="cb70-2"><a href="SqlAndR.html#cb70-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</span></code></pre></div>
-<p>Eunomia パッケージは、CDM 内でローカル R セッション内で動作するシミュレートされたデータセットを提供します。接続の詳細は以下の方法で取得できます。</p>
+<p>Eunomia パッケージは、CDM 内でローカル R セッション内で動作する模擬データセットを提供します。接続の詳細は以下の方法で取得できます。</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="SqlAndR.html#cb71-1" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> Eunomia<span class="sc">::</span><span class="fu">getEunomiaConnectionDetails</span>()</span></code></pre></div>
 <p>CDM データベースのスキーマは「main」です。</p>
 <div class="exercise">

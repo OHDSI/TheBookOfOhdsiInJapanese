@@ -395,7 +395,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="9.7.1" data-path="SqlAndR.html"><a href="SqlAndR.html#曝露コホート"><i class="fa fa-check"></i><b>9.7.1</b> 曝露コホート</a></li>
 <li class="chapter" data-level="9.7.2" data-path="SqlAndR.html"><a href="SqlAndR.html#アウトカムコホート"><i class="fa fa-check"></i><b>9.7.2</b> アウトカムコホート</a></li>
-<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発症率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発症率の計算</a></li>
+<li class="chapter" data-level="9.7.3" data-path="SqlAndR.html"><a href="SqlAndR.html#発生率の計算"><i class="fa fa-check"></i><b>9.7.3</b> 発生率の計算</a></li>
 <li class="chapter" data-level="9.7.4" data-path="SqlAndR.html"><a href="SqlAndR.html#クリーンアップ"><i class="fa fa-check"></i><b>9.7.4</b> クリーンアップ</a></li>
 <li class="chapter" data-level="9.7.5" data-path="SqlAndR.html"><a href="SqlAndR.html#互換性"><i class="fa fa-check"></i><b>9.7.5</b> 互換性</a></li>
 </ul></li>
@@ -428,7 +428,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.8.3" data-path="Cohorts.html"><a href="Cohorts.html#初回使用の発見"><i class="fa fa-check"></i><b>10.8.3</b> 初回使用の発見</a></li>
 <li class="chapter" data-level="10.8.4" data-path="Cohorts.html"><a href="Cohorts.html#日の事前観察が必要"><i class="fa fa-check"></i><b>10.8.4</b> 365日の事前観察が必要</a></li>
 <li class="chapter" data-level="10.8.5" data-path="Cohorts.html"><a href="Cohorts.html#高血圧の前診断が必要"><i class="fa fa-check"></i><b>10.8.5</b> 高血圧の前診断が必要</a></li>
-<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#治療の無前使用が必要"><i class="fa fa-check"></i><b>10.8.6</b> 治療の無前使用が必要</a></li>
+<li class="chapter" data-level="10.8.6" data-path="Cohorts.html"><a href="Cohorts.html#過去に治療がないことが必要"><i class="fa fa-check"></i><b>10.8.6</b> 過去に治療がないことが必要</a></li>
 <li class="chapter" data-level="10.8.7" data-path="Cohorts.html"><a href="Cohorts.html#単剤療法"><i class="fa fa-check"></i><b>10.8.7</b> 単剤療法</a></li>
 <li class="chapter" data-level="10.8.8" data-path="Cohorts.html"><a href="Cohorts.html#コホート離脱"><i class="fa fa-check"></i><b>10.8.8</b> コホート離脱</a></li>
 <li class="chapter" data-level="10.8.9" data-path="Cohorts.html"><a href="Cohorts.html#クリーンアップ-1"><i class="fa fa-check"></i><b>10.8.9</b> クリーンアップ</a></li>
@@ -795,13 +795,13 @@ div.csl-indent {
 <div id="DataAnalyticsUseCases" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">第 7 章</span> データ解析の使用例<a href="DataAnalyticsUseCases.html#DataAnalyticsUseCases" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: David Madigan</em></p>
-<p>OHDSI 共同研究は、通常、請求データベースや電子カルテデータベースなどの形式で、実世界のヘルスケアデータから信頼性の高いエビデンスを生成することに重点を置いています。OHDSI が重点的に取り組むユースケースは、主に以下の3つのカテゴリーに分類されます。</p>
+<p>OHDSI 共同研究は、通常、保険請求データベースや電子的健康記録（EHR）データベースなどの形式で、リアルワールドのヘルスケアデータから信頼性の高いエビデンスを生成することに重点を置いています。OHDSI が重点的に取り組むユースケースは、主に以下の3つのカテゴリーに分類されます。</p>
 <ul>
 <li>特性評価</li>
 <li>集団レベルの推定</li>
 <li>患者レベルの予測</li>
 </ul>
-<p>以下でこれらについて詳しく説明します。すべてのユースケースにおいて、生成されるエビデンスはデータの限界を継承します; これらの限界については、エビデンスの質に関する本の（第 <a href="EvidenceQuality.html#EvidenceQuality">14</a> 章- 第<a href="MethodValidity.html#MethodValidity">18</a>章）で詳しく説明しています。</p>
+<p>以下でこれらについて詳しく説明します。すべてのユースケースにおいて、生成されるエビデンスはデータの限界を継承します; これらの限界については、エビデンスの質に関して本の（第 <a href="EvidenceQuality.html#EvidenceQuality">14</a> 章- 第<a href="MethodValidity.html#MethodValidity">18</a>章）で詳しく説明しています。</p>
 <div id="特性評価" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> 特性評価<a href="DataAnalyticsUseCases.html#特性評価" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
@@ -812,7 +812,7 @@ div.csl-indent {
 <p>データを用いて、コホートやデータベース全体の集団の特性、医療行為、経時的な変化に関する問いに答えることができます。</p>
 <p>データが答えを提供できる問いには次のような例があります：</p>
 <ul>
-<li>新たに心房細動と診断された患者のうち、何人がワルファリンの処方を受けたのか？</li>
+<li>新たに心房細動と診断された患者のうち、何人がワーファリンの処方を受けたのか？</li>
 <li>人口股関節置換術を受けた患者の平均年齢は？</li>
 <li>65歳以上の患者の肺炎の発生率は？</li>
 </ul>
@@ -822,17 +822,17 @@ div.csl-indent {
 <li>どのくらいの頻度で…？</li>
 <li>患者の何パーセントが…？</li>
 <li>検査値の分布はどのようになっているか…？</li>
-<li>の患者のHbA1c値は…？</li>
-<li>の患者の検査値は…？</li>
-<li>の患者の曝露期間の中央値は…？</li>
+<li>患者のHbA1c値は…？</li>
+<li>～の患者の患者の検査値は…？</li>
+<li>患者の～への曝露期間の中央値は…？</li>
 <li>経時的な傾向は？</li>
 <li>これらの患者が使用している他の薬剤は何か？</li>
 <li>併用療法は？</li>
-<li>の症例が十分にあるか？</li>
-<li>Xを研究は可能か？</li>
-<li>の人口統計は？</li>
-<li>のリスク要因は？（特定のリスク要因を識別する場合、予測ではなく推定）</li>
-<li>の予測因子は？</li>
+<li>症例が十分にあるか？</li>
+<li>研究Xは実施可能か？</li>
+<li>～の人口統計は？</li>
+<li>～のリスク要因は？（特定のリスク要因を識別する場合、予測ではなく推定）</li>
+<li>～の予測因子は？</li>
 </ul>
 <p>そして期待されるアプトプットは以下の通りです：</p>
 <ul>
@@ -842,7 +842,7 @@ div.csl-indent {
 <li>発生率</li>
 <li>有病率</li>
 <li>コホート</li>
-<li>ルールベースの表現型</li>
+<li>ルールベースのフェノタイプ</li>
 <li>薬剤利用</li>
 <li>疾患の自然経過</li>
 <li>服薬アドヒアランス</li>
@@ -861,7 +861,7 @@ div.csl-indent {
 <p>私たちは因果効果を理解することで、行動の結果を理解したいと考えています。例えば、ある治療法を受けると決めた場合、将来にわたって私たちの身に何が起こるのかがどう変わるのでしょうか？</p>
 <p>データは、次のような問いに対する答えを提供することができます：</p>
 <ul>
-<li>新たに心房細動と診断された患者において、治療開始後最初の1年間に、ワルファリンはダビガトランよりも重大な出血を引き起こすか？</li>
+<li>新たに心房細動と診断された患者において、治療開始後最初の1年間に、ワーファリンはダビガトランよりも重大な出血を引き起こすか？</li>
 <li>メトホルミンの下痢に対する因果効果は年齢によって異なるか？</li>
 </ul>
 <p>典型的な集団レベルの効果推定の問いは次のように定式化されます：</p>
@@ -870,7 +870,7 @@ div.csl-indent {
 <li>介入を行った場合、どうなるのか？</li>
 <li>どちらの治療がより効果的か？</li>
 <li>Yに対するXのリスクは？</li>
-<li>のイベント発生までの時間は？</li>
+<li>イベント発生までの時間は？</li>
 </ul>
 <p>そして、期待されるアウトプットは以下の通りです：</p>
 <ul>
@@ -894,8 +894,8 @@ div.csl-indent {
 </blockquote>
 <p>データは、以下のような質問に対する答えを提供することができます：</p>
 <ul>
-<li>新たに重度うつ病と診断された特定の患者について、診断後1年以内に自殺を図る確率はどの程度か？</li>
-<li>新たに心房細動と診断され、ワルファリンによる治療開始後１年以内に虚血性脳卒中を発症する確率どの程度か？</li>
+<li>新たにうつ病と診断された特定の患者について、診断後1年以内に自殺を図る確率はどの程度か？</li>
+<li>新たに心房細動と診断され、ワーファリンによる治療開始後１年以内に虚血性脳卒中を発症する確率どの程度か？</li>
 </ul>
 <p>典型的な患者レベルの予測に関する問いは次のように定式化されます：</p>
 <ul>
@@ -907,20 +907,20 @@ div.csl-indent {
 <li>個人の確率</li>
 <li>予測モデル</li>
 <li>高リスク/低リスクグループ</li>
-<li>確率的な表現型</li>
+<li>確率的なフェノタイプ</li>
 </ul>
 <p>集団レベルの推定と患者レベルの予測はある程度重複することがあります。例えば、予測の重要なユースケースとしては、特定の患者に薬剤Aが処方された場合の治療結果を予測し、また薬剤Bが処方された場合の同じ治療結果を予測することが挙げられます。現実には、これらの薬剤のうちの1つだけが処方された（例えば薬剤A）と仮定すると、薬剤Aによる治療の結果が実際に起こるかどうかを確認することができます。薬剤Bは処方されていないため、薬剤Bによる治療の結果は予測可能ですが、「反事実」であり、実際には観察されません。予測作業はそれぞれ患者レベルの予測に該当します。しかし、2つの結果の差（または比率）は単位レベルの因果効果であり、代わりに因果効果推定法を用いて推定すべきです。</p>
 
 <div class="rmdimportant">
-<p>人々は予測モデルを因果モデルとして誤って解釈する傾向があります。しかし、予測モデルは相関関係のみを示すことができ、因果関係を示すことはできません。例えば、糖尿病は心筋梗塞（MI）の強いリスク要因であるため、糖尿病治療薬の使用は心筋梗塞の強い予測因子であるかもしれません。しかし、糖尿病治療薬の使用を中止すれば心筋梗塞を予防できるというわけではありません！</p>
+<p>人々は予測モデルを因果モデルとして誤って解釈する傾向があります。しかし、予測モデルは相関関係のみを示すことができ、因果関係を示すことはできません。例えば、糖尿病は心筋梗塞の強いリスク要因であるため、糖尿病治療薬の使用は心筋梗塞の強い予測因子であるかもしれません。しかし、糖尿病治療薬の使用を中止すれば心筋梗塞を予防できるというわけではありません！</p>
 </div>
 </div>
 <div id="高血圧症におけるユースケース" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> 高血圧症におけるユースケース<a href="DataAnalyticsUseCases.html#高血圧症におけるユースケース" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>あなたは、高血圧症の第一選択治療として急性心筋梗塞や血管性浮腫果に対するACE阻害薬単独療法とサイアザイド利尿薬単剤療法の効果を研究することに関心のある研究者です。OHDSIの文献に基づいて、集団レベルの効果推定値を求める問いをすることになると理解していますが、まず、この特定の治療に関する特性評価を行うため、準備をする必要があります。</p>
+<p>あなたは、高血圧症の第一選択治療として急性心筋梗塞や血管性浮腫に対するACE阻害薬単独療法とサイアザイド利尿薬単剤療法の効果を研究することに関心のある研究者です。OHDSIの文献に基づいて、集団レベルの効果推定値を求める問いをすることになると理解していますが、まず、この特定の治療に関する特性評価を行うため、準備をする必要があります。</p>
 <div id="特性評価に関する問い" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> 特性評価に関する問い<a href="DataAnalyticsUseCases.html#特性評価に関する問い" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>急性心筋梗塞は高血圧症患者に起こりうる心血管系の合併症であり、高血圧症に対する有効な治療によってリスクを軽減できるはずです。血管性浮腫は稀ですが重篤になる可能性のあるACE阻害薬の既知の副作用です。あなたは、対象とする曝露（ACE阻害薬の新規使用者およびサイアザイド利尿薬の新規使用者）のコホートを作成することから始めます（第 <a href="Cohorts.html#Cohorts">10</a>章を参照）。曝露集団のベースライン特性（人口統計学的特性、併存症、併用薬など）を要約するため、特性評価（第 <a href="Characterization.html#Characterization">11</a>章を参照）の解析を実行します。この曝露集団における特定のアウトカムの発生率を推定するために、別の特性評価を実行します。ここでは、「ACE阻害薬およびサイアザイド利尿薬に曝露された期間に１）急性心筋梗塞および２）血管性浮腫がどのくらいの頻度で発生するか？」という問いをします。これらの特性評価により、集団レベルの効果推定研究を実施できるかどうかの実行可能性を評価し、2つの治療グループが比較可能かどうかを評価し、患者がどちらの治療を選択したかを予測する‘リスク因子’を特定することができます。</p>
+<p>急性心筋梗塞は高血圧症患者に起こりうる心血管系の合併症であり、高血圧症に対する有効な治療によってリスクを軽減できるはずです。血管性浮腫は稀ですが重篤になる可能性のあるACE阻害薬の既知の副作用です。あなたは、対象とする曝露（ACE阻害薬の新規ユーザーおよびサイアザイド利尿薬の新規ユーザー）のコホートを作成することから始めます（第 <a href="Cohorts.html#Cohorts">10</a>章を参照）。曝露集団のベースライン特性（人口統計学的特性、併存症、併用薬など）を要約するため、特性評価（第 <a href="Characterization.html#Characterization">11</a>章を参照）の解析を実行します。この曝露集団における特定のアウトカムの発生率を推定するために、別の特性評価を実行します。ここでは、「ACE阻害薬およびサイアザイド利尿薬に曝露された期間に１）急性心筋梗塞および２）血管性浮腫がどのくらいの頻度で発生するか？」と問うこととします。これらの特性評価により、集団レベルの効果推定研究を実施できるかどうかの実行可能性を評価し、2つの治療グループが比較可能かどうかを評価し、患者がどちらの治療を選択したかを予測する「リスク因子」を特定することができます。</p>
 </div>
 <div id="集団レベルの推定問題" class="section level3 hasAnchor" number="7.4.2">
 <h3><span class="header-section-number">7.4.2</span> 集団レベルの推定問題<a href="DataAnalyticsUseCases.html#集団レベルの推定問題" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -968,15 +968,15 @@ div.csl-indent {
 <div id="演習-3" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> 演習<a href="DataAnalyticsUseCases.html#演習-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
-<p><span id="exr:exerciseUseCases1" class="exercise"><strong>演習 7.1  </strong></span>これらの質問はどのユースケースのカテゴリーに属しますか？</p>
+<p><span id="exr:exerciseUseCases1" class="exercise"><strong>演習 7.1  </strong></span>これらの課題はどのユースケースのカテゴリーに属しますか？</p>
 <ol style="list-style-type: decimal">
-<li><p>最近非ステロイド性抗炎症薬（NSAID）を投与された患者における消化管（GI）出血の発生率を計算する。</p></li>
-<li><p>ベースラインの特性に基づいて、特定の患者が今後１年間にGI出血を経験する確率を計算する。</p></li>
-<li><p>セレコキシブと比較してジクロフェナクによるGI出血のリスク増加を推定する。</p></li>
+<li><p>最近非ステロイド性抗炎症薬（NSAID）を投与された患者における消化管出血の発生率を計算する。</p></li>
+<li><p>ベースラインの特性に基づいて、特定の患者が今後１年間に消化管出血を経験する確率を計算する。</p></li>
+<li><p>セレコキシブと比較してジクロフェナクによる消化管出血のリスク増加を推定する。</p></li>
 </ol>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseUseCases2" class="exercise"><strong>演習 7.2  </strong></span>ジクロフェナクによるGI出血のリスクがプラセボ（偽薬）に比べてどの程度高まるかを推定したい。医療観察データを使用して、この推定を行うことは可能だろうか？</p>
+<p><span id="exr:exerciseUseCases2" class="exercise"><strong>演習 7.2  </strong></span>ジクロフェナクによるGI出血のリスクがプラセボに比べてどの程度高まるかを推定したいです。医療観察データを使用して、この推定を行うことは可能でしょうか。</p>
 </div>
 <p>推奨される解答は、付録 <a href="SuggestedAnswers.html#UseCasesanswers">E.4</a>を参照ください。</p>
 
