@@ -230,7 +230,7 @@ div.csl-indent {
 <li class="part"><span><b>II 共通データモデル</b></span></li>
 <li class="chapter" data-level="4" data-path="CommonDataModel.html"><a href="CommonDataModel.html"><i class="fa fa-check"></i><b>4</b> 共通データモデル</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#デザインの原則"><i class="fa fa-check"></i><b>4.1</b> デザインの原則</a></li>
+<li class="chapter" data-level="4.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#デザイン原則"><i class="fa fa-check"></i><b>4.1</b> デザイン原則</a></li>
 <li class="chapter" data-level="4.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#データモデルの規約"><i class="fa fa-check"></i><b>4.2</b> データモデルの規約</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#model-Conv"><i class="fa fa-check"></i><b>4.2.1</b> モデルの一般的な規約</a></li>
@@ -243,7 +243,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#cdm標準化テーブル"><i class="fa fa-check"></i><b>4.3</b> CDM標準化テーブル</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#実行例-子宮内膜症"><i class="fa fa-check"></i><b>4.3.1</b> 実行例: 子宮内膜症</a></li>
+<li class="chapter" data-level="4.3.1" data-path="CommonDataModel.html"><a href="CommonDataModel.html#実際の例-子宮内膜症"><i class="fa fa-check"></i><b>4.3.1</b> 実際の例: 子宮内膜症</a></li>
 <li class="chapter" data-level="4.3.2" data-path="CommonDataModel.html"><a href="CommonDataModel.html#person"><i class="fa fa-check"></i><b>4.3.2</b> PERSONテーブル</a></li>
 <li class="chapter" data-level="4.3.3" data-path="CommonDataModel.html"><a href="CommonDataModel.html#observationPeriod"><i class="fa fa-check"></i><b>4.3.3</b> OBSERVATION_PERIODテーブル</a></li>
 <li class="chapter" data-level="4.3.4" data-path="CommonDataModel.html"><a href="CommonDataModel.html#visitOccurrence"><i class="fa fa-check"></i><b>4.3.4</b> VISIT_OCCURRENCE</a></li>
@@ -795,10 +795,10 @@ div.csl-indent {
 <div id="CommonDataModel" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">第 4 章</span> 共通データモデル<a href="CommonDataModel.html#CommonDataModel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Clair Blacketer</em></p>
-<p>観察データは、患者が医療を受ける際に起こる出来事を示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのは調査データや登録データの形で）、２） 医療の提供をサポートするため（いわゆるEHR - 電子的健康記録）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の二つは二次利用データとして使用され、すべての目的が独自のフォーマットやエンコーディングを持っています。 </p>
-<p>なぜ観察医療データに共通データモデルが必要なのでしょうか？</p>
-<p>それぞれの主要なニーズに応じて、観察データベースが臨床イベントをすべて均等に捉えることはできません。そのため、潜在的な捕捉バイアスの影響を理解するには、多くの異なるデータソースから研究結果を導き出し、比較・対照する必要があります。さらに、統計的に有効な結論を導くには、多数の観察対象の患者が必要です。これが、複数のデータソースを同時に評価・分析する必要性を説明するものです。そのためには、データを共通のデータ標準に統合する必要があります。さらに、患者データの高度な保護も必要です。従来のように分析目的でデータを抽出するには、厳格なデータ利用契約と複雑なアクセス制御が必要です。共通のデータ標準により抽出ステップを省略し、標準化された分析をネイティブ環境のデータ上で実行できるようにすることで、このニーズを軽減することができます。分析はデータにアクセスするのではなく、データが分析にアクセスするのです。</p>
-<p>この標準を提供するのが共通データモデル（CDM）です。標準化された内容（第<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章参照）と組み合わせたCDMは、研究方法が体系的に適用され、意味のある比較可能な再現性のある結果を生成することを保証します。この章では、データモデル自体の概要、デザイン、規約、一部のテーブルについて概説します。</p>
+<p>観察データは、患者が医療を受ける際に起こることを示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのはサーベイデータやレジストリデータの形で）、２） 医療の提供をサポートするため（いわゆる電子的健康記録（EHR)）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の２つは二次利用データとして使用され、すべての目的で、データのコンテンツに関して独自の様式や符号化が使われています。 </p>
+<p>なぜ観察医療データに共通データモデル（common data model; CDM）が必要なのでしょうか？</p>
+<p>それぞれの主たるニーズに応じて、それぞれの観察データベースは臨床イベントをすべて均等に捉えることはできません。そのため、潜在的な捕捉バイアスの影響を理解するには、多くの異なるデータソースから研究結果を導き出し、比較・対照する必要があります。さらに、統計的に有効な結論を導くには、多数の観察対象患者が必要です。これが、複数のデータソースを同時に評価・分析する必要性を説明するものです。そのためには、データを共通のデータ標準に統合する必要があります。さらに、患者データの高度な保護も必要です。従来のように分析目的でデータを抽出するには、厳格なデータ利用契約と複雑なアクセス制御が必要です。共通のデータ標準により抽出ステップを省略し、標準化された分析をネイティブ環境のデータ上で実行できるようにすることで、このニーズを軽減することができます。分析はデータにアクセスするのではなく、データが分析にアクセスするのです。</p>
+<p>この標準を提供するのがCDMです。標準化されたコンテンツ（第<a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章参照）と組み合わせたCDMは、研究方法が体系的に適用され、意味のある比較可能な再現性のある結果を生成することを保証します。この章では、データモデルそのものの概要、デザイン、規約、一部のテーブルについて概説します。</p>
 <p>CDMのすべてのテーブルの概要は、図 <a href="CommonDataModel.html#fig:cdmDiagram">4.1</a>に示されています。 </p>
 <div class="figure"><span style="display:block;" id="fig:cdmDiagram"></span>
 <img src="images/CommonDataModel/cdmDiagram.png" alt="CDMバージョン6.0のすべてのテーブルの概要。テーブル間のすべての関係が示されているわけではありません。" width="100%" />
@@ -806,27 +806,27 @@ div.csl-indent {
 図 4.1: CDMバージョン6.0のすべてのテーブルの概要。テーブル間のすべての関係が示されているわけではありません。
 </p>
 </div>
-<div id="デザインの原則" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> デザインの原則<a href="CommonDataModel.html#デザインの原則" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="デザイン原則" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> デザイン原則<a href="CommonDataModel.html#デザイン原則" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>CDMは、以下の目的のために最適化されています。 </p>
 <ul>
-<li>特定の医療介入（薬物曝露、処置（プロシージャー）、医療政策の変更など）やアウトカム（状態・疾患（コンディション）、プロシージャー、他の薬物曝露など）を持つ患者集団を特定する。</li>
-<li>人口統計情報、疾患の自然経過、医療提供、利用と費用、併存疾患、治療や治療の順序などさまざまなパラメータに関して患者集団の特性を評価する。</li>
-<li>個々の患者でアウトカムが発生する可能性を予測する―― 第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> 章参照。</li>
-<li>これらの介入が集団に及ぼす影響を推定する ―― 第 <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a> 章参照。</li>
+<li>特定の医療介入（薬剤曝露、処置（プロシージャー）、医療政策の変更など）やアウトカム（状態・疾患（コンディション）、プロシージャー、他の薬剤曝露など）を持つ患者集団を特定する。</li>
+<li>人口統計情報、疾患の自然経過、医療の提供、利用、費用、疾患、治療や治療の順序などさまざまなパラメータに関して患者集団の特性を評価する。</li>
+<li>個々の患者でアウトカムが発生する可能性を予測する（第 <a href="PatientLevelPrediction.html#PatientLevelPrediction">13</a> 章参照）。</li>
+<li>これらの介入が集団に及ぼす影響を推定する（第 <a href="PopulationLevelEstimation.html#PopulationLevelEstimation">12</a> 章参照）。</li>
 </ul>
 <p>この目標を達成するために、CDMの開発は以下のデザイン要素に従います：</p>
 <ul>
 <li><strong>目的適合性</strong>: CDMは、医療従事者または保険者の運用ニーズを満たす目的ではなく、分析のために最適な形でデータを提供することを目指しています。 </li>
-<li><strong>データ保護</strong>: 名前や正確な誕生日など、患者の身元や保護を危うくする可能性のあるすべてのデータは限定されています。乳児の研究のために正確な誕生日が必要な場合など、研究でより詳細な情報が明示的に必要な場合は例外となることがあります。 </li>
-<li><strong>ドメインの設計</strong>: ドメインは、各レコードに最低限、個人の識別情報と日付が記録される、個人中心のリレーショナルデータモデルでモデル化されています。ここでいうリレーショナルデータモデルとは、主キーと外部キーでリンクされたテーブルの集合としてデータが表現されるものを指します。</li>
-<li><strong>ドメインの根拠</strong>: ドメインは、分析のユースケースがある場合（たとえばコンディション）で、そのドメインが他のものには適用されない特定の属性を持つ場合に、エンティティ-リレーションシップモデルで特定され、個別に定義されます。他のデータはすべて、エンティティ-属性-値構造のオブザベーション（観察）テーブルに保持できます。 </li>
-<li><strong>標準化ボキャブラリ</strong>: それらの記録の内容を標準化するために、CDMは、標準的な医療コンセプトのすべてに対応する、必要かつ適切な標準化ボキャブラリに依存しています。。</li>
-<li><strong>既存のボキャブラリの再利用</strong>: 可能な場合、国立医学図書館、退役軍人省、疾病予防管理センターなどの国立または業界の標準化やボキャブラリ定義を行う組織やイニシアティブはこれらのコンセプトを活用しています。</li>
-<li><strong>ソースコードの保持</strong>: すべてのコードが標準化ボキャブラリにマッピングされている場合でも、モデルは元のソースコードも保持して、情報が失われないようにしています。 </li>
-<li><strong>技術の中立性</strong>: CDMは特定のテクノロジーを必要としません。Oracle、SQL Serverなどのあらゆるリレーショナルデータベース、またはSAS分析データセットとして実現できます。 </li>
-<li><strong>スケーラビリティ</strong>: CDMは、データベースに含まれる何億人もの人々や何十億件もの臨床観察データなど、さまざまな規模のデータソースに対応できるよう、データ処理と計算分析用に最適化されています。 </li>
-<li><strong>後方互換性</strong>: これまでのCDMからの変更はすべてgithubリポジトリ<a href="https://github.com/OHDSI/CommonDataModel">(https://github.com/OHDSI/CommonDataModel)</a>で明確に示されています。CDMの旧バージョンは現在のバージョンから簡単に作成でき、以前に存在していた情報が失われることはありません。 </li>
+<li><strong>データ保護</strong>: 名前や正確な誕生日など、患者の身元や保護を危うくする可能性のあるすべてのデータは制限されています。乳児の研究のために正確な誕生日が必要な場合など、研究でより詳細な情報が明示的に必要な場合は例外となることがあります。 </li>
+<li><strong>ドメインのデザイン</strong>: ドメインは、各レコードに最低限、個人の識別情報と日付が記録される、個人中心のリレーショナルデータモデルでモデル化されています。ここでいうリレーショナルデータモデルとは、主キーと外部キーでリンクされたテーブルの集合としてデータが表現されるものを指します。</li>
+<li><strong>ドメインの根拠</strong>: ドメインは、分析のユースケースがある場合（たとえばコンディション）で、そのドメインが他のものには適用されない特定の属性を持つ場合に、エンティティーリレーションシップ(Entity-Relation; ER)図で特定され、個別に定義されます。他のデータはすべて、エンティティー属性ー値（Entity-Attribute-Value；EAV)構造のオブザベーション（観察）テーブルに保持できます。 </li>
+<li><strong>標準化ボキャブラリ</strong>: それらの記録の内容を標準化するために、CDMは、標準的な医療コンセプトのすべてに対応する、必要かつ適切な標準化ボキャブラリに依存しています。</li>
+<li><strong>既存のボキャブラリの再利用</strong>: 可能な場合、米国国立医学図書館（The National Library of Medicine）、米国退役軍人省（The Department of Veterans’ Affairs）、米国疾病予防管理センター（The Center of Disease Control and Prevention）などの国立または業界の標準化やボキャブラリ定義を行う組織やイニシアティブのコンセプトを活用しています。</li>
+<li><strong>ソースコードの保持</strong>: すべてのコードが標準化ボキャブラリにマッピングされている場合でも、CDMは元のソースコードも保持して、情報が失われないようにしています。 </li>
+<li><strong>技術の中立性</strong>: CDMは特定のテクノロジーを必要としません。Oracle、SQL Serverなどのあらゆるリレーショナルデータベース、またはSAS分析データセットを得ることが出来ます。 </li>
+<li><strong>スケーラビリティ</strong>: CDMは、データベースに含まれる何億人もの人々や何十億件もの臨床観察データなど、さまざまな規模のデータソースに対応できるよう、データ処理と計算分析のために最適化されています。 </li>
+<li><strong>後方互換性</strong>: これまでのCDMからの変更はすべてGithubリポジトリ<a href="https://github.com/OHDSI/CommonDataModel">(https://github.com/OHDSI/CommonDataModel)</a>で明確に示されています。CDMの旧バージョンは現在のバージョンから簡単に作成でき、以前に存在していた情報が失われることはありません。 </li>
 </ul>
 </div>
 <div id="データモデルの規約" class="section level2 hasAnchor" number="4.2">
@@ -834,20 +834,20 @@ div.csl-indent {
 <p>CDMでは、暗黙的および明示的な規約が数多く採用されています。CDMに対応するメソッドの開発者は、これらの規約を理解する必要があります。</p>
 <div id="model-Conv" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> モデルの一般的な規約<a href="CommonDataModel.html#model-Conv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>CDMは「人中心」のモデルと見なされており、すべての臨床イベントのテーブルがPERSONテーブルにリンクされています。日付または開始日と組み合わせることで、人ごとに医療関連イベントをすべて縦断的に見ることができます。このルールに対する例外は、標準化された医療システム・データ・テーブルで、これはさまざまなドメインのイベントに直接リンクされています。</p>
+<p>CDMは「人中心」のモデルと見なされており、すべての臨床イベントのテーブルがPERSONテーブルにリンクされています。日付または開始日と組み合わせることで、人ごとに医療関連イベントをすべて縦断的に見ることができます。このルールに対する例外は、標準化された医療システムデータテーブルで、これはさまざまなドメインのイベントに直接リンクされています。</p>
 </div>
 <div id="スキーマの一般的な規約" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> スキーマの一般的な規約<a href="CommonDataModel.html#スキーマの一般的な規約" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>スキーマ（または一部のシステムではデータベースユーザー）により、読み取り専用テーブルと読み取り/書き込みテーブルを分離することができます。臨床イベントやボキャブラリテーブルは「CDM」スキーマにあり、エンドユーザーや分析ツールからは読み取り専用と見なされます。ウェブベースのツールやエンドユーザーが操作する必要のあるテーブルは、「Results」スキーマに格納されます。「Results」スキーマの2つのテーブルは、COHORTとCOHORT_DEFINITIONです。これらのテーブルは、ユーザーが定義する可能性のあるグループを記述することを目的としています。詳細は第 <a href="Cohorts.html#Cohorts">10</a>章を参照ください。これらのテーブルは書き込み可能であり、実行時にCOHORTテーブルにコホートを保存することができます。すべてのユーザーに対して読み取り/書き込み可能なスキーマは1つだけなので、複数のユーザーアクセスをどのように構成し制御するかは、CDMの実装次第です。</p>
+<p>スキーマ（または一部のシステムではデータベースユーザー）により、読み取り専用テーブルと読み取り/書き込みテーブルを分離することができます。臨床イベントやボキャブラリテーブルは「CDM」スキーマにあり、エンドユーザーや分析ツールからは読み取り専用と見なされます。ウェブベースのツールやエンドユーザーが操作する必要のあるテーブルは、「Results」スキーマに格納されます。「Results（結果）」スキーマの2つのテーブルは、COHORTとCOHORT_DEFINITIONです。これらのテーブルは、ユーザーが定義する可能性のあるグループを記述することを目的としています。詳細は第 <a href="Cohorts.html#Cohorts">10</a>章を参照ください。これらのテーブルは書き込み可能であり、実行時にCOHORTテーブルにコホートを保存することができます。すべてのユーザーに対して読み取り/書き込み可能なスキーマは1つだけなので、複数のユーザーアクセスをどのように構成し制御するかは、CDMの実装次第です。</p>
 </div>
 <div id="データテーブルの一般的な規約" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> データテーブルの一般的な規約<a href="CommonDataModel.html#データテーブルの一般的な規約" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CDMはプラットフォームに依存しません。データ型はANSI SQLデータ型（VARCHAR、INTEGER、FLOAT、DATE、DATETIME、CLOB）を用いて一般的に定義されます。VARCHARには最小必要文字列長のみが指定され、具体的なCDMのインスタンス内で拡張できます。CDMは日付および日時の形式を規定しません。CDMに対する標準クエリは、ローカルインスタンスや日付/日時の設定によって異なる場合があります。</p>
-<p><em>注意</em>: データモデル自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 <a href="OhdsiAnalyticsTools.html#OhdsiAnalyticsTools">8</a>章をご覧ください。</p>
+<p><em>注意</em>: CDM自体はプラットフォームに依存しませんが、それに対応するために構築された多くのツールは特定の仕様が必要です。詳細については、第 <a href="OhdsiAnalyticsTools.html#OhdsiAnalyticsTools">8</a>章をご覧ください。</p>
 </div>
 <div id="domains" class="section level3 hasAnchor" number="4.2.4">
 <h3><span class="header-section-number">4.2.4</span> ドメインの一般的な規約<a href="CommonDataModel.html#domains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化ボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規則により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディションドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。処置薬と呼ばれるものは通常、ソースデータのプロシージャーテーブルにプロシージャーコードとして記録されます。CDMでは、対応する標準コンセプトにドメイン割り当て「Drug」が設定されているため、これらのレコードはDRUG_EXPOSUREテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
+<p>異なる性質のイベントはドメインに整理されています。これらのイベントはドメイン固有のテーブルやフィールドに格納され、標準化ボキャブラリで定義されたドメイン固有の標準コンセプトによって表現されます（セクション <a href="StandardizedVocabularies.html#conceptDomains">5.2.3</a> 参照）。 各標準コンセプトには一意のドメイン割り当てがあり、どのテーブルに記録されるかを定義します。正しいドメイン割り当てはコミュニティ内で議論の余地がありますが、この厳格なドメインテーブルフィールドの対応規約により、コードやコンセプトの記録場所が常に明確であることが保証されます。例えば、徴候、症状、診断のコンセプトはコンディションドメインに属し、CONDITION_OCCURRENCEテーブルのCONDITION_CONCEPT_IDに記録されます。いわゆる処置薬は、ソースデータでは通常プロシージャーテーブルにプロシージャーコードとして記録されます。一方、CDMでは対応する標準データモデルの規約37コンセプトにドメイン割り当て「Drug(薬剤)」が設定されているため、これらのレコードはDRUG̲EXPOSUREGテーブルに記録されます。ドメインの総数は30で、表<a href="CommonDataModel.html#tab:domains">4.1</a>に示されています。</p>
 <table>
 <caption><span id="tab:domains">表 4.1: </span> 各ドメインに属する標準コンセプトの数</caption>
 <colgroup>
@@ -921,7 +921,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">1215</td>
-<td align="left">医療従事者専門 (Provider Specialty)</td>
+<td align="left">医療従事者の専門 (Provider Specialty)</td>
 <td align="left">6</td>
 <td align="left">スポンサー (Sponsor)</td>
 </tr>
@@ -947,11 +947,11 @@ div.csl-indent {
 <td align="left">336</td>
 <td align="left">タイプコンセプト (Type Concept)</td>
 <td align="left">2</td>
-<td align="left">民族性 (Ethnicity)</td>
+<td align="left">民族 (Ethnicity)</td>
 </tr>
 <tr class="odd">
 <td align="left">194</td>
-<td align="left">関係性 (Relationship)</td>
+<td align="left">リレーションシップ (Relationship)</td>
 <td align="left">1</td>
 <td align="left">オブザベーションタイプ (Observation Type)</td>
 </tr>
@@ -961,11 +961,11 @@ div.csl-indent {
 <div id="コンテンツのコンセプトによる表現" class="section level3 hasAnchor" number="4.2.5">
 <h3><span class="header-section-number">4.2.5</span> コンテンツのコンセプトによる表現<a href="CommonDataModel.html#コンテンツのコンセプトによる表現" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CDMデータテーブル内の各レコードのコンテンツは完全に正規化され、コンセプトを通じて表現されます。コンセプトはCONCEPTテーブルへの外部キーであるCONCEPT_ID値とともにイベントテーブルに格納され、CONCEPTテーブルは一般的な参照テーブルとして機能します。CDMインスタンスはすべて、コンセプトの参照として同じCONCEPTテーブルを使用します。これにより、CDMとともにOHDSI研究ネットワークの基盤となる相互運用性の主要なメカニズムが提供されます。標準コンセプトが存在しない場合や特定できない場合、CONCEPT_IDの値は0に設定されます。これは、存在しないコンセプト、不明またはマッピング不可能な値を表します。</p>
-<p>CONCEPTテーブルのレコードには、各コンセプトの詳細情報（名前、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの祖先など、コンセプトに関連するその他の情報は、標準化ボキャブラリのテーブルに含まれています（第 <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章を参照）。</p>
+<p>CONCEPTテーブルのレコードには、各コンセプトの詳細情報（コンセプト名、ドメイン、クラスなど）が含まれています。コンセプト、コンセプトリレーションシップ、コンセプトの上位層など、コンセプトに関連するその他の情報は、標準化ボキャブラリのテーブルに含まれています（第 <a href="StandardizedVocabularies.html#StandardizedVocabularies">5</a>章を参照）。</p>
 </div>
 <div id="フィールドの一般的な命名規約" class="section level3 hasAnchor" number="4.2.6">
 <h3><span class="header-section-number">4.2.6</span> フィールドの一般的な命名規約<a href="CommonDataModel.html#フィールドの一般的な命名規約" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>すべてのテーブルの変数名は1つの規約に従います。</p>
+<p>すべてのテーブルのフィールド名は1つの規約に従います。</p>
 <table>
 <caption><span id="tab:fieldConventions">表 4.2: </span> フィールド名の規約</caption>
 <colgroup>
@@ -985,19 +985,19 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">[Event]_CONCEPT_ID</td>
-<td align="left">CONCEPT参照テーブルの標準コンセプトレコードへの外部キーです。これはイベントの主要な表現として機能し、標準化された分析の主要な基礎となります。たとえば、CONDITION_CONCEPT_ID = <a href="http://athena.ohdsi.org/search-terms/terms/31967">31967</a>にはSNOMEDコンセプトの「吐き気」の参照値が含まれています。</td>
+<td align="left">CONCEPT参照テーブルの標準コンセプトレコードへの外部キーです。これはイベントの主要な表現として機能し、標準化された分析の主要な基礎となります。たとえば、CONDITION_CONCEPT_ID = <a href="http://athena.ohdsi.org/search-terms/terms/31967">31967</a>にはSNOMED（訳者注：The International Health Terminology Standards Development Organisationにより管理されているヘルスケアに関する多言語の包括的な用語集）コンセプトの「吐き気」の参照値が含まれています。</td>
 </tr>
 <tr class="odd">
 <td align="left">[Event]_SOURCE_CONCEPT_ID</td>
-<td align="left">CONCEPT参照テーブルのレコードへの外部キーです。このコンセプトは、以下のソース値に相当し、標準コンセプトの場合、それは[Event]_CONCEPT_IDと同一になります。例えば、CONDITION_SOURCE_CONCEPT_ID = <a href="http://athena.ohdsi.org/search-terms/terms/45431665">45431665</a>は「吐き気」というコンセプトを、Read用語で示し、同様のCONDITION_CONCEPT_IDは標準のSNOMED-CTコンセプト<a href="http://athena.ohdsi.org/search-terms/terms/31967">31967</a>です。標準分析アプリケーションの場合、ソースコンセプトの使用は推奨されません。なぜなら、標準コンセプトだけがイベントの意味的内容を明確に示し、ソースコンセプトは相互運用可能ではないためです。</td>
+<td align="left">CONCEPT参照テーブルのレコードへの外部キーです。このコンセプトは、以下のソース値に相当し、標準コンセプトの場合、それは[Event]_CONCEPT_IDと同一になります。例えば、CONDITION_SOURCE_CONCEPT_ID = <a href="http://athena.ohdsi.org/search-terms/terms/45431665">45431665</a>は「吐き気」というコンセプトを、Read用語（訳者注：英国の一般診療やプライマリケアで広く使用されるコーディング体系）で示し、同様のCONDITION_CONCEPT_IDは標準のSNOMED-CTコンセプト<a href="http://athena.ohdsi.org/search-terms/terms/31967">31967</a>です。標準分析アプリケーションの場合、ソースコンセプトの使用は推奨されません。なぜなら、標準コンセプトだけがイベントの意味的なコンテンツを明確に示し、ソースコンセプトは相互運用可能ではないためです。</td>
 </tr>
 <tr class="even">
 <td align="left">[Event]_TYPE_CONCEPT_ID</td>
-<td align="left">ソース情報の出所を示す標準化ボキャブラリ内で標準化されたコンセプト参照テーブルのレコードへの外部キーです。フィールド名とは異なり、これはイベントの種類やコンセプトの種類でもなく、このレコードを作成した取得メカニズムを宣言するものであることに留意ください。例として、DRUG_TYPE_CONCEPT_IDは、薬剤レコードが薬局での調剤イベント（「薬局での調剤」）から派生したものか、処方アプリケーション（「処方箋発行」）から派生したものかを区別します。</td>
+<td align="left">ソース情報の出所を示す標準化ボキャブラリで、コンセプト参照テーブルのレコードへの外部キーです。フィールド名とは異なり、これはイベントやコンセプトの種類ではなく、このレコードを作成した取得メカニズムを宣言するものであることに留意ください。例として、DRUG_TYPE_CONCEPT_IDは、薬剤レコードが薬局での調剤イベント（「Pharmacy dispensing（薬局での調剤）」）から派生したものか、電子処方箋（Prescription written (処方箋発行)）から派生したものかを区別します。</td>
 </tr>
 <tr class="odd">
 <td align="left">[Event]_SOURCE_VALUE</td>
-<td align="left">ソースデータでこのイベントがどのように表現されていたかを反映する、逐語的なコードまたは自由形式の文字列。これらのソース値はデータソース間で整合されていないため、標準的な分析アプリケーションでの使用は推奨されません。例えば、CONDITION_SOURCE_VALUEにはドットを省略した表記で書かれたICD-9コード787.02に対応する「78702」のレコードが含まれる可能性があります。</td>
+<td align="left">ソースデータでこのイベントがどのように表現されていたかを反映する、逐語的なコードまたは自由形式の文字列です。これらのソース値はデータソース間で整合されていないため、標準的な分析アプリケーションでの使用は推奨されません。例えば、CONDITION_SOURCE_VALUEにはドットを省略した表記で書かれたICD-9コード787.02に対応する「78702」のレコードが含まれる可能性があります。</td>
 </tr>
 </tbody>
 </table>
@@ -1006,8 +1006,8 @@ div.csl-indent {
 <h3><span class="header-section-number">4.2.7</span> コンセプトとソース値の違い<a href="CommonDataModel.html#concepts-Sources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>多くのテーブルには、ソース値、ソースコンセプト、標準コンセプトとして、複数の場所に同等の情報が含まれています。</p>
 <ul>
-<li><strong>ソース値</strong>は、ソースデータにおけるイベントレコードのオリジナル表現です。これらは、ICD9CM、NDC、Readなどのように、広く使用されているがパブリックドメインであることが多いコーディングシステムからのコード、CPT4、GPI、MedDRAなどの独自のコーディングシステム、あるいは女性をF、男性をMのようにソースデータのみで使用される管理された用語集であることがあります。また、標準化も管理もされていない短い自由テキストのフレーズであることもあります。ソース値は、データテーブルの[Event]_SOURCE_VALUEフィールドに格納されます。</li>
-<li><strong>コンセプト</strong>は、CDM特有のエンティティであり、臨床事実の意味を標準化します。ほとんどのコンセプトは、医療分野における既存の公開または独自仕様のコーディングシステムに基づきますが、中には新規に作成されたものもあります（CONCEPT_CODEが「OMOP」で始まる）。コンセプトには、すべてのドメインにわたって一意のIDが割り当てられています。</li>
+<li><strong>ソース値</strong>は、ソースデータにおけるイベントレコードのオリジナル表現です。これらは、ICD9CM、全米医薬品コード（National Drug Code; NDC）、Readなどのように、広く使用されているがパブリックドメインであることが多いコーディング体系からのコード、CPT4（Common Procedural Technology）（訳者注：　米国医師会が管理する請求用コーディング体系）、GPI(Generic Product Identifier) (訳者注：　Wolters Kluwer社により作成されている医薬品のコーディング体系）、MedDRAなどの独自のコーディング体系、あるいは女性をF、男性をMのようにソースデータのみで使用される管理されたボキャブラリであることがあります。また、標準化も管理もされていない短い自由テキストのフレーズであることもあります。ソース値は、データテーブルの[Event]_SOURCE_VALUEフィールドに格納されます。</li>
+<li><strong>コンセプト</strong>は、CDM特有のエンティティであり、臨床事実の意味を標準化します。ほとんどのコンセプトは、医療分野における既存の公開または独自仕様のコーディング体系に基づきますが、中には新規に作成されたものもあります（CONCEPT_CODEが「OMOP」で始まる）。コンセプトには、すべてのドメインにわたって一意のIDが割り当てられています。</li>
 <li><strong>ソースコンセプト</strong>は、ソースで使用されるコードを表すコンセプトです。ソースコンセプトは、既存の公開または独自のコード体系に対してのみ使用され、OMOPで生成されたコンセプトには使用されません。ソースコンセプトはデータテーブル内の[Event]_SOURCE_CONCEPT_IDフィールドに格納されます。</li>
 <li><strong>標準コンセプト</strong>は、ソースで使用されるコードシステムとは無関係に、すべてのデータベースで臨床実態の意味を一意に定義するために使用されるコンセプトです。標準コンセプトは通常、既存の公開または専有のボキャブラリソースから取得されます。標準コンセプトと同等な意味を持つ非標準コンセプトは、標準化ボキャブラリにおいて標準コンセプトにマッピングされます。標準コンセプトはデータテーブルの[Event]_CONCEPT_IDフィールドで参照できます。</li>
 </ul>
@@ -1018,24 +1018,24 @@ div.csl-indent {
 図 4.2: 肺結核のICD9CMコード
 </p>
 </div>
-<p>文脈がなければ、コード011は、UB04ボキャブラリでは「病院入院患者（メディケアパートAを含む）」、DRGボキャブラリでは「神経系新生物（合併症、併発症なし）」と解釈される可能性があります。 このような場合に、ソースと標準の両方のコンセプトIDが役立ちます。ICD9CMの011を表すCONCEPT_IDの値は<a href="http://athena.ohdsi.org/search-terms/terms/44828631">44828631</a>です。これにより、UBO4とDRGとICD9CMが区別されます。ICD9CM TB のソースコンセプト は、図 <a href="CommonDataModel.html#fig:pulmTubMap">4.3</a> に示されているように、「非標準から標準へのマップ（OMOP）」という関係を通じて、SNOMED ボキャブラリーから Standard Concept <a href="http://athena.ohdsi.org/search-terms/terms/253954">253954</a>にマップされます。この同じマッピング関係は、Read、ICD10、CIEL、MeSH コードなどにも存在するため、SNOMED 標準コンセプトを参照するあらゆる検索は、サポートされているすべてのソースコードを含みます。</p>
+<p>文脈がなければ、コード011は、UB04ボキャブラリでは「Hospital Inpatient (Including Medicare Part A)（病院入院患者（メディケアパートA を含む））」、DRGボキャブラリでは「Nervous System Neoplasms without Complications, Comorbidities　（神経系新生物（合併症、併存症なし）」と解釈される可能性があります。 このような場合に、ソースと標準の両方のコンセプトIDが役立ちます。ICD9CMの011を表すCONCEPT_IDの値は<a href="http://athena.ohdsi.org/search-terms/terms/44828631">44828631</a>です。これにより、UBO4（訳者注：米国全国統一請求委員会（National Uniform Billing Committee：NUBC）が採用するU請求情報コーディング体系）とDRGとICD9CMが区別されます。ICD9CMでのTB のソースコンセプト は、図 <a href="CommonDataModel.html#fig:pulmTubMap">4.3</a> に示されているように、「Non-standard to Standard map (OMOP)（非標準から標準へのマップ（OMOP)」というリレーションシップを通じて、SNOMED ボキャブラリーから 標準コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/253954">253954</a>にマップされます。この同じマッピングリレーションシップは、Read、ICD10、CIEL(The Columbia International eHealth Laboratory. 訳者注：中低所得国における保健情報システムに関連する用語のコーディング体系)、MeSH コードなどにも存在するため、SNOMED 標準コンセプトを参照するあらゆる検索は、サポートされているすべてのソースコードを含みます。</p>
 <div class="figure"><span style="display:block;" id="fig:pulmTubMap"></span>
 <img src="images/CommonDataModel/pulmTubMap.png" alt="肺結核のSNOMEDコード" width="100%" />
 <p class="caption">
 図 4.3: 肺結核のSNOMEDコード
 </p>
 </div>
-<p>標準コンセプトとソースコンセプトとの関係の例を表 <a href="CommonDataModel.html#tab:conditionOccurrence">4.7</a>に示します。</p>
+<p>標準コンセプトとソースコンセプトとのリレーションシップの例を表 <a href="CommonDataModel.html#tab:conditionOccurrence">4.7</a>に示します。</p>
 </div>
 </div>
 <div id="cdm標準化テーブル" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> CDM標準化テーブル<a href="CommonDataModel.html#cdm標準化テーブル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
-<p>CDMには16の臨床イベントテーブル、10のボキャブラリテーブル、2つのメタデータテーブル、4つのヘルスシステムデータテーブル、2つの医療経済データテーブル、3つの標準化された派生要素、および2つの結果スキーマテーブルが含まれています。 これらのテーブルはCDM Wikiで完全に指定されています <a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>。</p>
-<p>これらのテーブルが実際にどのように使用されるかを説明するために、本章の残りの部分ではある1人のデータを一貫した例として使用します。</p>
-<div id="実行例-子宮内膜症" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> 実行例: 子宮内膜症<a href="CommonDataModel.html#実行例-子宮内膜症" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>子宮内膜症は、通常女性の子宮内膜にある細胞が体の他の場所に生じる痛みを伴う状態です。重症になると、不妊症、腸や膀胱の問題を引き起こすことがあります。次のセクションでは、この病気にかかった患者の経験と、それが共通データモデルでどのように表現される可能性があるかを詳しく説明します。</p>
+<p>CDMには16の臨床イベントテーブル、10のボキャブラリテーブル、2つのメタデータテーブル、4つのヘルスシステムデータテーブル、2つの医療経済データテーブル、3つの標準化された派生要素、および2つの結果スキーマテーブルが含まれています。 これらのテーブルはCDM Wikiで詳しく説明されています <a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>。</p>
+<p>これらのテーブルが実際にどのように使用されるかを説明するために、本章の残りの部分ではある1人のデータを共通した例として使用します。</p>
+<div id="実際の例-子宮内膜症" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> 実際の例: 子宮内膜症<a href="CommonDataModel.html#実際の例-子宮内膜症" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>子宮内膜症は、通常女性の子宮内膜にある細胞が身体の他の場所に生じるために痛みを伴う状態です。重症になると、不妊症、腸や膀胱の問題を引き起こすことがあります。次のセクションでは、この病気にかかった患者の経験と、それが共通データモデルでどのように表現される可能性があるかを詳しく説明します。</p>
 <p><img src="images/CommonDataModel/Lauren.jpg" width="50%" style="display: block; margin: auto;" /></p>
 <blockquote>
 <p>この痛みを伴う旅のすべての段階で、どれほど痛みを感じているかを皆に納得させなければなりませんでした。</p>
@@ -1076,7 +1076,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">GENDER_CONCEPT_ID</td>
 <td align="left">8532</td>
-<td align="left">女性性別を参照するコンセプトIDは<a href="http://athena.ohdsi.org/search-terms/terms/8532">8532</a>です。</td>
+<td align="left">女性性別を表すコンセプトIDは<a href="http://athena.ohdsi.org/search-terms/terms/8532">8532</a>です。</td>
 </tr>
 <tr class="odd">
 <td align="left">YEAR_OF_BIRTH</td>
@@ -1096,7 +1096,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">BIRTH_DATETIME</td>
 <td align="left">1982-03-12 00:00:00</td>
-<td align="left">時間が不明の場合は真夜中が使用されます。</td>
+<td align="left">時間が不明の場合は0時が使用されます。</td>
 </tr>
 <tr class="odd">
 <td align="left">DEATH_DATETIME</td>
@@ -1106,12 +1106,12 @@ div.csl-indent {
 <tr class="even">
 <td align="left">RACE_CONCEPT_ID</td>
 <td align="left">8527</td>
-<td align="left">白人を示すコンセプトIDは<a href="http://athena.ohdsi.org/search-terms/terms/8527">8527</a>です。英国の民族は<a href="http://athena.ohdsi.org/search-terms/terms/4093769">4093769</a>です。どちらも正しいですが、後者は前者に統合されます。民族は、ETHNICITY_CONCEPT_IDではなく、人種の一部としてここに格納されていることに留意ください。</td>
+<td align="left">白人を示すコンセプトIDは<a href="http://athena.ohdsi.org/search-terms/terms/8527">8527</a>です。英国の民族は<a href="http://athena.ohdsi.org/search-terms/terms/4093769">4093769</a>です。どちらも正しいですが、後者は前者に包含されます。民族性は、ETHNICITY_CONCEPT_IDではなく、人種の一部としてここに格納されていることに留意ください。</td>
 </tr>
 <tr class="odd">
 <td align="left">ETHNICITY_CONCEPT_ ID</td>
 <td align="left">38003564</td>
-<td align="left">これはヒスパニック系の人々を他の人々から区別するための米国特有の表記法です。この場合の「English」という民族性は、RACE_CONCEPT_ID に格納されます。米国以外では使用されません。<a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a>は「ヒスパニックではない」を表します。</td>
+<td align="left">これはヒスパニック系の人々を他の人々から区別するための米国特有の表記法です。この場合の「English（イギリス人）」という民族は、RACE_CONCEPT_ID に格納されます。米国以外では使用されません。<a href="http://athena.ohdsi.org/search-terms/terms/38003564">38003564</a>は「Not hispanic　（非ヒスパニック）」を表します。</td>
 </tr>
 <tr class="even">
 <td align="left">LOCATION_ID</td>
@@ -1141,7 +1141,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">GENDER_SOURCE_ CONCEPT_ID</td>
 <td align="left">0</td>
-<td align="left">ソースの性別値が OHDSI がサポートするコーディングスキームでコード化されている場合、そのコンセプトはここに格納されます。例えば、ソースの性別が「性別-F」であり、PCORNet ボキャブラリコンセプトに記載されている場合、<a href="http://athena.ohdsi.org/search-terms/terms/44814665">44814665</a>がこのフィールドに入ります。</td>
+<td align="left">ソースの性別値が OHDSI がサポートするコーディング体系でコード化されている場合、そのコンセプトはここに格納されます。例えば、ソースの性別が「性別-F」であり、PCORNet ボキャブラリコンセプトに記載されている場合、<a href="http://athena.ohdsi.org/search-terms/terms/44814665">44814665</a>がこのフィールドに入ります。</td>
 </tr>
 <tr class="even">
 <td align="left">RACE_SOURCE_ VALUE</td>
@@ -1156,7 +1156,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">ETHNICITY_SOURCE_ VALUE</td>
 <td align="left">english</td>
-<td align="left">ソースに表示されている民族値がここに格納されます。</td>
+<td align="left">ソースに表示されている民族の値がここに格納されます。</td>
 </tr>
 <tr class="odd">
 <td align="left">ETHNICITY_SOURCE_ CONCEPT_ID</td>
@@ -1169,7 +1169,7 @@ div.csl-indent {
 </div>
 <div id="observationPeriod" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> OBSERVATION_PERIODテーブル<a href="CommonDataModel.html#observationPeriod" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するために設計されています。保険請求データの場合は、通常、患者の加入期間となります。電子的健康記録 (EHR) の場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者を受診したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
+<p>OBSERVATION_PERIODテーブルは、妥当な感度と特異度が期待されるソースシステムにおいて、少なくとも患者の人口統計、コンディション、プロシージャー、薬剤が記録される期間を定義するためにデザインされています。保険請求データの場合は、通常、患者の加入期間となります。電子的健康記録 (EHR) の場合は、より複雑です。ほとんどの医療システムでは、どの医療機関または医療従事者を受診したかを特定しないためです。次善の策として、システム内の最初のレコードが観察期間の開始日と見なされ、最新のレコードが終了日と見なされることがよくあります。</p>
 <div id="laurenの観察期間はどのように定義されているのですか" class="section level4 unnumbered hasAnchor">
 <h4>Laurenの観察期間はどのように定義されているのですか？<a href="CommonDataModel.html#laurenの観察期間はどのように定義されているのですか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>表 <a href="CommonDataModel.html#tab:encounters">4.4</a>に示されるLaurenの情報がEHRに記録されているとしましょう。彼女の観察期間の元となる彼女の受診 (Encounter) は：</p>
@@ -1212,7 +1212,7 @@ div.csl-indent {
 <td align="left">101</td>
 <td align="left">2013-01-14</td>
 <td align="left">2013-01-14</td>
-<td align="left">歩行可能</td>
+<td align="left">Ambulatory (通院施設)</td>
 </tr>
 <tr class="even">
 <td align="left">102</td>
@@ -1261,7 +1261,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PERIOD_TYPE_ CONCEPT_ID</td>
 <td align="left">44814725</td>
-<td align="left">「Obs Period Type (観察期間タイプ)」 コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、「ヘルスケア受診をカバーする期間」を表します。</td>
+<td align="left">「Obs Period Type (観察期間タイプ)」 コンセプトクラスを持つボキャブラリにおける最良のオプションは<a href="http://athena.ohdsi.org/search-terms/terms/44814724">44814724</a>で、Period covering healthcare encounters（ヘルスケア受診をカバーする期間）を表します。</td>
 </tr>
 </tbody>
 </table>
@@ -1270,11 +1270,11 @@ div.csl-indent {
 <div id="visitOccurrence" class="section level3 hasAnchor" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> VISIT_OCCURRENCE<a href="CommonDataModel.html#visitOccurrence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>VISIT_OCCURRENCEテーブルには、患者が医療システムを利用した際の情報が格納されています。OHDSIでは、これらの情報を「ビジット」と呼び、個別のイベントとして扱います。ビジットには12のトップカテゴリーがあり、医療が提供されるさまざまな状況を描写する広範な階層構造があります。最も多く記録されているビジットは、入院、外来、救急外来、医療機関以外の施設へのビジットです。</p>
-<div id="laurenの受診がビジットとしてどのように表現されるか" class="section level4 unnumbered hasAnchor">
-<h4>Laurenの受診がビジットとしてどのように表現されるか？<a href="CommonDataModel.html#laurenの受診がビジットとしてどのように表現されるか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="laurenの受診がビジットとしてどのように表現されるでしょうか" class="section level4 unnumbered hasAnchor">
+<h4>Laurenの受診がビジットとしてどのように表現されるでしょうか？<a href="CommonDataModel.html#laurenの受診がビジットとしてどのように表現されるでしょうか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>例として、入院受診をVISIT_OCCURRENCEテーブルで表現しましょう。</p>
 <table>
-<caption><span id="tab:visitOccurrence">表 4.6: </span> VISIT_OCCURRENCEテーブル。</caption>
+<caption><span id="tab:visitOccurrence">表 4.6: </span> VISIT_OCCURRENCEテーブル</caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -1296,7 +1296,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">PERSON_ID</td>
 <td align="left">1</td>
-<td align="left">これはPERSONテーブルでLaurenのレコードにリンクする外部キーです。</td>
+<td align="left">これはPERSONテーブルのLaurenのレコードにリンクする外部キーです。</td>
 </tr>
 <tr class="odd">
 <td align="left">VISIT_CONCEPT_ID</td>
@@ -1326,17 +1326,17 @@ div.csl-indent {
 <tr class="even">
 <td align="left">VISIT_TYPE_ CONCEPT_ID</td>
 <td align="left">32034</td>
-<td align="left">ビジットレコードの出所を示します。保険請求、病院請求、EHRなど。これらのエンカウンターがEHRに似ている例として、<a href="http://athena.ohdsi.org/search-terms/terms/32035">32035</a>（「EHRエンカウンターレコードから派生したビジット」）のコンセプトIDが使用されています。</td>
+<td align="left">ビジットレコードの出所を示します。保険請求、病院請求、EHRなど。これらの受診がEHRに似ている例として、<a href="http://athena.ohdsi.org/search-terms/terms/32035">32035</a>（「Visit derived from EHR encounter record（EHR受診レコードから派生したビジット）」）のコンセプトIDが使用されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
-<td align="left">エンカウンターレコードに医療従事者が関連付けられている場合、その医療従事者のIDがこのフィールドに格納されます。これが医療従事者テーブルのPROVIDER_IDフィールドの内容であるはずです。</td>
+<td align="left">受診レコードに医療従事者が関連付けられている場合、その医療従事者のIDがこのフィールドに格納されます。これが医療従事者テーブルのPROVIDER_IDフィールドの内容であるはずです。</td>
 </tr>
 <tr class="even">
 <td align="left">CARE_SITE_ID</td>
 <td align="left">NULL</td>
-<td align="left">エンカウンターレコードに関連するケアサイトがある場合、そのケアサイトのIDがこのフィールドに入ります。これがCARE_SITEテーブルのCARE_SITE_IDであるはずです。</td>
+<td align="left">受診レコードに関連する医療施設がある場合、その医療施設のIDがこのフィールドに入ります。これがCARE_SITEテーブルのCARE_SITE_IDであるはずです。</td>
 </tr>
 <tr class="odd">
 <td align="left">VISIT_SOURCE_ VALUE</td>
@@ -1346,22 +1346,22 @@ div.csl-indent {
 <tr class="even">
 <td align="left">VISIT_SOURCE_ CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">ソースデータがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトIDがここに表示されます。Laurenのデータにはこの値はありません。</td>
+<td align="left">ソースデータがOHDSIによって認識されているボキャブラリを使用してコーディングされている場合、ソースコードを表すコンセプトIDがここに表示されます。Laurenのデータにはこの値がありません。</td>
 </tr>
 <tr class="odd">
 <td align="left">ADMITTED_FROM_ CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">既知の場合、患者が入院した場所を表すコンセプトが表示されます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者が自宅から病院に入院した場合には、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/8536">8536</a>「自宅」が含まれます。</td>
+<td align="left">わかる場合には、、患者が入院した元の場所を表すコンセプトが表示されます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者が自宅から病院に入院した場合には、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/8536">8536</a>「Home（自宅）」が含まれます。</td>
 </tr>
 <tr class="even">
 <td align="left">ADMITTED_FROM_ SOURCE_CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">患者が入院した元の場所を表すソース値が表示されます。上記の例では「自宅」です。</td>
+<td align="left">患者が入院した元の場所を表すソース値が表示されます。上記の例では「Home（自宅）」です。</td>
 </tr>
 <tr class="odd">
 <td align="left">DISCHARGE_TO_ CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">既知の場合、患者が退院した先の場所を表すコンセプトが含まれます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者が介護付き生活施設に退院した場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/8615">8615</a>「介護付き生活施設」となります。</td>
+<td align="left">わかる場合、、患者が退院した先の場所を表すコンセプトが含まれます。このコンセプトのドメインは「ビジット」であるべきです。例えば、患者がAssisted living facility（介護付き生活施設）に退院した場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/8615">8615</a>「Assisted living facility（介護付き生活施設）」となります。</td>
 </tr>
 <tr class="even">
 <td align="left">DISCHARGE_TO_ SOURCE_VALUE</td>
@@ -1376,7 +1376,7 @@ div.csl-indent {
 </tbody>
 </table>
 <ul>
-<li>患者は、入院患者の場合によくあるように、1回の来院中に複数の医療従事者とやりとりすることがあります。これらのやりとりは、VISIT_DETAILテーブルに記録することができます。この章では深く掘り下げませんが、VISIT_DETAILテーブルの詳細については、<a href="https://github.com/OHDSI/CommonDataModel/wiki/VISIT_DETAIL">CDM wiki</a>を参照ください。</li>
+<li>患者は、入院患者の場合によくあるように、1回のビジット中に複数の医療従事者とやりとりすることがあります。これらのやりとりは、VISIT_DETAILテーブルに記録することができます。この章では深く掘り下げませんが、VISIT_DETAILテーブルの詳細については、<a href="https://github.com/OHDSI/CommonDataModel/wiki/VISIT_DETAIL">CDM Wiki</a>を参照ください。</li>
 </ul>
 </div>
 </div>
@@ -1438,22 +1438,22 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_END_ DATETIME</td>
 <td align="left">NULL</td>
-<td align="left">既知の場合、コンディションが終了したと見なされる日時です。</td>
+<td align="left">わかる場合、コンディションが終了したと見なされる日時です。</td>
 </tr>
 <tr class="even">
 <td align="left">CONDITION_TYPE_ CONCEPT_ID</td>
 <td align="left">32020</td>
-<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、エンカウンターが電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR エンカウンター診断」）というコンセプトが使用されています。このフィールドのコンセプトは、「Condition Type (コンディションタイプ)」のボキャブラリに属するべきです。</td>
+<td align="left">この列は、レコードの由来に関する情報を提供することを目的としています。すなわち、保険請求、病院の請求記録、EHRなどから取得されたものであることを示すものです。この例では、受診が電子カルテに類似しているため、 <a href="http://athena.ohdsi.org/search-terms/terms/32020">32020</a>「EHR encounter diagnosis（EHR受診診断）」というコンセプトが使用されています。このフィールドのコンセプトは、「Condition Type (コンディションタイプ)」のボキャブラリに属するべきです。</td>
 </tr>
 <tr class="odd">
 <td align="left">CONDITION_STATUS_CONCEPT_ID</td>
 <td align="left">NULL</td>
-<td align="left">これが分かると、状況と理由がわかります。例えば、コンディションが入院時の診断である場合、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されました。</td>
+<td align="left">これが分かると、状況と理由がわかります。例えば、コンディションが入院時の診断であった場合には、、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/4203942">4203942</a> が使用されます。</td>
 </tr>
 <tr class="even">
 <td align="left">STOP_REASON</td>
 <td align="left">NULL</td>
-<td align="left">既知の場合、ソースデータに示されているコンディションが存在しなくなった理由。</td>
+<td align="left">わかる場合、ソースデータに示されているコンディションが存在しなくなった理由。</td>
 </tr>
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
@@ -1478,7 +1478,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">CONDITION_STATUS_ SOURCE_VALUE</td>
 <td align="left">0</td>
-<td align="left">もしソースからのコンディションステータス値が OHDSI がサポートするコード化スキームでコード化されていれば、そのコンセプトはここに入ります。</td>
+<td align="left">もしソースからのコンディションステータス値が OHDSI がサポートするコーディング体系でコードされていれば、そのコンセプトはここに入ります。</td>
 </tr>
 </tbody>
 </table>
@@ -1486,9 +1486,9 @@ div.csl-indent {
 </div>
 <div id="drugExposure" class="section level3 hasAnchor" number="4.3.6">
 <h3><span class="header-section-number">4.3.6</span> DRUG_EXPOSURE<a href="CommonDataModel.html#drugExposure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的使用または実際の導入に関する記録を取得します。薬剤には、処方薬、市販薬、ワクチン、高分子生物学的製剤が含まれます。薬剤への曝露は、オーダーに関連する臨床イベント、記載された処方箋、薬局での調剤、処置薬としての投与、およびその他の患者報告情報から推測されます。</p>
-<div id="laurenの薬物への曝露はどのように表現されますか" class="section level4 unnumbered hasAnchor">
-<h4>Laurenの薬物への曝露はどのように表現されますか？<a href="CommonDataModel.html#laurenの薬物への曝露はどのように表現されますか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>DRUG_EXPOSUREテーブルは、患者の体内への薬剤の意図的または実際の使用に関する記録を取得します。薬剤には、処方薬、市販薬、ワクチン、高分子生物学的製剤が含まれます。薬剤への曝露は、オーダーに関連する臨床イベント、処方箋発行、薬局での調剤、処置薬としての投与、およびその他の患者報告情報から推測されます。</p>
+<div id="laurenの薬物への薬剤はどのように表現されますか" class="section level4 unnumbered hasAnchor">
+<h4>Laurenの薬物への薬剤はどのように表現されますか？<a href="CommonDataModel.html#laurenの薬物への薬剤はどのように表現されますか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>月経困難症の痛みを改善するために、Laurenは2010年01月06日のビジット時に、375mgの経口投与のアセトアミノフェン（別名パラセタモール、例えば米国ではNDCコード69842087651で販売）を60錠、30日分が出されました。DRUG_EXPOSUREテーブルでは以下のようになります：</p>
 <table>
 <caption><span id="tab:drugExposure">表 4.8: </span> DRUG_EXPOSUREテーブル</caption>
@@ -1518,7 +1518,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_CONCEPT_ID</td>
 <td align="left">1127433</td>
-<td align="left">薬剤のコンセプト。アセトアミノフェンの NDC コードは RxNorm コード 313782 に対応し、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/1127433">1127433</a>を表します。</td>
+<td align="left">薬剤のコンセプト。アセトアミノフェンの NDC コードは RxNorm（訳者注：米国国立医学図書館で管理されている臨床薬剤ボキャブラリ）コード 313782 に対応し、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/1127433">1127433</a>で表されます。</td>
 </tr>
 <tr class="even">
 <td align="left">DRUG_EXPOSURE_ START_DATE</td>
@@ -1533,7 +1533,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">DRUG_EXPOSURE_ END_DATE</td>
 <td align="left">2010-02-05</td>
-<td align="left">薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬物に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。</td>
+<td align="left">薬剤曝露の終了日。様々な情報源によって、既知の日付または推測される日付となり、患者が薬剤に曝露されていた最後の日を示します。この場合、Laurenが30日分を持っていたことが分かっているので、この日付が推測されます。</td>
 </tr>
 <tr class="odd">
 <td align="left">DRUG_EXPOSURE_ END_DATETIME</td>
@@ -1548,17 +1548,17 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">DRUG_TYPE_ CONCEPT_ID</td>
 <td align="left">38000177</td>
-<td align="left">この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> (「Prescription written　（書かれた処方箋）」) が使用されています。</td>
+<td align="left">この欄は、記録の出所に関する情報（保険請求や処方箋の記録など）を提供するためのものです。この例では、コンセプト <a href="http://athena.ohdsi.org/search-terms/terms/38000177">38000177</a> (「Prescription written　（処方箋発行）」) が使用されています。</td>
 </tr>
 <tr class="even">
 <td align="left">STOP_REASON</td>
 <td align="left">NULL</td>
-<td align="left">薬剤の投与が中止された理由。理由にはレジメンの完了、変更、削除などが含まれます。この情報はほとんど記録されません。</td>
+<td align="left">薬剤の投与が中止された理由。理由にはレジメンの終了、変更、削除などが含まれます。この情報はほとんど記録されません。</td>
 </tr>
 <tr class="odd">
 <td align="left">REFILLS</td>
 <td align="left">NULL</td>
-<td align="left">多くの国で処方システムの一部となっている、初回処方後の自動再処方数。最初の処方はカウントされず、値は NULL から始まります。Lauren のアセトアミノフェンの場合、リフィルはなかったので、値は NULL です。</td>
+<td align="left">多くの国で処方システムの一部となっている、初回処方後の自動リフィル数。最初の処方はカウントされず、値は NULL から始まります。Lauren のアセトアミノフェンの場合、リフィルはなかったので、値は NULL です。</td>
 </tr>
 <tr class="even">
 <td align="left">QUANTITY</td>
@@ -1588,7 +1588,7 @@ div.csl-indent {
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
-<td align="left">薬剤レコードに処方プロバイダがリストされている場合、そのプロバイダのIDがこのフィールドに入ります。その場合、このフィールドにはPROVIDERテーブルのPROVIDER_IDが入ります。</td>
+<td align="left">薬剤レコードに処方した医療従事者が記録されている場合、その医療従事者のIDがこのフィールドに入ります。その場合、このフィールドにはPROVIDERテーブルのPROVIDER_IDが入ります。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_OCCURRENCE_ ID</td>
@@ -1603,7 +1603,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">DRUG_SOURCE_ VALUE</td>
 <td align="left">69842087651</td>
-<td align="left">ソース・データに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。</td>
+<td align="left">ソースデータに表示される薬剤のソースコードです。Laurenの場合、NDCコードがここに格納されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">DRUG_SOURCE_ CONCEPT_ID</td>
@@ -1613,7 +1613,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">ROUTE_SOURCE_ VALUE</td>
 <td align="left">NULL</td>
-<td align="left">情報源に詳述されている投与経路に関する逐語的な情報。</td>
+<td align="left">ソースデータに詳述されている投与経路に関する逐語的な情報。</td>
 </tr>
 </tbody>
 </table>
@@ -1621,14 +1621,14 @@ div.csl-indent {
 </div>
 <div id="procedureOccurrence" class="section level3 hasAnchor" number="4.3.7">
 <h3><span class="header-section-number">4.3.7</span> PROCEDURE_OCCURRENCE<a href="CommonDataModel.html#procedureOccurrence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PROCEDURE_OCCURRENCEテーブルには、医療従事者が診断または治療目的で患者に命じた、または実施した活動やプロセスの記録が含まれます。プロシージャーは様々なデータソースに様々な形で存在し、標準化のレベルも様々です。例えば、</p>
+<p>PROCEDURE_OCCURRENCEテーブルには、医療従事者が診断または治療目的で患者に関してオーダーした、または実施した活動やプロセスの記録が含まれます。プロシージャーは様々なデータソースに様々な形で存在し、標準化のレベルも様々です。例えば、</p>
 <ul>
-<li>医療保険請求データには、実施されたプロシージャーを含む、提供された医療サービスの請求の一部として提出されるプロシージャーコードが含まれます。</li>
-<li>オーダーとしてプロシージャーを取り込む電子カルテ。</li>
+<li>実施されたプロシージャーを含む提供された医療サービスの保険請求の一部として提出される医療保険請求データ</li>
+<li>オーダーとしてプロシージャーを捕捉するEHR</li>
 </ul>
-<div id="laurenはどのプロシージャーを受けたか" class="section level4 unnumbered hasAnchor">
-<h4>Laurenはどのプロシージャーを受けたか?<a href="CommonDataModel.html#laurenはどのプロシージャーを受けたか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>彼女の記述から、2013-01-14に左卵巣の超音波検査を受け、4x5cmの嚢胞があることがわかりました。PROCEDURE_OCCURRENCEテーブルでは、このように表示されます：</p>
+<div id="laurenはどのプロシージャーを受けたのでしょうか" class="section level4 unnumbered hasAnchor">
+<h4>Laurenはどのプロシージャーを受けたのでしょうか？<a href="CommonDataModel.html#laurenはどのプロシージャーを受けたのでしょうか" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>彼女の記述から、2013年01月14日に左卵巣の超音波検査を受け、4x5cmの嚢胞があることがわかりました。PROCEDURE_OCCURRENCEテーブルでは、このように表示されます：</p>
 <table>
 <caption><span id="tab:procedureOccurrence">表 4.9: </span> PROCEDURE_OCCURRENCEテーブル</caption>
 <colgroup>
@@ -1638,9 +1638,9 @@ div.csl-indent {
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Column name</th>
-<th align="left">Value</th>
-<th align="left">Explanation</th>
+<th align="left">列名</th>
+<th align="left">値</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
@@ -1672,22 +1672,22 @@ div.csl-indent {
 <tr class="even">
 <td align="left">PROCEDURE_TYPE_ CONCEPT_ID</td>
 <td align="left">38000275</td>
-<td align="left">このカラムはプロシージャーの記録の由来に関する情報を提供することを目的としています。すなわち、保険請求、EHRオーダーなどによるものかどうかです。この例では、プロシージャーの記録がEHRによるのものであるため、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/38000275">38000275</a> (「EHR order list entry」)が使用されています。</td>
+<td align="left">この列はプロシージャーの記録の由来に関する情報を提供することを目的としています。すなわち、保険請求、EHRオーダーなどによるものかどうかです。この例では、プロシージャーの記録がEHRによるのものであるため、コンセプトID <a href="http://athena.ohdsi.org/search-terms/terms/38000275">38000275</a> (EHR order list entry (EHRオーダー入力))が使用されています。</td>
 </tr>
 <tr class="odd">
 <td align="left">MODIFIER_CONCEPT_ ID</td>
 <td align="left">0</td>
-<td align="left">これは手技の修飾子を表すコンセプトID を意味します。例えば、CPT4 のプロシージャーが両側で行われたと記録されている場合、コンセプト ID <a href="http://athena.ohdsi.org/search-terms/terms/42739579">42739579</a> (「両側プロシージャー」) が使用されます。</td>
+<td align="left">これはプロシージャーの修飾子を表すコンセプトID を意味します。例えば、CPT4 のプロシージャーが両側で行われたと記録されている場合、コンセプト ID <a href="http://athena.ohdsi.org/search-terms/terms/42739579">42739579</a> (Bilateral procedure (両側プロシージャー)) が使用されます。</td>
 </tr>
 <tr class="even">
 <td align="left">QUANTITY</td>
 <td align="left">0</td>
-<td align="left">オーダーされた、または実施されたプロシージャーの数。数がない場合、0と1はすべて同じ意味です。</td>
+<td align="left">オーダーされた、または実施されたプロシージャーの数。欠測値、0、および1はすべて同じ意味です。</td>
 </tr>
 <tr class="odd">
 <td align="left">PROVIDER_ID</td>
 <td align="left">NULL</td>
-<td align="left">ProcedureレコードにProviderがリストされている場合、そのProviderのIDがこのフィールドに入ります。これはPROVIDERテーブルのPROVIDER_IDに対する外部キーでなければなりません。</td>
+<td align="left">プロシージャーレコードに医療従事者がリストされている場合、その医療従事者のIDがこのフィールドに入ります。これはPROVIDERテーブルのPROVIDER_IDに対する外部キーでなければなりません。</td>
 </tr>
 <tr class="even">
 <td align="left">VISIT_OCCURRENCE_ ID</td>
@@ -1712,7 +1712,7 @@ div.csl-indent {
 <tr class="even">
 <td align="left">MODIFIER_SOURCE_ VALUE</td>
 <td align="left">NULL</td>
-<td align="left">ソース・データに表示される修飾子のソース・コード。</td>
+<td align="left">ソースデータに表示される修飾子のソースコード。</td>
 </tr>
 </tbody>
 </table>
@@ -1728,7 +1728,7 @@ div.csl-indent {
 
 <div class="rmdsummary">
 <ul>
-<li><p>CDMは広範囲の観察研究活動をサポートするように設計されています。</p></li>
+<li><p>CDMは広範囲の観察研究活動をサポートするようにデザインされています。</p></li>
 <li><p>CDMは人中心のモデルです。</p></li>
 <li><p>CDMはデータの構造を標準化するだけでなく、標準化ボキャブラリを通じてコンテンツの表現も標準化します。</p></li>
 <li><p>完全な追跡可能性を確保するために、ソースコードはCDMで管理されています。</p></li>
@@ -1741,13 +1741,13 @@ div.csl-indent {
 <h4>前提条件<a href="CommonDataModel.html#前提条件" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>これらの最初の練習問題のために、以前に議論されたCDMテーブルを確認する必要があり、ATHENA<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>またはATLAS<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>を通じて語彙内のコンセプトを調べる必要があります。</p>
 <div class="exercise">
-<p><span id="exr:exerciseJohnPerson" class="exercise"><strong>演習 4.1  </strong></span>ジョンは1974年8月4日生まれのアフリカ系アメリカ人男性です。この情報をエンコードするPERSONテーブルのエントリを定義してください。</p>
+<p><span id="exr:exerciseJohnPerson" class="exercise"><strong>演習 4.1  </strong></span>ジョンは1974年8月4日生まれのアフリカ系アメリカ人男性です。この情報をエンコードするPERSONテーブルに入力する情報を定義してください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseJohnOp" class="exercise"><strong>演習 4.2  </strong></span>ジョンは2015年1月1日に現在の保険に加入しました。彼の保険データは2019年7月1日に抽出されました。この情報をエンコードするOBSERVATION_PERIODテーブルのエントリを定義してください。</p>
+<p><span id="exr:exerciseJohnOp" class="exercise"><strong>演習 4.2  </strong></span>ジョンは2015年1月1日に現在の保険に加入しました。彼の保険請求データは2019年7月1日に抽出されました。この情報を表現するOBSERVATION_PERIODテーブルに入力する情報を定義してください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exerciseJohnDrug" class="exercise"><strong>演習 4.3  </strong></span>ジョンは2019年5月1日にイブプロフェン200 MG経口錠剤（NDCコード：76168009520）の30日分の供給を処方されました。この情報をエンコードするDRUG_EXPOSUREテーブルのエントリを定義してください。</p>
+<p><span id="exr:exerciseJohnDrug" class="exercise"><strong>演習 4.3  </strong></span>ジョンは2019年5月1日にイブプロフェン200 MG経口錠剤（NDCコード：76168009520）の30日分を処方されました。この情報を表現するためのDRUG_EXPOSUREテーブルに入力する情報を定義してください。</p>
 </div>
 </div>
 <div id="前提条件-1" class="section level4 unnumbered hasAnchor">
@@ -1755,7 +1755,7 @@ div.csl-indent {
 <p>最後の3つの課題には、セクション <a href="OhdsiAnalyticsTools.html#installR">8.4.5</a> で説明されているようにR、R-Studio、およびJavaがインストールされていることが前提となります。また、<a href="https://ohdsi.github.io/SqlRender/">SqlRender</a>、<a href="https://ohdsi.github.io/DatabaseConnector/">DatabaseConnector</a>、および<a href="https://ohdsi.github.io/Eunomia/">Eunomia</a>パッケージも必要で、以下のコマンドでインストールできます：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="CommonDataModel.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;SqlRender&quot;</span>, <span class="st">&quot;DatabaseConnector&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span>
 <span id="cb1-2"><a href="CommonDataModel.html#cb1-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ohdsi/Eunomia&quot;</span>, <span class="at">ref =</span> <span class="st">&quot;v1.0.0&quot;</span>)</span></code></pre></div>
-<p>Eunomiaパッケージは、ローカルのRセッション内で実行されるCDM内のシミュレートされたデータセットを提供します。接続の詳細は以下を使用して取得できます：</p>
+<p>Eunomiaパッケージは、ローカルのRセッション内で実行されるCDM内の模擬データセットを提供します。接続の詳細は以下を参照してください：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="CommonDataModel.html#cb2-1" tabindex="-1"></a>connectionDetails <span class="ot">&lt;-</span> Eunomia<span class="sc">::</span><span class="fu">getEunomiaConnectionDetails</span>()</span></code></pre></div>
 <p>CDMデータベーススキーマは「main」です。これはCONDITION_OCCURRENCEテーブルの一行を取得するためのSQLクエリの例です：</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="CommonDataModel.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(DatabaseConnector)</span>
@@ -1768,12 +1768,12 @@ div.csl-indent {
 <p><span id="exr:exerciseGiBleedRecords" class="exercise"><strong>演習 4.4  </strong></span>SQLとRを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)」（コンセプトID<a href="http://athena.ohdsi.org/search-terms/terms/192671">192671</a>）のすべてのレコードを取得してください。</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)“」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは 「K92.2」です。</p>
+<p><span id="exr:exercisePersonSource" class="exercise"><strong>演習 4.5  </strong></span>SQLとRを使用して、ソースコードを使用して、コンディション「Gastrointestinal hemorrhage (消化管出血)」のすべてのレコードを取得してください。このデータベースはICD-10を使用しており、関連するICD-10コードは 「K92.2」です。</p>
 </div>
 <div class="exercise">
 <p><span id="exr:exercisePerson61Records" class="exercise"><strong>演習 4.6  </strong></span>SQLとRを使用して、PERSON_ID 61に該当する人の観察期間を取得してください。</p>
 </div>
-<p>提案される答えは付録 <a href="SuggestedAnswers.html#Cdmanswers">E.1</a>にあります。</p>
+<p>推奨される解答は、付録E.1 <a href="SuggestedAnswers.html#Cdmanswers">E.1</a>を参照ください。</p>
 
 </div>
 </div>
