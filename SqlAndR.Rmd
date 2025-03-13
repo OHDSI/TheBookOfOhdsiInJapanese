@@ -68,7 +68,7 @@ render(sql, a = c(123, 234, 345))
 
 #### If-Then-Else {.unnumbered}
 
-時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、`{Condition} ? {if true} : {if false}` 構文を使用して行います。*condition* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが（存在する場合）表示されます。
+時には、1つまたは複数のパラメータの値に基づいてコードブロックをオンまたはオフにする必要があります。これは、`{Condition} ? {if true} : {if false}` 構文を使用して行います。*条件* が true または 1 の場合、*if true* ブロックが使用され、それ以外の場合は *if false* ブロックが（存在する場合）表示されます。
 
 ```{r tidy=TRUE,echo=TRUE}
 sql <- "SELECT * FROM cohort {@x} ? {WHERE subject_id = 1}"
@@ -133,7 +133,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 | DAY               | PI          |            |
 | EOMONTH           | POWER       |            |
 
-: (#tab:sqlFunctions) "translate (翻訳)によりサポートされる関数と構造
+: (#tab:sqlFunctions) 「translate (翻訳)」によりサポートされる関数と構造
 
 \* Oracleでは特別な権限が必要です。SQLiteでは同等のものがありません。
 
@@ -470,7 +470,7 @@ INNER JOIN @cdm.observation_period
 |--------:|
 |      90 |
 
-観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、"ages"と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて"n"を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
 ``` sql
 WITH ages
@@ -735,7 +735,7 @@ FROM (
   FROM @cdm_db_schema.condition_occurrence
   INNER JOIN @cdm_db_schema.concept_ancestor
     ON condition_concept_id = descendant_concept_id
-  WHERE ancestor_concept_id = 432791 -- 血管浮腫
+  WHERE ancestor_concept_id = 432791 -- 血管性浮腫
 ) distinct_occurrence
 INNER JOIN @cdm_db_schema.visit_occurrence
   ON subject_id = person_id
