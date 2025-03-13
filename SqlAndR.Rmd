@@ -197,7 +197,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### 文字列の連結 {.unnumbered}
 
-文字列の連結は、SQL Serverが他の言語よりも特異ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であるかどうかを推測しようとします。上記の例では、明示的な文字列（シングルクォーテーションで囲まれたスペース）があるため、変換は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知る手がかりがなく、プラス記号を正しく残さないでしょう。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。 そのため、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、`CONCAT()` 関数を使用するのが最善の方法です。
+文字列の連結は、SQL Serverが他の言語よりも特異的ではない領域の1つです。SQL Serverでは、`SELECT first_name + ' ' + last_name AS full_name FROM table` と書きますが、これは PostgreSQL と Oracle では `SELECT first_name || ' ' || last_name AS full_name FROM table` でなければなりません。SqlRenderは、連結される値が文字列であるかどうかを推測しようとします。上記の例では、明示的な文字列（シングルクォーテーションで囲まれたスペース）があるため、変換は正しく行われます。しかし、クエリが `SELECT first_name + last_name AS full_name FROM table` であった場合、SqlRenderは2つのフィールドが文字列であることを知る手がかりがなく、プラス記号を正しく残さないでしょう。値が文字列であることのもう一つの手がかりは、明示的なVARCHARへのキャストです。 そのため、`SELECT last_name + CAST(age AS VARCHAR(3)) AS full_name FROM table` も正しく翻訳されます。曖昧さを避けるために、2つ以上の文字列を連結する場合は、`CONCAT()` 関数を使用するのが最善の方法です。
 
 #### テーブルエイリアスとASキーワード {.unnumbered}
 
@@ -223,9 +223,9 @@ ON table_1.person_id = table_2.person_id;
 
 しかし、Oracleでは `AS` キーワードを使用するとエラーが発生します。上記の例では、最初のクエリは失敗します。そのため、テーブルにエイリアスを付ける際には `AS` キーワードを使用しないことを推奨します。（注：SqlRenderではOracleが`AS` の使用を許可していないテーブルエイリアスとOracleが`AS`の使用を要求しているフィールドエイリアスを区別できないため、この問題に対応するのは難しいです。）
 
-#### テンポテーブル {.unnumbered}
+#### テンポラリテーブル（Temp Table） {.unnumbered}
 
-テンポテーブルは中間結果を保存するのに非常に有用であり、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、テンポラリテーブルには非常に優れた特性があります：現在のユーザーのみに参照でき、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleではテンポラリテーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに参照されるという点です。このため、OracleではSqlRenderが以下の方法でテンポラリテーブルをエミュレートしようとします。
+テンポラリテーブルは中間結果を保存するのに非常に有用であり、正しく使用するとクエリのパフォーマンスを大幅に向上させることができます。ほとんどのデータベースプラットフォームでは、テンポラリテーブルには非常に優れた特性があります：現在のユーザーのみに参照でき、セッションが終了すると自動的に削除され、書き込みアクセス権がなくても作成できます。残念ながら、Oracleではテンポラリテーブルは基本的に恒久的なテーブルであり、唯一の違いはテーブル内のデータが現在のユーザーのみに参照されるという点です。このため、OracleではSqlRenderが以下の方法でテンポラリテーブルをエミュレートしようとします。
 
 1.  異なるユーザーからのテーブルが競合しないように、テーブル名にランダムな文字列を追加します。
 2.  テンポラリテーブルが作成されるスキーマをユーザーが指定できるようにします。
@@ -243,7 +243,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 
 さらに、Oracleではテンポラリテーブルは自動的に削除されないため、使用後に明示的にすべてのテンポラリテーブルを `TRUNCATE` および `DROP` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
 
-#### 暗黙の型変換 {.unnumbered}
+#### Implicit Cast (暗黙のデータ型変換） {.unnumbered}
 
 SQL Serverが他の言語よりも特異である数少ない点の1つは、暗黙の型変換が許可されていることです。例えば、次のコードはSQL Serverで動作します：
 
@@ -256,7 +256,7 @@ SELECT '1';
 SELECT * FROM #temp WHERE txt = 1;
 ```
 
-`txt` がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、キャストは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：
+`txt` がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、castは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：
 
 ``` sql
 SELECT * FROM #temp WHERE txt = CAST(1 AS VARCHAR);
@@ -292,7 +292,7 @@ SELECT * FROM @databaseSchema.person
 
 SQL Serverでは、値にデータベース名とスキーマ名の両方を含めることができます：`databaseSchema = "cdm_data.dbo"`。他のプラットフォームでは、同じコードを使用し、パラメータ値としてスキーマのみを指定します：`databaseSchema = "cdm_data"`。
 
-この方法が失敗する唯一の状況は `USE` コマンドを使用した場合です。`USE cdm_data.dbo;` エラーが発生します。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、`USE` コマンドの使用を避けることを推奨します。
+この方法が失敗する唯一の状況は `USE` コマンドを使用した場合です。なぜなら、USE cdm_data.dboを実行するとエラーが発生するからです。したがって、常にデータベース/スキーマを指定してテーブルの場所を示すようにし、`USE` コマンドの使用を避けることを推奨します。
 
 #### パラメータ化されたSQLのデバッグ {.unnumbered}
 
@@ -346,7 +346,7 @@ writeLines("Connecting using PostgreSQL driver")
 disconnect(conn)
 ```
 
-サーバー名を指定する代わりに、JDBC接続文字列を提供することも可能です。さらに便利な場合は、こちらを使用することもできます。：
+サーバー名を指定する代わりに、JDBC接続文字列を提供することも可能です。さらに便利な場合は、こちらを使用することもできます：
 
 ```{r eval=FALSE}
 connString <- "jdbc:postgresql://localhost:5432/postgres"
@@ -470,7 +470,7 @@ INNER JOIN @cdm.observation_period
 |--------:|
 |      90 |
 
-観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（CTE）として定義し（`WITH ... AS`を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
+観察開始時の年齢分布を決定するには、はるかに複雑なクエリが必要です。このクエリでは、まずPERSONをOBSERVATION_PERIODテーブルに結合して観察開始時の年齢を計算します。また、この結合されたセットの順序を年齢に基づいて計算し、それをorder_nrとして保存します。この結合の結果を複数回使用したい場合には、共通テーブル式（common table expression; CTE）として定義し（`WITH ... AS`を使用）、「ages」と呼びます。これにより、agesを既存のテーブルであるかのように参照することができます。agesの行数を数えて「n」を生成し、各分位数に対して、order_nrが分数のn倍より小さい最小年齢を求めます。例えば、中央値を求めるには\$`order_nr < .50 * n`の最小年齢を使用します。最小年齢と最大年齢は別々に計算されます：
 
 ``` sql
 WITH ages
@@ -605,7 +605,7 @@ QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラ�
 
 [^sqlandr-3]: <https://github.com/OHDSI/QueryLibrary>
 
-```{r queryLibrary, fig.cap='クエリライブラリ：CDMに対するSQLクエリのライブラリ。',echo=FALSE, out.width='100%', fig.align='center'}
+```{r queryLibrary, fig.cap='クエリライブラリ：CDMに対するSQLクエリのライブラリ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/SqlAndR/queryLibrary.png")
 ```
 
@@ -617,7 +617,7 @@ QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリ�
 
 ### 問題の定義
 
-血管性浮腫は、ACE阻害薬（ACEi）のよく知られた副作用です。@slater_1988 によると、ACEi治療開始後1週間の血管性浮腫の発症率は3,000人中1例/週と推定されています。ここでは、この結果を再現し、年齢と性別によって層別化します。単純化するため、ACEiの一つである（リシノプリル）に焦点を当てます。したがって、次の問いに答えます：
+血管性浮腫は、ACE阻害薬のよく知られた副作用です。@slater_1988 によると、ACE阻害薬治療開始後1週間の血管性浮腫の発症率は3,000人中1例/週と推定されています。ここでは、この結果を再現し、年齢と性別によって層別化します。単純化するため、ACE阻害薬の一つである（リシノプリル）に焦点を当てます。したがって、次の問いに答えます：
 
 > リシノプリル投与開始後の最初の1週間での血管性浮腫の発生率は、年齢と性別で層別化するとどの程度でしょうか？
 
@@ -631,7 +631,7 @@ QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリ�
 
 ### リスク期間
 
-治療開始後の最初の1週間の発症率を計算します。患者が1週間にわたって継続的に曝露されたかどうかは問いません。
+治療開始後の最初の1週間の発生率を計算します。患者が1週間にわたって継続的に曝露されたかどうかは問いません。
 
 ## SQLとRを使用した研究の実施
 
@@ -751,11 +751,11 @@ renderTranslateExecuteSql(conn, sql,
                           cdm_db_schema = cdmDbSchema)
 ```
 
-ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管性浮腫またはその下位層に含まれるすべての出現を見つけます。同じ日に複数の診断がある場合、それは同じ発生である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院またはERで行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
+ここでは、CONDITION_OCCURRENCEテーブルをCONCEPT_ANCESTORテーブルと結合して、血管性浮腫またはその下位層に含まれるすべての出現を見つけます。同じ日に複数の診断がある場合、それは同じ発生である可能性が高いため、各日1件のレコードのみを取得するようにDISTINCTを使用します。次に、診断が入院または救急室で行われたことを確認するために、これらの発生をVISIT_OCCURRENCEテーブルと結合します。
 
-### 発症率の計算
+### 発生率の計算
 
-コホートが設定されたので、年齢と性別で層別化された発症率を計算できます：
+コホートが設定されたので、年齢と性別で層別化された発生率を計算できます：
 
 ```{r eval=FALSE}
 sql <- "
@@ -818,14 +818,14 @@ results <- renderTranslateQuerySql(conn, sql,
                                    snakeCaseToCamelCase = TRUE)
 ```
 
-まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク期間が切り捨てられることに留意ください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク期間の合計およびリスク期間中に発生する血管性浮腫のイベント数を数えるために使用します。
+まず、CTE「tar」を作成し、適切なリスク時間を伴うすべての曝露を含めます。OBSERVATION_PERIOD_END_DATEでリスク時間が切り捨てられることに留意ください。また、10年ごとの年齢階層を計算し、性別を特定します。CTEを使用する利点は、クエリ中に同じ中間結果セットを複数回使用できることです。このユースケースでは、リスク時間の合計およびリスク時間中に発生する血管性浮腫のイベント数を数えるために使用します。
 
 snakeCaseToCamelCase = TRUE を用いるのは、SQLではフィールド名にsnake_case を使用する傾向がある（SQLは大文字と小文字を区別しないため）のに対し、RではcamelCaseを使用する傾向がある（Rは大文字・小文字を区別するため）からです。`results`データフレームの列名はcamelCaseになります。
 
 ggplot2パッケージを使用すると、結果を簡単にプロットできます：
 
 ```{r eval=FALSE}
-# 発症率（IR）を算出
+# 発生率（IR）を算出
 results$ir <- 1000 * results$events / results$days / 7
 
 # 年齢スケールを修正
@@ -835,7 +835,7 @@ library(ggplot2)
 ggplot(results, aes(x = age, y = ir, group = gender, color = gender)) +
   geom_line() +
   xlab("年齢") +
-  ylab("発症率（1,000患者/週）")
+  ylab("発生率（1,000患者/週）")
 ```
 
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
@@ -890,7 +890,7 @@ install.packages(c("SqlRender", "DatabaseConnector", "remotes"))
 remotes::install_github("ohdsi/Eunomia", ref = "v1.0.0")
 ```
 
-Eunomia パッケージは、CDM 内でローカル R セッション内で動作するシミュレートされたデータセットを提供します。接続の詳細は以下の方法で取得できます。
+Eunomia パッケージは、CDM 内でローカル R セッション内で動作する模擬データセットを提供します。接続の詳細は以下の方法で取得できます。
 
 ```{r eval=FALSE}
 connectionDetails <- Eunomia::getEunomiaConnectionDetails()
