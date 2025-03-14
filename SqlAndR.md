@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.tdi7k8g5children ;"
+## [1] "SELECT * FROM temp_schema.umdka0xmchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
