@@ -518,7 +518,7 @@ FeatureExtractionは、カスタム共変量を定義および利用する機能
 \caption{対象およびアウトカム定義の発生率}(\#fig:atlasIncidenceCohortSelection)
 \end{figure}
 
-定義タブで、 *New users of ACE inhibitors (ACE阻害薬の新規ユーザー)* コホートと *New users of Thiazide or Thiazide-like diuretics (サイアザイドまたはサイアザイド様利尿薬の新規ユーザー)*コホートをクリックして選択します。ダイアログを閉じて、これらのコホートが追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから \*「acute myocardial infarction events　(急性心筋梗塞イベント)\*\*」 、 *「angioedema events (血管性浮腫イベント)」* 、および *「Angiotensin receptor blocker (ARB) use (アンジオテンシン受容体拮抗薬 (ARB) の新規ユーザー)」* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートがアウトカムコホートセクションに追加されたことを確認します。
+定義タブで、 *「New users of ACE inhibitors (ACE阻害薬の新規ユーザー)」* コホートと *「New users of Thiazide or Thiazide-like diuretics (サイアザイドまたはサイアザイド様利尿薬の新規ユーザー)」*コホートをクリックして選択します。ダイアログを閉じて、これらのコホートが追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから \*「acute myocardial infarction events　(急性心筋梗塞イベント)」\*\*、 *「angioedema events (血管性浮腫イベント)」* 、および *「Angiotensin receptor blocker (ARB) use (アンジオテンシン受容体拮抗薬 (ARB) の新規ユーザー)」* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートがアウトカムコホートセクションに追加されたことを確認します。
 
 \begin{figure}
 

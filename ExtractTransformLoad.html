@@ -1034,7 +1034,7 @@ div.csl-indent {
 </div>
 <div id="ステップ2-コードマッピングの作成" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> ステップ2: コードマッピングの作成<a href="ExtractTransformLoad.html#ステップ2-コードマッピングの作成" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>OMOPボキャブラリには、常にソースコードが追加されています。これは、CDMにデータを変換する際のコーディングシステムが既に含まれており、マッピングされている可能性があることを意味します。含まれているボキャブラリは、OMOPボキャブラリのVOCABULARYテーブルを確認ください。非標準のソースコード（例：ICD-10CMコード）から標準コンセプト（例：SNOMEDコード）へのマッピングを抽出するには、relationship_id =「Maps to」を持つCONCEPT_RELATIONSHIPテーブルのレコードを使用できます。例えば、ICD-10CMコード「I21」（「Acute Myocardial Infarction (急性心筋梗塞)」）の標準コンセプトIDを特定するには、次のSQLを使用します：</p>
+<p>OMOPボキャブラリには、常にソースコードが追加されています。これは、CDMにデータを変換する際のコーディングシステムが既に含まれており、マッピングされている可能性があることを意味します。含まれているボキャブラリは、OMOPボキャブラリのVOCABULARYテーブルを確認ください。非標準のソースコード（例：ICD-10CMコード）から標準コンセプト（例：SNOMEDコード）へのマッピングを抽出するには、relationship_id =「Maps to」を持つCONCEPT_RELATIONSHIPテーブルのレコードを使用できます。例えば、ICD-10CMコード「I21」（Acute Myocardial Infarction (急性心筋梗塞)）の標準コンセプトIDを特定するには、次のSQLを使用します：</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="ExtractTransformLoad.html#cb4-1" tabindex="-1"></a><span class="kw">SELECT</span> concept_id_2 <span class="kw">AS</span> standard_concept_id</span>
 <span id="cb4-2"><a href="ExtractTransformLoad.html#cb4-2" tabindex="-1"></a><span class="kw">FROM</span> concept_relationship</span>
 <span id="cb4-3"><a href="ExtractTransformLoad.html#cb4-3" tabindex="-1"></a><span class="kw">INNER</span> <span class="kw">JOIN</span> concept <span class="kw">AS</span> source_concept</span>
