@@ -819,7 +819,7 @@ OMOPマッピングされたデータのオープンプロトコルを介した�
 
 \emph{著者: Clair Blacketer}
 
-観察データは、患者が医療を受ける際に起こることを示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのはサーベイデータやレジストリデータの形で）、２） 医療の提供をサポートするため（いわゆる電子的健康記録（EHR)）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の２つは二次利用データとして使用され、すべての目的で、データのコンテンツに関して独自の様式や符号化が使われています。 \index{共通データモデル} \index{CDM | {共通データモデル}} \index{リレーショナルデータモデル| {共通データモデル}}
+観察データは、患者が医療を受ける際に起こることを示すものです。このデータは世界中でますます多くの患者について収集し、保存されるため、ビッグヘルスデータと呼ばれることがあります。これらのデータ収集には３つの目的があります： １）直接的に研究を支援するため（よくあるのはサーベイデータやレジストリデータの形で）、２） 医療の提供をサポートするため（いわゆる電子的健康記録（EHR)）、３） 医療の費用を管理するため（いわゆる保険請求データ）。この３つの目的はすべて臨床研究に日常的に使用されており、後者の２つは二次利用データとして使用され、すべての目的で、データのコンテンツに関して独自の様式や符号化が使われています。 \index{共通データモデル} \index{CDM !{共通データモデル}} \index{リレーショナルデータモデル!{共通データモデル}}
 
 なぜ観察医療データに共通データモデル（common data model; CDM）が必要なのでしょうか？
 
@@ -3438,7 +3438,7 @@ OHDSIonAWSは、企業向け、マルチユーザー対応、拡張性や耐障�
 
 共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、Microsoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースにクエリを出すことで動作しますが、適切なアクセス権があれば、私たちも自身も直接データベースにクエリを出すことができます。その主な理由は、現在のツールではサポートされていない分析を行うためです。ただし、OHDSI ツールは多くの場合、ユーザーがデータを適切に分析できるよう、ガイドするように設計されているため、データベースを直接クエリすると、間違いを犯すリスクも高くなります。直接のクエリでは、そのようなガイドは提供されていません。
 
-リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します。： \index{SQL} \index{structured query language|see {SQL}}
+リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します。： \index{SQL} \index{structured query language!SQL}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3454,13 +3454,13 @@ OHDSIonAWSは、企業向け、マルチユーザー対応、拡張性や耐障�
 \end{Highlighting}
 \end{Shaded}
 
-OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは\href{https://ohdsi.github.io/SqlRender/}{SqlRender}パッケージを開発しました。これは、ある標準の表現から後述するサポート対象の表現に翻訳できるRパッケージです。この標準表現である - \textbf{OHDSI SQL} - は主にSQL Server SQL表現のサブセットです。本章で例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL|see {SqlRender}} \index{Standard SQL Dialect|see {SqlRender}} \index{OHDSI SQL|see {SqlRender}}
+OHDSIでは、プラットフォーム固有の表現に依存しないことを望んでいます。すなわち、すべてのOHDSIデータベースで同じSQL言語を使用したいと考えています。このため、OHDSIは\href{https://ohdsi.github.io/SqlRender/}{SqlRender}パッケージを開発しました。これは、ある標準の表現から後述するサポート対象の表現に翻訳できるRパッケージです。この標準表現である - \textbf{OHDSI SQL} - は主にSQL Server SQL表現のサブセットです。本章で例示するSQL文はすべてOHDSI SQLを使用します。 \index{SqlRender} \index{agnostic SQL!SqlRender} \index{Standard SQL Dialect!SqlRender} \index{OHDSI SQL!SqlRender}
 
 各データベースプラットフォームには、SQLを使用したデータベースのクエリのための独自のソフトウェアツールも付属しています。OHDSIでは、多くのデータベースプラットフォームに接続できるRパッケージ、\href{https://ohdsi.github.io/DatabaseConnector/}{DatabaseConnector}パッケージを開発しました。DatabaseConnectorも本章の後半で説明します。 \index{DatabaseConnector}
 
 そのため、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、あるサイトで開発されたクエリが他のサイトでも修正することなく使用できるようになります。R自体も、データベースから抽出されたデータをさらに分析する機能を提供しており、統計分析の実行や（インタラクティブな）プロットの生成などが可能です。 \index{R}
 
-本章では、読者がSQLの基本的な理解をしていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法を確認します。これらのパッケージを使用しない場合は、このセクションをスキップいただいて構いません。セクション\ref{QueryTheCdm} では、CDMにクエリを出すためのSQL（この場合OHDSI SQL）を使用する方法を説明します。次のセクションでは、CDMにクエリする際にOHDSI標準化ボキャブラリを使用する方法を説明します。CDMに対する一般的に使用されるクエリのコレクションであり、一般に公開されているQueryLibraryに焦点を当てます。本章の最後では、発生率を推定する研究例を取り上げ、SqlRenderとDatabaseConnectorを使用してこの研究を実施します。 \index{Query Library} \index{SQL Query Library|see {Query Library}}
+本章では、読者がSQLの基本的な理解をしていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法を確認します。これらのパッケージを使用しない場合は、このセクションをスキップいただいて構いません。セクション\ref{QueryTheCdm} では、CDMにクエリを出すためのSQL（この場合OHDSI SQL）を使用する方法を説明します。次のセクションでは、CDMにクエリする際にOHDSI標準化ボキャブラリを使用する方法を説明します。CDMに対する一般的に使用されるクエリのコレクションであり、一般に公開されているQueryLibraryに焦点を当てます。本章の最後では、発生率を推定する研究例を取り上げ、SqlRenderとDatabaseConnectorを使用してこの研究を実施します。 \index{Query Library} \index{SQL Query Library!Query Library}
 
 \section{SqlRender}\label{SqlRender}
 
@@ -3714,7 +3714,7 @@ EOMONTH & POWER & \\
 \subsubsection*{テーブルエイリアスとASキーワード}\label{ux30c6ux30fcux30d6ux30ebux30a8ux30a4ux30eaux30a2ux30b9ux3068asux30adux30fcux30efux30fcux30c9}
 \addcontentsline{toc}{subsubsection}{テーブルエイリアスとASキーワード}
 
-多くのSQL表現ではテーブルエイリアスを定義する際に \texttt{AS} キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します：
+多くのSQL表現ではテーブルエイリアスを定義する際に \texttt{AS} キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します。：
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3767,7 +3767,7 @@ EOMONTH & POWER & \\
 \end{verbatim}
 
 \begin{verbatim}
-## [1] "SELECT * FROM temp_schema.zgvzhzvqchildren ;"
+## [1] "SELECT * FROM temp_schema.iq46qcb9children ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 \end{verbatim}
