@@ -1,6 +1,6 @@
 The Book of OHDSIの日本語版です。
 
-原文は下記にあります
+原文は下記にあります。
 https://github.com/OHDSI/TheBookOfOhdsi
 
 この翻訳は、The Book OHDSI原文を下記のプログラムにより機械翻訳した後、ポストエディットし作成されました。
