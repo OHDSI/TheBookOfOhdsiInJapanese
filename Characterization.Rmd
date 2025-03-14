@@ -11,7 +11,7 @@
 
 データベースレベルの特性評価を除き、これらの方法は「インデックス日」と呼ばれるイベントに対して集団を記述することを目的としています。この対象集団は、第 \@ref(Cohorts)章で説明されているようにコホートとして定義されます。コホートは対象集団内の各人のインデックス日を定義します。インデックス日をアンカー（基点）として、インデックス日以前の時間を**ベースライン期間**と定義し、インデックス日以降のすべての時間を**ポストインデックス期間**と呼びます。
 
-特性評価のユースケースには、疾患の自然経過、治療の利用状況、品質向上などが含まれます。本章では特性評価の方法を説明します。高血圧症患者の集団を例に、ATLASとRを使用してこれらの特性評価のタスクを実行する方法を示します。\index{characterization} \index{cohort characterization|see {characterization!cohort}} \index{baseline time} \index{post-index time} \index{index date} \index{disease natural history|see {characterization}} \index{treatment utilization|see {characterization}} \index{quality improvement|see {characterization}}
+特性評価のユースケースには、疾患の自然経過、治療の利用状況、品質向上などが含まれます。本章では特性評価の方法を説明します。高血圧症患者の集団を例に、ATLASとRを使用してこれらの特性評価のタスクを実行する方法を示します。\index{特性評価} \index{コホート特性評価|see {特性評価!コホート}} \index{ベースライン期間} \index{ポストインデックス期間} \index{インデックス日} \index{疾患の自然経過|see {特性評価}} \index{治療の利用状況|see {特性評価}} \index{品質向上|see {特性評価}}
 
 ## データベースレベルの特性評価
 
@@ -22,17 +22,17 @@
 -   このデータベースで観察されている期間は？
 -   時間の経過とともに{治療、状態・疾患（コンディション）、処置（プロシージャー）など}が記録・処方された人の割合は？
 
-これらのデータベースレベルの記述統計は、研究者がデータベースに欠けている可能性のあるデータを理解するのにも役立ちます。第 \@ref(DataQuality)章では、データ品質についてさらに詳しく説明します。 \index{characterization!database level}
+これらのデータベースレベルの記述統計は、研究者がデータベースに欠けている可能性のあるデータを理解するのにも役立ちます。第 \@ref(DataQuality)章では、データ品質についてさらに詳しく説明します。 \index{特性評価!データベースレベル}
 
 ## コホート特性評価
 
 コホート特性評価は、コホート内の人々のベースラインとポストインデックスの特徴を記述します。OHDSIは、個人の履歴に存在するすべてのコンディション、薬剤やデバイスへの曝露、処置（プロシージャー）、その他の臨床観察の記述統計によって特徴を分析します。また、インデックス日時点でのコホートメンバーの社会人口統計学的属性も要約します。このアプローチは対象集団の完全な要約を提供します。重要なのは、これによりデータのばらつきを考慮しながらコホートを十分に探索でき、潜在的に欠損値となりうる値も特定できるということです。
 
-コホートの特性評価の方法は、特定の治療を受けている患者の適応症や禁忌の有病率を推定する個人レベルの薬剤使用実態研究（Drug Utilization Study; DUS）にも使用できます。このコホート特性評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています [@VONELM2008344]。\index{characterization!cohort} \index{descriptive statistics|see {characterization}} \index{drug utilization}
+コホートの特性評価の方法は、特定の治療を受けている患者の適応症や禁忌の有病率を推定する個人レベルの薬剤使用実態研究（Drug Utilization Study; DUS）にも使用できます。このコホート特性評価の普及は、観察研究における推奨されるベストプラクティスであり、Strengthening the Reporting of Observation Studies in Epidemiology（STROBE）ガイドラインで詳述されています [@VONELM2008344]。\index{特性評価!コホート} \index{記述統計|see {特性評価}} \index{薬剤使用実態}
 
 ## 治療経路
 
-集団の特性を評価するもう一つの方法は、インデックス後の期間における治療シーケンスを記述することが挙げられます。たとえば、@Hripcsak7329 は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧症、うつ病に対する治療経路を特性づける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakらは、同じ分析をOHDSIネットワーク全体で実行して、これらの対象集団の特徴を記述することができました。 \index{characterization!treatment pathways} \index{treatment pathways|see {characterization!treatment pathways}} \index{cohort pathways|see {characterization!treatment pathways}}
+集団の特性を評価するもう一つの方法は、インデックス後の期間における治療シーケンスを記述することが挙げられます。たとえば、@Hripcsak7329 は、OHDSIの共通データ標準を利用して、2型糖尿病、高血圧症、うつ病に対する治療経路を特性づける記述統計を作成しました。この分析アプローチを標準化することにより、Hripcsakらは、同じ分析をOHDSIネットワーク全体で実行して、これらの対象集団の特徴を記述することができました。 \index{特性評価!治療経路} \index{治療経路|see {特性評価!治療経路}} \index{コホート経路|see {特性評価!治療経路}}
 
 経路分析は、特定のコンディションを診断された人が最初の薬剤処方/調剤を受けた治療（イベント）を要約することを目的としています。この研究では、治療はそれぞれ2型糖尿病、高血圧症およびうつ病の診断後に記述されました。その後、各人のイベントは集計され、各コンディション、各データベースに対して要約統計として視覚化されました。
 
@@ -48,7 +48,7 @@ knitr::include_graphics("images/Characterization/pnasTreatmentPathwaysSunburst.p
 
 ## 発生率
 
-発生率および発生割合は、時間の経過とともに集団における新たなアウトカムの発生を評価するための公衆衛生の統計です。図 \@ref(fig:incidenceTimeline) は、単一の人に対する発生率の計算要素を示すことを目的としています： \index{incidence}
+発生率および発生割合は、時間の経過とともに集団における新たなアウトカムの発生を評価するための公衆衛生の統計です。図 \@ref(fig:incidenceTimeline) は、単一の人に対する発生率の計算要素を示すことを目的としています： \index{発生率}
 
 ```{r incidenceTimeline, fig.cap='発生率計算要素の人単位のビュー。この例では、リスク時間はコホート開始の翌日に始まり、コホート終了時に終了します。',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/incidenceTimeline.png")
@@ -62,13 +62,13 @@ $$
 発生割合 = \frac{\#\;リスク時間中に新しいアウトカムが発生したコホート内の人数}{\#\;リスク時間を持つコホート内の人数}
 $$
 
-発生割合は、リスク時間中に集団内で発生した新規のアウトカムの割合を提供します。別の言い方をすると、これは定義された時間内に対象集団内でアウトカムを得た割合を示します。\index{incidence!proportion}
+発生割合は、リスク時間中に集団内で発生した新規のアウトカムの割合を提供します。別の言い方をすると、これは定義された時間内に対象集団内でアウトカムを得た割合を示します。\index{発生率!割合}
 
 $$
 発生率 = \frac{\#\;リスク時間中に新規のアウトカムが発生したコホート内の人数}{コホート内の人によって提供されたリスク時間の人年}
 $$
 
-発生率は、集団の累積的なリスク時間内に新規のアウトカムの数を測定する指標です。リスク時間中にある人がアウトカムを経験した場合、その人のリスク時間への寄与はアウトカムの発生時点で停止します。累積的なリスク時間は**人年**と呼ばれ、日、月、または年単位で表現されます。\index{incidence!rate} \index{person-time}
+発生率は、集団の累積的なリスク時間内に新規のアウトカムの数を測定する指標です。リスク時間中にある人がアウトカムを経験した場合、その人のリスク時間への寄与はアウトカムの発生時点で停止します。累積的なリスク時間は**人年**と呼ばれ、日、月、または年単位で表現されます。\index{発生率!率} \index{人年}
 
 治療に対して計算される場合、発生割合および発生率は、特定の治療の使用における集団レベルのDUSの古典的な尺度です。
 
@@ -118,7 +118,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationCohortSele
 
 #### 特徴量の選択 {.unnumbered}
 
-ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特徴量分析が備わっています。これらのそれぞれの事前に規定された特徴量分析は、各ターゲットコホートに対して臨床観察を集約および要約する機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特徴量を提供します。この元で、ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{feature analyses}
+ATLASにはOMOP CDMでモデル化された臨床ドメイン全体で特性評価を行うため、約100の事前設定された特徴量分析が備わっています。これらのそれぞれの事前に規定された特徴量分析は、各ターゲットコホートに対して臨床観察を集約および要約する機能を提供します。これらの計算は、コホートのベースラインおよびポストインデックス特性を説明するために、潜在的に数千の特徴量を提供します。この元で、ATLASは、各コホートの特性評価を行うために、OHDSIのFeatureExtraction Rパッケージを利用しています。次のセクションでは、FeatureExtractionとRの使用について詳しく説明します。\index{特徴量分析}
 
 ![](images/Characterization/atlasImportButton.png)をクリックして、特性評価をするための特徴量を選択します。以下は、これらのコホートを特性評価するために使用する特徴量のリストです：
 
@@ -196,7 +196,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsCon
 
 ### カスタム特徴量の定義
 
-既定の特徴量に加えて、ATLASはユーザー定義のカスタム特徴量を用いることもできます。これを行うには、左側のメニューの　**Characterization (特性評価)**をクリックし、**Feature Analysis (特徴量分析)**タブをクリックして、**New Feature Analysis (新規の特徴量分析)**ボタンをクリックします。カスタム特性に名前を付け、![](images/PopulationLevelEstimation/save.png)ボタンを使用して保存します。\index{ATLAS!characterization features}
+既定の特徴量に加えて、ATLASはユーザー定義のカスタム特徴量を用いることもできます。これを行うには、左側のメニューの　**Characterization (特性評価)**をクリックし、**Feature Analysis (特徴量分析)**タブをクリックして、**New Feature Analysis (新規の特徴量分析)**ボタンをクリックします。カスタム特性に名前を付け、![](images/PopulationLevelEstimation/save.png)ボタンを使用して保存します。\index{ATLAS!特性評価の特徴量}
 
 この例では、コホート内で、ACE阻害剤の服用歴が各コホート開始後にある人数を特定するカスタム特徴量を定義します：
 
