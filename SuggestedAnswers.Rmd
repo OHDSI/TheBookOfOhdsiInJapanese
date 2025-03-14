@@ -173,7 +173,7 @@ MedDRA基本語（Preferred Terms, PT)：
 -   "消化管出血" (コンセプトID 35707864)
 -   "腸出血" (コンセプトID 35707858)
 
-## ETL (Extract-Transform-Load) {#Etlanswers}
+## ETL （抽出-変換-読込） {#Etlanswers}
 
 #### 演習 \@ref(exr:exerciseEtl1) {.unnumbered}
 
@@ -209,7 +209,7 @@ D)  全員が品質管理に関与します。
 | VISIT_CONCEPT_ID    | 9201       |
 | VISIT_SOURCE_VALUE  | inpatient  |
 
-## データ分析のユースケース {#UseCasesanswers}
+## データ分析の使用例 {#UseCasesanswers}
 
 #### 演習 \@ref(exr:exerciseUseCases1) {.unnumbered}
 
