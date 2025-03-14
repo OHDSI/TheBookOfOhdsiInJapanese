@@ -8,7 +8,7 @@ OHDSIは、患者レベルの観察データに対するさまざまなデータ
 
 ## 分析の実装 {#analysisImplementation}
 
-図 \@ref(fig:implementations) は、CDMを使用してデータベースに対して研究を実装するために選択できるさまざまな方法を示しています。 \index{analysis implementation}
+図 \@ref(fig:implementations) は、CDMを使用してデータベースに対して研究を実装するために選択できるさまざまな方法を示しています。 \index{分析の実装}
 
 ```{r implementations, fig.cap='CDMのデータに対する分析を実装するさまざまな方法', echo=FALSE, out.width='90%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/implementations.png")
@@ -48,7 +48,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 
 図 \@ref(fig:atlas) にATLASのスクリーンショットを示します。左側にはATLASの様々な機能を示すナビゲーションバーがあります。
 
-データソース \index{ATLAS!データソース} \index{Achilles|see {ATLAS!データソース}}
+データソース \index{ATLAS!データソース} \index{ACHILLES|see {ATLAS!データソース}}
 
 :   データソースは、ATLASプラットフォームに構成された各データソースの記述的で標準化されたレポートをレビューする機能を提供します。この機能は大規模分析戦略を用いており、すべての記述は事前に計算されています。データソースについては、第\@ref(Characterization)章で説明します。
 
@@ -64,11 +64,11 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 
 :   コホート定義は、一定期間内に1つまたは複数の基準を満たす人のセットを構築する機能であり、これらのコホートはその後のすべての分析の入力の基礎として使用されます。この機能については、第\@ref(Cohorts)章で説明します。
 
-特性評価\index{ATLAS!特性の評価}
+特性評価\index{ATLAS!特性評価}
 
 :   特性評価は、定義された１つまたは複数のコホートを調査し、これらの患者集団の特性を要約するための分析機能です。この機能はリアルタイムクエリ戦略を用いており、第\@ref(Characterization)章で説明しています。
 
-コホート経路 \index{ATLAS!コホートパスウェイ}
+コホート経路 \index{ATLAS!コホート経路}
 
 :   コホート経路は、1つまたは複数の集団内で発生する臨床イベントのシーケンスを観察できる分析ツールです。この機能については、第\@ref(Characterization)章で説明されています。
 
@@ -80,11 +80,11 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 
 :   プロファイルは、個々の患者の縦断的観察データを調査し、特定の個人に起こっている状況を要約するためのツールです。この機能はリアルタイムクエリ戦略を使用します。
 
-集団レベル推定 \index{ATLAS!集団レベル推定}
+集団レベルの推定 \index{ATLAS!集団レベルの推定}
 
 :   推定は、比較コホートデザインを使用して集団レベルの効果推定研究を定義し、1つまたは複数の対象コホートと比較コホート間の比較の一連の結果を調査することができます。この機能はコーディングが不要で、リアルタイムクエリ戦略を実装していると言えます。この機能については第\@ref(PopulationLevelEstimation)章で説明されています。
 
-患者レベルの予測 \index{ATLAS!患者レベル予測}
+患者レベルの予測 \index{ATLAS!患者レベルの予測}
 
 :   予測機能は機械学習アルゴリズムを適用して、患者レベルの予測分析を行い、特定のターゲット曝露内でアウトカムを予測することができます。この機能もリアルタイムクエリ戦略を実装しており、コーディングが不要です。第\@ref(PatientLevelPrediction)章で説明されています。
 
@@ -92,7 +92,7 @@ knitr::include_graphics("images/OhdsiAnalyticsTools/atlas.png")
 
 :   ジョブメニュー項目を選択して、WebAPIを通じて実行されているプロセスの状態を確認できます。ジョブは、コホートの生成やコホートの特性評価のレポートの計算など、長時間実行されるプロセスであることが多いです。
 
-構成 \index{ATLAS!設定}
+構成 \index{ATLAS!構成}
 
 :   構成メニュー項目を選択して、ソース構成セクションに構成されたデータソースを確認できます。
 
@@ -122,7 +122,7 @@ ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。
 
 ## Methods Library
 
-[OHDSI Methods library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{methods library}
+[OHDSI Methods library](https://ohdsi.github.io/MethodsLibrary/)は、図 \@ref(fig:methodsLibrary) に示されているオープンソースのRパッケージのコレクションです。 \index{Methods Library}
 
 ```{r methodsLibrary, fig.cap='OHDSI Methods Libraryのパッケージ',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/OhdsiAnalyticsTools/methodsLibrary.png")
@@ -136,7 +136,7 @@ Methods libraryはすでに多くの公表された臨床研究 [@boland_2017; @
 
 すべてのパッケージで組み込まれている重要な機能の一つは、多くの分析を効率的に実行できることです。例えば、集団レベルの推定を行う場合、CohortMethodパッケージは多数の曝露とアウトカムに対して効果量の推定を行うことを可能にし、さまざまな分析設定を使用して、必要な中間データセットや最終データセットを計算するための最適な方法を自動的に選択します。共変量の抽出や、一つのターゲット・比較対照ペアに対して複数のアウトカムで使用される傾向スコアモデルの適合など、再利用可能なステップは一度だけ実行されます。可能な場合は、計算リソースを最大限に活用するために計算は並列処理されます。
 
-この計算効率により、大規模な分析が可能になり、多くの課題に一度に回答することができます。また、コントロール仮説（ネガティブコントロールなど）を含めることで、当社の手法の運用特性を測定し、第\@ref(MethodValidity章) で説明されているように、実証的なキャリブレーションを行うことも不可欠です。 \index{control hypotheses}
+この計算効率により、大規模な分析が可能になり、多くの課題に一度に回答することができます。また、コントロール仮説（ネガティブコントロールなど）を含めることで、当社の手法の運用特性を測定し、第\@ref(MethodValidity)章 で説明されているように、実証的なキャリブレーションを行うことも不可欠です。 \index{コントロール仮説}
 
 ### ビッグデータ対応 {#BigDataSupport}
 
@@ -152,13 +152,13 @@ Rはパッケージを文書化するための標準的な方法を提供して�
 
 [^ohdsianalyticstools-6]: <https://ohdsi.github.io/MethodsLibrary>
 
-パッケージマニュアルに加えて、多くのパッケージは*ビネット*が提供されています。ビネットは、特定のタスクを実行するためにパッケージをどのように使用するかを説明した詳細なドキュメントです。例えば、一つのビネット[^ohdsianalyticstools-7]では、CohortMethodパッケージを使用して複数の分析を効率的に実行する方法が説明されています。ビネットはMethods Libraryのウェブサイト、パッケージのGitHubリポジトリ、CRANで入手可能なパッケージはCRANでも見つけることができます。 \index{vignette}
+パッケージマニュアルに加えて、多くのパッケージは*ビネット*が提供されています。ビネットは、特定のタスクを実行するためにパッケージをどのように使用するかを説明した詳細なドキュメントです。例えば、一つのビネット[^ohdsianalyticstools-7]では、CohortMethodパッケージを使用して複数の分析を効率的に実行する方法が説明されています。ビネットはMethods Libraryのウェブサイト、パッケージのGitHubリポジトリ、CRANで入手可能なパッケージはCRANでも見つけることができます。 \index{ビネット}
 
 [^ohdsianalyticstools-7]: <https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html>
 
 ### システム要件
 
-システム要件を検討する際には、二つのコンピューティング環境が関連してきます：データベースサーバーと分析ワークステーションです。 \index{system requirements}
+システム要件を検討する際には、二つのコンピューティング環境が関連してきます：データベースサーバーと分析ワークステーションです。 \index{システム要件}
 
 データベースサーバーはCDM形式の観察医療データを保持する必要があります。Methods Libraryは、従来のデータベースシステム（PostgreSQL、Microsoft SQL Server、Oracle）、パラレルデータウェアハウス（Microsoft APS、IBM Netezza、Amazon Redshift）、に加えビッグデータプラットフォーム（Impala経由でのHadoop、Google BigQuery）など、幅広いデータベース管理システムをサポートしています。
 
@@ -166,7 +166,7 @@ Rはパッケージを文書化するための標準的な方法を提供して�
 
 ### インストール方法 {#installR}
 
-OHDSI Rパッケージを実行するために必要な環境をインストールするための手順は次の通りです。インストールする必要があるものは4つあります： \index{R!installation}
+OHDSI Rパッケージを実行するために必要な環境をインストールするための手順は次の通りです。インストールする必要があるものは4つあります： \index{R!インストール}
 
 1.  **R**は統計的コンピューティング環境です。基本的なユーザインターフェースとして主にコマンドラインインターフェースを提供します。
 2.  **Rtools**は、WindowsでRパッケージをソースからビルドする際に必要なプログラム一式です。
@@ -252,11 +252,11 @@ install.packages("CohortMethod")
 
 ## 展開戦略
 
-ATLASやMethods Libraryを含むOHDSIツールスタック全体を組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、スタック全体を一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それは、BroadseaおよびAmazon Web Services (AWS)です。 \index{tools deployment}
+ATLASやMethods Libraryを含むOHDSIツールスタック全体を組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、スタック全体を一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それは、BroadseaおよびAmazon Web Services (AWS)です。 \index{ツール開発}
 
 ### Broadsea
 
-Broadsea[^ohdsianalyticstools-8]はDockerコンテナ技術[^ohdsianalyticstools-9]を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主なOHDSIツールが含まれています。 \index{tools deployment!Broadsea}
+Broadsea[^ohdsianalyticstools-8]はDockerコンテナ技術[^ohdsianalyticstools-9]を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主なOHDSIツールが含まれています。 \index{ツール開発!Broadsea}
 
 [^ohdsianalyticstools-8]: <https://github.com/OHDSI/Broadsea>
 
@@ -264,7 +264,7 @@ Broadsea[^ohdsianalyticstools-8]はDockerコンテナ技術[^ohdsianalyticstools
 
 ### Amazon AWS
 
-Amazonは、AWSクラウドコンピューティング環境でボタンをクリックするだけでインスタンス化できる二つの環境を用意しています：OHDSI-in-a-Box[^ohdsianalyticstools-10]とOHDSIonAWS[^ohdsianalyticstools-11]です。 \index{tools deployment!Amazon AWS}
+Amazonは、AWSクラウドコンピューティング環境でボタンをクリックするだけでインスタンス化できる二つの環境を用意しています：OHDSI-in-a-Box[^ohdsianalyticstools-10]とOHDSIonAWS[^ohdsianalyticstools-11]です。 \index{ツール開発!Amazon AWS}
 
 [^ohdsianalyticstools-10]: <https://github.com/OHDSI/OHDSI-in-a-Box>
 
