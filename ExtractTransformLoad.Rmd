@@ -4,7 +4,7 @@
 
 ## はじめに
 
-ネイティブ/生データからOMOP共通データモデル（CDM）を作成するには、ETL（抽出-変換-読込）プロセスを作成する必要があります。このプロセスでは、データをCDMに再構築し、標準化ボキャブラリにマッピングを追加する必要があります。通常、このプロセスは、例えばSQLスクリプトのような自動化されたスクリプトのセットとして実装されます。このETLプロセスは繰り返し実行できることが重要です。これにより、ソースデータが更新されるたびに再実行することができます。\index{ETL|{抽出-変換-読込}参照} \index{生データ} \index{ネイティブデータ|{生データ}参照} \index{ソースデータ|{生データ}参照}
+ネイティブ/生データからOMOP共通データモデル（CDM）を作成するには、ETL（抽出-変換-読込）プロセスを作成する必要があります。このプロセスでは、データをCDMに再構築し、標準化ボキャブラリにマッピングを追加する必要があります。通常、このプロセスは、例えばSQLスクリプトのような自動化されたスクリプトのセットとして実装されます。このETLプロセスは繰り返し実行できることが重要です。これにより、ソースデータが更新されるたびに再実行することができます。\index{ETL|see {抽出-変換-読込}} \index{生データ} \index{ネイティブデータ|see {生データ}} \index{ソースデータ|see {生データ}}
 
 ETLの作成は通常、大規模な取り組みとなります。長年にわたり、私たちは以下の4つの主要なステップからなるベストプラクティスを開発してきました：
 
@@ -23,7 +23,7 @@ ETLデザインプロセスを支援するために密接に統合された2つ�
 
 ### White Rabbit
 
-データベースでETLプロセスを開始するには、データ（テーブル、フィールド、内容など）を理解する必要があります。そこで登場するのが[White Rabbit](https://github.com/OHDSI/WhiteRabbit)ツールです。White Rabbitは、縦断的な医療データベースのETLを[OMOP CDM](https://github.com/OHDSI/CommonDataModel)用に準備するためのソフトウェアツールです。White Rabbitはデータをスキャンし、ETLのデザインを開始するために必要なすべての情報を含むレポートを作成します。全てのソースコードとインストール手順、マニュアルへのリンクはGitHubで入手可能です[^extracttransformload-1]。\index{White Rabbit} \index{データプロファイリング|{White Rabbit}参照}
+データベースでETLプロセスを開始するには、データ（テーブル、フィールド、内容など）を理解する必要があります。そこで登場するのが[White Rabbit](https://github.com/OHDSI/WhiteRabbit)ツールです。White Rabbitは、縦断的な医療データベースのETLを[OMOP CDM](https://github.com/OHDSI/CommonDataModel)用に準備するためのソフトウェアツールです。White Rabbitはデータをスキャンし、ETLのデザインを開始するために必要なすべての情報を含むレポートを作成します。全てのソースコードとインストール手順、マニュアルへのリンクはGitHubで入手可能です[^extracttransformload-1]。\index{White Rabbit} \index{データプロファイリング|see {White Rabbit}}
 
 [^extracttransformload-1]: <https://github.com/OHDSI/WhiteRabbit>.
 
@@ -86,7 +86,7 @@ knitr::include_graphics("images/ExtractTransformLoad/ScanSex.png")
 
 ### Rabbit-In-a-Hat
 
-White Rabbitスキャンを手にすると、ソースデータの全体像やCDMの仕様が掴めます。次に、これら2つの間の論理を定義する必要があります。この設計作業には、ソースデータとCDMの両方に関する深い知識が必要です。White Rabbitソフトウェアと共に提供されるRabbit-in-a-Hatツールは、これらの分野の専門家チームをサポートするように特別にデザインされています。典型的な設定では、ETL設計チームが一堂に会し、Rabbit-in-a-Hatをスクリーンに映し出します。最初のラウンドでは、テーブル間のマッピングを共同で決定し、その後、フィールド間のマッピングを設計し、値が変換されるロジックを定義します。\index{Rabbit-In-A-Hat} \index{ETL設計|{Rabbit-In-A-Hat}参照}
+White Rabbitスキャンを手にすると、ソースデータの全体像やCDMの仕様が掴めます。次に、これら2つの間の論理を定義する必要があります。この設計作業には、ソースデータとCDMの両方に関する深い知識が必要です。White Rabbitソフトウェアと共に提供されるRabbit-in-a-Hatツールは、これらの分野の専門家チームをサポートするように特別にデザインされています。典型的な設定では、ETL設計チームが一堂に会し、Rabbit-in-a-Hatをスクリーンに映し出します。最初のラウンドでは、テーブル間のマッピングを共同で決定し、その後、フィールド間のマッピングを設計し、値が変換されるロジックを定義します。\index{Rabbit-In-A-Hat} \index{ETL設計|see {Rabbit-In-A-Hat}}
 
 #### 範囲と目的 {.unnumbered}
 
@@ -181,7 +181,7 @@ WHERE concept_code = 'I21'
 
 ### Usagi
 
-Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コードの記述のテキスト類似性に基づいて、マッピングの候補を作成することができます。ソースコードが外国語でしか利用できない場合、Google翻訳[^extracttransformload-4]は驚くほど正確な翻訳結果を提示することが多いことがわかっています。Usagiは自動提案が適切でない場合に、適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはETLで使用することが承認されたマッピングを指定することができます。UsagiはGitHubで入手できます[^extracttransformload-5]。 \index{Usagi} \index{ソースコードマッピング|{Usagi}参照}
+Usagiはコードマッピングを手動で作成するプロセスを支援するツールです。コードの記述のテキスト類似性に基づいて、マッピングの候補を作成することができます。ソースコードが外国語でしか利用できない場合、Google翻訳[^extracttransformload-4]は驚くほど正確な翻訳結果を提示することが多いことがわかっています。Usagiは自動提案が適切でない場合に、適切なターゲットコンセプトを検索する機能を提供します。最終的に、ユーザーはETLで使用することが承認されたマッピングを指定することができます。UsagiはGitHubで入手できます[^extracttransformload-5]。 \index{Usagi} \index{ソースコードマッピング|see {Usagi}}
 
 [^extracttransformload-4]: <https://translate.google.com/>
 
