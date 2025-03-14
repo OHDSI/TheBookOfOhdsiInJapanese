@@ -114,9 +114,7 @@ knitr::include_graphics("images/Cohorts/conceptSet.png")
 
 ### OHDSI ゴールドスタンダードフェノタイプライブラリ
 
-既存のコホート定義とアルゴリズムのインベントリーと全体的な評価を支援するために、OHDSI ゴールドスタンダードフェノタイプライブラリ（GSPL）ワークグループが設立されました。GSPLワークグループの目的は、ルールベースと確率的手法から、コミュニティが支援するフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって妥当性が確認されたコホート定義を研究やその他の活動で検索、評価、利用できるようになります。これらの「ゴールドスタンダード」定義は特定の設計や評価基準を満たすエントリが格納されたライブラリに保存されます。GSPLに関連する追加情報はOHDSIワークグループページを参照ください[^cohorts-2]。 このワークグループの研究には、前のセクションで議論されたAPHRODITE [@Banda2017APHRODITE] やPheValuatorツール [@Swerdel2019phevaluator] の他、OHDSIネットワーク全体での電子カルテとゲノミクスの [eMERGE](https://emerge.mc.vanderbilt.edu/) [Phenotype Library](https://phekb.org/phenotypes) を共有するための取り組みなどが含まれます [@Hripcsak2019eMERGE]。表現型のキュレーションに関心がある場合は、このワークグループへの貢献を検討ください。 \index{
-フェノタイプライブラリ
-}
+既存のコホート定義とアルゴリズムのインベントリーと全体的な評価を支援するために、OHDSI ゴールドスタンダードフェノタイプライブラリ（GSPL）ワークグループが設立されました。GSPLワークグループの目的は、ルールベースと確率的手法から、コミュニティが支援するフェノタイプライブラリを開発することです。GSPLにより、OHDSIコミュニティのメンバーは、コミュニティによって妥当性が確認されたコホート定義を研究やその他の活動で検索、評価、利用できるようになります。これらの「ゴールドスタンダード」定義は特定の設計や評価基準を満たすエントリが格納されたライブラリに保存されます。GSPLに関連する追加情報はOHDSIワークグループページを参照ください[^cohorts-2]。 このワークグループの研究には、前のセクションで議論されたAPHRODITE [@Banda2017APHRODITE] やPheValuatorツール [@Swerdel2019phevaluator] の他、OHDSIネットワーク全体での電子カルテとゲノミクスの [eMERGE](https://emerge.mc.vanderbilt.edu/) [Phenotype Library](https://phekb.org/phenotypes) を共有するための取り組みなどが含まれます [@Hripcsak2019eMERGE]。表現型のキュレーションに関心がある場合は、このワークグループへの貢献を検討ください。 \index{フェノタイプライブラリ}
 
 [^cohorts-2]: <https://www.ohdsi.org/web/wiki/doku.php?id=projects:workgroups:gold-library-wg>
 
