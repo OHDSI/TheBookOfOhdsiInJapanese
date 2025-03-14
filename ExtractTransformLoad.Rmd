@@ -157,7 +157,7 @@ SyntheaデータセットがCDMにどのようにマッピングされたかに�
 
 ## ステップ2: コードマッピングの作成
 
-OMOPボキャブラリには、常にソースコードが追加されています。これは、CDMにデータを変換する際のコーディングシステムが既に含まれており、マッピングされている可能性があることを意味します。含まれているボキャブラリは、OMOPボキャブラリのVOCABULARYテーブルを確認ください。非標準のソースコード（例：ICD-10CMコード）から標準コンセプト（例：SNOMEDコード）へのマッピングを抽出するには、relationship_id =「Maps to」を持つCONCEPT_RELATIONSHIPテーブルのレコードを使用できます。例えば、ICD-10CMコード「I21」（「Acute Myocardial Infarction (急性心筋梗塞)」）の標準コンセプトIDを特定するには、次のSQLを使用します：
+OMOPボキャブラリには、常にソースコードが追加されています。これは、CDMにデータを変換する際のコーディングシステムが既に含まれており、マッピングされている可能性があることを意味します。含まれているボキャブラリは、OMOPボキャブラリのVOCABULARYテーブルを確認ください。非標準のソースコード（例：ICD-10CMコード）から標準コンセプト（例：SNOMEDコード）へのマッピングを抽出するには、relationship_id =「Maps to」を持つCONCEPT_RELATIONSHIPテーブルのレコードを使用できます。例えば、ICD-10CMコード「I21」（Acute Myocardial Infarction (急性心筋梗塞)）の標準コンセプトIDを特定するには、次のSQLを使用します：
 
 ``` sql
 SELECT concept_id_2 AS standard_concept_id
