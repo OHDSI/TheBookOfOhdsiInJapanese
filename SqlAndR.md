@@ -41,7 +41,7 @@ SqlRenderは、従来のデータベースシステム（PostgreSQL、Microsoft 
 
 ### SQLのパラメータ設定
 
-パッケージの機能のひとつは、SQLのパラメータ化をサポートすることです。 しばしば、いくつかのパラメータに基づいて、SQLの小さなバリエーションを生成する必要があります。SqlRenderは、SQLコード内にシンプルなマークアップ構文を提供し、パラメータ化を可能にします。パラメータ値に基づくSQLのレンダリングは、`render()`関数を使用して行います。\index{SqlRender!parameterization}
+パッケージの機能のひとつは、SQLのパラメータ化をサポートすることです。 しばしば、いくつかのパラメータに基づいて、SQLの小さなバリエーションを生成する必要があります。SqlRenderは、SQLコード内にシンプルなマークアップ構文を提供し、パラメータ化を可能にします。パラメータ値に基づくSQLのレンダリングは、`render()`関数を使用して行います。\index{SqlRender!パラメータ化}
 
 #### パラメータ値の置換 {.unnumbered}
 
@@ -151,7 +151,7 @@ translate(sql, targetDialect = "postgresql")
 ## [1] "postgresql"
 ```
 
-`targetDialect` パラメータには次の値が設定可能です："oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", "sql server"。 \index{SqlRender!translation}
+`targetDialect` パラメータには次の値が設定可能です："oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sqlite", "sql server"。 \index{SqlRender!変換}
 
 \BeginKnitrBlock{rmdimportant}
 SQL関数や構文を適切に変換できる範囲には限界があります。その理由は、パッケージには限られた数の変換ルールしか実装されていないことと、一部のSQL機能にはすべての方言に相当するものがないことが挙げられます。これが、OHDSI SQLが独自の新しいSQL方言として開発された主な理由です。しかし、可能な限り、車輪の再発明を避けるためにSQL Serverの構文に従うようにしています。
@@ -161,7 +161,7 @@ SQL関数や構文を適切に変換できる範囲には限界があります�
 
 #### Translateがサポートする関数と構造 {.unnumbered}
 
-これらのSQL Server関数はテスト済であり、各表現への正確な変換が確認されています：\index{SqlRender!supported functions}
+これらのSQL Server関数はテスト済であり、各表現への正確な変換が確認されています：\index{SqlRender!サポートする関数}
 
 | 関数              | 関数        | 関数       |
 |:------------------|:------------|:-----------|
@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.umdka0xmchildren ;"
+## [1] "SELECT * FROM temp_schema.v8jcq0svchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -359,7 +359,7 @@ SQL Serverでは、値にデータベース名とスキーマ名の両方を含�
 
 #### パラメータ化されたSQLのデバッグ {.unnumbered}
 
-パラメータ化されたSQLのデバッグは少し複雑になることがあります。レンダリングされたSQLのみがデータベースサーバーでテストできますが、コードの変更はパラメータ化された（レンダリング前の）SQLで行う必要があります。 \index{SqlRender!debugging}
+パラメータ化されたSQLのデバッグは少し複雑になることがあります。レンダリングされたSQLのみがデータベースサーバーでテストできますが、コードの変更はパラメータ化された（レンダリング前の）SQLで行う必要があります。 \index{SqlRender!デバッグ}
 
 ソースのSQLをインタラクティブに編集し、レンダリングおよび翻訳されたSQLを生成するためのShinyアプリが SqlRender パッケージに含まれています。このアプリは次の方法で起動できます：
 
@@ -396,7 +396,7 @@ DatabaseConnectorは、従来のデータベースシステム（PostgreSQL、Mi
 
 ### 接続の作成
 
-データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、パスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます: \index{DatabaseConnector!creating a connection}
+データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、パスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます: \index{DatabaseConnector!接続の作成}
 
 
 ``` r
@@ -455,7 +455,7 @@ conn <- connect(details)
 
 ### クエリの実行
 
-データベースにクエリを実行するための主な関数は、`querySql`と`executeSql`です。`querySql`はデータがデータベースから返されることを想定しており、一度に1つのSQL文のみを処理できます。一方、`executeSql`はデータが返されることを想定せず、複数のSQL文を1つのSQL文字列で受け入れます。 \index{DatabaseConnector!querying}
+データベースにクエリを実行するための主な関数は、`querySql`と`executeSql`です。`querySql`はデータがデータベースから返されることを想定しており、一度に1つのSQL文のみを処理できます。一方、`executeSql`はデータが返されることを想定せず、複数のSQL文を1つのSQL文字列で受け入れます。 \index{DatabaseConnector!クエリの実行}
 
 いくつかの例を挙げます：
 
