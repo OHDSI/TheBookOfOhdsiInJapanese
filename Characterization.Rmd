@@ -166,7 +166,7 @@ knitr::include_graphics("images/Characterization/atlasCharacterizationResultsSum
 
 結果は、デザインで選択した各コホートについて、さまざまな特徴量を一覧表示します。図 \@ref(fig:atlasCharacterizationResultsSummary) では、コホート開始日の前の365日間に存在するすべてのコンディションの概要が提供されています。各共変量には、コホートごとおよび定義した女性サブグループのカウントと割合が表示されています。
 
-検索ボックスを使用してアウトカムをフィルターし、「cardiac arrhythmia (不整脈) 」の既往を持つ人の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示することができます（図 \@ref(fig:atlasCharacterizationResultsExplore) 参照）。
+検索ボックスを使用してアウトカムをフィルターし、「cardiac arrhythmia (不整脈)」の既往を持つ人の割合を確認することで、集団でどのような心血管関連診断が観察されるかを理解しようとしました。「Explore」リンクをクリックして新しいウィンドウを開き、単一コホートのコンセプトに関する詳細を表示することができます（図 \@ref(fig:atlasCharacterizationResultsExplore) 参照）。
 
 ```{r atlasCharacterizationResultsExplore, fig.cap='特性アウトカム - 単一コンセプトの探索',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasCharacterizationResultsExplore.png")
