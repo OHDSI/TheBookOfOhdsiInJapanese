@@ -477,7 +477,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="12" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html"><i class="fa fa-check"></i><b>12</b> 集団レベルの推定</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> コホート研究のデザイン</a>
+<li class="chapter" data-level="12.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#CohortMethod"><i class="fa fa-check"></i><b>12.1</b> コホートメソッドの設計</a>
 <ul>
 <li class="chapter" data-level="12.1.1" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#傾向スコア"><i class="fa fa-check"></i><b>12.1.1</b> 傾向スコア</a></li>
 <li class="chapter" data-level="12.1.2" data-path="PopulationLevelEstimation.html"><a href="PopulationLevelEstimation.html#VariableSelection"><i class="fa fa-check"></i><b>12.1.2</b> 変数選択</a></li>
@@ -796,16 +796,16 @@ div.csl-indent {
 <h1><span class="header-section-number">第 12 章</span> 集団レベルの推定<a href="PopulationLevelEstimation.html#PopulationLevelEstimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>著者: Martijn Schuemie, David Madigan, Marc Suchard &amp; Patrick Ryan</em></p>
 <p></p>
-<p>保険請求データや電子的健康記録(EHR)などの観察的な医療データは、治療の効果に関するリアルワールドのエビデンスを生成する機会を提供し、患者の生活を有意に改善することができます。本章では、特定の健康アウトカムに対する曝露（例えば、薬剤曝露や処置（プロシージャー）などの医療介入）の平均的な因果効果の推定を指す集団レベルの効果推定に焦点を当てます。以下では、2つの異なる推定タスクを検討します。：</p>
+<p>保険請求データや電子的健康記録などの観察的な医療データは、治療の効果に関するリアルワールドのエビデンスを生成する機会を提供し、患者の生活を有意に改善することができます。本章では、特定の健康アウトカムに対する曝露（例えば、薬剤曝露や処置（プロシージャー）などの医療介入）の平均的な因果効果の推定を指す集団レベルの効果推定に焦点を当てます。以下では、2つの異なる推定タスクを検討します。：</p>
 <ul>
 <li><strong>直接効果推定</strong>: アウトカムのリスクに対する曝露の効果を、曝露なしと比較して推定する。 </li>
 <li><strong>比較効果推定</strong>: アウトカムのリスクに対する曝露（ターゲット曝露）の効果を、別の曝露（比較対照の曝露）と比較して推定する。 </li>
 </ul>
 <p>いずれの場合でも、患者レベルの因果効果は事実のアウトカム、すなわち曝露を受けた患者に何が起こったかと、反事実のアウトカム、すなわち曝露がなかった場合（直接）や異なる曝露があった場合（比較）に何が起こったかを対比させます。各患者は事実のアウトカムのみを明らかにするため（因果推論の基本問題）、さまざまな効果推定デザインは異なる分析デバイスを用いて反事実のアウトカムを明らかにします。 </p>
 <p>集団レベルの効果推定のユースケースには、治療選択、安全性監視、および比較効果が含まれます。方法論は、特定の仮説を一度に1つずつテストすること（例：「シグナル評価」）や、複数の仮説を一度に探索すること（例：「シグナル検出」）ができます。いずれの場合も、目的は同じです：因果効果の高品質な推定を生成することです。 </p>
-<p>本章ではまず、<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>としてRパッケージで実装されているさまざまな集団レベルの推定研究デザインについて説明します。次に、具体的な推定研究のデザインを詳細に説明し、ATLASおよびRを使用してデザインを実装する手順ガイドを提供します。最後に、研究から生成されるさまざまな出力、包括的な研究診断と効果量の推定について確認します。</p>
+<p>本章ではまず、<a href="https://ohdsi.github.io/MethodsLibrary/">OHDSI Methods Library</a>としてRパッケージで実装されているさまざまな集団レベルの推定研究デザインについて説明します。次に、具体的な推定研究の設計を詳細に説明し、ATLASおよびRを使用してデザインを実装する手順ガイドを提供します。最後に、研究から生成されるさまざまな出力、包括的な研究診断と効果量の推定について確認します。</p>
 <div id="CohortMethod" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> コホート研究のデザイン<a href="PopulationLevelEstimation.html#CohortMethod" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">12.1</span> コホートメソッドの設計<a href="PopulationLevelEstimation.html#CohortMethod" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohortMethod"></span>
 <img src="images/PopulationLevelEstimation/cohortMethod.png" alt="新規ユーザーコホートデザイン。ターゲット治療を開始した対象は比較対照治療を開始した対象と比較されます。2つの治療グループ間の違いを調整するために、傾向スコアによる層化、マッチング、重み付け、あるいはベースライン特性をアウトカムモデルに追加するなど、いくつかの調整戦略が使用されます。傾向スコアモデルまたはアウトカムモデルに含まれる特性は治療開始前に取得されます。" width="90%" />
@@ -829,18 +829,18 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td align="left">ターゲットコホート</td>
-<td align="left">対象とする治療を表すコホート</td>
+<td align="left">対象とする治療を代表するコホート</td>
 </tr>
 <tr class="even">
 <td align="left">比較対照コホート</td>
-<td align="left">比較対照の治療を表すコホート</td>
+<td align="left">比較対照の治療を代表するコホート</td>
 </tr>
 <tr class="odd">
 <td align="left">アウトカムコホート</td>
-<td align="left">対象とするアウトカムを表すコホート</td>
+<td align="left">対象とするアウトカムを代表するコホート</td>
 </tr>
 <tr class="even">
-<td align="left">リスク時間</td>
+<td align="left">リスク期間</td>
 <td align="left">どの時点で（通常はターゲットおよび比較対照コホートの開始および終了日）アウトカムのリスクを考慮するか</td>
 </tr>
 <tr class="odd">
@@ -854,33 +854,33 @@ div.csl-indent {
 <div class="rmdimportant">
 <p>新規ユーザーコホートメソッドは本質的に比較効果推定の方法であり、治療を比較対照と比較します。この方法を使用して治療対未治療を比較するのは難しいです。なぜなら、未曝露群と曝露群が比較可能となる群を定義するのが難しいからです。このデザインを直接的な効果推定に使用したい場合は、対象とする曝露に対する比較対照として、同じ適応症の治療を選択するのが望ましいです。ただし、必ずしもそのような比較対照が利用可能であるとは限りません。</p>
 </div>
-<p>重要な懸念事項は、ターゲット治療を受ける患者が比較対照治療を受ける患者と系統的に異なる可能性があることです。例えば、ターゲットコホートが平均60歳であり、比較対照コホートが平均40歳であるとします。年齢に関連する健康アウトカム（例：脳卒中）に関してターゲットと比較対照を比較する場合、コホート間で顕著な違いが見られるかもしれません。十分な知識を持たない研究者は、比較対照群と比べて、ターゲット治療との脳卒中の間に因果関係があると結論づけるかもしれません。もっと平凡な、あるいはありふれた結論として、ターゲット患者が脳卒中を経験したことが、比較対象の治療を受けていたらそうならなかったであろうと結論づけるかもしれません。この結論は完全に間違っている可能性があります！おそらくこれらのターゲット患者は、ただ年を取っているだけで脳卒中が発生したかもしれません。治療を受けていたとしても同様であった可能性があります。この文脈では、年齢は「交絡因子」です。観察研究で交絡因子に対処する一つのメカニズムは傾向スコアを介することです。 </p>
+<p>重要な懸念事項は、ターゲット治療を受ける患者が比較対照治療を受ける患者と系統的に異なる可能性があることです。例えば、ターゲットコホートが平均60歳であり、比較対照コホートが平均40歳であるとします。年齢に関連する健康アウトカム（例：脳卒中）に関してターゲットと比較対照を比較する場合、コホート間で顕著な違いが見られるかもしれません。無知な研究者は、ターゲット治療と比較対照に比べて脳卒中の間に因果関係があると結論づけるかもしれません。もっと平凡な、あるいはありふれた結論として、ターゲット患者が脳卒中を経験したことが、比較対照を受けていたらそうならなかったであろうと結論づけるかもしれません。この結論は完全に間違っている可能性があります！おそらくこれらのターゲット患者は、ただ年を取っているだけで脳卒中が発生したかもしれません。治療を受けていたとしても同様であった可能性があります。この文脈では、年齢は「交絡因子」です。観察研究で交絡因子に対処する一つのメカニズムは傾向スコアを介することです。 </p>
 <div id="傾向スコア" class="section level3 hasAnchor" number="12.1.1">
 <h3><span class="header-section-number">12.1.1</span> 傾向スコア<a href="PopulationLevelEstimation.html#傾向スコア" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p></p>
-<p>ランダム化試験では、（仮想的な）コインの裏か表が患者を各グループに割り当てます。したがって、デザインによって、患者がターゲット治療を受ける確率は患者の特性（例：年齢）とは無関係です。コインは患者を知りませんし、何よりも、曝露を受ける患者の確率は確実に分かっています。その結果、試験の患者数が増えるにつれて、両方のグループの患者はどのような患者特性においても系統的に異なることは基本的にありえません。この保証されたバランスは、試験で測定された特性（例：年齢）と試験で特定されなかった特性（例：患者の遺伝的要因）にも適用されます。 </p>
-<p>ある患者に対する<em>傾向スコア（Propensity score; PS）</em>は、その患者が比較対照群に対して対象治療をを受ける確率です <span class="citation">(<a href="#ref-rosenbaum_1983">Rosenbaum and Rubin 1983</a>)</span>。 バランスの取れたランダム化試験では、傾向スコアはすべての患者で0.5です。PSスコアで補正された観察研究では、治療開始時とその前のデータに基づいて患者が対象治療を受ける確率を推定します（実際に受けた治療に関係なく）。これは単純な予測モデリングの応用です。ロジスティック回帰などのモデルを適合させ、患者が対象治療を受けるかどうかを予測し、各対象者の予測確率（PS）を生成するためにこのモデルを使用します。標準的なランダム化試験とは異なり、各患者は異なる確率で対象治療を受けることになります。PSは、PSが似たターゲット対象者と比較対照の対象者をマッチングする、PSに基づいて研究集団を層化する、PSから導き出された治療重み付けの逆確率（inverse probability treatment weighting; IPTW）を使うなど、いくつかの方法で使用できます。マッチングの場合、各対象者に対して一人の比較対照者だけを選択することも、一人以上の比較対照者を許容することもできます。これは可変比率マッチングと呼ばれる手法です <span class="citation">(<a href="#ref-rassen_2012">Rassen et al. 2012</a>)</span>。 </p>
-<p>例えば、1対1のPSマッチングを使用し、Janが対象治療を受ける事前確率が0.4で、実際に対象治療を受けたとします。もし、対象治療を受ける事前確率が0.4で、実際には比較治療を受けた患者（Junと名付けます）を見つけることができれば、少なくとも測定された交絡因子に関しては、Janとジュンの結果の比較はミニ無作為化試験のようなものとなります。この比較により、無作為化で得られたものと同等のJanとJunの因果コントラストの推定値が得られます。推定は以下のように行われます。対象治療を受けた患者ごとに、比較対象治療を受けたが対象治療を受ける以前の確率が同じであった1人以上のマッチングする患者を見つけます。対象患者のアウトカムと、これらの適合グループ内の比較対象患者のアウトカムを比較します。</p>
-<p>PSスコアは、測定された交絡因子を制御します。実際、測定された特性を考慮して治療割り当てが「強く無視できる」場合、傾向スコアは因果効果の偏りのない推定値を導きます。「強く無視できる」とは、本質的には、未測定の交絡因子が存在せず、測定された交絡因子が適切に調整されていることを意味します。残念ながら、これは検証可能な仮定ではありません。この問題に関するさらなる議論については、第 <a href="MethodValidity.html#MethodValidity">18</a> 章で説明します。 </p>
+<p>ランダム化試験では、（仮想的な）コイントスが患者を各グループに割り当てます。したがって、デザインによって、患者がターゲット治療を受ける確率は患者の特性（例：年齢）とは無関係です。コインは患者を知りませんし、何よりも、曝露を受ける患者の確率は確実に分かっています。その結果、試験の患者数が増えるにつれて、両方のグループの患者はどのような患者特性においても系統的に異なることは基本的にありえません。この保証されたバランスは、試験で測定された特性（例：年齢）と試験で特定されなかった特性（例：患者の遺伝的要因）にも適用されます。 </p>
+<p>ある患者に対する<em>傾向スコア（PS）</em>は、その患者が比較対照群に対して対象治療をを受ける確率です <span class="citation">(<a href="#ref-rosenbaum_1983">Rosenbaum and Rubin 1983</a>)</span>。 バランスの取れたランダム化試験では、傾向スコアはすべての患者で0.5です。傾向スコアで補正された観察研究では、治療開始時とその前のデータに基づいて患者が対象治療を受ける確率を推定します（実際に受けた治療に関係なく）。これは単純な予測モデリングの応用です。ロジスティック回帰などのモデルを適合させ、患者が対象治療を受けるかどうかを予測し、各対象者の予測確率（PS）を生成するためにこのモデルを使用します。標準的なランダム化試験とは異なり、各患者は異なる確率で対象治療を受けることになります。PSは、PSが似たターゲット対象者と比較対照の対象者をマッチングする、PSに基づいて研究集団を層化する、PSから導き出された治療重み付けの逆確率（IPTW）を使うなど、いくつかの方法で使用できます。マッチングの場合、各対象者に対して一人の比較対照者だけを選択することも、一人以上の比較対照者を許容することもできます。これは可変比率マッチングと呼ばれる手法です <span class="citation">(<a href="#ref-rassen_2012">Rassen et al. 2012</a>)</span>。 </p>
+<p>例えば、1対1のPSマッチングを使用し、ヤンが対象治療を受ける事前確率が0.4で、実際に対象治療を受けたとします。もし、対象治療を受ける事前確率が0.4で、実際には比較治療を受けた患者（ジュンと名付けます）を見つけることができれば、少なくとも測定された交絡因子に関しては、ヤンとジュンの結果の比較はミニ無作為化試験のようなものとなります。この比較により、無作為化で得られたものと同等のヤンとジュンの因果コントラストの推定値が得られます。推定は以下のように行われます。対象治療を受けた患者ごとに、比較対象治療を受けたが対象治療を受ける以前の確率が同じであった1人以上の適合患者を見つけます。対象患者のアウトカムと、これらの適合グループ内の比較対象患者のアウトカムを比較します。</p>
+<p>傾向スコアは、測定された交絡因子を制御します。実際、測定された特性を考慮して治療割り当てが「無視できる」場合、傾向スコアは因果効果の偏りのない推定値を導きます。「無視できる」とは、本質的には、未測定の交絡因子が存在せず、測定された交絡因子が適切に調整されていることを意味します。残念ながら、これは検証可能な仮定ではありません。この問題に関するさらなる議論については、第 <a href="MethodValidity.html#MethodValidity">18</a> 章で説明します。 </p>
 </div>
 <div id="VariableSelection" class="section level3 hasAnchor" number="12.1.2">
 <h3><span class="header-section-number">12.1.2</span> 変数選択<a href="PopulationLevelEstimation.html#VariableSelection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>以前は、PSは手動で選択された特性に基づいて計算されていましたが、OHDSIツールはそのような実践をサポートする一方で、特定の曝露やアウトカムに基づいて選択されていない、より多くの汎用特性を使用することを好みます <span class="citation">(<a href="#ref-tian_2018">Tian, Schuemie, and Suchard 2018</a>)</span> 。これらの特性には、人口統計学的特性に加え、治療開始前および当日に観察された診断、薬剤曝露、測定値、医療処置が含まれます。通常、モデルには10,000から100,000の固有の特性が含まれ、これらを大規模な正則化回帰 <span class="citation">(<a href="#ref-suchard_2013">Suchard et al. 2013</a>)</span> を使用して適合させ、<a href="https://ohdsi.github.io/Cyclops/">Cyclops</a>パッケージで実装します。本質的には、どの特性が治療割り当ての予測に関連するかをデータに決定させ、モデルに含めます。</p>
 
 <div class="rmdimportant">
-<p>通常、治療開始日の特性は治療の原因となる診断などの多くの関連データがその日に記録されているため、共変量捕捉のウィンドウに含まれるべきです。この日には、対象および比較対照の治療自体も記録されていますが、これらはPSスコアモデルに含まれるべきではありません。なぜなら、私たちはまさにこれらを予測しようとしているからです。したがって、対象と比較対照治療は共変量セットから明示的に除外する必要があります。</p>
+<p>通常、治療開始日の特性は治療の原因となる診断などの多くの関連データがその日に記録されているため、共変量捕捉のウィンドウに含まれるべきです。この日には、対象および比較対照の治療自体も記録されていますが、これらは傾向スコアモデルに含まれるべきではありません。なぜなら、私たちはまさにこれらを予測しようとしているからです。したがって、対象と比較対照治療は共変量セットから明示的に除外する必要があります。</p>
 </div>
-<p>「正しい」因果構造を特定する際に臨床的専門知識に依存しないデータ主導型の共変量選択アプローチは、いわゆる操作変数や共変変数を誤って含めるリスクがあり、その結果、分散が増加し、潜在的にバイアスがもたらされる可能性があるという意見もあります <span class="citation">(<a href="#ref-hernan_2002">Hernan et al. 2002</a>)</span>。しかし、このような懸念は現実のシナリオでは大きな影響を与える可能性は低いでしょう<span class="citation">(<a href="#ref-schneeweiss_2018">Schneeweiss 2018</a>)</span>。さらに、医学においては真の因果構造が判明することはほとんどなく、異なる研究者が特定の研究課題に対して「正しい」共変量を特定するように求められると、それぞれの研究者は必ず異なるリストを作成し、そのプロセスを再現不能にします。最も重要なのは、PSスコアモデルの確認、すべての共変量のバランス評価、およびネガティブコントロールの組み込みなどの診断によって、コライダーや操作変数に関連するほとんどの問題を特定できることです。 </p>
+<p>「正しい」因果構造を特定する際に臨床的専門知識に依存しないデータ主導型の共変量選択アプローチは、いわゆる操作変数や共変変数を誤って含めるリスクがあり、その結果、分散が増加し、潜在的にバイアスがもたらされる可能性があるという意見もあります <span class="citation">(<a href="#ref-hernan_2002">Hernan et al. 2002</a>)</span>。しかし、このような懸念は現実のシナリオでは大きな影響を与える可能性は低いでしょう<span class="citation">(<a href="#ref-schneeweiss_2018">Schneeweiss 2018</a>)</span>。さらに、医学においては真の因果構造が判明することはほとんどなく、異なる研究者が特定の研究課題に対して「正しい」共変量を特定するように求められると、それぞれの研究者は必ず異なるリストを作成し、そのプロセスを再現不能にします。最も重要なのは、傾向スコアモデルの確認、すべての共変量のバランス評価、およびネガティブコントロールの組み込みなどの診断によって、コライダーや操作変数に関連するほとんどの問題を特定できることです。 </p>
 </div>
 <div id="キャリパー" class="section level3 hasAnchor" number="12.1.3">
 <h3><span class="header-section-number">12.1.3</span> キャリパー<a href="PopulationLevelEstimation.html#キャリパー" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p></p>
-<p>傾向スコアは 0 から 1 の範囲で連続的に変化するため、厳密なマッチングはほとんど不可能です。その代わり、マッチングプロセスでは、「キャリパー」として知られるある程度の許容範囲内で、対象患者の傾向スコアに一致する患者を見つけます。 <span class="citation">Austin (<a href="#ref-austin_2011">2011</a>)</span> に従い、ロジットスケールにおける標準偏差の0.2倍をデフォルトのキャリパーとして使用します。</p>
+<p>傾向スコアは 0 から 1 の範囲で連続的に変化するため、厳密なマッチングはほとんど不可能です。その代わり、マッチングプロセスでは、「キャリパー」として知られるある程度の許容範囲内で、対象患者の傾向スコアに一致する患者を見つけます <span class="citation">Austin (<a href="#ref-austin_2011">2011</a>)</span> に従い、ロジットスケールにおける標準偏差の0.2倍をデフォルトのキャリパーとして使用します。</p>
 </div>
 <div id="オーバーラップ選好スコア" class="section level3 hasAnchor" number="12.1.4">
 <h3><span class="header-section-number">12.1.4</span> オーバーラップ：選好スコア<a href="PopulationLevelEstimation.html#オーバーラップ選好スコア" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p></p>
-<p>PSスコア方法は一致する患者が存在することを必要とします。そのため、主要な研究診断は二つのグループの傾向スコアの分布を示します。解釈を容易にするために、OHDSIツールは「選好スコア」<a href="mailto:と呼ばれる傾向スコアの変換をプロットします@walker" class="email">と呼ばれるPSスコアの変換をプロットします@walker</a>_2013。選好スコアは二つの治療の「市場占有率」を調整します。例えば、10%の患者が対象治療を受け（90%の患者が比較対照治療を受ける）、選好スコアが0.5の患者は、対象治療を受ける確率が10%です。数学的には、選好スコアは</p>
+<p>傾向スコア方法は一致する患者が存在することを必要とします。このため、主要な診断は二つのグループの傾向スコアの分布を示します。解釈を容易にするために、OHDSIツールは「選好スコア」<a href="mailto:と呼ばれる傾向スコアの変換をプロットします@walker" class="email">と呼ばれる傾向スコアの変換をプロットします@walker</a>_2013。選好スコアは二つの治療の「市場占有率」を調整します。例えば、10%の患者が対象治療を受け（90%の患者が比較対照治療を受ける）、選好スコアが0.5の患者は、対象治療を受ける確率が10%です。数学的には、選好スコアは</p>
 <p><span class="math display">\[\ln\left(\frac{F}{1-F}\right)=\ln\left(\frac{S}{1-S}\right)-\ln\left(\frac{P}{1-P}\right)\]</span></p>
 <p>ここで <span class="math inline">\(F\)</span> は選好スコア、<span class="math inline">\(S\)</span> は傾向スコア、<span class="math inline">\(P\)</span> は対象治療を受ける患者の割合です。</p>
 <p><span class="citation">Walker et al. (<a href="#ref-walker_2013">2013</a>)</span> は「経験的均衡」の概念を述べています。彼らは、少なくとも半数の曝露が選好スコアの0.3から0.7の間にある場合、これらの曝露ペアを経験的均衡にあると見なします。 </p>
@@ -900,7 +900,7 @@ div.csl-indent {
 図 12.2: 自己対照コホートデザイン。対象への曝露中のアウトカムの発生率を曝露前の期間中の発生率と比較します。
 </p>
 </div>
-<p>自己対照コホート（self-controlled cohort; SCC）デザイン <span class="citation">(<a href="#ref-ryan_2013">Ryan, Schuemie, and Madigan 2013</a>)</span> は曝露中のアウトカムの発生率を、曝露直前の期間におけるアウトカムの発生率と比較します。表 <a href="PopulationLevelEstimation.html#tab:sccChoices">12.2</a> に示す4つの選択肢が、自己対照コホートの課題（リサーチクエスチョン）を定義します。 </p>
+<p>自己対照コホート（SCC）デザイン <span class="citation">(<a href="#ref-ryan_2013">Ryan, Schuemie, and Madigan 2013</a>)</span> は曝露中のアウトカムの発生率を、曝露直前の期間におけるアウトカムの発生率と比較します。表 <a href="PopulationLevelEstimation.html#tab:sccChoices">12.2</a> に示す4つの選択肢が、自己対照コホートの問いを定義します。 </p>
 <table>
 <caption><span id="tab:sccChoices">表 12.2: </span>自己対照コホートデザインの主要なデザイン選択肢</caption>
 <colgroup>
@@ -943,7 +943,7 @@ div.csl-indent {
 図 12.3: 症例対照デザイン。アウトカムを持つ対象者（「症例」）は、アウトカムを持たない対象者（「対照」）との曝露状況の観点から比較されます。通常、症例と対照は年齢や性別などの様々な特性で一致するようにします。
 </p>
 </div>
-<p>症例対照研究 <span class="citation">(<a href="#ref-vandenbroucke_2012">Vandenbroucke and Pearce 2012</a>)</span> は、「特定の疾患のアウトカムを持つ人が、その疾患を持たない人よりも特定の因子により曝露される頻度が高いかどうか」を検討します。このため、中心となる考え方は、対象とするアウトカムを経験した対象者（「症例」）を、対象とするアウトカムを経験していない対象者（「対照」）と比較することです。表 <a href="PopulationLevelEstimation.html#tab:ccChoices">12.3</a> の選択肢が、症例対照研究の課題（リサーチクエスチョン）を定義しています。 </p>
+<p>症例対照研究 <span class="citation">(<a href="#ref-vandenbroucke_2012">Vandenbroucke and Pearce 2012</a>)</span> は、「特定の疾患のアウトカムを持つ人が、その疾患を持たない人よりも特定の因子により曝露される頻度が高いかどうか」を検討します。このため、中心となる考え方は、対象とするアウトカムを経験した対象者（「症例」）を、対象とするアウトカムを経験していない対象者（「対照」）と比較することです。表 <a href="PopulationLevelEstimation.html#tab:ccChoices">12.3</a> の選択肢が、症例対照の問いを定義しています。 </p>
 <table>
 <caption><span id="tab:ccChoices">表 12.3: </span>症例対照デザインの主要なデザイン選択オプション</caption>
 <colgroup>
@@ -985,9 +985,9 @@ div.csl-indent {
 <h2><span class="header-section-number">12.4</span> ケース・クロスオーバーデザイン<a href="PopulationLevelEstimation.html#ケースクロスオーバーデザイン" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:caseCrossover"></span>
-<img src="images/PopulationLevelEstimation/caseCrossover.png" alt="ケース・クロスオーバーデザイン。アウトカム直前の時間を、アウトカムの日付より前の事前に決められたコントロール期間と比較します。" width="90%" />
+<img src="images/PopulationLevelEstimation/caseCrossover.png" alt="ケース・クロスオーバーデザイン。アウトカムの周りの時間を、アウトカムの日付より前の事前に決められた間隔のコントロール日と比較します。" width="90%" />
 <p class="caption">
-図 12.4: ケース・クロスオーバーデザイン。アウトカム直前の時間を、アウトカムの日付より前の事前に決められたコントロール期間と比較します。
+図 12.4: ケース・クロスオーバーデザイン。アウトカムの周りの時間を、アウトカムの日付より前の事前に決められた間隔のコントロール日と比較します。
 </p>
 </div>
 <p>ケース・クロスオーバー <span class="citation">(<a href="#ref-maclure_1991">Maclure 1991</a>)</span> デザインは、アウトカムのタイミングでの曝露率が、アウトカムよりも前の事前に決められた日数での曝露率と異なるかどうかを評価します。これは、アウトカムが発生した日に特別な理由があるかどうかを判断しようとするものです。表 <a href="PopulationLevelEstimation.html#tab:ccrChoices">12.4</a> は、ケース・クロスオーバーの質問を定義するオプションを示します。 </p>
@@ -1026,14 +1026,14 @@ div.csl-indent {
 </div>
 <div id="自己対照症例シリーズデザイン" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> 自己対照症例シリーズデザイン<a href="PopulationLevelEstimation.html#自己対照症例シリーズデザイン" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p></p>
+<p> </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:selfControlledCaseSeries"></span>
 <img src="images/PopulationLevelEstimation/selfControlledCaseSeries.png" alt="自己対照症例シリーズデザイン。曝露期間中のアウトカム発生率と非曝露期間中のアウトカム発生率を比較する。" width="90%" />
 <p class="caption">
 図 12.5: 自己対照症例シリーズデザイン。曝露期間中のアウトカム発生率と非曝露期間中のアウトカム発生率を比較する。
 </p>
 </div>
-<p>自己対照症例シリーズ（self-controlled case series; SCCS）デザイン <span class="citation">(<a href="#ref-farrington_1995">Farrington 1995</a>; <a href="#ref-whitaker_2006">Whitaker et al. 2006</a>)</span> は、曝露期間中のアウトカム発生率を、曝露前、曝露中、曝露後のすべての非曝露期間中の発生率と比較します。これは、個人に依存したポアソン回帰であり、「患者がアウトカムを有する場合、曝露期間中の方が非曝露期間中よりもアウトカムが発生しやすいか？」という問い対する答えを導きだそうとします。表 <a href="PopulationLevelEstimation.html#tab:sccsChoices">12.5</a>のオプションは SCCS の問いを定義しています。 </p>
+<p>自己対照症例シリーズ（SCCS）デザイン <span class="citation">(<a href="#ref-farrington_1995">Farrington 1995</a>; <a href="#ref-whitaker_2006">Whitaker et al. 2006</a>)</span> は、曝露期間中のアウトカム発生率を、曝露前、曝露中、曝露後のすべての非曝露期間中の発生率と比較します。これは、個人に依存したポアソン回帰であり、「患者がアウトカムを有する場合、曝露期間中の方が非曝露期間中よりもアウトカムが発生しやすいか？」という問い対する答えを導きだそうとします。表 <a href="PopulationLevelEstimation.html#tab:sccsChoices">12.5</a>のオプションは SCCS の問いを定義しています。 </p>
 <table>
 <caption><span id="tab:sccsChoices">表 12.5: </span>自己対照症例シリーズデザインの主なデザインオプション</caption>
 <colgroup>
@@ -1049,11 +1049,11 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td align="left">対象コホート</td>
-<td align="left">治療を表すコホート</td>
+<td align="left">治療を代表するコホート</td>
 </tr>
 <tr class="even">
 <td align="left">アウトカムコホート</td>
-<td align="left">対象とするアウトカムを表すコホート</td>
+<td align="left">対象とするアウトカムを代表するコホート</td>
 </tr>
 <tr class="odd">
 <td align="left">リスク期間</td>
@@ -1072,23 +1072,23 @@ div.csl-indent {
 <h2><span class="header-section-number">12.6</span> 高血圧症研究のデザイン<a href="PopulationLevelEstimation.html#高血圧症研究のデザイン" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="問題の定義-1" class="section level3 hasAnchor" number="12.6.1">
 <h3><span class="header-section-number">12.6.1</span> 問題の定義<a href="PopulationLevelEstimation.html#問題の定義-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>ACE 阻害薬は、高血圧症や虚血性心疾患を持つ患者、特にうっ血性心不全、糖尿病、慢性腎臓病などの併存疾患を持つ患者によく使用されます <span class="citation">(<a href="#ref-zaman_2002">Zaman, Oparil, and Calhoun 2002</a>)</span>。血管性浮腫は、唇、舌、口、喉頭、咽頭、または眼窩周囲の腫れとして現れる、深刻で時には命に関わる有害事象であり、これらの薬剤の使用と関連付けられています <span class="citation">(<a href="#ref-sabroe_1997">Sabroe and Black 1997</a>)</span>。しかし、これらの薬剤使用に関連する血管性浮腫の絶対および相対リスクについての情報は限られています。既存のエビデンスは、主に特定のコホート（例えば、主に男性の退役軍人やメディケイド受給者）に基づいたものであり、他の集団に一般化できない可能性があります。また、イベント数が少ない研究に基づくものであり、不安定なリスク推定しかえられません <span class="citation">(<a href="#ref-powers_2012">Powers et al. 2012</a>)</span>。いくつかの観察研究は、ACE阻害薬をβ遮断薬と比較して血管性浮腫のリスクを評価しています <span class="citation">(<a href="#ref-magid_2010">Magid et al. 2010</a>; <a href="#ref-toh_2012">Toh et al. 2012</a>)</span>が、β遮断薬はもはや高血圧症の第一選択治療役としては推奨されていません <span class="citation">(<a href="#ref-whelton_2018">Whelton et al. 2018</a>)</span>。代替治療法として有効なのは、サイアザイドおよびサイアザイド様利尿薬（THZ）が考えられます。これらは高血圧症や急性心筋梗塞などの関連リスクを管理する上で同等に有効であり、血管性浮腫のリスクを増加させない可能性があります。</p>
+<p>ACE 阻害薬（ACEi）は、高血圧症や虚血性心疾患を持つ患者、特にうっ血性心不全、糖尿病、慢性腎臓病などの併存疾患を持つ患者によく使用されます <span class="citation">(<a href="#ref-zaman_2002">Zaman, Oparil, and Calhoun 2002</a>)</span>。血管性浮腫は、唇、舌、口、喉頭、咽頭、または眼窩周囲の腫れとして現れる、深刻で時には命に関わる有害事象であり、これらの薬剤の使用と関連付けられています <span class="citation">(<a href="#ref-sabroe_1997">Sabroe and Black 1997</a>)</span>。しかし、これらの薬剤使用に関連する血管性浮腫の絶対および相対リスクについての情報は限られています。既存のエビデンスは、主に特定のコホート（例えば、主に男性の退役軍人やメディケイド受給者）に基づいたものであり、他の集団に一般化できない可能性があります。また、イベント数が少ない研究に基づくものであり、不安定なリスク推定しかえられません <span class="citation">(<a href="#ref-powers_2012">Powers et al. 2012</a>)</span>。いくつかの観察研究は、ACEiをβ遮断薬と比較して血管性浮腫のリスクを評価しています <span class="citation">(<a href="#ref-magid_2010">Magid et al. 2010</a>; <a href="#ref-toh_2012">Toh et al. 2012</a>)</span>が、β遮断薬はもはや高血圧症の第一選択治療役としては推奨されていません <span class="citation">(<a href="#ref-whelton_2018">Whelton et al. 2018</a>)</span>。代替治療法として有効なのは、サイアザイドおよびサイアザイド様利尿薬（THZ）が考えられます。これらは高血圧症や急性心筋梗塞（AMI）などの関連リスクを管理する上で同等に有効であり、血管性浮腫のリスクを増加させない可能性があります。</p>
 <p>以下では、観察医療データに集団レベル推定フレームワークを適用し、次の比較推定に関する疑問に対処する方法を示します：</p>
 <blockquote>
-<p>ACE阻害薬の新規ユーザーとサイアザイドおよびサイアザイド様利尿薬の新規ユーザーを比較した場合の血管性浮腫のリスクはどれくらいですか？</p>
+<p>ACE阻害薬の新規使用者とサイアザイドおよびサイアザイド様利尿薬の新規使用者を比較した場合の血管性浮腫のリスクはどれくらいですか？</p>
 </blockquote>
 <blockquote>
-<p>ACE阻害薬の新規ユーザーとサイアザイドおよびサイアザイド様利尿薬の新規ユーザーを比較した場合の急性心筋梗塞のリスクはどれくらいですか？</p>
+<p>ACE阻害薬の新規使用者とサイアザイドおよびサイアザイド様利尿薬の新規使用者を比較した場合の急性心筋梗塞のリスクはどれくらいですか？</p>
 </blockquote>
 <p>これらは比較効果推定の問題であるため、セクション @ref (CohortMethod) で説明されたコホート方法を適用します。</p>
 </div>
 <div id="対象および比較対照" class="section level3 hasAnchor" number="12.6.2">
 <h3><span class="header-section-number">12.6.2</span> 対象および比較対照<a href="PopulationLevelEstimation.html#対象および比較対照" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>高血圧症に対する最初の治療が、ACE阻害薬または THZ クラスのいずれかの有効成分による単剤療法であった患者を、新規患者と見なします。治療開始後7日以内に他の抗高血圧薬を開始しない患者を単剤療法と定義します。患者は最初の曝露前に少なくとも1年間の継続的な観察期間および治療開始前１年以内に高血圧症と診断された記録が必要です。</p>
+<p>高血圧症に対する最初の治療が、ACEi または THZ クラスのいずれかの有効成分による単剤療法であった患者を、新規患者と見なします。治療開始後7日以内に他の抗高血圧薬を開始しない患者を単剤療法と定義します。患者は最初の曝露前に少なくとも1年間の継続的な観察期間および治療開始前１年以内に高血圧症と診断された記録が必要です。</p>
 </div>
 <div id="アウトカム-1" class="section level3 hasAnchor" number="12.6.3">
 <h3><span class="header-section-number">12.6.3</span> アウトカム<a href="PopulationLevelEstimation.html#アウトカム-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>血管性浮腫は、入院または救急室ビジット中に血管性浮腫のコンセプトに該当するコンディションが発生した場合と定義し、その7日前までには血管性浮腫の診断が記録されていないことを必要とします。AMIは、入院または救急室訪問中のAMIコンディションコンセプトの発生として定義し、180日前までにAMI診断が記録されていないことを必要とします。</p>
+<p>血管性浮腫は、入院または救急外来（ER）訪問中の血管性浮腫のコンセプトに該当するコンディションが発生した場合と定義し、その7日前までには血管性浮腫の診断が記録されていないことを必要とします。AMIは、入院またはER訪問中のAMIコンディションコンセプトの発生として定義し、180日前までにAMI診断が記録されていないことを必要とします。</p>
 </div>
 <div id="リスク期間-1" class="section level3 hasAnchor" number="12.6.4">
 <h3><span class="header-section-number">12.6.4</span> リスク期間<a href="PopulationLevelEstimation.html#リスク期間-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1115,7 +1115,7 @@ div.csl-indent {
 <tbody>
 <tr class="odd">
 <td align="left">対象コホート</td>
-<td align="left">高血圧症の第一選択単剤療法としてのACE阻害薬の新規ユーザー。</td>
+<td align="left">高血圧症の第一選択単剤療法としてのACE阻害薬の新規使用者。</td>
 </tr>
 <tr class="even">
 <td align="left">比較コホート</td>
