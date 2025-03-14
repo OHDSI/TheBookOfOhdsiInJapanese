@@ -201,7 +201,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### テーブルエイリアスとASキーワード {.unnumbered}
 
-多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します：
+多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します。：
 
 ``` sql
 -- Using AS keyword
