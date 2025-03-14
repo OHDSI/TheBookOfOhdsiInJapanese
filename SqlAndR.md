@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.z83ilyq3children ;"
+## [1] "SELECT * FROM temp_schema.fa1bkyedchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -529,7 +529,7 @@ SELECT COUNT(*) AS person_count FROM @cdm.person;
 |-------------:|
 |     26299001 |
 
-あるいは、観察期間の平均的な長なさに興味があるのかもしれません：
+あるいは、観察期間の平均的な長さに興味があるのかもしれません：
 
 ``` sql
 SELECT AVG(DATEDIFF(DAY,
@@ -705,7 +705,7 @@ QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラ�
 
 QueryLibraryは、SqlRenderを利用して、選択したSQL方言でクエリを実行します。ユーザーはCDMのデータベーススキーマ、ボキャブラリデータベーススキーマ（別々のものがある場合）、Oracleテンポラリスキーマ（必要な場合）を指定することもでき、これらの設定でクエリが自動的にレンダリングされます。
 
-## 簡単な研究のデザイン
+## 単純な研究デザイン
 
 ### 問題の定義
 
@@ -1012,4 +1012,4 @@ SQL と R を使用して、セレコキシブの服用中に消化管出血と�
 
 :::
 
-推奨される解答は付録 \@ref(SqlAndRanswers) を参照ください。
+解答例は付録 \@ref(SqlAndRanswers) を参照ください。

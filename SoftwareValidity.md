@@ -44,7 +44,7 @@
 
 [OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/) は、多数の関数を提供しており、ほとんどの観察研究は数行のコードを記述するだけで実施することができます。 Methods Library を使用することで、研究コードの妥当性を立証する負担のほとんどが Library に移行されます。 Methods Library の妥当性は、そのソフトウェア開発プロセスと広範なテストによって保証されています。
 
-## Methods Librarのソフトウェア開発プロセス
+## Methods Libraryのソフトウェア開発プロセス
 
 OHDSI Methods Library はOHDSIコミュニティによって開発されています。Libraryへの変更提案は、GitHubのissue tracker（例えば、CohortMethod issue tracker[^softwarevalidity-1]）とOHDSIフォーラムの2つの場所で議論されます[^softwarevalidity-2]。いずれも一般公開されています。コミュニティのメンバーは誰でもライブラリにソフトウェアコードを寄与することができますが、リリースされたソフトウェアのバージョンに組み込まれる変更の最終承認は、OHDSI 集団レベルの推定ワークグループのリーダー（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI 患者レベルの予測ワークグループのリーダー（Peter Rijnbeek博士とJenna Reps博士）のみが行います。
 
