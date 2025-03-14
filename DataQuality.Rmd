@@ -62,8 +62,7 @@
 
 \index{ACHILLES} \index{データ品質!チェック}
 
-カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたデータ品質ツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります [@huser_methods_2018]。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます [@huser_multisite_2016] 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。\index{
-データ品質!データ品質チェック} \index{ACHILLES}
+カーンは、データが所定の要件に適合しているかどうかをテストする*データ品質チェック*（*データ品質ルール*と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたデータ品質ツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、[ACHILLES](https://github.com/OHDSI/Achilles)（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります [@huser_methods_2018]。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます [@huser_multisite_2016] 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。\index{データ品質!データ品質チェック} \index{ACHILLES}
 
 ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。
 
@@ -134,7 +133,7 @@ knitr::include_graphics("images/DataQuality/testFramework.png")
 
 ## 研究特有のチェック
 
-\index{データ品質! 研究特有のチェック}
+\index{データ品質!研究特有のチェック}
 
 この章では、これまでは一般的なDQチェックに焦点を当ててきました。このようなチェックは、データを研究に用いる前に実行すべきです。これらのチェックは調査の質問とは関係なく実行されるため、研究固有のDQ評価を行うことを推奨しています。
 
