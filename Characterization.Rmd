@@ -402,7 +402,7 @@ knitr::include_graphics("images/Characterization/atlasPathwaysResultsPathDetails
 knitr::include_graphics("images/Characterization/atlasIncidenceCohortSelection.png")
 ```
 
-定義タブで、 *New users of ACE inhibitors (ACE阻害薬の新規ユーザー)* コホートと *New users of Thiazide or Thiazide-like diuretics (サイアザイドまたはサイアザイド様利尿薬の新規ユーザー)*コホートをクリックして選択します。ダイアログを閉じて、これらのコホートが追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから \*「acute myocardial infarction events　(急性心筋梗塞イベント)\*\*」 、 *「angioedema events (血管性浮腫イベント)」* 、および *「Angiotensin receptor blocker (ARB) use (アンジオテンシン受容体拮抗薬 (ARB) の新規ユーザー)」* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートがアウトカムコホートセクションに追加されたことを確認します。
+定義タブで、 *「New users of ACE inhibitors (ACE阻害薬の新規ユーザー)」* コホートと *「New users of Thiazide or Thiazide-like diuretics (サイアザイドまたはサイアザイド様利尿薬の新規ユーザー)」*コホートをクリックして選択します。ダイアログを閉じて、これらのコホートが追加されたことを確認します。次に、アウトカムコホートを追加するためにクリックし、ダイアログボックスから \*「acute myocardial infarction events　(急性心筋梗塞イベント)」\*\*、 *「angioedema events (血管性浮腫イベント)」* 、および *「Angiotensin receptor blocker (ARB) use (アンジオテンシン受容体拮抗薬 (ARB) の新規ユーザー)」* のアウトカムコホートを選択します。再びウィンドウを閉じて、これらのコホートがアウトカムコホートセクションに追加されたことを確認します。
 
 ```{r atlasIncidenceTimeAtRisk, fig.cap='対象およびアウトカム定義の発生率',echo=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("images/Characterization/atlasIncidenceTimeAtRisk.png")
