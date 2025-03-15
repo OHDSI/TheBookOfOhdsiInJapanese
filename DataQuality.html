@@ -799,16 +799,16 @@ div.csl-indent {
 <blockquote>
 <p>研究目的に対して、データの品質は十分でしょうか？</p>
 </blockquote>
-<p>データ品質（DQ）を次のように定義できます <span class="citation">(<a href="#ref-roebuck_2012">Roebuck 2012</a>)</span>: </p>
+<p>データ品質（DQ）を次のように定義できます<span class="citation">(<a href="#ref-roebuck_2012">Roebuck 2012</a>)</span>: </p>
 <blockquote>
 <p>特定の使用目的に適したデータとなるような、完全性、妥当性、一貫性、適時性、正確性。</p>
 </blockquote>
 <p>データが完璧であることはまずありませんが、目的には十分である可能性があることに留意ください。</p>
-<p>データ品質は直接観察することができませんが、それを評価する方法論が開発されています。データ品質評価には２つの種類があります <span class="citation">(<a href="#ref-weiskopf_2013">Weiskopf and Weng 2013</a>)</span>: データ品質を全般的に評価する評価と、特定の研究におけるデータ品質を評価する評価です。</p>
+<p>データ品質は直接観察することができませんが、それを評価する方法論が開発されています。データ品質評価には２つの種類があります<span class="citation">(<a href="#ref-weiskopf_2013">Weiskopf and Weng 2013</a>)</span>：データ品質を全般的に評価する評価と、特定の研究におけるデータ品質を評価する評価です。</p>
 <p>本章では、まずデータ品質の問題の原因となり得るものを検討し、その後、一般的なデータ品質評価と特定の研究におけるデータ品質評価の理論について説明し、最後に、OHDSIツールを使用してこれらの評価を実行する方法を段階的に説明します。</p>
 <div id="データ品質問題の原因" class="section level2 hasAnchor" number="15.1">
 <h2><span class="header-section-number">15.1</span> データ品質問題の原因<a href="DataQuality.html#データ品質問題の原因" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>第 <a href="EvidenceQuality.html#EvidenceQuality">14</a> 章で述べたように、医師が自身の考えを記録する段階からデータの品質に対する脅威は数多く存在します。<span class="citation">Dasu and Johnson (<a href="#ref-dasu_2003">2003</a>)</span> は、データのライフサイクルにおいて次のステップを区別し、各ステップにデータ品質を統合することを推奨しています。これをデータ品質の連続体と呼んでいます。</p>
+<p>第<a href="EvidenceQuality.html#EvidenceQuality">14</a>章で述べたように、医師が自身の考えを記録する段階からデータの品質に対する脅威は数多く存在します。<span class="citation">Dasu and Johnson (<a href="#ref-dasu_2003">2003</a>)</span> は、データのライフサイクルにおいて次のステップを区別し、各ステップにデータ品質を統合することを推奨しています。これをデータ品質の連続体と呼んでいます。</p>
 <ol style="list-style-type: decimal">
 <li><strong>データ収集と統合</strong>。考えられる問題としては、手入力の誤り、バイアス（例: 保険請求におけるコーディングの誤り）、EHRでのテーブルの誤った結合、欠測値のデフォルト値への置き換えなどがあります。</li>
 <li><strong>データの保存と知識の共有</strong>。考えられる問題としては、データモデルの文書化不足やメタデータの欠如などが挙げられます。</li>
@@ -816,21 +816,21 @@ div.csl-indent {
 <li><strong>データの公開</strong>。下流での使用のためにデータを公開する際の問題。</li>
 </ol>
 <p>私たちが使用するデータはすでに収集され統合されていることが多いため、ステップ1を改善するためにできることはほとんどありません。この章の後半で詳しく述べるように、このステップによって生成されるデータ品質をチェックする方法があります。</p>
-<p>同様に、私たちは特定の形式でデータを頻繁に受け取っているため、ステップ2の一部についてはほとんど影響力を持ちません。しかし、OHDSIでは、すべての観測データを共通データモデル（CDM）に変換しており、このプロセスについては私たちが管理権限を持っています。この特定のステップがデータ品質を低下させる可能性があるという懸念が示されたこともあります。しかし、私たちがこのプロセスを管理しているため、後述のセクション <a href="DataQuality.html#etlUnitTests">15.2.2</a> で説明するように、データ品質を維持するための厳格な保護策を構築することができます。いくつかの調査 <span class="citation">(<a href="#ref-defalco_2013">Defalco, Ryan, and Soledad Cepeda 2013</a>; <a href="#ref-makadia_2014">Makadia and Ryan 2014</a>; <a href="#ref-matcho_2014">Matcho et al. 2014</a>; <a href="#ref-voss_2015">Voss, Ma, and Ryan 2015</a>; <a href="#ref-voss_2015b">Voss et al. 2015</a>; <a href="#ref-hripcsak_2018">G. Hripcsak et al. 2018</a>)</span> によれば、正しく実行されれば、CDMへの変換時にほとんどエラーは発生しないことが示されています。実際、大規模なコミュニティで共有される詳細に文書化されたデータモデルがあれば、曖昧さのない明確な方法でデータの保存が容易になります。</p>
-<p>ステップ3（データ分析）もまた、私たちの管理下にあります。OHDSIでは、このステップにおける品質問題についてデータ品質という用語は使用せず、<em>臨床妥当性</em>、<em>ソフトウェア妥当性</em>、<em>方法妥当性</em>という用語を使用しています。これらの用語については、それぞれ第 <a href="ClinicalValidity.html#ClinicalValidity">16</a>、<a href="SoftwareValidity.html#SoftwareValidity">17</a>、<a href="MethodValidity.html#MethodValidity">18</a> 章で詳しく議論しています。</p>
+<p>同様に、私たちは特定の形式でデータを頻繁に受け取っているため、ステップ2の一部についてはほとんど影響力を持ちません。しかし、OHDSIでは、すべての観測データを共通データモデル（CDM）に変換しており、このプロセスについては私たちが管理権限を持っています。この特定のステップがデータ品質を低下させる可能性があるという懸念が示されたこともあります。しかし、私たちがこのプロセスを管理しているため、後述のセクション <a href="DataQuality.html#etlUnitTests">15.2.2</a> で説明するように、データ品質を維持するための厳格な保護策を構築することができます。いくつかの調査<span class="citation">(<a href="#ref-defalco_2013">Defalco, Ryan, and Soledad Cepeda 2013</a>; <a href="#ref-makadia_2014">Makadia and Ryan 2014</a>; <a href="#ref-matcho_2014">Matcho et al. 2014</a>; <a href="#ref-voss_2015">Voss, Ma, and Ryan 2015</a>; <a href="#ref-voss_2015b">Voss et al. 2015</a>; <a href="#ref-hripcsak_2018">G. Hripcsak et al. 2018</a>)</span>によれば、正しく実行されれば、CDMへの変換時にほとんどエラーは発生しないことが示されています。実際、大規模なコミュニティで共有される詳細に文書化されたデータモデルがあれば、曖昧さのない明確な方法でデータの保存が容易になります。</p>
+<p>ステップ3（データ分析）もまた、私たちの管理下にあります。OHDSIでは、このステップにおける品質問題についてデータ品質という用語は使用せず、<em>臨床妥当性</em>、<em>ソフトウェア妥当性</em>、<em>方法妥当性</em>という用語を使用しています。これらの用語については、それぞれ第<a href="ClinicalValidity.html#ClinicalValidity">16</a>、<a href="SoftwareValidity.html#SoftwareValidity">17</a>、<a href="MethodValidity.html#MethodValidity">18</a>章で詳しく議論しています。</p>
 </div>
 <div id="一般的なデータ品質" class="section level2 hasAnchor" number="15.2">
 <h2><span class="header-section-number">15.2</span> 一般的なデータ品質<a href="DataQuality.html#一般的なデータ品質" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>観察研究の一般的な目的に対してデータが適しているかどうかを問うことができます。<span class="citation">Michael G. Kahn et al. (<a href="#ref-kahn_harmonized_2016">2016</a>)</span> は、このような一般的なデータ品質を次の3つの要素から構成されるものと定義しています。</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>適合性</strong>: データ値が指定された基準や形式に従っているでしょうか。3つのサブタイプに識別されます：</p>
+<li><p><strong>適合性</strong>：データ値が指定された基準や形式に従っているでしょうか。3つのサブタイプに識別されます：</p>
 <ul>
-<li><strong>値</strong>: 記録されたデータ要素が指定された形式に合致しているでしょうか。例えば、すべての医療専門分野は有効な専門分野でしょうか。</li>
-<li><strong>関係</strong>: 記録されたデータが指定された関係制約に合致しているでしょうか。例えば、DRUG_EXPOSURE データの PROVIDER_ID が PROVIDER テーブルの対応するレコードと一致しているでしょうか。</li>
-<li><strong>計算</strong>: データに対する計算結果が意図したとおりになっているでしょうか。例えば、身長と体重から計算されたBMIがデータに記録されているものと等しいでしょうか。</li>
+<li><strong>値</strong>：記録されたデータ要素が指定された形式に合致しているでしょうか。例えば、すべての医療専門分野は有効な専門分野でしょうか。</li>
+<li><strong>関係</strong>：記録されたデータが指定された関係制約に合致しているでしょうか。例えば、DRUG_EXPOSURE データの PROVIDER_ID が PROVIDER テーブルの対応するレコードと一致しているでしょうか。</li>
+<li><strong>計算</strong>：データに対する計算結果が意図したとおりになっているでしょうか。例えば、身長と体重から計算されたBMIがデータに記録されているものと等しいでしょうか。</li>
 </ul></li>
-<li><p><strong>完全性</strong>: 特定の変数が存在するかどうか（例：診察室で測定された体重が記録されているか？）や、変数がすべての記録された値を含んでいるか（例：すべての人の性別が分かっているか）を参照します。</p></li>
-<li><p><strong>妥当性（plausibility）</strong>: データ値は信頼できるでしょうか。3つのサブタイプが定義されています：</p>
+<li><p><strong>完全性</strong>：特定の変数が存在するかどうか（例：診察室で測定された体重が記録されているか？）や、変数がすべての記録された値を含んでいるか（例：すべての人の性別が分かっているか）を参照します。</p></li>
+<li><p><strong>妥当性（plausibility）</strong>：データ値は信頼できるでしょうか。3つのサブタイプが定義されています：</p>
 <ul>
 <li><strong>一意性</strong>：例えば、PERSON テーブルで各 PERSON_ID は一度しか出現しないでしょうか？</li>
 <li><strong>非時間的</strong>：値、分布、密度が期待される値と一致しているでしょうか？例えば、データから示唆される糖尿病の有病率は既知の有病率と一致しているでしょうか？</li>
@@ -847,8 +847,8 @@ div.csl-indent {
 <div id="データ品質チェック" class="section level3 hasAnchor" number="15.2.1">
 <h3><span class="header-section-number">15.2.1</span> データ品質チェック<a href="DataQuality.html#データ品質チェック" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p> </p>
-<p>カーンは、データが所定の要件に適合しているかどうかをテストする<em>データ品質チェック</em>（<em>データ品質ルール</em>と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたデータ品質ツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、<a href="https://github.com/OHDSI/Achilles">ACHILLES</a>（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります <span class="citation">(<a href="#ref-huser_methods_2018">Huser et al. 2018</a>)</span>。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます <span class="citation">(<a href="#ref-huser_multisite_2016">Huser et al. 2016</a>)</span> 。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。 </p>
-<p>ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715: DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506: 性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。</p>
+<p>カーンは、データが所定の要件に適合しているかどうかをテストする<em>データ品質チェック</em>（<em>データ品質ルール</em>と呼ばれることもある）という用語を導入しています（例えば、患者の年齢が141歳というありえない値になっている場合、誤った生年が入力されたか、死亡イベントが記録されていない可能性があります）。このようなチェックは、自動化されたデータ品質ツールを作成することでソフトウェアに実装することができます。そのようなツールの1つに、<a href="https://github.com/OHDSI/Achilles">ACHILLES</a>（Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems）があります<span class="citation">(<a href="#ref-huser_methods_2018">Huser et al. 2018</a>)</span>。ACHILLESは、CDMに準拠したデータベースの特性評価と可視化を行うソフトウェアツールです。そのため、データベースのネットワークにおけるDQの評価に使用することができます<span class="citation">(<a href="#ref-huser_multisite_2016">Huser et al. 2016</a>)</span>。ACHILLESはスタンドアロンツールとして利用でき、「データソース」機能としてもATLASに統合されています。 </p>
+<p>ACHILLESは、170以上のデータ特性評価を事前に計算します。各分析には分析IDと分析の簡単な説明があり、その例として「715：DRUG_CONCEPT_IDによるDAYS_SUPPLYの分布」や「506：性別による死亡時の年齢の分布」などがあります。これらの分析結果はデータベースに保存され、ウェブビューアーまたはATLASからアクセスできます。</p>
 <p></p>
 <p>コミュニティが作成したもう一つのツールで、DQ を評価するものに、<a href="https://github.com/OHDSI/DataQualityDashboard">Data Quality Dashboard (DQD)</a> があります。ACHILLES が特性評価を実行して CDM インスタンスの全体像を視覚的に把握できるようにするのに対し、DQD は表ごとに、またフィールドごとに、CDM 内の所定の仕様を満たさないレコード数を数値化します。合計で 1,500 を超えるチェックが実行され、それぞれが Kahn のフレームワークで整理されています。各チェックの結果は閾値と比較され、違反行の割合がその値を上回る場合は不合格とみなされます。表 <a href="DataQuality.html#tab:dqdExamples">15.1</a> は、いくつかのチェックの例を示しています。</p>
 <table>
@@ -910,7 +910,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <h3><span class="header-section-number">15.2.2</span> ETL（抽出-変換-読込）単体テスト<a href="DataQuality.html#etlUnitTests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p></p>
 <p>高度なデータ品質のチェックに加え、個別レベルでのデータチェックも実施すべきです。データがCDMに変換されるETLプロセスは、非常に複雑であることがよくあり、その複雑さゆえに、気づかれないままミスが発生する危険性があります。さらに、時間の経過とともにソースデータモデルが変更されたり、CDMが更新されたりすることもあり、ETLプロセスを修正する必要が生じます。ETL のように複雑なプロセスに変更を加えると予期せぬ結果を招く可能性があり、ETL のすべての側面を再考し、再評価する必要が生じます。</p>
-<p>ETL が期待通りに動作し、その状態を維持できるようにするためには、一連の単体テストを作成することが強く推奨されます。単体テストとは、自動的に単一の側面をチェックする小さなコードの断片です。第 <a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a> 章で説明したRabbit-in-a-Hatツールを使用すると、このような単体テストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下に単体テストの例を示します。</p>
+<p>ETL が期待通りに動作し、その状態を維持できるようにするためには、一連の単体テストを作成することが強く推奨されます。単体テストとは、自動的に単一の側面をチェックする小さなコードの断片です。第<a href="ExtractTransformLoad.html#ExtractTransformLoad">6</a>章で説明したRabbit-in-a-Hatツールを使用すると、このような単体テストを簡単に作成できるユニットテストフレームワークを作成することができます。このフレームワークは、ソースデータベースとターゲットCDMバージョンのETL用に特別に作成されたR関数の集合です。これらの関数の一部は、ソースデータスキーマに準拠した偽のデータエントリを作成するためのもので、その他の関数はCDM形式のデータに関する期待値を指定するために使用できます。以下に単体テストの例を示します。</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="DataQuality.html#cb140-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;Framework.R&quot;</span>)</span>
 <span id="cb140-2"><a href="DataQuality.html#cb140-2" tabindex="-1"></a><span class="fu">declareTest</span>(<span class="dv">101</span>, <span class="st">&quot;Person gender mappings&quot;</span>)</span>
 <span id="cb140-3"><a href="DataQuality.html#cb140-3" tabindex="-1"></a><span class="fu">add_enrollment</span>(<span class="at">member_id =</span> <span class="st">&quot;M000000102&quot;</span>, <span class="at">gender_of_member =</span> <span class="st">&quot;male&quot;</span>)</span>
@@ -961,10 +961,10 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <p>この章では、これまでは一般的なDQチェックに焦点を当ててきました。このようなチェックは、データを研究に用いる前に実行すべきです。これらのチェックは調査の質問とは関係なく実行されるため、研究固有のDQ評価を行うことを推奨しています。</p>
 <p>これらの評価の一部は、調査に特に関連するDQルールという形式を取ることができます。例えば、関心のある曝露に関するレコードの少なくとも90%が曝露期間を指定しているというルールを課すことが考えられます。</p>
 <p>標準的な評価は、ACHILLESで研究に最も関連するコンセプトを検討することであり、例えば、コホート研究の定義で指定されたものなどがあります。コードが観察される割合が時間とともに突然変化する場合は、DQの問題が示唆される場合があります。いくつかの例は、この章で後ほど説明します。</p>
-<p>別の評価方法としては、研究用に開発されたコホート定義を使用して生成されたコホートの有病率や経時的な有病率の変化を再検討し、それらが外部臨床知識に基づく予測と一致しているかどうかを確認することが挙げられます。例えば、新薬への曝露は市場に投入される前には存在しないはずであり、投入後は時間の経過とともに増加する可能性が高いです。同様に、アウトカムの有病率は、その集団における疾患の有病率として知られている内容と一致しているはずです。研究がデータベースのネットワーク全体で実施された場合、データベース間でコホートの有病率を比較することができます。あるデータベースではコホートの有病率が非常に高いが、別のデータベースでは欠落している場合、DQの問題がある可能性があります。このような評価は、第 <a href="ClinicalValidity.html#ClinicalValidity">16</a> 章で説明されているように、<em>臨床的妥当性</em>のコンセプトと重複していることに留意ください。一部のデータベースで予期せぬ有病率が見られるのは、DQの問題ではなく、コホートの定義が、対象とする疾患状態を正確に捉えていないため、あるいは、異なる患者集団を捉えているデータベース間で、これらの健康状態が当然異なるためである可能性があります。</p>
+<p>別の評価方法としては、研究用に開発されたコホート定義を使用して生成されたコホートの有病率や経時的な有病率の変化を再検討し、それらが外部臨床知識に基づく予測と一致しているかどうかを確認することが挙げられます。例えば、新薬への曝露は市場に投入される前には存在しないはずであり、投入後は時間の経過とともに増加する可能性が高いです。同様に、アウトカムの有病率は、その集団における疾患の有病率として知られている内容と一致しているはずです。研究がデータベースのネットワーク全体で実施された場合、データベース間でコホートの有病率を比較することができます。あるデータベースではコホートの有病率が非常に高いが、別のデータベースでは欠落している場合、DQの問題がある可能性があります。このような評価は、第<a href="ClinicalValidity.html#ClinicalValidity">16</a>章で説明されているように、<em>臨床的妥当性</em>のコンセプトと重複していることに留意ください。一部のデータベースで予期せぬ有病率が見られるのは、DQの問題ではなく、コホートの定義が、対象とする疾患状態を正確に捉えていないため、あるいは、異なる患者集団を捉えているデータベース間で、これらの健康状態が当然異なるためである可能性があります。</p>
 <div id="マッピングのチェック" class="section level3 hasAnchor" number="15.3.1">
 <h3><span class="header-section-number">15.3.1</span> マッピングのチェック<a href="DataQuality.html#マッピングのチェック" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>私たちの管理下で明確に該当するエラーの可能性として、ソースコードから標準コンセプトへのマッピングが挙げられます。 ボキャブラリのマッピングは入念に作成されており、コミュニティのメンバーによって指摘されたマッピングのエラーは、ボキャブラリのイシュー追跡システム <a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a> に報告され、今後のリリースで修正されます。しかし、すべてのマッピングを手作業で完全にチェックすることは不可能であり、エラーが残っている可能性は依然としてあります。そのため、調査を行う際には、その調査に最も関連性の高いコンセプトのマッピングを確認することをお勧めします。幸い、これは非常に簡単に実行できます。なぜなら、CDMでは標準コンセプトだけでなくソースコードも保存されているからです。研究で使用されたコンセプトにマッピングされたソースコードだけでなく、そうでないソースコードも確認することができます。</p>
+<p>私たちの管理下で明確に該当するエラーの可能性として、ソースコードから標準コンセプトへのマッピングが挙げられます。 ボキャブラリのマッピングは入念に作成されており、コミュニティのメンバーによって指摘されたマッピングのエラーは、ボキャブラリのイシュー追跡システム<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a>に報告され、今後のリリースで修正されます。しかし、すべてのマッピングを手作業で完全にチェックすることは不可能であり、エラーが残っている可能性は依然としてあります。そのため、調査を行う際には、その調査に最も関連性の高いコンセプトのマッピングを確認することをお勧めします。幸い、これは非常に簡単に実行できます。なぜなら、CDMでは標準コンセプトだけでなくソースコードも保存されているからです。研究で使用されたコンセプトにマッピングされたソースコードだけでなく、そうでないソースコードも確認することができます。</p>
 <p>対応づけられたソースコードをレビューする方法のひとつに、Rパッケージ<a href="https://ohdsi.github.io/MethodEvaluation/">MethodEvaluation</a>の<code>checkCohortSourceCodes</code>関数を使用する方法があります。この関数は、ATLASによって作成されたコホート定義を入力として使用し、コホート定義で使用されている各コンセプトセットについて、そのセット内のコンセプトに対応づけられたソースコードがどれであるかをチェックします。また、特定のソースコードに関連する時間的な問題を特定するのに役立つよう、これらのコードの経時的な有病率も計算します。図 <a href="DataQuality.html#fig:sourceCodes">15.2</a> の出力例は、「うつ病性障害」と呼ばれるコンセプトセットの一部内訳を示しています。 対象のデータベースにおけるこのコンセプトセットで最も頻度の高いコンセプトは、コンセプト<a href="http://athena.ohdsi.org/search-terms/terms/440383">440383</a>（「うつ病性障害」）です。 このデータベースでは、ICD-9コード3.11、ICD-10コードF32.8、F32.89の3つのソースコードがこのコンセプトにマッピングされていることが分かります。左側では、このコンセプト全体がまず徐々に増加し、その後急激に減少していることが分かります。個々のコードを調べると、この減少は、減少の時期にICD-9コードが使用されなくなったことによるものであることが分かります。これはICD-10コードが使用され始めた時期と一致していますが、ICD-10コードの合計の有病率はICD-9コードの有病率よりもはるかに低くなっています。この特定の例は、ICD-10コードのF32.9（「うつ病、単一エピソード，詳細不明」）もまた、このコンセプトにマッピングされるべきであったという事実によるものです。この問題は、その後、ボキャブラリで解決されました。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sourceCodes"></span>
 <img src="images/DataQuality/sourceCodes.png" alt="checkCohortSourceCodes関数のサンプル出力" width="100%" />
@@ -1022,9 +1022,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 </div>
 <div id="dqdInPractice" class="section level2 hasAnchor" number="15.5">
 <h2><span class="header-section-number">15.5</span> Data Quality Dashboardの実践<a href="DataQuality.html#dqdInPractice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ここでは、CDM 形式のデータベースに対してデータ品質ダッシュボード（Data Quality Dashboard; DQD)を実行する方法を説明します。 これを行うには、セクション <a href="DataQuality.html#achillesInPractice">15.4</a> で説明されているCDM接続に対して、一連のチェックを実行します。 現時点では、DQDはCDM v5.3.1のみをサポートしているため、接続する前にデータベースが正しいバージョンであることを確認してください。 ACHILLESの場合と同様に、Rにデータの検索先を指示するために、変数</p>
-<p><code>cdmDbSchema</code></p>
-<p>を作成する必要があります。</p>
+<p>ここでは、CDM 形式のデータベースに対してデータ品質ダッシュボード（Data Quality Dashboard；DQD）を実行する方法を説明します。 これを行うには、セクション <a href="DataQuality.html#achillesInPractice">15.4</a> で説明されているCDM接続に対して、一連のチェックを実行します。 現時点では、DQDはCDM v5.3.1のみをサポートしているため、接続する前にデータベースが正しいバージョンであることを確認してください。 ACHILLESの場合と同様に、Rにデータの検索先を指示するために、変数 <code>cdmDbSchema</code> を作成する必要があります。</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="DataQuality.html#cb145-1" tabindex="-1"></a>cdmDbSchema <span class="ot">&lt;-</span> <span class="st">&quot;my_cdm_data.dbo&quot;</span></span></code></pre></div>
 <p>次に、DQDを実行します…</p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="DataQuality.html#cb146-1" tabindex="-1"></a>DataQualityDashboard<span class="sc">::</span><span class="fu">executeDqChecks</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
@@ -1061,7 +1059,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <span id="cb148-6"><a href="DataQuality.html#cb148-6" tabindex="-1"></a>                       <span class="at">cohortJson =</span> json,</span>
 <span id="cb148-7"><a href="DataQuality.html#cb148-7" tabindex="-1"></a>                       <span class="at">cohortSql =</span> sql,</span>
 <span id="cb148-8"><a href="DataQuality.html#cb148-8" tabindex="-1"></a>                       <span class="at">outputFile =</span> <span class="st">&quot;output.html&quot;</span>)</span></code></pre></div>
-<p>出力ファイルをウェブブラウザで開くことができます（図 <a href="DataQuality.html#fig:sourceCodesAngioedema">15.8</a>）。ここでは、血管性浮腫のコホート定義には「Inpatient or ER (入院または救急室ビジット)」と「Angioedema (血管性浮腫)」という二つのコンセプトセットがあります。この例のデータベースでは、ビジットは「ER」および「IP」というデータベース固有のソースコードによって同定され、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって同定されました。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。</p>
+<p>出力ファイルをウェブブラウザで開くことができます（図 <a href="DataQuality.html#fig:sourceCodesAngioedema">15.8</a>）。ここでは、血管性浮腫のコホート定義には「Inpatient or ER（入院または救急室ビジット）」と「Angioedema（血管性浮腫）」という二つのコンセプトセットがあります。この例のデータベースでは、ビジットは「ER」および「IP」というデータベース固有のソースコードによって同定され、ETL中に標準コンセプトにマッピングされました。また、血管性浮腫は一つのICD-9コードと二つのICD-10コードによって同定されました。それぞれのコードのスパークラインを見ると、二つのコーディングシステムのどの時点で切り替わったかが明らかになりますが、コンセプトセット全体としてはその時点での不連続性はありません。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sourceCodesAngioedema"></span>
 <img src="images/DataQuality/sourceCodesAngioedema.png" alt="血管性浮腫のコホート定義で使用されるソースコード" width="100%" />
 <p class="caption">
@@ -1095,43 +1093,43 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <tbody>
 <tr class="odd">
 <td align="left">T78.3XXS</td>
-<td align="left">Angioneurotic edema, sequela (血管神経性浮腫、続発症）</td>
+<td align="left">Angioneurotic edema, sequela（血管神経性浮腫、続発症）</td>
 <td align="left">ICD10CM</td>
 <td align="right">508</td>
 </tr>
 <tr class="even">
 <td align="left">10002425</td>
-<td align="left">Angioedemas (血管性浮腫)</td>
+<td align="left">Angioedemas（血管性浮腫）</td>
 <td align="left">MedDRA</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">148774</td>
-<td align="left">Angioneurotic Edema of Larynx (喉頭の血管神経性浮腫)</td>
+<td align="left">Angioneurotic Edema of Larynx（喉頭の血管神経性浮腫）</td>
 <td align="left">CIEL</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">402383003</td>
-<td align="left">Idiopathic urticaria and/or angioedema (特発性蕁麻疹かつ/または血管性浮腫)</td>
+<td align="left">Idiopathic urticaria and/or angioedema（特発性蕁麻疹かつ/または血管性浮腫）</td>
 <td align="left">SNOMED</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">232437009</td>
-<td align="left">Angioneurotic edema of larynx (喉頭の血管神経性浮腫)</td>
+<td align="left">Angioneurotic edema of larynx（喉頭の血管神経性浮腫）</td>
 <td align="left">SNOMED</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">10002472</td>
-<td align="left">Angioneurotic edema, not elsewhere classified (血管神経性浮腫、他に分類されない)</td>
+<td align="left">Angioneurotic edema, not elsewhere classified（血管神経性浮腫、他に分類されない）</td>
 <td align="left">MedDRA</td>
 <td align="right">0</td>
 </tr>
 </tbody>
 </table>
-<p>データで実際に使用されている潜在的なオーファンコード（上位層も下位層もない）として見つかったのは「Angioneurotic edema, sequela (血管神経性浮腫、続発症）」のみであり、これは血管性浮腫にマッピングすべきではありません。したがって、この分析では、欠落しているコードは発見されませんでした。</p>
+<p>データで実際に使用されている潜在的なオーファンコード（上位層も下位層もない）として見つかったのは「Angioneurotic edema, sequela（血管神経性浮腫、続発症）」のみであり、これは血管性浮腫にマッピングすべきではありません。したがって、この分析では、欠落しているコードは発見されませんでした。</p>
 </div>
 <div id="まとめ-12" class="section level2 hasAnchor" number="15.7">
 <h2><span class="header-section-number">15.7</span> まとめ<a href="DataQuality.html#まとめ-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1167,7 +1165,7 @@ ACHILLESとDQDはCDM内のデータに対して実行されます。このよう
 <div class="exercise">
 <p><span id="exr:exerciseViewDQD" class="exercise"><strong>演習 15.3  </strong></span>DQDのチェックリストを抽出してください。</p>
 </div>
-<p>解答例は付録 <a href="SuggestedAnswers.html#DataQualityanswers">E.10</a>を参照のこと。</p>
+<p>解答例は付録 <a href="SuggestedAnswers.html#DataQualityanswers">E.10</a>を参照してください。</p>
 
 </div>
 </div>
