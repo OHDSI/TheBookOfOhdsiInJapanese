@@ -1105,7 +1105,7 @@ div.csl-indent {
 </div>
 <div id="決定木" class="section level3 hasAnchor" number="13.3.7">
 <h3><span class="header-section-number">13.3.7</span> 決定木<a href="PatientLevelPrediction.html#決定木" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>決定木は、貪欲法で選択された個々のテストを使用して変数空間を分割する分類器です。クラスを分離する際に、最も高い情報量を持つ分割を見つけることを目的としています。決定木は、多数の分割（木の深さ）を有効にすることで簡単に過学習状態になるため、多くの場合、正則化（例えば、枝刈りやモデルの複雑性を制限するハイパーパラメータの指定）が必要です。Pythonでは、sklearnのDecisionTreeClassifier実装を使用します。 </p>
+<p>決定木は、貪欲法（greedy approach）で選択された個々のテストを使用して変数空間を分割する分類器です。クラスを分離する際に、最も高い情報量を持つ分割を見つけることを目的としています。決定木は、多数の分割（木の深さ）を有効にすることで簡単に過学習状態になるため、多くの場合、正則化（例えば、枝刈りやモデルの複雑性を制限するハイパーパラメータの指定）が必要です。Pythonでは、sklearnのDecisionTreeClassifier実装を使用します。 </p>
 <table>
 <caption><span id="tab:decisionTreeParameters">表 13.9: </span> 決定木のハイパーパラメータ</caption>
 <colgroup>
@@ -1366,8 +1366,9 @@ div.csl-indent {
 </div>
 <div id="研究概要" class="section level3 hasAnchor" number="13.5.5">
 <h3><span class="header-section-number">13.5.5</span> 研究概要<a href="PatientLevelPrediction.html#研究概要" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>これで、表 <a href="#tab:plpSummary">13.12</a> に示されるように、研究を完全に定義しました。</p>
+<p>これで、表 <a href="PatientLevelPrediction.html#tab:plpSummary">13.12</a> に示されるように、研究を完全に定義しました。</p>
 <table>
+<caption><span id="tab:plpSummary">表 13.12: </span> この研究の主なデザイン選択</caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -1393,16 +1394,10 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td align="left">モデル</td>
-<td align="left">勾配ブースティンマシンで、ハイパーパラメーターは下記の通りとします：木の数　5000</td>
+<td align="left">勾配ブースティンマシンで、ハイパーパラメーターは下記の通りとします：木の数　5000、木の最大の深さ　4、7、または10　学習速度　0.001、0.01 、0.1、または0.9。共変量は、性別、年齢、コンディション、薬剤、薬剤グループ、ビジット数を含みます。 データ分割: 75％トレーニング - 25％テスト、個人ごとにランダムに割り当てられます。</td>
 </tr>
 </tbody>
 </table>
-<dl>
-<dt>、木の最大の深さ　4、7、または10　学習速度　0.001、0.01 、0.1、または0.9。共変量は、性別、年齢、コンディション、薬剤、薬剤グループ、ビジット数を含みます。 データ分割: 75％トレーニング - 25％テスト、個人ごとにランダムに割り当てられます。 |</dt>
-<dd>
-<p>(#tab:plpSummary) この研究の主なデザイン選択</p>
-</dd>
-</dl>
 </div>
 </div>
 <div id="atlasでの研究の実装" class="section level2 hasAnchor" number="13.6">
