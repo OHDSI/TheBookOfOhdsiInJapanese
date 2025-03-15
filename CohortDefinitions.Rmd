@@ -566,7 +566,7 @@
 
 ## アンジオテンシン受容体拮抗薬（ARB）の使用 {#ARBUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*アンジオテンシン受容体拮抗薬（ARB）*（表 \@ref(tab:ARBUseARBs)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*は付録 \@ref(ACEiUse) と同じですが、*アンジオテンシン受容体拮抗薬（ARB）*（表 \@ref(tab:ARBUseARBs)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -585,7 +585,7 @@
 
 ## サイアザイドおよびサイアザイド様利尿薬の使用 {#THZUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*サイアザイドおよびサイアザイド様利尿薬*（表 \@ref(tab:THZUseTHZ)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*は付録 \@ref(ACEiUse) と同じですが、*サイアザイドおよびサイアザイド様利尿薬*（表 \@ref(tab:THZUseTHZ)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -600,7 +600,7 @@
 
 ## ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）の使用 {#dCCBUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）*（表 \@ref(tab:dCCBUsedCBB)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*ジヒドロピリジン系カルシウムチャネル遮断薬（DCCB）*（表 \@ref(tab:dCCBUsedCBB)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -617,7 +617,7 @@
 
 ## 非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）の使用 {#ndCCBUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）*（表 \@ref(tab:ndCCBUsendCCB)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*非ジヒドロピリジン系カルシウムチャネル遮断薬（NDCCB）*（表 \@ref(tab:ndCCBUsendCCB)）が*ACE阻害薬*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -630,7 +630,7 @@
 
 ## ベータ遮断薬使用 {#BBUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*ベータ遮断薬*（表 \@ref(tab:BBUseBB)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*ベータ遮断薬*（表 \@ref(tab:BBUseBB)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -653,7 +653,7 @@
 
 ## ループ利尿薬使用 {#DLoopUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*ループ利尿薬*（表 \@ref(tab:DLoopUseDLoops)）が*ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*ループ利尿薬*（表 \@ref(tab:DLoopUseDLoops)）が*ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -667,7 +667,7 @@
 
 ## カリウム保持性利尿薬使用 {#DPUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*カリウム保持性利尿薬*（表 \@ref(tab:DPUseDPs)） が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*カリウム保持性利尿薬*（表 \@ref(tab:DPUseDPs)） が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセットの定義 {.unnumbered}
 
@@ -680,7 +680,7 @@
 
 ## アルファ-1遮断薬使用 {#A1BUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*アルファ-1遮断薬*（表 \@ref(tab:A1BUseA1Bs)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
+*コホート定義*（付録 \@ref(ACEiUse)）と同じですが、*アルファ-1遮断薬*（表 \@ref(tab:A1BUseA1Bs)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセットの定義 {.unnumbered}
 
