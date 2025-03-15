@@ -6,7 +6,7 @@
 
 共通データモデル（CDM）はリレーショナルデータベースモデルです（すべてのデータはフィールドを持つテーブルのレコードとして表されます）。そのため、データは通常、PostgreSQL、Oracle、Microsoft SQL Serverなどのソフトウェアプラットフォームを使用してリレーショナルデータベースに保存されます。ATLASやMethods LibraryなどのさまざまなOHDSIツールは、バックグラウンドでデータベースにクエリを出すことで動作しますが、適切なアクセス権があれば、私たちも自身も直接データベースにクエリを出すことができます。その主な理由は、現在のツールではサポートされていない分析を行うためです。ただし、OHDSI ツールは多くの場合、ユーザーがデータを適切に分析できるよう、ガイドするように設計されているため、データベースを直接クエリすると、間違いを犯すリスクも高くなります。直接のクエリでは、そのようなガイドは提供されていません。
 
-リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します。： \index{SQL} \index{structured query language!SQL}
+リレーショナルデータベースをクエリする標準的な言語はSQL（Structured Query Language）で、クエリやデータ変更に使用できます。 SQLの基本コマンドは確かに標準化されており、ソフトウェアプラットフォーム間で同じ意味を持ちますが、各プラットフォームには独自の「方言」があり、微妙な違いがあります。 例えば、SQL Server上のPERSONテーブルの最初の10行を取得するには、次のように入力します： \index{SQL} \index{structured query language!SQL}
 
 
 ``` sql
@@ -26,7 +26,7 @@ OHDSIでは、プラットフォーム固有の表現に依存しないことを
 
 そのため、CDMに準拠したデータベースに対してOHDSIツールを使用せずにクエリを実行できますが、推奨されるパスはDatabaseConnectorとSqlRenderパッケージを使用することです。これにより、あるサイトで開発されたクエリが他のサイトでも修正することなく使用できるようになります。R自体も、データベースから抽出されたデータをさらに分析する機能を提供しており、統計分析の実行や（インタラクティブな）プロットの生成などが可能です。 \index{R}
 
-本章では、読者がSQLの基本的な理解をしていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法を確認します。これらのパッケージを使用しない場合は、このセクションをスキップいただいて構いません。セクション\@ref(QueryTheCdm) では、CDMにクエリを出すためのSQL（この場合OHDSI SQL）を使用する方法を説明します。次のセクションでは、CDMにクエリする際にOHDSI標準化ボキャブラリを使用する方法を説明します。CDMに対する一般的に使用されるクエリのコレクションであり、一般に公開されているQueryLibraryに焦点を当てます。本章の最後では、発生率を推定する研究例を取り上げ、SqlRenderとDatabaseConnectorを使用してこの研究を実施します。 \index{Query Library} \index{SQL Query Library!Query Library}
+本章では、読者がSQLの基本的な理解をしていることを前提としています。まず、SqlRenderとDatabaseConnectorの使用方法を確認します。これらのパッケージを使用しない場合は、このセクションをスキップいただいて構いません。セクション \@ref(QueryTheCdm) では、CDMにクエリを出すためのSQL（この場合OHDSI SQL）を使用する方法を説明します。次のセクションでは、CDMにクエリする際にOHDSI標準化ボキャブラリを使用する方法を説明します。CDMに対する一般的に使用されるクエリのコレクションであり、一般に公開されているQueryLibraryに焦点を当てます。本章の最後では、発生率を推定する研究例を取り上げ、SqlRenderとDatabaseConnectorを使用してこの研究を実施します。 \index{Query Library} \index{SQL Query Library!Query Library}
 
 ## SqlRender {#SqlRender}
 
@@ -57,7 +57,7 @@ render(sql, a = 123)
 ## [1] "SELECT * FROM concept WHERE concept_id = 123;"
 ```
 
-ほとんどのデータベース管理システムが提供するパラメータ化とは異なり、テーブル名やフィールド名を値と同様に簡単にパラメータ化できることに注目ください。：
+ほとんどのデータベース管理システムが提供するパラメータ化とは異なり、テーブル名やフィールド名を値と同様に簡単にパラメータ化できることに注目ください：
 
 
 ``` r
@@ -69,7 +69,7 @@ render(sql, x = "observation", a = 123)
 ## [1] "SELECT * FROM observation WHERE person_id = 123;"
 ```
 
-パラメータ値は、数値、文字列、ブーリアン変数、ベクトル（カンマ区切りのリストに変換される）とすることができます。：
+パラメータ値は、数値、文字列、ブーリアン変数、ベクトル（カンマ区切りのリストに変換される）とすることができます：
 
 
 ``` r
@@ -252,7 +252,7 @@ SELECT * FROM a EXCEPT SELECT * FROM b;
 
 #### テーブルエイリアスとASキーワード {.unnumbered}
 
-多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します。：
+多くのSQL表現ではテーブルエイリアスを定義する際に `AS` キーワードを使用できますが、キーワードなしでも問題なく動作します。例えば、以下のSQL文はSQL Server、PostgreSQL、Redshiftなどでは問題なく動作します：
 
 ``` sql
 -- Using AS keyword
@@ -295,7 +295,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 ```
 
 ```
-## [1] "SELECT * FROM temp_schema.iq46qcb9children ;"
+## [1] "SELECT * FROM temp_schema.i1mvll4hchildren ;"
 ## attr(,"sqlDialect")
 ## [1] "oracle"
 ```
@@ -306,7 +306,7 @@ translate(sql, targetDialect = "oracle", oracleTempSchema = "temp_schema")
 
 さらに、Oracleではテンポラリテーブルは自動的に削除されないため、使用後に明示的にすべてのテンポラリテーブルを `TRUNCATE` および `DROP` して、孤立したテーブルがOracleの一時スキーマに蓄積しないようにする必要があります。
 
-#### Implicit Cast (暗黙のデータ型変換） {.unnumbered}
+#### Implicit Cast（暗黙のデータ型変換） {.unnumbered}
 
 SQL Serverが他の言語よりも特異である数少ない点の1つは、暗黙の型変換が許可されていることです。例えば、次のコードはSQL Serverで動作します：
 
@@ -319,7 +319,7 @@ SELECT '1';
 SELECT * FROM #temp WHERE txt = 1;
 ```
 
-`txt` がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、castは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります。：
+`txt` がVARCHARフィールドで、それを整数と比較しているとしても、SQL Serverは比較を可能にするために、2つのうちの1つを自動的に正しい型に変換します。これに対して、PostgreSQLなどの他の方言では、VARCHARとINTを比較しようとするとエラーが発生します。 したがって、castは常に明示的に行う必要があります。上記の例では、最後のステートメントを以下のいずれかに置き換える必要があります：
 
 ``` sql
 SELECT * FROM #temp WHERE txt = CAST(1 AS VARCHAR);
@@ -396,7 +396,7 @@ DatabaseConnectorは、従来のデータベースシステム（PostgreSQL、Mi
 
 ### 接続の作成
 
-データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、パスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます: \index{DatabaseConnector!接続の作成}
+データベースに接続するには、データベースプラットフォーム、サーバーの位置、ユーザー名、パスワードなど、多くの詳細を指定する必要があります。`connect`関数を呼び出し、これらの詳細を直接指定することができます： \index{DatabaseConnector!接続の作成}
 
 
 ``` r
@@ -481,7 +481,7 @@ executeSql(conn, "TRUNCATE TABLE foo; DROP TABLE foo;")
 
 ### ffdfオブジェクトを使用したクエリの実行
 
-データベースから取得するデータがメモリに収まりきらないほど大きい場合もあります。セクション\@ref(BigDataSupport) で述べたように、そのような場合には`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
+データベースから取得するデータがメモリに収まりきらないほど大きい場合もあります。セクション \@ref(BigDataSupport) で述べたように、そのような場合には`ff`パッケージを使用してRデータオブジェクトをファイルに保存し、メモリ上にあるかのように使用することができます。`DatabaseConnector`はデータを直接ffdfオブジェクトにダウンロードすることができます：
 
 
 ``` r
@@ -542,7 +542,7 @@ FROM @cdm.observation_period;
 |----------:|
 |  1.980803 |
 
-テーブルを結合して追加の統計を生成することができます。結合は通常、テーブル内の特定のフィールドに同じ値があることを要求することによって、複数のテーブルのフィールドを結合します。例えば、ここでは、両方のテーブルのPERSON_IDフィールドで、PERSONテーブルとOBSERVATION_PERIODテーブルを結合しています。つまり、結合の結果は、2つのテーブルのすべてのフィールドを持つ新しいテーブルのようなセットですが、すべての行において、2つのテーブルのPERSON_IDフィールドは同じ値でなければなりません。例えば、OBSERVATION_PERIODテーブルのOBSERVATION_PERIOD_END_DATEフィールドと、PERSONテーブルのyear_of_birthフィールドを組み合わせて使用することで、観察終了時の最大年齢を計算することができます。：
+テーブルを結合して追加の統計を生成することができます。結合は通常、テーブル内の特定のフィールドに同じ値があることを要求することによって、複数のテーブルのフィールドを結合します。例えば、ここでは、両方のテーブルのPERSON_IDフィールドで、PERSONテーブルとOBSERVATION_PERIODテーブルを結合しています。つまり、結合の結果は、2つのテーブルのすべてのフィールドを持つ新しいテーブルのようなセットですが、すべての行において、2つのテーブルのPERSON_IDフィールドは同じ値でなければなりません。例えば、OBSERVATION_PERIODテーブルのOBSERVATION_PERIOD_END_DATEフィールドと、PERSONテーブルのyear_of_birthフィールドを組み合わせて使用することで、観察終了時の最大年齢を計算することができます：
 
 ``` sql
 SELECT MAX(YEAR(observation_period_end_date) -
@@ -686,7 +686,7 @@ WHERE LOWER(ingredient.concept_name) = 'ibuprofen'
 
 \index{QueryLibrary}
 
-QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-2]として提供されており、図\@ref(fig:queryLibrary)に示すように、Rパッケージとしても利用できます[^sqlandr-3]。
+QueryLibraryは、CDM用の一般に使用されるSQLクエリのライブラリです。これはオンラインアプリケーション[^sqlandr-2]として提供されており、図 \@ref(fig:queryLibrary) に示すように、Rパッケージとしても利用できます[^sqlandr-3]。
 
 [^sqlandr-2]: <http://data.ohdsi.org/QueryLibrary>
 
@@ -837,7 +837,7 @@ INNER JOIN @cdm_db_schema.visit_occurrence
   AND visit_start_date <= cohort_start_date
   AND visit_end_date >= cohort_start_date
 WHERE visit_concept_id IN (262, 9203,
-    9201) -- 入院またはER;
+    9201) -- 入院または救急室;
 "
 
 renderTranslateExecuteSql(conn, sql,
@@ -899,7 +899,7 @@ LEFT JOIN (
     ON tar.subject_id = angioedema.subject_id
       AND tar.cohort_start_date <= angioedema.cohort_start_date
       AND tar.cohort_end_date >= angioedema.cohort_start_date
-  WHERE cohort_definition_id = 2 -- 結果
+  WHERE cohort_definition_id = 2 -- アウトカム
   GROUP BY gender,
     age
 ) events
@@ -968,7 +968,7 @@ OHDSI SQLとDatabaseConnectorとSqlRenderを組み合わせて使用するため
 
 - 異なるデータベースプラットフォームは異なるSQL表現を持っており、照会するためには異なるツールが必要です。
 
-- **SqlRender**と**DatabaseConnector**Rパッケージは、CDM内のデータを照会するための統一された方法を提供し、同じ分析コードを修正することなく異なる環境で実行できるようにします。
+- **SqlRender**と**DatabaseConnector** Rパッケージは、CDM内のデータを照会するための統一された方法を提供し、同じ分析コードを修正することなく異なる環境で実行できるようにします。
 
 - RとSQLを併用することで、OHDSIツールではサポートされていないカスタム分析を実装できます。
 

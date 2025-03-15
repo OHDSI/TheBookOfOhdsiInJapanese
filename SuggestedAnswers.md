@@ -154,26 +154,26 @@ renderTranslateQuerySql(connection, sql, cdm = "main")
 
 #### 演習 \@ref(exr:exerciseVocab1) {.unnumbered}
 
-コンセプト ID 192671 ("消化管出血")
+コンセプト ID 192671 (消化管出血)
 
 #### 演習 \@ref(exr:exerciseVocab2) {.unnumbered}
 
 ICD-10CMコード：
 
--   K29.91 "出血を伴う胃十二指腸炎、詳細不明"
--   K92.2 "消化管出血、詳細不明"
+-   K29.91 出血を伴う胃十二指腸炎、詳細不明
+-   K92.2 消化管出血、詳細不明
 
 ICD-9CMコード：
 
--   578 "消化管出血"
--   578.9 "消化管出血、詳細不明"
+-   578 消化管出血
+-   578.9 消化管出血、詳細不明
 
 #### 演習 \@ref(exr:exerciseVocab3) {.unnumbered}
 
 MedDRA基本語（Preferred Terms, PT)：
 
--   "消化管出血" (コンセプトID 35707864)
--   "腸出血" (コンセプトID 35707858)
+-   消化管出血 (コンセプトID 35707864)
+-   腸出血 (コンセプトID 35707858)
 
 ## ETL （抽出-変換-読込） {#Etlanswers}
 
@@ -553,10 +553,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{"Gastrointestinal hemorrhage (消化管出血)" の標準コンセプトの選択}(\#fig:giBleedSearch)
+\caption{Gastrointestinal hemorrhage (消化管出血) の標準コンセプトの選択}(\#fig:giBleedSearch)
 \end{figure}
 
-図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある "Descemdamts (下位層)" をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
+図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」 をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
 
 \begin{figure}
 
@@ -564,10 +564,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{"Gastrointestinal hemorrhage (消化管出血)" のすべての下位層を追加}(\#fig:giBleedDescendants)
+\caption{Gastrointestinal hemorrhage (消化管出血) のすべての下位層を追加}(\#fig:giBleedDescendants)
 \end{figure}
 
-"Definition (定義)" タブに戻り、"+Add Initial Event (初回イベントを追加)" をクリックしてから"Add Condition Occurrence (コンディション出現を追加)" をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」 をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -858,7 +858,7 @@ lassoResults <- runPlp(population = population,
                        splitSeed = 0)
 ```
 
-この例では、LASSOのクロスバリデーションと訓練用・テスト用データ分割の両方に対して乱数によるシード値を設定し、複数回の実行で結果が同じになるようにしていることに注意してください。
+この例では、LASSOのクロスバリデーションとトレーニング用・テスト用データ分割の両方に対して乱数によるシード値を設定し、複数回の実行で結果が同じになるようにしていることに注意してください。
 
 Shinyアプリを使用して結果を表示することができます：
 

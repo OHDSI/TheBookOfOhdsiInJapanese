@@ -21,7 +21,7 @@ OHDSIは、患者レベルの観察データに対するさまざまなデータ
 
 研究を実装するための主なアプローチは3つあります。最初の方法は、OHDSIが提供するツールを一切使用しないカスタムコードを作成することです。R、SAS、またはその他の言語で新規の分析を作成することができます。これにより最大の柔軟性が得られ、特定の分析がツールでサポートされていない場合は唯一の選択肢となるかもしれません。しかし、この方法は高度な技術、時間、労力を必要とし、分析が複雑になるほどコードのエラーを避けることが難しくなります。
 
-2番目の方法は、Rで分析を開発し、[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)のパッケージを利用する方法です。少なくとも、[SqlRender](https://ohdsi.github.io/SqlRender/)と[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)のパッケージを使用できます。これらのパッケージについては、第 \@ref(SqlAndR) 章で詳しく説明していますが、PostgreSQL、SQL Server、Oracleなどのさまざまなデータベースプラットフォーム上で同じコードを実行することができます。また、[CohortMethod](https://ohdsi.github.io/CohortMethod/)や[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)などのパッケージでは、CDMに対する高度な分析のためのR関数が提供されており、コードから呼び出すことができます。これには依然として高度な専門知識が必要ですが、検証済のMethods Libraryのコンポーネントを再利用することで、完全にカスタムコードを使用する場合よりも効率的に作業を進めることができ、エラーが発生する可能性も低くなります。
+2番目の方法は、Rで分析を開発し、[OHDSI Methods Library](https://ohdsi.github.io/MethodsLibrary/)のパッケージを利用する方法です。少なくとも、[SqlRender](https://ohdsi.github.io/SqlRender/)と[DatabaseConnector](https://ohdsi.github.io/DatabaseConnector/)のパッケージを使用できます。これらのパッケージについては、第\@ref(SqlAndR)章で詳しく説明していますが、PostgreSQL、SQL Server、Oracleなどのさまざまなデータベースプラットフォーム上で同じコードを実行することができます。また、[CohortMethod](https://ohdsi.github.io/CohortMethod/)や[PatientLevelPrediction](https://ohdsi.github.io/PatientLevelPrediction/)などのパッケージでは、CDMに対する高度な分析のためのR関数が提供されており、コードから呼び出すことができます。これには依然として高度な専門知識が必要ですが、検証済のMethods Libraryのコンポーネントを再利用することで、完全にカスタムコードを使用する場合よりも効率的に作業を進めることができ、エラーが発生する可能性も低くなります。
 
 3番目の方法は、プログラマーでなくても幅広く分析を効率的に実行できるウェブベースのツール、[ATLAS](https://github.com/OHDSI/Atlas/wiki)を使用することです。ATLASはMethods Librariesを使用しますが、分析をデザインするための単純なグラフィカルインターフェイスを提供し、多くの場合、分析を実行するために必要なRコードを生成します。ただし、Methods Libraryで利用可能なすべてのオプションをサポートしているわけではありません。大半の研究はATLASを通じて行うことができると予想されますが、2番目の方法が提供する柔軟性を必要とする研究もあります。
 
@@ -50,7 +50,9 @@ CDMに対する分析を実装するための戦略に加え、例えばカス�
 
 ## ATLAS
 
-ATLAS は、OHDSI コミュニティが開発した、標準化された患者レベルの観察データを CDM 形式で分析する設計と実行を支援する、無料で公開されているウェブベースのツールです。ATLAS は、OHDSI WebAPI と組み合わせてウェブアプリケーションとして展開され、通常は Apache Tomcat 上でホストされます。リアルタイム分析を行うには、CDM 内の患者レベルデータへのアクセスが必要であるため、通常は組織のファイアウォールのバックにインストールされます。ただし、パブリックなATLAS^[40](https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html#fn40)^も存在し、このATLASインスタンスは少数の小規模なシミュレーションデータセットにしかアクセスできませんが、テストやトレーニングなど、多くの目的に使用できます。パブリックなATLASインスタンスを使用して効果の推定や予測研究を完全に定義し、研究を実行するためのRコードを自動的に生成することも可能です。そのコードは、ATLASとWebAPIをインストールすることなく、利用可能なCDMがインストールされている環境であればどこでも実行できます。\index{ATLAS}
+ATLAS は、OHDSI コミュニティが開発した、標準化された患者レベルの観察データを CDM 形式で分析する設計と実行を支援する、無料で公開されているウェブベースのツールです。ATLAS は、OHDSI WebAPI と組み合わせてウェブアプリケーションとして展開され、通常は Apache Tomcat 上でホストされます。リアルタイム分析を行うには、CDM 内の患者レベルデータへのアクセスが必要であるため、通常は組織のファイアウォールのバックにインストールされます。ただし、パブリックなATLAS[^ohdsianalyticstools-2]も存在し、このATLASインスタンスは少数の小規模なシミュレーションデータセットにしかアクセスできませんが、テストやトレーニングなど、多くの目的に使用できます。パブリックなATLASインスタンスを使用して効果の推定や予測研究を完全に定義し、研究を実行するためのRコードを自動的に生成することも可能です。そのコードは、ATLASとWebAPIをインストールすることなく、利用可能なCDMがインストールされている環境であればどこでも実行できます。\index{ATLAS}
+
+[^ohdsianalyticstools-2]: <http://www.ohdsi.org/web/atlas>
 
 \begin{figure}
 
@@ -117,23 +119,23 @@ ATLAS は、OHDSI コミュニティが開発した、標準化された患者�
 
 ### セキュリティ
 
-ATLASとWebAPIは、プラットフォーム全体で機能やデータソースへのアクセスを制御するための細かいセキュリティモデルを提供します。セキュリティシステムはApache Shiroライブラリを活用して構築されています。セキュリティシステムの詳細は、オンラインのWebAPIセキュリティWikiで確認できます [^ohdsianalyticstools-2]。 \index{ATLAS!セキュリティ}
+ATLASとWebAPIは、プラットフォーム全体で機能やデータソースへのアクセスを制御するための細かいセキュリティモデルを提供します。セキュリティシステムはApache Shiroライブラリを活用して構築されています。セキュリティシステムの詳細は、オンラインのWebAPIセキュリティWikiで確認できます [^ohdsianalyticstools-3]。 \index{ATLAS!セキュリティ}
 
-[^ohdsianalyticstools-2]: <https://github.com/OHDSI/WebAPI/wiki/Security-Configuration>
+[^ohdsianalyticstools-3]: <https://github.com/OHDSI/WebAPI/wiki/Security-Configuration>
 
 ### ドキュメント
 
-ATLASのドキュメントは、ATLAS GitHubリポジトリのWikiでオンラインで確認できます [^ohdsianalyticstools-3]。 このWikiには、さまざまなアプリケーション機能に関する情報や、オンラインビデオチュートリアルへのリンクが含まれています。 \index{ATLAS!ドキュメント}
+ATLASのドキュメントは、ATLAS GitHubリポジトリのWikiでオンラインで確認できます [^ohdsianalyticstools-4]。 このWikiには、さまざまなアプリケーション機能に関する情報や、オンラインビデオチュートリアルへのリンクが含まれています。 \index{ATLAS!ドキュメント}
 
-[^ohdsianalyticstools-3]: <https://github.com/OHDSI/ATLAS/wiki>
+[^ohdsianalyticstools-4]: <https://github.com/OHDSI/ATLAS/wiki>
 
 ### インストール方法
 
-ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。各コンポーネントのインストールガイドは、ATLAS GitHubリポジトリのセットアップガイド[^ohdsianalyticstools-4]とWebAPI GitHubリポジトリのインストールガイド[^ohdsianalyticstools-5]をオンラインで参照できます。 \index{ATLAS!インストール}
+ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。各コンポーネントのインストールガイドは、ATLAS GitHubリポジトリのセットアップガイド[^ohdsianalyticstools-5]とWebAPI GitHubリポジトリのインストールガイド[^ohdsianalyticstools-6]をオンラインで参照できます。 \index{ATLAS!インストール}
 
-[^ohdsianalyticstools-4]: <https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide>
+[^ohdsianalyticstools-5]: <https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide>
 
-[^ohdsianalyticstools-5]: <https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide>
+[^ohdsianalyticstools-6]: <https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide>
 
 ## Methods Library
 
@@ -148,9 +150,9 @@ ATLASのインストールは、OHDSI WebAPIと組み合わせて行います。
 \caption{OHDSI Methods Libraryのパッケージ}(\#fig:methodsLibrary)
 \end{figure}
 
-これらのパッケージは、CDM内のデータから始まり、推定値やそれを裏付ける統計、図表を生成する完全な観察研究を実施するためのR関数を提供しています。これらのパッケージはCDM内の観察データと直接やりとりし、第\@ref(SqlAndR)章で説明されているような完全にカスタマイズされた分析にクロスプラットフォームの互換性を提供するために用いることも、集団特性の評価（第\@ref(Characterization)章）、集団レベルの効果推定（第\@ref(PopulationLevelEstimation)章）、患者レベルの予測（第\@ref(PatientLevelPrediction)章 ）のための高度な標準化分析を提供することもできます。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、そのメソッドによって生成される推定値やその後の実証的キャリブレーションなど、過去や現在の研究から学んだベストプラクティスをサポートしています。
+これらのパッケージは、CDM内のデータから始まり、推定値やそれを裏付ける統計、図表を生成する完全な観察研究を実施するためのR関数を提供しています。これらのパッケージはCDM内の観察データと直接やりとりし、第\@ref(SqlAndR)章で説明されているような完全にカスタマイズされた分析にクロスプラットフォームの互換性を提供するために用いることも、集団特性の評価（第\@ref(Characterization)章）、集団レベルの効果推定（第\@ref(PopulationLevelEstimation)章）、患者レベルの予測（第\@ref(PatientLevelPrediction)章）のための高度な標準化分析を提供することもできます。Methods libraryは、透明性、再現性、異なるコンテキストでのメソッドの操作特性の測定値、そのメソッドによって生成される推定値やその後の実証的キャリブレーションなど、過去や現在の研究から学んだベストプラクティスをサポートしています。
 
-Methods libraryはすでに多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使用されており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。Methods library内のメソッドの実装の妥当性については第 \@ref(SoftwareValidity) 章で説明されています。
+Methods libraryはすでに多くの公表された臨床研究 [@boland_2017; @duke_2017; @ramcharran_2017; @weinstein_2017; @wang_2017; @ryan_2017; @ryan_2018; @vashisht_2018; @yuan_2018; @johnston_2019] で使用されており、方法論の研究にも利用されています [@schuemie_2014; @schuemie_2016; @reps2018; @tian_2018; @schuemie_2018; @schuemie_2018b; @reps_2019]。Methods library内のメソッドの実装の妥当性については第\@ref(SoftwareValidity)章で説明されています。
 
 ### 大規模分析サポート
 
@@ -168,13 +170,13 @@ Methods Libraryは、非常に大規模なデータベースに対しても大�
 
 ### ドキュメント
 
-Rはパッケージを文書化するための標準的な方法を提供しています。各パッケージには、パッケージに含まれるすべての関数とデータセットを文書化した*パッケージマニュアル*があります。すべてのパッケージマニュアルは、Methods Libraryのウェブサイト[^ohdsianalyticstools-6]、パッケージのGitHubリポジトリ、CRANで利用できます。さらに、Rの内部からパッケージマニュアルを参照するにはクエスチョンマークを使用します。例えばDatabaseConnectorパッケージを読み込んだ後、コマンド`?connect`を入力すると「connect」関数に関するドキュメントが表示されます。
+Rはパッケージを文書化するための標準的な方法を提供しています。各パッケージには、パッケージに含まれるすべての関数とデータセットを文書化した*パッケージマニュアル*があります。すべてのパッケージマニュアルは、Methods Libraryのウェブサイト[^ohdsianalyticstools-7]、パッケージのGitHubリポジトリ、CRANで利用できます。さらに、Rの内部からパッケージマニュアルを参照するにはクエスチョンマークを使用します。例えばDatabaseConnectorパッケージを読み込んだ後、コマンド`?connect`を入力すると「connect」関数に関するドキュメントが表示されます。
 
-[^ohdsianalyticstools-6]: <https://ohdsi.github.io/MethodsLibrary>
+[^ohdsianalyticstools-7]: <https://ohdsi.github.io/MethodsLibrary>
 
-パッケージマニュアルに加えて、多くのパッケージは*ビネット*が提供されています。ビネットは、特定のタスクを実行するためにパッケージをどのように使用するかを説明した詳細なドキュメントです。例えば、一つのビネット[^ohdsianalyticstools-7]では、CohortMethodパッケージを使用して複数の分析を効率的に実行する方法が説明されています。ビネットはMethods Libraryのウェブサイト、パッケージのGitHubリポジトリ、CRANで入手可能なパッケージはCRANでも見つけることができます。 \index{ビネット}
+パッケージマニュアルに加えて、多くのパッケージは*ビネット*が提供されています。ビネットは、特定のタスクを実行するためにパッケージをどのように使用するかを説明した詳細なドキュメントです。例えば、一つのビネット[^ohdsianalyticstools-8]では、CohortMethodパッケージを使用して複数の分析を効率的に実行する方法が説明されています。ビネットはMethods Libraryのウェブサイト、パッケージのGitHubリポジトリ、CRANで入手可能なパッケージはCRANでも見つけることができます。 \index{ビネット}
 
-[^ohdsianalyticstools-7]: <https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html>
+[^ohdsianalyticstools-8]: <https://ohdsi.github.io/CohortMethod/articles/MultipleAnalyses.html>
 
 ### システム要件
 
@@ -301,23 +303,23 @@ install.packages("CohortMethod")
 
 ## 展開戦略
 
-ATLASやMethods Libraryを含むOHDSIツールスタック全体を組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、スタック全体を一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それは、BroadseaおよびAmazon Web Services (AWS)です。 \index{ツール開発}
+ATLASやMethods Libraryを含むOHDSIツールスタック全体を組織内で展開することは、非常に困難な作業です。依存関係がある多くのコンポーネントを考慮し、設定を行う必要があります。このため、二つの取り組みが、スタック全体を一つのパッケージとしてインストールできる統合展開戦略を開発しました。一部の仮想化技術を使用して、これを実現します。それは、BroadseaおよびAmazon Web Services（AWS）です。 \index{ツール開発}
 
 ### Broadsea
 
-Broadsea[^ohdsianalyticstools-8]はDockerコンテナ技術[^ohdsianalyticstools-9]を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主なOHDSIツールが含まれています。 \index{ツール開発!Broadsea}
+Broadsea[^ohdsianalyticstools-9]はDockerコンテナ技術[^ohdsianalyticstools-10]を使用しています。OHDSIツールは依存関係とともに、Dockerイメージと呼ばれる単一のポータブルなバイナリファイルにパッケージ化されています。このイメージはDockerエンジンサービス上で実行でき、すべてのソフトウェアがインストールされるとすぐに実行可能な仮想マシンが作成されます。DockerエンジンはMicrosoft Windows、MacOS、Linuxなどのほとんどのオペレーティングシステムで利用可能です。Broadsea Dockerイメージには、Methods LibraryやATLASを含む主なOHDSIツールが含まれています。 \index{ツール開発!Broadsea}
 
-[^ohdsianalyticstools-8]: <https://github.com/OHDSI/Broadsea>
+[^ohdsianalyticstools-9]: <https://github.com/OHDSI/Broadsea>
 
-[^ohdsianalyticstools-9]: <https://www.docker.com/>
+[^ohdsianalyticstools-10]: <https://www.docker.com/>
 
 ### Amazon AWS
 
-Amazonは、AWSクラウドコンピューティング環境でボタンをクリックするだけでインスタンス化できる二つの環境を用意しています：OHDSI-in-a-Box[^ohdsianalyticstools-10]とOHDSIonAWS[^ohdsianalyticstools-11]です。 \index{ツール開発!Amazon AWS}
+Amazonは、AWSクラウドコンピューティング環境でボタンをクリックするだけでインスタンス化できる二つの環境を用意しています：OHDSI-in-a-Box[^ohdsianalyticstools-11]とOHDSIonAWS[^ohdsianalyticstools-12]です。 \index{ツール開発!Amazon AWS}
 
-[^ohdsianalyticstools-10]: <https://github.com/OHDSI/OHDSI-in-a-Box>
+[^ohdsianalyticstools-11]: <https://github.com/OHDSI/OHDSI-in-a-Box>
 
-[^ohdsianalyticstools-11]: <https://github.com/OHDSI/OHDSIonAWS>
+[^ohdsianalyticstools-12]: <https://github.com/OHDSI/OHDSIonAWS>
 
 OHDSI-in-a-Boxは特に学習環境として作成さたものであり、OHDSIコミュニティが提供するほとんどのチュートリアルで使用されています。これには多くのOHDSIツール、サンプルデータセット、RStudio、その他のサポートソフトウェアが低コストの単一のWindows仮想マシンに含まれています。PostgreSQLデータベースは、CDMの保存と、ATLASからの中間結果の保存の両方に使用されます。OMOP CDMデータマッピングとETLツールも、OHDSI-in-a-Boxに含まれています。OHDSI-in-a-Boxのアーキテクチャは、図 \@ref(fig:ohdsiinaboxDiagram) に示されています。
 
@@ -330,7 +332,7 @@ OHDSI-in-a-Boxは特に学習環境として作成さたものであり、OHDSI�
 \caption{OHDSI-in-a-BoxのAmazon Web Servicesアーキテクチャ}(\#fig:ohdsiinaboxDiagram)
 \end{figure}
 
-OHDSIonAWSは、企業向け、マルチユーザー対応、拡張性や耐障害性に優れたOHDSI環境のためのリファレンスアーキテクチャであり、組織がデータ分析を行う際に使用することができます。 複数のサンプルデータセットが含まれており、組織の実際のヘルスケアデータを自動的にロードすることも可能です。 データはAmazon Redshiftデータベースプラットフォームに配置され、OHDSIツールによってサポートされます。 ATLASの中間結果はPostgreSQLデータベースに保存されます。ユーザーはフロントエンドで、ウェブインターフェース（RStudio Serverを活用）を通じてATLASやRStudioにアクセスできます。RStudioにはOHDSI Methods Libraryがすでにインストールされており、データベースへの接続に使用できます。OHDSIonAWSの自動展開はオープンソースであり、組織の管理ツールやベストプラクティスを含めるようにカスタマイズできます。OHDSIonAWSのアーキテクチャは図\@ref(fig:ohdsionawsDiagram)に示されています。
+OHDSIonAWSは、企業向け、マルチユーザー対応、拡張性や耐障害性に優れたOHDSI環境のためのリファレンスアーキテクチャであり、組織がデータ分析を行う際に使用することができます。 複数のサンプルデータセットが含まれており、組織の実際のヘルスケアデータを自動的にロードすることも可能です。 データはAmazon Redshiftデータベースプラットフォームに配置され、OHDSIツールによってサポートされます。 ATLASの中間結果はPostgreSQLデータベースに保存されます。ユーザーはフロントエンドで、ウェブインターフェース（RStudio Serverを活用）を通じてATLASやRStudioにアクセスできます。RStudioにはOHDSI Methods Libraryがすでにインストールされており、データベースへの接続に使用できます。OHDSIonAWSの自動展開はオープンソースであり、組織の管理ツールやベストプラクティスを含めるようにカスタマイズできます。OHDSIonAWSのアーキテクチャは図 \@ref(fig:ohdsionawsDiagram) に示されています。
 
 \begin{figure}
 
