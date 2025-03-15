@@ -276,19 +276,19 @@
 
 以下の全ての基準を満たします：
 
--   インデックス開始日から遡って365日前からインデックス開始日0日後の間に少なくとも1回の *高血圧性障害* (表 \@ref(tab:hypertensionThzMono))のコンディションが出現します。
+-   インデックス開始日から遡って365日前からインデックス開始日0日後の間に少なくとも1回の *高血圧性障害*（表 \@ref(tab:hypertensionThzMono)）のコンディションが出現します。
 
 選択基準#2：病歴に高血圧治療薬の使用がありません。
 
 以下の全ての基準を満たします：
 
--   インデックス開始日1日前までのすべての日に始まる*高血圧薬*(表 \@ref(tab:htnDrugsThzMono))の薬物使用が完全に0回です。
+-   インデックス開始日1日前までのすべての日に始まる*高血圧薬*（表 \@ref(tab:htnDrugsThzMono)）の薬物使用が完全に0回です。
 
 選択基準#3：ACE単剤療法のみを受けており、併用治療を行っていません。
 
 以下のすべての基準を満たします：
 
--   インデックス開始日0日前から7日後の間に始まる*高血圧薬*(表 \@ref(tab:htnDrugsThzMono))の明確な薬物曝露期間の出現がちょうど1回です。
+-   インデックス開始日0日前から7日後の間に始まる*高血圧薬*（表 \@ref(tab:htnDrugsThzMono)）の明確な薬物曝露期間の出現がちょうど1回です。
 
 適格コホートとしてイベントを次のように限定します：その個人における最も早いイベント。
 
@@ -630,7 +630,7 @@
 
 ## ベータ遮断薬使用 {#BBUse}
 
-*コホート定義* \@ref(ACEiUse) と同じですが、*ベータ遮断薬* (表 \@ref(tab:BBUseBB)) が *ACE阻害剤* (表 \@ref(tab:ACEiUseACE))の代わりに使用されます。
+*コホート定義* \@ref(ACEiUse) と同じですが、*ベータ遮断薬*（表 \@ref(tab:BBUseBB)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -653,7 +653,7 @@
 
 ## ループ利尿薬使用 {#DLoopUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*ループ利尿薬* (表 \@ref(tab:DLoopUseDLoops)) が*ACE阻害剤* (表 \@ref(tab:ACEiUseACE)) の代わりに使用されます。
+*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*ループ利尿薬*（表 \@ref(tab:DLoopUseDLoops)）が*ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセット定義 {.unnumbered}
 
@@ -667,7 +667,7 @@
 
 ## カリウム保持性利尿薬使用 {#DPUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*カリウム保持性利尿薬* (表 \@ref(tab:DPUseDPs)) が *ACE阻害剤* (表 \@ref(tab:ACEiUseACE)) の代わりに使用されます。
+*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*カリウム保持性利尿薬*（表 \@ref(tab:DPUseDPs)） が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセットの定義 {.unnumbered}
 
@@ -680,7 +680,7 @@
 
 ## アルファ-1遮断薬使用 {#A1BUse}
 
-*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*アルファ-1遮断薬* (表 \@ref(tab:A1BUseA1Bs)) が *ACE阻害剤* (表 \@ref(tab:ACEiUseACE))の代わりに使用されます。
+*ACE阻害剤使用* \@ref(ACEiUse) と同じですが、*アルファ-1遮断薬*（表 \@ref(tab:A1BUseA1Bs)）が *ACE阻害剤*（表 \@ref(tab:ACEiUseACE)）の代わりに使用されます。
 
 #### コンセプトセットの定義 {.unnumbered}
 
