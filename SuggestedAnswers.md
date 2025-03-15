@@ -486,7 +486,7 @@ renderTranslateExecuteSql(connection, sql)
 
 #### 演習 \@ref(exr:exerciseCharacterization1) {.unnumbered}
 
-ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリックし、興味のあるデータソースを選択します。図 \@ref(fig:dataSourcesAtlas)のように、薬剤曝露レポートを選択し、「Table (表)」タブを選択して「celecoxib (セレコキシブ)」を検索することができます。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の曝露を含むことがわかります。これらの薬剤をクリックすると、例えばその薬剤の年齢や性別の分布など、より詳細なビューを得ることができます。
+ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリックし、興味のあるデータソースを選択します。図 \@ref(fig:dataSourcesAtlas)のように、薬剤曝露レポートを選択し、「Table（表）」タブを選択して「celecoxib（セレコキシブ）」を検索することができます。ここでは、この特定のデータベースがセレコキシブのさまざまな製剤の曝露を含むことがわかります。これらの薬剤をクリックすると、例えばその薬剤の年齢や性別の分布など、より詳細なビューを得ることができます。
 
 \begin{figure}
 
@@ -499,7 +499,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 #### 演習 \@ref(exr:exerciseCharacterization2) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味のある名前（例：「Celecoxib new users (セレコキシブ新規ユーザー)」）を付け、「Concept Sets (コンセプトセット)」タブに移動します。「New Concept Set (新規コンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「Celecoxib (セレコキシブ)」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「Celecoxib (セレコキシブ)」を検索し、クラスを「Ingredient (成分)」、標準コンセプトを「Standard (標準)」とするように限定し、 ![](images/Cohorts/shoppingcart.png)をクリックして、図 \@ref(fig:conceptSearchAtlas)に示されるように、コンセプトセットにコンセプトを追加します。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort（新規コホート）」を作成します。コホートに意味のある名前（例：「Celecoxib new users（セレコキシブ新規ユーザー）」）を付け、「Concept Sets（コンセプトセット）」タブに移動します。「New Concept Set（新規コンセプトセット）」をクリックし、コンセプトセットに意味のある名前（例：「Celecoxib （セレコキシブ）」）を付けます。 ![](images/Cohorts/search-2.png)モジュールを開き、「Celecoxib （セレコキシブ）」を検索し、クラスを「Ingredient（成分）」、標準コンセプトを「Standard（標準）」とするように限定し、 ![](images/Cohorts/shoppingcart.png)をクリックして、図 \@ref(fig:conceptSearchAtlas)に示されるように、コンセプトセットにコンセプトを追加します。
 
 \begin{figure}
 
@@ -507,10 +507,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{成分「Celecoxib (セレコキシブ)」の標準コンセプトの選択}(\#fig:conceptSearchAtlas)
+\caption{成分「Celecoxib（セレコキシブ）」の標準コンセプトの選択}(\#fig:conceptSearchAtlas)
 \end{figure}
 
-図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Drug Era (薬剤曝露期間を追加)」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute… (属性を追加...)」をクリックして「Add First Exposure Criteria (最初の曝露基準を追加)」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート離脱、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
+図 \@ref(fig:conceptSearchAtlas) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「+Add Initial Event（初回イベントを追加）」をクリックしてから「Add Drug Era（薬剤曝露期間を追加）」をクリックします。薬剤曝露期間基準のために以前に作成したコンセプトセットを選択します。「Add attribute…（属性を追加...）」をクリックして「Add First Exposure Criteria（最初の曝露基準を追加）」を選択します。インデックス日の前に少なくとも365日の連続する観察期間が必要と設定します。結果は図 \@ref(fig:celecoxibCohortDefinition) のようになるはずです。選択基準、コホート離脱、コホート期間の選択はそのままにします。 ![](images/Cohorts/save.png)をクリックしてコホート定義を保存ることを忘れないでください。![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -521,7 +521,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{セレコキシブ新規ユーザーの単純なコホート定義}(\#fig:celecoxibCohortDefinition)
 \end{figure}
 
-コホートを定義したので、その特性評価ができます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization (新規特性評価)」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization (セレコキシブ新規ユーザーの特性評価)」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses (特徴量分析)」の下で、「Import (インポート)」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior (任意の期間前の薬剤グループ曝露期間)」と「Condition Group Era Any Time Prior (任意の期間前のコンディショングループ期間)」を選択します。特性評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
+コホートを定義したので、その特性評価ができます。![](images/Characterization/atlasCharacterizationMenuItem.png)をクリックして「New Characterization（新規特性評価）」を選択します。特性評価に意味のある名前（例：「Celecoxib new users characterization（セレコキシブ新規ユーザーの特性評価）」）を付けます。コホート定義の下で、「インポート」をクリックして最近作成したコホート定義を選択します。「Feature Analyses（特徴量分析）」の下で、「Import（インポート）」をクリックし、少なくとも1つのコンディション分析と1つの薬剤分析を選択します。たとえば、「Drug Group Era Any Time Prior（任意の期間前の薬剤グループ曝露期間）」と「Condition Group Era Any Time Prior（任意の期間前のコンディショングループ期間）」を選択します。特性評価の定義は図 \@ref(fig:celecoxibCharacterization) のようになっているはずです。 ![](images/Cohorts/save.png)をクリックして特性評価の設定を保存してください。
 
 \begin{figure}
 
@@ -532,7 +532,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{特性評価設定}(\#fig:celecoxibCharacterization)
 \end{figure}
 
-「Executions (実行)」タブをクリックし、1つのデータソースについて「Generate (作成)」をクリックします。作成が完了するまで時間を要する場合があります。完了すると、「View latest results (最新の結果を表示)」をクリックできます。結果画面は、図 \@ref(fig:celecoxibCharacterizationResults)のように見えるはずで、図には例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しないコンディションが表示されることがあります。
+「Executions（実行）」タブをクリックし、1つのデータソースについて「Generate（作成）」をクリックします。作成が完了するまで時間を要する場合があります。完了すると、「View latest results（最新の結果を表示）」をクリックできます。結果画面は、図 \@ref(fig:celecoxibCharacterizationResults) のように見えるはずで、図には例えば痛みや関節症が一般的に観察されることを示しており、これらはセレコキシブの適応症として意外ではないでしょう。リストの下の方には、予期しないコンディションが表示されることがあります。
 
 \begin{figure}
 
@@ -545,7 +545,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 #### 演習 \@ref(exr:exerciseCharacterization3) {.unnumbered}
 
-![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort (新規コホート)」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed (消化管出血)」）を付け、「Concept Sets　(コンセプトセット)」タブに移動します。「New Concept Set (新しいコンセプトセット)」をクリックし、コンセプトセットに意味のある名前（例：「GI bleed (消化管出血)」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「Gastrointestinal hemorrhage (消化管出血)」を検索し、一番上のコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
+![](images/Cohorts/cohortdefinition.png)をクリックして「New cohort（新規コホート）」を作成します。コホートに意味が分かりやすい名前（例：「GI bleed（消化管出血）」）を付け、「Concept Sets（コンセプトセット）」タブに移動します。「New Concept Set（新しいコンセプトセット）」をクリックし、コンセプトセットに意味のある名前（例：「GI bleed（消化管出血）」）を付けます。![](images/Cohorts/search-2.png) モジュールを開き、「Gastrointestinal hemorrhage（消化管出血）」を検索し、一番上のコンセプトの横にある![](images/Cohorts/shoppingcart.png)をクリックしてコンセプトセットにコンセプトを追加します（図 \@ref(fig:giBleedSearch) 参照）。
 
 \begin{figure}
 
@@ -556,7 +556,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{Gastrointestinal hemorrhage (消化管出血) の標準コンセプトの選択}(\#fig:giBleedSearch)
 \end{figure}
 
-図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets (コンセプトセット)」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts (下位層)」 をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
+図 \@ref(fig:giBleedSearch) の左最上部に表示されている左矢印をクリックしてコホート定義に戻ります。「Concept Sets（コンセプトセット）」タブを再度開き、消化管出血のコンセプトの横にある「Descemdamts（下位層）」 をチェックします（図 \@ref(fig:giBleedDescendants) 参照）。
 
 \begin{figure}
 
@@ -564,10 +564,10 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 
 }
 
-\caption{Gastrointestinal hemorrhage (消化管出血) のすべての下位層を追加}(\#fig:giBleedDescendants)
+\caption{Gastrointestinal hemorrhage（消化管出血）のすべての下位層を追加}(\#fig:giBleedDescendants)
 \end{figure}
 
-「Definition (定義)」タブに戻り、「+Add Initial Event (初回イベントを追加)」をクリックしてから「Add Condition Occurrence (コンディション出現を追加)」 をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
+「Definition（定義）」タブに戻り、「+Add Initial Event（初回イベントを追加）」をクリックしてから「Add Condition Occurrence（コンディション出現を追加）」 をクリックします。先に作成したコンディション出現基準に関するコンセプトセットを選択します。結果は図 \@ref(fig:giBleedCohortDefinition) のようになっているはずです。選択基準、コホート離脱、コホート期間のセクションはそのままにします。![](images/Cohorts/save.png)をクリックしてコホート定義を保存し、![](images/SuggestedAnswers/close.png) をクリックして終了します。
 
 \begin{figure}
 
@@ -578,7 +578,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{単純な消化管出血コホート定義}(\#fig:giBleedCohortDefinition)
 \end{figure}
 
-これでコホートが定義されたので、発生率が計算できます。![](images/Characterization/atlasIncidenceMenuItem.png)をクリックして「New Analysis (新規分析)」を選択します。分析に意味の通じる名前（例：「Incidence of GI bleed after celecoxib initiation (セレコキシブ開始後の消化管出血発生率)」）を付けます。「Add Target Cohort (ターゲットコホートを追加)」をクリックし、セレコキシブ新規ユーザーコホートを選択します。「Add Outcome Cohort (アウトカムコホートを追加)」をクリックし、作成した消化管出血コホートを追加します。リスク期間の終了を開始日から1095日後に設定します。分析は図 \@ref(fig:irAnalysis) のようになっているはずです。![](images/Cohorts/save.png)をクリックして分析設定を保存してください。
+これでコホートが定義されたので、発生率が計算できます。![](images/Characterization/atlasIncidenceMenuItem.png)をクリックして「New Analysis（新規分析）」を選択します。分析に意味の通じる名前（例：「Incidence of GI bleed after celecoxib initiation（セレコキシブ開始後の消化管出血発生率）」）を付けます。「Add Target Cohort（ターゲットコホートを追加）」をクリックし、セレコキシブ新規ユーザーコホートを選択します。「Add Outcome Cohort（アウトカムコホートを追加）」をクリックし、作成した消化管出血コホートを追加します。リスク時間の終了を開始日から1095日後に設定します。分析は図 \@ref(fig:irAnalysis) のようになっているはずです。![](images/Cohorts/save.png)をクリックして分析設定を保存してください。
 
 \begin{figure}
 
@@ -589,7 +589,7 @@ ATLASで![](images/Characterization/atlasDataSourcesMenuItem.png)をクリック
 \caption{発生率の分析}(\#fig:irAnalysis)
 \end{figure}
 
-「Generation (作成)」タブをクリックし、「Generation (作成)」をクリックします。データソースを1つ選択し、「Generation (作成)」をクリックします。完了すると、計算された発生率と発生割合が表示されます（図 \@ref(fig:irResults) 参照）。
+「Generation（作成）」タブをクリックし、「Generation（作成）」をクリックします。データソースを1つ選択し、「Generation（作成）」をクリックします。完了すると、計算された発生率と発生割合が表示されます（図 \@ref(fig:irResults) 参照）。
 
 \begin{figure}
 
@@ -867,7 +867,7 @@ Shinyアプリを使用して結果を表示することができます：
 viewPlp(lassoResults)
 ```
 
-これにより、図 \@ref(fig:plpShiny)に示されるようにアプリが起動されます。ここで、テスト用データセットのAUCが0.645であり、ランダムな推測よりも優れているものの、臨床における実装には十分ではないかもしれないことがわかります。
+これにより、図 \@ref(fig:plpShiny) に示されるようにアプリが起動されます。ここで、テスト用データセットのAUCが0.645であり、ランダムな推測よりも優れているものの、臨床における実装には十分ではないかもしれないことがわかります。
 
 \begin{figure}
 
@@ -896,7 +896,7 @@ result <- achilles(connectionDetails,
 
 #### 演習 \@ref(exr:exerciseRunDQD) {.unnumbered}
 
-データ品質ダッシュボード(Data Quality Dashbard, DQD)を実行するには:
+データ品質ダッシュボード（Data Quality Dashbard；DQD）を実行するには:
 
 
 ``` r
