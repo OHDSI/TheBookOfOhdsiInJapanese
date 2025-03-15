@@ -656,7 +656,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="17.3" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#methods-libraryのテスト"><i class="fa fa-check"></i><b>17.3</b> Methods Libraryのテスト</a>
 <ul>
-<li class="chapter" data-level="17.3.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#ユニットテスト"><i class="fa fa-check"></i><b>17.3.1</b> ユニットテスト</a></li>
+<li class="chapter" data-level="17.3.1" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#単体テスト"><i class="fa fa-check"></i><b>17.3.1</b> 単体テスト</a></li>
 <li class="chapter" data-level="17.3.2" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#シミュレーション"><i class="fa fa-check"></i><b>17.3.2</b> シミュレーション</a></li>
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="SoftwareValidity.html"><a href="SoftwareValidity.html#まとめ-14"><i class="fa fa-check"></i><b>17.4</b> まとめ</a></li>
@@ -810,7 +810,7 @@ div.csl-indent {
 </div>
 <div id="プログラミングのベストプラクティス" class="section level3 hasAnchor" number="17.1.2">
 <h3><span class="header-section-number">17.1.2</span> プログラミングのベストプラクティス<a href="SoftwareValidity.html#プログラミングのベストプラクティス" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>観察分析は、最終結果を得るまでに多くのステップを必要とするため、非常に複雑になる可能性があります。この複雑性により、分析コードの維持が難しくなり、エラーが発生する可能性が高まるだけでなく、エラーに気づきにくくなる可能性もあります。幸いにも、コンピュータプログラマーは長年にわたり、複雑な問題に対処できるコードを書くためのベストプラクティスを開発してきました。そのコードは、読みやすく、再利用、適応、検証が容易になっています <span class="citation">(<a href="#ref-Martin_2008">Martin 2008</a>)</span> 。これらのベストプラクティスについて詳しく説明すると、多くの書籍が書けるほどですので、ここでは以下の4つの重要な原則に焦点を当てます。</p>
+<p>観察分析は、最終結果を得るまでに多くのステップを必要とするため、非常に複雑になる可能性があります。この複雑性により、分析コードの維持が難しくなり、エラーが発生する可能性が高まるだけでなく、エラーに気づきにくくなる可能性もあります。幸いにも、コンピュータプログラマーは長年にわたり、複雑な問題に対処できるコードを書くためのベストプラクティスを開発してきました。そのコードは、読みやすく、再利用、適応、検証が容易になっています<span class="citation">(<a href="#ref-Martin_2008">Martin 2008</a>)</span>。これらのベストプラクティスについて詳しく説明すると、多くの書籍が書けるほどですので、ここでは以下の4つの重要な原則に焦点を当てます。</p>
 <ul>
 <li><p><strong>抽象化</strong>： すべてを実行する巨大なスクリプトを1つ書くのではなく、コードの行と行の間の依存関係がどこからどこへでも及ぶ（例えば、10行目に設定された値が1,000行目で使用される）いわゆる「スパゲッティ・コード」を避けるために、コードを「関数」と呼ばれる単位で整理することができます。関数は明確な目的を持つべきであり、例えば「ランダムなサンプルを抽出する」といったものです。関数を作成すれば、その関数が何を行うのかの詳細を考えることなく、より大きなスクリプトでその関数を使用することができます。</p></li>
 <li><p><strong>カプセル化</strong>：抽象化を機能させるには、関数の依存関係を最小限に抑え、明確に定義する必要があります。例のサンプリング関数は、いくつかの引数（例えばデータセットとサンプルサイズ）と1つの出力（例えばサンプル）を持つべきです。関数の動作に影響を与えるものは他に何もあってはなりません。いわゆる「グローバル変数」、つまり関数外で設定される変数は、関数の引数ではありませんが、関数内で使用されるため、避けるべきです。</p></li>
@@ -825,8 +825,8 @@ div.csl-indent {
 <li><p><strong>コードレビュー</strong>：1人がコードを書き、別の1人がそのコードをレビューする。</p></li>
 <li><p><strong>ダブルコーディング</strong>：2人がそれぞれ独立して分析コードを書き、その後、2つのスクリプトの結果を比較する。</p></li>
 </ul>
-<p>コードレビューには通常、作業量が少ないという利点がありますが、欠点としては、レビュアーがエラーを見逃す可能性があることです。一方、ダブルコーディングは通常、非常に手間がかかりますが、エラーを見逃す可能性は低く、不可能ではないことです。ダブルコーディングのもう一つの欠点は、多くの些細な恣意的な選択（例えば、「exposure end」をexposure end dateを含むと解釈すべきか、それともそうでないか）が必要なため、2つの別々の実装では<em>ほとんどの場合に</em>異なる結果が得られることです。その結果、本来独立しているはずの2人のプログラマーが、分析結果を一致させるために協力する必要が生じ、独立性が損なわれることになります。</p>
-<p>ユニットテストなどの他のソフトウェア検証手法は、研究が通常、入力（CDMのデータ）と出力（研究結果）の間に高度な複雑な関係があるため、1回限りの活動であり、これらの手法はあまり適切ではありません。これらの手法は、Methods Libraryで適用されていることに注意してください。</p>
+<p>コードレビューには通常、作業量が少ないという利点がありますが、欠点としては、レビュアーがエラーを見逃す可能性があることです。一方、ダブルコーディングは通常、非常に手間がかかりますが、エラーを見逃す可能性は低く、不可能ではないことです。ダブルコーディングのもう一つの欠点は、多くの些細な恣意的な選択（例えば、「exposure end（曝露終了）」をexposure end date（曝露終了日）を含むと解釈すべきか、それともそうでないか）が必要なため、2つの別々の実装では<em>ほとんどの場合に</em>異なる結果が得られることです。その結果、本来独立しているはずの2人のプログラマーが、分析結果を一致させるために協力する必要が生じ、独立性が損なわれることになります。</p>
+<p>単体テストなどの他のソフトウェア検証手法は、研究が通常、入力（CDMのデータ）と出力（研究結果）の間に高度な複雑な関係があるため、1回限りの活動であり、これらの手法はあまり適切ではありません。これらの手法は、Methods Libraryで適用されていることに注意してください。</p>
 </div>
 <div id="methods-libraryの使用" class="section level3 hasAnchor" number="17.1.4">
 <h3><span class="header-section-number">17.1.4</span> Methods Libraryの使用<a href="SoftwareValidity.html#methods-libraryの使用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -836,7 +836,7 @@ div.csl-indent {
 <div id="methods-libraryのソフトウェア開発プロセス" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Methods Libraryのソフトウェア開発プロセス<a href="SoftwareValidity.html#methods-libraryのソフトウェア開発プロセス" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>OHDSI Methods Library はOHDSIコミュニティによって開発されています。Libraryへの変更提案は、GitHubのissue tracker（例えば、CohortMethod issue tracker<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a>）とOHDSIフォーラムの2つの場所で議論されます<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a>。いずれも一般公開されています。コミュニティのメンバーは誰でもライブラリにソフトウェアコードを寄与することができますが、リリースされたソフトウェアのバージョンに組み込まれる変更の最終承認は、OHDSI 集団レベルの推定ワークグループのリーダー（Marc Suchard博士とMartijn Schuemie博士）およびOHDSI 患者レベルの予測ワークグループのリーダー（Peter Rijnbeek博士とJenna Reps博士）のみが行います。</p>
-<p>ユーザーはGitHubのリポジトリにあるマスターブランチから直接、または「drat」と呼ばれるシステムを通じて、RにMethods Libraryをインストールすることができます。Methods Libraryのパッケージの多くはRのComprehensive R Archive Network (CRAN)を通じて入手でき、この数は今後さらに増える見込みです。</p>
+<p>ユーザーはGitHubのリポジトリにあるマスターブランチから直接、または「drat」と呼ばれるシステムを通じて、RにMethods Libraryをインストールすることができます。Methods Libraryのパッケージの多くはRのComprehensive R Archive Network（CRAN）を通じて入手でき、この数は今後さらに増える見込みです。</p>
 <p>OHDSIでは、Methods Libraryのパフォーマンスの正確性、信頼性、一貫性を最大限に高めるため、適切なソフトウェア開発やテスト方法を採用しています。重要なのは、Methods LibraryがApache License V2の条件に基づいてリリースされているため、Methods Libraryの基盤となるすべてのソースコード（R、C++、SQL、Javaのいずれであっても）は、OHDSIコミュニティのすべてのメンバーに、また一般公開されています。したがって、Methods Libraryに具現化されたすべての機能は、その正確性、信頼性、一貫性に関して、継続的な評価と改善の対象となります。</p>
 <div id="ソースコード管理" class="section level3 hasAnchor" number="17.2.1">
 <h3><span class="header-section-number">17.2.1</span> ソースコード管理<a href="SoftwareValidity.html#ソースコード管理" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -876,9 +876,9 @@ div.csl-indent {
 </div>
 <div id="methods-libraryのテスト" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Methods Libraryのテスト<a href="SoftwareValidity.html#methods-libraryのテスト" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Methods Libraryで実行されるテストには、パッケージ内の個々の関数に対するテスト（いわゆる「ユニットテスト」）と、シミュレーションを使用したより複雑な機能に対するテストの2種類があります。</p>
-<div id="ユニットテスト" class="section level3 hasAnchor" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> ユニットテスト<a href="SoftwareValidity.html#ユニットテスト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Methods Libraryで実行されるテストには、パッケージ内の個々の関数に対するテスト（いわゆる「単体テスト」）と、シミュレーションを使用したより複雑な機能に対するテストの2種類があります。</p>
+<div id="単体テスト" class="section level3 hasAnchor" number="17.3.1">
+<h3><span class="header-section-number">17.3.1</span> 単体テスト<a href="SoftwareValidity.html#単体テスト" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>OHDSI により、ソースコードを既知のデータおよび既知の結果に対してテストできるように、多数の自動検証テストが維持、更新されています。各テストは、いくつかの単純な入力データの指定から始まり、この入力に対してパッケージのいずれかの関数を実行し、出力が期待通りのものであるかどうかを評価します。単純な関数では、期待される結果は明白であることがほとんどです（例えば、少数の対象者のみを対象としたサンプルデータで傾向スコアのマッチングを行う場合など）。より複雑な関数では、Rで利用可能な他の関数との組み合わせて、期待される結果が生成されることがあります（例えば、当社の大規模回帰エンジンであるCyclopsは、Rの他の回帰ルーチンを使用して単純な問題の結果を比較することでテストします）。私たちは、これらのテストを実行可能なソースコードの行の合計100%をカバーすることを目指しています。</p>
 <p>これらのテストは、パッケージに変更が加えられた場合（具体的には、変更がパッケージリポジトリにプッシュされた場合）に自動的に実行されます。テスト中にエラーが検出された場合は、ワークグループのリーダーに自動的に電子メールが送信され、パッケージの新しいバージョンのリリース前に解決されなければなりません。これらのテストのソースコードおよび期待される結果は、必要に応じて確認および他のアプリケーションで使用することができます。これらのテストは、エンドユーザーおよび/またはシステム管理者にも利用可能であり、インストールプロセスの一部として実行することで、Methods Libraryのインストールに関する正確性、信頼性、一貫性に関する追加の文書および客観的な証拠を提供することができます。</p>
 </div>
