@@ -162,7 +162,7 @@ knitr::include_graphics("images/NetworkStudies/ARACHNENON.png")
 
 ## OHDSIネットワーク研究のベストプラクティス
 
-\\index{ネットワーク研究のベストプラクティス
+\index{ネットワーク研究のベストプラクティス}
 
 ネットワーク研究を実施する際には、OHDSIコミュニティがOHDSIネットワーク研究のベストプラクティスを遵守できるよう支援いたします。
 
